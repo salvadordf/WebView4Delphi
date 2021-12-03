@@ -1,0 +1,92 @@
+object MainForm: TMainForm
+  Left = 350
+  Height = 627
+  Top = 250
+  Width = 1040
+  Caption = 'MainForm'
+  ClientHeight = 627
+  ClientWidth = 1040
+  OnShow = FormShow
+  LCLVersion = '2.0.12.0'
+  object AddressPnl: TPanel
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 1040
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 24
+    ClientWidth = 1040
+    Enabled = False
+    TabOrder = 0
+    object AddressCb: TComboBox
+      Left = 0
+      Height = 23
+      Top = 0
+      Width = 988
+      Anchors = [akTop, akLeft, akRight]
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'https://customhost.test/VirtualHostBrowser.html'
+        'https://www.bing.com'
+        'https://www.google.com'
+        'https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
+        'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_backgroundcolor'
+        'https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_iframe_name'
+        'https://www.w3schools.com/html/html5_video.asp'
+        'http://html5test.com/'
+        'https://webrtc.github.io/samples/src/content/devices/input-output/'
+        'https://test.webrtc.org/'
+        'https://www.browserleaks.com/webrtc'
+        'https://shaka-player-demo.appspot.com/demo/'
+        'http://webglsamples.org/'
+        'https://get.webgl.org/'
+        'https://www.briskbard.com'
+        'https://www.youtube.com'
+        'https://html5demos.com/drag/'
+        'https://frames-per-second.appspot.com/'
+      )
+      TabOrder = 0
+      Text = 'https://customhost.test/VirtualHostBrowser.html'
+    end
+    object GoBtn: TButton
+      Left = 991
+      Height = 24
+      Top = 0
+      Width = 49
+      Align = alRight
+      Caption = 'Go'
+      OnClick = GoBtnClick
+      TabOrder = 1
+    end
+  end
+  object WVWindowParent1: TWVWindowParent
+    Left = 0
+    Height = 603
+    Top = 24
+    Width = 1040
+    Align = alClient
+    TabOrder = 1
+    Browser = WVBrowser1
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = Timer1Timer
+    Left = 340
+    Top = 188
+  end
+  object WVBrowser1: TWVBrowser
+    TargetCompatibleBrowserVersion = '95.0.1020.44'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnInitializationError = WVBrowser1InitializationError
+    OnAfterCreated = WVBrowser1AfterCreated
+    OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    Left = 228
+    Top = 188
+  end
+end

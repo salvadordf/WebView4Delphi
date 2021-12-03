@@ -1,0 +1,187 @@
+object BrowserFrame: TBrowserFrame
+  Left = 0
+  Height = 758
+  Top = 0
+  Width = 1030
+  ClientHeight = 758
+  ClientWidth = 1030
+  TabOrder = 0
+  DesignLeft = 272
+  DesignTop = 122
+  object NavControlPnl: TPanel
+    Left = 0
+    Height = 35
+    Top = 0
+    Width = 1030
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 35
+    ClientWidth = 1030
+    Enabled = False
+    TabOrder = 0
+    object NavButtonPnl: TPanel
+      Left = 0
+      Height = 35
+      Top = 0
+      Width = 123
+      Align = alLeft
+      BevelOuter = bvNone
+      ClientHeight = 35
+      ClientWidth = 123
+      TabOrder = 0
+      object BackBtn: TButton
+        Left = 5
+        Height = 25
+        Top = 5
+        Width = 25
+        Caption = '3'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = BackBtnClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object ForwardBtn: TButton
+        Left = 35
+        Height = 25
+        Top = 5
+        Width = 25
+        Caption = '4'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        ParentFont = False
+        TabOrder = 1
+      end
+      object ReloadBtn: TButton
+        Left = 64
+        Height = 25
+        Top = 5
+        Width = 25
+        Caption = 'q'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        ParentFont = False
+        TabOrder = 2
+      end
+      object StopBtn: TButton
+        Left = 93
+        Height = 25
+        Top = 5
+        Width = 25
+        Caption = '='
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = StopBtnClick
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    object URLEditPnl: TPanel
+      Left = 123
+      Height = 35
+      Top = 0
+      Width = 872
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 35
+      ClientWidth = 872
+      TabOrder = 1
+      object URLCbx: TComboBox
+        Left = 2
+        Height = 23
+        Top = 7
+        Width = 868
+        Anchors = [akTop, akLeft, akRight]
+        ItemHeight = 15
+        ItemIndex = 0
+        Items.Strings = (
+          'https://www.bing.com'
+          'https://www.google.com'
+          'https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_backgroundcolor'
+          'https://www.w3schools.com/html/html5_video.asp'
+          'http://www.adobe.com/software/flash/about/'
+          'http://isflashinstalled.com/'
+          'https://helpx.adobe.com/flash-player.html'
+          'https://www.ultrasounds.com/'
+          'https://www.whatismybrowser.com/detect/is-flash-installed'
+          'http://html5test.com/'
+          'https://webrtc.github.io/samples/src/content/devices/input-output/'
+          'https://test.webrtc.org/'
+          'https://www.w3schools.com/'
+          'http://webglsamples.org/'
+          'https://get.webgl.org/'
+          'https://www.briskbard.com'
+          'https://www.youtube.com'
+          'https://html5demos.com/drag/'
+          'https://developers.google.com/maps/documentation/javascript/examples/streetview-embed?hl=fr'
+          'https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_iframe_name'
+          'http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/html/tryit.asp-filename=tryhtml5_html_manifest.html'
+          'https://www.browserleaks.com/webrtc'
+          'https://frames-per-second.appspot.com/'
+        )
+        TabOrder = 0
+        Text = 'https://www.bing.com'
+      end
+    end
+    object ConfigPnl: TPanel
+      Left = 995
+      Height = 35
+      Top = 0
+      Width = 35
+      Align = alRight
+      BevelOuter = bvNone
+      ClientHeight = 35
+      ClientWidth = 35
+      TabOrder = 2
+      object GoBtn: TButton
+        Left = 5
+        Height = 25
+        Top = 5
+        Width = 25
+        Caption = '►'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        OnClick = GoBtnClick
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+  end
+  object WVWindowParent1: TWVWindowParent
+    Left = 0
+    Height = 723
+    Top = 35
+    Width = 1030
+    Align = alClient
+    TabOrder = 1
+    Browser = WVBrowser1
+  end
+  object WVBrowser1: TWVBrowser
+    DefaultURL = 'https://www.bing.com'
+    TargetCompatibleBrowserVersion = '95.0.1020.44'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnInitializationError = WVBrowser1InitializationError
+    OnAfterCreated = WVBrowser1AfterCreated
+    OnNavigationStarting = WVBrowser1NavigationStarting
+    OnNavigationCompleted = WVBrowser1NavigationCompleted
+    OnSourceChanged = WVBrowser1SourceChanged
+    OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    Left = 88
+    Top = 152
+  end
+end

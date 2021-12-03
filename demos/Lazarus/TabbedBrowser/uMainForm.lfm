@@ -1,0 +1,61 @@
+object MainForm: TMainForm
+  Left = 227
+  Height = 744
+  Top = 133
+  Width = 1056
+  Caption = 'Tabbed Browser'
+  ClientHeight = 744
+  ClientWidth = 1056
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPnl: TPanel
+    Left = 0
+    Height = 744
+    Top = 0
+    Width = 32
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 744
+    ClientWidth = 32
+    Enabled = False
+    TabOrder = 0
+    object AddTabBtn: TSpeedButton
+      Left = 3
+      Height = 26
+      Top = 3
+      Width = 26
+      Caption = '+'
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Arial Black'
+      OnClick = AddTabBtnClick
+      ParentFont = False
+    end
+    object RemoveTabBtn: TSpeedButton
+      Left = 3
+      Height = 26
+      Top = 32
+      Width = 26
+      Caption = '−'
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Arial Black'
+      OnClick = RemoveTabBtnClick
+      ParentFont = False
+    end
+  end
+  object BrowserPageCtrl: TPageControl
+    Left = 32
+    Height = 744
+    Top = 0
+    Width = 1024
+    Align = alClient
+    TabOrder = 1
+    TabWidth = 150
+  end
+end

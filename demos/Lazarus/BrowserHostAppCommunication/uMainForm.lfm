@@ -1,0 +1,101 @@
+object MainForm: TMainForm
+  Left = 429
+  Height = 701
+  Top = 234
+  Width = 995
+  Caption = 'BrowserHostAppCommunication - Initializing...'
+  ClientHeight = 701
+  ClientWidth = 995
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object WVWindowParent1: TWVWindowParent
+    Left = 0
+    Height = 701
+    Top = 0
+    Width = 640
+    Align = alClient
+    TabOrder = 1
+    Browser = WVBrowser1
+  end
+  object MessagesPnl: TPanel
+    Left = 640
+    Height = 701
+    Top = 0
+    Width = 355
+    Align = alRight
+    BevelOuter = bvNone
+    ClientHeight = 701
+    ClientWidth = 355
+    Enabled = False
+    TabOrder = 0
+    object GoBtn: TButton
+      Left = 0
+      Height = 24
+      Top = 23
+      Width = 355
+      Align = alTop
+      Caption = '<<< Send a message to the web browser'
+      OnClick = GoBtnClick
+      TabOrder = 0
+    end
+    object Edit1: TEdit
+      Left = 0
+      Height = 23
+      Top = 0
+      Width = 355
+      Align = alTop
+      TabOrder = 1
+      Text = 'Hello from the host application!'
+    end
+    object Panel1: TPanel
+      Left = 0
+      Height = 654
+      Top = 47
+      Width = 355
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 654
+      ClientWidth = 355
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 0
+        Height = 15
+        Top = 0
+        Width = 355
+        Align = alTop
+        Caption = 'Messages from the web browser :'
+        ParentColor = False
+      end
+      object MessagesMem: TMemo
+        Left = 0
+        Height = 639
+        Top = 15
+        Width = 355
+        Align = alClient
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = Timer1Timer
+    Left = 312
+    Top = 160
+  end
+  object WVBrowser1: TWVBrowser
+    TargetCompatibleBrowserVersion = '95.0.1020.44'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnInitializationError = WVBrowser1InitializationError
+    OnAfterCreated = WVBrowser1AfterCreated
+    OnWebMessageReceived = WVBrowser1WebMessageReceived
+    Left = 200
+    Top = 160
+  end
+end

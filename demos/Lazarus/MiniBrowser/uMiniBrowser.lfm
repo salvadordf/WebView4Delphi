@@ -1,0 +1,317 @@
+object MiniBrowserFrm: TMiniBrowserFrm
+  Left = 389
+  Height = 717
+  Top = 123
+  Width = 1119
+  Caption = 'MiniBrowser - Initializing...'
+  ClientHeight = 717
+  ClientWidth = 1119
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object NavControlPnl: TPanel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 1119
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 1119
+    Enabled = False
+    TabOrder = 0
+    object NavButtonPnl: TPanel
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 133
+      Align = alLeft
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 133
+      TabOrder = 0
+      object BackBtn: TButton
+        Left = 8
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = '3'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = BackBtnClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object ForwardBtn: TButton
+        Left = 39
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = '4'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = ForwardBtnClick
+        ParentFont = False
+        TabOrder = 1
+      end
+      object ReloadBtn: TButton
+        Left = 70
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = 'q'
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = ReloadBtnClick
+        ParentFont = False
+        TabOrder = 2
+      end
+      object StopBtn: TButton
+        Left = 101
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = '='
+        Font.CharSet = SYMBOL_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Webdings'
+        OnClick = StopBtnClick
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    object URLEditPnl: TPanel
+      Left = 133
+      Height = 25
+      Top = 0
+      Width = 913
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 913
+      TabOrder = 1
+      object URLCbx: TComboBox
+        Left = 0
+        Height = 23
+        Top = 0
+        Width = 913
+        Align = alClient
+        ItemHeight = 15
+        ItemIndex = 0
+        Items.Strings = (
+          'https://www.bing.com'
+          'https://www.google.com'
+          'https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
+          'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_backgroundcolor'
+          'https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_iframe_name'
+          'https://www.w3schools.com/html/html5_video.asp'
+          'http://html5test.com/'
+          'https://webrtc.github.io/samples/src/content/devices/input-output/'
+          'https://test.webrtc.org/'
+          'https://www.browserleaks.com/webrtc'
+          'https://shaka-player-demo.appspot.com/demo/'
+          'http://webglsamples.org/'
+          'https://get.webgl.org/'
+          'https://www.briskbard.com'
+          'https://www.youtube.com'
+          'https://html5demos.com/drag/'
+          'https://frames-per-second.appspot.com/'
+          'https://badssl.com/'
+          'edge://flags/'
+          'edge://gpu/'
+          'edge://about/'
+        )
+        TabOrder = 0
+        Text = 'https://www.bing.com'
+      end
+    end
+    object ConfigPnl: TPanel
+      Left = 1046
+      Height = 25
+      Top = 0
+      Width = 73
+      Align = alRight
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 73
+      TabOrder = 2
+      object ConfigBtn: TButton
+        Left = 40
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = '≡'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        OnClick = ConfigBtnClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object GoBtn: TButton
+        Left = 8
+        Height = 25
+        Top = 0
+        Width = 25
+        Caption = '►'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        OnClick = GoBtnClick
+        ParentFont = False
+        TabOrder = 1
+      end
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 694
+    Width = 1119
+    Panels = <    
+      item
+        Width = 500
+      end    
+      item
+        Width = 1000
+      end>
+  end
+  object WVWindowParent1: TWVWindowParent
+    Left = 0
+    Height = 669
+    Top = 25
+    Width = 1119
+    Align = alClient
+    TabStop = True
+    TabOrder = 2
+    Browser = WVBrowser1
+  end
+  object WVBrowser1: TWVBrowser
+    TargetCompatibleBrowserVersion = '95.0.1020.44'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnInitializationError = WVBrowser1InitializationError
+    OnAfterCreated = WVBrowser1AfterCreated
+    OnCapturePreviewCompleted = WVBrowser1CapturePreviewCompleted
+    OnNavigationStarting = WVBrowser1NavigationStarting
+    OnNavigationCompleted = WVBrowser1NavigationCompleted
+    OnSourceChanged = WVBrowser1SourceChanged
+    OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnWebResourceRequested = WVBrowser1WebResourceRequested
+    OnWebResourceResponseReceived = WVBrowser1WebResourceResponseReceived
+    OnDownloadStarting = WVBrowser1DownloadStarting
+    OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
+    OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
+    OnDownloadStateChanged = WVBrowser1DownloadStateChanged
+    Left = 48
+    Top = 64
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = Timer1Timer
+    Left = 48
+    Top = 128
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 48
+    Top = 200
+    object LoadHTMLfile1: TMenuItem
+      Caption = 'Load an HTML file...'
+      OnClick = LoadHTMLfile1Click
+    end
+    object LoadaPDFfile1: TMenuItem
+      Caption = 'Load a PDF file...'
+      OnClick = LoadaPDFfile1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object Print1: TMenuItem
+      Caption = 'Print...'
+      OnClick = Print1Click
+    end
+    object Print2: TMenuItem
+      Caption = 'Print to PDF...'
+      OnClick = Print2Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Opentaskmanager1: TMenuItem
+      Caption = 'Open task manager...'
+      OnClick = Opentaskmanager1Click
+    end
+    object DevTools1: TMenuItem
+      Caption = 'DevTools...'
+      OnClick = DevTools1Click
+    end
+    object Zoom1: TMenuItem
+      Caption = 'Zoom'
+      object Inczoom1: TMenuItem
+        Caption = 'Inc zoom'
+        OnClick = Inczoom1Click
+      end
+      object Deczoom1: TMenuItem
+        Caption = 'Dec zoom'
+        OnClick = Deczoom1Click
+      end
+      object REsetzoom1: TMenuItem
+        Caption = 'Reset zoom'
+        OnClick = REsetzoom1Click
+      end
+    end
+    object akesnapshot1: TMenuItem
+      Caption = 'Take snapshot...'
+      OnClick = akesnapshot1Click
+    end
+    object Blockimages1: TMenuItem
+      Caption = 'Block images'
+      OnClick = Blockimages1Click
+    end
+    object ShowHTTPheaders1: TMenuItem
+      Caption = 'Show HTTP headers...'
+      OnClick = ShowHTTPheaders1Click
+    end
+    object Clearcache1: TMenuItem
+      Caption = 'Clear cache'
+      OnClick = Clearcache1Click
+    end
+    object Offline1: TMenuItem
+      Caption = 'Offline'
+      OnClick = Offline1Click
+    end
+    object Ignorecertificateerrors1: TMenuItem
+      Caption = 'Ignore certificate errors'
+      OnClick = Ignorecertificateerrors1Click
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 48
+    Top = 272
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 48
+    Top = 344
+  end
+end

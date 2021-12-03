@@ -1,0 +1,1046 @@
+unit uWVCoreWebView2;
+
+{$IFDEF FPC}{$MODE Delphi}{$ENDIF}
+
+interface
+
+uses
+  {$IFDEF FPC}
+  Classes, Windows, ActiveX, SysUtils,
+  {$ELSE}
+  System.Classes, WinApi.Windows, Winapi.ActiveX, System.SysUtils,
+  {$ENDIF}
+  uWVTypeLibrary, uWVTypes;
+
+type
+  TCoreWebView2 = class
+    protected
+      FBaseIntf                              : ICoreWebView2;
+      FBaseIntf2                             : ICoreWebView2_2;
+      FBaseIntf3                             : ICoreWebView2_3;
+      FBaseIntf4                             : ICoreWebView2_4;
+      FBaseIntf5                             : ICoreWebView2_5;
+      FBaseIntf6                             : ICoreWebView2_6;
+      FBaseIntf7                             : ICoreWebView2_7;
+      FContainsFullScreenElementChangedToken : EventRegistrationToken;
+      FContentLoadingToken                   : EventRegistrationToken;
+      FDocumentTitleChangedToken             : EventRegistrationToken;
+      FFrameNavigationStartingToken          : EventRegistrationToken;
+      FFrameNavigationCompletedToken         : EventRegistrationToken;
+      FHistoryChangedToken                   : EventRegistrationToken;
+      FNavigationStartingToken               : EventRegistrationToken;
+      FNavigationCompletedToken              : EventRegistrationToken;
+      FNewWindowRequestedToken               : EventRegistrationToken;
+      FPermissionRequestedToken              : EventRegistrationToken;
+      FProcessFailedToken                    : EventRegistrationToken;
+      FScriptDialogOpeningToken              : EventRegistrationToken;
+      FSourceChangedToken                    : EventRegistrationToken;
+      FWebResourceRequestedToken             : EventRegistrationToken;
+      FWebMessageReceivedToken               : EventRegistrationToken;
+      FWindowCloseRequestedToken             : EventRegistrationToken;
+      FWebResourceResponseReceivedToken      : EventRegistrationToken;
+      FDOMContentLoadedToken                 : EventRegistrationToken;
+      FFrameCreatedToken                     : EventRegistrationToken;
+      FDownloadStartingToken                 : EventRegistrationToken;
+      FClientCertificateRequestedToken       : EventRegistrationToken;
+
+      FDevToolsEventNames                    : TStringList;
+      FDevToolsEventTokens                   : array of EventRegistrationToken;
+
+      function  GetInitialized : boolean;
+      function  GetBrowserProcessID : cardinal;
+      function  GetCanGoBack : boolean;
+      function  GetCanGoForward : boolean;
+      function  GetContainsFullScreenElement : boolean;
+      function  GetDocumentTitle : wvstring;
+      function  GetSource : wvstring;
+      function  GetCookieManager : ICoreWebView2CookieManager;
+      function  GetEnvironment : ICoreWebView2Environment;
+      function  GetIsSuspended : boolean;
+      function  GetSettings : ICoreWebView2Settings;
+
+      procedure InitializeFields;
+      procedure InitializeTokens;
+      procedure UnsubscribeAllDevToolsProtocolEvents;
+      procedure RemoveAllEvents;
+
+      function  AddNavigationStartingEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddNavigationCompletedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddSourceChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddHistoryChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddContentLoadingEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddDocumentTitleChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddNewWindowRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddFrameNavigationStartingEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddFrameNavigationCompletedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddWebResourceRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddScriptDialogOpeningEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddPermissionRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddProcessFailedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddWebMessageReceivedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddContainsFullScreenElementChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddWindowCloseRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddWebResourceResponseReceivedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddDOMContentLoadedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddFrameCreatedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddDownloadStartingEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddClientCertificateRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+
+    public
+      constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
+      destructor  Destroy; override;
+      procedure   AfterConstruction; override;
+      function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+      function    SubscribeToDevToolsProtocolEvent(const aEventName: wvstring; aEventID : integer; const aBrowserComponent : TComponent) : boolean;
+      function    CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream; const aBrowserComponent : TComponent) : boolean;
+      function    ExecuteScript(const JavaScript : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      function    GoBack : boolean;
+      function    GoForward : boolean;
+      function    Navigate(const aURI : wvstring) : boolean;
+      function    NavigateToString(const aHTMLContent : wvstring) : boolean;
+      function    NavigateWithWebResourceRequest(const aRequest : ICoreWebView2WebResourceRequest) : boolean;
+      function    Reload : boolean;
+      function    Stop : boolean;
+      function    TrySuspend(const aHandler: ICoreWebView2TrySuspendCompletedHandler) : boolean;
+      function    Resume : boolean;
+      function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
+      function    ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
+      function    OpenTaskManagerWindow : boolean;
+      function    PrintToPdf(const aResultFilePath : wvstring; const aPrintSettings : ICoreWebView2PrintSettings; const aHandler : ICoreWebView2PrintToPdfCompletedHandler) : boolean;
+      function    OpenDevToolsWindow : boolean;
+      function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
+      function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
+      function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      function    AddWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
+      function    RemoveWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
+      function    AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;
+      function    RemoveHostObjectFromScript(const aName : wvstring) : boolean;
+      function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring; const aBrowserComponent : TComponent) : boolean;
+      function    RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
+
+      property    Initialized                 : boolean                     read GetInitialized;
+      property    BaseIntf                    : ICoreWebView2               read FBaseIntf;
+      property    Settings                    : ICoreWebView2Settings       read GetSettings;
+      property    BrowserProcessID            : DWORD                       read GetBrowserProcessID;
+      property    CanGoBack                   : boolean                     read GetCanGoBack;
+      property    CanGoForward                : boolean                     read GetCanGoForward;
+      property    ContainsFullScreenElement   : boolean                     read GetContainsFullScreenElement;
+      property    DocumentTitle               : wvstring                    read GetDocumentTitle;
+      property    Source                      : wvstring                    read GetSource;
+      property    CookieManager               : ICoreWebView2CookieManager  read GetCookieManager;
+      property    Environment                 : ICoreWebView2Environment    read GetEnvironment;
+      property    IsSuspended                 : boolean                     read GetIsSuspended;
+  end;
+
+implementation
+
+uses
+  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions;
+
+constructor TCoreWebView2.Create(const aBaseIntf : ICoreWebView2);
+begin
+  inherited Create;
+
+  InitializeFields;
+
+  FBaseIntf := aBaseIntf;
+
+  if Initialized and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_2, FBaseIntf2)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_3, FBaseIntf3)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_4, FBaseIntf4)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5, FBaseIntf5)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6, FBaseIntf6)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2_7, FBaseIntf7);
+end;
+
+destructor TCoreWebView2.Destroy;
+begin
+  try
+    RemoveAllEvents;
+
+    if (FDevToolsEventTokens <> nil) then
+      begin
+        Finalize(FDevToolsEventTokens);
+        FDevToolsEventTokens := nil;
+      end;
+
+    if (FDevToolsEventNames <> nil) then
+      FreeAndNil(FDevToolsEventNames);
+
+    InitializeFields;
+  finally
+    inherited Destroy;
+  end;
+end;
+
+procedure TCoreWebView2.AfterConstruction;
+begin
+  inherited AfterConstruction;
+
+  FDevToolsEventNames := TStringList.Create;
+end;
+
+procedure TCoreWebView2.InitializeFields;
+begin
+  FBaseIntf            := nil;
+  FBaseIntf2           := nil;
+  FBaseIntf3           := nil;
+  FBaseIntf4           := nil;
+  FBaseIntf5           := nil;
+  FBaseIntf6           := nil;
+  FBaseIntf7           := nil;
+  FDevToolsEventTokens := nil;
+  FDevToolsEventNames  := nil;
+
+  InitializeTokens;
+end;
+
+procedure TCoreWebView2.InitializeTokens;
+begin
+  FContainsFullScreenElementChangedToken.value  := 0;
+  FContentLoadingToken.value                    := 0;
+  FDocumentTitleChangedToken.value              := 0;
+  FFrameNavigationStartingToken.value           := 0;
+  FFrameNavigationCompletedToken.value          := 0;
+  FHistoryChangedToken.value                    := 0;
+  FNavigationStartingToken.value                := 0;
+  FNavigationCompletedToken.value               := 0;
+  FNewWindowRequestedToken.value                := 0;
+  FPermissionRequestedToken.value               := 0;
+  FProcessFailedToken.value                     := 0;
+  FScriptDialogOpeningToken.value               := 0;
+  FSourceChangedToken.value                     := 0;
+  FWebResourceRequestedToken.value              := 0;
+  FWebMessageReceivedToken.value                := 0;
+  FWindowCloseRequestedToken.value              := 0;
+  FWebResourceResponseReceivedToken.value       := 0;
+  FDOMContentLoadedToken.value                  := 0;
+  FFrameCreatedToken.value                      := 0;
+  FDownloadStartingToken.value                  := 0;
+  FClientCertificateRequestedToken.value        := 0;
+end;
+
+function TCoreWebView2.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+procedure TCoreWebView2.RemoveAllEvents;
+begin
+  try
+    try
+      if Initialized then
+        begin
+          if (FNavigationStartingToken.value <> 0) then
+            FBaseIntf.remove_NavigationStarting(FNavigationStartingToken);
+
+          if (FNavigationCompletedToken.value <> 0) then
+            FBaseIntf.remove_NavigationCompleted(FNavigationCompletedToken);
+
+          if (FSourceChangedToken.value <> 0) then
+            FBaseIntf.remove_SourceChanged(FSourceChangedToken);
+
+          if (FHistoryChangedToken.value <> 0) then
+            FBaseIntf.remove_HistoryChanged(FHistoryChangedToken);
+
+          if (FContentLoadingToken.value <> 0) then
+            FBaseIntf.remove_ContentLoading(FContentLoadingToken);
+
+          if (FDocumentTitleChangedToken.value <> 0) then
+            FBaseIntf.remove_DocumentTitleChanged(FDocumentTitleChangedToken);
+
+          if (FNewWindowRequestedToken.value <> 0) then
+            FBaseIntf.remove_NewWindowRequested(FNewWindowRequestedToken);
+
+          if (FFrameNavigationStartingToken.value <> 0) then
+            FBaseIntf.remove_FrameNavigationStarting(FFrameNavigationStartingToken);
+
+          if (FFrameNavigationCompletedToken.value <> 0) then
+            FBaseIntf.remove_FrameNavigationCompleted(FFrameNavigationCompletedToken);
+
+          if (FWebResourceRequestedToken.value <> 0) then
+            FBaseIntf.remove_WebResourceRequested(FWebResourceRequestedToken);
+
+          if (FScriptDialogOpeningToken.value <> 0) then
+            FBaseIntf.remove_ScriptDialogOpening(FScriptDialogOpeningToken);
+
+          if (FPermissionRequestedToken.value <> 0) then
+            FBaseIntf.remove_PermissionRequested(FPermissionRequestedToken);
+
+          if (FProcessFailedToken.value <> 0) then
+            FBaseIntf.remove_ProcessFailed(FProcessFailedToken);
+
+          if (FWebMessageReceivedToken.value <> 0) then
+            FBaseIntf.remove_WebMessageReceived(FWebMessageReceivedToken);
+
+          if (FWindowCloseRequestedToken.value <> 0) then
+            FBaseIntf.remove_WindowCloseRequested(FWindowCloseRequestedToken);
+
+          if (FContainsFullScreenElementChangedToken.value <> 0) then
+            FBaseIntf.remove_ContainsFullScreenElementChanged(FContainsFullScreenElementChangedToken);
+
+          if assigned(FBaseIntf2) then
+            begin
+              if (FWebResourceResponseReceivedToken.value <> 0) then
+                FBaseIntf2.remove_WebResourceResponseReceived(FWebResourceResponseReceivedToken);
+
+              if (FDOMContentLoadedToken.value <> 0) then
+                FBaseIntf2.remove_DOMContentLoaded(FDOMContentLoadedToken);
+            end;
+
+          if assigned(FBaseIntf4) then
+            begin
+              if (FFrameCreatedToken.value <> 0) then
+                FBaseIntf4.remove_FrameCreated(FFrameCreatedToken);
+
+              if (FDownloadStartingToken.value <> 0) then
+                FBaseIntf4.remove_DownloadStarting(FDownloadStartingToken);
+            end;
+
+          if assigned(FBaseIntf5) then
+            begin
+              // Access violation when we try to remove this event
+              //if (FClientCertificateRequestedToken.value <> 0) then
+              //  FBaseIntf5.remove_ClientCertificateRequested(FClientCertificateRequestedToken);
+            end;
+
+          UnsubscribeAllDevToolsProtocolEvents;
+        end;
+    except
+      on e : exception do
+        if CustomExceptionHandler('TCoreWebView2.RemoveAllEvents', e) then raise;
+    end;
+  finally
+    InitializeTokens;
+  end;
+end;
+
+function TCoreWebView2.AddNavigationStartingEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NavigationStartingEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FNavigationStartingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2NavigationStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_NavigationStarting(TempHandler, FNavigationStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddNavigationCompletedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NavigationCompletedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FNavigationCompletedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2NavigationCompletedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_NavigationCompleted(TempHandler, FNavigationCompletedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddSourceChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2SourceChangedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FSourceChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2SourceChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_SourceChanged(TempHandler, FSourceChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddHistoryChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2HistoryChangedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FHistoryChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2HistoryChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_HistoryChanged(TempHandler, FHistoryChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddContentLoadingEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ContentLoadingEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FContentLoadingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ContentLoadingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_ContentLoading(TempHandler, FContentLoadingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddDocumentTitleChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2DocumentTitleChangedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FDocumentTitleChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2DocumentTitleChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_DocumentTitleChanged(TempHandler, FDocumentTitleChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddNewWindowRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NewWindowRequestedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FNewWindowRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2NewWindowRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_NewWindowRequested(TempHandler, FNewWindowRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddFrameNavigationStartingEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NavigationStartingEventHandler;
+begin
+  Result := False;
+
+  if Initialized                                and
+     (FFrameNavigationStartingToken.value  = 0) then
+    try
+      TempHandler := TCoreWebView2FrameNavigationStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_FrameNavigationStarting(TempHandler, FFrameNavigationStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddFrameNavigationCompletedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NavigationCompletedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FFrameNavigationCompletedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2FrameNavigationCompletedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_FrameNavigationCompleted(TempHandler, FFrameNavigationCompletedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddWebResourceRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2WebResourceRequestedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FWebResourceRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2WebResourceRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_WebResourceRequested(TempHandler, FWebResourceRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddScriptDialogOpeningEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ScriptDialogOpeningEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FScriptDialogOpeningToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ScriptDialogOpeningEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_ScriptDialogOpening(TempHandler, FScriptDialogOpeningToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddPermissionRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2PermissionRequestedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FPermissionRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2PermissionRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_PermissionRequested(TempHandler, FPermissionRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddProcessFailedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ProcessFailedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FProcessFailedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ProcessFailedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_ProcessFailed(TempHandler, FProcessFailedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddWebMessageReceivedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2WebMessageReceivedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FWebMessageReceivedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2WebMessageReceivedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_WebMessageReceived(TempHandler, FWebMessageReceivedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddContainsFullScreenElementChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ContainsFullScreenElementChangedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FContainsFullScreenElementChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ContainsFullScreenElementChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_ContainsFullScreenElementChanged(TempHandler, FContainsFullScreenElementChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddWindowCloseRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2WindowCloseRequestedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and (FWindowCloseRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2WindowCloseRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_WindowCloseRequested(TempHandler, FWindowCloseRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddWebResourceResponseReceivedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2WebResourceResponseReceivedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf2) and (FWebResourceResponseReceivedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2WebResourceResponseReceivedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf2.add_WebResourceResponseReceived(TempHandler, FWebResourceResponseReceivedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddDOMContentLoadedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2DOMContentLoadedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf2) and (FDOMContentLoadedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2DOMContentLoadedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf2.add_DOMContentLoaded(TempHandler, FDOMContentLoadedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddFrameCreatedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2FrameCreatedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf4) and (FFrameCreatedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2FrameCreatedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf4.add_FrameCreated(TempHandler, FFrameCreatedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddDownloadStartingEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2DownloadStartingEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf4) and (FDownloadStartingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2DownloadStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf4.add_DownloadStarting(TempHandler, FDownloadStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddClientCertificateRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ClientCertificateRequestedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf5) and (FClientCertificateRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ClientCertificateRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf5.add_ClientCertificateRequested(TempHandler, FClientCertificateRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+begin
+  Result := AddNavigationStartingEvent(aBrowserComponent)                and
+            AddNavigationCompletedEvent(aBrowserComponent)               and
+            AddSourceChangedEvent(aBrowserComponent)                     and
+            AddHistoryChangedEvent(aBrowserComponent)                    and
+            AddContentLoadingEvent(aBrowserComponent)                    and
+            AddDocumentTitleChangedEvent(aBrowserComponent)              and
+            AddNewWindowRequestedEvent(aBrowserComponent)                and
+            AddFrameNavigationStartingEvent(aBrowserComponent)           and
+            AddFrameNavigationCompletedEvent(aBrowserComponent)          and
+            AddWebResourceRequestedEvent(aBrowserComponent)              and
+            AddScriptDialogOpeningEvent(aBrowserComponent)               and
+            AddPermissionRequestedEvent(aBrowserComponent)               and
+            AddProcessFailedEvent(aBrowserComponent)                     and
+            AddWebMessageReceivedEvent(aBrowserComponent)                and
+            AddContainsFullScreenElementChangedEvent(aBrowserComponent)  and
+            AddWindowCloseRequestedEvent(aBrowserComponent)              and
+            AddWebResourceResponseReceivedEvent(aBrowserComponent)       and
+            AddDOMContentLoadedEvent(aBrowserComponent)                  and
+            AddFrameCreatedEvent(aBrowserComponent)                      and
+            AddDownloadStartingEvent(aBrowserComponent)                  and
+            AddClientCertificateRequestedEvent(aBrowserComponent);
+end;
+
+function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
+                                                           ResourceContext : TWVWebResourceContext) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.AddWebResourceRequestedFilter(PWideChar(URI), ResourceContext));
+end;
+
+function TCoreWebView2.RemoveWebResourceRequestedFilter(const URI             : wvstring;
+                                                              ResourceContext : TWVWebResourceContext) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.RemoveWebResourceRequestedFilter(PWideChar(URI), ResourceContext));
+end;
+
+function TCoreWebView2.CapturePreview(      aImageFormat      : TWVCapturePreviewImageFormat;
+                                      const aImageStream      : IStream;
+                                      const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2CapturePreviewCompletedHandler;
+begin
+  Result := False;
+
+  if Initialized then
+    try
+      TempHandler := TCoreWebView2CapturePreviewCompletedHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.CapturePreview(aImageFormat, aImageStream, TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.SubscribeToDevToolsProtocolEvent(const aEventName        : wvstring;
+                                                              aEventID          : integer;
+                                                        const aBrowserComponent : TComponent) : boolean;
+var
+  TempReceiver : ICoreWebView2DevToolsProtocolEventReceiver;
+  TempHandler  : ICoreWebView2DevToolsProtocolEventReceivedEventHandler;
+  TempToken    : EventRegistrationToken;
+  i            : integer;
+begin
+  Result := False;
+
+  if Initialized and
+     (FDevToolsEventNames <> nil) and
+     {$IFDEF FPC}
+     (FDevToolsEventNames.IndexOf(UTF8Encode(aEventName)) < 0) and
+     {$ELSE}      
+     (FDevToolsEventNames.IndexOf(aEventName) < 0) and
+     {$ENDIF}
+     succeeded(FBaseIntf.GetDevToolsProtocolEventReceiver(PWideChar(aEventName), TempReceiver)) then
+    try
+      TempHandler := TCoreWebView2DevToolsProtocolEventReceivedEventHandler.Create(TWVBrowserBase(aBrowserComponent), aEventName, aEventID);
+
+      if succeeded(TempReceiver.add_DevToolsProtocolEventReceived(TempHandler, TempToken)) then
+        begin
+          {$IFDEF FPC}
+          FDevToolsEventNames.Add(UTF8Encode(aEventName));
+          {$ELSE}
+          FDevToolsEventNames.Add(aEventName);
+          {$ENDIF}
+          i := length(FDevToolsEventTokens);
+          SetLength(FDevToolsEventTokens, succ(i));
+          FDevToolsEventTokens[i] := TempToken;
+          Result := True;
+        end;
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+procedure TCoreWebView2.UnsubscribeAllDevToolsProtocolEvents;
+var
+  TempReceiver  : ICoreWebView2DevToolsProtocolEventReceiver;
+  i             : integer;
+  TempEventName : wvstring;
+begin
+  if (FDevToolsEventNames = nil) or (FDevToolsEventNames.Count = 0) or not(Initialized) then
+    exit;
+
+  try
+    try
+      i := pred(FDevToolsEventNames.Count);
+
+      while (i >= 0) do
+        begin
+          {$IFDEF FPC}
+          TempEventName := UTF8Decode(FDevToolsEventNames[i]);
+          {$ELSE}
+          TempEventName := FDevToolsEventNames[i];
+          {$ENDIF}
+          if succeeded(FBaseIntf.GetDevToolsProtocolEventReceiver(PWideChar(TempEventName), TempReceiver)) then
+            TempReceiver.remove_DevToolsProtocolEventReceived(FDevToolsEventTokens[i]);
+
+          dec(i);
+        end;
+    except
+      on e : exception do
+        if CustomExceptionHandler('TCoreWebView2.UnsubscribeAllDevToolsProtocolEvents', e) then raise;
+    end;
+  finally
+    FDevToolsEventNames.Clear;
+    SetLength(FDevToolsEventTokens, 0);
+  end;
+end;
+
+function TCoreWebView2.ExecuteScript(const JavaScript: wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ExecuteScriptCompletedHandler;
+begin
+  Result := False;
+
+  if Initialized and (length(JavaScript) > 0) then
+    try
+      TempHandler := TCoreWebView2ExecuteScriptCompletedHandler.Create(TWVBrowserBase(aBrowserComponent), aExecutionID);
+      Result      := succeeded(FBaseIntf.ExecuteScript(PWideChar(JavaScript), TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.GoBack : boolean;
+begin
+  Result := CanGoBack and
+            succeeded(FBaseIntf.GoBack);
+end;
+
+function TCoreWebView2.GoForward : boolean;
+begin
+  Result := CanGoForward and
+            succeeded(FBaseIntf.GoForward);
+end;
+
+function TCoreWebView2.Navigate(const aURI : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Navigate(PWideChar(aURI)));
+end;
+
+function TCoreWebView2.NavigateToString(const aHTMLContent : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.NavigateToString(PWideChar(aHTMLContent)));
+end;
+
+function TCoreWebView2.NavigateWithWebResourceRequest(const aRequest : ICoreWebView2WebResourceRequest) : boolean;
+begin
+  Result := assigned(FBaseIntf2) and
+            succeeded(FBaseIntf2.NavigateWithWebResourceRequest(aRequest));
+end;
+
+function TCoreWebView2.Reload : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Reload);
+end;
+
+function TCoreWebView2.Stop : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Stop);
+end;
+
+function TCoreWebView2.TrySuspend(const aHandler: ICoreWebView2TrySuspendCompletedHandler) : boolean;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.TrySuspend(aHandler));
+end;
+
+function TCoreWebView2.Resume : boolean;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.Resume);
+end;
+
+function TCoreWebView2.SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.SetVirtualHostNameToFolderMapping(PWideChar(aHostName), PWideChar(aFolderPath), aAccessKind));
+end;
+
+function TCoreWebView2.ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.ClearVirtualHostNameToFolderMapping(PWideChar(aHostName)));
+end;
+
+function TCoreWebView2.OpenTaskManagerWindow : boolean;
+begin
+  Result := assigned(FBaseIntf6) and
+            succeeded(FBaseIntf6.OpenTaskManagerWindow);
+end;
+
+function TCoreWebView2.PrintToPdf(const aResultFilePath : wvstring;
+                                  const aPrintSettings  : ICoreWebView2PrintSettings;
+                                  const aHandler        : ICoreWebView2PrintToPdfCompletedHandler) : boolean;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf7)          and
+     (length(aResultFilePath) > 0) and
+     assigned(aPrintSettings)      and
+     assigned(aHandler)            then
+    Result := succeeded(FBaseIntf7.PrintToPdf(PWideChar(aResultFilePath), aPrintSettings, aHandler));
+end;
+
+function TCoreWebView2.OpenDevToolsWindow : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.OpenDevToolsWindow);
+end;
+
+function TCoreWebView2.PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.PostWebMessageAsJson(PWideChar(aWebMessageAsJson)));
+end;
+
+function TCoreWebView2.PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.PostWebMessageAsString(PWideChar(aWebMessageAsString)));
+end;
+
+function TCoreWebView2.CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2CallDevToolsProtocolMethodCompletedHandler;
+begin
+  Result := False;
+
+  if Initialized then
+    try
+      TempHandler := TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.Create(TWVBrowserBase(aBrowserComponent), aExecutionID);
+      Result      := succeeded(FBaseIntf.CallDevToolsProtocolMethod(PWideChar(aMethodName), PWideChar(aParametersAsJson), TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.AddHostObjectToScript(PWideChar(aName), aObject));
+end;
+
+function TCoreWebView2.RemoveHostObjectFromScript(const aName : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.RemoveHostObjectFromScript(PWideChar(aName)));
+end;
+
+function TCoreWebView2.AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring; const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler;
+begin
+  Result := False;
+
+  if Initialized then
+    try
+      TempHandler := TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.AddScriptToExecuteOnDocumentCreated(PWideChar(JavaScript), TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.RemoveScriptToExecuteOnDocumentCreated(PWideChar(aID)));
+end;
+
+function TCoreWebView2.GetBrowserProcessID : cardinal;
+var
+  TempID : DWORD;
+begin
+  if Initialized and succeeded(FBaseIntf.Get_BrowserProcessId(TempID)) then
+    Result := TempID
+   else
+    Result := 0;
+end;
+
+function TCoreWebView2.GetCanGoBack : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_CanGoBack(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2.GetCanGoForward : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_CanGoForward(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2.GetContainsFullScreenElement : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_ContainsFullScreenElement(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2.GetDocumentTitle : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.get_DocumentTitle(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2.GetSource : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.get_Source(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2.GetCookieManager : ICoreWebView2CookieManager;
+var
+  TempResult : ICoreWebView2CookieManager;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_CookieManager(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2.GetEnvironment : ICoreWebView2Environment;
+var
+  TempResult : ICoreWebView2Environment;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_Environment(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2.GetIsSuspended : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.Get_IsSuspended(TempResult)) and
+            (TempResult <> 0);
+end;
+
+function TCoreWebView2.GetSettings : ICoreWebView2Settings;
+var
+  TempResult : ICoreWebView2Settings;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_Settings(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
+end;
+
+end.

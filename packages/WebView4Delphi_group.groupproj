@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{696F4758-E194-4904-B998-905115C3CB94}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="WebView4Delphi_runtime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebView4Delphi_designtime.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="WebView4Delphi_runtime">
+        <MSBuild Projects="WebView4Delphi_runtime.dproj"/>
+    </Target>
+    <Target Name="WebView4Delphi_runtime:Clean">
+        <MSBuild Projects="WebView4Delphi_runtime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebView4Delphi_runtime:Make">
+        <MSBuild Projects="WebView4Delphi_runtime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebView4Delphi_designtime">
+        <MSBuild Projects="WebView4Delphi_designtime.dproj"/>
+    </Target>
+    <Target Name="WebView4Delphi_designtime:Clean">
+        <MSBuild Projects="WebView4Delphi_designtime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebView4Delphi_designtime:Make">
+        <MSBuild Projects="WebView4Delphi_designtime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="WebView4Delphi_runtime;WebView4Delphi_designtime"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="WebView4Delphi_runtime:Clean;WebView4Delphi_designtime:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="WebView4Delphi_runtime:Make;WebView4Delphi_designtime:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

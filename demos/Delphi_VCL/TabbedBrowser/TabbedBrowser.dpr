@@ -1,0 +1,19 @@
+program TabbedBrowser;
+
+uses
+  Vcl.Forms,
+  uMainForm in 'uMainForm.pas' {MainForm},
+  uBrowserFrame in 'uBrowserFrame.pas' {BrowserFrame: TFrame},
+  uBrowserTab in 'uBrowserTab.pas';
+
+{$R *.res}
+
+begin
+  {$IFDEF DEBUG}
+  ReportMemoryLeaksOnShutdown := True;
+  {$ENDIF}
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TMainForm, MainForm);
+  Application.Run;
+end.

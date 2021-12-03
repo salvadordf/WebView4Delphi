@@ -1,0 +1,81 @@
+package WebView4Delphi_runtime;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  fmx;
+
+contains
+  uWVConstants in '..\source\uWVConstants.pas',
+  uWVLibFunctions in '..\source\uWVLibFunctions.pas',
+  uWVLoader in '..\source\uWVLoader.pas',
+  uWVTypeLibrary in '..\source\uWVTypeLibrary.pas',
+  uWVTypes in '..\source\uWVTypes.pas',
+  uWVInterfaces in '..\source\uWVInterfaces.pas',
+  uWVCoreWebView2 in '..\source\uWVCoreWebView2.pas',
+  uWVCoreWebView2Controller in '..\source\uWVCoreWebView2Controller.pas',
+  uWVCoreWebView2Settings in '..\source\uWVCoreWebView2Settings.pas',
+  uWVCoreWebView2Environment in '..\source\uWVCoreWebView2Environment.pas',
+  uWVWinControl in '..\source\uWVWinControl.pas',
+  uWVWindowParent in '..\source\uWVWindowParent.pas',
+  uWVBrowser in '..\source\uWVBrowser.pas',
+  uWVMiscFunctions in '..\source\uWVMiscFunctions.pas',
+  uWVCoreWebView2HttpRequestHeaders in '..\source\uWVCoreWebView2HttpRequestHeaders.pas',
+  uWVCoreWebView2HttpHeadersCollectionIterator in '..\source\uWVCoreWebView2HttpHeadersCollectionIterator.pas',
+  uWVCoreWebView2EnvironmentOptions in '..\source\uWVCoreWebView2EnvironmentOptions.pas',
+  uWVCoreWebView2Delegates in '..\source\uWVCoreWebView2Delegates.pas',
+  uWVCoreWebView2Args in '..\source\uWVCoreWebView2Args.pas',
+  uWVCoreWebView2WebResourceRequest in '..\source\uWVCoreWebView2WebResourceRequest.pas',
+  uWVCoreWebView2WebResourceResponse in '..\source\uWVCoreWebView2WebResourceResponse.pas',
+  uWVCoreWebView2Deferral in '..\source\uWVCoreWebView2Deferral.pas',
+  uWVCoreWebView2PointerInfo in '..\source\uWVCoreWebView2PointerInfo.pas',
+  uWVCoreWebView2CompositionController in '..\source\uWVCoreWebView2CompositionController.pas',
+  uWVEvents in '..\source\uWVEvents.pas',
+  uWVCoreWebView2PrintSettings in '..\source\uWVCoreWebView2PrintSettings.pas',
+  uWVCoreWebView2WebResourceResponseView in '..\source\uWVCoreWebView2WebResourceResponseView.pas',
+  uWVCoreWebView2FrameInfoCollection in '..\source\uWVCoreWebView2FrameInfoCollection.pas',
+  uWVCoreWebView2FrameInfoCollectionIterator in '..\source\uWVCoreWebView2FrameInfoCollectionIterator.pas',
+  uWVCoreWebView2FrameInfo in '..\source\uWVCoreWebView2FrameInfo.pas',
+  uWVCoreWebView2CookieManager in '..\source\uWVCoreWebView2CookieManager.pas',
+  uWVCoreWebView2Cookie in '..\source\uWVCoreWebView2Cookie.pas',
+  uWVCoreWebView2CookieList in '..\source\uWVCoreWebView2CookieList.pas',
+  uWVCoreWebView2ClientCertificateCollection in '..\source\uWVCoreWebView2ClientCertificateCollection.pas',
+  uWVCoreWebView2ClientCertificate in '..\source\uWVCoreWebView2ClientCertificate.pas',
+  uWVCoreWebView2StringCollection in '..\source\uWVCoreWebView2StringCollection.pas',
+  uWVCoreWebView2WindowFeatures in '..\source\uWVCoreWebView2WindowFeatures.pas',
+  uWVCoreWebView2DownloadOperation in '..\source\uWVCoreWebView2DownloadOperation.pas',
+  uWVCoreWebView2Frame in '..\source\uWVCoreWebView2Frame.pas',
+  uWVCoreWebView2HttpResponseHeaders in '..\source\uWVCoreWebView2HttpResponseHeaders.pas',
+  uWVBrowserBase in '..\source\uWVBrowserBase.pas',
+  uWVFMXWindowParent in '..\source\uWVFMXWindowParent.pas',
+  uWVFMXBrowser in '..\source\uWVFMXBrowser.pas';
+
+end.

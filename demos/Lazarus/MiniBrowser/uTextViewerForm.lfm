@@ -1,0 +1,27 @@
+object TextViewerFrm: TTextViewerFrm
+  Left = 427
+  Height = 441
+  Top = 268
+  Width = 747
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Headers'
+  ClientHeight = 441
+  ClientWidth = 747
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object Memo1: TMemo
+    Left = 0
+    Height = 441
+    Top = 0
+    Width = 747
+    Align = alClient
+    ReadOnly = True
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+end
