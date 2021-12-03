@@ -10,14 +10,14 @@ WebView4Delphi uses the WebView2Loader.dll file included in the Microsoft.Web.We
 All the demos are configured to use the evergreen version of the runtime and the executable is created inside the bin32 and bin64 directories.
 
 ## Installation in Delphi
-* Download WebView4Delphi [from here](https://github.com/salvadordf/WebView4Delphi/archive/refs/heads/master.zip)
+* Download WebView4Delphi. Click on the green "Code" button and the click on "Download ZIP".
 * Decompress the ZIP package in your projects directory.
 * Run Delphi and open "packages\WebView4Delphi_group.groupproj"
 * Select the "Projects -> Build all projects" menu option.
 * Right click on "WebView4Delphi_designtime.bpl" in the Projects section and select "Install".
 
 ## Installation in Lazarus
-* Download WebView4Delphi [from here](https://github.com/salvadordf/WebView4Delphi/archive/refs/heads/master.zip)
+* Download WebView4Delphi. Click on the green "Code" button and the click on "Download ZIP".
 * Decompress the ZIP package in your projects directory.
 * Run Lazarus.
 * Select the "Package -> Open Package File (.lpk) ..." menu option and open the "packages\webview4delphi.lpk" file.
