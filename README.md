@@ -12,7 +12,9 @@ All the demos are configured to use the evergreen version of the runtime and the
 ## Installation in Delphi
 * Download WebView4Delphi. Click on the green "Code" button and then click on "Download ZIP".
 * Decompress the ZIP package in your projects directory.
-* Run Delphi and open "packages\WebView4Delphi_group.groupproj"
+* Run Delphi and open the "Tools -> Options" menu option.
+* Add the "WebView4Delphi\source" directory to your library path for Windows in 32bits and 64 btis.
+* Open "packages\WebView4Delphi_group.groupproj"
 * Select the "Projects -> Build all projects" menu option.
 * Right click on "WebView4Delphi_designtime.bpl" in the Projects section and select "Install".
 
