@@ -1,0 +1,13 @@
+{
+    "id": "{45F23B07-EB18-4F94-B753-CDAA46B6B6D4}",
+    "picture": "packages\\res\\twvbrowser.png",
+    "licenses":
+    [
+        {
+          "type": "MIT",
+          "file": "LICENSE"
+        }
+    ],
+    "platforms": "Win32;Win64",
+    "dependencies": []
+}

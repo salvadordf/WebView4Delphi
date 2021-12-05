@@ -1,37 +1,19 @@
 # WebView4Delphi [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Use%20WebView4Delphi%20to%20embed%20Chromium-based%20browsers%20in%20your%20application&url=https://github.com/salvadordf/WebView4Delphi&via=briskbard&hashtags=WebView4Delphi,delphi,lazarus,fpc)
 WebView4Delphi is an open source project created by Salvador Díaz Fau to embed Chromium-based browsers in applications made with [Delphi](https://www.embarcadero.com/products/delphi/starter) or [Lazarus/FPC](https://www.lazarus-ide.org/) for Windows.
 
-WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser. 
+WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.1054.31](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser. 
 
-Before you try WebView4Delphi you have to download the Microsoft Edge WebView2 Runtime [from here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section). If you install the evergreen version of the runtime it will be updated automatically with Windows Update but you can also decompress the fixed version in your computer and configure WebView4Delphi to use it.
+WebView4Delphi was developed and tested on Delphi 11.0 and Lazarus 2.2.0RC2/FPC 3.2.2. It should be compatible with Delphi XE3 or newer Delphi version but testing in those versions is still pending. 
 
-WebView4Delphi uses the WebView2Loader.dll file included in the Microsoft.Web.WebView2 NuGet package version 1.0.1054.31. A copy of WebView2Loader.dll can be found in the bin32 and bin64 directories.
-
-All the demos are configured to use the evergreen version of the runtime and the executable is created inside the bin32 and bin64 directories.
-
-## Installation in Delphi
-* Download WebView4Delphi. Click on the green "Code" button and then click on "Download ZIP".
-* Decompress the ZIP package in your projects directory.
-* Run Delphi and open the "Tools -> Options" menu option.
-* Add the "WebView4Delphi\source" directory to your library path for Windows in 32bits and 64 btis.
-* Open "packages\WebView4Delphi_group.groupproj"
-* Select the "Projects -> Build all projects" menu option.
-* Right click on "WebView4Delphi_designtime.bpl" in the Projects section and select "Install".
-
-## Installation in Lazarus
-* Download WebView4Delphi. Click on the green "Code" button and then click on "Download ZIP".
-* Decompress the ZIP package in your projects directory.
-* Run Lazarus.
-* Select the "Package -> Open Package File (.lpk) ..." menu option and open the "packages\webview4delphi.lpk" file.
-* Click the "Compile" button in the package window.
-* Click the "Use" button in the package window and select "Install".
-* Press the "Yes" button when Lazarus asks if you want to rebuild Lazarus.
-* Lazarus will install WebView4Delphi and restart in a few seconds.
-
-WebView4Delphi was developed and tested on Delphi 11.0 and Lazarus 2.2.0RC2/FPC 3.2.2. It should be compatible with Delphi XE3 or newer Delphi version but testing in those versions is still pending. WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.
+WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.
 
 ## Links
+* [Installation instructions and more information about WebView4Delphi](https://www.briskbard.com/index.php?lang=en&pageid=webview)
 * [Developer Forums](https://www.briskbard.com/forum)
+* [Microsoft Edge WebView2 Runtime documentation](https://docs.microsoft.com/en-us/microsoft-edge/webview2/)
+* [Microsoft Edge WebView2 Runtime API reference](https://docs.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/)
+* [Microsoft Edge WebView2 Runtime downloads](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section)
+* [Microsoft.Web.WebView2 NuGet package](https://www.nuget.org/packages/Microsoft.Web.WebView2)
 
 ## Support
 If you find this project useful, please consider making a donation.

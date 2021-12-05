@@ -1,0 +1,39 @@
+{
+        "search_pathes": 
+	[
+		{
+			"pathes": "source",
+			"platforms": "Win32;Win64"
+		}
+	],
+	"browsing_pathes": 
+	[
+		{
+			"pathes": "source",
+			"platforms": "Win32;Win64"
+		}
+	],
+	
+	"source_folders":
+	[
+		{
+			"folder": "\\",
+			"base": "\\",
+			"recursive": true,
+			"filter": "*;*.*"
+		}
+	],
+
+    "raw_folders": [],
+	
+	"projects":
+	[
+		{
+			"project": "packages\\WebView4Delphi_group.groupproj",
+      "compiler_min": 24,
+      "compiler_max": 24,      
+		}
+	],
+
+    "experts": []
+}
