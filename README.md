@@ -1,5 +1,7 @@
 # WebView4Delphi [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Use%20WebView4Delphi%20to%20embed%20Chromium-based%20browsers%20in%20your%20application&url=https://github.com/salvadordf/WebView4Delphi&via=briskbard&hashtags=WebView4Delphi,delphi,lazarus,fpc)
-WebView4Delphi is an open source project created by Salvador Díaz Fau to embed Chromium-based browsers in applications made with [Delphi](https://www.embarcadero.com/products/delphi/starter) or [Lazarus/FPC](https://www.lazarus-ide.org/) for Windows.
+WebView4Delphi is an open source project created by Salvador Díaz Fau to embed Chromium-based browsers in applications made with [Delphi](https://www.embarcadero.com/products/delphi/starter) or [Lazarus/FPC](https://www.lazarus-ide.org/).
+
+WebView4Delphi only supports Windows. If you need to embed a web browser in Linux, Windows or MacOS consider using [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) instead. 
 
 WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.1054.31](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser. 
 
