@@ -2,6 +2,8 @@ unit uWVCoreWebView2ClientCertificate;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -105,7 +107,7 @@ var
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_ValidFrom(TempResult)) then
-    Result := UnixToDateTime(round(TempResult), False)
+    Result := UnixToDateTime(round(TempResult){$IFDEF DELPHI20_UP}, False{$ENDIF})
    else
     Result := 0;
 end;
@@ -116,7 +118,7 @@ var
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_ValidFrom(TempResult)) then
-    Result := UnixToDateTime(round(TempResult), False)
+    Result := UnixToDateTime(round(TempResult){$IFDEF DELPHI20_UP}, False{$ENDIF})
    else
     Result := 0;
 end;

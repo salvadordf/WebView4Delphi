@@ -1,10 +1,15 @@
 unit uWVFMXBrowser;
 
+{$I webview2.inc}
+
 interface
 
 uses
-  System.Classes, System.Types, WinApi.Windows, WinApi.Messages, FMX.Platform.Win,
-  FMX.Types, FMX.Platform, FMX.Forms, FMX.Controls, FMX.Graphics, System.Math,
+  System.Classes, System.Types, WinApi.Windows, WinApi.Messages, System.Math,
+  FMX.Platform.Win, FMX.Types, FMX.Platform, FMX.Forms, FMX.Controls,
+  {$IFDEF DELPHI19_UP}
+  FMX.Graphics,
+  {$ENDIF}
   uWVBrowserBase;
 
 type
@@ -104,10 +109,13 @@ end;
 procedure TWVFMXBrowser.MoveFormTo(const x, y: Integer);
 var
   TempForm : TCustomForm;
+  {$IFDEF DELPHI21_UP}
   TempRect : TRect;
+  {$ENDIF}
 begin
   TempForm := GetParentForm;
 
+  {$IFDEF DELPHI21_UP}
   if (TempForm <> nil) then
     begin
       TempRect.Left   := min(max(x, max(round(screen.DesktopLeft), 0)), round(screen.DesktopWidth)  - TempForm.Width);
@@ -117,15 +125,21 @@ begin
 
       TempForm.SetBounds(TempRect.Left, TempRect.Top, TempRect.Right - TempRect.Left + 1, TempRect.Bottom - TempRect.Top + 1);
     end;
+  {$ELSE}
+  TempForm.SetBounds(x, y, TempForm.Width, TempForm.Height);
+  {$ENDIF}
 end;
 
 procedure TWVFMXBrowser.MoveFormBy(const x, y: Integer);
 var
   TempForm : TCustomForm;
+  {$IFDEF DELPHI21_UP}
   TempRect : TRect;
+  {$ENDIF}
 begin
   TempForm := GetParentForm;
 
+  {$IFDEF DELPHI21_UP}
   if (TempForm <> nil) then
     begin
       TempRect.Left   := min(max(TempForm.Left + x, max(round(screen.DesktopLeft), 0)), round(screen.DesktopWidth)  - TempForm.Width);
@@ -135,6 +149,9 @@ begin
 
       TempForm.SetBounds(TempRect.Left, TempRect.Top, TempRect.Right - TempRect.Left + 1, TempRect.Bottom - TempRect.Top + 1);
     end;
+  {$ELSE}
+  TempForm.SetBounds(TempForm.Left + x, TempForm.Top + y, TempForm.Width, TempForm.Height);
+  {$ENDIF}
 end;
 
 procedure TWVFMXBrowser.ResizeFormWidthTo(const x : Integer);
@@ -174,7 +191,11 @@ begin
   TempForm := GetParentForm;
 
   if (TempForm <> nil) then
+    {$IFDEF DELPHI21_UP}
     TempForm.Left := min(max(x, max(round(screen.DesktopLeft), 0)), round(screen.DesktopWidth) - TempForm.Width);
+    {$ELSE}
+    TempForm.Left := x;
+    {$ENDIF}
 end;
 
 procedure TWVFMXBrowser.SetFormTopTo(const y : Integer);
@@ -184,7 +205,11 @@ begin
   TempForm := GetParentForm;
 
   if (TempForm <> nil) then
+    {$IFDEF DELPHI21_UP}
     TempForm.Top := min(max(y, max(round(screen.DesktopTop), 0)), round(screen.DesktopHeight) - TempForm.Height);
+    {$ELSE}
+    TempForm.Top := y;
+    {$ENDIF}
 end;
 
 end.

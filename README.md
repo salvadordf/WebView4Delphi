@@ -26,8 +26,7 @@ You can also support this project with Patreon.
 
 <a href="https://patreon.com/salvadordf"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Patreon donate button" /></a>
 
-## Attribution
-Other projects :
+## Related projects 
 * [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) 
 * [OldCEF4Delphi](https://github.com/salvadordf/OldCEF4Delphi) 
 * [Chromium](https://chromium.googlesource.com/chromium/src/)

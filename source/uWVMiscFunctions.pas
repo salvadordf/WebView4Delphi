@@ -2,13 +2,15 @@ unit uWVMiscFunctions;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, ActiveX, SysUtils, Graphics,
+  Windows, Classes, ActiveX, SysUtils, Graphics, Math,
   {$ELSE}
-  Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils,
+  Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils, System.Math,
   {$ENDIF}
   uWVConstants, uWVTypeLibrary, uWVTypes;
 
@@ -24,6 +26,8 @@ function  CustomExceptionHandler(const aFunctionName : string; const aException 
 
 function CoreWebViewColorToDelphiColor(const aColor : COREWEBVIEW2_COLOR) : TColor;
 function DelphiColorToCoreWebViewColor(const aColor : TColor) : COREWEBVIEW2_COLOR;
+
+function TryIso8601BasicToDate(const Str: string; out Date: TDateTime): Boolean;
 
 implementation
 
@@ -136,6 +140,26 @@ begin
   OutputDebugMessage(aFunctionName + ' error : ' + aException.message);
 
   Result := (GlobalWebView2Loader <> nil) and GlobalWebView2Loader.ReRaiseExceptions;
+end;
+
+// Basic ISO8601ToDate alternative written by David Heffernan
+// https://stackoverflow.com/questions/24108718/is-there-a-delphi-rtl-function-that-can-convert-the-iso-8601-basic-date-format-t
+// Use ISO8601ToDate in Delphi XE6 or later versions.
+function TryIso8601BasicToDate(const Str: string; out Date: TDateTime): Boolean;
+var
+  Year, Month, Day: Integer;
+begin
+  Assert(Length(Str)=8);
+  Result := TryStrToInt(Copy(Str, 1, 4), Year);
+  if not Result then
+    exit;
+  Result := TryStrToInt(Copy(Str, 5, 2), Month);
+  if not Result then
+    exit;
+  Result := TryStrToInt(Copy(Str, 7, 2), Day);
+  if not Result then
+    exit;
+  Result := TryEncodeDate(Year, Month, Day, Date);
 end;
 
 end.

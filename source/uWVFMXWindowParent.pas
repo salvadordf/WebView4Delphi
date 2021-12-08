@@ -1,5 +1,9 @@
 unit uWVFMXWindowParent;
 
+{$IFDEF FPC}{$MODE Delphi}{$ENDIF}
+
+{$I webview2.inc}
+
 interface
 
 uses
@@ -18,11 +22,11 @@ type
 
       procedure Notification(AComponent: TComponent; Operation: TOperation); override;
       procedure Resize; override;
-      procedure DoFocusChanged; override;
+      procedure SetActive(const Value: Boolean); override;
 
     public
       constructor Create(AOwner: TComponent); override;
-      procedure   Reparent(const aNewParentHandle : TWindowHandle);
+      procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
       procedure   UpdateSize;
 
       property  ChildWindowHandle : HWND             read GetChildWindowHandle;
@@ -61,11 +65,11 @@ begin
   UpdateSize;
 end;
 
-procedure TWVFMXWindowParent.DoFocusChanged;
+procedure TWVFMXWindowParent.SetActive(const Value: Boolean);
 begin
-  inherited DoFocusChanged;
+  inherited SetActive(Value);
 
-  if (Focused <> nil) and (FBrowser <> nil) then
+  if Value and (Focused <> nil) and (FBrowser <> nil) then
     FBrowser.SetFocus;
 end;
 
@@ -131,11 +135,15 @@ begin
     end;
 end;
 
-procedure TWVFMXWindowParent.Reparent(const aNewParentHandle : TWindowHandle);
+procedure TWVFMXWindowParent.Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
 var
   TempChildHandle, TempParentHandle : HWND;
 begin
+  {$IFDEF DELPHI18_UP}
   if (aNewParentHandle <> nil) then
+  {$ELSE}
+  if (aNewParentHandle <> 0) then
+  {$ENDIF}
     begin
       TempChildHandle  := FmxHandleToHWND(Handle);
       TempParentHandle := FmxHandleToHWND(aNewParentHandle);

@@ -2,6 +2,8 @@ unit uWVCoreWebView2DownloadOperation;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -67,7 +69,7 @@ type
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates;
+  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions;
 
 constructor TCoreWebView2DownloadOperation.Create(const aBaseIntf: ICoreWebView2DownloadOperation; aDownloadID : integer);
 begin
@@ -255,7 +257,15 @@ begin
   if Initialized and
      succeeded(FBaseIntf.Get_EstimatedEndTime(TempString)) then
     begin
+      {$IFDEF DELPHI20_UP}
       Result := ISO8601ToDate(TempString, False);
+      {$ELSE}
+        {$IFDEF FPC}
+        Result := ISO8601ToDate(TempString, False);
+        {$ELSE}
+        TryIso8601BasicToDate(TempString, Result);
+        {$ENDIF}
+      {$ENDIF}
       CoTaskMemFree(TempString);
     end;
 end;
