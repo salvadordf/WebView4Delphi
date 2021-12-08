@@ -37,3 +37,6 @@ You can also support this project with Patreon.
 * [FreePascal from Square One by Jeff Duntemann](http://www.copperwood.com/pub/FreePascalFromSquareOne.pdf)
 * [Pascal and Lazarus Books and Magazines](https://wiki.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines)
 * [Lazarus Documentation](https://wiki.freepascal.org/Lazarus_Documentation)
+
+
+Additional: Delphinus-Support
