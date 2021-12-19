@@ -1,0 +1,15 @@
+<html><head><script>
+function customOnFocus(){ window.chrome.webview.postMessage(document.activeElement.tagName); };
+function customOnBlur(){ window.chrome.webview.postMessage("-"); };
+</script></head><body>
+<p>This is a local HTML file loaded using a virtual host in a WebView2 browser.</p>
+<p>This file is located in the <q>WebView4Delphi\assets\</q> directory.</p>
+<p>This demo maps the <q>customhost.test</q> domain to the <q>..\assets</q> directory by calling TWVBrowser.SetVirtualHostNameToFolderMapping inside the TWVBrowser.OnAfterCreated event.</p>
+<br><br>
+<p><b>Press ESC or select the <q>Exit</q> option in the context menu to exit this demo.</b></p>
+<br><br>
+<p>These are some simple INPUT elements to test the virtual keyboard :<br>
+<input type="text" onfocus="customOnFocus();" onblur="customOnBlur();"><br>
+<input type="text" onfocus="customOnFocus();" onblur="customOnBlur();"></p>
+<p>The INPUT elements use the OnFocus and OnBlur events to send their tag name as a parameter of window.chrome.webview.postMessage</p>
+</body></html>
