@@ -82,6 +82,10 @@ type
       property OnCompositionControllerCompleted;
       property OnCallDevToolsProtocolMethodCompleted;
       property OnAddScriptToExecuteOnDocumentCreatedCompleted;
+      property OnWidget0CompMsg;
+      property OnWidget1CompMsg;
+      property OnRenderCompMsg;
+      property OnD3DWindowCompMsg;
   end;
 
 implementation

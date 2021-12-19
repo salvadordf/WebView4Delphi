@@ -2,13 +2,15 @@ unit uWVBrowserBase;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, Types, SysUtils, Graphics, ActiveX,
+  Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages,
   {$ELSE}
-  Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils, Winapi.ActiveX,
+  Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils, Winapi.ActiveX, Winapi.Messages,
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
@@ -38,6 +40,20 @@ type
       FIgnoreCertificateErrors                        : boolean;
       FZoomStep                                       : byte;
       FOffline                                        : boolean;
+
+      FOldWidget0CompWndPrc                           : TFNWndProc;
+      FOldWidget1CompWndPrc                           : TFNWndProc;
+      FOldRenderCompWndPrc                            : TFNWndProc;
+      FOldD3DWindowCompWndPrc                         : TFNWndProc;
+      FWidget0CompStub                                : Pointer;
+      FWidget1CompStub                                : Pointer;
+      FRenderCompStub                                 : Pointer;
+      FD3DWindowCompStub                              : Pointer;
+      FWidget0CompHWND                                : THandle;
+      FWidget1CompHWND                                : THandle;
+      FRenderCompHWND                                 : THandle;
+      FD3DWindowCompHWND                              : THandle;
+
       FOnInitializationError                          : TOnInitializationErrorEvent;
       FOnEnvironmentCompleted                         : TNotifyEvent;
       FOnControllerCompleted                          : TNotifyEvent;
@@ -86,6 +102,10 @@ type
       FOnCompositionControllerCompleted               : TNotifyEvent;
       FOnCallDevToolsProtocolMethodCompleted          : TOnCallDevToolsProtocolMethodCompletedEvent;
       FOnAddScriptToExecuteOnDocumentCreatedCompleted : TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent;
+      FOnWidget0CompMsg                               : TOnCompMsgEvent;
+      FOnWidget1CompMsg                               : TOnCompMsgEvent;
+      FOnRenderCompMsg                                : TOnCompMsgEvent;
+      FOnD3DWindowCompMsg                             : TOnCompMsgEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -162,6 +182,18 @@ type
 
       procedure UpdateZoomStep(aInc : boolean);
       procedure UpdateZoomPct(const aValue : double);
+
+      procedure CreateStub(const aMethod : TWndMethod; var aStub : Pointer);
+      procedure FreeAndNilStub(var aStub : pointer);
+      function  InstallCompWndProc(aWnd: THandle; aStub: Pointer): TFNWndProc;
+      procedure RestoreCompWndProc(var aOldWnd: THandle; aNewWnd: THandle; var aProc: TFNWndProc);
+      procedure CallOldCompWndProc(aProc: TFNWndProc; aWnd: THandle; var aMessage: TMessage);
+      procedure Widget0CompWndProc(var aMessage: TMessage);
+      procedure Widget1CompWndProc(var aMessage: TMessage);
+      procedure RenderCompWndProc(var aMessage: TMessage);
+      procedure D3DWindowCompWndProc(var aMessage: TMessage);
+      procedure RestoreOldCompWndProc;
+      procedure ReplaceWndProcs;
 
       function EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const createdEnvironment: ICoreWebView2Environment): HRESULT;
       function ControllerCompletedHandler_Invoke(errorCode: HRESULT; const createdController: ICoreWebView2Controller): HRESULT;
@@ -435,6 +467,10 @@ type
       property OnCompositionControllerCompleted                : TNotifyEvent                                          read FOnCompositionControllerCompleted                write FOnCompositionControllerCompleted;
       property OnCallDevToolsProtocolMethodCompleted           : TOnCallDevToolsProtocolMethodCompletedEvent           read FOnCallDevToolsProtocolMethodCompleted           write FOnCallDevToolsProtocolMethodCompleted;
       property OnAddScriptToExecuteOnDocumentCreatedCompleted  : TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent  read FOnAddScriptToExecuteOnDocumentCreatedCompleted  write FOnAddScriptToExecuteOnDocumentCreatedCompleted;
+      property OnWidget0CompMsg                                : TOnCompMsgEvent                                       read FOnWidget0CompMsg                                write FOnWidget0CompMsg;
+      property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
+      property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
+      property OnD3DWindowCompMsg                              : TOnCompMsgEvent                                       read FOnD3DWindowCompMsg                              write FOnD3DWindowCompMsg;
   end;
 
 implementation
@@ -452,6 +488,7 @@ begin
   FCoreWebView2Controller                          := nil;
   FCoreWebView2CompositionController               := nil;
   FCoreWebView2                                    := nil;
+  FDefaultURL                                      := URI_ABOUTBLANK;
   FAdditionalBrowserArguments                      := '';
   FLanguage                                        := '';
   FUseDefaultEnvironment                           := False;
@@ -460,6 +497,20 @@ begin
   FAllowSingleSignOnUsingOSPrimaryAccount          := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
+
+  FOldWidget0CompWndPrc                            := nil;
+  FOldWidget1CompWndPrc                            := nil;
+  FOldRenderCompWndPrc                             := nil;
+  FOldD3DWindowCompWndPrc                          := nil;
+  FWidget0CompStub                                 := nil;
+  FWidget1CompStub                                 := nil;
+  FRenderCompStub                                  := nil;
+  FD3DWindowCompStub                               := nil;
+  FWidget0CompHWND                                 := 0;
+  FWidget1CompHWND                                 := 0;
+  FRenderCompHWND                                  := 0;
+  FD3DWindowCompHWND                               := 0;
+
   FOnInitializationError                           := nil;
   FOnEnvironmentCompleted                          := nil;
   FOnControllerCompleted                           := nil;
@@ -508,11 +559,16 @@ begin
   FOnCompositionControllerCompleted                := nil;
   FOnCallDevToolsProtocolMethodCompleted           := nil;
   FOnAddScriptToExecuteOnDocumentCreatedCompleted  := nil;
+  FOnWidget0CompMsg                                := nil;
+  FOnWidget1CompMsg                                := nil;
+  FOnRenderCompMsg                                 := nil;
+  FOnD3DWindowCompMsg                              := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
 begin
   try
+    RestoreOldCompWndProc;
     DestroyPrintSettings;
     DestroySettings;
     DestroyEnvironment;
@@ -558,6 +614,233 @@ procedure TWVBrowserBase.DestroyPrintSettings;
 begin
   if assigned(FCoreWebView2PrintSettings) then
     FreeAndNil(FCoreWebView2PrintSettings);
+end;
+
+{$IFNDEF FPC}
+// Windows XP and newer (older Delphi version < XE don't have them and newer
+// require a call to InitCommonControl what isn't necessary.
+{type
+  SUBCLASSPROC = function(hWnd: HWND; uMsg: UINT; wParam: WPARAM; lParam: LPARAM;
+    uIdSubclass: UINT_PTR; dwRefData: DWORD_PTR): LRESULT; stdcall;
+  TSubClassProc = SUBCLASSPROC;
+
+function SetWindowSubclass(hWnd: HWND; pfnSubclass: SUBCLASSPROC; uIdSubclass: UINT_PTR; dwRefData: DWORD_PTR): BOOL; stdcall;
+  external comctl32 name 'SetWindowSubclass';
+//function GetWindowSubclass(hWnd: HWND; pfnSubclass: SUBCLASSPROC; uIdSubclass: UINT_PTR; var pdwRefData: DWORD_PTR): BOOL; stdcall;
+//  external comctl32 name 'GetWindowSubclass';
+function RemoveWindowSubclass(hWnd: HWND; pfnSubclass: SUBCLASSPROC; uIdSubclass: UINT_PTR): BOOL; stdcall;
+  external comctl32 name 'RemoveWindowSubclass';
+function DefSubclassProc(hWnd: HWND; uMsg: UINT; wParam: WPARAM; lParam: LPARAM): LRESULT; stdcall;
+  external comctl32 name 'DefSubclassProc';
+
+// We stick with the original implementation because the WndProc stub is a lot
+// faster than the WindowSubClass stub that uses the slow GetProp(hWnd). Which
+// is extremly slow in Windows 10 1809 and newer.
+}
+
+procedure TWVBrowserBase.CreateStub(const aMethod : TWndMethod; var aStub : Pointer);
+begin
+  if (aStub = nil) then aStub := MakeObjectInstance(aMethod);
+end;
+
+procedure TWVBrowserBase.FreeAndNilStub(var aStub : pointer);
+begin
+  if (aStub <> nil) then
+    begin
+      FreeObjectInstance(aStub);
+      aStub := nil;
+    end;
+end;
+
+function TWVBrowserBase.InstallCompWndProc(aWnd: THandle; aStub: Pointer): TFNWndProc;
+begin
+  Result := TFNWndProc(SetWindowLongPtr(aWnd, GWLP_WNDPROC, NativeInt(aStub)));
+end;
+
+procedure TWVBrowserBase.RestoreCompWndProc(var aOldWnd: THandle; aNewWnd: THandle; var aProc: TFNWndProc);
+begin
+  if (aOldWnd <> 0) and (aOldWnd <> aNewWnd) and (aProc <> nil) then
+    begin
+      SetWindowLongPtr(aOldWnd, GWLP_WNDPROC, NativeInt(aProc));
+      aProc := nil;
+      aOldWnd := 0;
+    end;
+end;
+
+procedure TWVBrowserBase.CallOldCompWndProc(aProc: TFNWndProc; aWnd: THandle; var aMessage: TMessage);
+begin
+  if (aProc <> nil) and (aWnd <> 0) then
+    aMessage.Result := CallWindowProc(aProc, aWnd, aMessage.Msg, aMessage.wParam, aMessage.lParam);
+end;
+
+{$ELSE}
+
+procedure TWVBrowserBase.CreateStub(const aMethod : TWndMethod; var aStub : Pointer);
+begin
+  if (aStub = nil) then
+    begin
+      GetMem(aStub, SizeOf(TWndMethod));
+      TWndMethod(aStub^) := aMethod;
+    end;
+end;
+
+procedure TWVBrowserBase.FreeAndNilStub(var aStub : pointer);
+begin
+  if (aStub <> nil) then
+    begin
+      FreeMem(aStub);
+      aStub := nil;
+    end;
+end;
+
+function CompSubClassProc(hWnd: HWND; uMsg: UINT; wParam: WPARAM; lParam: LPARAM;
+  uIdSubclass: UINT_PTR; dwRefData: DWORD_PTR): LRESULT; stdcall;
+var
+  m: TWndMethod;
+  Msg: TMessage;
+begin
+  Msg.msg := uMsg;
+  Msg.wParam := wparam;
+  Msg.lParam := lParam;
+  Msg.Result := 0;
+
+  m := TWndMethod(Pointer(dwRefData)^);
+  m(Msg);
+  Result := Msg.Result;
+end;
+
+function TWVBrowserBase.InstallCompWndProc(aWnd: THandle; aStub: Pointer): TFNWndProc;
+begin
+  Result := nil;
+  if (aWnd <> 0) and (aStub <> nil) then
+    begin
+      SetWindowSubclass(aWnd, @CompSubClassProc, 1, NativeInt(aStub));
+      Result := TFNWndProc(1); // IdSubClass
+    end;
+end;
+
+procedure TWVBrowserBase.RestoreCompWndProc(var aOldWnd: THandle; aNewWnd: THandle; var aProc: TFNWndProc);
+begin
+  if (aOldWnd <> 0) and (aOldWnd <> aNewWnd) and (aProc <> nil) then
+    begin
+      RemoveWindowSubclass(aOldWnd, @CompSubClassProc, 1);
+      aProc := nil;
+      aOldWnd := 0;
+    end;
+end;
+
+procedure TWVBrowserBase.CallOldCompWndProc(aProc: TFNWndProc; aWnd: THandle; var aMessage: TMessage);
+begin
+  if (aProc <> nil) and (aWnd <> 0) then
+    aMessage.Result := DefSubclassProc(aWnd, aMessage.Msg, aMessage.wParam, aMessage.lParam);
+end;
+{$ENDIF}
+
+procedure TWVBrowserBase.Widget0CompWndProc(var aMessage: TMessage);
+var
+  TempHandled : boolean;
+begin
+  try
+    TempHandled := False;
+
+    try
+      if assigned(FOnWidget0CompMsg) then
+        FOnWidget0CompMsg(self, aMessage, TempHandled);
+
+      if not(TempHandled) then
+        CallOldCompWndProc(FOldWidget0CompWndPrc, FWidget0CompHWND, aMessage);
+    finally
+      if aMessage.Msg = WM_DESTROY then
+        RestoreCompWndProc(FWidget0CompHWND, 0, FOldWidget0CompWndPrc);
+    end;
+  except
+    on e : exception do
+      if CustomExceptionHandler('TWVBrowserBase.Widget0CompWndProc', e) then raise;
+  end;
+end;
+
+procedure TWVBrowserBase.Widget1CompWndProc(var aMessage: TMessage);
+var
+  TempHandled : boolean;
+begin
+  try
+    TempHandled := False;
+
+    try
+      if assigned(FOnWidget1CompMsg) then
+        FOnWidget1CompMsg(self, aMessage, TempHandled);
+
+      if not(TempHandled) then
+        CallOldCompWndProc(FOldWidget1CompWndPrc, FWidget1CompHWND, aMessage);
+    finally
+      if aMessage.Msg = WM_DESTROY then
+        RestoreCompWndProc(FWidget1CompHWND, 0, FOldWidget1CompWndPrc);
+    end;
+  except
+    on e : exception do
+      if CustomExceptionHandler('TWVBrowserBase.Widget1CompWndProc', e) then raise;
+  end;
+end;
+
+procedure TWVBrowserBase.RenderCompWndProc(var aMessage: TMessage);
+var
+  TempHandled : boolean;
+begin
+  try
+    TempHandled := False;
+
+    try
+      if assigned(FOnRenderCompMsg) then
+        FOnRenderCompMsg(self, aMessage, TempHandled);
+
+      if not(TempHandled) then
+        CallOldCompWndProc(FOldRenderCompWndPrc, FRenderCompHWND, aMessage);
+    finally
+      if aMessage.Msg = WM_DESTROY then
+        RestoreCompWndProc(FRenderCompHWND, 0, FOldRenderCompWndPrc);
+    end;
+  except
+    on e : exception do
+      if CustomExceptionHandler('TWVBrowserBase.RenderCompWndProc', e) then raise;
+  end;
+end;
+
+procedure TWVBrowserBase.D3DWindowCompWndProc(var aMessage: TMessage);
+var
+  TempHandled : boolean;
+begin
+  try
+    TempHandled := False;
+
+    try
+      if assigned(FOnD3DWindowCompMsg) then
+        FOnD3DWindowCompMsg(self, aMessage, TempHandled);
+
+      if not(TempHandled) then
+        CallOldCompWndProc(FOldD3DWindowCompWndPrc, FD3DWindowCompHWND, aMessage);
+    finally
+      if aMessage.Msg = WM_DESTROY then
+        RestoreCompWndProc(FD3DWindowCompHWND, 0, FOldD3DWindowCompWndPrc);
+    end;
+  except
+    on e : exception do
+      if CustomExceptionHandler('TWVBrowserBase.D3DWindowCompWndProc', e) then raise;
+  end;
+end;
+
+procedure TWVBrowserBase.RestoreOldCompWndProc;
+begin
+  RestoreCompWndProc(FWidget0CompHWND, 0, FOldWidget0CompWndPrc);
+  FreeAndNilStub(FWidget0CompStub);
+
+  RestoreCompWndProc(FWidget1CompHWND, 0, FOldWidget1CompWndPrc);
+  FreeAndNilStub(FWidget1CompStub);
+
+  RestoreCompWndProc(FRenderCompHWND, 0, FOldRenderCompWndPrc);
+  FreeAndNilStub(FRenderCompStub);
+
+  RestoreCompWndProc(FD3DWindowCompHWND, 0, FOldD3DWindowCompWndPrc);
+  FreeAndNilStub(FD3DWindowCompStub);
 end;
 
 function TWVBrowserBase.AddWebResourceRequestedFilter(const aURI: wvstring; aResourceContext: TWVWebResourceContext) : boolean;
@@ -678,9 +961,88 @@ begin
   end;
 end;
 
+procedure TWVBrowserBase.ReplaceWndProcs;
+var
+  OldWidget0CompHWND, OldWidget1CompHWND, OldRenderCompHWND, OldD3DWindowCompHWND: THandle;
+  NewWidget0CompHWND, NewWidget1CompHWND, NewRenderCompHWND, NewD3DWindowCompHWND: THandle;
+begin
+  if (FWindowParentHandle <> 0) then
+    begin
+      NewWidget0CompHWND := FindWindowEx(FWindowParentHandle, 0, 'Chrome_WidgetWin_0', '');
+
+      if (FWidget0CompHWND <> NewWidget0CompHWND) then
+        begin
+          OldWidget0CompHWND := FWidget0CompHWND;
+          FWidget0CompHWND   := NewWidget0CompHWND;
+          RestoreCompWndProc(OldWidget0CompHWND, FWidget0CompHWND, FOldWidget0CompWndPrc);
+
+          if assigned(FOnWidget0CompMsg) and (FWidget0CompHWND <> 0) and (FOldWidget0CompWndPrc = nil) then
+            begin
+              CreateStub({$IFDEF FPC}@{$ENDIF}Widget0CompWndProc, FWidget0CompStub);
+              FOldWidget0CompWndPrc := InstallCompWndProc(FWidget0CompHWND, FWidget0CompStub);
+            end;
+        end;
+    end;
+
+
+  if (FWidget0CompHWND <> 0) then
+    begin
+      NewWidget1CompHWND := FindWindowEx(FWidget0CompHWND, 0, 'Chrome_WidgetWin_1', nil);
+
+      if (FWidget1CompHWND <> NewWidget1CompHWND) then
+        begin
+          OldWidget1CompHWND := FWidget1CompHWND;
+          FWidget1CompHWND   := NewWidget1CompHWND;
+          RestoreCompWndProc(OldWidget1CompHWND, FWidget1CompHWND, FOldWidget1CompWndPrc);
+
+          if assigned(FOnWidget1CompMsg) and (FWidget1CompHWND <> 0) and (FOldWidget1CompWndPrc = nil) then
+            begin
+              CreateStub({$IFDEF FPC}@{$ENDIF}Widget1CompWndProc, FWidget1CompStub);
+              FOldWidget1CompWndPrc := InstallCompWndProc(FWidget1CompHWND, FWidget1CompStub);
+            end;
+        end;
+    end;
+
+
+  if (FWidget1CompHWND <> 0) then
+    begin
+      NewRenderCompHWND := FindWindowEx(FWidget1CompHWND, 0, 'Chrome_RenderWidgetHostHWND', 'Chrome Legacy Window');
+
+      if (FRenderCompHWND <> NewRenderCompHWND) then
+        begin
+          OldRenderCompHWND := FRenderCompHWND;
+          FRenderCompHWND   := NewRenderCompHWND;
+          RestoreCompWndProc(OldRenderCompHWND, FRenderCompHWND, FOldRenderCompWndPrc);
+
+          if assigned(FOnRenderCompMsg) and (FRenderCompHWND <> 0) and (FOldRenderCompWndPrc = nil) then
+            begin
+              CreateStub({$IFDEF FPC}@{$ENDIF}RenderCompWndProc, FRenderCompStub);
+              FOldRenderCompWndPrc := InstallCompWndProc(FRenderCompHWND, FRenderCompStub);
+            end;
+        end;
+
+
+      NewD3DWindowCompHWND := FindWindowEx(FWidget1CompHWND, 0, 'Intermediate D3D Window', nil);
+
+      if (FD3DWindowCompHWND <> NewD3DWindowCompHWND) then
+        begin
+          OldD3DWindowCompHWND := FD3DWindowCompHWND;
+          FD3DWindowCompHWND   := NewD3DWindowCompHWND;
+          RestoreCompWndProc(OldD3DWindowCompHWND, FD3DWindowCompHWND, FOldD3DWindowCompWndPrc);
+
+          if assigned(FOnD3DWindowCompMsg) and (FD3DWindowCompHWND <> 0) and (FOldD3DWindowCompWndPrc = nil) then
+            begin
+              CreateStub({$IFDEF FPC}@{$ENDIF}D3DWindowCompWndProc, FD3DWindowCompStub);
+              FOldD3DWindowCompWndPrc := InstallCompWndProc(FD3DWindowCompHWND, FD3DWindowCompStub);
+            end;
+        end;
+    end;
+end;
+
 function TWVBrowserBase.NavigationStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationStartingEventArgs): HRESULT;
 begin
   Result := S_OK;
+  ReplaceWndProcs;
   doOnNavigationStarting(sender, args);
 end;
 

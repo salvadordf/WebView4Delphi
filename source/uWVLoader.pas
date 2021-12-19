@@ -2,6 +2,8 @@ unit uWVLoader;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -70,6 +72,7 @@ type
       function  GetDefaultUserDataPath : string;
       function  GetEnvironment : ICoreWebView2Environment;
       function  GetCustomCommandLineSwitches : wvstring;
+      function  GetInstalledRuntimeVersion : wvstring;
 
       function  CreateEnvironment : boolean;
       procedure DestroyEnvironment;
@@ -86,6 +89,7 @@ type
       function  CheckDLLVersion(const aDLLFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
       function  GetDLLHeaderMachine(const aDLLFile : string; var aMachine : integer) : boolean;
       function  Is32BitProcess : boolean;
+      function  CheckInstalledRuntimeRegEntry(aLocalMachine : boolean; const aPath : string; var aVersion : wvstring) : boolean;
       procedure ShowErrorMessageDlg(const aError : string);
       function  SearchInstalledProgram(const aDisplayName, aPublisher : string) : boolean;
       function  SearchInstalledProgramInPath(const aRegPath, aDisplayName, aPublisher : string; aLocalMachine : boolean) : boolean;
@@ -126,6 +130,7 @@ type
       property CustomCommandLineSwitches              : wvstring                           read GetCustomCommandLineSwitches;
       property DeviceScaleFactor                      : single                             read FDeviceScaleFactor;
       property ReRaiseExceptions                      : boolean                            read FReRaiseExceptions                       write FReRaiseExceptions;
+      property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
 
       // Properties used to create the environment
       property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;
@@ -501,7 +506,8 @@ begin
 
   if (length(FBrowserExecPath) = 0) then
     begin
-      if SearchInstalledProgram('WebView2 Runtime', 'Microsoft Corporation') then
+      if (length(InstalledRuntimeVersion) > 0) or
+         SearchInstalledProgram('WebView2 Runtime', 'Microsoft Corporation') then
         Result := True
        else
         begin
@@ -527,23 +533,11 @@ end;
 
 function TWVLoader.Is32BitProcess : boolean;
 begin
-{$IF DEFINED(CPUX32) OR
-     DEFINED(CPU386) OR
-     DEFINED(CPUi386) OR
-     DEFINED(CPUPOWERPC32) OR
-     DEFINED(CPUSPARC32) OR
-     DEFINED(CPU32BITS) OR
-     DEFINED(CPUARM32) OR
-     DEFINED(WIN32) OR
-     DEFINED(IOS32) OR
-     DEFINED(MACOS32) OR
-     DEFINED(LINUX32) OR
-     DEFINED(POSIX32) OR
-     DEFINED(ANDROID32)}
+{$IFDEF TARGET_32BITS}
   Result := True;
 {$ELSE}
   Result := False;
-{$IFEND}
+{$ENDIF}
 end;
 
 procedure TWVLoader.ShowErrorMessageDlg(const aError : string);
@@ -895,6 +889,65 @@ begin
     Result := Result + FAdditionalBrowserArguments
    else
     Result := trim(Result);
+end;
+
+function TWVLoader.CheckInstalledRuntimeRegEntry(aLocalMachine : boolean; const aPath : string; var aVersion : wvstring) : boolean;
+const
+  RUNTIME_REG_VERSION = 'pv';
+var
+  TempReg : TRegistry;
+begin
+  Result   := false;
+  TempReg  := nil;
+  aVersion := '';
+
+  try
+    try
+      TempReg := TRegistry.Create;
+
+      if aLocalMachine then
+        TempReg.RootKey := HKEY_LOCAL_MACHINE
+       else
+        TempReg.RootKey := HKEY_CURRENT_USER;
+
+      if TempReg.KeyExists(aPath)       and
+         TempReg.OpenKeyReadOnly(aPath) then
+        begin
+          if TempReg.ValueExists(RUNTIME_REG_VERSION) then
+            begin
+              {$IFDEF FPC}
+              aVersion := UTF8Decode(TempReg.ReadString(RUNTIME_REG_VERSION));
+              {$ELSE}
+              aVersion := TempReg.ReadString(RUNTIME_REG_VERSION);
+              {$ENDIF}
+              Result   := length(aVersion) > 0;
+            end;
+
+          TempReg.CloseKey;
+        end;
+    except
+      on e : exception do
+        if CustomExceptionHandler('TWVLoader.CheckInstalledRuntimeRegEntry', e) then raise;
+    end;
+  finally
+    if (TempReg <> nil) then FreeAndNil(TempReg);
+  end;
+end;
+
+function TWVLoader.GetInstalledRuntimeVersion : wvstring;
+const
+  RUNTIME_REG_PATH_32BIT = 'SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
+  RUNTIME_REG_PATH_64BIT = 'SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
+var
+  TempResult : wvstring;
+begin
+  Result := '';
+
+  if CheckInstalledRuntimeRegEntry(False, RUNTIME_REG_PATH_32BIT, TempResult) or
+     CheckInstalledRuntimeRegEntry(False, RUNTIME_REG_PATH_64BIT, TempResult) or
+     CheckInstalledRuntimeRegEntry(True,  RUNTIME_REG_PATH_32BIT, TempResult) or
+     CheckInstalledRuntimeRegEntry(True,  RUNTIME_REG_PATH_64BIT, TempResult) then
+    Result := TempResult;
 end;
 
 function TWVLoader.CreateEnvironment : boolean;

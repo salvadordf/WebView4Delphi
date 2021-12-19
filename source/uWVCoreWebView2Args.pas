@@ -32,7 +32,7 @@ type
 
       property Initialized    : boolean                                      read GetInitialized;
       property BaseIntf       : ICoreWebView2AcceleratorKeyPressedEventArgs  read FBaseIntf;
-      property KeyEventKind   : TWVKeyEventKind                            read GetKeyEventKind;
+      property KeyEventKind   : TWVKeyEventKind                              read GetKeyEventKind;
       property VirtualKey     : LongWord                                     read GetVirtualKey;
       property KeyEventLParam : integer                                      read GetKeyEventLParam;
       property RepeatCount    : LongWord                                     read GetRepeatCount;

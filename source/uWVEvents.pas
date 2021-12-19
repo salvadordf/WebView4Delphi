@@ -6,9 +6,9 @@ interface
 
 uses
   {$IFDEF FPC}
-  ActiveX,
+  ActiveX, Messages,
   {$ELSE}
-  Winapi.ActiveX,
+  Winapi.ActiveX, Winapi.Messages,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 
@@ -52,6 +52,9 @@ type
   TOnFrameNameChangedEvent                                 = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
   TOnFrameDestroyedEvent                                   = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
   TOnInitializationErrorEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring) of object;
+
+  // Custom events
+  TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;
 
 implementation
 

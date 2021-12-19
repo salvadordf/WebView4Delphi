@@ -52,6 +52,8 @@ const
 
   ZoomStepValues : array[ZOOM_STEP_MIN..ZOOM_STEP_MAX] of integer = (25, 33, 50, 67, 75, 90, 100, 110, 125, 150, 175, 200, 250, 300, 400, 500);
 
+  URI_ABOUTBLANK = 'about:blank';
+
 implementation
 
 end.
