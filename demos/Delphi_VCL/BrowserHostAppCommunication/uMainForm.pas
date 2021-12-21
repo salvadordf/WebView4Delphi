@@ -88,6 +88,7 @@ begin
     '<p><input value="Hello from the web browser!" id="msgtext"></br><button onclick="sendMessageToHostApp()">Send a message to the host application >>></button></p></br></br></br>' +
     '<p>Messages from the host application :</br><textarea id="messagelog" rows="10" cols="80"></textarea></p></body></html>';
 
+  WVBrowser1.DefaultURL := ''; //clear the default URL so we don't navigate to it instead of the TempContent
   WVBrowser1.NavigateToString(TempContent);
 end;
 
@@ -104,8 +105,11 @@ var
   TempArgs : TCoreWebView2WebMessageReceivedEventArgs;
 begin
   TempArgs := TCoreWebView2WebMessageReceivedEventArgs.Create(aArgs);
-  MessagesMem.Lines.Add('Message received : ' + TempArgs.WebMessageAsString);
-  TempArgs.Free;
+  try
+    MessagesMem.Lines.Add('Message received : ' + TempArgs.WebMessageAsString);
+  finally
+    TempArgs.Free;
+  end;
 end;
 
 procedure TMainForm.Timer1Timer(Sender: TObject);
