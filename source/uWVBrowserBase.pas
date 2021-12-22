@@ -488,7 +488,7 @@ begin
   FCoreWebView2Controller                          := nil;
   FCoreWebView2CompositionController               := nil;
   FCoreWebView2                                    := nil;
-  FDefaultURL                                      := URI_ABOUTBLANK;
+  FDefaultURL                                      := '';
   FAdditionalBrowserArguments                      := '';
   FLanguage                                        := '';
   FUseDefaultEnvironment                           := False;
