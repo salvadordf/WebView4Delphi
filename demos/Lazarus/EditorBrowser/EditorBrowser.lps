@@ -6,7 +6,7 @@
     <BuildModes Active="Default"/>
     <Units Count="14">
       <Unit0>
-        <Filename Value="PopupBrowser.lpr"/>
+        <Filename Value="EditorBrowser.lpr"/>
         <IsPartOfProject Value="True"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
@@ -20,29 +20,25 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="35"/>
-        <CursorPos X="63" Y="59"/>
+        <TopLine Value="139"/>
+        <CursorPos X="50" Y="163"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
-        <Filename Value="uChildForm.pas"/>
+        <Filename Value="..\..\..\source\uWVBrowser.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="ChildForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="24"/>
-        <CursorPos X="45" Y="38"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
-        <Filename Value="..\..\..\source\uWVCoreWebView2Deferral.pas"/>
+        <Filename Value="..\..\..\source\uWVConstants.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -52,7 +48,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVBrowser.pas"/>
+        <Filename Value="..\..\..\source\uWVCoreWebView2Args.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -62,7 +58,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVConstants.pas"/>
+        <Filename Value="..\..\..\source\uWVInterfaces.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -72,37 +68,30 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVCoreWebView2Args.pas"/>
+        <Filename Value="..\..\..\source\uWVLibFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <CursorPos X="11" Y="9"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVInterfaces.pas"/>
+        <Filename Value="..\..\..\source\uWVLoader.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <CursorPos X="70" Y="10"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVLibFunctions.pas"/>
+        <Filename Value="..\..\..\source\uWVTypeLibrary.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVLoader.pas"/>
+        <Filename Value="..\..\..\source\uWVTypes.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -112,17 +101,15 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
       <Unit10>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVTypeLibrary.pas"/>
+        <Filename Value="..\..\..\source\uWVWinControl.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <CursorPos X="10" Y="9"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
       <Unit11>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVTypes.pas"/>
+        <Filename Value="..\..\..\source\uWVWindowParent.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -132,59 +119,27 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
       <Unit12>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVWinControl.pas"/>
+        <Filename Value="uImageSelection.pas"/>
         <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
         <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit12>
       <Unit13>
-        <Filename Value="..\MiniBrowser\ConverterBackup\uWVWindowParent.pas"/>
-        <IsPartOfProject Value="True"/>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32wscontrols.pp"/>
+        <UnitName Value="Win32WSControls"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <TopLine Value="193"/>
+        <CursorPos Y="220"/>
+        <UsageCount Value="10"/>
       </Unit13>
     </Units>
-    <JumpHistory Count="8" HistoryIndex="7">
+    <JumpHistory Count="1">
       <Position1>
         <Filename Value="uMainForm.pas"/>
-        <Caret Line="23" Column="24"/>
+        <Caret Line="9" Column="48"/>
       </Position1>
-      <Position2>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="127" Column="106" TopLine="97"/>
-      </Position2>
-      <Position3>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="48" TopLine="32"/>
-      </Position3>
-      <Position4>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="15" Column="64"/>
-      </Position4>
-      <Position5>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="10" Column="15"/>
-      </Position5>
-      <Position6>
-        <Filename Value="uChildForm.pas"/>
-        <Caret Line="11" Column="3"/>
-      </Position6>
-      <Position7>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="55" Column="50" TopLine="40"/>
-      </Position7>
-      <Position8>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="32" TopLine="4"/>
-      </Position8>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -222,6 +222,8 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
     OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
     OnDownloadStateChanged = WVBrowser1DownloadStateChanged
+    OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
+    OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     Left = 48
     Top = 64
   end
@@ -243,6 +245,14 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object LoadaPDFfile1: TMenuItem
       Caption = 'Load a PDF file...'
       OnClick = LoadaPDFfile1Click
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Save HTML as...'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Save text as...'
+      OnClick = MenuItem2Click
     end
     object N2: TMenuItem
       Caption = '-'
@@ -304,6 +314,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object Ignorecertificateerrors1: TMenuItem
       Caption = 'Ignore certificate errors'
       OnClick = Ignorecertificateerrors1Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Available browser version...'
+      OnClick = MenuItem3Click
     end
   end
   object OpenDialog1: TOpenDialog

@@ -48,6 +48,8 @@ type
     Offline1: TMenuItem;
     Ignorecertificateerrors1: TMenuItem;
     Availablebrowserversion1: TMenuItem;
+    SaveHTMLas1: TMenuItem;
+    Savetextas1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -77,6 +79,9 @@ type
     procedure Clearcache1Click(Sender: TObject);
     procedure Offline1Click(Sender: TObject);
     procedure Ignorecertificateerrors1Click(Sender: TObject);
+    procedure Availablebrowserversion1Click(Sender: TObject);
+    procedure SaveHTMLas1Click(Sender: TObject);
+    procedure Savetextas1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -90,9 +95,10 @@ type
     procedure WVBrowser1CapturePreviewCompleted(Sender: TObject; aErrorCode: HRESULT);
     procedure WVBrowser1WebResourceRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceRequestedEventArgs);
     procedure WVBrowser1WebResourceResponseReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceResponseReceivedEventArgs);
-    procedure WVBrowser1InitializationError(Sender: TObject;
-      aErrorCode: HRESULT; const aErrorMessage: wvstring);
-    procedure Availablebrowserversion1Click(Sender: TObject);
+    procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1Widget0CompMsg(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean);
+    procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: Boolean; const aHTML: wvstring);
+    procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -443,6 +449,48 @@ begin
     showmessage('There was a problem generating the PDF file.');
 end;
 
+procedure TMiniBrowserFrm.WVBrowser1RetrieveHTMLCompleted(Sender: TObject;
+  aResult: Boolean; const aHTML: wvstring);
+var
+  TempHTML : TStringList;
+begin
+  TempHTML := nil;
+
+  SaveDialog1.Filter     := 'HTML files (*.html)|*.html';
+  SaveDialog1.DefaultExt := 'html';
+
+  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+    try
+      TempHTML      := TStringList.Create;
+      TempHTML.Text := aHTML;
+      TempHTML.SaveToFile(SaveDialog1.FileName);
+    finally
+      if assigned(TempHTML) then
+        FreeAndNil(TempHTML);
+    end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
+  aResult: Boolean; const aText: wvstring);
+var
+  TempText : TStringList;
+begin
+  TempText := nil;
+
+  SaveDialog1.Filter     := 'Text files (*.txt)|*.txt';
+  SaveDialog1.DefaultExt := 'txt';
+
+  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+    try
+      TempText      := TStringList.Create;
+      TempText.Text := aText;
+      TempText.SaveToFile(SaveDialog1.FileName);
+    finally
+      if assigned(TempText) then
+        FreeAndNil(TempText);
+    end;
+end;
+
 procedure TMiniBrowserFrm.WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
 begin
   URLCbx.Text := WVBrowser1.Source;
@@ -501,6 +549,15 @@ begin
     end;
 end;
 
+procedure TMiniBrowserFrm.WVBrowser1Widget0CompMsg(Sender: TObject;
+  var aMessage: TMessage; var aHandled: Boolean);
+begin
+  // aMessage.Msg = WM_PARENTNOTIFY        wParam = WM_LBUTTONDOWN
+  // https://docs.microsoft.com/en-us/windows/win32/inputmsg/wm-parentnotify
+  // https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-lbuttondown
+
+end;
+
 procedure TMiniBrowserFrm.ReloadBtnClick(Sender: TObject);
 begin
   WVBrowser1.Refresh;
@@ -509,6 +566,16 @@ end;
 procedure TMiniBrowserFrm.REsetzoom1Click(Sender: TObject);
 begin
   WVBrowser1.ResetZoom;
+end;
+
+procedure TMiniBrowserFrm.SaveHTMLas1Click(Sender: TObject);
+begin
+  WVBrowser1.RetrieveHTML;
+end;
+
+procedure TMiniBrowserFrm.Savetextas1Click(Sender: TObject);
+begin
+  WVBrowser1.RetrieveText;
 end;
 
 procedure TMiniBrowserFrm.ShowHTTPheaders1Click(Sender: TObject);

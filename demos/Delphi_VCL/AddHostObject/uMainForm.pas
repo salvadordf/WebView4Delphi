@@ -25,9 +25,7 @@ type
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
-    procedure WVBrowser1NavigationCompleted(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2NavigationCompletedEventArgs);
+    procedure WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
 
   protected
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;

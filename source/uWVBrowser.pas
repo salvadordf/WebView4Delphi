@@ -88,6 +88,10 @@ type
       property OnWidget1CompMsg;
       property OnRenderCompMsg;
       property OnD3DWindowCompMsg;
+      property OnPrintCompleted;
+      property OnRetrieveHTMLCompleted;
+      property OnRetrieveTextCompleted;
+
   end;
 
 {$IFDEF FPC}

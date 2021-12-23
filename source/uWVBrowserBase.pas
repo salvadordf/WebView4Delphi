@@ -8,9 +8,11 @@ interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages,
+  Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
+  CommCtrl,
   {$ELSE}
-  Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils, Winapi.ActiveX, Winapi.Messages,
+  Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils,
+  Winapi.ActiveX, Winapi.Messages, {$IFDEF DELPHI26_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
@@ -106,6 +108,9 @@ type
       FOnWidget1CompMsg                               : TOnCompMsgEvent;
       FOnRenderCompMsg                                : TOnCompMsgEvent;
       FOnD3DWindowCompMsg                             : TOnCompMsgEvent;
+      FOnPrintCompleted                               : TOnPrintCompletedEvent;
+      FOnRetrieveHTMLCompleted                        : TOnRetrieveHTMLCompletedEvent;
+      FOnRetrieveTextCompleted                        : TOnRetrieveTextCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -290,6 +295,9 @@ type
       procedure doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer); virtual;
       procedure doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID : integer); virtual;
       procedure doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aID : wvstring); virtual;
+      procedure doOnPrintCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
+      procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
+      procedure doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -326,6 +334,9 @@ type
 
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
       function    ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
+
+      function    RetrieveHTML : boolean;
+      function    RetrieveText : boolean;
 
       function    Print : boolean;
       function    PrintToPdf(const aResultFilePath : wvstring) : boolean;
@@ -471,6 +482,9 @@ type
       property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
       property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
       property OnD3DWindowCompMsg                              : TOnCompMsgEvent                                       read FOnD3DWindowCompMsg                              write FOnD3DWindowCompMsg;
+      property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
+      property OnRetrieveHTMLCompleted                         : TOnRetrieveHTMLCompletedEvent                         read FOnRetrieveHTMLCompleted                         write FOnRetrieveHTMLCompleted;
+      property OnRetrieveTextCompleted                         : TOnRetrieveTextCompletedEvent                         read FOnRetrieveTextCompleted                         write FOnRetrieveTextCompleted;
   end;
 
 implementation
@@ -563,6 +577,9 @@ begin
   FOnWidget1CompMsg                                := nil;
   FOnRenderCompMsg                                 := nil;
   FOnD3DWindowCompMsg                              := nil;
+  FOnPrintCompleted                                := nil;
+  FOnRetrieveHTMLCompleted                         := nil;
+  FOnRetrieveTextCompleted                         := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -978,7 +995,7 @@ begin
 
           if assigned(FOnWidget0CompMsg) and (FWidget0CompHWND <> 0) and (FOldWidget0CompWndPrc = nil) then
             begin
-              CreateStub({$IFDEF FPC}@{$ENDIF}Widget0CompWndProc, FWidget0CompStub);
+              CreateStub(Widget0CompWndProc, FWidget0CompStub);
               FOldWidget0CompWndPrc := InstallCompWndProc(FWidget0CompHWND, FWidget0CompStub);
             end;
         end;
@@ -997,7 +1014,7 @@ begin
 
           if assigned(FOnWidget1CompMsg) and (FWidget1CompHWND <> 0) and (FOldWidget1CompWndPrc = nil) then
             begin
-              CreateStub({$IFDEF FPC}@{$ENDIF}Widget1CompWndProc, FWidget1CompStub);
+              CreateStub(Widget1CompWndProc, FWidget1CompStub);
               FOldWidget1CompWndPrc := InstallCompWndProc(FWidget1CompHWND, FWidget1CompStub);
             end;
         end;
@@ -1016,7 +1033,7 @@ begin
 
           if assigned(FOnRenderCompMsg) and (FRenderCompHWND <> 0) and (FOldRenderCompWndPrc = nil) then
             begin
-              CreateStub({$IFDEF FPC}@{$ENDIF}RenderCompWndProc, FRenderCompStub);
+              CreateStub(RenderCompWndProc, FRenderCompStub);
               FOldRenderCompWndPrc := InstallCompWndProc(FRenderCompHWND, FRenderCompStub);
             end;
         end;
@@ -1032,7 +1049,7 @@ begin
 
           if assigned(FOnD3DWindowCompMsg) and (FD3DWindowCompHWND <> 0) and (FOldD3DWindowCompWndPrc = nil) then
             begin
-              CreateStub({$IFDEF FPC}@{$ENDIF}D3DWindowCompWndProc, FD3DWindowCompStub);
+              CreateStub(D3DWindowCompWndProc, FD3DWindowCompStub);
               FOldD3DWindowCompWndPrc := InstallCompWndProc(FD3DWindowCompHWND, FD3DWindowCompStub);
             end;
         end;
@@ -1306,7 +1323,20 @@ end;
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
-  doOnExecuteScriptCompleted(errorCode, wvstring(resultObjectAsJson), aExecutionID);
+
+  case aExecutionID of
+    WEBVIEW4DELPHI_JS_PRINTJOB_ID :
+      doOnPrintCompleted(errorCode, wvstring(resultObjectAsJson));
+
+    WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID :
+      doOnRetrieveHTMLCompleted(errorCode, wvstring(resultObjectAsJson));
+
+    WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID :
+      doOnRetrieveTextCompleted(errorCode, wvstring(resultObjectAsJson));
+
+    else
+      doOnExecuteScriptCompleted(errorCode, wvstring(resultObjectAsJson), aExecutionID);
+  end;
 end;
 
 function TWVBrowserBase.DevToolsProtocolEventReceivedEventHandler_Invoke(const sender     : ICoreWebView2;
@@ -1867,9 +1897,20 @@ begin
             FCoreWebView2.OpenTaskManagerWindow;
 end;
 
+function TWVBrowserBase.RetrieveHTML : boolean;
+begin
+  // JS code created by Alessandro Mancini
+  Result := ExecuteScript('encodeURI(document.documentElement.outerHTML);', WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID);
+end;
+
+function TWVBrowserBase.RetrieveText : boolean;
+begin
+  Result := ExecuteScript('encodeURI(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
+end;
+
 function TWVBrowserBase.Print : boolean;
 begin
-  Result := ExecuteScript('window.print();');
+  Result := ExecuteScript('window.print();', WEBVIEW4DELPHI_JS_PRINTJOB_ID);
 end;
 
 function TWVBrowserBase.PrintToPdf(const aResultFilePath : wvstring) : boolean;
@@ -2247,6 +2288,86 @@ procedure TWVBrowserBase.doOnExecuteScriptCompleted(aErrorCode: HRESULT; const a
 begin
   if assigned(FOnExecuteScriptCompleted) then
     FOnExecuteScriptCompleted(self, aErrorCode, aResultObjectAsJson, aExecutionID);
+end;
+
+procedure TWVBrowserBase.doOnPrintCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
+begin
+  if assigned(FOnPrintCompleted) then
+    FOnPrintCompleted(self, aErrorCode, aResultObjectAsJson);
+end;
+
+procedure TWVBrowserBase.doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
+var
+  TempHTML   : wvstring;
+  TempResult : boolean;
+  TempLen    : integer;
+begin
+  if assigned(FOnRetrieveHTMLCompleted) then
+    begin
+      TempHTML   := '';
+      TempResult := False;
+
+      if succeeded(aErrorCode) then
+        begin
+          {$IFDEF DELPHI26_UP}
+            TempHTML := TNetEncoding.URL.Decode(aResultObjectAsJson);
+          {$ELSE}
+            {$IFDEF FPC}
+            TempHTML := UTF8Decode(HTTPDecode(UTF8Encode(aResultObjectAsJson)));
+            {$ELSE}
+            TempHTML := HTMLDecode(aResultObjectAsJson);
+            {$ENDIF}
+          {$ENDIF}
+          TempLen := length(TempHTML);
+
+          if (TempLen > 0) then
+            begin
+              if (TempHTML[1] = '"') and (TempHTML[TempLen] = '"') then
+                TempHTML := copy(TempHTML, 2, TempLen - 2);
+
+              TempResult := True;
+            end;
+        end;
+
+      FOnRetrieveHTMLCompleted(self, TempResult, TempHTML);
+    end;
+end;
+
+procedure TWVBrowserBase.doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
+var
+  TempText   : wvstring;
+  TempResult : boolean;
+  TempLen    : integer;
+begin
+  if assigned(FOnRetrieveTextCompleted) then
+    begin
+      TempText   := '';
+      TempResult := False;
+
+      if succeeded(aErrorCode) then
+        begin
+          {$IFDEF DELPHI26_UP}
+            TempText := TNetEncoding.URL.Decode(aResultObjectAsJson);
+          {$ELSE}
+            {$IFDEF FPC}
+            TempText := UTF8Decode(HTTPDecode(UTF8Encode(aResultObjectAsJson)));
+            {$ELSE}
+            TempText := HTMLDecode(aResultObjectAsJson);
+            {$ENDIF}
+          {$ENDIF}
+          TempLen := length(TempText);
+
+          if (TempLen > 0) then
+            begin
+              if (TempText[1] = '"') and (TempText[TempLen] = '"') then
+                TempText := copy(TempText, 2, TempLen - 2);
+
+              TempResult := True;
+            end;
+        end;
+
+      FOnRetrieveTextCompleted(self, TempResult, TempText);
+    end;
 end;
 
 procedure TWVBrowserBase.doCapturePreviewCompleted(aErrorCode: HRESULT);

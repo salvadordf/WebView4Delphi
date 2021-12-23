@@ -65,7 +65,7 @@ begin
   FUseDefaultCerSelector := False;
 
   if GlobalWebView2Loader.InitializationError then
-    showmessage(GlobalWebView2Loader.ErrorMessage)
+    showmessage(UTF8Encode(GlobalWebView2Loader.ErrorMessage))
    else
     if GlobalWebView2Loader.Initialized then
       WVBrowser1.CreateBrowser(WVWindowParent1.Handle)

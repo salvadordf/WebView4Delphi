@@ -18,8 +18,10 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="21" Y="8"/>
+        <TopLine Value="46"/>
+        <CursorPos X="45" Y="59"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -31,9 +33,8 @@
         <ComponentName Value="BrowserFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="37"/>
+        <TopLine Value="135"/>
         <CursorPos X="74" Y="68"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>

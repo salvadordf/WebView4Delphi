@@ -195,10 +195,16 @@ object MiniBrowserFrm: TMiniBrowserFrm
     Height = 19
     Panels = <
       item
-        Width = 500
+        Width = 400
       end
       item
-        Width = 1000
+        Width = 100
+      end
+      item
+        Width = 100
+      end
+      item
+        Width = 400
       end>
   end
   object WVWindowParent1: TWVWindowParent
@@ -212,6 +218,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     Browser = WVBrowser1
   end
   object WVBrowser1: TWVBrowser
+    DefaultURL = 'about:blank'
     TargetCompatibleBrowserVersion = '95.0.1020.44'
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVBrowser1InitializationError
@@ -227,6 +234,9 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
     OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
     OnDownloadStateChanged = WVBrowser1DownloadStateChanged
+    OnWidget0CompMsg = WVBrowser1Widget0CompMsg
+    OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
+    OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     Left = 48
     Top = 64
   end
@@ -248,6 +258,14 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object LoadaPDFfile1: TMenuItem
       Caption = 'Load a PDF file...'
       OnClick = LoadaPDFfile1Click
+    end
+    object SaveHTMLas1: TMenuItem
+      Caption = 'Save HTML as...'
+      OnClick = SaveHTMLas1Click
+    end
+    object Savetextas1: TMenuItem
+      Caption = 'Save text as...'
+      OnClick = Savetextas1Click
     end
     object N2: TMenuItem
       Caption = '-'

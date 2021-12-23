@@ -15,6 +15,9 @@ type
   { TMiniBrowserFrm }
 
   TMiniBrowserFrm = class(TForm)
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
     NavControlPnl: TPanel;
     NavButtonPnl: TPanel;
     BackBtn: TButton;
@@ -79,13 +82,17 @@ type
     procedure ShowHTTPheaders1Click(Sender: TObject);
     procedure Clearcache1Click(Sender: TObject);
     procedure Offline1Click(Sender: TObject);
-    procedure Ignorecertificateerrors1Click(Sender: TObject);
+    procedure Ignorecertificateerrors1Click(Sender: TObject);  
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
-    procedure WVBrowser1InitializationError(Sender: TObject;
-      aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
+    procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
+    procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: boolean; const aText: wvstring);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
     procedure WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
@@ -205,10 +212,25 @@ begin
     FreeAndNil(FDownloadOperation);
 end;
 
+procedure TMiniBrowserFrm.MenuItem1Click(Sender: TObject);
+begin
+  WVBrowser1.RetrieveHTML;
+end;
+
+procedure TMiniBrowserFrm.MenuItem2Click(Sender: TObject);
+begin
+  WVBrowser1.RetrieveText;
+end;
+
+procedure TMiniBrowserFrm.MenuItem3Click(Sender: TObject);
+begin
+  showmessage(UTF8Encode(GlobalWebView2Loader.AvailableBrowserVersion));
+end;
+
 procedure TMiniBrowserFrm.FormShow(Sender: TObject);
 begin
   if GlobalWebView2Loader.InitializationError then
-    showmessage(GlobalWebView2Loader.ErrorMessage)
+    showmessage(UTF8Encode(GlobalWebView2Loader.ErrorMessage))
    else
     if GlobalWebView2Loader.Initialized then
       WVBrowser1.CreateBrowser(WVWindowParent1.Handle)
@@ -438,6 +460,48 @@ begin
     showmessage('The PDF file was generated successfully')
    else
     showmessage('There was a problem generating the PDF file.');
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1RetrieveHTMLCompleted(Sender: TObject;
+  aResult: boolean; const aHTML: wvstring);
+var
+  TempHTML : TStringList;
+begin
+  TempHTML := nil;
+
+  SaveDialog1.Filter     := 'HTML files (*.html)|*.html';
+  SaveDialog1.DefaultExt := 'html';
+
+  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+    try
+      TempHTML      := TStringList.Create;
+      TempHTML.Text := UTF8Encode(aHTML);
+      TempHTML.SaveToFile(SaveDialog1.FileName);
+    finally
+      if assigned(TempHTML) then
+        FreeAndNil(TempHTML);
+    end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
+  aResult: boolean; const aText: wvstring);
+var
+  TempText : TStringList;
+begin
+  TempText := nil;
+
+  SaveDialog1.Filter     := 'Text files (*.txt)|*.txt';
+  SaveDialog1.DefaultExt := 'txt';
+
+  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+    try
+      TempText      := TStringList.Create;
+      TempText.Text := UTF8Encode(aText);
+      TempText.SaveToFile(SaveDialog1.FileName);
+    finally
+      if assigned(TempText) then
+        FreeAndNil(TempText);
+    end;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
