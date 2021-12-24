@@ -31,7 +31,8 @@ package WebView4Delphi_runtime;
 requires
   rtl,
   vcl,
-  fmx;
+  fmx,
+  inet;
 
 contains
   uWVConstants in '..\source\uWVConstants.pas',

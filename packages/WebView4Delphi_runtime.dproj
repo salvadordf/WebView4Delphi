@@ -96,6 +96,7 @@
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="vcl.dcp"/>
         <DCCReference Include="fmx.dcp"/>
+        <DCCReference Include="inet.dcp"/>
         <DCCReference Include="..\source\uWVConstants.pas"/>
         <DCCReference Include="..\source\uWVLibFunctions.pas"/>
         <DCCReference Include="..\source\uWVLoader.pas"/>
