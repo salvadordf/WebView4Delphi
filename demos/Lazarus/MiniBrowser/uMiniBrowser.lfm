@@ -319,6 +319,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'Available browser version...'
       OnClick = MenuItem3Click
     end
+    object MenuItem4: TMenuItem
+      Caption = 'Change user agent string...'
+      OnClick = MenuItem4Click
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 48

@@ -50,6 +50,7 @@ type
     Availablebrowserversion1: TMenuItem;
     SaveHTMLas1: TMenuItem;
     Savetextas1: TMenuItem;
+    Changeuseragentstring1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -82,6 +83,7 @@ type
     procedure Availablebrowserversion1Click(Sender: TObject);
     procedure SaveHTMLas1Click(Sender: TObject);
     procedure Savetextas1Click(Sender: TObject);
+    procedure Changeuseragentstring1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -163,6 +165,22 @@ end;
 procedure TMiniBrowserFrm.Blockimages1Click(Sender: TObject);
 begin
   FBlockImages := not(FBlockImages);
+end;
+
+procedure TMiniBrowserFrm.Changeuseragentstring1Click(Sender: TObject);
+var
+  TempUA : string;
+begin
+  TempUA := inputbox('Change user agent string', 'New user agent :', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0');
+
+  // We use the "Emulation.setUserAgentOverride" DevTools method to change the user agent.
+  // https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setUserAgentOverride
+
+  // Use this page to check the user agent before and after the change :
+  // https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+
+  if (length(TempUA) > 0) then
+    WVBrowser1.CallDevToolsProtocolMethod('Emulation.setUserAgentOverride', '{"userAgent": "' + TempUA + '"}');
 end;
 
 procedure TMiniBrowserFrm.Clearcache1Click(Sender: TObject);

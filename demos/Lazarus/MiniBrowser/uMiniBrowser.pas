@@ -18,6 +18,7 @@ type
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     NavControlPnl: TPanel;
     NavButtonPnl: TPanel;
     BackBtn: TButton;
@@ -85,7 +86,8 @@ type
     procedure Ignorecertificateerrors1Click(Sender: TObject);  
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
-    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);   
+    procedure MenuItem4Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -210,6 +212,22 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.MenuItem4Click(Sender: TObject);
+var
+  TempUA : wvstring;
+begin
+  TempUA := UTF8Decode(inputbox('Change user agent string', 'New user agent :', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0'));
+
+  // We use the "Emulation.setUserAgentOverride" DevTools method to change the user agent.
+  // https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setUserAgentOverride
+
+  // Use this page to check the user agent before and after the change :
+  // https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+
+  if (length(TempUA) > 0) then
+    WVBrowser1.CallDevToolsProtocolMethod('Emulation.setUserAgentOverride', '{"userAgent": "' + TempUA + '"}');
 end;
 
 procedure TMiniBrowserFrm.MenuItem1Click(Sender: TObject);

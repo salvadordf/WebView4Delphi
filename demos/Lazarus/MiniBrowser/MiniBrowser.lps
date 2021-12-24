@@ -20,8 +20,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="461"/>
-        <CursorPos X="41" Y="499"/>
+        <TopLine Value="74"/>
+        <CursorPos X="50" Y="90"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -214,8 +214,8 @@
       <Unit21>
         <Filename Value="..\..\..\source\uWVBrowserBase.pas"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="2302"/>
-        <CursorPos X="52" Y="2322"/>
+        <TopLine Value="305"/>
+        <CursorPos X="19" Y="322"/>
         <UsageCount Value="10"/>
         <Bookmarks Count="2">
           <Item0 X="79" Y="11" ID="1"/>
@@ -260,7 +260,7 @@
         <UsageCount Value="10"/>
       </Unit26>
     </Units>
-    <JumpHistory Count="26" HistoryIndex="25">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\..\..\source\uWVBrowserBase.pas"/>
         <Caret Line="11" Column="63"/>
@@ -365,6 +365,22 @@
         <Filename Value="uMiniBrowser.pas"/>
         <Caret Line="94" Column="42" TopLine="73"/>
       </Position26>
+      <Position27>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="499" Column="41" TopLine="461"/>
+      </Position27>
+      <Position28>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="506" Column="41" TopLine="468"/>
+      </Position28>
+      <Position29>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="230" Column="34" TopLine="205"/>
+      </Position29>
+      <Position30>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="219" Column="70" TopLine="202"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
