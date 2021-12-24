@@ -18,23 +18,16 @@ type
     ExitMi: TMenuItem;
     TouchKeyboard1: TTouchKeyboard;
 
-    procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ExitMiClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
-    procedure ExitMiClick(Sender: TObject);
-    procedure WVBrowser1Widget0CompMsg(Sender: TObject;
-      var aMessage: TMessage; var aHandled: Boolean);
-    procedure WVBrowser1WebMessageReceived(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
-    procedure WVBrowser1AcceleratorKeyPressed(Sender: TObject;
-      const aController: ICoreWebView2Controller;
-      const aArgs: ICoreWebView2AcceleratorKeyPressedEventArgs);
-    procedure WVBrowser1NewWindowRequested(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2NewWindowRequestedEventArgs);
+    procedure WVBrowser1Widget0CompMsg(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean);
+    procedure WVBrowser1WebMessageReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
+    procedure WVBrowser1AcceleratorKeyPressed(Sender: TObject; const aController: ICoreWebView2Controller; const aArgs: ICoreWebView2AcceleratorKeyPressedEventArgs);
+    procedure WVBrowser1NewWindowRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NewWindowRequestedEventArgs);
 
   protected
     // It's necessary to handle these messages to call NotifyParentWindowPositionChanged or some page elements will be misaligned.
@@ -118,8 +111,7 @@ begin
   WVBrowser1.SetVirtualHostNameToFolderMapping('customhost.test', '..\assets', COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW);
 
   // This demo disables the default context menu to show a custom TPopupMenu
-  TempScript := 'document.addEventListener("contextmenu", function(e) { e.preventDefault(); });';
-  WVBrowser1.AddScriptToExecuteOnDocumentCreated(TempScript);
+  WVBrowser1.DefaultContextMenusEnabled := False;
 end;
 
 procedure TMainForm.WVBrowser1InitializationError(Sender: TObject;
