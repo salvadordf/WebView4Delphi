@@ -8,11 +8,12 @@ interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
-  CommCtrl,
+    Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
+    CommCtrl, fpjson, jsonparser,
   {$ELSE}
-  Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils,
-  Winapi.ActiveX, Winapi.Messages, {$IFDEF DELPHI26_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
+    Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils,
+    Winapi.ActiveX, Winapi.Messages, {$IFDEF DELPHI20_UP}System.JSON,{$ENDIF}
+    {$IFDEF DELPHI26_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
@@ -42,6 +43,7 @@ type
       FIgnoreCertificateErrors                        : boolean;
       FZoomStep                                       : byte;
       FOffline                                        : boolean;
+      FIsNavigating                                   : boolean;
 
       FOldWidget0CompWndPrc                           : TFNWndProc;
       FOldWidget1CompWndPrc                           : TFNWndProc;
@@ -111,6 +113,7 @@ type
       FOnPrintCompleted                               : TOnPrintCompletedEvent;
       FOnRetrieveHTMLCompleted                        : TOnRetrieveHTMLCompletedEvent;
       FOnRetrieveTextCompleted                        : TOnRetrieveTextCompletedEvent;
+      FOnRetrieveMHTMLCompleted                       : TOnRetrieveMHTMLCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -199,6 +202,8 @@ type
       procedure D3DWindowCompWndProc(var aMessage: TMessage);
       procedure RestoreOldCompWndProc;
       procedure ReplaceWndProcs;
+
+      function  ExtractJSONData(const aJSON: wvstring; var aData: wvstring) : boolean; virtual;
 
       function EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const createdEnvironment: ICoreWebView2Environment): HRESULT;
       function ControllerCompletedHandler_Invoke(errorCode: HRESULT; const createdController: ICoreWebView2Controller): HRESULT;
@@ -298,6 +303,7 @@ type
       procedure doOnPrintCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
+      procedure doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -337,6 +343,7 @@ type
 
       function    RetrieveHTML : boolean;
       function    RetrieveText : boolean;
+      function    RetrieveMHTML : boolean;
 
       function    Print : boolean;
       function    PrintToPdf(const aResultFilePath : wvstring) : boolean;
@@ -429,6 +436,7 @@ type
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                                 read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;
       property IsSuspended                            : boolean                                 read GetIsSuspended;
       property IgnoreCertificateErrors                : boolean                                 read FIgnoreCertificateErrors                 write SetIgnoreCertificateErrors;
+      property IsNavigating                           : boolean                                 read FIsNavigating;
 
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
@@ -485,6 +493,7 @@ type
       property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
       property OnRetrieveHTMLCompleted                         : TOnRetrieveHTMLCompletedEvent                         read FOnRetrieveHTMLCompleted                         write FOnRetrieveHTMLCompleted;
       property OnRetrieveTextCompleted                         : TOnRetrieveTextCompletedEvent                         read FOnRetrieveTextCompleted                         write FOnRetrieveTextCompleted;
+      property OnRetrieveMHTMLCompleted                        : TOnRetrieveMHTMLCompletedEvent                        read FOnRetrieveMHTMLCompleted                        write FOnRetrieveMHTMLCompleted;
   end;
 
 implementation
@@ -511,6 +520,7 @@ begin
   FAllowSingleSignOnUsingOSPrimaryAccount          := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
+  FIsNavigating                                    := False;
 
   FOldWidget0CompWndPrc                            := nil;
   FOldWidget1CompWndPrc                            := nil;
@@ -580,6 +590,7 @@ begin
   FOnPrintCompleted                                := nil;
   FOnRetrieveHTMLCompleted                         := nil;
   FOnRetrieveTextCompleted                         := nil;
+  FOnRetrieveMHTMLCompleted                        := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1058,14 +1069,19 @@ end;
 
 function TWVBrowserBase.NavigationStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationStartingEventArgs): HRESULT;
 begin
-  Result := S_OK;
+  Result        := S_OK;
+  FIsNavigating := True;
+
   ReplaceWndProcs;
+
   doOnNavigationStarting(sender, args);
 end;
 
 function TWVBrowserBase.NavigationCompletedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationCompletedEventArgs): HRESULT;
 begin
-  Result := S_OK;
+  Result        := S_OK;
+  FIsNavigating := False;
+
   doOnNavigationCompleted(sender, args);
 end;
 
@@ -1311,8 +1327,120 @@ end;
 function TWVBrowserBase.CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
-  doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
+
+  case aExecutionID of
+    WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID :
+      doOnRetrieveMHTMLCompleted(errorCode, wvstring(returnObjectAsJson));
+
+    else
+      doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
+  end;
 end;
+
+procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
+var
+  TempMHTML  : wvstring;
+  TempResult : boolean;
+begin
+  if assigned(FOnRetrieveMHTMLCompleted) then
+    begin
+      TempMHTML  := '';
+      TempResult := succeeded(aErrorCode) and
+                    ExtractJSONData(aReturnObjectAsJson, TempMHTML);
+
+      FOnRetrieveMHTMLCompleted(self, TempResult, TempMHTML);
+    end;
+end;
+
+function TWVBrowserBase.ExtractJSONData(const aJSON: wvstring; var aData: wvstring) : boolean;
+{$IFDEF FPC}
+var
+  TempJSON, TempData : TJSONData;
+begin
+  Result   := False;
+  TempJSON := nil;
+
+  if (length(aJSON) > 0) then
+    try
+      TempJSON := GetJSON(UTF8Encode(aJSON), False);
+      TempData := TempJSON.FindPath('data');
+
+      if assigned(TempData) then
+        begin
+          aData  := UTF8Decode(TempData.AsString);
+          Result := True;
+        end;
+    finally
+      if assigned(TempJSON) then
+        FreeAndNil(TempJSON);
+    end;
+end;
+{$ELSE}
+{$IFDEF DELPHI20_UP}
+var
+  TempJSONObj : TJSONObject;
+  TempJSONVal : TJSONValue;
+begin
+  Result      := False;
+  TempJSONObj := nil;
+
+  try
+    if (length(aJSON) > 0) then
+      begin
+        TempJSONObj := TJSONObject.Create;
+
+        if (TempJSONObj.Parse(BytesOf(aJSON), 0) >= 0) then
+          begin
+            TempJSONVal := TempJSONObj.GetValue('data');
+
+            if assigned(TempJSONVal) then
+              begin
+                aData  := TempJSONVal.Value;
+                Result := True;
+              end;
+          end;
+      end;
+  finally
+    if assigned(TempJSONObj) then
+      FreeAndNil(TempJSONObj);
+  end;
+end;
+{$ELSE}
+var
+  TempJSON, TempKey, TempValue : wvstring;
+  TempLen, i : integer;
+begin
+  Result   := False;
+  TempJSON := trim(aJSON);
+  TempLen  := length(TempJSON);
+
+  if (TempLen > 0) and (TempJSON[1] = '{') and (TempJSON[TempLen] = '}') then
+    begin
+      TempJSON  := trim(copy(TempJSON, 2, TempLen - 2));
+      i         := pos(':', TempJSON);
+      TempKey   := trim(copy(TempJSON, 1, i - 1));
+      TempValue := trim(copy(TempJSON, i + 1, TempLen));
+      TempLen   := length(TempKey);
+
+      if (TempLen > 0) and (TempKey[1] = '"') and (TempKey[TempLen] = '"') then
+        begin
+          TempKey := copy(TempKey, 2, TempLen - 2);
+
+          if (CompareText(TempKey, 'data') = 0) then
+            begin
+              TempLen := length(TempValue);
+
+              if (TempLen > 0) and (TempValue[1] = '"') and (TempValue[TempLen] = '"') then
+                begin
+                  aData  := JSONUnescape(copy(TempValue, 2, TempLen - 2));
+                  Result := True;
+                end;
+            end;
+        end;
+    end;
+end;
+{$ENDIF}
+{$ENDIF}
 
 function TWVBrowserBase.AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
 begin
@@ -1340,9 +1468,9 @@ begin
 end;
 
 function TWVBrowserBase.DevToolsProtocolEventReceivedEventHandler_Invoke(const sender     : ICoreWebView2;
-                                                                           const args       : ICoreWebView2DevToolsProtocolEventReceivedEventArgs;
-                                                                           const aEventName : wvstring;
-                                                                                 aEventID   : integer): HRESULT;
+                                                                         const args       : ICoreWebView2DevToolsProtocolEventReceivedEventArgs;
+                                                                         const aEventName : wvstring;
+                                                                               aEventID   : integer): HRESULT;
 begin
   Result := S_OK;
   doOnDevToolsProtocolEventReceived(sender, args, aEventName, aEventID);
@@ -1906,6 +2034,11 @@ end;
 function TWVBrowserBase.RetrieveText : boolean;
 begin
   Result := ExecuteScript('encodeURI(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
+end;
+
+function TWVBrowserBase.RetrieveMHTML : boolean;
+begin
+  Result := CallDevToolsProtocolMethod('Page.captureSnapshot', '{"format": "mhtml"}', WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID);
 end;
 
 function TWVBrowserBase.Print : boolean;

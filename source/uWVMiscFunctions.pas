@@ -28,6 +28,7 @@ function CoreWebViewColorToDelphiColor(const aColor : COREWEBVIEW2_COLOR) : TCol
 function DelphiColorToCoreWebViewColor(const aColor : TColor) : COREWEBVIEW2_COLOR;
 
 function TryIso8601BasicToDate(const Str: string; out Date: TDateTime): Boolean;
+function JSONUnescape(const Source: string): string;
 
 implementation
 
@@ -160,6 +161,53 @@ begin
   if not Result then
     exit;
   Result := TryEncodeDate(Year, Month, Day, Date);
+end;
+
+// This function is a modified version of the JSONUnescape function created by Olvin Roght in stackoverflow :
+// https://stackoverflow.com/questions/9713491/delphi-decode-json-utf8-escaped-text
+function JSONUnescape(const Source: string): string;
+const
+  ESCAPE_CHAR = '\';
+  QUOTE_CHAR = '"';
+  EXCEPTION_FMT = 'Invalid escape at position %d';
+var
+  EscapeCharPos, TempPos: Integer;
+  Temp: string;
+  IsQuotedString: Boolean;
+begin
+  result := '';
+  IsQuotedString := (Source[1] = QUOTE_CHAR) and
+    (Source[Length(Source)] = QUOTE_CHAR);
+  EscapeCharPos := Pos(ESCAPE_CHAR, Source);
+  TempPos := 1;
+  while EscapeCharPos > 0 do
+  begin
+    result := result + Copy(Source, TempPos, EscapeCharPos - TempPos);
+    TempPos := EscapeCharPos;
+    if EscapeCharPos < Length(Source) - Integer(IsQuotedString) then
+      case Source[EscapeCharPos + 1] of
+        't':
+          Temp := #9;
+        'n':
+          Temp := #10;
+        'r':
+          Temp := #13;
+        '\':
+          Temp := '\';
+        '"':
+          Temp := '"';
+        'u':
+          begin
+            if EscapeCharPos + 4 < Length(Source) - Integer(IsQuotedString) then
+              Temp := Chr(StrToInt('$' + Copy(Source, EscapeCharPos + 2, 4)));
+            Inc(TempPos, 4);
+          end;
+      end;
+    Inc(TempPos, 2);
+    result := result + Temp;
+    EscapeCharPos := Pos(ESCAPE_CHAR, Source, TempPos);
+  end;
+  result := result + Copy(Source, TempPos, Length(Source) - TempPos + 1);
 end;
 
 end.

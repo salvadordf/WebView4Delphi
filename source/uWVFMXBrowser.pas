@@ -89,6 +89,7 @@ type
       property OnPrintCompleted;
       property OnRetrieveHTMLCompleted;
       property OnRetrieveTextCompleted;
+      property OnRetrieveMHTMLCompleted;
   end;
 
 implementation

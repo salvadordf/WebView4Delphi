@@ -224,6 +224,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnDownloadStateChanged = WVBrowser1DownloadStateChanged
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
+    OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
     Left = 48
     Top = 64
   end
@@ -238,21 +239,13 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPopup = PopupMenu1Popup
     Left = 48
     Top = 200
-    object LoadHTMLfile1: TMenuItem
-      Caption = 'Load an HTML file...'
-      OnClick = LoadHTMLfile1Click
+    object LoadFromFileMi: TMenuItem
+      Caption = 'Load from file...'
+      OnClick = LoadFromFileMiClick
     end
-    object LoadaPDFfile1: TMenuItem
-      Caption = 'Load a PDF file...'
-      OnClick = LoadaPDFfile1Click
-    end
-    object MenuItem1: TMenuItem
-      Caption = 'Save HTML as...'
-      OnClick = MenuItem1Click
-    end
-    object MenuItem2: TMenuItem
-      Caption = 'Save text as...'
-      OnClick = MenuItem2Click
+    object SaveToFileMi: TMenuItem
+      Caption = 'Save to file...'
+      OnClick = SaveToFileMiClick
     end
     object N2: TMenuItem
       Caption = '-'
@@ -317,11 +310,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     end
     object MenuItem3: TMenuItem
       Caption = 'Available browser version...'
-      OnClick = MenuItem3Click
     end
-    object MenuItem4: TMenuItem
+    object ChangeUserAgentMi: TMenuItem
       Caption = 'Change user agent string...'
-      OnClick = MenuItem4Click
+      OnClick = ChangeUserAgentMiClick
     end
   end
   object OpenDialog1: TOpenDialog

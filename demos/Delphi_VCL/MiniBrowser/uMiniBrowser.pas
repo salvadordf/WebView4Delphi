@@ -33,9 +33,8 @@ type
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
     N2: TMenuItem;
-    LoadHTMLfile1: TMenuItem;
+    LoadFromFileMi: TMenuItem;
     Opentaskmanager1: TMenuItem;
-    LoadaPDFfile1: TMenuItem;
     DevTools1: TMenuItem;
     Zoom1: TMenuItem;
     Inczoom1: TMenuItem;
@@ -48,8 +47,7 @@ type
     Offline1: TMenuItem;
     Ignorecertificateerrors1: TMenuItem;
     Availablebrowserversion1: TMenuItem;
-    SaveHTMLas1: TMenuItem;
-    Savetextas1: TMenuItem;
+    SaveToFileMi: TMenuItem;
     Changeuseragentstring1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
@@ -67,9 +65,8 @@ type
     procedure ForwardBtnClick(Sender: TObject);
     procedure ReloadBtnClick(Sender: TObject);
     procedure StopBtnClick(Sender: TObject);
-    procedure LoadHTMLfile1Click(Sender: TObject);
+    procedure LoadFromFileMiClick(Sender: TObject);
     procedure Opentaskmanager1Click(Sender: TObject);
-    procedure LoadaPDFfile1Click(Sender: TObject);
     procedure DevTools1Click(Sender: TObject);
     procedure Inczoom1Click(Sender: TObject);
     procedure Deczoom1Click(Sender: TObject);
@@ -81,8 +78,7 @@ type
     procedure Offline1Click(Sender: TObject);
     procedure Ignorecertificateerrors1Click(Sender: TObject);
     procedure Availablebrowserversion1Click(Sender: TObject);
-    procedure SaveHTMLas1Click(Sender: TObject);
-    procedure Savetextas1Click(Sender: TObject);
+    procedure SaveToFileMiClick(Sender: TObject);
     procedure Changeuseragentstring1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
@@ -98,9 +94,9 @@ type
     procedure WVBrowser1WebResourceRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceRequestedEventArgs);
     procedure WVBrowser1WebResourceResponseReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceResponseReceivedEventArgs);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
-    procedure WVBrowser1Widget0CompMsg(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean);
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: Boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
+    procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -113,6 +109,10 @@ type
     procedure UpdateNavButtons(aIsNavigating : boolean);
     procedure UpdateDownloadInfo(aDownloadID : integer);
     function  GetNextDownloadID : integer;
+
+    procedure LoadFromFileAsString(const aFileName : string);
+    procedure LoadFromFileAsFileURI(const aFileName : string);
+    procedure SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
 
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
@@ -171,16 +171,10 @@ procedure TMiniBrowserFrm.Changeuseragentstring1Click(Sender: TObject);
 var
   TempUA : string;
 begin
-  TempUA := inputbox('Change user agent string', 'New user agent :', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0');
-
-  // We use the "Emulation.setUserAgentOverride" DevTools method to change the user agent.
-  // https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setUserAgentOverride
-
-  // Use this page to check the user agent before and after the change :
-  // https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+  TempUA := inputbox('Change the user agent string', 'New user agent :', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0');
 
   if (length(TempUA) > 0) then
-    WVBrowser1.CallDevToolsProtocolMethod('Emulation.setUserAgentOverride', '{"userAgent": "' + TempUA + '"}');
+    WVBrowser1.UserAgent := TempUA;
 end;
 
 procedure TMiniBrowserFrm.Clearcache1Click(Sender: TObject);
@@ -263,36 +257,56 @@ begin
   WVBrowser1.IncZoomStep;
 end;
 
-procedure TMiniBrowserFrm.LoadaPDFfile1Click(Sender: TObject);
+procedure TMiniBrowserFrm.LoadFromFileMiClick(Sender: TObject);
 begin
-  OpenDialog1.Filter := 'PDF files (*.pdf)|*.pdf';
+  OpenDialog1.Filter := 'HTML files (*.html)|*.html|' +
+                        'Text files (*.txt)|*.txt|' +
+                        'PDF files (*.pdf)|*.pdf|' +
+                        'MHTML files (*.mhtml)|*.mhtml';
 
-  if OpenDialog1.Execute and (length(OpenDialog1.FileName) > 0) then
-    WVBrowser1.Navigate('file:///' + OpenDialog1.FileName);
+  if OpenDialog1.Execute then
+    case OpenDialog1.FilterIndex of
+      1       : LoadFromFileAsString(OpenDialog1.FileName);
+      2, 3, 4 : LoadFromFileAsFileURI(OpenDialog1.FileName);
+    end;
 end;
 
-procedure TMiniBrowserFrm.LoadHTMLfile1Click(Sender: TObject);
+procedure TMiniBrowserFrm.LoadFromFileAsString(const aFileName : string);
 var
   TempLines : TStringList;
 begin
-  TempLines          := nil;
-  OpenDialog1.Filter := 'HTML files (*.html)|*.html';
+  TempLines := nil;
 
-  if OpenDialog1.Execute and (length(OpenDialog1.FileName) > 0) then
+  try
     try
-      try
-        TempLines := TStringList.Create;
-        TempLines.LoadFromFile(OpenDialog1.FileName);
-        WVBrowser1.NavigateToString(TempLines.Text);
-      except
-        {$IFDEF DEBUG}
-        on e : exception do
-          OutputDebugString(PWideChar('TMiniBrowserFrm.LoadHTMLfile1Click error: ' + e.message + chr(0)));
-        {$ENDIF}
-      end;
-    finally
-      if assigned(TempLines) then
-        FreeAndNil(TempLines);
+      if (length(aFileName) > 0) and FileExists(aFileName) then
+        begin
+          TempLines := TStringList.Create;
+          TempLines.LoadFromFile(OpenDialog1.FileName);
+          WVBrowser1.NavigateToString(TempLines.Text);
+        end;
+    except
+      {$IFDEF DEBUG}
+      on e : exception do
+        OutputDebugString(PWideChar('TMiniBrowserFrm.LoadFromFileAsString error: ' + e.message + chr(0)));
+      {$ENDIF}
+    end;
+  finally
+    if assigned(TempLines) then
+      FreeAndNil(TempLines);
+  end;
+end;
+
+procedure TMiniBrowserFrm.LoadFromFileAsFileURI(const aFileName : string);
+var
+  TempFileURI: string;
+begin
+  if (length(aFileName) > 0) and FileExists(aFileName) then
+    begin
+      // TODO: The Filename should be escaped
+      TempFileURI := 'file:///' + aFileName;
+
+      WVBrowser1.Navigate(TempFileURI);
     end;
 end;
 
@@ -467,46 +481,49 @@ begin
     showmessage('There was a problem generating the PDF file.');
 end;
 
+procedure TMiniBrowserFrm.SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
+var
+  TempSL : TStringList;
+begin
+  TempSL := nil;
+
+  if (length(aFileName) > 0) then
+    try
+      try
+        TempSL      := TStringList.Create;
+        TempSL.Text := aFileContents;
+        TempSL.SaveToFile(aFileName);
+      except
+        {$IFDEF DEBUG}
+        on e: exception do
+          OutputDebugString(PWideChar('TMiniBrowserFrm.SaveAsTextFile error: ' + e.message + chr(0)));
+        {$ENDIF}
+      end;
+    finally
+      if assigned(TempSL) then
+        FreeAndNil(TempSL);
+    end;
+end;
+
 procedure TMiniBrowserFrm.WVBrowser1RetrieveHTMLCompleted(Sender: TObject;
   aResult: Boolean; const aHTML: wvstring);
-var
-  TempHTML : TStringList;
 begin
-  TempHTML := nil;
+  if aResult then
+    SaveAsTextFile(SaveDialog1.FileName, aHTML);
+end;
 
-  SaveDialog1.Filter     := 'HTML files (*.html)|*.html';
-  SaveDialog1.DefaultExt := 'html';
-
-  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
-    try
-      TempHTML      := TStringList.Create;
-      TempHTML.Text := aHTML;
-      TempHTML.SaveToFile(SaveDialog1.FileName);
-    finally
-      if assigned(TempHTML) then
-        FreeAndNil(TempHTML);
-    end;
+procedure TMiniBrowserFrm.WVBrowser1RetrieveMHTMLCompleted(Sender: TObject;
+  aResult: Boolean; const aMHTML: wvstring);
+begin
+  if aResult then
+    SaveAsTextFile(SaveDialog1.FileName, aMHTML);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
   aResult: Boolean; const aText: wvstring);
-var
-  TempText : TStringList;
 begin
-  TempText := nil;
-
-  SaveDialog1.Filter     := 'Text files (*.txt)|*.txt';
-  SaveDialog1.DefaultExt := 'txt';
-
-  if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
-    try
-      TempText      := TStringList.Create;
-      TempText.Text := aText;
-      TempText.SaveToFile(SaveDialog1.FileName);
-    finally
-      if assigned(TempText) then
-        FreeAndNil(TempText);
-    end;
+  if aResult then
+    SaveAsTextFile(SaveDialog1.FileName, aText);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
@@ -567,15 +584,6 @@ begin
     end;
 end;
 
-procedure TMiniBrowserFrm.WVBrowser1Widget0CompMsg(Sender: TObject;
-  var aMessage: TMessage; var aHandled: Boolean);
-begin
-  // aMessage.Msg = WM_PARENTNOTIFY        wParam = WM_LBUTTONDOWN
-  // https://docs.microsoft.com/en-us/windows/win32/inputmsg/wm-parentnotify
-  // https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-lbuttondown
-
-end;
-
 procedure TMiniBrowserFrm.ReloadBtnClick(Sender: TObject);
 begin
   WVBrowser1.Refresh;
@@ -586,14 +594,18 @@ begin
   WVBrowser1.ResetZoom;
 end;
 
-procedure TMiniBrowserFrm.SaveHTMLas1Click(Sender: TObject);
+procedure TMiniBrowserFrm.SaveToFileMiClick(Sender: TObject);
 begin
-  WVBrowser1.RetrieveHTML;
-end;
+  SaveDialog1.Filter := 'HTML files (*.html)|*.html|' +
+                        'Text files (*.txt)|*.txt|' +
+                        'MHTML files (*.mhtml)|*.MHTML';
 
-procedure TMiniBrowserFrm.Savetextas1Click(Sender: TObject);
-begin
-  WVBrowser1.RetrieveText;
+  if SaveDialog1.Execute then
+    case SaveDialog1.FilterIndex of
+      1 : WVBrowser1.RetrieveHTML;
+      2 : WVBrowser1.RetrieveText;
+      3 : WVBrowser1.RetrieveMHTML;
+    end;
 end;
 
 procedure TMiniBrowserFrm.ShowHTTPheaders1Click(Sender: TObject);
