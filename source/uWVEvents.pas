@@ -56,6 +56,10 @@ type
   TOnRetrieveHTMLCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aHTML: wvstring) of object;
   TOnRetrieveTextCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aText: wvstring) of object;
   TOnRetrieveMHTMLCompletedEvent                           = procedure(Sender: TObject; aResult: boolean; const aMHTML: wvstring) of object;
+  TOnClearCacheCompletedEvent                              = procedure(Sender: TObject; aResult: boolean) of object;
+  TOnClearDataForOriginCompletedEvent                      = procedure(Sender: TObject; aResult: boolean) of object;
+  TOnOfflineCompletedEvent                                 = procedure(Sender: TObject; aResult: boolean) of object;
+  TOnIgnoreCertificateErrorsCompletedEvent                 = procedure(Sender: TObject; aResult: boolean) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

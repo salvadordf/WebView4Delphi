@@ -114,6 +114,10 @@ type
       FOnRetrieveHTMLCompleted                        : TOnRetrieveHTMLCompletedEvent;
       FOnRetrieveTextCompleted                        : TOnRetrieveTextCompletedEvent;
       FOnRetrieveMHTMLCompleted                       : TOnRetrieveMHTMLCompletedEvent;
+      FOnClearCacheCompleted                          : TOnClearCacheCompletedEvent;
+      FOnClearDataForOriginCompleted                  : TOnClearDataForOriginCompletedEvent;
+      FOnOfflineCompleted                             : TOnOfflineCompletedEvent;
+      FOnIgnoreCertificateErrorsCompleted             : TOnIgnoreCertificateErrorsCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -304,6 +308,10 @@ type
       procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring); virtual;
+      procedure doOnClearCacheCompleted(aErrorCode: HRESULT); virtual;
+      procedure doOnClearDataForOriginCompleted(aErrorCode: HRESULT); virtual;
+      procedure doOnOfflineCompleted(aErrorCode: HRESULT); virtual;
+      procedure doIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -494,6 +502,10 @@ type
       property OnRetrieveHTMLCompleted                         : TOnRetrieveHTMLCompletedEvent                         read FOnRetrieveHTMLCompleted                         write FOnRetrieveHTMLCompleted;
       property OnRetrieveTextCompleted                         : TOnRetrieveTextCompletedEvent                         read FOnRetrieveTextCompleted                         write FOnRetrieveTextCompleted;
       property OnRetrieveMHTMLCompleted                        : TOnRetrieveMHTMLCompletedEvent                        read FOnRetrieveMHTMLCompleted                        write FOnRetrieveMHTMLCompleted;
+      property OnClearCacheCompleted                           : TOnClearCacheCompletedEvent                           read FOnClearCacheCompleted                           write FOnClearCacheCompleted;
+      property OnClearDataForOriginCompleted                   : TOnClearDataForOriginCompletedEvent                   read FOnClearDataForOriginCompleted                   write FOnClearDataForOriginCompleted;
+      property OnOfflineCompleted                              : TOnOfflineCompletedEvent                              read FOnOfflineCompleted                              write FOnOfflineCompleted;
+      property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
   end;
 
 implementation
@@ -591,6 +603,10 @@ begin
   FOnRetrieveHTMLCompleted                         := nil;
   FOnRetrieveTextCompleted                         := nil;
   FOnRetrieveMHTMLCompleted                        := nil;
+  FOnClearCacheCompleted                           := nil;
+  FOnClearDataForOriginCompleted                   := nil;
+  FOnOfflineCompleted                              := nil;
+  FOnIgnoreCertificateErrorsCompleted              := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1332,9 +1348,45 @@ begin
     WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID :
       doOnRetrieveMHTMLCompleted(errorCode, wvstring(returnObjectAsJson));
 
+    WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID :
+      doOnClearCacheCompleted(errorCode);
+
+    WEBVIEW4DELPHI_DEVTOOLS_CLEARDATAFORORIGIN_ID :
+      doOnClearDataForOriginCompleted(errorCode);
+
+    WEBVIEW4DELPHI_DEVTOOLS_EMULATENETWORKCONDITIONS_ID :
+      doOnOfflineCompleted(errorCode);
+
+    WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID :
+      doIgnoreCertificateErrorsCompleted(errorCode);
+
     else
       doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
   end;
+end;
+
+procedure TWVBrowserBase.doOnClearCacheCompleted(aErrorCode: HRESULT);
+begin
+  if assigned(FOnClearCacheCompleted) then
+    FOnClearCacheCompleted(self, succeeded(aErrorCode));
+end;
+
+procedure TWVBrowserBase.doOnClearDataForOriginCompleted(aErrorCode: HRESULT);
+begin
+  if assigned(FOnClearDataForOriginCompleted) then
+    FOnClearDataForOriginCompleted(self, succeeded(aErrorCode));
+end;
+
+procedure TWVBrowserBase.doOnOfflineCompleted(aErrorCode: HRESULT);
+begin
+  if assigned(FOnOfflineCompleted) then
+    FOnOfflineCompleted(self, succeeded(aErrorCode));
+end;
+
+procedure TWVBrowserBase.doIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT);
+begin
+  if assigned(FOnIgnoreCertificateErrorsCompleted) then
+    FOnIgnoreCertificateErrorsCompleted(self, succeeded(aErrorCode));
 end;
 
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
@@ -2236,7 +2288,7 @@ end;
 
 function TWVBrowserBase.ClearCache : boolean;
 begin
-  Result := CallDevToolsProtocolMethod('Network.clearBrowserCache', '{}');
+  Result := CallDevToolsProtocolMethod('Network.clearBrowserCache', '{}', WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID);
 end;
 
 function TWVBrowserBase.ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes) : boolean;
@@ -2258,7 +2310,7 @@ begin
     else                  TempParams := TempParams + '"storageTypes": "all"}';
   end;
 
-  Result := CallDevToolsProtocolMethod('Storage.clearDataForOrigin', TempParams);
+  Result := CallDevToolsProtocolMethod('Storage.clearDataForOrigin', TempParams, WEBVIEW4DELPHI_DEVTOOLS_CLEARDATAFORORIGIN_ID);
 end;
 
 procedure TWVBrowserBase.SetOffline(aValue : boolean);
@@ -2276,7 +2328,7 @@ begin
                     {$ENDIF}
                     + ', "latency": 0, "downloadThroughput": 0, "uploadThroughput": 0}';
 
-      CallDevToolsProtocolMethod('Network.emulateNetworkConditions', TempParams);
+      CallDevToolsProtocolMethod('Network.emulateNetworkConditions', TempParams, WEBVIEW4DELPHI_DEVTOOLS_EMULATENETWORKCONDITIONS_ID);
     end;
 end;
 
@@ -2295,7 +2347,7 @@ begin
                     {$ENDIF}
                      + '}';
 
-      CallDevToolsProtocolMethod('Security.setIgnoreCertificateErrors', TempParams);
+      CallDevToolsProtocolMethod('Security.setIgnoreCertificateErrors', TempParams, WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID);
     end;
 end;
 
