@@ -154,6 +154,10 @@ type
       function  GetIsSwipeNavigationEnabled : boolean;
       function  GetIsSuspended: boolean;
       function  GetUserDataFolder: wvstring;
+      function  GetRootVisualTarget : IUnknown;
+      function  GetCursor : HCURSOR;
+      function  GetSystemCursorID : cardinal;
+      function  GetUIAProvider : IUnknown;
 
       procedure SetBuiltInErrorPageEnabled(const Value: boolean);
       procedure SetDefaultContextMenusEnabled(const Value: boolean);
@@ -182,6 +186,7 @@ type
       procedure SetIsSwipeNavigationEnabled(aValue : boolean);
       procedure SetOffline(aValue : boolean);
       procedure SetIgnoreCertificateErrors(aValue : boolean);
+      procedure SetRootVisualTarget(const aValue : IUnknown);
 
       function  CreateEnvironment : boolean;
 
@@ -394,6 +399,9 @@ type
       procedure   ResetZoom;
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
 
+      function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
+      function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+
       property Initialized                            : boolean                                 read GetInitialized;
       property CoreWebView2PrintSettings              : TCoreWebView2PrintSettings              read FCoreWebView2PrintSettings;
       property CoreWebView2Settings                   : TCoreWebView2Settings                   read FCoreWebView2Settings;
@@ -445,6 +453,10 @@ type
       property IsSuspended                            : boolean                                 read GetIsSuspended;
       property IgnoreCertificateErrors                : boolean                                 read FIgnoreCertificateErrors                 write SetIgnoreCertificateErrors;
       property IsNavigating                           : boolean                                 read FIsNavigating;
+      property RootVisualTarget                       : IUnknown                                read GetRootVisualTarget                      write SetRootVisualTarget;
+      property Cursor                                 : HCURSOR                                 read GetCursor;
+      property SystemCursorID                         : cardinal                                read GetSystemCursorID;
+      property UIAProvider                            : IUnknown                                read GetUIAProvider;
 
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
@@ -1244,7 +1256,7 @@ begin
 end;
 
 function TWVBrowserBase.BrowserProcessExitedEventHandler_Invoke(const sender : ICoreWebView2Environment;
-                                                                  const args   : ICoreWebView2BrowserProcessExitedEventArgs): HRESULT;
+                                                                const args   : ICoreWebView2BrowserProcessExitedEventArgs): HRESULT;
 begin
   Result := S_OK;
   doOnBrowserProcessExitedEvent(sender, args);
@@ -1627,6 +1639,38 @@ begin
     Result := FCoreWebView2Environment.UserDataFolder
    else
     Result := FUserDataFolder;
+end;
+
+function TWVBrowserBase.GetRootVisualTarget : IUnknown;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.RootVisualTarget
+   else
+    Result := nil;
+end;
+
+function TWVBrowserBase.GetCursor : HCURSOR;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.Cursor
+   else
+    Result := 0;
+end;
+
+function TWVBrowserBase.GetSystemCursorID : cardinal;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.SystemCursorID
+   else
+    Result := 0;
+end;
+
+function TWVBrowserBase.GetUIAProvider : IUnknown;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.UIAProvider
+   else
+    Result := nil;
 end;
 
 function TWVBrowserBase.GetCanGoBack: boolean;
@@ -2351,6 +2395,12 @@ begin
     end;
 end;
 
+procedure TWVBrowserBase.SetRootVisualTarget(const aValue : IUnknown);
+begin
+  if FUseCompositionController and Initialized then
+    FCoreWebView2CompositionController.RootVisualTarget := aValue;
+end;
+
 procedure TWVBrowserBase.IncZoomStep;
 begin
   UpdateZoomStep(True);
@@ -2882,6 +2932,20 @@ procedure TWVBrowserBase.UpdateZoomPct(const aValue : double);
 begin
   if (aValue > 0) then
     ZoomFactor := aValue / 100;
+end;
+
+function TWVBrowserBase.SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
+begin
+  Result := FUseCompositionController and
+            Initialized and
+            FCoreWebView2CompositionController.SendMouseInput(aEventKind, aVirtualKeys, aMouseData, aPoint);
+end;
+
+function TWVBrowserBase.SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+begin
+  Result := FUseCompositionController and
+            Initialized and
+            FCoreWebView2CompositionController.SendPointerInput(aEventKind, aPointerInfo);
 end;
 
 end.
