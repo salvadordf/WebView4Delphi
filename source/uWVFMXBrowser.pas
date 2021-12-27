@@ -94,6 +94,7 @@ type
       property OnClearDataForOriginCompleted;
       property OnOfflineCompleted;
       property OnIgnoreCertificateErrorsCompleted;
+      property OnRefreshIgnoreCacheCompleted;
   end;
 
 implementation

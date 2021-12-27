@@ -118,6 +118,7 @@ type
       FOnClearDataForOriginCompleted                  : TOnClearDataForOriginCompletedEvent;
       FOnOfflineCompleted                             : TOnOfflineCompletedEvent;
       FOnIgnoreCertificateErrorsCompleted             : TOnIgnoreCertificateErrorsCompletedEvent;
+      FOnRefreshIgnoreCacheCompleted                  : TOnRefreshIgnoreCacheCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -317,6 +318,7 @@ type
       procedure doOnClearDataForOriginCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnOfflineCompleted(aErrorCode: HRESULT); virtual;
       procedure doIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
+      procedure doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -331,6 +333,7 @@ type
       function    GoBack : boolean;
       function    GoForward : boolean;
       function    Refresh : boolean;
+      function    RefreshIgnoreCache : boolean;
       function    Stop : boolean;
 
       function    Navigate(const aURI : wvstring) : boolean;
@@ -518,6 +521,7 @@ type
       property OnClearDataForOriginCompleted                   : TOnClearDataForOriginCompletedEvent                   read FOnClearDataForOriginCompleted                   write FOnClearDataForOriginCompleted;
       property OnOfflineCompleted                              : TOnOfflineCompletedEvent                              read FOnOfflineCompleted                              write FOnOfflineCompleted;
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
+      property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
   end;
 
 implementation
@@ -619,6 +623,7 @@ begin
   FOnClearDataForOriginCompleted                   := nil;
   FOnOfflineCompleted                              := nil;
   FOnIgnoreCertificateErrorsCompleted              := nil;
+  FOnRefreshIgnoreCacheCompleted                   := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1526,6 +1531,9 @@ begin
     WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID :
       doOnRetrieveTextCompleted(errorCode, wvstring(resultObjectAsJson));
 
+    WEBVIEW4DELPHI_JS_REFRESH_ID :
+      doOnRefreshIgnoreCacheCompleted(errorCode, wvstring(resultObjectAsJson));
+
     else
       doOnExecuteScriptCompleted(errorCode, wvstring(resultObjectAsJson), aExecutionID);
   end;
@@ -1948,6 +1956,11 @@ function TWVBrowserBase.Refresh : boolean;
 begin
   Result := Initialized and
             FCoreWebView2.Reload;
+end;
+
+function TWVBrowserBase.RefreshIgnoreCache : boolean;
+begin
+  Result := ExecuteScript('location.reload(true);', WEBVIEW4DELPHI_JS_REFRESH_ID);
 end;
 
 procedure TWVBrowserBase.SetBounds(aValue : TRect);
@@ -2529,6 +2542,12 @@ procedure TWVBrowserBase.doOnPrintCompleted(aErrorCode: HRESULT; const aResultOb
 begin
   if assigned(FOnPrintCompleted) then
     FOnPrintCompleted(self, aErrorCode, aResultObjectAsJson);
+end;
+
+procedure TWVBrowserBase.doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
+begin
+  if assigned(FOnRefreshIgnoreCacheCompleted) then
+    FOnRefreshIgnoreCacheCompleted(self, aErrorCode, aResultObjectAsJson);
 end;
 
 procedure TWVBrowserBase.doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
