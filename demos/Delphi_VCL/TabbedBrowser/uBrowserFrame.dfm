@@ -102,7 +102,6 @@ object BrowserFrame: TBrowserFrame
         Width = 868
         Height = 23
         Anchors = [akLeft, akTop, akRight]
-        ItemIndex = 0
         TabOrder = 0
         Text = 'https://www.bing.com'
         Items.Strings = (
@@ -112,6 +111,34 @@ object BrowserFrame: TBrowserFrame
             'https://www.whatismybrowser.com/detect/what-http-headers-is-my-b' +
             'rowser-sending'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+          
+            'https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_a_targ' +
+            'et'
+          'https://www.w3schools.com/jsref/met_win_open.asp'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open2'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open3'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open4'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open5'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'open6'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'name'
+          
+            'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_' +
+            'opener'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
           
@@ -191,6 +218,7 @@ object BrowserFrame: TBrowserFrame
     OnNavigationCompleted = WVBrowser1NavigationCompleted
     OnSourceChanged = WVBrowser1SourceChanged
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnNewWindowRequested = WVBrowser1NewWindowRequested
     Left = 88
     Top = 152
   end

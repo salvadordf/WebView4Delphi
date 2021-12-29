@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  uWVBrowserBase, uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypeLibrary, uWVTypes;
+  uWVBrowserBase, uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypeLibrary, uWVTypes,
+  uChildForm, uWVCoreWebView2Args, uWVCoreWebView2Deferral;
 
 type
   TBrowserTitleEvent = procedure(Sender: TObject; const aTitle : string) of object;
@@ -30,6 +31,7 @@ type
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1NewWindowRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NewWindowRequestedEventArgs);
 
     procedure BackBtnClick(Sender: TObject);
     procedure ForwardBtnClick(Sender: TObject);
@@ -40,25 +42,34 @@ type
   protected
     FHomepage             : wvstring;
     FOnBrowserTitleChange : TBrowserTitleEvent;
+    FArgs                 : TCoreWebView2NewWindowRequestedEventArgs;
+    FDeferral             : TCoreWebView2Deferral;
 
     function  GetInitialized : boolean;
+
+    procedure SetArgs(const aValue : TCoreWebView2NewWindowRequestedEventArgs);
 
     procedure UpdateNavButtons(aIsNavigating : boolean);
 
   public
     constructor Create(AOwner : TComponent); override;
+    destructor  Destroy; override;
     procedure   NotifyParentWindowPositionChanged;
     procedure   CreateBrowser;
     procedure   CreateAllHandles;
 
-    property  Initialized          : boolean             read GetInitialized;
-    property  Homepage             : wvstring            read FHomepage              write FHomepage;
-    property  OnBrowserTitleChange : TBrowserTitleEvent  read FOnBrowserTitleChange  write FOnBrowserTitleChange;
+    property  Initialized          : boolean                                   read GetInitialized;
+    property  Homepage             : wvstring                                  read FHomepage              write FHomepage;
+    property  OnBrowserTitleChange : TBrowserTitleEvent                        read FOnBrowserTitleChange  write FOnBrowserTitleChange;
+    property  Args                 : TCoreWebView2NewWindowRequestedEventArgs  read FArgs                  write SetArgs;
   end;
 
 implementation
 
 {$R *.dfm}
+
+uses
+  uWVCoreWebView2WindowFeatures, uMainForm;
 
 constructor TBrowserFrame.Create(AOwner : TComponent);
 begin
@@ -66,6 +77,17 @@ begin
 
   FHomepage              := '';
   FOnBrowserTitleChange  := nil;
+end;
+
+destructor TBrowserFrame.Destroy;
+begin
+  if assigned(FDeferral) then
+    FreeAndNil(FDeferral);
+
+  if assigned(FArgs) then
+    FreeAndNil(FArgs);
+
+  inherited Destroy;
 end;
 
 procedure TBrowserFrame.NotifyParentWindowPositionChanged;
@@ -91,6 +113,12 @@ begin
   Result := WVBrowser1.Initialized;
 end;
 
+procedure TBrowserFrame.SetArgs(const aValue : TCoreWebView2NewWindowRequestedEventArgs);
+begin
+  FArgs     := aValue;
+  FDeferral := TCoreWebView2Deferral.Create(FArgs.Deferral);
+end;
+
 procedure TBrowserFrame.WVBrowser1NavigationCompleted(Sender: TObject;
   const aWebView: ICoreWebView2;
   const aArgs: ICoreWebView2NavigationCompletedEventArgs);
@@ -103,6 +131,31 @@ procedure TBrowserFrame.WVBrowser1NavigationStarting(Sender: TObject;
   const aArgs: ICoreWebView2NavigationStartingEventArgs);
 begin
   UpdateNavButtons(True);
+end;
+
+procedure TBrowserFrame.WVBrowser1NewWindowRequested(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2NewWindowRequestedEventArgs);
+var
+  TempChildForm : TChildForm;
+  TempArgs : TCoreWebView2NewWindowRequestedEventArgs;
+  TempWindowFeatures : TCoreWebView2WindowFeatures;
+begin
+  if assigned(aArgs) then
+    begin
+      TempArgs           := TCoreWebView2NewWindowRequestedEventArgs.Create(aArgs);
+      TempWindowFeatures := TCoreWebView2WindowFeatures.Create(TempArgs.WindowFeatures);
+
+      if TempWindowFeatures.HasSize or TempWindowFeatures.HasPosition then
+        begin
+          TempChildForm := TChildForm.Create(self, TempArgs);
+          TempChildForm.Show;
+        end
+       else
+        TMainForm(Application.MainForm).CreateNewTab(TempArgs);
+
+      FreeAndNil(TempWindowFeatures);
+    end;
 end;
 
 procedure TBrowserFrame.WVBrowser1SourceChanged(Sender: TObject;
@@ -147,6 +200,17 @@ end;
 
 procedure TBrowserFrame.WVBrowser1AfterCreated(Sender: TObject);
 begin
+  if assigned(FArgs) and assigned(FDeferral) then
+    try
+      FArgs.NewWindow := WVBrowser1.CoreWebView2.BaseIntf;
+      FArgs.Handled   := True;
+
+      FDeferral.Complete;
+    finally
+      FreeAndNil(FDeferral);
+      FreeAndNil(FArgs);
+    end;
+
   WVWindowParent1.UpdateSize;
   NavControlPnl.Enabled := True;
 end;

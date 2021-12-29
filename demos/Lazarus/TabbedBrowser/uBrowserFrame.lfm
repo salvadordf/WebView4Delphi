@@ -6,8 +6,8 @@ object BrowserFrame: TBrowserFrame
   ClientHeight = 758
   ClientWidth = 1030
   TabOrder = 0
-  DesignLeft = 272
-  DesignTop = 122
+  DesignLeft = 382
+  DesignTop = 107
   object NavControlPnl: TPanel
     Left = 0
     Height = 35
@@ -107,6 +107,16 @@ object BrowserFrame: TBrowserFrame
           'https://www.google.com'
           'https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+          'https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_a_target'
+          'https://www.w3schools.com/jsref/met_win_open.asp'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open2'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open3'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open4'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open5'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open6'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_name'
+          'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_opener'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
           'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
           'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_backgroundcolor'
@@ -150,6 +160,7 @@ object BrowserFrame: TBrowserFrame
         Height = 25
         Top = 5
         Width = 25
+        Anchors = [akTop, akLeft, akRight]
         Caption = '►'
         Font.CharSet = ANSI_CHARSET
         Font.Color = clWindowText
@@ -181,6 +192,7 @@ object BrowserFrame: TBrowserFrame
     OnNavigationCompleted = WVBrowser1NavigationCompleted
     OnSourceChanged = WVBrowser1SourceChanged
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnNewWindowRequested = WVBrowser1NewWindowRequested
     Left = 88
     Top = 152
   end

@@ -5,9 +5,9 @@ unit uMainForm;
 interface
 
 uses
-  LCLIntf, LCLType, Messages, SysUtils, Variants, Classes, Graphics,
+  LCLIntf, LCLType, LMessages, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, ComCtrls, Buttons, ExtCtrls,
-  uWVLoader;
+  uWVLoader, uWVCoreWebView2Args;
 
 const
   WV_INITIALIZED = WM_APP + $100;
@@ -38,6 +38,8 @@ type
     procedure WVInitializedMsg(var aMessage : TMessage); message WV_INITIALIZED;
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
+
+    procedure CreateNewTab(const aArgs : TCoreWebView2NewWindowRequestedEventArgs);
   end;
 
 var
@@ -47,13 +49,15 @@ implementation
 
 {$R *.lfm}
 
+// This demo shows how to create multiple browsers at runtime using tabs.
+
 uses
   uBrowserTab;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   if GlobalWebView2Loader.InitializationError then
-    showmessage(UTF8Encode(GlobalWebView2Loader.ErrorMessage))
+    showmessage(GlobalWebView2Loader.ErrorMessage)
    else
     if GlobalWebView2Loader.Initialized then
       EnableButtonPnl;
@@ -88,6 +92,18 @@ begin
   BrowserPageCtrl.ActivePageIndex := pred(BrowserPageCtrl.PageCount);
 
   TempNewTab.CreateBrowser(HOMEPAGE_URL);
+end;
+
+procedure TMainForm.CreateNewTab(const aArgs : TCoreWebView2NewWindowRequestedEventArgs);
+var
+  TempNewTab : TBrowserTab;
+begin
+  TempNewTab             := TBrowserTab.Create(self, NextTabID, DEFAULT_TAB_CAPTION);
+  TempNewTab.PageControl := BrowserPageCtrl;
+
+  BrowserPageCtrl.ActivePageIndex := pred(BrowserPageCtrl.PageCount);
+
+  TempNewTab.CreateBrowser(aArgs);
 end;
 
 procedure TMainForm.EnableButtonPnl;
@@ -137,7 +153,7 @@ end;
 
 initialization
   GlobalWebView2Loader                      := TWVLoader.Create(nil);
-  GlobalWebView2Loader.UserDataFolder       := UTF8Decode(ExtractFileDir(Application.ExeName) + '\CustomCache');
+  GlobalWebView2Loader.UserDataFolder       := ExtractFileDir(Application.ExeName) + '\CustomCache';
   GlobalWebView2Loader.OnEnvironmentCreated := GlobalWebView2Loader_OnEnvironmentCreated;
   GlobalWebView2Loader.StartWebView2;
 

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 227
+  Left = 451
   Height = 744
-  Top = 133
+  Top = 115
   Width = 1056
   Caption = 'Tabbed Browser'
   ClientHeight = 744

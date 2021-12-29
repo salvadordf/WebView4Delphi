@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  uWVLoader;
+  uWVLoader, uWVCoreWebView2Args;
 
 const
   WV_INITIALIZED = WM_APP + $100;
@@ -36,6 +36,8 @@ type
     procedure WVInitializedMsg(var aMessage : TMessage); message WV_INITIALIZED;
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
+
+    procedure CreateNewTab(const aArgs : TCoreWebView2NewWindowRequestedEventArgs);
   end;
 
 var
@@ -88,6 +90,18 @@ begin
   BrowserPageCtrl.ActivePageIndex := pred(BrowserPageCtrl.PageCount);
 
   TempNewTab.CreateBrowser(HOMEPAGE_URL);
+end;
+
+procedure TMainForm.CreateNewTab(const aArgs : TCoreWebView2NewWindowRequestedEventArgs);
+var
+  TempNewTab : TBrowserTab;
+begin
+  TempNewTab             := TBrowserTab.Create(self, NextTabID, DEFAULT_TAB_CAPTION);
+  TempNewTab.PageControl := BrowserPageCtrl;
+
+  BrowserPageCtrl.ActivePageIndex := pred(BrowserPageCtrl.PageCount);
+
+  TempNewTab.CreateBrowser(aArgs);
 end;
 
 procedure TMainForm.EnableButtonPnl;

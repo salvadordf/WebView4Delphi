@@ -4,10 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="9">
+    <Units Count="7">
       <Unit0>
         <Filename Value="TabbedBrowser.lpr"/>
         <IsPartOfProject Value="True"/>
+        <CursorPos X="45" Y="21"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -18,10 +19,8 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="46"/>
-        <CursorPos X="45" Y="59"/>
+        <CursorPos X="101" Y="20"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,9 +32,9 @@
         <ComponentName Value="BrowserFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="135"/>
-        <CursorPos X="74" Y="68"/>
+        <CursorPos X="48" Y="22"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -45,22 +44,25 @@
         <Filename Value="uBrowserTab.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="17"/>
-        <CursorPos Y="33"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
-        <Filename Value="..\ClientCertsBrowser\ConverterBackup\uWVBrowser.pas"/>
+        <Filename Value="uChildForm.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="63" Y="18"/>
+        <ComponentName Value="ChildForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="90" Y="4"/>
         <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
-        <Filename Value="..\ClientCertsBrowser\ConverterBackup\uWVLoader.pas"/>
+        <Filename Value="..\..\..\source\uWVLoader.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -70,64 +72,17 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
-        <Filename Value="..\ClientCertsBrowser\ConverterBackup\uWVTypeLibrary.pas"/>
-        <IsPartOfProject Value="True"/>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <TopLine Value="3926"/>
+        <CursorPos Y="3945"/>
+        <UsageCount Value="10"/>
       </Unit6>
-      <Unit7>
-        <Filename Value="..\ClientCertsBrowser\ConverterBackup\uWVWinControl.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="..\ClientCertsBrowser\ConverterBackup\uWVWindowParent.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit8>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
+    <JumpHistory Count="1">
       <Position1>
-        <Filename Value="uBrowserFrame.pas"/>
+        <Filename Value="uChildForm.pas"/>
       </Position1>
-      <Position2>
-        <Filename Value="uMainForm.pas"/>
-        <Caret Line="56" Column="50" TopLine="47"/>
-      </Position2>
-      <Position3>
-        <Filename Value="uBrowserFrame.pas"/>
-        <Caret Line="113" Column="47" TopLine="107"/>
-      </Position3>
-      <Position4>
-        <Filename Value="uBrowserFrame.pas"/>
-        <Caret Line="9" Column="3"/>
-      </Position4>
-      <Position5>
-        <Filename Value="uBrowserTab.pas"/>
-        <Caret Line="8" Column="30"/>
-      </Position5>
-      <Position6>
-        <Filename Value="uBrowserTab.pas"/>
-        <Caret Line="33" TopLine="17"/>
-      </Position6>
-      <Position7>
-        <Filename Value="uBrowserFrame.pas"/>
-        <Caret Line="9" Column="3"/>
-      </Position7>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
