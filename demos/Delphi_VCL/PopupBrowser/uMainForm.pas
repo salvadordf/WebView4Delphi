@@ -89,8 +89,8 @@ begin
 end;
 
 procedure TMainForm.WVBrowser1NewWindowRequested(      Sender   : TObject;
-                                                   const aWebView : ICoreWebView2;
-                                                   const aArgs    : ICoreWebView2NewWindowRequestedEventArgs);
+                                                 const aWebView : ICoreWebView2;
+                                                 const aArgs    : ICoreWebView2NewWindowRequestedEventArgs);
 var
   TempChildForm : TChildForm;
 begin

@@ -18,6 +18,7 @@ type
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure WVBrowser1WindowCloseRequested(Sender: TObject);
 
   private
     FArgs     : TCoreWebView2NewWindowRequestedEventArgs;
@@ -102,6 +103,11 @@ begin
     end;
 
   WVWindowParent1.UpdateSize;
+end;
+
+procedure TChildForm.WVBrowser1WindowCloseRequested(Sender: TObject);
+begin
+  PostMessage(Handle, WM_CLOSE, 0, 0);
 end;
 
 end.

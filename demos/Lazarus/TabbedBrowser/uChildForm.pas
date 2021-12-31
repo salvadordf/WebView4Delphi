@@ -11,6 +11,9 @@ uses
   uWVBrowserBase, uWVCoreWebView2Args, uWVCoreWebView2Deferral;
 
 type
+
+  { TChildForm }
+
   TChildForm = class(TForm)
     WVWindowParent1: TWVWindowParent;
     WVBrowser1: TWVBrowser;
@@ -20,6 +23,7 @@ type
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure WVBrowser1WindowCloseRequested(Sender: TObject);
 
   private
     FArgs     : TCoreWebView2NewWindowRequestedEventArgs;
@@ -59,6 +63,11 @@ begin
 
   if assigned(FArgs) then
     FreeAndNil(FArgs);
+end;
+
+procedure TChildForm.WVBrowser1WindowCloseRequested(Sender: TObject);
+begin
+  PostMessage(Handle, WM_CLOSE, 0, 0);
 end;
 
 procedure TChildForm.FormShow(Sender: TObject);

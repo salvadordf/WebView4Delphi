@@ -18,7 +18,6 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="35"/>
         <CursorPos X="63" Y="59"/>
@@ -33,9 +32,9 @@
         <ComponentName Value="ChildForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="24"/>
-        <CursorPos X="45" Y="38"/>
+        <CursorPos X="40" Y="8"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -152,7 +151,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
     </Units>
-    <JumpHistory Count="8" HistoryIndex="7">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="uMainForm.pas"/>
         <Caret Line="23" Column="24"/>
@@ -185,6 +184,18 @@
         <Filename Value="uMainForm.pas"/>
         <Caret Line="32" TopLine="4"/>
       </Position8>
+      <Position9>
+        <Filename Value="uChildForm.pas"/>
+        <Caret Line="42" Column="45" TopLine="28"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uChildForm.pas"/>
+        <Caret Line="107" Column="39" TopLine="72"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uChildForm.pas"/>
+        <Caret Line="8" Column="31"/>
+      </Position11>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
