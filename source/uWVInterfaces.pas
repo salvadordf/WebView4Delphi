@@ -126,7 +126,7 @@ type
     function DOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs): HResult;
 
     // ICoreWebView2WebResourceResponseViewGetContentCompletedHandler
-    function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream): HResult;
+    function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HResult;
 
     // ICoreWebView2GetCookiesCompletedHandler
     function GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HResult;

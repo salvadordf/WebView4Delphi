@@ -247,7 +247,7 @@ type
       function RasterizationScaleChangedEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HRESULT;
       function WebResourceResponseReceivedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2WebResourceResponseReceivedEventArgs): HRESULT;
       function DOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs): HRESULT;
-      function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream): HRESULT;
+      function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HRESULT;
       function GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HRESULT;
       function TrySuspendCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HRESULT;
       function FrameCreatedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs): HRESULT;
@@ -296,7 +296,7 @@ type
       procedure doOnRasterizationScaleChangedEvent(const sender: ICoreWebView2Controller); virtual;
       procedure doOnWebResourceResponseReceivedEvent(const sender: ICoreWebView2; const args: ICoreWebView2WebResourceResponseReceivedEventArgs); virtual;
       procedure doOnDOMContentLoadedEvent(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs); virtual;
-      procedure doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream); virtual;
+      procedure doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream; aResourceID : integer); virtual;
       procedure doOnGetCookiesCompletedEvent(aResult : HResult; const aCookieList : ICoreWebView2CookieList); virtual;
       procedure doOnTrySuspendCompletedEvent(errorCode: HResult; isSuccessful: Integer); virtual;
       procedure doOnFrameCreatedEvent(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs); virtual;
@@ -317,7 +317,7 @@ type
       procedure doOnClearCacheCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnClearDataForOriginCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnOfflineCompleted(aErrorCode: HRESULT); virtual;
-      procedure doIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
+      procedure doOnIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
 
     public
@@ -1285,10 +1285,10 @@ begin
   doOnDOMContentLoadedEvent(sender, args);
 end;
 
-function TWVBrowserBase.WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream): HRESULT;
+function TWVBrowserBase.WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HRESULT;
 begin
   Result := S_OK;
-  doOnWebResourceResponseViewGetContentCompletedEvent(errorCode, Content);
+  doOnWebResourceResponseViewGetContentCompletedEvent(errorCode, Content, aResourceID);
 end;
 
 function TWVBrowserBase.GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HRESULT;
@@ -1375,7 +1375,7 @@ begin
       doOnOfflineCompleted(errorCode);
 
     WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID :
-      doIgnoreCertificateErrorsCompleted(errorCode);
+      doOnIgnoreCertificateErrorsCompleted(errorCode);
 
     else
       doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
@@ -1400,7 +1400,7 @@ begin
     FOnOfflineCompleted(self, succeeded(aErrorCode));
 end;
 
-procedure TWVBrowserBase.doIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT);
+procedure TWVBrowserBase.doOnIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT);
 begin
   if assigned(FOnIgnoreCertificateErrorsCompleted) then
     FOnIgnoreCertificateErrorsCompleted(self, succeeded(aErrorCode));
@@ -2798,10 +2798,10 @@ begin
     FOnDOMContentLoaded(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream);
+procedure TWVBrowserBase.doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream; aResourceID : integer);
 begin
   if assigned(FOnWebResourceResponseViewGetContentCompleted) then
-    FOnWebResourceResponseViewGetContentCompleted(self, errorCode, Content);
+    FOnWebResourceResponseViewGetContentCompleted(self, errorCode, Content, aResourceID);
 end;
 
 procedure TWVBrowserBase.doOnGetCookiesCompletedEvent(aResult : HResult; const aCookieList : ICoreWebView2CookieList);

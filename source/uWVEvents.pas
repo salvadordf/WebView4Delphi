@@ -21,7 +21,7 @@ type
   // Browser events
   TOnExecuteScriptCompletedEvent                           = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring; aExecutionID: integer) of object;
   TOnCapturePreviewCompletedEvent                          = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
-  TOnWebResourceResponseViewGetContentCompletedEvent       = procedure(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream) of object;
+  TOnWebResourceResponseViewGetContentCompletedEvent       = procedure(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID : integer) of object;
   TOnGetCookiesCompletedEvent                              = procedure(Sender: TObject; aResult: HRESULT; const aCookieList: ICoreWebView2CookieList) of object;
   TOnTrySuspendCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;
   TOnPrintToPdfCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;

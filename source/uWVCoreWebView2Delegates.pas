@@ -390,13 +390,16 @@ type
 
   TCoreWebView2WebResourceResponseViewGetContentCompletedHandler = class(TInterfacedObject, ICoreWebView2WebResourceResponseViewGetContentCompletedHandler)
     protected
-      FEvents : Pointer;
+      FEvents     : Pointer;
+      FResourceID : integer;
 
       function Invoke(errorCode: HResult; const Content: IStream): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aResourceID : integer = 0); reintroduce;
       destructor  Destroy; override;
+
+      property ResourceID : integer read FResourceID;
   end;
 
   TCoreWebView2GetCookiesCompletedHandler = class(TInterfacedObject, ICoreWebView2GetCookiesCompletedHandler)
@@ -1416,11 +1419,12 @@ end;
 
 // TCoreWebView2WebResourceResponseViewGetContentCompletedHandler
 
-constructor TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+constructor TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Create(const aEvents: IWVBrowserEvents; aResourceID : integer);
 begin
   inherited Create;
 
-  FEvents := Pointer(aEvents);
+  FEvents     := Pointer(aEvents);
+  FResourceID := aResourceID;
 end;
 
 destructor TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Destroy;
@@ -1433,7 +1437,7 @@ end;
 function TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Invoke(errorCode: HResult; const Content: IStream): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode, Content)
+    Result := IWVBrowserEvents(FEvents).WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode, Content, FResourceID)
    else
     Result := E_FAIL;
 end;
