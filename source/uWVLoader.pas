@@ -64,6 +64,7 @@ type
       FAllowFileAccessFromFiles               : boolean;
       FAllowRunningInsecureContent            : boolean;
       FDisableBackgroundNetworking            : boolean;
+      FRemoteDebuggingPort                    : integer;
 
       function  GetAvailableBrowserVersion : wvstring;
       function  GetInitialized : boolean;
@@ -161,6 +162,7 @@ type
       property AllowRunningInsecureContent            : boolean                            read FAllowRunningInsecureContent             write FAllowRunningInsecureContent;      // --allow-running-insecure-content
       property DisableBackgroundNetworking            : boolean                            read FDisableBackgroundNetworking             write FDisableBackgroundNetworking;      // --disable-background-networking
       property ForcedDeviceScaleFactor                : single                             read FForcedDeviceScaleFactor                 write FForcedDeviceScaleFactor;          // --force-device-scale-factor
+      property RemoteDebuggingPort                    : integer                            read FRemoteDebuggingPort                     write FRemoteDebuggingPort;              // --remote-debugging-port
 
       // Custom events
       property OnEnvironmentCreated                   : TLoaderNotifyEvent                      read FOnEnvironmentCreated                    write FOnEnvironmentCreated;
@@ -212,6 +214,7 @@ begin
   FInitCOMLibrary                         := {$IFDEF FPC}True{$ELSE}False{$ENDIF};
   FForcedDeviceScaleFactor                := 0;
   FReRaiseExceptions                      := False;
+  FRemoteDebuggingPort                    := 0;
 
   UpdateDeviceScaleFactor;
 
@@ -884,6 +887,9 @@ begin
         FloatToStr(FForcedDeviceScaleFactor, TempFormatSettings);
         {$ENDIF}
     end;
+
+  if (FRemoteDebuggingPort > 0) then
+    Result := Result + '--remote-debugging-port=' + inttostr(FRemoteDebuggingPort) + ' ';
 
   if (length(FAdditionalBrowserArguments) > 0) then
     Result := Result + FAdditionalBrowserArguments
