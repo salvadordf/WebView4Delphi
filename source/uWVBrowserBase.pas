@@ -119,6 +119,7 @@ type
       FOnOfflineCompleted                             : TOnOfflineCompletedEvent;
       FOnIgnoreCertificateErrorsCompleted             : TOnIgnoreCertificateErrorsCompletedEvent;
       FOnRefreshIgnoreCacheCompleted                  : TOnRefreshIgnoreCacheCompletedEvent;
+      FOnSimulateKeyEventCompleted                    : TOnSimulateKeyEventCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -319,6 +320,7 @@ type
       procedure doOnOfflineCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
+      procedure doOnSimulateKeyEventCompleted(aErrorCode: HRESULT); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -401,6 +403,10 @@ type
       procedure   DecZoomStep;
       procedure   ResetZoom;
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
+
+      function    SimulateKeyEvent(type_: TWV2KeyEventType; modifiers, windowsVirtualKeyCode, nativeVirtualKeyCode: integer; timestamp: integer = 0; location: integer = 0; autoRepeat: boolean = False; isKeypad: boolean = False; isSystemKey: boolean = False; const text: wvstring = ''; const unmodifiedtext: wvstring = ''; const keyIdentifier: wvstring = ''; const code: wvstring = ''; const key: wvstring = ''): boolean; virtual;
+      function    KeyboardShortcutSearch : boolean; virtual;
+      function    KeyboardShortcutRefreshIgnoreCache : boolean; virtual;
 
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
       function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
@@ -522,6 +528,7 @@ type
       property OnOfflineCompleted                              : TOnOfflineCompletedEvent                              read FOnOfflineCompleted                              write FOnOfflineCompleted;
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
+      property OnSimulateKeyEventCompleted                     : TOnSimulateKeyEventCompletedEvent                     read FOnSimulateKeyEventCompleted                     write FOnSimulateKeyEventCompleted;
   end;
 
 implementation
@@ -624,6 +631,7 @@ begin
   FOnOfflineCompleted                              := nil;
   FOnIgnoreCertificateErrorsCompleted              := nil;
   FOnRefreshIgnoreCacheCompleted                   := nil;
+  FOnSimulateKeyEventCompleted                     := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1377,6 +1385,9 @@ begin
     WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID :
       doOnIgnoreCertificateErrorsCompleted(errorCode);
 
+    WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID :
+      doOnSimulateKeyEventCompleted(errorCode);
+
     else
       doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
   end;
@@ -1404,6 +1415,12 @@ procedure TWVBrowserBase.doOnIgnoreCertificateErrorsCompleted(aErrorCode: HRESUL
 begin
   if assigned(FOnIgnoreCertificateErrorsCompleted) then
     FOnIgnoreCertificateErrorsCompleted(self, succeeded(aErrorCode));
+end;
+
+procedure TWVBrowserBase.doOnSimulateKeyEventCompleted(aErrorCode: HRESULT);
+begin
+  if assigned(FOnSimulateKeyEventCompleted) then
+    FOnSimulateKeyEventCompleted(self, succeeded(aErrorCode));
 end;
 
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
@@ -2951,6 +2968,99 @@ procedure TWVBrowserBase.UpdateZoomPct(const aValue : double);
 begin
   if (aValue > 0) then
     ZoomFactor := aValue / 100;
+end;
+
+// Dispatches a key event to the page using the "Input.dispatchKeyEvent" DevTools method
+// https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
+// The browser has to be focused before simulating any key event.
+function TWVBrowserBase.SimulateKeyEvent(      type_                 : TWV2KeyEventType;
+                                               modifiers             : integer;
+                                               windowsVirtualKeyCode : integer;
+                                               nativeVirtualKeyCode  : integer;
+                                               timestamp             : integer;
+                                               location              : integer;
+                                               autoRepeat            : boolean;
+                                               isKeypad              : boolean;
+                                               isSystemKey           : boolean;
+                                         const text                  : wvstring;
+                                         const unmodifiedtext        : wvstring;
+                                         const keyIdentifier         : wvstring;
+                                         const code                  : wvstring;
+                                         const key                   : wvstring): boolean;
+var
+  TempParams : wvstring;
+begin
+  TempParams := '{"type": ';
+
+  case type_ of
+    ketKeyDown    : TempParams := TempParams + '"keyDown"';
+    ketKeyUp      : TempParams := TempParams + '"keyUp"';
+    ketRawKeyDown : TempParams := TempParams + '"rawKeyDown"';
+    ketChar       : TempParams := TempParams + '"char"';
+  end;
+
+  if (modifiers <> 0) then
+    TempParams := TempParams + ', "modifiers": ' + inttostr(modifiers);
+
+  if (timestamp <> 0) then
+    TempParams := TempParams + ', "timestamp": ' + inttostr(timestamp);
+
+  if (length(text) > 0) then
+    TempParams := TempParams + ', "text": "' + JSONEscape(text) + '"';
+
+  if (length(unmodifiedtext) > 0) then
+    TempParams := TempParams + ', "unmodifiedtext": "' + JSONEscape(unmodifiedtext) + '"';
+
+  if (length(keyIdentifier) > 0) then
+    TempParams := TempParams + ', "keyIdentifier": "' + JSONEscape(keyIdentifier) + '"';
+
+  if (length(code) > 0) then
+    TempParams := TempParams + ', "code": "' + JSONEscape(code) + '"';
+
+  if (length(key) > 0) then
+    TempParams := TempParams + ', "key": "' + JSONEscape(key) + '"';
+
+  if (windowsVirtualKeyCode <> 0) then
+    TempParams := TempParams + ', "windowsVirtualKeyCode": ' + inttostr(windowsVirtualKeyCode);
+
+  if (nativeVirtualKeyCode <> 0) then
+    TempParams := TempParams + ', "nativeVirtualKeyCode": ' + inttostr(nativeVirtualKeyCode);
+
+  if autoRepeat then
+    TempParams := TempParams + ', "autoRepeat": true';
+
+  if isKeypad then
+    TempParams := TempParams + ', "isKeypad": true';
+
+  if isSystemKey then
+    TempParams := TempParams + ', "isSystemKey": true';
+
+  if (location <> 0) then
+    TempParams := TempParams + ', "location": ' + inttostr(location);
+
+  TempParams := TempParams + '}';
+
+  Result := CallDevToolsProtocolMethod('Input.dispatchKeyEvent', TempParams, WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID);
+end;
+
+// Simulate that the F3 key was pressed and released.
+// The browser has to be focused before simulating any key event.
+// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+function TWVBrowserBase.KeyboardShortcutSearch : boolean;
+begin
+  Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $100, VK_F3, integer($003D0001)) and
+            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $100, VK_F3, integer($C03D0001));
+end;
+
+// Simulate that SHIFT + F5 keys were pressed and released
+// The browser has to be focused before simulating any key event.       
+// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+function TWVBrowserBase.KeyboardShortcutRefreshIgnoreCache : boolean;
+begin
+  Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $502, VK_Shift, integer($002A0001)) and
+            SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $102, VK_F5,    integer($003F0001)) and
+            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $102, VK_F5,    integer($C03F0001)) and
+            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $100, VK_Shift, integer($C02A0001));
 end;
 
 function TWVBrowserBase.SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;

@@ -28,7 +28,8 @@ function CoreWebViewColorToDelphiColor(const aColor : COREWEBVIEW2_COLOR) : TCol
 function DelphiColorToCoreWebViewColor(const aColor : TColor) : COREWEBVIEW2_COLOR;
 
 function TryIso8601BasicToDate(const Str: string; out Date: TDateTime): Boolean;
-function JSONUnescape(const Source: string): string;
+function JSONUnescape(const Source: wvstring): wvstring;
+function JSONEscape(const Source: wvstring): wvstring;
 
 implementation
 
@@ -165,7 +166,7 @@ end;
 
 // This function is a modified version of the JSONUnescape function created by Olvin Roght in stackoverflow :
 // https://stackoverflow.com/questions/9713491/delphi-decode-json-utf8-escaped-text
-function JSONUnescape(const Source: string): string;
+function JSONUnescape(const Source: wvstring): wvstring;
 const
   ESCAPE_CHAR = '\';
   QUOTE_CHAR = '"';
@@ -208,6 +209,46 @@ begin
     EscapeCharPos := Pos(ESCAPE_CHAR, Source, TempPos);
   end;
   result := result + Copy(Source, TempPos, Length(Source) - TempPos + 1);
+end;
+
+function JSONEscape(const Source: wvstring): wvstring;
+const
+  CHAR_DBLQUOTE       = #34;
+  CHAR_BACKWARDSSLASH = #92;
+  CHAR_FORWARDSSLASH  = #47;
+  CHAR_BACKSPACE      = #8;
+  CHAR_FORMFEED       = #12;
+  CHAR_LINEFEED       = #10;
+  CHAR_CARRIAGERETURN = #13;
+  CHAR_HORIZONTALTAB  = #9;
+var
+  i, TempLen : integer;
+begin
+  Result  := '';
+  TempLen := length(Source);
+  i       := 1;
+
+  while (i <= TempLen) do
+    begin
+      case Source[i] of
+        CHAR_DBLQUOTE,
+        CHAR_BACKWARDSSLASH,
+        CHAR_FORWARDSSLASH  : Result := Result + '\' + Source[i];
+        CHAR_BACKSPACE      : Result := Result + '\b';
+        CHAR_FORMFEED       : Result := Result + '\f';
+        CHAR_LINEFEED       : Result := Result + '\n';
+        CHAR_CARRIAGERETURN : Result := Result + '\r';
+        CHAR_HORIZONTALTAB  : Result := Result + '\t';
+
+        else
+          if (ord(Source[i]) < 32) or (ord(Source[i]) > 126) then
+            Result := Result + '\u' + IntToHex(ord(Source[i]), 4)
+           else
+            Result := Result + Source[i];
+      end;
+
+      inc(i);
+    end;
 end;
 
 end.

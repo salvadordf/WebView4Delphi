@@ -50,6 +50,11 @@ type
                       wvlsError,
                       wvlsUnloaded);
 
+  TWV2KeyEventType = (ketKeyDown,
+                      ketKeyUp,
+                      ketRawKeyDown,
+                      ketChar);
+
   TFileVersionInfo = record
     MajorVer : uint16;
     MinorVer : uint16;

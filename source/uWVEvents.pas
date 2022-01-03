@@ -61,6 +61,7 @@ type
   TOnClearDataForOriginCompletedEvent                      = procedure(Sender: TObject; aResult: boolean) of object;
   TOnOfflineCompletedEvent                                 = procedure(Sender: TObject; aResult: boolean) of object;
   TOnIgnoreCertificateErrorsCompletedEvent                 = procedure(Sender: TObject; aResult: boolean) of object;
+  TOnSimulateKeyEventCompletedEvent                        = procedure(Sender: TObject; aResult: boolean) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

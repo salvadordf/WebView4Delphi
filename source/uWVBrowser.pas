@@ -97,6 +97,7 @@ type
       property OnOfflineCompleted;
       property OnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted;
+      property OnSimulateKeyEventCompleted;
   end;
 
 {$IFDEF FPC}
