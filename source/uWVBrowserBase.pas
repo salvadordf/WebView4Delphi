@@ -466,6 +466,10 @@ type
       property Cursor                                 : HCURSOR                                 read GetCursor;
       property SystemCursorID                         : cardinal                                read GetSystemCursorID;
       property UIAProvider                            : IUnknown                                read GetUIAProvider;
+      property Widget0CompHWND                        : THandle                                 read FWidget0CompHWND;
+      property Widget1CompHWND                        : THandle                                 read FWidget1CompHWND;
+      property RenderCompHWND                         : THandle                                 read FRenderCompHWND;
+      property D3DWindowCompHWND                      : THandle                                 read FD3DWindowCompHWND;
 
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
