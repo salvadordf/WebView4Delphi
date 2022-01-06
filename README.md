@@ -5,7 +5,7 @@ WebView4Delphi only supports Windows. If you need to embed a web browser in Linu
 
 WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.1054.31](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser. 
 
-WebView4Delphi was developed and tested on Delphi 11.0 and Lazarus 2.2.0RC2/FPC 3.2.2. It should be compatible with Delphi XE3 or newer Delphi version but testing in those versions is still pending. 
+WebView4Delphi was developed and tested on Delphi 11.0, Delphi XE3 and Lazarus 2.2.0/FPC 3.2.2. 
 
 WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.
 
@@ -38,5 +38,9 @@ You can also support this project with Patreon.
 * [Pascal and Lazarus Books and Magazines](https://wiki.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines)
 * [Lazarus Documentation](https://wiki.freepascal.org/Lazarus_Documentation)
 
+## Attribution
+* [Fugue & Diagona icons](http://yusukekamiyamane.com/)
+* [FatCow Farm-Fresh Web Icons](https://www.fatcow.com/free-icons)
+* [Material Design Icons](https://github.com/google/material-design-icons) 
 
 Additional: Delphinus-Support
