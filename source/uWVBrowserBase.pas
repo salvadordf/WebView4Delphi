@@ -404,6 +404,7 @@ type
       procedure   ResetZoom;
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
 
+      function    SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
       function    SimulateKeyEvent(type_: TWV2KeyEventType; modifiers, windowsVirtualKeyCode, nativeVirtualKeyCode: integer; timestamp: integer = 0; location: integer = 0; autoRepeat: boolean = False; isKeypad: boolean = False; isSystemKey: boolean = False; const text: wvstring = ''; const unmodifiedtext: wvstring = ''; const keyIdentifier: wvstring = ''; const code: wvstring = ''; const key: wvstring = ''): boolean; virtual;
       function    KeyboardShortcutSearch : boolean; virtual;
       function    KeyboardShortcutRefreshIgnoreCache : boolean; virtual;
@@ -2972,6 +2973,17 @@ procedure TWVBrowserBase.UpdateZoomPct(const aValue : double);
 begin
   if (aValue > 0) then
     ZoomFactor := aValue / 100;
+end;
+
+// Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
+// https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
+// https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h
+function TWVBrowserBase.SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
+var
+  TempParams : wvstring;
+begin
+  TempParams := '{"type": "char", "commands": ["' + EditingCommandToString(aEditingCommand) + '"]}';
+  Result     := CallDevToolsProtocolMethod('Input.dispatchKeyEvent', TempParams, WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID);
 end;
 
 // Dispatches a key event to the page using the "Input.dispatchKeyEvent" DevTools method

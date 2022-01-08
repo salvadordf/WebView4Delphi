@@ -226,67 +226,47 @@ begin
     end;
 end;
 
-procedure TMainForm.AlignCenterBtnClick(Sender: TObject);
-var
-  TempCode : string;
-begin
-  TempCode := 'document.execCommand("justifyCenter", false, null);';
 
-  WVBrowser1.ExecuteScript(TempCode);
+procedure TMainForm.AlignCenterBtnClick(Sender: TObject);
+begin
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecJustifyCenter);
 end;
 
 procedure TMainForm.AlignJustifyBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("justifyFull", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecJustifyFull);
 end;
 
 procedure TMainForm.AlignLeftBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("justifyLeft", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecJustifyLeft);
 end;
 
 procedure TMainForm.AlignRightBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("justifyRight", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecJustifyRight);
 end;
 
 procedure TMainForm.BoldBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("bold", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecBold);
 end;
 
 procedure TMainForm.IndentBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("indent", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecIndent);
 end;
 
 procedure TMainForm.ItalicBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("italic", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecItalic);
 end;
 
 procedure TMainForm.LinkBtnClick(Sender: TObject);
@@ -306,30 +286,21 @@ begin
 end;
 
 procedure TMainForm.StrikethroughBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("strikeThrough", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecStrikethrough);
 end;
 
 procedure TMainForm.UnderlineBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("underline", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecUnderline);
 end;
 
 procedure TMainForm.UnorderedListBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("insertUnorderedList", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecInsertUnorderedList);
 end;
 
 procedure TMainForm.OpenBtnClick(Sender: TObject);
@@ -341,30 +312,21 @@ begin
 end;
 
 procedure TMainForm.OrderedListBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("insertOrderedList", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecInsertOrderedList);
 end;
 
 procedure TMainForm.OutdentBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("outdent", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecOutdent);
 end;
 
 procedure TMainForm.RemoveFormatBtnClick(Sender: TObject);
-var
-  TempCode : string;
 begin
-  TempCode := 'document.execCommand("removeFormat", false, null);';
-
-  WVBrowser1.ExecuteScript(TempCode);
+  WVWindowParent1.SetFocus;
+  WVBrowser1.SimulateEditingCommand(ecRemoveFormat);
 end;
 
 procedure TMainForm.NewBtnClick(Sender: TObject);

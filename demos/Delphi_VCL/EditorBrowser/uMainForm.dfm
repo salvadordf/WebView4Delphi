@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'VirtualHostBrowser - Initializing...'
-  ClientHeight = 701
+  ClientHeight = 733
   ClientWidth = 995
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,10 +18,11 @@ object MainForm: TMainForm
     Left = 0
     Top = 23
     Width = 995
-    Height = 678
+    Height = 710
     Align = alClient
     TabOrder = 0
     Browser = WVBrowser1
+    ExplicitHeight = 691
   end
   object ToolBar1: TToolBar
     Left = 0
