@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 02/12/2021 11:35:30 from Type Library described below.
+// File generated on 11/01/2022 11:26:19 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: Z:\microsoft.web.webview2.1.0.1054.31.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: Z:\microsoft.web.webview2.1.0.1072.54.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -160,6 +160,11 @@ const
   IID_ICoreWebView2_7: TGUID = '{79C24D83-09A3-45AE-9418-487F32A58740}';
   IID_ICoreWebView2PrintSettings: TGUID = '{377F3721-C74E-48CA-8DB1-DF68E51D60E2}';
   IID_ICoreWebView2PrintToPdfCompletedHandler: TGUID = '{CCF1EF04-FD8E-4D5F-B2DE-0983E41B8C36}';
+  IID_ICoreWebView2_8: TGUID = '{E9632730-6E1E-43AB-B7B8-7B2C9E62E094}';
+  IID_ICoreWebView2IsMutedChangedEventHandler: TGUID = '{57D90347-CD0E-4952-A4A2-7483A2756F08}';
+  IID_ICoreWebView2IsDocumentPlayingAudioChangedEventHandler: TGUID = '{5DEF109A-2F4B-49FA-B7F6-11C39E513328}';
+  IID_ICoreWebView2_9: TGUID = '{4D7B2EAB-9FDC-468D-B998-A9260B5ED651}';
+  IID_ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler: TGUID = '{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -378,6 +383,15 @@ const
   COREWEBVIEW2_PRINT_ORIENTATION_PORTRAIT = $00000000;
   COREWEBVIEW2_PRINT_ORIENTATION_LANDSCAPE = $00000001;
 
+// Constants for enum COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT
+type
+  COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = TOleEnum;
+const
+  COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_LEFT = $00000000;
+  COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_RIGHT = $00000001;
+  COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_LEFT = $00000002;
+  COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_RIGHT = $00000003;
+
 // Constants for enum COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND
 type
   COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND = TOleEnum;
@@ -538,6 +552,11 @@ type
   ICoreWebView2_7 = interface;
   ICoreWebView2PrintSettings = interface;
   ICoreWebView2PrintToPdfCompletedHandler = interface;
+  ICoreWebView2_8 = interface;
+  ICoreWebView2IsMutedChangedEventHandler = interface;
+  ICoreWebView2IsDocumentPlayingAudioChangedEventHandler = interface;
+  ICoreWebView2_9 = interface;
+  ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -1868,6 +1887,73 @@ type
   ICoreWebView2PrintToPdfCompletedHandler = interface(IUnknown)
     ['{CCF1EF04-FD8E-4D5F-B2DE-0983E41B8C36}']
     function Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_8
+// Flags:     (0)
+// GUID:      {E9632730-6E1E-43AB-B7B8-7B2C9E62E094}
+// *********************************************************************//
+  ICoreWebView2_8 = interface(ICoreWebView2_7)
+    ['{E9632730-6E1E-43AB-B7B8-7B2C9E62E094}']
+    function add_IsMutedChanged(const eventHandler: ICoreWebView2IsMutedChangedEventHandler; 
+                                out token: EventRegistrationToken): HResult; stdcall;
+    function remove_IsMutedChanged(token: EventRegistrationToken): HResult; stdcall;
+    function Get_IsMuted(out value: Integer): HResult; stdcall;
+    function Set_IsMuted(value: Integer): HResult; stdcall;
+    function add_IsDocumentPlayingAudioChanged(const eventHandler: ICoreWebView2IsDocumentPlayingAudioChangedEventHandler; 
+                                               out token: EventRegistrationToken): HResult; stdcall;
+    function remove_IsDocumentPlayingAudioChanged(token: EventRegistrationToken): HResult; stdcall;
+    function Get_IsDocumentPlayingAudio(out value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2IsMutedChangedEventHandler
+// Flags:     (0)
+// GUID:      {57D90347-CD0E-4952-A4A2-7483A2756F08}
+// *********************************************************************//
+  ICoreWebView2IsMutedChangedEventHandler = interface(IUnknown)
+    ['{57D90347-CD0E-4952-A4A2-7483A2756F08}']
+    function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2IsDocumentPlayingAudioChangedEventHandler
+// Flags:     (0)
+// GUID:      {5DEF109A-2F4B-49FA-B7F6-11C39E513328}
+// *********************************************************************//
+  ICoreWebView2IsDocumentPlayingAudioChangedEventHandler = interface(IUnknown)
+    ['{5DEF109A-2F4B-49FA-B7F6-11C39E513328}']
+    function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_9
+// Flags:     (0)
+// GUID:      {4D7B2EAB-9FDC-468D-B998-A9260B5ED651}
+// *********************************************************************//
+  ICoreWebView2_9 = interface(ICoreWebView2_8)
+    ['{4D7B2EAB-9FDC-468D-B998-A9260B5ED651}']
+    function add_IsDefaultDownloadDialogOpenChanged(const handler: ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler; 
+                                                    out token: EventRegistrationToken): HResult; stdcall;
+    function remove_IsDefaultDownloadDialogOpenChanged(token: EventRegistrationToken): HResult; stdcall;
+    function Get_IsDefaultDownloadDialogOpen(out value: Integer): HResult; stdcall;
+    function OpenDefaultDownloadDialog: HResult; stdcall;
+    function CloseDefaultDownloadDialog: HResult; stdcall;
+    function Get_DefaultDownloadDialogCornerAlignment(out value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT): HResult; stdcall;
+    function Set_DefaultDownloadDialogCornerAlignment(value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT): HResult; stdcall;
+    function Get_DefaultDownloadDialogMargin(out value: tagPOINT): HResult; stdcall;
+    function Set_DefaultDownloadDialogMargin(value: tagPOINT): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler
+// Flags:     (0)
+// GUID:      {3117DA26-AE13-438D-BD46-EDBEB2C4CE81}
+// *********************************************************************//
+  ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = interface(IUnknown)
+    ['{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}']
+    function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
 
 // *********************************************************************//

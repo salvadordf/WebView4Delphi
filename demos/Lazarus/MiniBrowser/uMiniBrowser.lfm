@@ -14,7 +14,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   object NavControlPnl: TPanel
     Left = 0
     Height = 25
@@ -310,10 +310,15 @@ object MiniBrowserFrm: TMiniBrowserFrm
     end
     object MenuItem3: TMenuItem
       Caption = 'Available browser version...'
+      OnClick = MenuItem3Click
     end
     object ChangeUserAgentMi: TMenuItem
       Caption = 'Change user agent string...'
       OnClick = ChangeUserAgentMiClick
+    end
+    object Muted1: TMenuItem
+      Caption = 'Muted'
+      OnClick = Muted1Click
     end
   end
   object OpenDialog1: TOpenDialog

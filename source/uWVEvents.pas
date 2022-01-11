@@ -62,6 +62,9 @@ type
   TOnOfflineCompletedEvent                                 = procedure(Sender: TObject; aResult: boolean) of object;
   TOnIgnoreCertificateErrorsCompletedEvent                 = procedure(Sender: TObject; aResult: boolean) of object;
   TOnSimulateKeyEventCompletedEvent                        = procedure(Sender: TObject; aResult: boolean) of object;
+  TOnIsMutedChangedEvent                                   = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
+  TOnIsDocumentPlayingAudioChangedEvent                    = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
+  TOnIsDefaultDownloadDialogOpenChangedEvent               = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

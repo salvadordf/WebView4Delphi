@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Package Version="4">
+  <Package Version="5">
     <PathDelim Value="\"/>
     <Name Value="WebView4Delphi"/>
     <Type Value="RunAndDesignTime"/>
@@ -12,7 +12,7 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Major="1" Release="1054" Build="31"/>
+    <Version Major="1" Release="1072" Build="54"/>
     <Files Count="41">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
@@ -181,6 +181,7 @@
         <UnitName Value="uWVWindowParent"/>
       </Item41>
     </Files>
+    <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">
       <Item1>
         <PackageName Value="LCLBase"/>

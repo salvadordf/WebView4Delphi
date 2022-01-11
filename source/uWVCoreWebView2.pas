@@ -6,46 +6,51 @@ interface
 
 uses
   {$IFDEF FPC}
-  Classes, Windows, ActiveX, SysUtils,
+  Classes, Windows, ActiveX, SysUtils, Types,
   {$ELSE}
-  System.Classes, WinApi.Windows, Winapi.ActiveX, System.SysUtils,
+  System.Classes, WinApi.Windows, Winapi.ActiveX, System.SysUtils, System.Types,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 
 type
   TCoreWebView2 = class
     protected
-      FBaseIntf                              : ICoreWebView2;
-      FBaseIntf2                             : ICoreWebView2_2;
-      FBaseIntf3                             : ICoreWebView2_3;
-      FBaseIntf4                             : ICoreWebView2_4;
-      FBaseIntf5                             : ICoreWebView2_5;
-      FBaseIntf6                             : ICoreWebView2_6;
-      FBaseIntf7                             : ICoreWebView2_7;
-      FContainsFullScreenElementChangedToken : EventRegistrationToken;
-      FContentLoadingToken                   : EventRegistrationToken;
-      FDocumentTitleChangedToken             : EventRegistrationToken;
-      FFrameNavigationStartingToken          : EventRegistrationToken;
-      FFrameNavigationCompletedToken         : EventRegistrationToken;
-      FHistoryChangedToken                   : EventRegistrationToken;
-      FNavigationStartingToken               : EventRegistrationToken;
-      FNavigationCompletedToken              : EventRegistrationToken;
-      FNewWindowRequestedToken               : EventRegistrationToken;
-      FPermissionRequestedToken              : EventRegistrationToken;
-      FProcessFailedToken                    : EventRegistrationToken;
-      FScriptDialogOpeningToken              : EventRegistrationToken;
-      FSourceChangedToken                    : EventRegistrationToken;
-      FWebResourceRequestedToken             : EventRegistrationToken;
-      FWebMessageReceivedToken               : EventRegistrationToken;
-      FWindowCloseRequestedToken             : EventRegistrationToken;
-      FWebResourceResponseReceivedToken      : EventRegistrationToken;
-      FDOMContentLoadedToken                 : EventRegistrationToken;
-      FFrameCreatedToken                     : EventRegistrationToken;
-      FDownloadStartingToken                 : EventRegistrationToken;
-      FClientCertificateRequestedToken       : EventRegistrationToken;
+      FBaseIntf                                : ICoreWebView2;
+      FBaseIntf2                               : ICoreWebView2_2;
+      FBaseIntf3                               : ICoreWebView2_3;
+      FBaseIntf4                               : ICoreWebView2_4;
+      FBaseIntf5                               : ICoreWebView2_5;
+      FBaseIntf6                               : ICoreWebView2_6;
+      FBaseIntf7                               : ICoreWebView2_7;
+      FBaseIntf8                               : ICoreWebView2_8;
+      FBaseIntf9                               : ICoreWebView2_9;
+      FContainsFullScreenElementChangedToken   : EventRegistrationToken;
+      FContentLoadingToken                     : EventRegistrationToken;
+      FDocumentTitleChangedToken               : EventRegistrationToken;
+      FFrameNavigationStartingToken            : EventRegistrationToken;
+      FFrameNavigationCompletedToken           : EventRegistrationToken;
+      FHistoryChangedToken                     : EventRegistrationToken;
+      FNavigationStartingToken                 : EventRegistrationToken;
+      FNavigationCompletedToken                : EventRegistrationToken;
+      FNewWindowRequestedToken                 : EventRegistrationToken;
+      FPermissionRequestedToken                : EventRegistrationToken;
+      FProcessFailedToken                      : EventRegistrationToken;
+      FScriptDialogOpeningToken                : EventRegistrationToken;
+      FSourceChangedToken                      : EventRegistrationToken;
+      FWebResourceRequestedToken               : EventRegistrationToken;
+      FWebMessageReceivedToken                 : EventRegistrationToken;
+      FWindowCloseRequestedToken               : EventRegistrationToken;
+      FWebResourceResponseReceivedToken        : EventRegistrationToken;
+      FDOMContentLoadedToken                   : EventRegistrationToken;
+      FFrameCreatedToken                       : EventRegistrationToken;
+      FDownloadStartingToken                   : EventRegistrationToken;
+      FClientCertificateRequestedToken         : EventRegistrationToken;
+      FIsMutedChangedToken                     : EventRegistrationToken;
+      FIsDocumentPlayingAudioChangedToken      : EventRegistrationToken;
+      FIsDefaultDownloadDialogOpenChangedToken : EventRegistrationToken;
 
-      FDevToolsEventNames                    : TStringList;
-      FDevToolsEventTokens                   : array of EventRegistrationToken;
+      FDevToolsEventNames                      : TStringList;
+      FDevToolsEventTokens                     : array of EventRegistrationToken;
 
       function  GetInitialized : boolean;
       function  GetBrowserProcessID : cardinal;
@@ -58,6 +63,15 @@ type
       function  GetEnvironment : ICoreWebView2Environment;
       function  GetIsSuspended : boolean;
       function  GetSettings : ICoreWebView2Settings;
+      function  GetIsMuted : boolean;
+      function  GetIsDocumentPlayingAudio : boolean;
+      function  GetIsDefaultDownloadDialogOpen : boolean;
+      function  GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
+      function  GetDefaultDownloadDialogMargin : TPoint;
+
+      procedure SetIsMuted(aValue : boolean);
+      procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
+      procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -85,6 +99,9 @@ type
       function  AddFrameCreatedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddDownloadStartingEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddClientCertificateRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddIsMutedChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddIsDocumentPlayingAudioChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddIsDefaultDownloadDialogOpenChangedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -117,19 +134,26 @@ type
       function    RemoveHostObjectFromScript(const aName : wvstring) : boolean;
       function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring; const aBrowserComponent : TComponent) : boolean;
       function    RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
+      function    OpenDefaultDownloadDialog : boolean;
+      function    CloseDefaultDownloadDialog : boolean;
 
-      property    Initialized                 : boolean                     read GetInitialized;
-      property    BaseIntf                    : ICoreWebView2               read FBaseIntf;
-      property    Settings                    : ICoreWebView2Settings       read GetSettings;
-      property    BrowserProcessID            : DWORD                       read GetBrowserProcessID;
-      property    CanGoBack                   : boolean                     read GetCanGoBack;
-      property    CanGoForward                : boolean                     read GetCanGoForward;
-      property    ContainsFullScreenElement   : boolean                     read GetContainsFullScreenElement;
-      property    DocumentTitle               : wvstring                    read GetDocumentTitle;
-      property    Source                      : wvstring                    read GetSource;
-      property    CookieManager               : ICoreWebView2CookieManager  read GetCookieManager;
-      property    Environment                 : ICoreWebView2Environment    read GetEnvironment;
-      property    IsSuspended                 : boolean                     read GetIsSuspended;
+      property Initialized                          : boolean                                   read GetInitialized;
+      property BaseIntf                             : ICoreWebView2                             read FBaseIntf;
+      property Settings                             : ICoreWebView2Settings                     read GetSettings;
+      property BrowserProcessID                     : DWORD                                     read GetBrowserProcessID;
+      property CanGoBack                            : boolean                                   read GetCanGoBack;
+      property CanGoForward                         : boolean                                   read GetCanGoForward;
+      property ContainsFullScreenElement            : boolean                                   read GetContainsFullScreenElement;
+      property DocumentTitle                        : wvstring                                  read GetDocumentTitle;
+      property Source                               : wvstring                                  read GetSource;
+      property CookieManager                        : ICoreWebView2CookieManager                read GetCookieManager;
+      property Environment                          : ICoreWebView2Environment                  read GetEnvironment;
+      property IsSuspended                          : boolean                                   read GetIsSuspended;
+      property IsMuted                              : boolean                                   read GetIsMuted                               write SetIsMuted;
+      property IsDocumentPlayingAudio               : boolean                                   read GetIsDocumentPlayingAudio;
+      property IsDefaultDownloadDialogOpen          : boolean                                   read GetIsDefaultDownloadDialogOpen;
+      property DefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment   read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
+      property DefaultDownloadDialogMargin          : TPoint                                    read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
   end;
 
 implementation
@@ -150,8 +174,10 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_3, FBaseIntf3)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_4, FBaseIntf4)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5, FBaseIntf5)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6, FBaseIntf6)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2_7, FBaseIntf7);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6, FBaseIntf6)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_7, FBaseIntf7)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8, FBaseIntf8)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2_9, FBaseIntf9);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -190,6 +216,8 @@ begin
   FBaseIntf5           := nil;
   FBaseIntf6           := nil;
   FBaseIntf7           := nil;
+  FBaseIntf8           := nil;
+  FBaseIntf9           := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -198,27 +226,30 @@ end;
 
 procedure TCoreWebView2.InitializeTokens;
 begin
-  FContainsFullScreenElementChangedToken.value  := 0;
-  FContentLoadingToken.value                    := 0;
-  FDocumentTitleChangedToken.value              := 0;
-  FFrameNavigationStartingToken.value           := 0;
-  FFrameNavigationCompletedToken.value          := 0;
-  FHistoryChangedToken.value                    := 0;
-  FNavigationStartingToken.value                := 0;
-  FNavigationCompletedToken.value               := 0;
-  FNewWindowRequestedToken.value                := 0;
-  FPermissionRequestedToken.value               := 0;
-  FProcessFailedToken.value                     := 0;
-  FScriptDialogOpeningToken.value               := 0;
-  FSourceChangedToken.value                     := 0;
-  FWebResourceRequestedToken.value              := 0;
-  FWebMessageReceivedToken.value                := 0;
-  FWindowCloseRequestedToken.value              := 0;
-  FWebResourceResponseReceivedToken.value       := 0;
-  FDOMContentLoadedToken.value                  := 0;
-  FFrameCreatedToken.value                      := 0;
-  FDownloadStartingToken.value                  := 0;
-  FClientCertificateRequestedToken.value        := 0;
+  FContainsFullScreenElementChangedToken.value   := 0;
+  FContentLoadingToken.value                     := 0;
+  FDocumentTitleChangedToken.value               := 0;
+  FFrameNavigationStartingToken.value            := 0;
+  FFrameNavigationCompletedToken.value           := 0;
+  FHistoryChangedToken.value                     := 0;
+  FNavigationStartingToken.value                 := 0;
+  FNavigationCompletedToken.value                := 0;
+  FNewWindowRequestedToken.value                 := 0;
+  FPermissionRequestedToken.value                := 0;
+  FProcessFailedToken.value                      := 0;
+  FScriptDialogOpeningToken.value                := 0;
+  FSourceChangedToken.value                      := 0;
+  FWebResourceRequestedToken.value               := 0;
+  FWebMessageReceivedToken.value                 := 0;
+  FWindowCloseRequestedToken.value               := 0;
+  FWebResourceResponseReceivedToken.value        := 0;
+  FDOMContentLoadedToken.value                   := 0;
+  FFrameCreatedToken.value                       := 0;
+  FDownloadStartingToken.value                   := 0;
+  FClientCertificateRequestedToken.value         := 0;
+  FIsMutedChangedToken.value                     := 0;
+  FIsDocumentPlayingAudioChangedToken.value      := 0;
+  FIsDefaultDownloadDialogOpenChangedToken.value := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -304,6 +335,19 @@ begin
               //if (FClientCertificateRequestedToken.value <> 0) then
               //  FBaseIntf5.remove_ClientCertificateRequested(FClientCertificateRequestedToken);
             end;
+
+          if assigned(FBaseIntf8) then
+            begin
+              if (FIsMutedChangedToken.value <> 0) then
+                FBaseIntf8.remove_IsMutedChanged(FIsMutedChangedToken);
+
+              if (FIsDocumentPlayingAudioChangedToken.value <> 0) then
+                FBaseIntf8.remove_IsDocumentPlayingAudioChanged(FIsDocumentPlayingAudioChangedToken);
+            end;
+
+          if assigned(FBaseIntf9) and
+             (FIsDefaultDownloadDialogOpenChangedToken.value <> 0) then
+            FBaseIntf9.remove_IsDefaultDownloadDialogOpenChanged(FIsDefaultDownloadDialogOpenChangedToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -632,29 +676,77 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddIsMutedChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2IsMutedChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf8) and (FIsMutedChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2IsMutedChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf8.add_IsMutedChanged(TempHandler, FIsMutedChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddIsDocumentPlayingAudioChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2IsDocumentPlayingAudioChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf8) and (FIsDocumentPlayingAudioChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf8.add_IsDocumentPlayingAudioChanged(TempHandler, FIsDocumentPlayingAudioChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddIsDefaultDownloadDialogOpenChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf9) and (FIsDefaultDownloadDialogOpenChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf9.add_IsDefaultDownloadDialogOpenChanged(TempHandler, FIsDefaultDownloadDialogOpenChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
-  Result := AddNavigationStartingEvent(aBrowserComponent)                and
-            AddNavigationCompletedEvent(aBrowserComponent)               and
-            AddSourceChangedEvent(aBrowserComponent)                     and
-            AddHistoryChangedEvent(aBrowserComponent)                    and
-            AddContentLoadingEvent(aBrowserComponent)                    and
-            AddDocumentTitleChangedEvent(aBrowserComponent)              and
-            AddNewWindowRequestedEvent(aBrowserComponent)                and
-            AddFrameNavigationStartingEvent(aBrowserComponent)           and
-            AddFrameNavigationCompletedEvent(aBrowserComponent)          and
-            AddWebResourceRequestedEvent(aBrowserComponent)              and
-            AddScriptDialogOpeningEvent(aBrowserComponent)               and
-            AddPermissionRequestedEvent(aBrowserComponent)               and
-            AddProcessFailedEvent(aBrowserComponent)                     and
-            AddWebMessageReceivedEvent(aBrowserComponent)                and
-            AddContainsFullScreenElementChangedEvent(aBrowserComponent)  and
-            AddWindowCloseRequestedEvent(aBrowserComponent)              and
-            AddWebResourceResponseReceivedEvent(aBrowserComponent)       and
-            AddDOMContentLoadedEvent(aBrowserComponent)                  and
-            AddFrameCreatedEvent(aBrowserComponent)                      and
-            AddDownloadStartingEvent(aBrowserComponent)                  and
-            AddClientCertificateRequestedEvent(aBrowserComponent);
+  Result := AddNavigationStartingEvent(aBrowserComponent)                 and
+            AddNavigationCompletedEvent(aBrowserComponent)                and
+            AddSourceChangedEvent(aBrowserComponent)                      and
+            AddHistoryChangedEvent(aBrowserComponent)                     and
+            AddContentLoadingEvent(aBrowserComponent)                     and
+            AddDocumentTitleChangedEvent(aBrowserComponent)               and
+            AddNewWindowRequestedEvent(aBrowserComponent)                 and
+            AddFrameNavigationStartingEvent(aBrowserComponent)            and
+            AddFrameNavigationCompletedEvent(aBrowserComponent)           and
+            AddWebResourceRequestedEvent(aBrowserComponent)               and
+            AddScriptDialogOpeningEvent(aBrowserComponent)                and
+            AddPermissionRequestedEvent(aBrowserComponent)                and
+            AddProcessFailedEvent(aBrowserComponent)                      and
+            AddWebMessageReceivedEvent(aBrowserComponent)                 and
+            AddContainsFullScreenElementChangedEvent(aBrowserComponent)   and
+            AddWindowCloseRequestedEvent(aBrowserComponent)               and
+            AddWebResourceResponseReceivedEvent(aBrowserComponent)        and
+            AddDOMContentLoadedEvent(aBrowserComponent)                   and
+            AddFrameCreatedEvent(aBrowserComponent)                       and
+            AddDownloadStartingEvent(aBrowserComponent)                   and
+            AddClientCertificateRequestedEvent(aBrowserComponent)         and
+            AddIsMutedChangedEvent(aBrowserComponent)                     and
+            AddIsDocumentPlayingAudioChangedEvent(aBrowserComponent)      and
+            AddIsDefaultDownloadDialogOpenChangedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
@@ -928,6 +1020,18 @@ begin
             succeeded(FBaseIntf.RemoveScriptToExecuteOnDocumentCreated(PWideChar(aID)));
 end;
 
+function TCoreWebView2.OpenDefaultDownloadDialog : boolean;
+begin
+  Result := assigned(FBaseIntf9) and
+            succeeded(FBaseIntf9.OpenDefaultDownloadDialog);
+end;
+
+function TCoreWebView2.CloseDefaultDownloadDialog : boolean;
+begin
+  Result := assigned(FBaseIntf9) and
+            succeeded(FBaseIntf9.CloseDefaultDownloadDialog);
+end;
+
 function TCoreWebView2.GetBrowserProcessID : cardinal;
 var
   TempID : DWORD;
@@ -1041,6 +1145,73 @@ begin
      succeeded(FBaseIntf2.Get_Settings(TempResult)) and
      assigned(TempResult) then
     Result := TempResult;
+end;
+
+function TCoreWebView2.GetIsMuted : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf8) and
+            succeeded(FBaseIntf8.Get_IsMuted(TempResult)) and
+            (TempResult <> 0);
+end;
+
+function TCoreWebView2.GetIsDocumentPlayingAudio : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf8) and
+            succeeded(FBaseIntf8.Get_IsDocumentPlayingAudio(TempResult)) and
+            (TempResult <> 0);
+end;
+
+function TCoreWebView2.GetIsDefaultDownloadDialogOpen : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf9) and
+            succeeded(FBaseIntf9.Get_IsDefaultDownloadDialogOpen(TempResult)) and
+            (TempResult <> 0);
+end;
+
+function TCoreWebView2.GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
+var
+  TempResult : COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT;
+begin
+  if assigned(FBaseIntf9) and
+     succeeded(FBaseIntf9.Get_DefaultDownloadDialogCornerAlignment(TempResult)) then
+    Result := TempResult
+   else
+    Result := 0;
+end;
+
+function TCoreWebView2.GetDefaultDownloadDialogMargin : TPoint;
+var
+  TempResult : tagPOINT;
+begin
+  if assigned(FBaseIntf9) and
+     succeeded(FBaseIntf9.Get_DefaultDownloadDialogMargin(TempResult)) then
+    Result := TPoint(TempResult)
+   else
+    Result := point(0, 0);
+end;
+
+procedure TCoreWebView2.SetIsMuted(aValue : boolean);
+begin
+  if assigned(FBaseIntf8) then
+    FBaseIntf8.Set_IsMuted(ord(aValue));
+end;
+
+procedure TCoreWebView2.SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
+begin
+  if assigned(FBaseIntf9) then
+    FBaseIntf9.Set_DefaultDownloadDialogCornerAlignment(aValue);
+end;
+
+procedure TCoreWebView2.SetDefaultDownloadDialogMargin(aValue : TPoint);
+begin
+  if assigned(FBaseIntf9) then
+    FBaseIntf9.Set_DefaultDownloadDialogMargin(tagPOINT(aValue));
 end;
 
 end.

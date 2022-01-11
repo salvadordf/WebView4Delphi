@@ -120,6 +120,9 @@ type
       FOnIgnoreCertificateErrorsCompleted             : TOnIgnoreCertificateErrorsCompletedEvent;
       FOnRefreshIgnoreCacheCompleted                  : TOnRefreshIgnoreCacheCompletedEvent;
       FOnSimulateKeyEventCompleted                    : TOnSimulateKeyEventCompletedEvent;
+      FOnIsMutedChanged                               : TOnIsMutedChangedEvent;
+      FOnIsDocumentPlayingAudioChanged                : TOnIsDocumentPlayingAudioChangedEvent;
+      FOnIsDefaultDownloadDialogOpenChanged           : TOnIsDefaultDownloadDialogOpenChangedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -160,19 +163,24 @@ type
       function  GetCursor : HCURSOR;
       function  GetSystemCursorID : cardinal;
       function  GetUIAProvider : IUnknown;
+      function  GetIsMuted : boolean;
+      function  GetIsDocumentPlayingAudio : boolean;
+      function  GetIsDefaultDownloadDialogOpen : boolean;
+      function  GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
+      function  GetDefaultDownloadDialogMargin : TPoint;
 
-      procedure SetBuiltInErrorPageEnabled(const Value: boolean);
-      procedure SetDefaultContextMenusEnabled(const Value: boolean);
-      procedure SetDefaultScriptDialogsEnabled(const Value: boolean);
-      procedure SetDevToolsEnabled(const Value: boolean);
-      procedure SetScriptEnabled(const Value: boolean);
-      procedure SetStatusBarEnabled(const Value: boolean);
-      procedure SetWebMessageEnabled(const Value: boolean);
-      procedure SetZoomControlEnabled(const Value: boolean);
-      procedure SetZoomFactor(const Value: Double);
+      procedure SetBuiltInErrorPageEnabled(aValue: boolean);
+      procedure SetDefaultContextMenusEnabled(aValue: boolean);
+      procedure SetDefaultScriptDialogsEnabled(aValue: boolean);
+      procedure SetDevToolsEnabled(aValue: boolean);
+      procedure SetScriptEnabled(aValue: boolean);
+      procedure SetStatusBarEnabled(aValue: boolean);
+      procedure SetWebMessageEnabled(aValue: boolean);
+      procedure SetZoomControlEnabled(aValue: boolean);
+      procedure SetZoomFactor(const aValue: Double);
       procedure SetZoomPct(const aValue : double);
       procedure SetZoomStep(aValue : byte);
-      procedure SetIsVisible(const aValue : boolean);
+      procedure SetIsVisible(aValue : boolean);
       procedure SetBounds(aValue : TRect);
       procedure SetParentWindow(aValue : THandle);
       procedure SetDefaultBackgroundColor(const aValue : TColor);
@@ -189,6 +197,9 @@ type
       procedure SetOffline(aValue : boolean);
       procedure SetIgnoreCertificateErrors(aValue : boolean);
       procedure SetRootVisualTarget(const aValue : IUnknown);
+      procedure SetIsMuted(aValue : boolean);
+      procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
+      procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
 
       function  CreateEnvironment : boolean;
 
@@ -262,6 +273,9 @@ type
       function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HRESULT;
       function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
       function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
+      function IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+      function IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+      function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -321,6 +335,9 @@ type
       procedure doOnIgnoreCertificateErrorsCompleted(aErrorCode: HRESULT); virtual;
       procedure doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnSimulateKeyEventCompleted(aErrorCode: HRESULT); virtual;
+      procedure doOnIsMutedChanged(const sender: ICoreWebView2); virtual;
+      procedure doOnIsDocumentPlayingAudioChanged(const sender: ICoreWebView2); virtual;
+      procedure doOnIsDefaultDownloadDialogOpenChanged(const sender: ICoreWebView2); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -404,6 +421,8 @@ type
       procedure   ResetZoom;
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
 
+      procedure   ToggleMuteState;
+
       function    SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
       function    SimulateKeyEvent(type_: TWV2KeyEventType; modifiers, windowsVirtualKeyCode, nativeVirtualKeyCode: integer; timestamp: integer = 0; location: integer = 0; autoRepeat: boolean = False; isKeypad: boolean = False; isSystemKey: boolean = False; const text: wvstring = ''; const unmodifiedtext: wvstring = ''; const keyIdentifier: wvstring = ''; const code: wvstring = ''; const key: wvstring = ''): boolean; virtual;
       function    KeyboardShortcutSearch : boolean; virtual;
@@ -471,6 +490,11 @@ type
       property Widget1CompHWND                        : THandle                                 read FWidget1CompHWND;
       property RenderCompHWND                         : THandle                                 read FRenderCompHWND;
       property D3DWindowCompHWND                      : THandle                                 read FD3DWindowCompHWND;
+      property IsMuted                                : boolean                                 read GetIsMuted                               write SetIsMuted;
+      property IsDocumentPlayingAudio                 : boolean                                 read GetIsDocumentPlayingAudio;
+      property IsDefaultDownloadDialogOpen            : boolean                                 read GetIsDefaultDownloadDialogOpen;
+      property DefaultDownloadDialogCornerAlignment   : TWVDefaultDownloadDialogCornerAlignment read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
+      property DefaultDownloadDialogMargin            : TPoint                                  read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
 
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
@@ -534,6 +558,9 @@ type
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
       property OnSimulateKeyEventCompleted                     : TOnSimulateKeyEventCompletedEvent                     read FOnSimulateKeyEventCompleted                     write FOnSimulateKeyEventCompleted;
+      property OnIsMutedChanged                                : TOnIsMutedChangedEvent                                read FOnIsMutedChanged                                write FOnIsMutedChanged;
+      property OnIsDocumentPlayingAudioChanged                 : TOnIsDocumentPlayingAudioChangedEvent                 read FOnIsDocumentPlayingAudioChanged                 write FOnIsDocumentPlayingAudioChanged;
+      property OnIsDefaultDownloadDialogOpenChanged            : TOnIsDefaultDownloadDialogOpenChangedEvent            read FOnIsDefaultDownloadDialogOpenChanged            write FOnIsDefaultDownloadDialogOpenChanged;
   end;
 
 implementation
@@ -637,6 +664,9 @@ begin
   FOnIgnoreCertificateErrorsCompleted              := nil;
   FOnRefreshIgnoreCacheCompleted                   := nil;
   FOnSimulateKeyEventCompleted                     := nil;
+  FOnIsMutedChanged                                := nil;
+  FOnIsDocumentPlayingAudioChanged                 := nil;
+  FOnIsDefaultDownloadDialogOpenChanged            := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1428,6 +1458,24 @@ begin
     FOnSimulateKeyEventCompleted(self, succeeded(aErrorCode));
 end;
 
+procedure TWVBrowserBase.doOnIsMutedChanged(const sender: ICoreWebView2);
+begin
+  if assigned(FOnIsMutedChanged) then
+    FOnIsMutedChanged(self, sender);
+end;
+
+procedure TWVBrowserBase.doOnIsDocumentPlayingAudioChanged(const sender: ICoreWebView2);
+begin
+  if assigned(FOnIsDocumentPlayingAudioChanged) then
+    FOnIsDocumentPlayingAudioChanged(self, sender);
+end;
+
+procedure TWVBrowserBase.doOnIsDefaultDownloadDialogOpenChanged(const sender: ICoreWebView2);
+begin
+  if assigned(FOnIsDefaultDownloadDialogOpenChanged) then
+    FOnIsDefaultDownloadDialogOpenChanged(self, sender);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
 var
   TempMHTML  : wvstring;
@@ -1537,6 +1585,24 @@ function TWVBrowserBase.AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invo
 begin
   Result := S_OK;
   doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(errorCode, wvstring(id));
+end;
+
+function TWVBrowserBase.IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnIsMutedChanged(sender);
+end;
+
+function TWVBrowserBase.IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnIsDocumentPlayingAudioChanged(sender);
+end;
+
+function TWVBrowserBase.IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnIsDefaultDownloadDialogOpenChanged(sender);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -1701,6 +1767,40 @@ begin
     Result := FCoreWebView2CompositionController.UIAProvider
    else
     Result := nil;
+end;
+
+function TWVBrowserBase.GetIsMuted : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.IsMuted;
+end;
+
+function TWVBrowserBase.GetIsDocumentPlayingAudio : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.IsDocumentPlayingAudio;
+end;
+
+function TWVBrowserBase.GetIsDefaultDownloadDialogOpen : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.IsDefaultDownloadDialogOpen;
+end;
+
+function TWVBrowserBase.GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
+begin
+  if Initialized then
+    Result := FCoreWebView2.DefaultDownloadDialogCornerAlignment
+   else
+    Result := 0;
+end;
+
+function TWVBrowserBase.GetDefaultDownloadDialogMargin : TPoint;
+begin
+  if Initialized then
+    Result := FCoreWebView2.DefaultDownloadDialogMargin
+   else
+    Result := point(0, 0);
 end;
 
 function TWVBrowserBase.GetCanGoBack: boolean;
@@ -2063,28 +2163,28 @@ begin
     FCoreWebView2Settings.IsSwipeNavigationEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetBuiltInErrorPageEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetBuiltInErrorPageEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.IsBuiltInErrorPageEnabled := Value;
+    FCoreWebView2Settings.IsBuiltInErrorPageEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetDefaultContextMenusEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetDefaultContextMenusEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.AreDefaultContextMenusEnabled := Value;
+    FCoreWebView2Settings.AreDefaultContextMenusEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetDefaultScriptDialogsEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetDefaultScriptDialogsEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.AreDefaultScriptDialogsEnabled := Value;
+    FCoreWebView2Settings.AreDefaultScriptDialogsEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetDevToolsEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetDevToolsEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.AreDevToolsEnabled := Value;
+    FCoreWebView2Settings.AreDevToolsEnabled := aValue;
 end;
 
 function TWVBrowserBase.SetFocus : boolean;
@@ -2115,6 +2215,12 @@ function TWVBrowserBase.NotifyParentWindowPositionChanged : boolean;
 begin
   Result := Initialized and
             FCoreWebView2Controller.NotifyParentWindowPositionChanged;
+end;
+
+procedure TWVBrowserBase.ToggleMuteState;
+begin
+  if Initialized then
+    FCoreWebView2.IsMuted := not(FCoreWebView2.IsMuted);
 end;
 
 function TWVBrowserBase.TrySuspend : boolean;
@@ -2436,6 +2542,24 @@ begin
     FCoreWebView2CompositionController.RootVisualTarget := aValue;
 end;
 
+procedure TWVBrowserBase.SetIsMuted(aValue : boolean);
+begin
+  if Initialized then
+    FCoreWebView2.IsMuted := aValue;
+end;
+
+procedure TWVBrowserBase.SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
+begin
+  if Initialized then
+    FCoreWebView2.DefaultDownloadDialogCornerAlignment := aValue;
+end;
+
+procedure TWVBrowserBase.SetDefaultDownloadDialogMargin(aValue : TPoint);
+begin
+  if Initialized then
+    FCoreWebView2.DefaultDownloadDialogMargin := aValue;
+end;
+
 procedure TWVBrowserBase.IncZoomStep;
 begin
   UpdateZoomStep(True);
@@ -2451,34 +2575,34 @@ begin
   ZoomStep := ZOOM_STEP_DEF;
 end;
 
-procedure TWVBrowserBase.SetScriptEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetScriptEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.IsScriptEnabled := Value;
+    FCoreWebView2Settings.IsScriptEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetStatusBarEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetStatusBarEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.IsStatusBarEnabled := Value;
+    FCoreWebView2Settings.IsStatusBarEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetWebMessageEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetWebMessageEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.IsWebMessageEnabled := Value;
+    FCoreWebView2Settings.IsWebMessageEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetZoomControlEnabled(const Value: boolean);
+procedure TWVBrowserBase.SetZoomControlEnabled(aValue: boolean);
 begin
   if Initialized then
-    FCoreWebView2Settings.IsZoomControlEnabled := Value;
+    FCoreWebView2Settings.IsZoomControlEnabled := aValue;
 end;
 
-procedure TWVBrowserBase.SetZoomFactor(const Value: Double);
+procedure TWVBrowserBase.SetZoomFactor(const aValue: Double);
 begin
   if Initialized then
-    FCoreWebView2Controller.ZoomFactor := Value;
+    FCoreWebView2Controller.ZoomFactor := aValue;
 end;
 
 procedure TWVBrowserBase.SetZoomPct(const aValue : double);
@@ -2512,7 +2636,7 @@ begin
     end;
 end;
 
-procedure TWVBrowserBase.SetIsVisible(const aValue : boolean);
+procedure TWVBrowserBase.SetIsVisible(aValue : boolean);
 begin
   if Initialized then
     FCoreWebView2Controller.IsVisible := aValue;

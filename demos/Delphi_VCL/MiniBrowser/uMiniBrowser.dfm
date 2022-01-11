@@ -328,6 +328,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'Change user agent string...'
       OnClick = Changeuseragentstring1Click
     end
+    object Muted1: TMenuItem
+      Caption = 'Muted'
+      OnClick = Muted1Click
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 48

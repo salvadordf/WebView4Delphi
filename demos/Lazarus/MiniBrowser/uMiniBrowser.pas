@@ -15,6 +15,7 @@ type
   { TMiniBrowserFrm }
 
   TMiniBrowserFrm = class(TForm)
+    Muted1: TMenuItem;
     SaveToFileMi: TMenuItem;
     MenuItem3: TMenuItem;
     ChangeUserAgentMi: TMenuItem;
@@ -57,6 +58,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure Muted1Click(Sender: TObject);
 
     procedure Timer1Timer(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
@@ -137,9 +140,6 @@ uses
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2HttpResponseHeaders,
   uWVCoreWebView2HttpHeadersCollectionIterator;      
 
-const
-  SAVE_MHTML_EXEC_ID = 1;
-
 procedure TMiniBrowserFrm.akesnapshot1Click(Sender: TObject);
 var
   TempAdapter : IStream;
@@ -217,6 +217,16 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.MenuItem3Click(Sender: TObject);
+begin
+  showmessage('Available browser version : ' + UTF8Encode(GlobalWebView2Loader.AvailableBrowserVersion));
+end;
+
+procedure TMiniBrowserFrm.Muted1Click(Sender: TObject);
+begin
+  WVBrowser1.ToggleMuteState;
 end;
 
 procedure TMiniBrowserFrm.ChangeUserAgentMiClick(Sender: TObject);
@@ -310,7 +320,8 @@ procedure TMiniBrowserFrm.PopupMenu1Popup(Sender: TObject);
 begin
   Blockimages1.Checked             := FBlockImages;
   Offline1.Checked                 := WVBrowser1.Offline;
-  Ignorecertificateerrors1.Checked := WVBrowser1.IgnoreCertificateErrors;
+  Ignorecertificateerrors1.Checked := WVBrowser1.IgnoreCertificateErrors;    
+  Muted1.Checked                   := WVBrowser1.IsMuted;
 end;
 
 procedure TMiniBrowserFrm.Print1Click(Sender: TObject);

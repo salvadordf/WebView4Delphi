@@ -49,6 +49,7 @@ type
     Availablebrowserversion1: TMenuItem;
     SaveToFileMi: TMenuItem;
     Changeuseragentstring1: TMenuItem;
+    Muted1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -97,6 +98,7 @@ type
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: Boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
+    procedure Muted1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -154,7 +156,7 @@ end;
 
 procedure TMiniBrowserFrm.Availablebrowserversion1Click(Sender: TObject);
 begin
-  showmessage(GlobalWebView2Loader.AvailableBrowserVersion);
+  showmessage('Available browser version : ' + GlobalWebView2Loader.AvailableBrowserVersion);
 end;
 
 procedure TMiniBrowserFrm.BackBtnClick(Sender: TObject);
@@ -271,6 +273,11 @@ begin
     end;
 end;
 
+procedure TMiniBrowserFrm.Muted1Click(Sender: TObject);
+begin
+  WVBrowser1.ToggleMuteState;
+end;
+
 procedure TMiniBrowserFrm.LoadFromFileAsString(const aFileName : string);
 var
   TempLines : TStringList;
@@ -325,6 +332,7 @@ begin
   Blockimages1.Checked             := FBlockImages;
   Offline1.Checked                 := WVBrowser1.Offline;
   Ignorecertificateerrors1.Checked := WVBrowser1.IgnoreCertificateErrors;
+  Muted1.Checked                   := WVBrowser1.IsMuted;
 end;
 
 procedure TMiniBrowserFrm.Print1Click(Sender: TObject);
@@ -648,6 +656,7 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
+  GlobalWebView2Loader.RemoteDebuggingPort := 9222;
   GlobalWebView2Loader.StartWebView2;
 
 end.

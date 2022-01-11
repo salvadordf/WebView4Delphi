@@ -166,6 +166,15 @@ type
 
     // ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
     function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HResult;
+
+    // ICoreWebView2IsMutedChangedEventHandler
+    function IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
+
+    // ICoreWebView2IsDocumentPlayingAudioChangedEventHandler
+    function IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
+
+    // ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler
+    function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
   end;
 
 implementation

@@ -551,6 +551,39 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2IsMutedChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsMutedChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2IsDocumentPlayingAudioChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsDocumentPlayingAudioChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -1769,6 +1802,81 @@ function TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler.Invoke
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode, id)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2IsMutedChangedEventHandler
+
+constructor TCoreWebView2IsMutedChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2IsMutedChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2IsMutedChangedEventHandler.Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).IsMutedChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2IsDocumentPlayingAudioChangedEventHandler
+
+constructor TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).IsDocumentPlayingAudioChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler
+
+constructor TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(sender, args)
    else
     Result := E_FAIL;
 end;
