@@ -98,6 +98,9 @@ type
       property OnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted;
       property OnSimulateKeyEventCompleted;
+      property OnIsMutedChanged;
+      property OnIsDocumentPlayingAudioChanged;
+      property OnIsDefaultDownloadDialogOpenChanged;
   end;
 
 {$IFDEF FPC}
