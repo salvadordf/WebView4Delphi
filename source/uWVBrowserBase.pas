@@ -423,6 +423,9 @@ type
 
       procedure   ToggleMuteState;
 
+      function    OpenDefaultDownloadDialog : boolean;
+      function    CloseDefaultDownloadDialog : boolean;
+
       function    SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
       function    SimulateKeyEvent(type_: TWV2KeyEventType; modifiers, windowsVirtualKeyCode, nativeVirtualKeyCode: integer; timestamp: integer = 0; location: integer = 0; autoRepeat: boolean = False; isKeypad: boolean = False; isSystemKey: boolean = False; const text: wvstring = ''; const unmodifiedtext: wvstring = ''; const keyIdentifier: wvstring = ''; const code: wvstring = ''; const key: wvstring = ''): boolean; virtual;
       function    KeyboardShortcutSearch : boolean; virtual;
@@ -2221,6 +2224,18 @@ procedure TWVBrowserBase.ToggleMuteState;
 begin
   if Initialized then
     FCoreWebView2.IsMuted := not(FCoreWebView2.IsMuted);
+end;
+
+function TWVBrowserBase.OpenDefaultDownloadDialog : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.OpenDefaultDownloadDialog;
+end;
+
+function TWVBrowserBase.CloseDefaultDownloadDialog : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.CloseDefaultDownloadDialog;
 end;
 
 function TWVBrowserBase.TrySuspend : boolean;
