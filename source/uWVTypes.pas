@@ -241,14 +241,6 @@ type
                        appNoUserGestureRequired,
                        appUserGestureRequired);
 
-  TWVProxySettings = record
-    NoProxyServer : boolean;
-    AutoDetect    : boolean;
-    ByPassList    : wvstring;
-    PacUrl        : wvstring;
-    Server        : wvstring;
-  end;
-
 implementation
 
 end.
