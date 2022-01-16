@@ -1130,8 +1130,9 @@ begin
      else
       doOnInitializationError(errorCode, 'There was an error creating the controller.');
   finally
-    TempSettings     := nil;
-    TempCoreWebView2 := nil;
+    TempSettings      := nil;
+    TempCoreWebView2  := nil;
+    TempPrintSettings := nil;
   end;
 end;
 
