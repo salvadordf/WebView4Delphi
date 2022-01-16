@@ -119,9 +119,7 @@ type
       // Custom properties
       property Environment                            : ICoreWebView2Environment           read GetEnvironment;
       property Status                                 : TWV2LoaderStatus                   read FStatus;
-      property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;
-      property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;
-      property UserDataFolder                         : wvstring                           read FUserDataFolder                          write FUserDataFolder;
+      property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;                                                             // GetAvailableCoreWebView2BrowserVersionString
       property ErrorMessage                           : string                             read FErrorMsg;
       property ErrorCode                              : int64                              read FError;
       property SetCurrentDir                          : boolean                            read FSetCurrentDir                           write FSetCurrentDir;
@@ -136,10 +134,12 @@ type
       property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
 
       // Properties used to create the environment
-      property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;
-      property Language                               : wvstring                           read FLanguage                                write FLanguage;
-      property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;
-      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;
+      property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;                        // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
+      property UserDataFolder                         : wvstring                           read FUserDataFolder                          write FUserDataFolder;                         // CreateCoreWebView2EnvironmentWithOptions "userDataFolder" parameter
+      property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;             // ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments
+      property Language                               : wvstring                           read FLanguage                                write FLanguage;                               // ICoreWebView2EnvironmentOptions.get_Language
+      property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;         // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
+      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount; // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
 
       // Properties used to set command line switches
       property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;                        // --enable-gpu-plugin
@@ -168,10 +168,12 @@ type
 
       // Custom events
       property OnEnvironmentCreated                   : TLoaderNotifyEvent                      read FOnEnvironmentCreated                    write FOnEnvironmentCreated;
-
-      // Environment events
-      property OnNewBrowserVersionAvailable           : TLoaderNewBrowserVersionAvailableEvent  read FOnNewBrowserVersionAvailable            write FOnNewBrowserVersionAvailable;
       property OnInitializationError                  : TLoaderNotifyEvent                      read FOnInitializationError                   write FOnInitializationError;
+
+      // ICoreWebView2Environment events
+      property OnNewBrowserVersionAvailable           : TLoaderNewBrowserVersionAvailableEvent  read FOnNewBrowserVersionAvailable            write FOnNewBrowserVersionAvailable;
+
+      // ICoreWebView2Environment5 events
       property OnBrowserProcessExited                 : TLoaderBrowserProcessExitedEvent        read FOnBrowserProcessExited                  write FOnBrowserProcessExited;
   end;
 

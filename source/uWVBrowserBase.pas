@@ -434,6 +434,7 @@ type
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
       function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
 
+      // Custom properties
       property Initialized                            : boolean                                 read GetInitialized;
       property CoreWebView2PrintSettings              : TCoreWebView2PrintSettings              read FCoreWebView2PrintSettings;
       property CoreWebView2Settings                   : TCoreWebView2Settings                   read FCoreWebView2Settings;
@@ -441,112 +442,180 @@ type
       property CoreWebView2Controller                 : TCoreWebView2Controller                 read FCoreWebView2Controller;
       property CoreWebView2CompositionController      : TCoreWebView2CompositionController      read FCoreWebView2CompositionController;
       property CoreWebView2                           : TCoreWebView2                           read FCoreWebView2;
-      property BrowserVersionInfo                     : wvstring                                read GetBrowserVersionInfo;
-      property BrowserProcessID                       : cardinal                                read GetBrowserProcessID;
-      property CanGoBack                              : boolean                                 read GetCanGoBack;
-      property CanGoForward                           : boolean                                 read GetCanGoForward;
-      property ContainsFullScreenElement              : boolean                                 read GetContainsFullScreenElement;
-      property DocumentTitle                          : wvstring                                read GetDocumentTitle;
-      property Source                                 : wvstring                                read GetSource;
-      property CookieManager                          : ICoreWebView2CookieManager              read GetCookieManager;
-      property ZoomFactor                             : double                                  read GetZoomFactor                            write SetZoomFactor;
-      property ZoomPct                                : double                                  read GetZoomPct                               write SetZoomPct;
-      property ZoomStep                               : byte                                    read FZoomStep                                write SetZoomStep;
-      property Offline                                : boolean                                 read FOffline                                 write SetOffline;
-      property IsVisible                              : boolean                                 read GetIsVisible                             write SetIsVisible;
-      property BuiltInErrorPageEnabled                : boolean                                 read GetBuiltInErrorPageEnabled               write SetBuiltInErrorPageEnabled;
-      property DefaultContextMenusEnabled             : boolean                                 read GetDefaultContextMenusEnabled            write SetDefaultContextMenusEnabled;
-      property DefaultScriptDialogsEnabled            : boolean                                 read GetDefaultScriptDialogsEnabled           write SetDefaultScriptDialogsEnabled;
-      property DevToolsEnabled                        : boolean                                 read GetDevToolsEnabled                       write SetDevToolsEnabled;
-      property ScriptEnabled                          : boolean                                 read GetScriptEnabled                         write SetScriptEnabled;
-      property StatusBarEnabled                       : boolean                                 read GetStatusBarEnabled                      write SetStatusBarEnabled;
-      property WebMessageEnabled                      : boolean                                 read GetWebMessageEnabled                     write SetWebMessageEnabled;
-      property ZoomControlEnabled                     : boolean                                 read GetZoomControlEnabled                    write SetZoomControlEnabled;
-      property AreHostObjectsAllowed                  : boolean                                 read GetAreHostObjectsAllowed                 write SetAreHostObjectsAllowed;
-      property UserAgent                              : wvstring                                read GetUserAgent                             write SetUserAgent;
-      property AreBrowserAcceleratorKeysEnabled       : boolean                                 read GetAreBrowserAcceleratorKeysEnabled      write SetAreBrowserAcceleratorKeysEnabled;
-      property IsPasswordAutosaveEnabled              : boolean                                 read GetIsPasswordAutosaveEnabled             write SetIsPasswordAutosaveEnabled;
-      property IsGeneralAutofillEnabled               : boolean                                 read GetIsGeneralAutofillEnabled              write SetIsGeneralAutofillEnabled;
-      property IsPinchZoomEnabled                     : boolean                                 read GetIsPinchZoomEnabled                    write SetIsPinchZoomEnabled;
-      property IsSwipeNavigationEnabled               : boolean                                 read GetIsSwipeNavigationEnabled              write SetIsSwipeNavigationEnabled;
-      property Bounds                                 : TRect                                   read GetBounds                                write SetBounds;
-      property ParentWindow                           : THandle                                 read GetParentWindow                          write SetParentWindow;
-      property DefaultBackgroundColor                 : TColor                                  read GetDefaultBackgroundColor                write SetDefaultBackgroundColor;
-      property RasterizationScale                     : double                                  read GetRasterizationScale                    write SetRasterizationScale;
-      property ShouldDetectMonitorScaleChanges        : boolean                                 read GetShouldDetectMonitorScaleChanges       write SetShouldDetectMonitorScaleChanges;
-      property BoundsMode                             : TWVBoundsMode                           read GetBoundsMode                            write SetBoundsMode;
-      property BrowserExecPath                        : wvstring                                read FBrowserExecPath                         write FBrowserExecPath;
-      property UserDataFolder                         : wvstring                                read GetUserDataFolder                        write FUserDataFolder;
       property DefaultURL                             : wvstring                                read FDefaultURL                              write FDefaultURL;
-      property AdditionalBrowserArguments             : wvstring                                read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;
-      property Language                               : wvstring                                read FLanguage                                write FLanguage;
-      property TargetCompatibleBrowserVersion         : wvstring                                read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;
-      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                                 read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;
-      property IsSuspended                            : boolean                                 read GetIsSuspended;
-      property IgnoreCertificateErrors                : boolean                                 read FIgnoreCertificateErrors                 write SetIgnoreCertificateErrors;
       property IsNavigating                           : boolean                                 read FIsNavigating;
-      property RootVisualTarget                       : IUnknown                                read GetRootVisualTarget                      write SetRootVisualTarget;
-      property Cursor                                 : HCURSOR                                 read GetCursor;
-      property SystemCursorID                         : cardinal                                read GetSystemCursorID;
-      property UIAProvider                            : IUnknown                                read GetUIAProvider;
+      property ZoomPct                                : double                                  read GetZoomPct                               write SetZoomPct;                                 // ICoreWebView2Controller.get_ZoomFactor
+      property ZoomStep                               : byte                                    read FZoomStep                                write SetZoomStep;                                // ICoreWebView2Controller.get_ZoomFactor
       property Widget0CompHWND                        : THandle                                 read FWidget0CompHWND;
       property Widget1CompHWND                        : THandle                                 read FWidget1CompHWND;
       property RenderCompHWND                         : THandle                                 read FRenderCompHWND;
       property D3DWindowCompHWND                      : THandle                                 read FD3DWindowCompHWND;
-      property IsMuted                                : boolean                                 read GetIsMuted                               write SetIsMuted;
-      property IsDocumentPlayingAudio                 : boolean                                 read GetIsDocumentPlayingAudio;
-      property IsDefaultDownloadDialogOpen            : boolean                                 read GetIsDefaultDownloadDialogOpen;
-      property DefaultDownloadDialogCornerAlignment   : TWVDefaultDownloadDialogCornerAlignment read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
-      property DefaultDownloadDialogMargin            : TPoint                                  read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
 
+      // Custom properties created using DevTool methods
+      property Offline                                : boolean                                 read FOffline                                 write SetOffline;
+      property IgnoreCertificateErrors                : boolean                                 read FIgnoreCertificateErrors                 write SetIgnoreCertificateErrors;
+
+      // Properties used in the ICoreWebView2Environment creation
+      property BrowserExecPath                        : wvstring                                read FBrowserExecPath                         write FBrowserExecPath;                           // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
+      property UserDataFolder                         : wvstring                                read GetUserDataFolder                        write FUserDataFolder;                            // CreateCoreWebView2EnvironmentWithOptions "userDataFolder" parameter
+      property AdditionalBrowserArguments             : wvstring                                read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;                // ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments
+      property Language                               : wvstring                                read FLanguage                                write FLanguage;                                  // ICoreWebView2EnvironmentOptions.get_Language
+      property TargetCompatibleBrowserVersion         : wvstring                                read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;            // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
+      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                                 read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;    // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
+
+      // ICoreWebView2Environment properties
+      property BrowserVersionInfo                     : wvstring                                read GetBrowserVersionInfo;                                                                     // ICoreWebView2Environment.get_BrowserVersionString
+
+      // ICoreWebView2 properties
+      property BrowserProcessID                       : cardinal                                read GetBrowserProcessID;                                                                       // ICoreWebView2.get_BrowserProcessId
+      property CanGoBack                              : boolean                                 read GetCanGoBack;                                                                              // ICoreWebView2.get_CanGoBack
+      property CanGoForward                           : boolean                                 read GetCanGoForward;                                                                           // ICoreWebView2.get_CanGoForward
+      property ContainsFullScreenElement              : boolean                                 read GetContainsFullScreenElement;                                                              // ICoreWebView2.get_ContainsFullScreenElement
+      property DocumentTitle                          : wvstring                                read GetDocumentTitle;                                                                          // ICoreWebView2.get_DocumentTitle
+      property Source                                 : wvstring                                read GetSource;                                                                                 // ICoreWebView2.get_Source
+
+      // ICoreWebView2_2 properties
+      property CookieManager                          : ICoreWebView2CookieManager              read GetCookieManager;                                                                          // ICoreWebView2_2.get_CookieManager
+
+      // ICoreWebView2_3 properties
+      property IsSuspended                            : boolean                                 read GetIsSuspended;                                                                            // ICoreWebView2_3.get_IsSuspended
+
+      // ICoreWebView2_8 properties
+      property IsDocumentPlayingAudio                 : boolean                                 read GetIsDocumentPlayingAudio;                                                                 // ICoreWebView2_8.get_IsDocumentPlayingAudio
+      property IsMuted                                : boolean                                 read GetIsMuted                               write SetIsMuted;                                 // ICoreWebView2_8.get_IsMuted
+
+      // ICoreWebView2_9 properties
+      property DefaultDownloadDialogCornerAlignment   : TWVDefaultDownloadDialogCornerAlignment read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;    // ICoreWebView2_9.get_DefaultDownloadDialogCornerAlignment
+      property DefaultDownloadDialogMargin            : TPoint                                  read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;             // ICoreWebView2_9.get_DefaultDownloadDialogMargin
+      property IsDefaultDownloadDialogOpen            : boolean                                 read GetIsDefaultDownloadDialogOpen;                                                            // ICoreWebView2_9.get_IsDefaultDownloadDialogOpen
+
+      // ICoreWebView2Controller properties
+      property Bounds                                 : TRect                                   read GetBounds                                write SetBounds;                                  // ICoreWebView2Controller.get_Bounds
+      property IsVisible                              : boolean                                 read GetIsVisible                             write SetIsVisible;                               // ICoreWebView2Controller.get_IsVisible
+      property ParentWindow                           : THandle                                 read GetParentWindow                          write SetParentWindow;                            // ICoreWebView2Controller.get_ParentWindow
+      property ZoomFactor                             : double                                  read GetZoomFactor                            write SetZoomFactor;                              // ICoreWebView2Controller.get_ZoomFactor
+
+      // ICoreWebView2Controller2 properties
+      property DefaultBackgroundColor                 : TColor                                  read GetDefaultBackgroundColor                write SetDefaultBackgroundColor;                  // ICoreWebView2Controller2.get_DefaultBackgroundColor
+
+      // ICoreWebView2Controller3 properties
+      property BoundsMode                             : TWVBoundsMode                           read GetBoundsMode                            write SetBoundsMode;                              // ICoreWebView2Controller3.get_BoundsMode
+      property RasterizationScale                     : double                                  read GetRasterizationScale                    write SetRasterizationScale;                      // ICoreWebView2Controller3.get_RasterizationScale
+      property ShouldDetectMonitorScaleChanges        : boolean                                 read GetShouldDetectMonitorScaleChanges       write SetShouldDetectMonitorScaleChanges;         // ICoreWebView2Controller3.get_ShouldDetectMonitorScaleChanges
+
+      // ICoreWebView2Settings properties
+      property DefaultContextMenusEnabled             : boolean                                 read GetDefaultContextMenusEnabled            write SetDefaultContextMenusEnabled;              // ICoreWebView2Settings.get_AreDefaultContextMenusEnabled
+      property DefaultScriptDialogsEnabled            : boolean                                 read GetDefaultScriptDialogsEnabled           write SetDefaultScriptDialogsEnabled;             // ICoreWebView2Settings.get_AreDefaultScriptDialogsEnabled
+      property DevToolsEnabled                        : boolean                                 read GetDevToolsEnabled                       write SetDevToolsEnabled;                         // ICoreWebView2Settings.get_AreDevToolsEnabled
+      property AreHostObjectsAllowed                  : boolean                                 read GetAreHostObjectsAllowed                 write SetAreHostObjectsAllowed;                   // ICoreWebView2Settings.get_AreHostObjectsAllowed
+      property BuiltInErrorPageEnabled                : boolean                                 read GetBuiltInErrorPageEnabled               write SetBuiltInErrorPageEnabled;                 // ICoreWebView2Settings.get_IsBuiltInErrorPageEnabled
+      property ScriptEnabled                          : boolean                                 read GetScriptEnabled                         write SetScriptEnabled;                           // ICoreWebView2Settings.get_IsScriptEnabled
+      property StatusBarEnabled                       : boolean                                 read GetStatusBarEnabled                      write SetStatusBarEnabled;                        // ICoreWebView2Settings.get_IsStatusBarEnabled
+      property WebMessageEnabled                      : boolean                                 read GetWebMessageEnabled                     write SetWebMessageEnabled;                       // ICoreWebView2Settings.get_IsWebMessageEnabled
+      property ZoomControlEnabled                     : boolean                                 read GetZoomControlEnabled                    write SetZoomControlEnabled;                      // ICoreWebView2Settings.get_IsZoomControlEnabled
+
+      // ICoreWebView2Settings2 properties
+      property UserAgent                              : wvstring                                read GetUserAgent                             write SetUserAgent;                               // ICoreWebView2Settings2.get_UserAgent
+
+      // ICoreWebView2Settings3 properties
+      property AreBrowserAcceleratorKeysEnabled       : boolean                                 read GetAreBrowserAcceleratorKeysEnabled      write SetAreBrowserAcceleratorKeysEnabled;        // ICoreWebView2Settings3.get_AreBrowserAcceleratorKeysEnabled
+
+      // ICoreWebView2Settings4 properties
+      property IsGeneralAutofillEnabled               : boolean                                 read GetIsGeneralAutofillEnabled              write SetIsGeneralAutofillEnabled;                // ICoreWebView2Settings4.get_IsGeneralAutofillEnabled
+      property IsPasswordAutosaveEnabled              : boolean                                 read GetIsPasswordAutosaveEnabled             write SetIsPasswordAutosaveEnabled;               // ICoreWebView2Settings4.get_IsPasswordAutosaveEnabled
+
+      // ICoreWebView2Settings5 properties
+      property IsPinchZoomEnabled                     : boolean                                 read GetIsPinchZoomEnabled                    write SetIsPinchZoomEnabled;                      // ICoreWebView2Settings5.get_IsPinchZoomEnabled
+
+      // ICoreWebView2Settings6 properties
+      property IsSwipeNavigationEnabled               : boolean                                 read GetIsSwipeNavigationEnabled              write SetIsSwipeNavigationEnabled;                // ICoreWebView2Settings6.get_IsSwipeNavigationEnabled
+
+      // ICoreWebView2CompositionController properties
+      property Cursor                                 : HCURSOR                                 read GetCursor;                                                                                 // ICoreWebView2CompositionController.get_Cursor
+      property RootVisualTarget                       : IUnknown                                read GetRootVisualTarget                      write SetRootVisualTarget;                        // ICoreWebView2CompositionController.get_RootVisualTarget
+      property SystemCursorID                         : cardinal                                read GetSystemCursorID;                                                                         // ICoreWebView2CompositionController.get_SystemCursorId
+
+      // ICoreWebView2CompositionController2 properties
+      property UIAProvider                            : IUnknown                                read GetUIAProvider;                                                                            // ICoreWebView2CompositionController2.get_UIAProvider
+
+      // ICoreWebView2Environment5 events
+      property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
+
+      // ICoreWebView2 events
+      property OnContainsFullScreenElementChanged              : TNotifyEvent                                          read FOnContainsFullScreenElementChanged              write FOnContainsFullScreenElementChanged;
+      property OnContentLoading                                : TOnContentLoadingEvent                                read FOnContentLoading                                write FOnContentLoading;
+      property OnDocumentTitleChanged                          : TNotifyEvent                                          read FOnDocumentTitleChanged                          write FOnDocumentTitleChanged;
+      property OnFrameNavigationCompleted                      : TOnNavigationCompletedEvent                           read FOnFrameNavigationCompleted                      write FOnFrameNavigationCompleted;
+      property OnFrameNavigationStarting                       : TOnNavigationStartingEvent                            read FOnFrameNavigationStarting                       write FOnFrameNavigationStarting;
+      property OnHistoryChanged                                : TNotifyEvent                                          read FOnHistoryChanged                                write FOnHistoryChanged;
+      property OnNavigationCompleted                           : TOnNavigationCompletedEvent                           read FOnNavigationCompleted                           write FOnNavigationCompleted;
+      property OnNavigationStarting                            : TOnNavigationStartingEvent                            read FOnNavigationStarting                            write FOnNavigationStarting;
+      property OnNewWindowRequested                            : TOnNewWindowRequestedEvent                            read FOnNewWindowRequested                            write FOnNewWindowRequested;
+      property OnPermissionRequested                           : TOnPermissionRequestedEvent                           read FOnPermissionRequested                           write FOnPermissionRequested;
+      property OnProcessFailed                                 : TOnProcessFailedEvent                                 read FOnProcessFailed                                 write FOnProcessFailed;
+      property OnScriptDialogOpening                           : TOnScriptDialogOpeningEvent                           read FOnScriptDialogOpening                           write FOnScriptDialogOpening;
+      property OnSourceChanged                                 : TOnSourceChangedEvent                                 read FOnSourceChanged                                 write FOnSourceChanged;
+      property OnWebMessageReceived                            : TOnWebMessageReceivedEvent                            read FOnWebMessageReceived                            write FOnWebMessageReceived;
+      property OnWebResourceRequested                          : TOnWebResourceRequestedEvent                          read FOnWebResourceRequested                          write FOnWebResourceRequested;
+      property OnWindowCloseRequested                          : TNotifyEvent                                          read FOnWindowCloseRequested                          write FOnWindowCloseRequested;
+
+      // ICoreWebView2_2 events
+      property OnDOMContentLoaded                              : TOnDOMContentLoadedEvent                              read FOnDOMContentLoaded                              write FOnDOMContentLoaded;
+      property OnWebResourceResponseReceived                   : TOnWebResourceResponseReceivedEvent                   read FOnWebResourceResponseReceived                   write FOnWebResourceResponseReceived;
+
+      // ICoreWebView2_4 events
+      property OnDownloadStarting                              : TOnDownloadStartingEvent                              read FOnDownloadStarting                              write FOnDownloadStarting;
+      property OnFrameCreated                                  : TOnFrameCreatedEvent                                  read FOnFrameCreated                                  write FOnFrameCreated;
+
+      // ICoreWebView2_5 events
+      property OnClientCertificateRequested                    : TOnClientCertificateRequestedEvent                    read FOnClientCertificateRequested                    write FOnClientCertificateRequested;
+
+      // ICoreWebView2_8 events
+      property OnIsDocumentPlayingAudioChanged                 : TOnIsDocumentPlayingAudioChangedEvent                 read FOnIsDocumentPlayingAudioChanged                 write FOnIsDocumentPlayingAudioChanged;
+      property OnIsMutedChanged                                : TOnIsMutedChangedEvent                                read FOnIsMutedChanged                                write FOnIsMutedChanged;
+
+      // ICoreWebView2_9 events
+      property OnIsDefaultDownloadDialogOpenChanged            : TOnIsDefaultDownloadDialogOpenChangedEvent            read FOnIsDefaultDownloadDialogOpenChanged            write FOnIsDefaultDownloadDialogOpenChanged;
+
+      // ICoreWebView2Controller events
+      property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
+      property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
+      property OnLostFocus                                     : TNotifyEvent                                          read FOnLostFocus                                     write FOnLostFocus;
+      property OnMoveFocusRequested                            : TOnMoveFocusRequestedEvent                            read FOnMoveFocusRequested                            write FOnMoveFocusRequested;
+      property OnZoomFactorChanged                             : TNotifyEvent                                          read FOnZoomFactorChanged                             write FOnZoomFactorChanged;
+
+      // ICoreWebView2Controller3 events
+      property OnRasterizationScaleChanged                     : TNotifyEvent                                          read FOnRasterizationScaleChanged                     write FOnRasterizationScaleChanged;
+
+      // ICoreWebView2CompositionController events
+      property OnCursorChanged                                 : TNotifyEvent                                          read FOnCursorChanged                                 write FOnCursorChanged;
+
+      // ICoreWebView2DownloadOperation events
+      property OnBytesReceivedChanged                          : TOnBytesReceivedChangedEvent                          read FOnBytesReceivedChanged                          write FOnBytesReceivedChanged;
+      property OnEstimatedEndTimeChanged                       : TOnEstimatedEndTimeChangedEvent                       read FOnEstimatedEndTimeChanged                       write FOnEstimatedEndTimeChanged;
+      property OnDownloadStateChanged                          : TOnDownloadStateChangedEvent                          read FOnDownloadStateChanged                          write FOnDownloadStateChanged;
+
+      // ICoreWebView2Frame events
+      property OnFrameDestroyed                                : TOnFrameDestroyedEvent                                read FOnFrameDestroyed                                write FOnFrameDestroyed;
+      property OnFrameNameChanged                              : TOnFrameNameChangedEvent                              read FOnFrameNameChanged                              write FOnFrameNameChanged;
+
+      // ICoreWebView2DevToolsProtocolEventReceiver events
+      property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
+
+      // Custom events
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
       property OnControllerCompleted                           : TNotifyEvent                                          read FOnControllerCompleted                           write FOnControllerCompleted;
       property OnAfterCreated                                  : TNotifyEvent                                          read FOnAfterCreated                                  write FOnAfterCreated;
       property OnExecuteScriptCompleted                        : TOnExecuteScriptCompletedEvent                        read FOnExecuteScriptCompleted                        write FOnExecuteScriptCompleted;
       property OnCapturePreviewCompleted                       : TOnCapturePreviewCompletedEvent                       read FOnCapturePreviewCompleted                       write FOnCapturePreviewCompleted;
-      property OnNavigationStarting                            : TOnNavigationStartingEvent                            read FOnNavigationStarting                            write FOnNavigationStarting;
-      property OnNavigationCompleted                           : TOnNavigationCompletedEvent                           read FOnNavigationCompleted                           write FOnNavigationCompleted;
-      property OnFrameNavigationStarting                       : TOnNavigationStartingEvent                            read FOnFrameNavigationStarting                       write FOnFrameNavigationStarting;
-      property OnFrameNavigationCompleted                      : TOnNavigationCompletedEvent                           read FOnFrameNavigationCompleted                      write FOnFrameNavigationCompleted;
-      property OnSourceChanged                                 : TOnSourceChangedEvent                                 read FOnSourceChanged                                 write FOnSourceChanged;
-      property OnHistoryChanged                                : TNotifyEvent                                          read FOnHistoryChanged                                write FOnHistoryChanged;
-      property OnContentLoading                                : TOnContentLoadingEvent                                read FOnContentLoading                                write FOnContentLoading;
-      property OnDocumentTitleChanged                          : TNotifyEvent                                          read FOnDocumentTitleChanged                          write FOnDocumentTitleChanged;
-      property OnNewWindowRequested                            : TOnNewWindowRequestedEvent                            read FOnNewWindowRequested                            write FOnNewWindowRequested;
-      property OnWebResourceRequested                          : TOnWebResourceRequestedEvent                          read FOnWebResourceRequested                          write FOnWebResourceRequested;
-      property OnScriptDialogOpening                           : TOnScriptDialogOpeningEvent                           read FOnScriptDialogOpening                           write FOnScriptDialogOpening;
-      property OnPermissionRequested                           : TOnPermissionRequestedEvent                           read FOnPermissionRequested                           write FOnPermissionRequested;
-      property OnProcessFailed                                 : TOnProcessFailedEvent                                 read FOnProcessFailed                                 write FOnProcessFailed;
-      property OnWebMessageReceived                            : TOnWebMessageReceivedEvent                            read FOnWebMessageReceived                            write FOnWebMessageReceived;
-      property OnContainsFullScreenElementChanged              : TNotifyEvent                                          read FOnContainsFullScreenElementChanged              write FOnContainsFullScreenElementChanged;
-      property OnWindowCloseRequested                          : TNotifyEvent                                          read FOnWindowCloseRequested                          write FOnWindowCloseRequested;
-      property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
-      property OnZoomFactorChanged                             : TNotifyEvent                                          read FOnZoomFactorChanged                             write FOnZoomFactorChanged;
-      property OnMoveFocusRequested                            : TOnMoveFocusRequestedEvent                            read FOnMoveFocusRequested                            write FOnMoveFocusRequested;
-      property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
-      property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
-      property OnLostFocus                                     : TNotifyEvent                                          read FOnLostFocus                                     write FOnLostFocus;
-      property OnCursorChanged                                 : TNotifyEvent                                          read FOnCursorChanged                                 write FOnCursorChanged;
-      property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
-      property OnRasterizationScaleChanged                     : TNotifyEvent                                          read FOnRasterizationScaleChanged                     write FOnRasterizationScaleChanged;
-      property OnWebResourceResponseReceived                   : TOnWebResourceResponseReceivedEvent                   read FOnWebResourceResponseReceived                   write FOnWebResourceResponseReceived;
-      property OnDOMContentLoaded                              : TOnDOMContentLoadedEvent                              read FOnDOMContentLoaded                              write FOnDOMContentLoaded;
-      property OnWebResourceResponseViewGetContentCompleted    : TOnWebResourceResponseViewGetContentCompletedEvent    read FOnWebResourceResponseViewGetContentCompleted    write FOnWebResourceResponseViewGetContentCompleted;
       property OnGetCookiesCompleted                           : TOnGetCookiesCompletedEvent                           read FOnGetCookiesCompleted                           write FOnGetCookiesCompleted;
       property OnTrySuspendCompleted                           : TOnTrySuspendCompletedEvent                           read FOnTrySuspendCompleted                           write FOnTrySuspendCompleted;
-      property OnFrameCreated                                  : TOnFrameCreatedEvent                                  read FOnFrameCreated                                  write FOnFrameCreated;
-      property OnDownloadStarting                              : TOnDownloadStartingEvent                              read FOnDownloadStarting                              write FOnDownloadStarting;
-      property OnClientCertificateRequested                    : TOnClientCertificateRequestedEvent                    read FOnClientCertificateRequested                    write FOnClientCertificateRequested;
       property OnPrintToPdfCompleted                           : TOnPrintToPdfCompletedEvent                           read FOnPrintToPdfCompleted                           write FOnPrintToPdfCompleted;
-      property OnBytesReceivedChanged                          : TOnBytesReceivedChangedEvent                          read FOnBytesReceivedChanged                          write FOnBytesReceivedChanged;
-      property OnEstimatedEndTimeChanged                       : TOnEstimatedEndTimeChangedEvent                       read FOnEstimatedEndTimeChanged                       write FOnEstimatedEndTimeChanged;
-      property OnDownloadStateChanged                          : TOnDownloadStateChangedEvent                          read FOnDownloadStateChanged                          write FOnDownloadStateChanged;
-      property OnFrameNameChanged                              : TOnFrameNameChangedEvent                              read FOnFrameNameChanged                              write FOnFrameNameChanged;
-      property OnFrameDestroyed                                : TOnFrameDestroyedEvent                                read FOnFrameDestroyed                                write FOnFrameDestroyed;
       property OnCompositionControllerCompleted                : TNotifyEvent                                          read FOnCompositionControllerCompleted                write FOnCompositionControllerCompleted;
       property OnCallDevToolsProtocolMethodCompleted           : TOnCallDevToolsProtocolMethodCompletedEvent           read FOnCallDevToolsProtocolMethodCompleted           write FOnCallDevToolsProtocolMethodCompleted;
       property OnAddScriptToExecuteOnDocumentCreatedCompleted  : TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent  read FOnAddScriptToExecuteOnDocumentCreatedCompleted  write FOnAddScriptToExecuteOnDocumentCreatedCompleted;
+      property OnWebResourceResponseViewGetContentCompleted    : TOnWebResourceResponseViewGetContentCompletedEvent    read FOnWebResourceResponseViewGetContentCompleted    write FOnWebResourceResponseViewGetContentCompleted;
       property OnWidget0CompMsg                                : TOnCompMsgEvent                                       read FOnWidget0CompMsg                                write FOnWidget0CompMsg;
       property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
       property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
@@ -561,9 +630,6 @@ type
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
       property OnSimulateKeyEventCompleted                     : TOnSimulateKeyEventCompletedEvent                     read FOnSimulateKeyEventCompleted                     write FOnSimulateKeyEventCompleted;
-      property OnIsMutedChanged                                : TOnIsMutedChangedEvent                                read FOnIsMutedChanged                                write FOnIsMutedChanged;
-      property OnIsDocumentPlayingAudioChanged                 : TOnIsDocumentPlayingAudioChangedEvent                 read FOnIsDocumentPlayingAudioChanged                 write FOnIsDocumentPlayingAudioChanged;
-      property OnIsDefaultDownloadDialogOpenChanged            : TOnIsDefaultDownloadDialogOpenChangedEvent            read FOnIsDefaultDownloadDialogOpenChanged            write FOnIsDefaultDownloadDialogOpenChanged;
   end;
 
 implementation
@@ -962,6 +1028,7 @@ begin
             FCoreWebView2.RemoveWebResourceRequestedFilter(aURI, aResourceContext);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnCapturePreviewCompleted event when it finishes
 function TWVBrowserBase.CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream) : boolean;
 begin
   Result := Initialized and
@@ -1645,6 +1712,7 @@ begin
   doCapturePreviewCompleted(errorCode);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean) : boolean;
 begin
   if aUseDefaultEnvironment and assigned(GlobalWebView2Loader) then
@@ -1653,6 +1721,7 @@ begin
     Result := CreateBrowser(aHandle, nil);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean;
 begin
   Result := False;
@@ -1676,6 +1745,7 @@ begin
     Result := CreateEnvironment;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateWindowlessBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean) : boolean;
 begin
   if aUseDefaultEnvironment and assigned(GlobalWebView2Loader) then
@@ -1684,6 +1754,7 @@ begin
     Result := CreateWindowlessBrowser(aHandle, nil);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateWindowlessBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean;
 begin
   Result := False;
@@ -1710,6 +1781,7 @@ begin
     Result := CreateEnvironment;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnExecuteScriptCompleted event when it finishes
 function TWVBrowserBase.ExecuteScript(const aJavaScript : wvstring; aExecutionID : integer) : boolean;
 begin
   Result := Initialized and
@@ -2083,6 +2155,7 @@ begin
             FCoreWebView2.Reload;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnRefreshIgnoreCacheCompleted event when it finishes
 function TWVBrowserBase.RefreshIgnoreCache : boolean;
 begin
   Result := ExecuteScript('location.reload(true);', WEBVIEW4DELPHI_JS_REFRESH_ID);
@@ -2238,6 +2311,7 @@ begin
             FCoreWebView2.CloseDefaultDownloadDialog;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes
 function TWVBrowserBase.TrySuspend : boolean;
 var
   TempHandler : ICoreWebView2TrySuspendCompletedHandler;
@@ -2277,27 +2351,32 @@ begin
             FCoreWebView2.OpenTaskManagerWindow;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveHTMLCompleted event with the HTML contents
 function TWVBrowserBase.RetrieveHTML : boolean;
 begin
   // JS code created by Alessandro Mancini
   Result := ExecuteScript('encodeURI(document.documentElement.outerHTML);', WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveTextCompleted event with the text contents
 function TWVBrowserBase.RetrieveText : boolean;
 begin
   Result := ExecuteScript('encodeURI(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveMHTMLCompleted event with the MHTML contents
 function TWVBrowserBase.RetrieveMHTML : boolean;
 begin
   Result := CallDevToolsProtocolMethod('Page.captureSnapshot', '{"format": "mhtml"}', WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes
 function TWVBrowserBase.Print : boolean;
 begin
   Result := ExecuteScript('window.print();', WEBVIEW4DELPHI_JS_PRINTJOB_ID);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes
 function TWVBrowserBase.PrintToPdf(const aResultFilePath : wvstring) : boolean;
 var
   TempHandler : ICoreWebView2PrintToPdfCompletedHandler;
@@ -2333,6 +2412,7 @@ begin
             FCoreWebView2.PostWebMessageAsString(aWebMessageAsString);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event when it finishes
 function TWVBrowserBase.CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer) : boolean;
 begin
   Result := Initialized and
@@ -2351,6 +2431,7 @@ begin
             FCoreWebView2.RemoveHostObjectFromScript(aName);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes
 function TWVBrowserBase.AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring) : boolean;
 begin
   Result := Initialized and
@@ -2393,6 +2474,7 @@ begin
     end;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnGetCookiesCompleted event when it finishes
 function TWVBrowserBase.GetCookies(const aURI : wvstring):  boolean;
 var
   TempHandler : ICoreWebView2GetCookiesCompletedHandler;
@@ -2486,11 +2568,13 @@ begin
     end;
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes
 function TWVBrowserBase.ClearCache : boolean;
 begin
   Result := CallDevToolsProtocolMethod('Network.clearBrowserCache', '{}', WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID);
 end;
 
+// This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes
 function TWVBrowserBase.ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes) : boolean;
 var
   TempParams : wvstring;
@@ -3117,6 +3201,7 @@ end;
 // Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
 // https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
 // https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h
+// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes
 function TWVBrowserBase.SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
 var
   TempParams : wvstring;
@@ -3128,6 +3213,7 @@ end;
 // Dispatches a key event to the page using the "Input.dispatchKeyEvent" DevTools method
 // https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
 // The browser has to be focused before simulating any key event.
+// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes
 function TWVBrowserBase.SimulateKeyEvent(      type_                 : TWV2KeyEventType;
                                                modifiers             : integer;
                                                windowsVirtualKeyCode : integer;
@@ -3201,6 +3287,7 @@ end;
 // Simulate that the F3 key was pressed and released.
 // The browser has to be focused before simulating any key event.
 // This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutSearch : boolean;
 begin
   Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $100, VK_F3, integer($003D0001)) and
@@ -3210,6 +3297,7 @@ end;
 // Simulate that SHIFT + F5 keys were pressed and released
 // The browser has to be focused before simulating any key event.       
 // This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutRefreshIgnoreCache : boolean;
 begin
   Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $502, VK_Shift, integer($002A0001)) and
