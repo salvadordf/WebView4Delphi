@@ -21,6 +21,7 @@ function EnvironmentCreationErrorToString(aErrorCode : HRESULT) : wvstring;
 function GetScreenDPI : integer;
 function GetDeviceScaleFactor : single;
 function EditingCommandToString(aEditingCommand : TWV2EditingCommand): wvstring;
+function DeleteDirContents(const aDirectory : string; const aExcludeFiles : TStringList = nil) : boolean;
 
 procedure OutputDebugMessage(const aMessage : string);
 function  CustomExceptionHandler(const aFunctionName : string; const aException : exception) : boolean;
@@ -395,6 +396,53 @@ begin
     ecYank                                         : Result := 'Yank';
     ecYankAndSelect                                : Result := 'YankAndSelect';
     else                                             Result := '';
+  end;
+end;
+
+function DeleteDirContents(const aDirectory : string; const aExcludeFiles : TStringList) : boolean;
+var
+  TempRec  : TSearchRec;
+  TempPath : string;
+  TempIdx  : integer;
+begin
+  Result := True;
+
+  try
+    if (length(aDirectory) > 0) and
+       DirectoryExists(aDirectory) and
+       (FindFirst(aDirectory + '\*', faAnyFile, TempRec) = 0) then
+      try
+        repeat
+          TempPath := aDirectory + PathDelim + TempRec.Name;
+
+          if ((TempRec.Attr and faDirectory) <> 0) then
+            begin
+              if (TempRec.Name <> '.') and (TempRec.Name <> '..') then
+                begin
+                  if DeleteDirContents(TempPath, aExcludeFiles) then
+                    Result := RemoveDir(TempPath) and Result
+                   else
+                    Result := False;
+                end;
+            end
+           else
+            if (aExcludeFiles <> nil) then
+              begin
+                TempIdx := aExcludeFiles.IndexOf(TempRec.Name);
+                Result  := ((TempIdx >= 0) or
+                            ((TempIdx < 0) and DeleteFile(TempPath))) and
+                           Result;
+              end
+             else
+              Result := DeleteFile(TempPath) and Result;
+
+        until (FindNext(TempRec) <> 0) or not(Result);
+      finally
+        FindClose(TempRec);
+      end;
+  except
+    on e : exception do
+      if CustomExceptionHandler('DeleteDirContents', e) then raise;
   end;
 end;
 
