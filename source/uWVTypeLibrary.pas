@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 11/01/2022 11:26:19 from Type Library described below.
+// File generated on 08/02/2022 10:58:57 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: Z:\microsoft.web.webview2.1.0.1072.54.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: Z:\microsoft.web.webview2.1.0.1108.44.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -182,10 +182,21 @@ const
   IID_ICoreWebView2Environment5: TGUID = '{319E423D-E0D7-4B8D-9254-AE9475DE9B17}';
   IID_ICoreWebView2Environment6: TGUID = '{E59EE362-ACBD-4857-9A8E-D3644D9459A9}';
   IID_ICoreWebView2Environment7: TGUID = '{43C22296-3BBD-43A4-9C00-5C0DF6DD29A2}';
+  IID_ICoreWebView2Environment8: TGUID = '{D6EB91DD-C3D2-45E5-BD29-6DC2BC4DE9CF}';
+  IID_ICoreWebView2ProcessInfosChangedEventHandler: TGUID = '{F4AF0C39-44B9-40E9-8B11-0484CFB9E0A1}';
+  IID_ICoreWebView2ProcessInfoCollection: TGUID = '{402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}';
+  IID_ICoreWebView2ProcessInfo: TGUID = '{84FA7612-3F3D-4FBF-889D-FAD000492D72}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
+  IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
+  IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
+  IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
+  IID_ICoreWebView2FrameNavigationCompletedEventHandler: TGUID = '{609302AD-0E36-4F9A-A210-6A45272842A9}';
+  IID_ICoreWebView2FrameDOMContentLoadedEventHandler: TGUID = '{38D9520D-340F-4D1E-A775-43FCE9753683}';
+  IID_ICoreWebView2FrameWebMessageReceivedEventHandler: TGUID = '{E371E005-6D1D-4517-934B-A8F1629C62A5}';
   IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
   IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
   IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
+  IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
   IID_ICoreWebView2Settings2: TGUID = '{EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}';
@@ -235,6 +246,8 @@ const
   COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED = $0000000E;
   COREWEBVIEW2_WEB_ERROR_STATUS_REDIRECT_FAILED = $0000000F;
   COREWEBVIEW2_WEB_ERROR_STATUS_UNEXPECTED_ERROR = $00000010;
+  COREWEBVIEW2_WEB_ERROR_STATUS_VALID_AUTHENTICATION_CREDENTIALS_REQUIRED = $00000011;
+  COREWEBVIEW2_WEB_ERROR_STATUS_VALID_PROXY_AUTHENTICATION_REQUIRED = $00000012;
 
 // Constants for enum COREWEBVIEW2_SCRIPT_DIALOG_KIND
 type
@@ -451,6 +464,18 @@ const
   COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS = $00000000;
   COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE = $00000001;
 
+// Constants for enum COREWEBVIEW2_PROCESS_KIND
+type
+  COREWEBVIEW2_PROCESS_KIND = TOleEnum;
+const
+  COREWEBVIEW2_PROCESS_KIND_BROWSER = $00000000;
+  COREWEBVIEW2_PROCESS_KIND_RENDERER = $00000001;
+  COREWEBVIEW2_PROCESS_KIND_UTILITY = $00000002;
+  COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER = $00000003;
+  COREWEBVIEW2_PROCESS_KIND_GPU = $00000004;
+  COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN = $00000005;
+  COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = $00000006;
+
 // Constants for enum COREWEBVIEW2_PROCESS_FAILED_REASON
 type
   COREWEBVIEW2_PROCESS_FAILED_REASON = TOleEnum;
@@ -574,10 +599,21 @@ type
   ICoreWebView2Environment5 = interface;
   ICoreWebView2Environment6 = interface;
   ICoreWebView2Environment7 = interface;
+  ICoreWebView2Environment8 = interface;
+  ICoreWebView2ProcessInfosChangedEventHandler = interface;
+  ICoreWebView2ProcessInfoCollection = interface;
+  ICoreWebView2ProcessInfo = interface;
   ICoreWebView2EnvironmentOptions = interface;
+  ICoreWebView2Frame2 = interface;
+  ICoreWebView2FrameNavigationStartingEventHandler = interface;
+  ICoreWebView2FrameContentLoadingEventHandler = interface;
+  ICoreWebView2FrameNavigationCompletedEventHandler = interface;
+  ICoreWebView2FrameDOMContentLoadedEventHandler = interface;
+  ICoreWebView2FrameWebMessageReceivedEventHandler = interface;
   ICoreWebView2FrameInfo = interface;
   ICoreWebView2FrameInfoCollection = interface;
   ICoreWebView2FrameInfoCollectionIterator = interface;
+  ICoreWebView2NavigationStartingEventArgs2 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
   ICoreWebView2Settings2 = interface;
@@ -2213,6 +2249,51 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Environment8
+// Flags:     (0)
+// GUID:      {D6EB91DD-C3D2-45E5-BD29-6DC2BC4DE9CF}
+// *********************************************************************//
+  ICoreWebView2Environment8 = interface(ICoreWebView2Environment7)
+    ['{D6EB91DD-C3D2-45E5-BD29-6DC2BC4DE9CF}']
+    function add_ProcessInfosChanged(const eventHandler: ICoreWebView2ProcessInfosChangedEventHandler; 
+                                     out token: EventRegistrationToken): HResult; stdcall;
+    function remove_ProcessInfosChanged(token: EventRegistrationToken): HResult; stdcall;
+    function GetProcessInfos(out value: ICoreWebView2ProcessInfoCollection): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ProcessInfosChangedEventHandler
+// Flags:     (0)
+// GUID:      {F4AF0C39-44B9-40E9-8B11-0484CFB9E0A1}
+// *********************************************************************//
+  ICoreWebView2ProcessInfosChangedEventHandler = interface(IUnknown)
+    ['{F4AF0C39-44B9-40E9-8B11-0484CFB9E0A1}']
+    function Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ProcessInfoCollection
+// Flags:     (0)
+// GUID:      {402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}
+// *********************************************************************//
+  ICoreWebView2ProcessInfoCollection = interface(IUnknown)
+    ['{402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}']
+    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out processInfo: ICoreWebView2ProcessInfo): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ProcessInfo
+// Flags:     (0)
+// GUID:      {84FA7612-3F3D-4FBF-889D-FAD000492D72}
+// *********************************************************************//
+  ICoreWebView2ProcessInfo = interface(IUnknown)
+    ['{84FA7612-3F3D-4FBF-889D-FAD000492D72}']
+    function Get_ProcessId(out value: SYSINT): HResult; stdcall;
+    function Get_Kind(out Kind: COREWEBVIEW2_PROCESS_KIND): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2EnvironmentOptions
 // Flags:     (0)
 // GUID:      {2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}
@@ -2227,6 +2308,89 @@ type
     function Set_TargetCompatibleBrowserVersion(value: PWideChar): HResult; stdcall;
     function Get_AllowSingleSignOnUsingOSPrimaryAccount(out allow: Integer): HResult; stdcall;
     function Set_AllowSingleSignOnUsingOSPrimaryAccount(allow: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2Frame2
+// Flags:     (0)
+// GUID:      {7A6A5834-D185-4DBF-B63F-4A9BC43107D4}
+// *********************************************************************//
+  ICoreWebView2Frame2 = interface(ICoreWebView2Frame)
+    ['{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}']
+    function add_NavigationStarting(const eventHandler: ICoreWebView2FrameNavigationStartingEventHandler; 
+                                    out token: EventRegistrationToken): HResult; stdcall;
+    function remove_NavigationStarting(token: EventRegistrationToken): HResult; stdcall;
+    function add_ContentLoading(const eventHandler: ICoreWebView2FrameContentLoadingEventHandler; 
+                                out token: EventRegistrationToken): HResult; stdcall;
+    function remove_ContentLoading(token: EventRegistrationToken): HResult; stdcall;
+    function add_NavigationCompleted(const eventHandler: ICoreWebView2FrameNavigationCompletedEventHandler; 
+                                     out token: EventRegistrationToken): HResult; stdcall;
+    function remove_NavigationCompleted(token: EventRegistrationToken): HResult; stdcall;
+    function add_DOMContentLoaded(const eventHandler: ICoreWebView2FrameDOMContentLoadedEventHandler; 
+                                  out token: EventRegistrationToken): HResult; stdcall;
+    function remove_DOMContentLoaded(token: EventRegistrationToken): HResult; stdcall;
+    function ExecuteScript(javaScript: PWideChar; 
+                           const handler: ICoreWebView2ExecuteScriptCompletedHandler): HResult; stdcall;
+    function PostWebMessageAsJson(webMessageAsJson: PWideChar): HResult; stdcall;
+    function PostWebMessageAsString(webMessageAsString: PWideChar): HResult; stdcall;
+    function add_WebMessageReceived(const handler: ICoreWebView2FrameWebMessageReceivedEventHandler; 
+                                    out token: EventRegistrationToken): HResult; stdcall;
+    function remove_WebMessageReceived(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FrameNavigationStartingEventHandler
+// Flags:     (0)
+// GUID:      {E79908BF-2D5D-4968-83DB-263FEA2C1DA3}
+// *********************************************************************//
+  ICoreWebView2FrameNavigationStartingEventHandler = interface(IUnknown)
+    ['{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2NavigationStartingEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FrameContentLoadingEventHandler
+// Flags:     (0)
+// GUID:      {0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}
+// *********************************************************************//
+  ICoreWebView2FrameContentLoadingEventHandler = interface(IUnknown)
+    ['{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2ContentLoadingEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FrameNavigationCompletedEventHandler
+// Flags:     (0)
+// GUID:      {609302AD-0E36-4F9A-A210-6A45272842A9}
+// *********************************************************************//
+  ICoreWebView2FrameNavigationCompletedEventHandler = interface(IUnknown)
+    ['{609302AD-0E36-4F9A-A210-6A45272842A9}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2NavigationCompletedEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FrameDOMContentLoadedEventHandler
+// Flags:     (0)
+// GUID:      {38D9520D-340F-4D1E-A775-43FCE9753683}
+// *********************************************************************//
+  ICoreWebView2FrameDOMContentLoadedEventHandler = interface(IUnknown)
+    ['{38D9520D-340F-4D1E-A775-43FCE9753683}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2DOMContentLoadedEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FrameWebMessageReceivedEventHandler
+// Flags:     (0)
+// GUID:      {E371E005-6D1D-4517-934B-A8F1629C62A5}
+// *********************************************************************//
+  ICoreWebView2FrameWebMessageReceivedEventHandler = interface(IUnknown)
+    ['{E371E005-6D1D-4517-934B-A8F1629C62A5}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2WebMessageReceivedEventArgs): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2260,6 +2424,17 @@ type
     function Get_hasCurrent(out hasCurrent: Integer): HResult; stdcall;
     function GetCurrent(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
     function MoveNext(out hasNext: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2NavigationStartingEventArgs2
+// Flags:     (0)
+// GUID:      {9086BE93-91AA-472D-A7E0-579F2BA006AD}
+// *********************************************************************//
+  ICoreWebView2NavigationStartingEventArgs2 = interface(ICoreWebView2NavigationStartingEventArgs)
+    ['{9086BE93-91AA-472D-A7E0-579F2BA006AD}']
+    function Get_AdditionalAllowedFrameAncestors(out value: PWideChar): HResult; stdcall;
+    function Set_AdditionalAllowedFrameAncestors(value: PWideChar): HResult; stdcall;
   end;
 
 // *********************************************************************//

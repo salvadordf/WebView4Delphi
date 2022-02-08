@@ -584,6 +584,79 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2ProcessInfosChangedEventHandler = class(TInterfacedObject, ICoreWebView2ProcessInfosChangedEventHandler)
+    protected
+      FBrowserEvents : Pointer;
+      FLoaderEvents  : Pointer;
+
+      function Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aBrowserEvents: IWVBrowserEvents); reintroduce; overload;
+      constructor Create(const aLoaderEvents: IWVLoaderEvents); reintroduce; overload;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FrameNavigationCompletedEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationCompletedEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FrameNavigationStartingEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationStartingEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FrameContentLoadingEventHandler = class(TInterfacedObject, ICoreWebView2FrameContentLoadingEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FrameDOMContentLoadedEventHandler = class(TInterfacedObject, ICoreWebView2FrameDOMContentLoadedEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FrameWebMessageReceivedEventHandler = class(TInterfacedObject, ICoreWebView2FrameWebMessageReceivedEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -1880,6 +1953,180 @@ begin
    else
     Result := E_FAIL;
 end;
+
+
+// TCoreWebView2ProcessInfosChangedEventHandler
+
+constructor TCoreWebView2ProcessInfosChangedEventHandler.Create(const aBrowserEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FBrowserEvents := Pointer(aBrowserEvents);
+  FLoaderEvents  := nil;
+end;
+
+constructor TCoreWebView2ProcessInfosChangedEventHandler.Create(const aLoaderEvents: IWVLoaderEvents);
+begin
+  inherited Create;
+
+  FBrowserEvents := nil;
+  FLoaderEvents  := Pointer(aLoaderEvents);
+end;
+
+destructor TCoreWebView2ProcessInfosChangedEventHandler.Destroy;
+begin
+  FBrowserEvents := nil;
+  FLoaderEvents  := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ProcessInfosChangedEventHandler.Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult; stdcall;
+begin
+  if (FBrowserEvents <> nil) then
+    Result := IWVBrowserEvents(FBrowserEvents).ProcessInfosChangedEventHandler_Invoke(sender, args)
+   else
+    if (FLoaderEvents <> nil) then
+      Result := IWVLoaderEvents(FLoaderEvents).ProcessInfosChangedEventHandler_Invoke(sender, args)
+     else
+      Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FrameNavigationCompletedEventHandler2
+
+constructor TCoreWebView2FrameNavigationCompletedEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameNavigationCompletedEventHandler2.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameNavigationCompletedEventHandler2.Invoke(const sender : ICoreWebView2Frame;
+                                                                   const args   : ICoreWebView2NavigationCompletedEventArgs): HResult;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameNavigationCompletedEventHandler2_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FrameNavigationStartingEventHandler2
+
+constructor TCoreWebView2FrameNavigationStartingEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameNavigationStartingEventHandler2.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameNavigationStartingEventHandler2.Invoke(const sender : ICoreWebView2Frame;
+                                                                  const args   : ICoreWebView2NavigationStartingEventArgs): HResult;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameNavigationStartingEventHandler2_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FrameContentLoadingEventHandler
+
+constructor TCoreWebView2FrameContentLoadingEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameContentLoadingEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameContentLoadingEventHandler.Invoke(const sender : ICoreWebView2Frame;
+                                                             const args   : ICoreWebView2ContentLoadingEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameContentLoadingEventHandler_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FrameDOMContentLoadedEventHandler
+
+constructor TCoreWebView2FrameDOMContentLoadedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameDOMContentLoadedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameDOMContentLoadedEventHandler.Invoke(const sender : ICoreWebView2Frame;
+                                                               const args   : ICoreWebView2DOMContentLoadedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameDOMContentLoadedEventHandler_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FrameWebMessageReceivedEventHandler
+
+constructor TCoreWebView2FrameWebMessageReceivedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameWebMessageReceivedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameWebMessageReceivedEventHandler.Invoke(const sender : ICoreWebView2Frame;
+                                                                 const args   : ICoreWebView2WebMessageReceivedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameWebMessageReceivedEventHandler_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
 
 
 end.

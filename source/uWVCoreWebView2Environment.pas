@@ -22,13 +22,16 @@ type
       FBaseIntf5                            : ICoreWebView2Environment5;
       FBaseIntf6                            : ICoreWebView2Environment6;
       FBaseIntf7                            : ICoreWebView2Environment7;
+      FBaseIntf8                            : ICoreWebView2Environment8;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
+      FProcessInfosChangedEventToken        : EventRegistrationToken;
 
       function  GetInitialized : boolean;
       function  GetBrowserVersionInfo : wvstring;
       function  GetSupportsCompositionController : boolean;
       function  GetUserDataFolder : wvstring;
+      function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -37,6 +40,8 @@ type
       function  AddNewBrowserVersionAvailableEvent(const aLoaderComponent : TComponent) : boolean;
       function  AddBrowserProcessExitedLoaderEvent(const aLoaderComponent : TComponent) : boolean;
       function  AddBrowserProcessExitedBrowserEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddProcessInfosChangedLoaderEvent(const aLoaderComponent : TComponent) : boolean;
+      function  AddProcessInfosChangedBrowserEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2Environment); reintroduce;
@@ -51,11 +56,12 @@ type
       function    GetProviderForHwnd(aHandle : THandle; var aProvider : IUnknown) : boolean;
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
 
-      property    Initialized                   : boolean                          read GetInitialized;
-      property    BaseIntf                      : ICoreWebView2Environment         read FBaseIntf;
-      property    BrowserVersionInfo            : wvstring                         read GetBrowserVersionInfo;
-      property    SupportsCompositionController : boolean                          read GetSupportsCompositionController;
-      property    UserDataFolder                : wvstring                         read GetUserDataFolder;
+      property    Initialized                   : boolean                             read GetInitialized;
+      property    BaseIntf                      : ICoreWebView2Environment            read FBaseIntf;
+      property    BrowserVersionInfo            : wvstring                            read GetBrowserVersionInfo;
+      property    SupportsCompositionController : boolean                             read GetSupportsCompositionController;
+      property    UserDataFolder                : wvstring                            read GetUserDataFolder;
+      property    ProcessInfos                  : ICoreWebView2ProcessInfoCollection  read GetProcessInfos;
   end;
 
 implementation
@@ -76,8 +82,9 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment3, FBaseIntf3)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment4, FBaseIntf4)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment5, FBaseIntf5)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment6, FBaseIntf6)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2Environment7, FBaseIntf7);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment6, FBaseIntf6)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment7, FBaseIntf7)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2Environment8, FBaseIntf8);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -99,6 +106,7 @@ begin
   FBaseIntf5 := nil;
   FBaseIntf6 := nil;
   FBaseIntf7 := nil;
+  FBaseIntf8 := nil;
 
   InitializeTokens;
 end;
@@ -107,6 +115,7 @@ procedure TCoreWebView2Environment.InitializeTokens;
 begin
   FNewBrowserVersionAvailableEventToken.value := 0;
   FBrowserProcessExitedEventToken.value       := 0;
+  FProcessInfosChangedEventToken.value        := 0;
 end;
 
 function TCoreWebView2Environment.GetInitialized : boolean;
@@ -124,6 +133,9 @@ begin
       if assigned(FBaseIntf5) and (FBrowserProcessExitedEventToken.value <> 0) then
         FBaseIntf5.remove_BrowserProcessExited(FBrowserProcessExitedEventToken);
 
+      if assigned(FBaseIntf8) and (FProcessInfosChangedEventToken.value <> 0) then
+        FBaseIntf8.remove_ProcessInfosChanged(FProcessInfosChangedEventToken);
+
       InitializeTokens;
     end;
 end;
@@ -131,12 +143,14 @@ end;
 function TCoreWebView2Environment.AddAllLoaderEvents(const aLoaderComponent : TComponent) : boolean;
 begin
   Result := AddNewBrowserVersionAvailableEvent(aLoaderComponent) and
-            AddBrowserProcessExitedLoaderEvent(aLoaderComponent);
+            AddBrowserProcessExitedLoaderEvent(aLoaderComponent) and
+            AddProcessInfosChangedLoaderEvent(aLoaderComponent);
 end;         
 
 function TCoreWebView2Environment.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
-  Result := AddBrowserProcessExitedBrowserEvent(aBrowserComponent);
+  Result := AddBrowserProcessExitedBrowserEvent(aBrowserComponent) and
+            AddProcessInfosChangedBrowserEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2Environment.AddNewBrowserVersionAvailableEvent(const aLoaderComponent : TComponent) : boolean;
@@ -177,8 +191,38 @@ begin
 
   if assigned(FBaseIntf5) and (FBrowserProcessExitedEventToken.value = 0) then
     try
-      TempHandler := TCoreWebView2BrowserProcessExitedEventHandler.Create(TWVBrowserBase(aBrowserComponent));          
+      TempHandler := TCoreWebView2BrowserProcessExitedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
       Result      := succeeded(FBaseIntf5.add_BrowserProcessExited(TempHandler, FBrowserProcessExitedEventToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Environment.AddProcessInfosChangedLoaderEvent(const aLoaderComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ProcessInfosChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf8) and (FProcessInfosChangedEventToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ProcessInfosChangedEventHandler.Create(TWVLoader(aLoaderComponent));
+      Result      := succeeded(FBaseIntf8.add_ProcessInfosChanged(TempHandler, FProcessInfosChangedEventToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Environment.AddProcessInfosChangedBrowserEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ProcessInfosChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf8) and (FProcessInfosChangedEventToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ProcessInfosChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf8.add_ProcessInfosChanged(TempHandler, FProcessInfosChangedEventToken));
     finally
       TempHandler := nil;
     end;
@@ -303,6 +347,19 @@ begin
           CoTaskMemFree(TempString);
         end;
    end;
+end;
+
+function TCoreWebView2Environment.GetProcessInfos : ICoreWebView2ProcessInfoCollection;
+var
+  TempResult : ICoreWebView2ProcessInfoCollection;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf8) and
+     succeeded(FBaseIntf8.GetProcessInfos(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
 end;
 
 end.

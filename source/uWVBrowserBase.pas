@@ -123,6 +123,12 @@ type
       FOnIsMutedChanged                               : TOnIsMutedChangedEvent;
       FOnIsDocumentPlayingAudioChanged                : TOnIsDocumentPlayingAudioChangedEvent;
       FOnIsDefaultDownloadDialogOpenChanged           : TOnIsDefaultDownloadDialogOpenChangedEvent;
+      FOnProcessInfosChanged                          : TOnProcessInfosChangedEvent;
+      FOnFrameNavigationStarting2                     : TOnFrameNavigationStartingEvent;
+      FOnFrameNavigationCompleted2                    : TOnFrameNavigationCompletedEvent;
+      FOnFrameContentLoading                          : TOnFrameContentLoadingEvent;
+      FOnFrameDOMContentLoaded                        : TOnFrameDOMContentLoadedEvent;
+      FOnFrameWebMessageReceived                      : TOnFrameWebMessageReceivedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -163,6 +169,7 @@ type
       function  GetCursor : HCURSOR;
       function  GetSystemCursorID : cardinal;
       function  GetUIAProvider : IUnknown;
+      function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
       function  GetIsMuted : boolean;
       function  GetIsDocumentPlayingAudio : boolean;
       function  GetIsDefaultDownloadDialogOpen : boolean;
@@ -276,6 +283,12 @@ type
       function IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+      function ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
+      function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer): HRESULT;
+      function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer): HRESULT;
+      function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer): HRESULT;
+      function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HRESULT;
+      function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -338,6 +351,12 @@ type
       procedure doOnIsMutedChanged(const sender: ICoreWebView2); virtual;
       procedure doOnIsDocumentPlayingAudioChanged(const sender: ICoreWebView2); virtual;
       procedure doOnIsDefaultDownloadDialogOpenChanged(const sender: ICoreWebView2); virtual;
+      procedure doOnProcessInfosChangedEvent(const sender: ICoreWebView2Environment); virtual;
+      procedure doOnFrameNavigationStarting2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID : integer); virtual;
+      procedure doOnFrameNavigationCompleted2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID : integer); virtual;
+      procedure doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer); virtual;
+      procedure doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer); virtual;
+      procedure doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -538,8 +557,14 @@ type
       // ICoreWebView2CompositionController2 properties
       property UIAProvider                            : IUnknown                                read GetUIAProvider;                                                                            // ICoreWebView2CompositionController2.get_UIAProvider
 
+      // ICoreWebView2Environment8 properties
+      property ProcessInfos                           : ICoreWebView2ProcessInfoCollection      read GetProcessInfos;
+
       // ICoreWebView2Environment5 events
       property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
+
+      // ICoreWebView2Environment8 events
+      property OnProcessInfosChanged                           : TOnProcessInfosChangedEvent                           read FOnProcessInfosChanged                           write FOnProcessInfosChanged;
 
       // ICoreWebView2 events
       property OnContainsFullScreenElementChanged              : TNotifyEvent                                          read FOnContainsFullScreenElementChanged              write FOnContainsFullScreenElementChanged;
@@ -598,6 +623,13 @@ type
       // ICoreWebView2Frame events
       property OnFrameDestroyed                                : TOnFrameDestroyedEvent                                read FOnFrameDestroyed                                write FOnFrameDestroyed;
       property OnFrameNameChanged                              : TOnFrameNameChangedEvent                              read FOnFrameNameChanged                              write FOnFrameNameChanged;
+
+      // ICoreWebView2Frame2 events
+      property OnFrameNavigationStarting2                      : TOnFrameNavigationStartingEvent                       read FOnFrameNavigationStarting2                      write FOnFrameNavigationStarting2;
+      property OnFrameNavigationCompleted2                     : TOnFrameNavigationCompletedEvent                      read FOnFrameNavigationCompleted2                     write FOnFrameNavigationCompleted2;
+      property OnFrameContentLoading                           : TOnFrameContentLoadingEvent                           read FOnFrameContentLoading                           write FOnFrameContentLoading;
+      property OnFrameDOMContentLoaded                         : TOnFrameDOMContentLoadedEvent                         read FOnFrameDOMContentLoaded                         write FOnFrameDOMContentLoaded;
+      property OnFrameWebMessageReceived                       : TOnFrameWebMessageReceivedEvent                       read FOnFrameWebMessageReceived                       write FOnFrameWebMessageReceived;
 
       // ICoreWebView2DevToolsProtocolEventReceiver events
       property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
@@ -701,6 +733,12 @@ begin
   FOnLostFocus                                     := nil;
   FOnCursorChanged                                 := nil;
   FOnBrowserProcessExited                          := nil;
+  FOnProcessInfosChanged                           := nil;
+  FOnFrameNavigationStarting2                      := nil;
+  FOnFrameNavigationCompleted2                     := nil;
+  FOnFrameContentLoading                           := nil;
+  FOnFrameDOMContentLoaded                         := nil;
+  FOnFrameWebMessageReceived                       := nil;
   FOnRasterizationScaleChanged                     := nil;
   FOnWebResourceResponseReceived                   := nil;
   FOnDOMContentLoaded                              := nil;
@@ -1078,7 +1116,10 @@ var
   TempPrintSettings : ICoreWebView2PrintSettings;
   TempCoreWebView2  : ICoreWebView2;
 begin
-  Result := S_OK;
+  Result            := S_OK;
+  TempSettings      := nil;
+  TempCoreWebView2  := nil;
+  TempPrintSettings := nil;
 
   try
     if succeeded(errorCode) and assigned(createdController) then
@@ -1262,13 +1303,15 @@ begin
   doOnNewWindowRequested(sender, args);
 end;
 
-function TWVBrowserBase.FrameNavigationStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationStartingEventArgs): HRESULT;
+function TWVBrowserBase.FrameNavigationStartingEventHandler_Invoke(const sender   : ICoreWebView2;
+                                                                   const args     : ICoreWebView2NavigationStartingEventArgs): HRESULT;
 begin
   Result := S_OK;
   doOnFrameNavigationStarting(sender, args);
 end;
 
-function TWVBrowserBase.FrameNavigationCompletedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationCompletedEventArgs): HRESULT;
+function TWVBrowserBase.FrameNavigationCompletedEventHandler_Invoke(const sender   : ICoreWebView2;
+                                                                    const args     : ICoreWebView2NavigationCompletedEventArgs): HRESULT;
 begin
   Result := S_OK;
   doOnFrameNavigationCompleted(sender, args);
@@ -1547,6 +1590,42 @@ begin
     FOnIsDefaultDownloadDialogOpenChanged(self, sender);
 end;
 
+procedure TWVBrowserBase.doOnProcessInfosChangedEvent(const sender: ICoreWebView2Environment);
+begin
+  if assigned(FOnProcessInfosChanged) then
+    FOnProcessInfosChanged(self, sender);
+end;
+
+procedure TWVBrowserBase.doOnFrameNavigationStarting2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID : integer);
+begin
+  if assigned(FOnFrameNavigationStarting2) then
+    FOnFrameNavigationStarting2(self, sender, args, aFrameID);
+end;
+
+procedure TWVBrowserBase.doOnFrameNavigationCompleted2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID : integer);
+begin
+  if assigned(FOnFrameNavigationCompleted2) then
+    FOnFrameNavigationCompleted2(self, sender, args, aFrameID);
+end;
+
+procedure TWVBrowserBase.doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer);
+begin
+  if assigned(FOnFrameContentLoading) then
+    FOnFrameContentLoading(self, sender, args, aFrameID);
+end;
+
+procedure TWVBrowserBase.doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer);
+begin
+  if assigned(FOnFrameDOMContentLoaded) then
+    FOnFrameDOMContentLoaded(self, sender, args, aFrameID);
+end;
+
+procedure TWVBrowserBase.doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer);
+begin
+  if assigned(FOnFrameWebMessageReceived) then
+    FOnFrameWebMessageReceived(self, sender, args, aFrameID);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
 var
   TempMHTML  : wvstring;
@@ -1674,6 +1753,52 @@ function TWVBrowserBase.IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(co
 begin
   Result := S_OK;
   doOnIsDefaultDownloadDialogOpenChanged(sender);
+end;
+
+function TWVBrowserBase.ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnProcessInfosChangedEvent(sender);
+end;
+
+function TWVBrowserBase.FrameNavigationStartingEventHandler2_Invoke(const sender   : ICoreWebView2Frame;
+                                                                    const args     : ICoreWebView2NavigationStartingEventArgs;
+                                                                          aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameNavigationStarting2(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.FrameNavigationCompletedEventHandler2_Invoke(const sender   : ICoreWebView2Frame;
+                                                                     const args     : ICoreWebView2NavigationCompletedEventArgs;
+                                                                           aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameNavigationCompleted2(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.FrameContentLoadingEventHandler_Invoke(const sender   : ICoreWebView2Frame;
+                                                               const args     : ICoreWebView2ContentLoadingEventArgs;
+                                                                     aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameContentLoadingEvent(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.FrameDOMContentLoadedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
+                                                                 const args     : ICoreWebView2DOMContentLoadedEventArgs;
+                                                                       aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameDOMContentLoadedEvent(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.FrameWebMessageReceivedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
+                                                                   const args     : ICoreWebView2WebMessageReceivedEventArgs;
+                                                                         aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameWebMessageReceivedEvent(sender, args, aFrameID);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -1841,6 +1966,14 @@ function TWVBrowserBase.GetUIAProvider : IUnknown;
 begin
   if FUseCompositionController and Initialized then
     Result := FCoreWebView2CompositionController.UIAProvider
+   else
+    Result := nil;
+end;
+
+function TWVBrowserBase.GetProcessInfos : ICoreWebView2ProcessInfoCollection;
+begin
+  if Initialized then
+    Result := FCoreWebView2Environment.ProcessInfos
    else
     Result := nil;
 end;

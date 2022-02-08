@@ -172,7 +172,6 @@ function JSONUnescape(const Source: wvstring): wvstring;
 const
   ESCAPE_CHAR = '\';
   QUOTE_CHAR = '"';
-  EXCEPTION_FMT = 'Invalid escape at position %d';
 var
   EscapeCharPos, TempPos: Integer;
   Temp: string;

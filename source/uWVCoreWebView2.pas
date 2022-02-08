@@ -471,8 +471,7 @@ var
 begin
   Result := False;
 
-  if Initialized                                and
-     (FFrameNavigationStartingToken.value  = 0) then
+  if Initialized and (FFrameNavigationStartingToken.value  = 0) then
     try
       TempHandler := TCoreWebView2FrameNavigationStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
       Result      := succeeded(FBaseIntf.add_FrameNavigationStarting(TempHandler, FFrameNavigationStartingToken));

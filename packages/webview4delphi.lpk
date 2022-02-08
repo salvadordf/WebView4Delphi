@@ -12,8 +12,8 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Major="1" Release="1072" Build="54"/>
-    <Files Count="41">
+    <Version Major="1" Release="1108" Build="44"/>
+    <Files Count="43">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
         <HasRegisterProc Value="True"/>
@@ -180,6 +180,14 @@
         <HasRegisterProc Value="True"/>
         <UnitName Value="uWVWindowParent"/>
       </Item41>
+      <Item42>
+        <Filename Value="..\source\uWVCoreWebView2ProcessInfo.pas"/>
+        <UnitName Value="uWVCoreWebView2ProcessInfo"/>
+      </Item42>
+      <Item43>
+        <Filename Value="..\source\uWVCoreWebView2ProcessInfoCollection.pas"/>
+        <UnitName Value="uWVCoreWebView2ProcessInfoCollection"/>
+      </Item43>
     </Files>
     <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">

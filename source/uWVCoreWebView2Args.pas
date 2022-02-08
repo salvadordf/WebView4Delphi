@@ -120,7 +120,8 @@ type
 
   TCoreWebView2NavigationStartingEventArgs = class
     protected
-      FBaseIntf : ICoreWebView2NavigationStartingEventArgs;
+      FBaseIntf  : ICoreWebView2NavigationStartingEventArgs;
+      FBaseIntf2 : ICoreWebView2NavigationStartingEventArgs2;
 
       function  GetInitialized : boolean;
       function  GetURI : wvstring;
@@ -129,21 +130,26 @@ type
       function  GetCancel : boolean;
       function  GetNavigationID : uint64;
       function  GetRequestHeaders : ICoreWebView2HttpRequestHeaders;
+      function  GetAdditionalAllowedFrameAncestors : wvstring;
 
+      procedure SetAdditionalAllowedFrameAncestors(const aValue : wvstring);
       procedure SetCancel(aValue : boolean);
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2NavigationStartingEventArgs); reintroduce;
       destructor  Destroy; override;
 
-      property Initialized     : boolean                                   read GetInitialized;
-      property BaseIntf        : ICoreWebView2NavigationStartingEventArgs  read FBaseIntf;
-      property URI             : wvstring                                  read GetURI;
-      property IsUserInitiated : boolean                                   read GetIsUserInitiated;
-      property IsRedirected    : boolean                                   read GetIsRedirected;
-      property Cancel          : boolean                                   read GetCancel            write SetCancel;
-      property NavigationID    : uint64                                    read GetNavigationID;
-      property RequestHeaders  : ICoreWebView2HttpRequestHeaders           read GetRequestHeaders;
+      property Initialized                       : boolean                                   read GetInitialized;
+      property BaseIntf                          : ICoreWebView2NavigationStartingEventArgs  read FBaseIntf;
+      property URI                               : wvstring                                  read GetURI;
+      property IsUserInitiated                   : boolean                                   read GetIsUserInitiated;
+      property IsRedirected                      : boolean                                   read GetIsRedirected;
+      property Cancel                            : boolean                                   read GetCancel                              write SetCancel;
+      property NavigationID                      : uint64                                    read GetNavigationID;
+      property RequestHeaders                    : ICoreWebView2HttpRequestHeaders           read GetRequestHeaders;
+      property AdditionalAllowedFrameAncestors   : wvstring                                  read GetAdditionalAllowedFrameAncestors     write SetAdditionalAllowedFrameAncestors;
   end;
 
   TCoreWebView2NewWindowRequestedEventArgs = class
@@ -447,6 +453,7 @@ type
       property Handled                       : boolean                                           read GetHandled                         write SetHandled;
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
   end;
+
 
 implementation
 
@@ -762,14 +769,25 @@ constructor TCoreWebView2NavigationStartingEventArgs.Create(const aArgs: ICoreWe
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aArgs;
+
+  if Initialized then
+    FBaseIntf.QueryInterface(ICoreWebView2NavigationStartingEventArgs2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2NavigationStartingEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2NavigationStartingEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2NavigationStartingEventArgs.GetInitialized : boolean;
@@ -840,6 +858,27 @@ begin
     Result := TempInt
    else
     Result := 0;
+end;
+
+function TCoreWebView2NavigationStartingEventArgs.GetAdditionalAllowedFrameAncestors : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_AdditionalAllowedFrameAncestors(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+procedure TCoreWebView2NavigationStartingEventArgs.SetAdditionalAllowedFrameAncestors(const aValue : wvstring);
+begin
+  if assigned(FBaseIntf2) then
+    FBaseIntf2.Set_AdditionalAllowedFrameAncestors(PWideChar(aValue));
 end;
 
 procedure TCoreWebView2NavigationStartingEventArgs.SetCancel(aValue : boolean);

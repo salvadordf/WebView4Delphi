@@ -73,6 +73,8 @@ contains
   uWVCoreWebView2DownloadOperation in '..\source\uWVCoreWebView2DownloadOperation.pas',
   uWVCoreWebView2Frame in '..\source\uWVCoreWebView2Frame.pas',
   uWVCoreWebView2HttpResponseHeaders in '..\source\uWVCoreWebView2HttpResponseHeaders.pas',
-  uWVBrowserBase in '..\source\uWVBrowserBase.pas';
+  uWVBrowserBase in '..\source\uWVBrowserBase.pas',
+  uWVCoreWebView2ProcessInfoCollection in 'uWVCoreWebView2ProcessInfoCollection.pas',
+  uWVCoreWebView2ProcessInfo in 'uWVCoreWebView2ProcessInfo.pas';
 
 end.

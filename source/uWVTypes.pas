@@ -42,6 +42,7 @@ type
   TWVPrintOrientation                     = type COREWEBVIEW2_PRINT_ORIENTATION;
   TWVColor                                = type COREWEBVIEW2_COLOR;
   TWVDefaultDownloadDialogCornerAlignment = type COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT;
+  TWVProcessKind                          = type COREWEBVIEW2_PROCESS_KIND;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

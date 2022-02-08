@@ -24,6 +24,9 @@ type
 
     // ICoreWebView2BrowserProcessExitedEventHandler
     function BrowserProcessExitedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: ICoreWebView2BrowserProcessExitedEventArgs): HResult;
+
+    // ICoreWebView2ProcessInfosChangedEventHandler
+    function ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult;
   end;
 
   IWVBrowserEvents = Interface
@@ -175,6 +178,24 @@ type
 
     // ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler
     function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
+
+    // ICoreWebView2ProcessInfosChangedEventHandler
+    function ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult;
+
+    // ICoreWebView2NavigationStartingEventHandler (Frame navigation)
+    function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer): HResult;
+
+    // ICoreWebView2NavigationCompletedEventArgs (Frame navigation)
+    function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer): HResult;
+
+    // ICoreWebView2FrameContentLoadingEventHandler
+    function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer): HResult;
+
+    // ICoreWebView2FrameDOMContentLoadedEventHandler
+    function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HResult;
+
+    // ICoreWebView2FrameWebMessageReceivedEventHandler
+    function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HResult;
   end;
 
 implementation

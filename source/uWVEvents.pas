@@ -17,6 +17,7 @@ type
   TLoaderNotifyEvent                                       = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject);
   TLoaderBrowserProcessExitedEvent                         = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment; const aArgs: ICoreWebView2BrowserProcessExitedEventArgs);
   TLoaderNewBrowserVersionAvailableEvent                   = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment);
+  TLoaderProcessInfosChangedEvent                          = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment);
 
   // Browser events
   TOnExecuteScriptCompletedEvent                           = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring; aExecutionID: integer) of object;
@@ -65,6 +66,12 @@ type
   TOnIsMutedChangedEvent                                   = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
   TOnIsDocumentPlayingAudioChangedEvent                    = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
   TOnIsDefaultDownloadDialogOpenChangedEvent               = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
+  TOnProcessInfosChangedEvent                              = procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment) of object;
+  TOnFrameNavigationStartingEvent                          = procedure(Sender: TObject; const aWebView: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer) of object;
+  TOnFrameNavigationCompletedEvent                         = procedure(Sender: TObject; const aWebView: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer) of object;
+  TOnFrameContentLoadingEvent                              = procedure(Sender: TObject; const aWebView: ICoreWebView2Frame; const aArgs: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer) of object;
+  TOnFrameDOMContentLoadedEvent                            = procedure(Sender: TObject; const aWebView: ICoreWebView2Frame; const aArgs: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer) of object;
+  TOnFrameWebMessageReceivedEvent                          = procedure(Sender: TObject; const aWebView: ICoreWebView2Frame; const aArgs: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

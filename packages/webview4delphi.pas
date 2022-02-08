@@ -26,7 +26,9 @@ uses
   uWVCoreWebView2WebResourceRequest, uWVCoreWebView2WebResourceResponse, 
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2WindowFeatures, 
   uWVEvents, uWVInterfaces, uWVLibFunctions, uWVLoader, uWVMiscFunctions, 
-  uWVTypeLibrary, uWVTypes, uWVWinControl, uWVWindowParent, LazarusPackageIntf;
+  uWVTypeLibrary, uWVTypes, uWVWinControl, uWVWindowParent, 
+  uWVCoreWebView2ProcessInfo, uWVCoreWebView2ProcessInfoCollection, 
+  LazarusPackageIntf;
 
 implementation
 

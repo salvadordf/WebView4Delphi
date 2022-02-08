@@ -101,6 +101,12 @@ type
       property OnIsMutedChanged;
       property OnIsDocumentPlayingAudioChanged;
       property OnIsDefaultDownloadDialogOpenChanged;
+      property OnProcessInfosChanged;
+      property OnFrameNavigationStarting2;
+      property OnFrameNavigationCompleted2;
+      property OnFrameContentLoading;
+      property OnFrameDOMContentLoaded;
+      property OnFrameWebMessageReceived;
   end;
 
 {$IFDEF FPC}
