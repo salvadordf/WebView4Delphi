@@ -57,6 +57,15 @@ type
                       ketRawKeyDown,
                       ketChar);
 
+  TWV2DebugLog = (dlDisabled, dlEnabled, dlEnabledStdOut, dlEnabledStdErr);
+
+  // Debug log level used when the logging is enabled
+  TWV2DebugLogLevel = (dllDefault,
+                       dllInfo,
+                       dllWarning,
+                       dllError,
+                       dllFatal);
+
   // Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
   // https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
   // https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h

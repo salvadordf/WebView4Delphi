@@ -749,6 +749,9 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := UTF8Decode(ExtractFileDir(Application.ExeName) + '\CustomCache');
+  // Uncomment these lines to enable the debug log in 'CustomCache\EBWebView\chrome_debug.log'
+  //GlobalWebView2Loader.DebugLog       := TWV2DebugLog.dlEnabled;
+  //GlobalWebView2Loader.DebugLogLevel  := TWV2DebugLogLevel.dllInfo;
   GlobalWebView2Loader.StartWebView2;
 
 end.

@@ -68,6 +68,8 @@ type
       FAllowRunningInsecureContent            : boolean;
       FDisableBackgroundNetworking            : boolean;
       FRemoteDebuggingPort                    : integer;
+      FDebugLog                               : TWV2DebugLog;
+      FDebugLogLevel                          : TWV2DebugLogLevel;
 
       function  GetAvailableBrowserVersion : wvstring;
       function  GetInitialized : boolean;
@@ -82,7 +84,6 @@ type
       function  CreateEnvironment : boolean;
       procedure DestroyEnvironment;
 
-      function  GetModulePath : wvstring;
       function  GetDLLVersion(const aDLLFile : wvstring; var aVersionInfo : TFileVersionInfo) : boolean;
       function  GetExtendedFileVersion(const aFileName : wvstring) : uint64;
       function  LoadLibProcedures : boolean;
@@ -169,6 +170,8 @@ type
       property DisableBackgroundNetworking            : boolean                            read FDisableBackgroundNetworking             write FDisableBackgroundNetworking;      // --disable-background-networking
       property ForcedDeviceScaleFactor                : single                             read FForcedDeviceScaleFactor                 write FForcedDeviceScaleFactor;          // --force-device-scale-factor
       property RemoteDebuggingPort                    : integer                            read FRemoteDebuggingPort                     write FRemoteDebuggingPort;              // --remote-debugging-port
+      property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;                         // --enable-logging
+      property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;                    // --log-level
 
       // ICoreWebView2Environment8 properties
       property ProcessInfos                           : ICoreWebView2ProcessInfoCollection read GetProcessInfos;
@@ -278,6 +281,8 @@ begin
   FAllowFileAccessFromFiles               := False;
   FAllowRunningInsecureContent            := False;
   FDisableBackgroundNetworking            := False;
+  FDebugLog                               := TWV2DebugLog.dlDisabled;
+  FDebugLogLevel                          := TWV2DebugLogLevel.dllDefault;
 
   FProxySettings := TWVProxySettings.Create;
 
@@ -333,15 +338,6 @@ procedure TWVLoader.doProcessInfosChangedEvent(const sender: ICoreWebView2Enviro
 begin
   if assigned(FOnProcessInfosChanged) then
     FOnProcessInfosChanged(self, sender);
-end;
-
-function TWVLoader.GetModulePath : wvstring;
-begin
-  {$IFDEF FPC}
-  Result := UTF8Decode(IncludeTrailingPathDelimiter(ExtractFileDir(GetModuleName(HINSTANCE))));
-  {$ELSE}
-  Result := IncludeTrailingPathDelimiter(ExtractFileDir(GetModuleName(HINSTANCE)));
-  {$ENDIF}
 end;
 
 function TWVLoader.GetExtendedFileVersion(const aFileName : wvstring) : uint64;
@@ -930,6 +926,19 @@ begin
 
   if (FRemoteDebuggingPort > 0) then
     Result := Result + '--remote-debugging-port=' + inttostr(FRemoteDebuggingPort) + ' ';
+
+  case FDebugLog of
+    TWV2DebugLog.dlEnabled       : Result := Result + '--enable-logging ';
+    TWV2DebugLog.dlEnabledStdOut : Result := Result + '--enable-logging=stdout ';
+    TWV2DebugLog.dlEnabledStdErr : Result := Result + '--enable-logging=stderr ';
+  end;
+
+  case FDebugLogLevel of
+    TWV2DebugLogLevel.dllInfo    : Result := Result + '--log-level=0 ';
+    TWV2DebugLogLevel.dllWarning : Result := Result + '--log-level=1 ';
+    TWV2DebugLogLevel.dllError   : Result := Result + '--log-level=2 ';
+    TWV2DebugLogLevel.dllFatal   : Result := Result + '--log-level=3 ';
+  end;
 
   if (length(FAdditionalBrowserArguments) > 0) then
     Result := Result + FAdditionalBrowserArguments
