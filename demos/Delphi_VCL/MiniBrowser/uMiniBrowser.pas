@@ -5,6 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus,
+  WinApi.TlHelp32, Winapi.PsAPI,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args, uWVCoreWebView2DownloadOperation,
   uWVBrowserBase;
@@ -50,6 +51,7 @@ type
     SaveToFileMi: TMenuItem;
     Changeuseragentstring1: TMenuItem;
     Muted1: TMenuItem;
+    Browserprocesses1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -81,6 +83,8 @@ type
     procedure Availablebrowserversion1Click(Sender: TObject);
     procedure SaveToFileMiClick(Sender: TObject);
     procedure Changeuseragentstring1Click(Sender: TObject);
+    procedure Muted1Click(Sender: TObject);
+    procedure Browserprocesses1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -98,7 +102,6 @@ type
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: Boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
-    procedure Muted1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -132,7 +135,8 @@ implementation
 uses
   Winapi.ActiveX, uTextViewerForm,
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2HttpResponseHeaders,
-  uWVCoreWebView2HttpHeadersCollectionIterator;
+  uWVCoreWebView2HttpHeadersCollectionIterator,
+  uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo;
 
 procedure TMiniBrowserFrm.akesnapshot1Click(Sender: TObject);
 var
@@ -167,6 +171,79 @@ end;
 procedure TMiniBrowserFrm.Blockimages1Click(Sender: TObject);
 begin
   FBlockImages := not(FBlockImages);
+end;
+
+procedure TMiniBrowserFrm.Browserprocesses1Click(Sender: TObject);
+var
+  TempCollection : TCoreWebView2ProcessInfoCollection;
+  TempInfo : TCoreWebView2ProcessInfo;
+  i : cardinal;
+  TempSL : TStringList;
+  TempItemInfo : string;
+  TempHandle : THandle;
+  TempMemCtrs  : TProcessMemoryCounters;
+begin
+  TempCollection := nil;
+  TempInfo       := nil;
+  TempSL         := nil;
+
+  try
+    TempSL         := TStringList.Create;
+    TempCollection := TCoreWebView2ProcessInfoCollection.Create(WVBrowser1.ProcessInfos);
+
+    i := 0;
+    while (i < TempCollection.Count) do
+      begin
+        if assigned(TempInfo) then
+          TempInfo.BaseIntf := TempCollection.items[i]
+         else
+          Tempinfo := TCoreWebView2ProcessInfo.Create(TempCollection.items[i]);
+
+        TempItemInfo := 'Process type : ';
+
+        case TempInfo.Kind of
+          COREWEBVIEW2_PROCESS_KIND_BROWSER        : TempItemInfo := TempItemInfo + 'Browser';
+          COREWEBVIEW2_PROCESS_KIND_RENDERER       : TempItemInfo := TempItemInfo + 'Renderer';
+          COREWEBVIEW2_PROCESS_KIND_UTILITY        : TempItemInfo := TempItemInfo + 'Utility';
+          COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER : TempItemInfo := TempItemInfo + 'Sandbox helper';
+          COREWEBVIEW2_PROCESS_KIND_GPU            : TempItemInfo := TempItemInfo + 'GPU';
+          COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN   : TempItemInfo := TempItemInfo + 'PPAPI plugin';
+          COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER   : TempItemInfo := TempItemInfo + 'PPAPI broker';
+          else                                       TempItemInfo := TempItemInfo + 'Unknown';
+        end;
+
+        TempItemInfo := TempItemInfo + ', Process ID : ' + IntToStr(TempInfo.ProcessId);
+        TempHandle   := OpenProcess(PROCESS_QUERY_INFORMATION or PROCESS_VM_READ, False, TempInfo.ProcessId);
+
+        if (TempHandle <> 0) then
+          try
+            ZeroMemory(@TempMemCtrs, SizeOf(TProcessMemoryCounters));
+            TempMemCtrs.cb := SizeOf(TProcessMemoryCounters);
+
+            if GetProcessMemoryInfo(TempHandle, @TempMemCtrs, TempMemCtrs.cb) then
+              TempItemInfo := TempItemInfo + ', Memory : ' + IntToStr(TempMemCtrs.WorkingSetSize);
+          finally
+            CloseHandle(TempHandle);
+          end;
+
+        TempSL.Add(TempItemInfo);
+        inc(i);
+      end;
+
+    TextViewerFrm.Caption := 'Process info';
+    TextViewerFrm.Memo1.Lines.Clear;
+    TextViewerFrm.Memo1.Lines.AddStrings(TempSL);
+    TextViewerFrm.Show;
+  finally
+    if assigned(TempCollection) then
+      FreeAndNil(TempCollection);
+
+    if assigned(TempInfo) then
+      FreeAndNil(TempInfo);
+
+    if assigned(TempSL) then
+      FreeAndNil(TempSL);
+  end;
 end;
 
 procedure TMiniBrowserFrm.Changeuseragentstring1Click(Sender: TObject);
@@ -357,6 +434,7 @@ begin
 
   // We need to a filter to enable the TWVBrowser.OnWebResourceRequested event
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE);
+  WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1BytesReceivedChanged(Sender: TObject;
@@ -618,6 +696,7 @@ end;
 
 procedure TMiniBrowserFrm.ShowHTTPheaders1Click(Sender: TObject);
 begin
+  TextViewerFrm.Caption := 'Headers';
   TextViewerFrm.Memo1.Lines.Text := FHeaders.Text;
   TextViewerFrm.Show;
 end;
@@ -656,7 +735,6 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
-  GlobalWebView2Loader.RemoteDebuggingPort := 9222;
   GlobalWebView2Loader.StartWebView2;
 
 end.

@@ -320,6 +320,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'Muted'
       OnClick = Muted1Click
     end
+    object MenuItem1: TMenuItem
+      Caption = 'Browser processes...'
+      OnClick = MenuItem1Click
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 48
