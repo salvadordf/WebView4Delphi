@@ -811,12 +811,14 @@ begin
   // The list of features you can enable is here :
   // https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc
   // https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc
+  // https://source.chromium.org/search?q=base::Feature
   if (length(FEnableFeatures) > 0) then
     Result := Result + '--enable-features=' + FEnableFeatures + ' ';
 
   // The list of features you can disable is here :
   // https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc
   // https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc
+  // https://source.chromium.org/search?q=base::Feature
   TempFeatures := FDisableFeatures;
 
   if not(FSmartScreenProtectionEnabled) then

@@ -190,9 +190,10 @@ begin
 end;
 
 initialization
-  GlobalWebView2Loader                := TWVLoader.Create(nil);
-  GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
-  GlobalWebView2Loader.KioskPrinting  := True; // This property enables silent priting
+  GlobalWebView2Loader                 := TWVLoader.Create(nil);
+  GlobalWebView2Loader.UserDataFolder  := ExtractFileDir(Application.ExeName) + '\CustomCache';
+  GlobalWebView2Loader.KioskPrinting   := True; // This property enables silent priting
+  GlobalWebView2Loader.DisableFeatures := 'msWebOOUI,msPdfOOUI';  // Disable the text selection context menu
   GlobalWebView2Loader.StartWebView2;
 
 end.

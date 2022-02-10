@@ -2942,7 +2942,7 @@ begin
 
       if succeeded(aErrorCode) then
         begin
-          {$IFDEF DELPHI26_UP}
+          {$IFDEF DELPHI21_UP}
             TempHTML := TNetEncoding.URL.Decode(aResultObjectAsJson);
           {$ELSE}
             {$IFDEF FPC}
@@ -2979,7 +2979,7 @@ begin
 
       if succeeded(aErrorCode) then
         begin
-          {$IFDEF DELPHI26_UP}
+          {$IFDEF DELPHI21_UP}
             TempText := TNetEncoding.URL.Decode(aResultObjectAsJson);
           {$ELSE}
             {$IFDEF FPC}

@@ -31,6 +31,7 @@ type
 
     procedure WVFMXBrowser1AfterCreated(Sender: TObject);
     procedure WVFMXBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVFMXBrowser1GotFocus(Sender: TObject);
 
   private
     FMXWindowParent         : TWVFMXWindowParent;
@@ -258,6 +259,19 @@ begin
   FMXWindowParent.UpdateSize;
   Caption            := 'Simple FMX Browser';
   AddressPnl.Enabled := True;
+end;
+
+procedure TMainForm.WVFMXBrowser1GotFocus(Sender: TObject);
+var
+  TempObject : TFMXObject;
+begin
+  if (Focused <> nil) then
+    begin
+      TempObject := Focused.GetObject;
+
+      if (TempObject <> nil) and (TempObject is TControl) then
+        TControl(TempObject).ResetFocus;
+    end;
 end;
 
 procedure TMainForm.WVFMXBrowser1InitializationError(Sender: TObject;

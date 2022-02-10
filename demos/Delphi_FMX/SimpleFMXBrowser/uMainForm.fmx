@@ -64,6 +64,7 @@ object MainForm: TMainForm
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVFMXBrowser1InitializationError
     OnAfterCreated = WVFMXBrowser1AfterCreated
+    OnGotFocus = WVFMXBrowser1GotFocus
     Left = 104
     Top = 104
   end

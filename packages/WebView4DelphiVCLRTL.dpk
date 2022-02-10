@@ -30,7 +30,8 @@ package WebView4DelphiVCLRTL;
 
 requires
   rtl,
-  vcl;
+  vcl,
+  inet;
 
 contains
   uWVConstants in '..\source\uWVConstants.pas',

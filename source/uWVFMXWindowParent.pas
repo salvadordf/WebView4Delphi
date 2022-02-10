@@ -22,8 +22,11 @@ type
 
       procedure Notification(AComponent: TComponent; Operation: TOperation); override;
       procedure Resize; override;
+      {$IFDEF DELPHI18_UP}
+      procedure DoFocusChanged; override;
+      {$ELSE}
       procedure SetActive(const Value: Boolean); override;
-
+      {$ENDIF}
     public
       constructor Create(AOwner: TComponent); override;
       procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
@@ -55,7 +58,10 @@ constructor TWVFMXWindowParent.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
 
-  FBrowser := nil;
+  FBrowser    := nil;
+  Caption     := '';
+  BorderStyle := TFmxFormBorderStyle.{$IFDEF DELPHI20_UP}None{$ELSE}bsNone{$ENDIF};
+  BorderIcons := [];
 end;
 
 procedure TWVFMXWindowParent.Resize;
@@ -65,6 +71,15 @@ begin
   UpdateSize;
 end;
 
+{$IFDEF DELPHI18_UP}
+procedure TWVFMXWindowParent.DoFocusChanged;
+begin
+  inherited DoFocusChanged;
+
+  if (Focused <> nil) and (FBrowser <> nil) then
+    FBrowser.SetFocus;
+end;
+{$ELSE}
 procedure TWVFMXWindowParent.SetActive(const Value: Boolean);
 begin
   inherited SetActive(Value);
@@ -72,6 +87,7 @@ begin
   if Value and (Focused <> nil) and (FBrowser <> nil) then
     FBrowser.SetFocus;
 end;
+{$ENDIF}
 
 function TWVFMXWindowParent.GetBrowser: TWVBrowserBase;
 begin
