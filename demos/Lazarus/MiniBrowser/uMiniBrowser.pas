@@ -60,9 +60,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure MenuItem1Click(Sender: TObject);
-    procedure MenuItem3Click(Sender: TObject);
-    procedure Muted1Click(Sender: TObject);
 
     procedure Timer1Timer(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
@@ -89,15 +86,17 @@ type
     procedure Offline1Click(Sender: TObject);
     procedure Ignorecertificateerrors1Click(Sender: TObject);  
     procedure SaveToFileMiClick(Sender: TObject);
-    procedure ChangeUserAgentMiClick(Sender: TObject);
+    procedure ChangeUserAgentMiClick(Sender: TObject); 
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure Muted1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
-    procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject;
-      aResult: boolean; const aMHTML: wvstring);
+    procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: boolean; const aMHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: boolean; const aText: wvstring);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);

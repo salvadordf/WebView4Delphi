@@ -73,8 +73,8 @@ type
     procedure DevTools1Click(Sender: TObject);
     procedure Inczoom1Click(Sender: TObject);
     procedure Deczoom1Click(Sender: TObject);
-    procedure REsetzoom1Click(Sender: TObject);
-    procedure akesnapshot1Click(Sender: TObject);
+    procedure Resetzoom1Click(Sender: TObject);
+    procedure Takesnapshot1Click(Sender: TObject);
     procedure Blockimages1Click(Sender: TObject);
     procedure ShowHTTPheaders1Click(Sender: TObject);
     procedure Clearcache1Click(Sender: TObject);
@@ -138,7 +138,7 @@ uses
   uWVCoreWebView2HttpHeadersCollectionIterator,
   uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo;
 
-procedure TMiniBrowserFrm.akesnapshot1Click(Sender: TObject);
+procedure TMiniBrowserFrm.Takesnapshot1Click(Sender: TObject);
 var
   TempAdapter : IStream;
 begin
@@ -675,7 +675,7 @@ begin
   WVBrowser1.Refresh;
 end;
 
-procedure TMiniBrowserFrm.REsetzoom1Click(Sender: TObject);
+procedure TMiniBrowserFrm.Resetzoom1Click(Sender: TObject);
 begin
   WVBrowser1.ResetZoom;
 end;

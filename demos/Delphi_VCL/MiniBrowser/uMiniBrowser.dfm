@@ -293,12 +293,12 @@ object MiniBrowserFrm: TMiniBrowserFrm
       end
       object REsetzoom1: TMenuItem
         Caption = 'Reset zoom'
-        OnClick = REsetzoom1Click
+        OnClick = Resetzoom1Click
       end
     end
     object akesnapshot1: TMenuItem
       Caption = 'Take snapshot...'
-      OnClick = akesnapshot1Click
+      OnClick = Takesnapshot1Click
     end
     object Blockimages1: TMenuItem
       Caption = 'Block images'
