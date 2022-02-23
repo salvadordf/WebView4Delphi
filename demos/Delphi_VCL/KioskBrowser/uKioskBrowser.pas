@@ -102,8 +102,6 @@ begin
 end;
 
 procedure TMainForm.WVBrowser1AfterCreated(Sender: TObject);
-var
-  TempScript: wvstring;
 begin
   WVWindowParent1.UpdateSize;
 

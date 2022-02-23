@@ -18,7 +18,6 @@ type
       procedure Resize; override;
 
     public
-      function  TakeSnapshot(var aBitmap : TBitmap) : boolean;
       procedure CreateHandle; override;
       procedure InvalidateChildren;
       procedure UpdateSize; virtual;
@@ -88,36 +87,6 @@ begin
   SetWindowPos(TempHWND, 0,
                0, 0, TempRect.right, TempRect.bottom,
                SWP_NOZORDER);
-end;
-
-function TWVWinControl.TakeSnapshot(var aBitmap : TBitmap) : boolean;
-var
-  TempHWND   : HWND;
-  TempDC     : HDC;
-  TempRect   : TRect;
-  TempWidth  : Integer;
-  TempHeight : Integer;
-begin
-  Result := False;
-  if (aBitmap = nil) then exit;
-
-  TempHWND := ChildWindowHandle;
-  if (TempHWND = 0) then exit;
-
-  {$IFNDEF FPC}Winapi.{$ENDIF}Windows.GetClientRect(TempHWND, TempRect);
-
-  TempDC     := GetDC(TempHWND);
-  TempWidth  := TempRect.Right  - TempRect.Left;
-  TempHeight := TempRect.Bottom - TempRect.Top;
-
-  aBitmap        := TBitmap.Create;
-  aBitmap.Height := TempHeight;
-  aBitmap.Width  := TempWidth;
-
-  Result := BitBlt(aBitmap.Canvas.Handle, 0, 0, TempWidth, TempHeight,
-                   TempDC, 0, 0, SRCCOPY);
-
-  ReleaseDC(TempHWND, TempDC);
 end;
 
 procedure TWVWinControl.Resize;
