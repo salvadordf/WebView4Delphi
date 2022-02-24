@@ -8,7 +8,7 @@ interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, ActiveX, SysUtils, Graphics, Math,
+  Windows, Classes, ActiveX, SysUtils, Graphics, Math, Controls,
   {$ELSE}
   Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils, System.Math,
   {$ENDIF}
