@@ -25,6 +25,7 @@ function GetScreenDPI : integer;
 function GetDeviceScaleFactor : single;
 function EditingCommandToString(aEditingCommand : TWV2EditingCommand): wvstring;
 function DeleteDirContents(const aDirectory : string; const aExcludeFiles : TStringList = nil) : boolean;
+function SystemCursorIDToDelphiCursor(aSystemCursorID : cardinal) : TCursor;
 
 procedure OutputDebugMessage(const aMessage : string);
 function  CustomExceptionHandler(const aFunctionName : string; const aException : exception) : boolean;
@@ -462,6 +463,29 @@ begin
   except
     on e : exception do
       if CustomExceptionHandler('DeleteDirContents', e) then raise;
+  end;
+end;
+
+function SystemCursorIDToDelphiCursor(aSystemCursorID : cardinal) : TCursor;
+begin
+  // https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-loadcursorw
+  case aSystemCursorId of
+    32650 : Result := crAppStart;
+    32512 : Result := crArrow;
+    32515 : Result := crCross;
+    32649 : Result := crHandPoint;
+    32651 : Result := crHelp;
+    32513 : Result := crIBeam;
+    32648 : Result := crNoDrop;
+    32640,
+    32646 : Result := crSizeAll;
+    32643 : Result := crSizeNESW;
+    32645 : Result := crSizeNS;
+    32642 : Result := crSizeNWSE;
+    32644 : Result := crSizeWE;
+    32516 : Result := crUpArrow;
+    32514 : Result := crHourGlass;
+    else    Result := crDefault;
   end;
 end;
 

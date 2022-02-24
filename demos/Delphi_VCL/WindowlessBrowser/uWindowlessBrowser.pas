@@ -29,6 +29,7 @@ type
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1CursorChanged(Sender: TObject);
 
   protected
     FWVDirectCompositionHost : TWVDirectCompositionHost;
@@ -49,6 +50,9 @@ implementation
 
 {$R *.dfm}
 
+uses
+  uWVMiscFunctions;
+
 // This is a demo of a WebView2 browser in "Windowsless mode" using WebView4Delphi.
 // https://github.com/MicrosoftEdge/WebView2Feedback/issues/20
 
@@ -57,15 +61,9 @@ implementation
 
 // At this moment Delphi doesn't support the DirectComposition API so we have to use the
 // MfPack component available at GitHub :
-// https://github.com/salvadordf/MfPack
-
-// The original MfPack repository is this :
 // https://github.com/FactoryXCode/MfPack
 
-// At this moment the original repository needs to merge a pull request with a fix for a
-// critical issue that is already fixed in salvadordf's fork.
-
-// It's necessary to add the MfPack source directory to the search path.
+// It's necessary to add the MfPack source directory to the search path of this demo.
 
 // In order to avoid adding a dependency to WebView4Delphi we create a
 // TWVDirectCompositionHost instance at runtime.
@@ -75,7 +73,6 @@ implementation
 // https://github.com/MicrosoftEdge/WebView2Samples/tree/master/SampleApps/WebView2APISample
 
 // TO-DO : Add support for touch devices.
-// TO-DO : Update the cursor
 
 procedure TMainForm.ApplicationEvents1Message(var Msg: tagMSG; var Handled: Boolean);
 begin
@@ -247,6 +244,11 @@ begin
 
   Caption := 'WindowlessBrowser';
   AddressPnl.Enabled := True;
+end;
+
+procedure TMainForm.WVBrowser1CursorChanged(Sender: TObject);
+begin
+  FWVDirectCompositionHost.Cursor := SystemCursorIDToDelphiCursor(WVBrowser1.SystemCursorId);
 end;
 
 procedure TMainForm.WVBrowser1DocumentTitleChanged(Sender: TObject);

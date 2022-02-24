@@ -91,6 +91,7 @@ object MainForm: TMainForm
     OnInitializationError = WVBrowser1InitializationError
     OnAfterCreated = WVBrowser1AfterCreated
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnCursorChanged = WVBrowser1CursorChanged
     Left = 200
     Top = 160
   end
