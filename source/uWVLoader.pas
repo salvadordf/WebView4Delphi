@@ -1154,7 +1154,7 @@ begin
       FStatus   := wvlsError;
       FError    := errorCode;
       FErrorMsg := 'There was a problem initializing the browser environment.' + CRLF + CRLF +
-                   'Error code : 0x' + CRLF +
+                   'Error code : 0x' + IntToHex(errorCode, 8) + CRLF +
                    {$IFDEF FPC}
                    UTF8Encode(EnvironmentCreationErrorToString(errorCode));
                    {$ELSE}
