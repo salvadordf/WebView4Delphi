@@ -12,39 +12,6 @@ object MainForm: TMainForm
   OnResize = FormResize
   OnShow = FormShow
   DesignerMasterStyle = 0
-  object AddressPnl: TPanel
-    Align = Top
-    Enabled = False
-    Padding.Left = 5.000000000000000000
-    Padding.Top = 5.000000000000000000
-    Padding.Right = 5.000000000000000000
-    Padding.Bottom = 5.000000000000000000
-    Size.Width = 1000.000000000000000000
-    Size.Height = 35.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object AddressEdt: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Client
-      TabOrder = 1
-      Text = 'https://www.bing.com'
-      Size.Width = 949.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-    end
-    object GoBtn: TButton
-      Align = Right
-      Margins.Left = 5.000000000000000000
-      Position.X = 959.000000000000000000
-      Position.Y = 5.000000000000000000
-      Size.Width = 36.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      Text = 'Go'
-      OnClick = GoBtnClick
-    end
-  end
   object Timer1: TTimer
     Enabled = False
     Interval = 300
@@ -55,9 +22,50 @@ object MainForm: TMainForm
   object BrowserLay: TLayout
     Align = Client
     Size.Width = 1000.000000000000000000
-    Size.Height = 565.000000000000000000
+    Size.Height = 568.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 4
+    TabOrder = 1
+    object FocusWorkaroundBtn: TButton
+      Position.X = 368.000000000000000000
+      Position.Y = 208.000000000000000000
+      Size.Width = 1.000000000000000000
+      Size.Height = 1.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object AddressLay: TLayout
+    Align = Top
+    Enabled = False
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 1000.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object AddressEdt: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 0
+      Text = 'https://www.bing.com'
+      Size.Width = 949.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object GoBtn: TButton
+      Align = Right
+      Margins.Left = 5.000000000000000000
+      Position.X = 959.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 36.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Go'
+      OnClick = GoBtnClick
+    end
   end
   object WVFMXBrowser1: TWVFMXBrowser
     TargetCompatibleBrowserVersion = '95.0.1020.44'

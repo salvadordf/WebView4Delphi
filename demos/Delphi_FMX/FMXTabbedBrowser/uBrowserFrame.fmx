@@ -1,0 +1,113 @@
+object BrowserFrame: TBrowserFrame
+  Size.Width = 1080.000000000000000000
+  Size.Height = 742.000000000000000000
+  Size.PlatformDefault = False
+  object AddressLay: TLayout
+    Align = Top
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 1080.000000000000000000
+    Size.Height = 35.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object GoBtn: TSpeedButton
+      Align = Right
+      Margins.Left = 5.000000000000000000
+      Position.X = 1048.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 27.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'arrowrighttoolbutton'
+      Text = 'GoBtn'
+      OnClick = GoBtnClick
+    end
+    object NavButtonLay: TLayout
+      Align = Left
+      Margins.Right = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 115.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object BackBtn: TSpeedButton
+        Align = Left
+        Margins.Right = 5.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'priortoolbutton'
+        Text = 'BackBtn'
+        OnClick = BackBtnClick
+      end
+      object ForwardBtn: TSpeedButton
+        Align = Left
+        Margins.Right = 5.000000000000000000
+        Position.X = 30.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'nexttoolbutton'
+        Text = 'SpeedButton1'
+        OnClick = ForwardBtnClick
+      end
+      object ReloadBtn: TSpeedButton
+        Align = Left
+        Margins.Right = 5.000000000000000000
+        Position.X = 60.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'refreshtoolbutton'
+        Text = 'SpeedButton1'
+        OnClick = ReloadBtnClick
+      end
+      object StopBtn: TSpeedButton
+        Align = Left
+        Position.X = 90.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'stoptoolbutton'
+        Text = 'SpeedButton1'
+        OnClick = StopBtnClick
+      end
+    end
+    object URLEdt: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 3
+      Size.Width = 918.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object WindowParentLay: TLayout
+    Align = Client
+    Size.Width = 1080.000000000000000000
+    Size.Height = 707.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object FocusWorkaroundBtn: TButton
+      Position.X = 304.000000000000000000
+      Position.Y = 120.000000000000000000
+      Size.Width = 1.000000000000000000
+      Size.Height = 1.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object WVFMXBrowser1: TWVFMXBrowser
+    TargetCompatibleBrowserVersion = '97.0.1072.55'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnAfterCreated = WVFMXBrowser1AfterCreated
+    OnSourceChanged = WVFMXBrowser1SourceChanged
+    OnDocumentTitleChanged = WVFMXBrowser1DocumentTitleChanged
+    OnGotFocus = WVFMXBrowser1GotFocus
+    Left = 80
+    Top = 72
+  end
+end

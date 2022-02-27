@@ -6,21 +6,21 @@ uses
   Winapi.Windows, System.SysUtils, System.Types, System.UITypes,
   System.Classes, System.Variants, Winapi.Messages,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation,
-  uWVLoader, uWVBrowserBase, uWVFMXBrowser, uWVFMXWindowParent, uWVTypes,
-  FMX.Layouts;
+  FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Layouts,
+  uWVLoader, uWVBrowserBase, uWVFMXBrowser, uWVFMXWindowParent, uWVTypes;
 
 const
   WEBVIEW2_SHOWBROWSER = WM_APP + $101;
 
 type
   TMainForm = class(TForm)
-    AddressPnl: TPanel;
     AddressEdt: TEdit;
     GoBtn: TButton;
     WVFMXBrowser1: TWVFMXBrowser;
     Timer1: TTimer;
     BrowserLay: TLayout;
+    AddressLay: TLayout;
+    FocusWorkaroundBtn: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -227,8 +227,7 @@ begin
         if (FMXWindowParent <> nil) then
           begin
             FMXWindowParent.WindowState := TWindowState.wsNormal;
-            FMXWindowParent.Show;
-            FMXWindowParent.SetBounds(GetFMXWindowParentRect);
+            ResizeChild;
           end;
     end;
 
@@ -258,20 +257,13 @@ procedure TMainForm.WVFMXBrowser1AfterCreated(Sender: TObject);
 begin
   FMXWindowParent.UpdateSize;
   Caption            := 'Simple FMX Browser';
-  AddressPnl.Enabled := True;
+  AddressLay.Enabled := True;
 end;
 
 procedure TMainForm.WVFMXBrowser1GotFocus(Sender: TObject);
-var
-  TempObject : TFMXObject;
 begin
-  if (Focused <> nil) then
-    begin
-      TempObject := Focused.GetObject;
-
-      if (TempObject <> nil) and (TempObject is TControl) then
-        TControl(TempObject).ResetFocus;
-    end;
+  // We use a hidden button to fix the focus issues when the browser has the real focus.
+  FocusWorkaroundBtn.SetFocus;
 end;
 
 procedure TMainForm.WVFMXBrowser1InitializationError(Sender: TObject;
