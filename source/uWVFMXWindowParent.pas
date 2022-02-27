@@ -7,7 +7,8 @@ unit uWVFMXWindowParent;
 interface
 
 uses
-  System.Classes, System.Types, System.UITypes, WinApi.Windows, FMX.Controls, FMX.Types, FMX.Forms,
+  System.Classes, System.Types, System.UITypes, WinApi.Windows,
+  FMX.Controls, FMX.Types, FMX.Forms,
   uWVWinControl, uWVBrowserBase, uWVConstants;
 
 type
@@ -28,7 +29,7 @@ type
       procedure SetActive(const Value: Boolean); override;
       {$ENDIF}
     public
-      constructor Create(AOwner: TComponent); override;
+      constructor CreateNew(AOwner: TComponent; Dummy: NativeInt = 0); override;
       procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
       procedure   UpdateSize;
 
@@ -54,14 +55,11 @@ implementation
 uses
   System.SysUtils, FMX.Platform, FMX.Platform.Win;
 
-constructor TWVFMXWindowParent.Create(AOwner: TComponent);
+constructor TWVFMXWindowParent.CreateNew(AOwner: TComponent; Dummy: NativeInt);
 begin
-  inherited Create(AOwner);
+  inherited CreateNew(AOwner, Dummy);
 
-  FBrowser    := nil;
-  Caption     := '';
-  BorderStyle := TFmxFormBorderStyle.{$IFDEF DELPHI20_UP}None{$ELSE}bsNone{$ENDIF};
-  BorderIcons := [];
+  FBrowser := nil;
 end;
 
 procedure TWVFMXWindowParent.Resize;
