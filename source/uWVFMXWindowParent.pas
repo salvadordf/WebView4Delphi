@@ -29,7 +29,7 @@ type
       procedure SetActive(const Value: Boolean); override;
       {$ENDIF}
     public
-      constructor CreateNew(AOwner: TComponent; Dummy: NativeInt = 0); override;
+      constructor CreateNew(AOwner: TComponent; Dummy: {$IFDEF DELPHI19_UP}NativeInt{$ELSE}Integer{$ENDIF} = 0); override;
       procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
       procedure   UpdateSize;
 
@@ -55,7 +55,7 @@ implementation
 uses
   System.SysUtils, FMX.Platform, FMX.Platform.Win;
 
-constructor TWVFMXWindowParent.CreateNew(AOwner: TComponent; Dummy: NativeInt);
+constructor TWVFMXWindowParent.CreateNew(AOwner: TComponent; Dummy: {$IFDEF DELPHI19_UP}NativeInt{$ELSE}Integer{$ENDIF});
 begin
   inherited CreateNew(AOwner, Dummy);
 
