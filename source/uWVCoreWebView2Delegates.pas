@@ -657,6 +657,17 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2BasicAuthenticationRequestedEventHandler = class(TInterfacedObject, ICoreWebView2BasicAuthenticationRequestedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2127,6 +2138,31 @@ begin
     Result := E_FAIL;
 end;
 
+
+// TCoreWebView2BasicAuthenticationRequestedEventHandler
+
+constructor TCoreWebView2BasicAuthenticationRequestedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2BasicAuthenticationRequestedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventHandler.Invoke(const sender : ICoreWebView2;
+                                                                      const args   : ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).BasicAuthenticationRequestedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
 
 
 end.

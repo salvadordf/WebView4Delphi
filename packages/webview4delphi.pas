@@ -28,7 +28,7 @@ uses
   uWVEvents, uWVInterfaces, uWVLibFunctions, uWVLoader, uWVMiscFunctions, 
   uWVTypeLibrary, uWVTypes, uWVWinControl, uWVWindowParent, 
   uWVCoreWebView2ProcessInfo, uWVCoreWebView2ProcessInfoCollection, 
-  LazarusPackageIntf;
+  uWVCoreWebView2BasicAuthenticationResponse, LazarusPackageIntf;
 
 implementation
 

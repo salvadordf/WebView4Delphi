@@ -8,7 +8,10 @@ uses
   WinApi.TlHelp32, Winapi.PsAPI,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args, uWVCoreWebView2DownloadOperation,
-  uWVBrowserBase;
+  uWVBrowserBase, uBasicUserAuthForm;
+
+const
+  PWV_SHOWUSERAUTH  = WM_APP + $A50;
 
 type
   TMiniBrowserFrm = class(TForm)
@@ -102,6 +105,7 @@ type
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: Boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
+    procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -110,6 +114,7 @@ type
     FBlockImages       : boolean;
     FGetHeaders        : boolean;
     FHeaders           : TStringList;
+    FUserAuthFrm       : TTBasicUserAuthForm;
 
     procedure UpdateNavButtons(aIsNavigating : boolean);
     procedure UpdateDownloadInfo(aDownloadID : integer);
@@ -121,6 +126,7 @@ type
 
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
+    procedure ShowUserAuthMsg(var aMessage : TMessage); message PWV_SHOWUSERAUTH;
   public
     { Public declarations }
   end;
@@ -287,6 +293,7 @@ begin
   FGetHeaders             := True;
   FHeaders                := TStringList.Create;
   FFileStream             := nil;
+  FUserAuthFrm            := nil;
   FBlockImages            := False;
   FDownloadIDGen          := 0;
   FDownloadOperation      := nil;
@@ -435,6 +442,16 @@ begin
   // We need to a filter to enable the TWVBrowser.OnWebResourceRequested event
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE);
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1BasicAuthenticationRequested(
+  Sender: TObject; const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
+begin
+  FUserAuthFrm := TTBasicUserAuthForm.Create(self, aArgs);
+  // Modal forms and dialogs must be shown outside WebView events
+  // https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/threading-model
+  PostMessage(Handle, PWV_SHOWUSERAUTH, 0, 0);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1BytesReceivedChanged(Sender: TObject;
@@ -730,6 +747,11 @@ begin
 
   if (WVBrowser1 <> nil) then
     WVBrowser1.NotifyParentWindowPositionChanged;
+end;
+
+procedure TMiniBrowserFrm.ShowUserAuthMsg(var aMessage : TMessage);
+begin
+  FUserAuthFrm.ShowModal;
 end;
 
 initialization

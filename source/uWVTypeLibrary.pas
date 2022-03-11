@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 08/02/2022 10:58:57 from Type Library described below.
+// File generated on 11/03/2022 15:10:52 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: Z:\microsoft.web.webview2.1.0.1108.44.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: Z:\microsoft.web.webview2.1.0.1150.38.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -165,6 +165,10 @@ const
   IID_ICoreWebView2IsDocumentPlayingAudioChangedEventHandler: TGUID = '{5DEF109A-2F4B-49FA-B7F6-11C39E513328}';
   IID_ICoreWebView2_9: TGUID = '{4D7B2EAB-9FDC-468D-B998-A9260B5ED651}';
   IID_ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler: TGUID = '{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}';
+  IID_ICoreWebView2_10: TGUID = '{B1690564-6F5A-4983-8E48-31D1143FECDB}';
+  IID_ICoreWebView2BasicAuthenticationRequestedEventHandler: TGUID = '{58B4D6C2-18D4-497E-B39B-9A96533FA278}';
+  IID_ICoreWebView2BasicAuthenticationRequestedEventArgs: TGUID = '{EF05516F-D897-4F9E-B672-D8E2307A3FB0}';
+  IID_ICoreWebView2BasicAuthenticationResponse: TGUID = '{07023F7D-2D77-4D67-9040-6E7D428C6A40}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -582,6 +586,10 @@ type
   ICoreWebView2IsDocumentPlayingAudioChangedEventHandler = interface;
   ICoreWebView2_9 = interface;
   ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = interface;
+  ICoreWebView2_10 = interface;
+  ICoreWebView2BasicAuthenticationRequestedEventHandler = interface;
+  ICoreWebView2BasicAuthenticationRequestedEventArgs = interface;
+  ICoreWebView2BasicAuthenticationResponse = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -1990,6 +1998,57 @@ type
   ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = interface(IUnknown)
     ['{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}']
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_10
+// Flags:     (0)
+// GUID:      {B1690564-6F5A-4983-8E48-31D1143FECDB}
+// *********************************************************************//
+  ICoreWebView2_10 = interface(ICoreWebView2_9)
+    ['{B1690564-6F5A-4983-8E48-31D1143FECDB}']
+    function add_BasicAuthenticationRequested(const eventHandler: ICoreWebView2BasicAuthenticationRequestedEventHandler; 
+                                              out token: EventRegistrationToken): HResult; stdcall;
+    function remove_BasicAuthenticationRequested(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2BasicAuthenticationRequestedEventHandler
+// Flags:     (0)
+// GUID:      {58B4D6C2-18D4-497E-B39B-9A96533FA278}
+// *********************************************************************//
+  ICoreWebView2BasicAuthenticationRequestedEventHandler = interface(IUnknown)
+    ['{58B4D6C2-18D4-497E-B39B-9A96533FA278}']
+    function Invoke(const sender: ICoreWebView2; 
+                    const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2BasicAuthenticationRequestedEventArgs
+// Flags:     (0)
+// GUID:      {EF05516F-D897-4F9E-B672-D8E2307A3FB0}
+// *********************************************************************//
+  ICoreWebView2BasicAuthenticationRequestedEventArgs = interface(IUnknown)
+    ['{EF05516F-D897-4F9E-B672-D8E2307A3FB0}']
+    function Get_uri(out value: PWideChar): HResult; stdcall;
+    function Get_Challenge(out Challenge: PWideChar): HResult; stdcall;
+    function Get_Response(out Response: ICoreWebView2BasicAuthenticationResponse): HResult; stdcall;
+    function Get_Cancel(out Cancel: Integer): HResult; stdcall;
+    function Set_Cancel(Cancel: Integer): HResult; stdcall;
+    function GetDeferral(out deferral: ICoreWebView2Deferral): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2BasicAuthenticationResponse
+// Flags:     (0)
+// GUID:      {07023F7D-2D77-4D67-9040-6E7D428C6A40}
+// *********************************************************************//
+  ICoreWebView2BasicAuthenticationResponse = interface(IUnknown)
+    ['{07023F7D-2D77-4D67-9040-6E7D428C6A40}']
+    function Get_UserName(out UserName: PWideChar): HResult; stdcall;
+    function Set_UserName(UserName: PWideChar): HResult; stdcall;
+    function Get_Password(out Password: PWideChar): HResult; stdcall;
+    function Set_Password(Password: PWideChar): HResult; stdcall;
   end;
 
 // *********************************************************************//

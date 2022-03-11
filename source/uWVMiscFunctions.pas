@@ -29,6 +29,7 @@ function SystemCursorIDToDelphiCursor(aSystemCursorID : cardinal) : TCursor;
 
 procedure OutputDebugMessage(const aMessage : string);
 function  CustomExceptionHandler(const aFunctionName : string; const aException : exception) : boolean;
+procedure LogMouseEvent(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint);
 
 function CoreWebViewColorToDelphiColor(const aColor : COREWEBVIEW2_COLOR) : TColor;
 function DelphiColorToCoreWebViewColor(const aColor : TColor) : COREWEBVIEW2_COLOR;
@@ -165,6 +166,14 @@ begin
   OutputDebugMessage(aFunctionName + ' error : ' + aException.message);
 
   Result := (GlobalWebView2Loader <> nil) and GlobalWebView2Loader.ReRaiseExceptions;
+end;
+
+procedure LogMouseEvent(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint);
+begin
+  OutputDebugMessage('aEventKind: $' + IntToHex(integer(aEventKind), 4) + ', ' +
+                     'aVirtualKeys: $' + IntToHex(Integer(aVirtualKeys), 2) + ', ' +
+                     'aMouseData: ' + IntToStr(integer(aMouseData)) + ', ' +
+                     'aPoint: (' + IntToStr(aPoint.x) + ',' + IntToStr(aPoint.y) + ')');
 end;
 
 // Basic ISO8601ToDate alternative written by David Heffernan

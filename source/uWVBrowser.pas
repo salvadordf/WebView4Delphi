@@ -107,6 +107,7 @@ type
       property OnFrameContentLoading;
       property OnFrameDOMContentLoaded;
       property OnFrameWebMessageReceived;
+      property OnBasicAuthenticationRequested;
   end;
 
 {$IFDEF FPC}

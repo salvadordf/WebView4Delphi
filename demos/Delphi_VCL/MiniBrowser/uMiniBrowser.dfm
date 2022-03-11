@@ -143,6 +143,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'https://html5demos.com/drag/'
           'https://frames-per-second.appspot.com/'
           'https://badssl.com/'
+          'https://www.httpwatch.com/httpgallery/authentication/'
           'edge://flags/'
           'edge://gpu/'
           'edge://about/')
@@ -237,6 +238,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
+    OnBasicAuthenticationRequested = WVBrowser1BasicAuthenticationRequested
     Left = 48
     Top = 64
   end

@@ -454,17 +454,41 @@ type
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
   end;
 
+  TCoreWebView2BasicAuthenticationRequestedEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2BasicAuthenticationRequestedEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetUri : wvstring;
+      function  GetChallenge : wvstring;
+      function  GetResponse : ICoreWebView2BasicAuthenticationResponse;
+      function  GetCancel : boolean;
+      function  GetDeferral : ICoreWebView2Deferral;
+
+      procedure SetCancel(aValue : boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      property Initialized                   : boolean                                             read GetInitialized;
+      property BaseIntf                      : ICoreWebView2BasicAuthenticationRequestedEventArgs  read FBaseIntf;
+      property Uri                           : wvstring                                            read GetUri;
+      property Challenge                     : wvstring                                            read GetChallenge;
+      property Response                      : ICoreWebView2BasicAuthenticationResponse            read GetResponse;
+      property Cancel                        : boolean                                             read GetCancel           write SetCancel;
+      property Deferral                      : ICoreWebView2Deferral                               read GetDeferral;
+  end;
+
 
 implementation
 
 uses
   {$IFDEF FPC}
-  ActiveX,
+  ActiveX;
   {$ELSE}
-  Winapi.ActiveX,
+  Winapi.ActiveX;
   {$ENDIF}
-  uWVMiscFunctions;
-
 
 // TCoreWebView2AcceleratorKeyPressedEventArgs
 
@@ -1884,5 +1908,97 @@ begin
     FBaseIntf.Set_Handled(ord(aValue));
 end;
 
+
+// TCoreWebView2BasicAuthenticationRequestedEventArgs
+
+constructor TCoreWebView2BasicAuthenticationRequestedEventArgs.Create(const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2BasicAuthenticationRequestedEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetUri : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_uri(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetChallenge : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Challenge(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetResponse : ICoreWebView2BasicAuthenticationResponse;
+var
+  TempResult : ICoreWebView2BasicAuthenticationResponse;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Response(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetCancel : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Cancel(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2BasicAuthenticationRequestedEventArgs.GetDeferral : ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2BasicAuthenticationRequestedEventArgs.SetCancel(aValue : boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Cancel(ord(aValue));
+end;
 
 end.

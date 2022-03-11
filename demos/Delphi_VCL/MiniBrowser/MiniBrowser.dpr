@@ -3,7 +3,8 @@ program MiniBrowser;
 uses
   Vcl.Forms,
   uMiniBrowser in 'uMiniBrowser.pas' {MiniBrowserFrm},
-  uTextViewerForm in 'uTextViewerForm.pas' {TextViewerFrm};
+  uTextViewerForm in 'uTextViewerForm.pas' {TextViewerFrm},
+  uBasicUserAuthForm in 'uBasicUserAuthForm.pas' {TBasicUserAuthForm};
 
 {$R *.res}
 

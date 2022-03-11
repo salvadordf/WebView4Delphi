@@ -9,7 +9,11 @@ uses
   ActiveX, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls, Menus,
   jwatlhelp32, jwapsapi,
   uWVBrowser, uWVWindowParent, uWVTypes, uWVTypeLibrary, uWVLoader,
-  uWVCoreWebView2Args, uWVCoreWebView2DownloadOperation, uWVBrowserBase, uWVEvents;
+  uWVCoreWebView2Args, uWVCoreWebView2DownloadOperation, uWVBrowserBase,
+  uWVEvents, uBasicUserAuthForm;
+
+const
+  PWV_SHOWUSERAUTH  = WM_APP + $A50;
 
 type
 
@@ -92,6 +96,7 @@ type
     procedure Muted1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
+    procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
@@ -114,7 +119,8 @@ type
     FFileStream        : TFileStream;
     FBlockImages       : boolean;
     FGetHeaders        : boolean;
-    FHeaders           : TStringList;
+    FHeaders           : TStringList;        
+    FUserAuthFrm       : TTBasicUserAuthForm;
 
     procedure UpdateNavButtons(aIsNavigating : boolean);
     procedure UpdateDownloadInfo(aDownloadID : integer);
@@ -125,7 +131,8 @@ type
     procedure SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
 
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
-    procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
+    procedure WMMoving(var aMessage : TMessage); message WM_MOVING;    
+    procedure ShowUserAuthMsg(var aMessage : TMessage); message PWV_SHOWUSERAUTH;
   public
     { Public declarations }
   end;
@@ -203,7 +210,8 @@ procedure TMiniBrowserFrm.FormCreate(Sender: TObject);
 begin
   FGetHeaders             := True;
   FHeaders                := TStringList.Create;
-  FFileStream             := nil;
+  FFileStream             := nil;    
+  FUserAuthFrm            := nil;
   FBlockImages            := False;
   FDownloadIDGen          := 0;
   FDownloadOperation      := nil;
@@ -422,6 +430,16 @@ begin
 
   // We need to a filter to enable the TWVBrowser.OnWebResourceRequested event
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1BasicAuthenticationRequested(
+  Sender: TObject; const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
+begin
+  FUserAuthFrm := TTBasicUserAuthForm.Create(self, aArgs);
+  // Modal forms and dialogs must be shown outside WebView events
+  // https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/threading-model
+  PostMessage(Handle, PWV_SHOWUSERAUTH, 0, 0);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1BytesReceivedChanged(Sender: TObject;
@@ -743,6 +761,11 @@ begin
 
   if (WVBrowser1 <> nil) then
     WVBrowser1.NotifyParentWindowPositionChanged;
+end;
+
+procedure TMiniBrowserFrm.ShowUserAuthMsg(var aMessage : TMessage);
+begin
+  FUserAuthFrm.ShowModal;
 end;
 
 initialization

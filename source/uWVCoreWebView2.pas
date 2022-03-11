@@ -24,6 +24,7 @@ type
       FBaseIntf7                               : ICoreWebView2_7;
       FBaseIntf8                               : ICoreWebView2_8;
       FBaseIntf9                               : ICoreWebView2_9;
+      FBaseIntf10                              : ICoreWebView2_10;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -48,6 +49,7 @@ type
       FIsMutedChangedToken                     : EventRegistrationToken;
       FIsDocumentPlayingAudioChangedToken      : EventRegistrationToken;
       FIsDefaultDownloadDialogOpenChangedToken : EventRegistrationToken;
+      FBasicAuthenticationRequestedToken       : EventRegistrationToken;
 
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -102,6 +104,7 @@ type
       function  AddIsMutedChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddIsDocumentPlayingAudioChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddIsDefaultDownloadDialogOpenChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddBasicAuthenticationRequestedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -176,8 +179,9 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5, FBaseIntf5)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6, FBaseIntf6)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_7, FBaseIntf7)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8, FBaseIntf8)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2_9, FBaseIntf9);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8, FBaseIntf8)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_9, FBaseIntf9)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2_10, FBaseIntf10);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -218,6 +222,7 @@ begin
   FBaseIntf7           := nil;
   FBaseIntf8           := nil;
   FBaseIntf9           := nil;
+  FBaseIntf10          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -250,6 +255,7 @@ begin
   FIsMutedChangedToken.value                     := 0;
   FIsDocumentPlayingAudioChangedToken.value      := 0;
   FIsDefaultDownloadDialogOpenChangedToken.value := 0;
+  FBasicAuthenticationRequestedToken.value       := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -348,6 +354,10 @@ begin
           if assigned(FBaseIntf9) and
              (FIsDefaultDownloadDialogOpenChangedToken.value <> 0) then
             FBaseIntf9.remove_IsDefaultDownloadDialogOpenChanged(FIsDefaultDownloadDialogOpenChangedToken);
+
+          if assigned(FBaseIntf10) and
+             (FBasicAuthenticationRequestedToken.Value <> 0) then
+            FBaseIntf10.remove_BasicAuthenticationRequested(FBasicAuthenticationRequestedToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -720,6 +730,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddBasicAuthenticationRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2BasicAuthenticationRequestedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf10) and (FBasicAuthenticationRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2BasicAuthenticationRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf10.add_BasicAuthenticationRequested(TempHandler, FBasicAuthenticationRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -745,7 +770,8 @@ begin
             AddClientCertificateRequestedEvent(aBrowserComponent)         and
             AddIsMutedChangedEvent(aBrowserComponent)                     and
             AddIsDocumentPlayingAudioChangedEvent(aBrowserComponent)      and
-            AddIsDefaultDownloadDialogOpenChangedEvent(aBrowserComponent);
+            AddIsDefaultDownloadDialogOpenChangedEvent(aBrowserComponent) and
+            AddBasicAuthenticationRequestedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;

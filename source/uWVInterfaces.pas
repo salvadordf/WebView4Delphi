@@ -196,6 +196,9 @@ type
 
     // ICoreWebView2FrameWebMessageReceivedEventHandler
     function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HResult;
+
+    // ICoreWebView2BasicAuthenticationRequestedEventHandler
+    function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult;
   end;
 
 implementation

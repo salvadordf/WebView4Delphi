@@ -1,5 +1,4 @@
 package WebView4Delphi_designtime;
-
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
@@ -25,6 +24,7 @@ package WebView4Delphi_designtime;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'WebView4Delphi'}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
 

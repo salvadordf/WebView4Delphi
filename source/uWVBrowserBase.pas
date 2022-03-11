@@ -129,6 +129,7 @@ type
       FOnFrameContentLoading                          : TOnFrameContentLoadingEvent;
       FOnFrameDOMContentLoaded                        : TOnFrameDOMContentLoadedEvent;
       FOnFrameWebMessageReceived                      : TOnFrameWebMessageReceivedEvent;
+      FOnBasicAuthenticationRequested                 : TOnBasicAuthenticationRequestedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -289,6 +290,7 @@ type
       function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer): HRESULT;
       function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HRESULT;
       function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HRESULT;
+      function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -357,6 +359,7 @@ type
       procedure doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer); virtual;
       procedure doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer); virtual;
       procedure doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer); virtual;
+      procedure doOnBasicAuthenticationRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -602,6 +605,9 @@ type
       // ICoreWebView2_9 events
       property OnIsDefaultDownloadDialogOpenChanged            : TOnIsDefaultDownloadDialogOpenChangedEvent            read FOnIsDefaultDownloadDialogOpenChanged            write FOnIsDefaultDownloadDialogOpenChanged;
 
+      // ICoreWebView2_10 events
+      property OnBasicAuthenticationRequested                  : TOnBasicAuthenticationRequestedEvent                  read FOnBasicAuthenticationRequested                  write FOnBasicAuthenticationRequested;
+
       // ICoreWebView2Controller events
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
@@ -774,6 +780,7 @@ begin
   FOnIsMutedChanged                                := nil;
   FOnIsDocumentPlayingAudioChanged                 := nil;
   FOnIsDefaultDownloadDialogOpenChanged            := nil;
+  FOnBasicAuthenticationRequested                  := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1596,34 +1603,51 @@ begin
     FOnProcessInfosChanged(self, sender);
 end;
 
-procedure TWVBrowserBase.doOnFrameNavigationStarting2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID : integer);
+procedure TWVBrowserBase.doOnFrameNavigationStarting2(const sender   : ICoreWebView2Frame;
+                                                      const args     : ICoreWebView2NavigationStartingEventArgs;
+                                                            aFrameID : integer);
 begin
   if assigned(FOnFrameNavigationStarting2) then
     FOnFrameNavigationStarting2(self, sender, args, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnFrameNavigationCompleted2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID : integer);
+procedure TWVBrowserBase.doOnFrameNavigationCompleted2(const sender   : ICoreWebView2Frame;
+                                                       const args     : ICoreWebView2NavigationCompletedEventArgs;
+                                                             aFrameID : integer);
 begin
   if assigned(FOnFrameNavigationCompleted2) then
     FOnFrameNavigationCompleted2(self, sender, args, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer);
+procedure TWVBrowserBase.doOnFrameContentLoadingEvent(const sender   : ICoreWebView2Frame;
+                                                      const args     : ICoreWebView2ContentLoadingEventArgs;
+                                                            aFrameID : integer);
 begin
   if assigned(FOnFrameContentLoading) then
     FOnFrameContentLoading(self, sender, args, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer);
+procedure TWVBrowserBase.doOnFrameDOMContentLoadedEvent(const sender   : ICoreWebView2Frame;
+                                                        const args     : ICoreWebView2DOMContentLoadedEventArgs;
+                                                              aFrameID : integer);
 begin
   if assigned(FOnFrameDOMContentLoaded) then
     FOnFrameDOMContentLoaded(self, sender, args, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer);
+procedure TWVBrowserBase.doOnFrameWebMessageReceivedEvent(const sender   : ICoreWebView2Frame;
+                                                          const args     : ICoreWebView2WebMessageReceivedEventArgs;
+                                                                aFrameID : integer);
 begin
   if assigned(FOnFrameWebMessageReceived) then
     FOnFrameWebMessageReceived(self, sender, args, aFrameID);
+end;
+
+procedure TWVBrowserBase.doOnBasicAuthenticationRequestedEvent(const sender : ICoreWebView2;
+                                                               const args   : ICoreWebView2BasicAuthenticationRequestedEventArgs);
+begin
+  if assigned(FOnBasicAuthenticationRequested) then
+    FOnBasicAuthenticationRequested(self, sender, args);
 end;
 
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
@@ -1799,6 +1823,13 @@ function TWVBrowserBase.FrameWebMessageReceivedEventHandler_Invoke(const sender 
 begin
   Result := S_OK;
   doOnFrameWebMessageReceivedEvent(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.BasicAuthenticationRequestedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                        const args   : ICoreWebView2BasicAuthenticationRequestedEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnBasicAuthenticationRequestedEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;

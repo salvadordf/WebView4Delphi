@@ -1,5 +1,4 @@
 package WebView4DelphiVCLRTL;
-
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
@@ -76,6 +75,7 @@ contains
   uWVCoreWebView2HttpResponseHeaders in '..\source\uWVCoreWebView2HttpResponseHeaders.pas',
   uWVBrowserBase in '..\source\uWVBrowserBase.pas',
   uWVCoreWebView2ProcessInfoCollection in '..\source\uWVCoreWebView2ProcessInfoCollection.pas',
-  uWVCoreWebView2ProcessInfo in '..\source\uWVCoreWebView2ProcessInfo.pas';
+  uWVCoreWebView2ProcessInfo in '..\source\uWVCoreWebView2ProcessInfo.pas',
+  uWVCoreWebView2BasicAuthenticationResponse in '..\source\uWVCoreWebView2BasicAuthenticationResponse.pas';
 
 end.
