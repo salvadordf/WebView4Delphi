@@ -1019,7 +1019,7 @@ begin
   TempString := nil;
 
   if (FBaseIntf2 <> nil) and
-     succeeded(FBaseIntf2.Get_uri(TempString)) and
+     succeeded(FBaseIntf2.Get_name(TempString)) and
      (TempString <> nil) then
     begin
       Result := TempString;
