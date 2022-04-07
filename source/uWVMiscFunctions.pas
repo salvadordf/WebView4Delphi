@@ -21,6 +21,8 @@ function AllocCoTaskMemStr(const aString : wvstring): PWideChar;
 function LowestChromiumVersion : wvstring;
 function LowestLoaderDLLVersion : wvstring;
 function EnvironmentCreationErrorToString(aErrorCode : HRESULT) : wvstring;
+function ControllerCreationErrorToString(aErrorCode : HRESULT) : wvstring;
+function CompositionControllerCreationErrorToString(aErrorCode : HRESULT) : wvstring;
 function GetScreenDPI : integer;
 function GetDeviceScaleFactor : single;
 function EditingCommandToString(aEditingCommand : TWV2EditingCommand): wvstring;
@@ -124,6 +126,36 @@ begin
                else
                 if (aErrorCode = HResultFromWin32(ERROR_FILE_EXISTS)) then
                   Result := 'User data folder cannot be created because a file with the same name already exists.';
+  end;
+end;
+
+function ControllerCreationErrorToString(aErrorCode : HRESULT) : wvstring;
+const
+  // Undefined GetLastError error values
+  ERROR_INVALID_STATE       = 5023;
+begin
+  case aErrorCode of
+    E_ABORT : Result := 'The parent window was destroyed before the controller creation was finished.';
+    else
+      if (aErrorCode = HResultFromWin32(ERROR_INVALID_STATE)) then
+        Result := 'Another browser is using the same user data folder.'
+       else
+        Result := 'Unexpected error result.';
+  end;
+end;
+
+function CompositionControllerCreationErrorToString(aErrorCode : HRESULT) : wvstring;
+const
+  // Undefined GetLastError error values
+  ERROR_INVALID_STATE       = 5023;
+begin
+  case aErrorCode of
+    E_ABORT : Result := 'The parent window was destroyed before the composition controller creation was finished.';
+    else
+      if (aErrorCode = HResultFromWin32(ERROR_INVALID_STATE)) then
+        Result := 'Another browser is using the same user data folder.'
+       else
+        Result := 'Unexpected error result.';
   end;
 end;
 

@@ -6,9 +6,9 @@ interface
 
 uses
   {$IFDEF FPC}
-  Classes, ActiveX, SysUtils,
+  Windows, Classes, ActiveX, SysUtils,
   {$ELSE}
-  System.Classes, System.Types, Winapi.ActiveX, System.SysUtils,
+  Winapi.Windows, System.Classes, System.Types, Winapi.ActiveX, System.SysUtils,
   {$ENDIF}
   uWVInterfaces, uWVTypeLibrary, uWVTypes;
 
@@ -48,10 +48,10 @@ type
       destructor  Destroy; override;
       function    AddAllLoaderEvents(const aLoaderComponent : TComponent) : boolean;
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
-      function    CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents) : boolean;
+      function    CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents; var aResult: HRESULT) : boolean;
       function    CreateWebResourceResponse(const aContent : IStream; aStatusCode : integer; aReasonPhrase, aHeaders : wvstring; var aResponse : ICoreWebView2WebResourceResponse) : boolean;
       function    CreateWebResourceRequest(const aURI, aMethod : wvstring; const aPostData : IStream; const aHeaders : wvstring; var aRequest : ICoreWebView2WebResourceRequest): boolean;
-      function    CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents) : boolean;
+      function    CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents; var aResult: HRESULT) : boolean;
       function    CreateCoreWebView2PointerInfo(var aPointerInfo : ICoreWebView2PointerInfo) : boolean;
       function    GetProviderForHwnd(aHandle : THandle; var aProvider : IUnknown) : boolean;
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
@@ -228,16 +228,18 @@ begin
     end;
 end;
 
-function TCoreWebView2Environment.CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents) : boolean;
+function TCoreWebView2Environment.CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents; var aResult: HRESULT) : boolean;
 var
   TempHandler : ICoreWebView2CreateCoreWebView2ControllerCompletedHandler;
 begin
-  Result := False;
+  Result  := False;
+  aResult := E_FAIL;
 
   if Initialized then
     try
       TempHandler := TCoreWebView2CreateCoreWebView2ControllerCompletedHandler.Create(aBrowserEvents);
-      Result      := succeeded(FBaseIntf.CreateCoreWebView2Controller(aParentWindow, TempHandler));
+      aResult     := FBaseIntf.CreateCoreWebView2Controller(aParentWindow, TempHandler);
+      Result      := succeeded(aResult);
     finally
       TempHandler := nil;
     end;
@@ -295,16 +297,18 @@ begin
   Result := assigned(FBaseIntf3);
 end;
 
-function TCoreWebView2Environment.CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents) : boolean;
+function TCoreWebView2Environment.CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents; var aResult: HRESULT) : boolean;
 var
   TempHandler : ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler;
 begin
-  Result := False;
+  Result  := False;
+  aResult := E_FAIL;
 
   if assigned(FBaseIntf3) then
     try
       TempHandler := TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.Create(aBrowserEvents);
-      Result      := succeeded(FBaseIntf3.CreateCoreWebView2CompositionController(aParentWindow, TempHandler));
+      aResult     := FBaseIntf3.CreateCoreWebView2CompositionController(aParentWindow, TempHandler);
+      Result      := succeeded(aResult);
     finally
       TempHandler := nil;
     end;

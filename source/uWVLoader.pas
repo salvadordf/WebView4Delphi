@@ -1019,7 +1019,7 @@ function TWVLoader.CreateEnvironment : boolean;
 var
   TempOptions : ICoreWebView2EnvironmentOptions;
   TempHandler : ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler;
-  TempResult  : HRESULT;
+  TempHResult : HRESULT;
 begin
   Result := False;
 
@@ -1033,18 +1033,25 @@ begin
                                                               FTargetCompatibleBrowserVersion,
                                                               FAllowSingleSignOnUsingOSPrimaryAccount);
 
-        TempResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
-                                                               PWideChar(FUserDataFolder),
-                                                               TempOptions,
-                                                               TempHandler);
+        TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
+                                                                PWideChar(FUserDataFolder),
+                                                                TempOptions,
+                                                                TempHandler);
 
-        if succeeded(TempResult) then
+        if succeeded(TempHResult) then
           Result := True
          else
           begin
             FStatus   := wvlsError;
-            FError    := TempResult;
-            FErrorMsg := 'There was a problem creating the browser environment.';
+            FError    := TempHResult;
+            FErrorMsg := 'There was an error creating the browser environment. (1)' + CRLF +
+                         'Error code : 0x' +
+                         {$IFDEF FPC}
+                         UTF8Decode(inttohex(TempHResult, 8))
+                         {$ELSE}
+                         inttohex(TempHResult, 8)
+                         {$ENDIF}
+                         + CRLF + EnvironmentCreationErrorToString(TempHResult);
 
             ShowErrorMessageDlg(FErrorMsg);
           end;
