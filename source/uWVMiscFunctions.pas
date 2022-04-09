@@ -125,7 +125,9 @@ begin
                 Result := 'Could not find Edge installation.'
                else
                 if (aErrorCode = HResultFromWin32(ERROR_FILE_EXISTS)) then
-                  Result := 'User data folder cannot be created because a file with the same name already exists.';
+                  Result := 'User data folder cannot be created because a file with the same name already exists.'
+                 else
+                  Result := 'Unexpected error result.';
   end;
 end;
 
