@@ -183,6 +183,7 @@ type
       function  GetDefaultDownloadDialogMargin : TPoint;
       function  GetStatusBarText : wvstring;
       function  GetAllowExternalDrop : boolean;
+      function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -216,6 +217,7 @@ type
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
       procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
       procedure SetAllowExternalDrop(aValue : boolean);
+      procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
 
       function  CreateEnvironment : boolean;
 
@@ -575,6 +577,9 @@ type
 
       // ICoreWebView2Settings6 properties
       property IsSwipeNavigationEnabled               : boolean                                 read GetIsSwipeNavigationEnabled              write SetIsSwipeNavigationEnabled;                // ICoreWebView2Settings6.get_IsSwipeNavigationEnabled
+
+      // ICoreWebView2Settings7 properties
+      property HiddenPdfToolbarItems                  : TWVPDFToolbarItems                      read GetHiddenPdfToolbarItems                 write SetHiddenPdfToolbarItems;                   // ICoreWebView2Settings7.HiddenPdfToolbarItems
 
       // ICoreWebView2CompositionController properties
       property Cursor                                 : HCURSOR                                 read GetCursor;                                                                                 // ICoreWebView2CompositionController.get_Cursor
@@ -2453,6 +2458,14 @@ begin
             FCoreWebView2Settings.IsSwipeNavigationEnabled;
 end;
 
+function TWVBrowserBase.GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
+begin
+  if Initialized then
+    Result := FCoreWebView2Settings.HiddenPdfToolbarItems
+   else
+    Result := 0;
+end;
+
 function TWVBrowserBase.GetZoomFactor: Double;
 begin
   if Initialized then
@@ -2634,6 +2647,12 @@ procedure TWVBrowserBase.SetIsSwipeNavigationEnabled(aValue : boolean);
 begin
   if Initialized then
     FCoreWebView2Settings.IsSwipeNavigationEnabled := aValue;
+end;
+
+procedure TWVBrowserBase.SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
+begin
+  if Initialized then
+    FCoreWebView2Settings.HiddenPdfToolbarItems := aValue;
 end;
 
 procedure TWVBrowserBase.SetBuiltInErrorPageEnabled(aValue: boolean);
