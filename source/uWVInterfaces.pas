@@ -199,6 +199,18 @@ type
 
     // ICoreWebView2BasicAuthenticationRequestedEventHandler
     function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult;
+
+    // ICoreWebView2ContextMenuRequestedEventHandler
+    function ContextMenuRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs): HResult;
+
+    // ICoreWebView2CustomItemSelectedEventHandler
+    function CustomItemSelectedEventHandler_Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HResult;
+
+    // ICoreWebView2StatusBarTextChangedEventHandler
+    function StatusBarTextChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
+
+    // ICoreWebView2FramePermissionRequestedEventHandler
+    function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HResult;
   end;
 
 implementation

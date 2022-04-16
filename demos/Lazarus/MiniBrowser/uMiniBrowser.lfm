@@ -1,7 +1,7 @@
 object MiniBrowserFrm: TMiniBrowserFrm
-  Left = 389
+  Left = 506
   Height = 717
-  Top = 123
+  Top = 141
   Width = 1119
   Caption = 'MiniBrowser - Initializing...'
   ClientHeight = 717
@@ -196,6 +196,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
       item
         Width = 1000
       end>
+    SimplePanel = False
   end
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -227,6 +228,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
     OnBasicAuthenticationRequested = WVBrowser1BasicAuthenticationRequested
+    OnStatusBarTextChanged = WVBrowser1StatusBarTextChanged
     Left = 48
     Top = 64
   end

@@ -76,6 +76,9 @@ contains
   uWVBrowserBase in '..\source\uWVBrowserBase.pas',
   uWVCoreWebView2ProcessInfoCollection in '..\source\uWVCoreWebView2ProcessInfoCollection.pas',
   uWVCoreWebView2ProcessInfo in '..\source\uWVCoreWebView2ProcessInfo.pas',
-  uWVCoreWebView2BasicAuthenticationResponse in '..\source\uWVCoreWebView2BasicAuthenticationResponse.pas';
+  uWVCoreWebView2BasicAuthenticationResponse in '..\source\uWVCoreWebView2BasicAuthenticationResponse.pas',
+  uWVCoreWebView2ContextMenuItemCollection in '..\source\uWVCoreWebView2ContextMenuItemCollection.pas',
+  uWVCoreWebView2ContextMenuItem in '..\source\uWVCoreWebView2ContextMenuItem.pas',
+  uWVCoreWebView2ContextMenuTarget in '..\source\uWVCoreWebView2ContextMenuTarget.pas';
 
 end.

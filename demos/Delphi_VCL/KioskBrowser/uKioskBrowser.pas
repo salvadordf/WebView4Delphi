@@ -14,22 +14,23 @@ type
     WVWindowParent1: TWVWindowParent;
     Timer1: TTimer;
     WVBrowser1: TWVBrowser;
-    PopupMenu1: TPopupMenu;
-    ExitMi: TMenuItem;
     TouchKeyboard1: TTouchKeyboard;
 
     procedure FormShow(Sender: TObject);
-    procedure ExitMiClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
-    procedure WVBrowser1Widget0CompMsg(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean);
     procedure WVBrowser1WebMessageReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
     procedure WVBrowser1AcceleratorKeyPressed(Sender: TObject; const aController: ICoreWebView2Controller; const aArgs: ICoreWebView2AcceleratorKeyPressedEventArgs);
     procedure WVBrowser1NewWindowRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NewWindowRequestedEventArgs);
+    procedure WVBrowser1ContextMenuRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+    procedure WVBrowser1CustomItemSelected(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem);
 
   protected
+    FExitCommandID : integer;
+
     // It's necessary to handle these messages to call NotifyParentWindowPositionChanged or some page elements will be misaligned.
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
@@ -67,9 +68,12 @@ implementation
 // uWVLoader.pas. All browsers should be already destroyed before GlobalWebView2Loader
 // is destroyed.
 
-procedure TMainForm.ExitMiClick(Sender: TObject);
+uses
+  uWVCoreWebView2ContextMenuItemCollection, uWVCoreWebView2ContextMenuItem;
+
+procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  Close;
+  FExitCommandID := 0;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -107,9 +111,50 @@ begin
 
   // Set the virtual host to map local files to any URL with a customhost.test domain
   WVBrowser1.SetVirtualHostNameToFolderMapping('customhost.test', '..\assets', COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW);
+end;
 
-  // This demo disables the default context menu to show a custom TPopupMenu
-  WVBrowser1.DefaultContextMenusEnabled := False;
+procedure TMainForm.WVBrowser1ContextMenuRequested(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+var
+  TempArgs        : TCoreWebView2ContextMenuRequestedEventArgs;
+  TempCollection  : TCoreWebView2ContextMenuItemCollection;
+  TempMenuItemItf : ICoreWebView2ContextMenuItem;
+  TempMenuItem    : TCoreWebView2ContextMenuItem;
+begin
+  TempArgs       := TCoreWebView2ContextMenuRequestedEventArgs.Create(aArgs);
+  TempCollection := TCoreWebView2ContextMenuItemCollection.Create(TempArgs.MenuItems);
+  TempMenuItem   := nil;
+
+  try
+    TempCollection.RemoveAllMenuItems;
+
+    if WVBrowser1.CoreWebView2Environment.CreateContextMenuItem('Exit', nil, COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND, TempMenuItemItf) then
+      try
+        TempMenuItem   := TCoreWebView2ContextMenuItem.Create(TempMenuItemItf);
+        FExitCommandID := TempMenuItem.CommandId;
+        TempMenuItem.AddCustomItemSelectedEvent(WVBrowser1);
+        TempCollection.InsertValueAtIndex(0, TempMenuItemItf);
+      finally
+        FreeAndNil(TempMenuItem);
+      end;
+  finally
+    FreeAndNil(TempCollection);
+    FreeAndNil(TempArgs);
+  end;
+end;
+
+procedure TMainForm.WVBrowser1CustomItemSelected(Sender: TObject;
+  const aMenuItem: ICoreWebView2ContextMenuItem);
+var
+  TempMenuItem : TCoreWebView2ContextMenuItem;
+begin
+  TempMenuItem := TCoreWebView2ContextMenuItem.Create(aMenuItem);
+
+  if (TempMenuItem.CommandId = FExitCommandID) then
+    PostMessage(Handle, WM_CLOSE, 0, 0);
+
+  FreeAndNil(TempMenuItem);
 end;
 
 procedure TMainForm.WVBrowser1InitializationError(Sender: TObject;
@@ -142,23 +187,6 @@ begin
   // window.chrome.webview.postMessage
   TouchKeyboard1.Visible := (CompareText(TempArgs.WebMessageAsString, 'input') = 0);
   TempArgs.Free;
-end;
-
-procedure TMainForm.WVBrowser1Widget0CompMsg(Sender: TObject;
-  var aMessage: TMessage; var aHandled: Boolean);
-var
-  TempPoint: TPoint;
-begin
-  // We intercept this message to get the mouse coordinates and show our custom TPopupMenu.
-  // This demo the popup menu only has one option to exit.
-  if (aMessage.Msg = WM_PARENTNOTIFY) and (aMessage.WParam = WM_RBUTTONDOWN) then
-    begin
-      TempPoint.x := aMessage.lParam and $FFFF;
-      TempPoint.y := (aMessage.lParam and $FFFF0000) shr 16;
-      TempPoint   := WVWindowParent1.ClientToScreen(TempPoint);
-
-      PopupMenu1.Popup(TempPoint.x, TempPoint.y);
-    end;
 end;
 
 procedure TMainForm.Timer1Timer(Sender: TObject);

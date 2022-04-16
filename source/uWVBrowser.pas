@@ -108,6 +108,10 @@ type
       property OnFrameDOMContentLoaded;
       property OnFrameWebMessageReceived;
       property OnBasicAuthenticationRequested;
+      property OnContextMenuRequested;
+      property OnCustomItemSelected;
+      property OnStatusBarTextChanged;
+      property OnFramePermissionRequested;
   end;
 
 {$IFDEF FPC}

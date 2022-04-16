@@ -668,6 +668,51 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2ContextMenuRequestedEventHandler = class(TInterfacedObject, ICoreWebView2ContextMenuRequestedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2CustomItemSelectedEventHandler = class(TInterfacedObject, ICoreWebView2CustomItemSelectedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2StatusBarTextChangedEventHandler = class(TInterfacedObject, ICoreWebView2StatusBarTextChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2FramePermissionRequestedEventHandler = class(TInterfacedObject, ICoreWebView2FramePermissionRequestedEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : integer;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2160,6 +2205,110 @@ function TCoreWebView2BasicAuthenticationRequestedEventHandler.Invoke(const send
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).BasicAuthenticationRequestedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ContextMenuRequestedEventHandler
+
+constructor TCoreWebView2ContextMenuRequestedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ContextMenuRequestedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventHandler.Invoke(const sender : ICoreWebView2;
+                                                              const args   : ICoreWebView2ContextMenuRequestedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ContextMenuRequestedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2CustomItemSelectedEventHandler
+
+constructor TCoreWebView2CustomItemSelectedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2CustomItemSelectedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2CustomItemSelectedEventHandler.Invoke(const sender : ICoreWebView2ContextMenuItem;
+                                                            const args   : IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).CustomItemSelectedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2StatusBarTextChangedEventHandler
+
+constructor TCoreWebView2StatusBarTextChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2StatusBarTextChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2StatusBarTextChangedEventHandler.Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).StatusBarTextChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FramePermissionRequestedEventHandler
+
+constructor TCoreWebView2FramePermissionRequestedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FramePermissionRequestedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FramePermissionRequestedEventHandler.Invoke(const sender : ICoreWebView2Frame;
+                                                                  const args   : ICoreWebView2PermissionRequestedEventArgs2): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FramePermissionRequestedEventHandler_Invoke(sender, args, FFrameID)
    else
     Result := E_FAIL;
 end;

@@ -18,6 +18,7 @@ type
       FBaseIntf                       : ICoreWebView2Controller;
       FBaseIntf2                      : ICoreWebView2Controller2;
       FBaseIntf3                      : ICoreWebView2Controller3;
+      FBaseIntf4                      : ICoreWebView2Controller4;
       FAcceleratorKeyPressedToken     : EventRegistrationToken;
       FGotFocusToken                  : EventRegistrationToken;
       FLostFocusToken                 : EventRegistrationToken;
@@ -35,6 +36,7 @@ type
       function  GetShouldDetectMonitorScaleChanges : boolean;
       function  GetBoundsMode : TWVBoundsMode;
       function  GetCoreWebView2 : ICoreWebView2;
+      function  GetAllowExternalDrop : boolean;
 
       procedure SetZoomFactor(const aValue : double);
       procedure SetIsVisible(const aValue : boolean);
@@ -44,6 +46,7 @@ type
       procedure SetRasterizationScale(const aValue : double);
       procedure SetShouldDetectMonitorScaleChanges(aValue : boolean);
       procedure SetBoundsMode(aValue : TWVBoundsMode);
+      procedure SetAllowExternalDrop(aValue : boolean);
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -76,6 +79,7 @@ type
       property ShouldDetectMonitorScaleChanges : boolean                  read GetShouldDetectMonitorScaleChanges  write SetShouldDetectMonitorScaleChanges;
       property BoundsMode                      : TWVBoundsMode            read GetBoundsMode                       write SetBoundsMode;
       property CoreWebView2                    : ICoreWebView2            read GetCoreWebView2;
+      property AllowExternalDrop               : boolean                  read GetAllowExternalDrop                write SetAllowExternalDrop;
   end;
 
 implementation
@@ -92,8 +96,9 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Controller2, FBaseIntf2)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2Controller3, FBaseIntf3);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Controller2, FBaseIntf2)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Controller3, FBaseIntf3)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2Controller4, FBaseIntf4);
 end;
 
 destructor TCoreWebView2Controller.Destroy;
@@ -112,6 +117,7 @@ begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
   FBaseIntf3 := nil;
+  FBaseIntf4 := nil;
 
   InitializeTokens;
 end;
@@ -282,6 +288,15 @@ begin
     Result := TempResult;
 end;
 
+function TCoreWebView2Controller.GetAllowExternalDrop : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf4) and
+            succeeded(FBaseIntf4.Get_AllowExternalDrop(TempResult)) and
+            (TempResult <> 0);
+end;
+
 function TCoreWebView2Controller.SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
 begin
   Result := Initialized and
@@ -344,6 +359,12 @@ procedure TCoreWebView2Controller.SetBoundsMode(aValue : TWVBoundsMode);
 begin
   if assigned(FBaseIntf3) then
     FBaseIntf3.Set_BoundsMode(aValue);
+end;
+
+procedure TCoreWebView2Controller.SetAllowExternalDrop(aValue : boolean);
+begin
+  if assigned(FBaseIntf4) then
+    FBaseIntf4.Set_AllowExternalDrop(ord(aValue));
 end;
 
 function TCoreWebView2Controller.GetIsVisible : boolean;

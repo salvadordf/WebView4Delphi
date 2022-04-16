@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 11/03/2022 15:10:52 from Type Library described below.
+// File generated on 13/04/2022 10:14:53 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: Z:\microsoft.web.webview2.1.0.1150.38.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: T:\microsoft.web.webview2.1.0.1185.39.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -43,6 +43,8 @@ unit uWVTypeLibrary;
 //   Hint: Parameter 'object' of ICoreWebView2.AddHostObjectToScript changed to 'object_'
 //   Hint: Symbol 'type' renamed to 'type_'
 //   Hint: Parameter 'object' of ICoreWebView2Frame.AddHostObjectToScriptWithOrigins changed to 'object_'
+//   Hint: Member 'Label' of 'ICoreWebView2ContextMenuItem' changed to 'Label_'
+//   Hint: Parameter 'Label' of ICoreWebView2Environment9.CreateContextMenuItem changed to 'Label_'
 // ************************************************************************ //
 {$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
@@ -169,6 +171,15 @@ const
   IID_ICoreWebView2BasicAuthenticationRequestedEventHandler: TGUID = '{58B4D6C2-18D4-497E-B39B-9A96533FA278}';
   IID_ICoreWebView2BasicAuthenticationRequestedEventArgs: TGUID = '{EF05516F-D897-4F9E-B672-D8E2307A3FB0}';
   IID_ICoreWebView2BasicAuthenticationResponse: TGUID = '{07023F7D-2D77-4D67-9040-6E7D428C6A40}';
+  IID_ICoreWebView2_11: TGUID = '{0BE78E56-C193-4051-B943-23B460C08BDB}';
+  IID_ICoreWebView2ContextMenuRequestedEventHandler: TGUID = '{04D3FE1D-AB87-42FB-A898-DA241D35B63C}';
+  IID_ICoreWebView2ContextMenuRequestedEventArgs: TGUID = '{A1D309EE-C03F-11EB-8529-0242AC130003}';
+  IID_ICoreWebView2ContextMenuItemCollection: TGUID = '{F562A2F5-C415-45CF-B909-D4B7C1E276D3}';
+  IID_ICoreWebView2ContextMenuItem: TGUID = '{7AED49E3-A93F-497A-811C-749C6B6B6C65}';
+  IID_ICoreWebView2CustomItemSelectedEventHandler: TGUID = '{49E1D0BC-FE9E-4481-B7C2-32324AA21998}';
+  IID_ICoreWebView2ContextMenuTarget: TGUID = '{B8611D99-EED6-4F3F-902C-A198502AD472}';
+  IID_ICoreWebView2_12: TGUID = '{35D69927-BCFA-4566-9349-6B3E0D154CAC}';
+  IID_ICoreWebView2StatusBarTextChangedEventHandler: TGUID = '{A5E3B0D0-10DF-4156-BFAD-3B43867ACAC6}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -178,8 +189,10 @@ const
   IID_ICoreWebView2Controller2: TGUID = '{C979903E-D4CA-4228-92EB-47EE3FA96EAB}';
   IID_ICoreWebView2Controller3: TGUID = '{F9614724-5D2B-41DC-AEF7-73D62B51543B}';
   IID_ICoreWebView2RasterizationScaleChangedEventHandler: TGUID = '{9C98C8B1-AC53-427E-A345-3049B5524BBE}';
+  IID_ICoreWebView2Controller4: TGUID = '{97D418D5-A426-4E49-A151-E1A10F327D9E}';
   IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
+  IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
   IID_ICoreWebView2Environment2: TGUID = '{41F3632B-5EF4-404F-AD82-2D606C5A9A21}';
   IID_ICoreWebView2Environment3: TGUID = '{80A22AE3-BE7C-4CE2-AFE1-5A50056CDEEB}';
   IID_ICoreWebView2Environment4: TGUID = '{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}';
@@ -190,13 +203,18 @@ const
   IID_ICoreWebView2ProcessInfosChangedEventHandler: TGUID = '{F4AF0C39-44B9-40E9-8B11-0484CFB9E0A1}';
   IID_ICoreWebView2ProcessInfoCollection: TGUID = '{402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}';
   IID_ICoreWebView2ProcessInfo: TGUID = '{84FA7612-3F3D-4FBF-889D-FAD000492D72}';
+  IID_ICoreWebView2Environment9: TGUID = '{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
+  IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
   IID_ICoreWebView2FrameNavigationCompletedEventHandler: TGUID = '{609302AD-0E36-4F9A-A210-6A45272842A9}';
   IID_ICoreWebView2FrameDOMContentLoadedEventHandler: TGUID = '{38D9520D-340F-4D1E-A775-43FCE9753683}';
   IID_ICoreWebView2FrameWebMessageReceivedEventHandler: TGUID = '{E371E005-6D1D-4517-934B-A8F1629C62A5}';
+  IID_ICoreWebView2Frame3: TGUID = '{B50D82CC-CC28-481D-9614-CB048895E6A0}';
+  IID_ICoreWebView2FramePermissionRequestedEventHandler: TGUID = '{845D0EDD-8BD8-429B-9915-4821789F23E9}';
+  IID_ICoreWebView2PermissionRequestedEventArgs2: TGUID = '{74D7127F-9DE6-4200-8734-42D6FB4FF741}';
   IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
   IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
   IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
@@ -208,6 +226,7 @@ const
   IID_ICoreWebView2Settings4: TGUID = '{CB56846C-4168-4D53-B04F-03B6D6796FF2}';
   IID_ICoreWebView2Settings5: TGUID = '{183E7052-1D03-43A0-AB99-98E043B66B39}';
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
+  IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -409,6 +428,26 @@ const
   COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_LEFT = $00000002;
   COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_RIGHT = $00000003;
 
+// Constants for enum COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND
+type
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = TOleEnum;
+const
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND = $00000000;
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_CHECK_BOX = $00000001;
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_RADIO = $00000002;
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SEPARATOR = $00000003;
+  COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SUBMENU = $00000004;
+
+// Constants for enum COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND
+type
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = TOleEnum;
+const
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_PAGE = $00000000;
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_IMAGE = $00000001;
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_SELECTED_TEXT = $00000002;
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_AUDIO = $00000003;
+  COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_VIDEO = $00000004;
+
 // Constants for enum COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND
 type
   COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND = TOleEnum;
@@ -490,6 +529,15 @@ const
   COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED = $00000003;
   COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED = $00000004;
   COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY = $00000005;
+
+// Constants for enum COREWEBVIEW2_PDF_TOOLBAR_ITEMS
+type
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS = TOleEnum;
+const
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE = $00000000;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE = $00000001;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT = $00000002;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS = $00000004;
 
 type
 
@@ -590,6 +638,15 @@ type
   ICoreWebView2BasicAuthenticationRequestedEventHandler = interface;
   ICoreWebView2BasicAuthenticationRequestedEventArgs = interface;
   ICoreWebView2BasicAuthenticationResponse = interface;
+  ICoreWebView2_11 = interface;
+  ICoreWebView2ContextMenuRequestedEventHandler = interface;
+  ICoreWebView2ContextMenuRequestedEventArgs = interface;
+  ICoreWebView2ContextMenuItemCollection = interface;
+  ICoreWebView2ContextMenuItem = interface;
+  ICoreWebView2CustomItemSelectedEventHandler = interface;
+  ICoreWebView2ContextMenuTarget = interface;
+  ICoreWebView2_12 = interface;
+  ICoreWebView2StatusBarTextChangedEventHandler = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -599,8 +656,10 @@ type
   ICoreWebView2Controller2 = interface;
   ICoreWebView2Controller3 = interface;
   ICoreWebView2RasterizationScaleChangedEventHandler = interface;
+  ICoreWebView2Controller4 = interface;
   ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
+  ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
   ICoreWebView2Environment2 = interface;
   ICoreWebView2Environment3 = interface;
   ICoreWebView2Environment4 = interface;
@@ -611,13 +670,18 @@ type
   ICoreWebView2ProcessInfosChangedEventHandler = interface;
   ICoreWebView2ProcessInfoCollection = interface;
   ICoreWebView2ProcessInfo = interface;
+  ICoreWebView2Environment9 = interface;
   ICoreWebView2EnvironmentOptions = interface;
+  ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
   ICoreWebView2FrameNavigationCompletedEventHandler = interface;
   ICoreWebView2FrameDOMContentLoadedEventHandler = interface;
   ICoreWebView2FrameWebMessageReceivedEventHandler = interface;
+  ICoreWebView2Frame3 = interface;
+  ICoreWebView2FramePermissionRequestedEventHandler = interface;
+  ICoreWebView2PermissionRequestedEventArgs2 = interface;
   ICoreWebView2FrameInfo = interface;
   ICoreWebView2FrameInfoCollection = interface;
   ICoreWebView2FrameInfoCollectionIterator = interface;
@@ -629,6 +693,7 @@ type
   ICoreWebView2Settings4 = interface;
   ICoreWebView2Settings5 = interface;
   ICoreWebView2Settings6 = interface;
+  ICoreWebView2Settings7 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -2052,6 +2117,140 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2_11
+// Flags:     (0)
+// GUID:      {0BE78E56-C193-4051-B943-23B460C08BDB}
+// *********************************************************************//
+  ICoreWebView2_11 = interface(ICoreWebView2_10)
+    ['{0BE78E56-C193-4051-B943-23B460C08BDB}']
+    function CallDevToolsProtocolMethodForSession(sessionId: PWideChar; methodName: PWideChar; 
+                                                  parametersAsJson: PWideChar; 
+                                                  const handler: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler): HResult; stdcall;
+    function add_ContextMenuRequested(const eventHandler: ICoreWebView2ContextMenuRequestedEventHandler; 
+                                      out token: EventRegistrationToken): HResult; stdcall;
+    function remove_ContextMenuRequested(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ContextMenuRequestedEventHandler
+// Flags:     (0)
+// GUID:      {04D3FE1D-AB87-42FB-A898-DA241D35B63C}
+// *********************************************************************//
+  ICoreWebView2ContextMenuRequestedEventHandler = interface(IUnknown)
+    ['{04D3FE1D-AB87-42FB-A898-DA241D35B63C}']
+    function Invoke(const sender: ICoreWebView2; 
+                    const args: ICoreWebView2ContextMenuRequestedEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ContextMenuRequestedEventArgs
+// Flags:     (0)
+// GUID:      {A1D309EE-C03F-11EB-8529-0242AC130003}
+// *********************************************************************//
+  ICoreWebView2ContextMenuRequestedEventArgs = interface(IUnknown)
+    ['{A1D309EE-C03F-11EB-8529-0242AC130003}']
+    function Get_MenuItems(out value: ICoreWebView2ContextMenuItemCollection): HResult; stdcall;
+    function Get_ContextMenuTarget(out value: ICoreWebView2ContextMenuTarget): HResult; stdcall;
+    function Get_Location(out value: tagPOINT): HResult; stdcall;
+    function Set_SelectedCommandId(value: SYSINT): HResult; stdcall;
+    function Get_SelectedCommandId(out value: SYSINT): HResult; stdcall;
+    function Set_Handled(value: Integer): HResult; stdcall;
+    function Get_Handled(out value: Integer): HResult; stdcall;
+    function GetDeferral(out deferral: ICoreWebView2Deferral): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ContextMenuItemCollection
+// Flags:     (0)
+// GUID:      {F562A2F5-C415-45CF-B909-D4B7C1E276D3}
+// *********************************************************************//
+  ICoreWebView2ContextMenuItemCollection = interface(IUnknown)
+    ['{F562A2F5-C415-45CF-B909-D4B7C1E276D3}']
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2ContextMenuItem): HResult; stdcall;
+    function RemoveValueAtIndex(index: SYSUINT): HResult; stdcall;
+    function InsertValueAtIndex(index: SYSUINT; const value: ICoreWebView2ContextMenuItem): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ContextMenuItem
+// Flags:     (0)
+// GUID:      {7AED49E3-A93F-497A-811C-749C6B6B6C65}
+// *********************************************************************//
+  ICoreWebView2ContextMenuItem = interface(IUnknown)
+    ['{7AED49E3-A93F-497A-811C-749C6B6B6C65}']
+    function Get_name(out value: PWideChar): HResult; stdcall;
+    function Get_Label_(out value: PWideChar): HResult; stdcall;
+    function Get_CommandId(out value: SYSINT): HResult; stdcall;
+    function Get_ShortcutKeyDescription(out value: PWideChar): HResult; stdcall;
+    function Get_Icon(out value: IStream): HResult; stdcall;
+    function Get_Kind(out value: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND): HResult; stdcall;
+    function Set_IsEnabled(value: Integer): HResult; stdcall;
+    function Get_IsEnabled(out value: Integer): HResult; stdcall;
+    function Set_IsChecked(value: Integer): HResult; stdcall;
+    function Get_IsChecked(out value: Integer): HResult; stdcall;
+    function Get_Children(out value: ICoreWebView2ContextMenuItemCollection): HResult; stdcall;
+    function add_CustomItemSelected(const eventHandler: ICoreWebView2CustomItemSelectedEventHandler; 
+                                    out token: EventRegistrationToken): HResult; stdcall;
+    function remove_CustomItemSelected(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2CustomItemSelectedEventHandler
+// Flags:     (0)
+// GUID:      {49E1D0BC-FE9E-4481-B7C2-32324AA21998}
+// *********************************************************************//
+  ICoreWebView2CustomItemSelectedEventHandler = interface(IUnknown)
+    ['{49E1D0BC-FE9E-4481-B7C2-32324AA21998}']
+    function Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ContextMenuTarget
+// Flags:     (0)
+// GUID:      {B8611D99-EED6-4F3F-902C-A198502AD472}
+// *********************************************************************//
+  ICoreWebView2ContextMenuTarget = interface(IUnknown)
+    ['{B8611D99-EED6-4F3F-902C-A198502AD472}']
+    function Get_Kind(out value: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND): HResult; stdcall;
+    function Get_IsEditable(out value: Integer): HResult; stdcall;
+    function Get_IsRequestedForMainFrame(out value: Integer): HResult; stdcall;
+    function Get_PageUri(out value: PWideChar): HResult; stdcall;
+    function Get_FrameUri(out value: PWideChar): HResult; stdcall;
+    function Get_HasLinkUri(out value: Integer): HResult; stdcall;
+    function Get_LinkUri(out value: PWideChar): HResult; stdcall;
+    function Get_HasLinkText(out value: Integer): HResult; stdcall;
+    function Get_LinkText(out value: PWideChar): HResult; stdcall;
+    function Get_HasSourceUri(out value: Integer): HResult; stdcall;
+    function Get_SourceUri(out value: PWideChar): HResult; stdcall;
+    function Get_HasSelection(out value: Integer): HResult; stdcall;
+    function Get_SelectionText(out value: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_12
+// Flags:     (0)
+// GUID:      {35D69927-BCFA-4566-9349-6B3E0D154CAC}
+// *********************************************************************//
+  ICoreWebView2_12 = interface(ICoreWebView2_11)
+    ['{35D69927-BCFA-4566-9349-6B3E0D154CAC}']
+    function add_StatusBarTextChanged(const eventHandler: ICoreWebView2StatusBarTextChangedEventHandler; 
+                                      out token: EventRegistrationToken): HResult; stdcall;
+    function remove_StatusBarTextChanged(token: EventRegistrationToken): HResult; stdcall;
+    function Get_StatusBarText(out value: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2StatusBarTextChangedEventHandler
+// Flags:     (0)
+// GUID:      {A5E3B0D0-10DF-4156-BFAD-3B43867ACAC6}
+// *********************************************************************//
+  ICoreWebView2StatusBarTextChangedEventHandler = interface(IUnknown)
+    ['{A5E3B0D0-10DF-4156-BFAD-3B43867ACAC6}']
+    function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2BrowserProcessExitedEventArgs
 // Flags:     (0)
 // GUID:      {1F00663F-AF8C-4782-9CDD-DD01C52E34CB}
@@ -2177,7 +2376,7 @@ type
 // *********************************************************************//
   ICoreWebView2CompositionController2 = interface(ICoreWebView2CompositionController)
     ['{0B6A3D24-49CB-4806-BA20-B5E0734A7B26}']
-    function Get_UIAProvider(out provider: IUnknown): HResult; stdcall;
+    function Get_AutomationProvider(out provider: IUnknown): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2220,6 +2419,17 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Controller4
+// Flags:     (0)
+// GUID:      {97D418D5-A426-4E49-A151-E1A10F327D9E}
+// *********************************************************************//
+  ICoreWebView2Controller4 = interface(ICoreWebView2Controller3)
+    ['{97D418D5-A426-4E49-A151-E1A10F327D9E}']
+    function Get_AllowExternalDrop(out value: Integer): HResult; stdcall;
+    function Set_AllowExternalDrop(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
 // Flags:     (0)
 // GUID:      {02FAB84B-1428-4FB7-AD45-1B2E64736184}
@@ -2237,6 +2447,16 @@ type
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface(IUnknown)
     ['{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}']
     function Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2DevToolsProtocolEventReceivedEventArgs2
+// Flags:     (0)
+// GUID:      {2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}
+// *********************************************************************//
+  ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface(ICoreWebView2DevToolsProtocolEventReceivedEventArgs)
+    ['{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}']
+    function Get_sessionId(out sessionId: PWideChar): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2271,8 +2491,8 @@ type
 // *********************************************************************//
   ICoreWebView2Environment4 = interface(ICoreWebView2Environment3)
     ['{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}']
-    // function GetProviderForHwnd(var hwnd: _RemotableHandle; out provider: IUnknown): HResult; stdcall;  var hwnd: _RemotableHandle -> aHWND: HWND    ************** WEBVIEW4DELPHI **************
-    function GetProviderForHwnd(aHWND: HWND; out provider: IUnknown): HResult; stdcall;
+    // function GetAutomationProviderForWindow(var hwnd: _RemotableHandle; out provider: IUnknown): HResult; stdcall;  var hwnd: _RemotableHandle -> aHWND: HWND    ************** WEBVIEW4DELPHI **************
+    function GetAutomationProviderForWindow(aHWND: HWND; out provider: IUnknown): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2353,6 +2573,18 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Environment9
+// Flags:     (0)
+// GUID:      {F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}
+// *********************************************************************//
+  ICoreWebView2Environment9 = interface(ICoreWebView2Environment8)
+    ['{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}']
+    function CreateContextMenuItem(Label_: PWideChar; const iconStream: IStream; 
+                                   Kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND; 
+                                   out item: ICoreWebView2ContextMenuItem): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2EnvironmentOptions
 // Flags:     (0)
 // GUID:      {2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}
@@ -2367,6 +2599,17 @@ type
     function Set_TargetCompatibleBrowserVersion(value: PWideChar): HResult; stdcall;
     function Get_AllowSingleSignOnUsingOSPrimaryAccount(out allow: Integer): HResult; stdcall;
     function Set_AllowSingleSignOnUsingOSPrimaryAccount(allow: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2EnvironmentOptions2
+// Flags:     (0)
+// GUID:      {FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}
+// *********************************************************************//
+  ICoreWebView2EnvironmentOptions2 = interface(IUnknown)
+    ['{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}']
+    function Get_ExclusiveUserDataFolderAccess(out value: Integer): HResult; stdcall;
+    function Set_ExclusiveUserDataFolderAccess(value: Integer): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2450,6 +2693,40 @@ type
     ['{E371E005-6D1D-4517-934B-A8F1629C62A5}']
     function Invoke(const sender: ICoreWebView2Frame; 
                     const args: ICoreWebView2WebMessageReceivedEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2Frame3
+// Flags:     (0)
+// GUID:      {B50D82CC-CC28-481D-9614-CB048895E6A0}
+// *********************************************************************//
+  ICoreWebView2Frame3 = interface(ICoreWebView2Frame2)
+    ['{B50D82CC-CC28-481D-9614-CB048895E6A0}']
+    function add_PermissionRequested(const handler: ICoreWebView2FramePermissionRequestedEventHandler; 
+                                     out token: EventRegistrationToken): HResult; stdcall;
+    function remove_PermissionRequested(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2FramePermissionRequestedEventHandler
+// Flags:     (0)
+// GUID:      {845D0EDD-8BD8-429B-9915-4821789F23E9}
+// *********************************************************************//
+  ICoreWebView2FramePermissionRequestedEventHandler = interface(IUnknown)
+    ['{845D0EDD-8BD8-429B-9915-4821789F23E9}']
+    function Invoke(const sender: ICoreWebView2Frame; 
+                    const args: ICoreWebView2PermissionRequestedEventArgs2): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2PermissionRequestedEventArgs2
+// Flags:     (0)
+// GUID:      {74D7127F-9DE6-4200-8734-42D6FB4FF741}
+// *********************************************************************//
+  ICoreWebView2PermissionRequestedEventArgs2 = interface(ICoreWebView2PermissionRequestedEventArgs)
+    ['{74D7127F-9DE6-4200-8734-42D6FB4FF741}']
+    function Get_Handled(out Handled: Integer): HResult; stdcall;
+    function Set_Handled(Handled: Integer): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2574,6 +2851,17 @@ type
     ['{11CB3ACD-9BC8-43B8-83BF-F40753714F87}']
     function Get_IsSwipeNavigationEnabled(out enabled: Integer): HResult; stdcall;
     function Set_IsSwipeNavigationEnabled(enabled: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2Settings7
+// Flags:     (0)
+// GUID:      {488DC902-35EF-42D2-BC7D-94B65C4BC49C}
+// *********************************************************************//
+  ICoreWebView2Settings7 = interface(ICoreWebView2Settings6)
+    ['{488DC902-35EF-42D2-BC7D-94B65C4BC49C}']
+    function Get_HiddenPdfToolbarItems(out hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
+    function Set_HiddenPdfToolbarItems(hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
   end;
 
 implementation

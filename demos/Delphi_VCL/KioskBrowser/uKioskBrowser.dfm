@@ -12,6 +12,7 @@ object MainForm: TMainForm
   Font.Name = 'Segoe UI'
   Font.Style = []
   WindowState = wsMaximized
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
@@ -52,16 +53,9 @@ object MainForm: TMainForm
     OnNewWindowRequested = WVBrowser1NewWindowRequested
     OnWebMessageReceived = WVBrowser1WebMessageReceived
     OnAcceleratorKeyPressed = WVBrowser1AcceleratorKeyPressed
-    OnWidget0CompMsg = WVBrowser1Widget0CompMsg
+    OnContextMenuRequested = WVBrowser1ContextMenuRequested
+    OnCustomItemSelected = WVBrowser1CustomItemSelected
     Left = 200
     Top = 160
-  end
-  object PopupMenu1: TPopupMenu
-    Left = 392
-    Top = 160
-    object ExitMi: TMenuItem
-      Caption = 'Exit'
-      OnClick = ExitMiClick
-    end
   end
 end

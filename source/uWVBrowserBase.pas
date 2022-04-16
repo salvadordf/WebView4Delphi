@@ -40,6 +40,7 @@ type
       FLanguage                                       : wvstring;
       FTargetCompatibleBrowserVersion                 : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount         : boolean;
+      FExclusiveUserDataFolderAccess                  : boolean;
       FIgnoreCertificateErrors                        : boolean;
       FZoomStep                                       : byte;
       FOffline                                        : boolean;
@@ -130,6 +131,10 @@ type
       FOnFrameDOMContentLoaded                        : TOnFrameDOMContentLoadedEvent;
       FOnFrameWebMessageReceived                      : TOnFrameWebMessageReceivedEvent;
       FOnBasicAuthenticationRequested                 : TOnBasicAuthenticationRequestedEvent;
+      FOnContextMenuRequested                         : TOnContextMenuRequestedEvent;
+      FOnCustomItemSelected                           : TOnCustomItemSelectedEvent;
+      FOnStatusBarTextChanged                         : TOnStatusBarTextChangedEvent;
+      FOnFramePermissionRequested                     : TOnFramePermissionRequestedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -169,13 +174,15 @@ type
       function  GetRootVisualTarget : IUnknown;
       function  GetCursor : HCURSOR;
       function  GetSystemCursorID : cardinal;
-      function  GetUIAProvider : IUnknown;
+      function  GetAutomationProvider : IUnknown;
       function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
       function  GetIsMuted : boolean;
       function  GetIsDocumentPlayingAudio : boolean;
       function  GetIsDefaultDownloadDialogOpen : boolean;
       function  GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
       function  GetDefaultDownloadDialogMargin : TPoint;
+      function  GetStatusBarText : wvstring;
+      function  GetAllowExternalDrop : boolean;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -208,6 +215,7 @@ type
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
       procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
+      procedure SetAllowExternalDrop(aValue : boolean);
 
       function  CreateEnvironment : boolean;
 
@@ -291,6 +299,10 @@ type
       function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HRESULT;
       function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HRESULT;
       function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HRESULT;
+      function ContextMenuRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs): HRESULT;
+      function CustomItemSelectedEventHandler_Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HRESULT;
+      function StatusBarTextChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+      function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -360,6 +372,10 @@ type
       procedure doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer); virtual;
       procedure doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer); virtual;
       procedure doOnBasicAuthenticationRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs); virtual;
+      procedure doOnContextMenuRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs); virtual;
+      procedure doOnCustomItemSelectedEvent(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown); virtual;
+      procedure doOnStatusBarTextChangedEvent(const sender: ICoreWebView2; const args: IUnknown); virtual;
+      procedure doOnFramePermissionRequestedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -383,6 +399,7 @@ type
 
       function    SubscribeToDevToolsProtocolEvent(const aEventName : wvstring; aEventID : integer = 0) : boolean;
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
+      function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
 
       function    SetFocus : boolean;
       function    FocusNext : boolean;
@@ -484,6 +501,7 @@ type
       property Language                               : wvstring                                read FLanguage                                write FLanguage;                                  // ICoreWebView2EnvironmentOptions.get_Language
       property TargetCompatibleBrowserVersion         : wvstring                                read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;            // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                                 read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;    // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
+      property ExclusiveUserDataFolderAccess          : boolean                                 read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;             // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
 
       // ICoreWebView2Environment properties
       property BrowserVersionInfo                     : wvstring                                read GetBrowserVersionInfo;                                                                     // ICoreWebView2Environment.get_BrowserVersionString
@@ -511,6 +529,9 @@ type
       property DefaultDownloadDialogMargin            : TPoint                                  read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;             // ICoreWebView2_9.get_DefaultDownloadDialogMargin
       property IsDefaultDownloadDialogOpen            : boolean                                 read GetIsDefaultDownloadDialogOpen;                                                            // ICoreWebView2_9.get_IsDefaultDownloadDialogOpen
 
+      // ICoreWebView2_12
+      property StatusBarText                          : wvstring                                read GetStatusBarText;
+
       // ICoreWebView2Controller properties
       property Bounds                                 : TRect                                   read GetBounds                                write SetBounds;                                  // ICoreWebView2Controller.get_Bounds
       property IsVisible                              : boolean                                 read GetIsVisible                             write SetIsVisible;                               // ICoreWebView2Controller.get_IsVisible
@@ -524,6 +545,9 @@ type
       property BoundsMode                             : TWVBoundsMode                           read GetBoundsMode                            write SetBoundsMode;                              // ICoreWebView2Controller3.get_BoundsMode
       property RasterizationScale                     : double                                  read GetRasterizationScale                    write SetRasterizationScale;                      // ICoreWebView2Controller3.get_RasterizationScale
       property ShouldDetectMonitorScaleChanges        : boolean                                 read GetShouldDetectMonitorScaleChanges       write SetShouldDetectMonitorScaleChanges;         // ICoreWebView2Controller3.get_ShouldDetectMonitorScaleChanges
+
+      // ICoreWebView2Controller4 properties
+      property AllowExternalDrop                      : boolean                                 read GetAllowExternalDrop                     write SetAllowExternalDrop;
 
       // ICoreWebView2Settings properties
       property DefaultContextMenusEnabled             : boolean                                 read GetDefaultContextMenusEnabled            write SetDefaultContextMenusEnabled;              // ICoreWebView2Settings.get_AreDefaultContextMenusEnabled
@@ -558,7 +582,7 @@ type
       property SystemCursorID                         : cardinal                                read GetSystemCursorID;                                                                         // ICoreWebView2CompositionController.get_SystemCursorId
 
       // ICoreWebView2CompositionController2 properties
-      property UIAProvider                            : IUnknown                                read GetUIAProvider;                                                                            // ICoreWebView2CompositionController2.get_UIAProvider
+      property AutomationProvider                     : IUnknown                                read GetAutomationProvider;                                                                            // ICoreWebView2CompositionController2.get_UIAProvider
 
       // ICoreWebView2Environment8 properties
       property ProcessInfos                           : ICoreWebView2ProcessInfoCollection      read GetProcessInfos;
@@ -608,6 +632,12 @@ type
       // ICoreWebView2_10 events
       property OnBasicAuthenticationRequested                  : TOnBasicAuthenticationRequestedEvent                  read FOnBasicAuthenticationRequested                  write FOnBasicAuthenticationRequested;
 
+      // ICoreWebView2_11 events
+      property OnContextMenuRequested                          : TOnContextMenuRequestedEvent                          read FOnContextMenuRequested                          write FOnContextMenuRequested;
+
+      // ICoreWebView2_12 events
+      property OnStatusBarTextChanged                         : TOnStatusBarTextChangedEvent                           read FOnStatusBarTextChanged                          write FOnStatusBarTextChanged;
+
       // ICoreWebView2Controller events
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
@@ -637,8 +667,14 @@ type
       property OnFrameDOMContentLoaded                         : TOnFrameDOMContentLoadedEvent                         read FOnFrameDOMContentLoaded                         write FOnFrameDOMContentLoaded;
       property OnFrameWebMessageReceived                       : TOnFrameWebMessageReceivedEvent                       read FOnFrameWebMessageReceived                       write FOnFrameWebMessageReceived;
 
+      // ICoreWebView2Frame3 events
+      property OnFramePermissionRequested                      : TOnFramePermissionRequestedEvent                      read FOnFramePermissionRequested                      write FOnFramePermissionRequested;
+
       // ICoreWebView2DevToolsProtocolEventReceiver events
       property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
+
+      // ICoreWebView2ContextMenuItem events
+      property OnCustomItemSelected                            : TOnCustomItemSelectedEvent                            read FOnCustomItemSelected                            write FOnCustomItemSelected;
 
       // Custom events
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
@@ -692,6 +728,7 @@ begin
   FUseCompositionController                        := False;
   FTargetCompatibleBrowserVersion                  := LowestChromiumVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount          := False;
+  FExclusiveUserDataFolderAccess                   := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
   FIsNavigating                                    := False;
@@ -781,6 +818,10 @@ begin
   FOnIsDocumentPlayingAudioChanged                 := nil;
   FOnIsDefaultDownloadDialogOpenChanged            := nil;
   FOnBasicAuthenticationRequested                  := nil;
+  FOnContextMenuRequested                          := nil;
+  FOnCustomItemSelected                            := nil;
+  FOnStatusBarTextChanged                          := nil;
+  FOnFramePermissionRequested                      := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1700,6 +1741,35 @@ begin
     FOnBasicAuthenticationRequested(self, sender, args);
 end;
 
+procedure TWVBrowserBase.doOnContextMenuRequestedEvent(const sender : ICoreWebView2;
+                                                       const args   : ICoreWebView2ContextMenuRequestedEventArgs);
+begin
+  if assigned(FOnContextMenuRequested) then
+    FOnContextMenuRequested(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnCustomItemSelectedEvent(const sender : ICoreWebView2ContextMenuItem;
+                                                     const args   : IUnknown);
+begin
+  if assigned(FOnCustomItemSelected) then
+    FOnCustomItemSelected(self, sender);
+end;
+
+procedure TWVBrowserBase.doOnStatusBarTextChangedEvent(const sender : ICoreWebView2;
+                                                       const args   : IUnknown);
+begin
+  if assigned(FOnStatusBarTextChanged) then
+    FOnStatusBarTextChanged(self, sender);
+end;
+
+procedure TWVBrowserBase.doOnFramePermissionRequestedEvent(const sender   : ICoreWebView2Frame;
+                                                           const args     : ICoreWebView2PermissionRequestedEventArgs2;
+                                                                 aFrameID : integer);
+begin
+  if assigned(FOnFramePermissionRequested) then
+    FOnFramePermissionRequested(self, sender, args, aFrameID);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
 var
   TempMHTML  : wvstring;
@@ -1811,25 +1881,29 @@ begin
   doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(errorCode, wvstring(id));
 end;
 
-function TWVBrowserBase.IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+function TWVBrowserBase.IsMutedChangedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                          const args   : IUnknown): HRESULT;
 begin
   Result := S_OK;
   doOnIsMutedChanged(sender);
 end;
 
-function TWVBrowserBase.IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+function TWVBrowserBase.IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                         const args   : IUnknown): HRESULT;
 begin
   Result := S_OK;
   doOnIsDocumentPlayingAudioChanged(sender);
 end;
 
-function TWVBrowserBase.IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
+function TWVBrowserBase.IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                              const args   : IUnknown): HRESULT;
 begin
   Result := S_OK;
   doOnIsDefaultDownloadDialogOpenChanged(sender);
 end;
 
-function TWVBrowserBase.ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
+function TWVBrowserBase.ProcessInfosChangedEventHandler_Invoke(const sender : ICoreWebView2Environment;
+                                                               const args   : IUnknown): HRESULT;
 begin
   Result := S_OK;
   doOnProcessInfosChangedEvent(sender);
@@ -1880,6 +1954,35 @@ function TWVBrowserBase.BasicAuthenticationRequestedEventHandler_Invoke(const se
 begin
   Result := S_OK;
   doOnBasicAuthenticationRequestedEvent(sender, args);
+end;
+
+function TWVBrowserBase.ContextMenuRequestedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                const args   : ICoreWebView2ContextMenuRequestedEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnContextMenuRequestedEvent(sender, args);
+end;
+
+function TWVBrowserBase.CustomItemSelectedEventHandler_Invoke(const sender : ICoreWebView2ContextMenuItem;
+                                                              const args   : IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnCustomItemSelectedEvent(sender, args);
+end;
+
+function TWVBrowserBase.StatusBarTextChangedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                const args   : IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnStatusBarTextChangedEvent(sender, args);
+end;
+
+function TWVBrowserBase.FramePermissionRequestedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
+                                                                    const args     : ICoreWebView2PermissionRequestedEventArgs2;
+                                                                          aFrameID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnFramePermissionRequestedEvent(sender, args, aFrameID);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -2081,10 +2184,10 @@ begin
     Result := 0;
 end;
 
-function TWVBrowserBase.GetUIAProvider : IUnknown;
+function TWVBrowserBase.GetAutomationProvider : IUnknown;
 begin
   if FUseCompositionController and Initialized then
-    Result := FCoreWebView2CompositionController.UIAProvider
+    Result := FCoreWebView2CompositionController.AutomationProvider
    else
     Result := nil;
 end;
@@ -2113,6 +2216,14 @@ function TWVBrowserBase.GetIsDefaultDownloadDialogOpen : boolean;
 begin
   Result := Initialized and
             FCoreWebView2.IsDefaultDownloadDialogOpen;
+end;
+
+function TWVBrowserBase.GetStatusBarText : wvstring;
+begin
+  if Initialized then
+    Result := FCoreWebView2.StatusBarText
+   else
+    Result := '';
 end;
 
 function TWVBrowserBase.GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
@@ -2284,6 +2395,12 @@ begin
             FCoreWebView2Controller.ShouldDetectMonitorScaleChanges;
 end;
 
+function TWVBrowserBase.GetAllowExternalDrop : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2Controller.AllowExternalDrop;
+end;
+
 function TWVBrowserBase.GetBoundsMode : TWVBoundsMode;
 begin
   if Initialized then
@@ -2376,7 +2493,8 @@ begin
     TempOptions := TCoreWebView2EnvironmentOptions.Create(FAdditionalBrowserArguments,
                                                           FLanguage,
                                                           FTargetCompatibleBrowserVersion,
-                                                          FAllowSingleSignOnUsingOSPrimaryAccount);
+                                                          FAllowSingleSignOnUsingOSPrimaryAccount,
+                                                          FExclusiveUserDataFolderAccess);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),
@@ -2462,6 +2580,12 @@ procedure TWVBrowserBase.SetShouldDetectMonitorScaleChanges(aValue : boolean);
 begin
   if Initialized then
     FCoreWebView2Controller.ShouldDetectMonitorScaleChanges := aValue;
+end;
+
+procedure TWVBrowserBase.SetAllowExternalDrop(aValue : boolean);
+begin
+  if Initialized then
+    FCoreWebView2Controller.AllowExternalDrop := aValue;
 end;
 
 procedure TWVBrowserBase.SetBoundsMode(aValue : TWVBoundsMode);
@@ -2690,6 +2814,13 @@ function TWVBrowserBase.CallDevToolsProtocolMethod(const aMethodName, aParameter
 begin
   Result := Initialized and
             FCoreWebView2.CallDevToolsProtocolMethod(aMethodName, aParametersAsJson, aExecutionID, self);
+end;
+
+// This function is asynchronous and it triggers the TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event when it finishes
+function TWVBrowserBase.CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer) : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.CallDevToolsProtocolMethodForSession(aSessionId, aMethodName, aParametersAsJson, aExecutionID, self);
 end;
 
 function TWVBrowserBase.AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;

@@ -13,13 +13,15 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
-  TCoreWebView2EnvironmentOptions = class(TInterfacedObject, ICoreWebView2EnvironmentOptions)
+  TCoreWebView2EnvironmentOptions = class(TInterfacedObject, ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions2)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
       FTargetCompatibleBrowserVersion         : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
+      FExclusiveUserDataFolderAccess          : boolean;
 
+      // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
       function Set_AdditionalBrowserArguments(value: PWideChar): HResult; stdcall;
       function Get_Language(out value: PWideChar): HResult; stdcall;
@@ -29,8 +31,12 @@ type
       function Get_AllowSingleSignOnUsingOSPrimaryAccount(out allow: Integer): HResult; stdcall;
       function Set_AllowSingleSignOnUsingOSPrimaryAccount(allow: Integer): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions2
+      function Get_ExclusiveUserDataFolderAccess(out value: Integer): HResult; stdcall;
+      function Set_ExclusiveUserDataFolderAccess(value: Integer): HResult; stdcall;
+
     public
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount : boolean);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess : boolean);
       destructor  Destroy; override;
   end;
 
@@ -42,7 +48,8 @@ uses
 constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArguments             : wvstring;
                                                    const aLanguage                               : wvstring;
                                                    const aTargetCompatibleBrowserVersion         : wvstring;
-                                                         aAllowSingleSignOnUsingOSPrimaryAccount : boolean);
+                                                         aAllowSingleSignOnUsingOSPrimaryAccount : boolean;
+                                                         aExclusiveUserDataFolderAccess          : boolean);
 begin
   inherited Create;
 
@@ -50,6 +57,7 @@ begin
   FLanguage                               := aLanguage;
   FTargetCompatibleBrowserVersion         := aTargetCompatibleBrowserVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount := aAllowSingleSignOnUsingOSPrimaryAccount;
+  FExclusiveUserDataFolderAccess          := aExclusiveUserDataFolderAccess;
 end;
 
 destructor TCoreWebView2EnvironmentOptions.Destroy;
@@ -124,6 +132,18 @@ function TCoreWebView2EnvironmentOptions.Set_AllowSingleSignOnUsingOSPrimaryAcco
 begin
   Result := S_OK;
   FAllowSingleSignOnUsingOSPrimaryAccount := (allow <> 0);
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_ExclusiveUserDataFolderAccess(out value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := ord(FExclusiveUserDataFolderAccess);
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_ExclusiveUserDataFolderAccess(value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  FExclusiveUserDataFolderAccess := (value <> 0);
 end;
 
 end.

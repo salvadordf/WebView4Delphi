@@ -5,6 +5,11 @@ unit uWVCoreWebView2Args;
 interface
 
 uses
+  {$IFDEF FPC}
+  Types, ActiveX,
+  {$ELSE}
+  System.Types, Winapi.ActiveX,
+  {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 
 type
@@ -64,10 +69,12 @@ type
 
   TCoreWebView2DevToolsProtocolEventReceivedEventArgs = class
     protected
-      FBaseIntf : ICoreWebView2DevToolsProtocolEventReceivedEventArgs;
+      FBaseIntf  : ICoreWebView2DevToolsProtocolEventReceivedEventArgs;
+      FBaseIntf2 : ICoreWebView2DevToolsProtocolEventReceivedEventArgs2;
 
       function GetInitialized : boolean;
       function GetParameterObjectAsJson : wvstring;
+      function GetSessionId : wvstring;
 
     public
       constructor Create(const aArgs: ICoreWebView2DevToolsProtocolEventReceivedEventArgs); reintroduce;
@@ -76,6 +83,7 @@ type
       property Initialized           : boolean                                              read GetInitialized;
       property BaseIntf              : ICoreWebView2DevToolsProtocolEventReceivedEventArgs  read FBaseIntf;
       property ParameterObjectAsJson : wvstring                                             read GetParameterObjectAsJson;
+      property SessionId             : wvstring                                             read GetSessionId;
   end;
 
   TCoreWebView2MoveFocusRequestedEventArgs = class
@@ -186,7 +194,8 @@ type
 
   TCoreWebView2PermissionRequestedEventArgs = class
     protected
-      FBaseIntf : ICoreWebView2PermissionRequestedEventArgs;
+      FBaseIntf  : ICoreWebView2PermissionRequestedEventArgs;
+      FBaseIntf2 : ICoreWebView2PermissionRequestedEventArgs2;
 
       function  GetInitialized : boolean;
       function  GetURI : wvstring;
@@ -194,11 +203,14 @@ type
       function  GetIsUserInitiated : boolean;
       function  GetState : TWVPermissionState;
       function  GetDeferral : ICoreWebView2Deferral;
+      function  GetHandled : boolean;
 
       procedure SetState(aValue : TWVPermissionState);
+      procedure SetHandled(avalue : boolean);
 
     public
-      constructor Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs); reintroduce;
+      constructor Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs); reintroduce; overload;
+      constructor Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs2); reintroduce; overload;
       destructor  Destroy; override;
 
       property Initialized      : boolean                                    read GetInitialized;
@@ -208,6 +220,7 @@ type
       property PermissionKind   : TWVPermissionKind                          read GetPermissionKind;
       property IsUserInitiated  : boolean                                    read GetIsUserInitiated;
       property Deferral         : ICoreWebView2Deferral                      read GetDeferral;
+      property Handled          : boolean                                    read GetHandled           write SetHandled;
   end;
 
   TCoreWebView2ProcessFailedEventArgs = class
@@ -480,15 +493,38 @@ type
       property Deferral                      : ICoreWebView2Deferral                               read GetDeferral;
   end;
 
+  TCoreWebView2ContextMenuRequestedEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2ContextMenuRequestedEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetMenuItems : ICoreWebView2ContextMenuItemCollection;
+      function  GetContextMenuTarget : ICoreWebView2ContextMenuTarget;
+      function  GetLocation : TPoint;
+      function  GetSelectedCommandId : Integer;
+      function  GetDeferral : ICoreWebView2Deferral;
+      function  GetHandled : boolean;
+
+      procedure SetSelectedCommandId(aValue: Integer);
+      procedure SetHandled(aValue : boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2ContextMenuRequestedEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      property Initialized                   : boolean                                             read GetInitialized;
+      property BaseIntf                      : ICoreWebView2ContextMenuRequestedEventArgs          read FBaseIntf;
+      property MenuItems                     : ICoreWebView2ContextMenuItemCollection              read GetMenuItems;
+      property ContextMenuTarget             : ICoreWebView2ContextMenuTarget                      read GetContextMenuTarget;
+      property Location                      : TPoint                                              read GetLocation;
+      property SelectedCommandId             : integer                                             read GetSelectedCommandId    write SetSelectedCommandId;
+      property Handled                       : boolean                                             read GetHandled              write SetHandled;
+      property Deferral                      : ICoreWebView2Deferral                               read GetDeferral;
+  end;
+
 
 implementation
 
-uses
-  {$IFDEF FPC}
-  ActiveX;
-  {$ELSE}
-  Winapi.ActiveX;
-  {$ENDIF}
 
 // TCoreWebView2AcceleratorKeyPressedEventArgs
 
@@ -661,6 +697,9 @@ begin
   inherited Create;
 
   FBaseIntf := aArgs;
+
+  if Initialized then
+    FBaseIntf.QueryInterface(ICoreWebView2DevToolsProtocolEventReceivedEventArgs2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2DevToolsProtocolEventReceivedEventArgs.Destroy;
@@ -679,13 +718,28 @@ function TCoreWebView2DevToolsProtocolEventReceivedEventArgs.GetParameterObjectA
 var
   TempString : PWideChar;
 begin
-  if Initialized and succeeded(FBaseIntf.Get_ParameterObjectAsJson(TempString)) then
+  Result := '';
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_ParameterObjectAsJson(TempString)) then
     begin
       Result := TempString;
       CoTaskMemFree(TempString);
-    end
-   else
-    Result := '';
+    end;
+end;
+
+function TCoreWebView2DevToolsProtocolEventReceivedEventArgs.GetSessionId : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result := '';
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_sessionId(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
 end;
 
 
@@ -1047,6 +1101,17 @@ begin
   inherited Create;
 
   FBaseIntf := aArgs;
+
+  if Initialized then
+    FBaseIntf.QueryInterface(ICoreWebView2PermissionRequestedEventArgs2, FBaseIntf2);
+end;
+
+constructor TCoreWebView2PermissionRequestedEventArgs.Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs2);
+begin
+  inherited Create;
+
+  aArgs.QueryInterface(ICoreWebView2PermissionRequestedEventArgs, FBaseIntf);
+  FBaseIntf2 := aArgs;
 end;
 
 destructor TCoreWebView2PermissionRequestedEventArgs.Destroy;
@@ -1121,10 +1186,25 @@ begin
     Result := TempDeferral;
 end;
 
+function TCoreWebView2PermissionRequestedEventArgs.GetHandled : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf2) and
+            succeeded(FBaseIntf2.Get_Handled(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2PermissionRequestedEventArgs.SetState(aValue : TWVPermissionState);
 begin
   if Initialized then
     FBaseIntf.Set_State(aValue);
+end;
+
+procedure TCoreWebView2PermissionRequestedEventArgs.SetHandled(avalue : boolean);
+begin
+  if assigned(FBaseIntf2) then
+    FBaseIntf2.Set_Handled(ord(aValue));
 end;
 
 
@@ -1999,6 +2079,115 @@ procedure TCoreWebView2BasicAuthenticationRequestedEventArgs.SetCancel(aValue : 
 begin
   if Initialized then
     FBaseIntf.Set_Cancel(ord(aValue));
+end;
+
+
+// TCoreWebView2ContextMenuRequestedEventArgs
+
+constructor TCoreWebView2ContextMenuRequestedEventArgs.Create(const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2ContextMenuRequestedEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetMenuItems : ICoreWebView2ContextMenuItemCollection;
+var
+  TempResult : ICoreWebView2ContextMenuItemCollection;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_MenuItems(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetContextMenuTarget : ICoreWebView2ContextMenuTarget;
+var
+  TempResult : ICoreWebView2ContextMenuTarget;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_ContextMenuTarget(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetLocation : TPoint;
+var
+  TempResult : tagPOINT;
+begin
+  Result.x := low(integer);
+  Result.y := low(integer);
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Location(TempResult)) then
+    begin
+      Result.x := TempResult.x;
+      Result.y := TempResult.y;
+    end;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetSelectedCommandId : Integer;
+var
+  TempResult : integer;
+begin
+  Result     := -1;
+  TempResult := -1;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_SelectedCommandId(TempResult)) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetHandled : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Handled(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2ContextMenuRequestedEventArgs.GetDeferral : ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2ContextMenuRequestedEventArgs.SetSelectedCommandId(aValue: Integer);
+begin
+  if Initialized then
+    FBaseIntf.Set_SelectedCommandId(aValue);
+end;
+
+procedure TCoreWebView2ContextMenuRequestedEventArgs.SetHandled(aValue : boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Handled(ord(aValue));
 end;
 
 end.

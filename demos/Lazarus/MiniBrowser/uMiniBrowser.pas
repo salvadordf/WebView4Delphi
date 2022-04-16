@@ -110,6 +110,8 @@ type
     procedure WVBrowser1DownloadStateChanged(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID : integer);
     procedure WVBrowser1BytesReceivedChanged(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID : integer);
     procedure WVBrowser1CapturePreviewCompleted(Sender: TObject; aErrorCode: HRESULT);
+    procedure WVBrowser1StatusBarTextChanged(Sender: TObject;
+      const aWebView: ICoreWebView2);
     procedure WVBrowser1WebResourceRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceRequestedEventArgs);
     procedure WVBrowser1WebResourceResponseReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceResponseReceivedEventArgs);
 
@@ -456,6 +458,12 @@ begin
 
   if (FFileStream <> nil) then
     FreeAndNil(FFileStream);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1StatusBarTextChanged(Sender: TObject;
+  const aWebView: ICoreWebView2);
+begin
+  StatusBar1.Panels[0].Text := UTF8Encode(WVBrowser1.StatusBarText);
 end;
 
 procedure TMiniBrowserFrm.UpdateDownloadInfo(aDownloadID : integer);

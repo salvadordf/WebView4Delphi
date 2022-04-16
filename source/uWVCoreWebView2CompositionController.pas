@@ -23,7 +23,7 @@ type
       function  GetRootVisualTarget : IUnknown;
       function  GetCursor : HCURSOR;
       function  GetSystemCursorID : cardinal;
-      function  GetUIAProvider : IUnknown;
+      function  GetAutomationProvider : IUnknown;
 
       procedure SetRootVisualTarget(const aValue : IUnknown);
 
@@ -45,7 +45,7 @@ type
       property RootVisualTarget   : IUnknown                             read GetRootVisualTarget     write SetRootVisualTarget;
       property Cursor             : HCURSOR                              read GetCursor;
       property SystemCursorID     : cardinal                             read GetSystemCursorID;
-      property UIAProvider        : IUnknown                             read GetUIAProvider;
+      property AutomationProvider : IUnknown                             read GetAutomationProvider;
   end;
 
 implementation
@@ -128,7 +128,7 @@ begin
     Result := 0;
 end;
 
-function TCoreWebView2CompositionController.GetUIAProvider : IUnknown;
+function TCoreWebView2CompositionController.GetAutomationProvider : IUnknown;
 var
   TempResult : IUnknown;
 begin
@@ -136,7 +136,7 @@ begin
   TempResult := nil;
 
   if assigned(FBaseIntf2) and
-     succeeded(FBaseIntf2.Get_UIAProvider(TempResult)) and
+     succeeded(FBaseIntf2.Get_AutomationProvider(TempResult)) and
      assigned(TempResult) then
     Result := TempResult;
 end;

@@ -16,6 +16,7 @@ type
       FBaseIntf4 : ICoreWebView2Settings4;
       FBaseIntf5 : ICoreWebView2Settings5;
       FBaseIntf6 : ICoreWebView2Settings6;
+      FBaseIntf7 : ICoreWebView2Settings7;
 
       function  GetInitialized : boolean;
       function  GetIsBuiltInErrorPageEnabled : boolean;
@@ -33,6 +34,7 @@ type
       function  GetIsGeneralAutofillEnabled : boolean;
       function  GetIsPinchZoomEnabled : boolean;
       function  GetIsSwipeNavigationEnabled : boolean;
+      function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
 
       procedure SetIsBuiltInErrorPageEnabled(aValue : boolean);
       procedure SetAreDefaultContextMenusEnabled(aValue : boolean);
@@ -49,6 +51,7 @@ type
       procedure SetIsGeneralAutofillEnabled(aValue : boolean);
       procedure SetIsPinchZoomEnabled(aValue : boolean);
       procedure SetIsSwipeNavigationEnabled(aValue : boolean);
+      procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
 
       procedure InitializeFields;
 
@@ -73,6 +76,7 @@ type
       property    IsGeneralAutofillEnabled         : boolean                read GetIsGeneralAutofillEnabled          write SetIsGeneralAutofillEnabled;
       property    IsPinchZoomEnabled               : boolean                read GetIsPinchZoomEnabled                write SetIsPinchZoomEnabled;
       property    IsSwipeNavigationEnabled         : boolean                read GetIsSwipeNavigationEnabled          write SetIsSwipeNavigationEnabled;
+      property    HiddenPdfToolbarItems            : TWVPDFToolbarItems     read GetHiddenPdfToolbarItems             write SetHiddenPdfToolbarItems;
   end;
 
 implementation
@@ -97,8 +101,9 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings2, FBaseIntf2)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings3, FBaseIntf3)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings4, FBaseIntf4)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings5, FBaseIntf5)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2Settings6, FBaseIntf6);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings5, FBaseIntf5)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Settings6, FBaseIntf6)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2Settings7, FBaseIntf7);
 end;
 
 destructor TCoreWebView2Settings.Destroy;
@@ -116,6 +121,7 @@ begin
   FBaseIntf4 := nil;
   FBaseIntf5 := nil;
   FBaseIntf6 := nil;
+  FBaseIntf7 := nil;
 end;
 
 function TCoreWebView2Settings.GetInitialized : boolean;
@@ -266,6 +272,17 @@ begin
             (TempResult <> 0);
 end;
 
+function TCoreWebView2Settings.GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
+var
+  TempResult : COREWEBVIEW2_PDF_TOOLBAR_ITEMS;
+begin
+  if assigned(FBaseIntf7) and
+     succeeded(FBaseIntf7.Get_HiddenPdfToolbarItems(TempResult)) then
+    Result := TempResult
+   else
+    Result := 0;
+end;
+
 procedure TCoreWebView2Settings.SetIsBuiltInErrorPageEnabled(aValue : boolean);
 begin
   if Initialized then
@@ -354,6 +371,12 @@ procedure TCoreWebView2Settings.SetIsSwipeNavigationEnabled(aValue : boolean);
 begin
   if assigned(FBaseIntf6) then
     FBaseIntf6.Set_IsSwipeNavigationEnabled(ord(aValue));
+end;
+
+procedure TCoreWebView2Settings.SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
+begin
+  if assigned(FBaseIntf7) then
+    FBaseIntf7.Set_HiddenPdfToolbarItems(aValue);
 end;
 
 end.

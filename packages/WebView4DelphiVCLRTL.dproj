@@ -140,6 +140,9 @@
         <DCCReference Include="..\source\uWVCoreWebView2ProcessInfoCollection.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ProcessInfo.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2BasicAuthenticationResponse.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ContextMenuItemCollection.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ContextMenuItem.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ContextMenuTarget.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -177,7 +180,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="C:\Components_10\TEMP\Delphi\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\22.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>WebView4DelphiVCLRTL.bpl</RemoteName>
                         <Overwrite>true</Overwrite>

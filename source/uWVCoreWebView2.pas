@@ -25,6 +25,8 @@ type
       FBaseIntf8                               : ICoreWebView2_8;
       FBaseIntf9                               : ICoreWebView2_9;
       FBaseIntf10                              : ICoreWebView2_10;
+      FBaseIntf11                              : ICoreWebView2_11;
+      FBaseIntf12                              : ICoreWebView2_12;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -50,6 +52,8 @@ type
       FIsDocumentPlayingAudioChangedToken      : EventRegistrationToken;
       FIsDefaultDownloadDialogOpenChangedToken : EventRegistrationToken;
       FBasicAuthenticationRequestedToken       : EventRegistrationToken;
+      FContextMenuRequestedToken               : EventRegistrationToken;
+      FStatusBarTextChangedToken               : EventRegistrationToken;
 
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -70,6 +74,7 @@ type
       function  GetIsDefaultDownloadDialogOpen : boolean;
       function  GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
       function  GetDefaultDownloadDialogMargin : TPoint;
+      function  GetStatusBarText : wvstring;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
@@ -105,6 +110,8 @@ type
       function  AddIsDocumentPlayingAudioChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddIsDefaultDownloadDialogOpenChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddBasicAuthenticationRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddContextMenuRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddStatusBarTextChangedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -131,6 +138,7 @@ type
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
       function    AddWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
       function    RemoveWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
       function    AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;
@@ -157,6 +165,7 @@ type
       property IsDefaultDownloadDialogOpen          : boolean                                   read GetIsDefaultDownloadDialogOpen;
       property DefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment   read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
       property DefaultDownloadDialogMargin          : TPoint                                    read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
+      property StatusBarText                        : wvstring                                  read GetStatusBarText;
   end;
 
 implementation
@@ -173,15 +182,17 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_2, FBaseIntf2)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_3, FBaseIntf3)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_4, FBaseIntf4)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5, FBaseIntf5)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6, FBaseIntf6)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_7, FBaseIntf7)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8, FBaseIntf8)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_9, FBaseIntf9)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2_10, FBaseIntf10);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_2,  FBaseIntf2))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_3,  FBaseIntf3))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_4,  FBaseIntf4))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5,  FBaseIntf5))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6,  FBaseIntf6))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_7,  FBaseIntf7))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8,  FBaseIntf8))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_9,  FBaseIntf9))  and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_10, FBaseIntf10)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_11, FBaseIntf11)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2_12, FBaseIntf12);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -223,6 +234,8 @@ begin
   FBaseIntf8           := nil;
   FBaseIntf9           := nil;
   FBaseIntf10          := nil;
+  FBaseIntf11          := nil;
+  FBaseIntf12          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -256,6 +269,8 @@ begin
   FIsDocumentPlayingAudioChangedToken.value      := 0;
   FIsDefaultDownloadDialogOpenChangedToken.value := 0;
   FBasicAuthenticationRequestedToken.value       := 0;
+  FContextMenuRequestedToken.value               := 0;
+  FStatusBarTextChangedToken.value               := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -335,12 +350,10 @@ begin
                 FBaseIntf4.remove_DownloadStarting(FDownloadStartingToken);
             end;
 
-          if assigned(FBaseIntf5) then
-            begin
-              // Access violation when we try to remove this event
-              //if (FClientCertificateRequestedToken.value <> 0) then
-              //  FBaseIntf5.remove_ClientCertificateRequested(FClientCertificateRequestedToken);
-            end;
+//          Access violation when we try to remove this event
+//          if assigned(FBaseIntf5) and
+//             (FClientCertificateRequestedToken.value <> 0) then
+//            FBaseIntf5.remove_ClientCertificateRequested(FClientCertificateRequestedToken);
 
           if assigned(FBaseIntf8) then
             begin
@@ -358,6 +371,14 @@ begin
           if assigned(FBaseIntf10) and
              (FBasicAuthenticationRequestedToken.Value <> 0) then
             FBaseIntf10.remove_BasicAuthenticationRequested(FBasicAuthenticationRequestedToken);
+
+          if assigned(FBaseIntf11) and
+             (FContextMenuRequestedToken.Value <> 0) then
+            FBaseIntf11.remove_ContextMenuRequested(FContextMenuRequestedToken);
+
+          if assigned(FBaseIntf12) and
+             (FStatusBarTextChangedToken.Value <> 0) then
+            FBaseIntf12.remove_StatusBarTextChanged(FStatusBarTextChangedToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -745,6 +766,36 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddContextMenuRequestedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ContextMenuRequestedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf11) and (FContextMenuRequestedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ContextMenuRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf11.add_ContextMenuRequested(TempHandler, FContextMenuRequestedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2.AddStatusBarTextChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2StatusBarTextChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf12) and (FStatusBarTextChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2StatusBarTextChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf12.add_StatusBarTextChanged(TempHandler, FStatusBarTextChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -771,7 +822,9 @@ begin
             AddIsMutedChangedEvent(aBrowserComponent)                     and
             AddIsDocumentPlayingAudioChangedEvent(aBrowserComponent)      and
             AddIsDefaultDownloadDialogOpenChangedEvent(aBrowserComponent) and
-            AddBasicAuthenticationRequestedEvent(aBrowserComponent);
+            AddBasicAuthenticationRequestedEvent(aBrowserComponent)       and
+            AddContextMenuRequestedEvent(aBrowserComponent)               and
+            AddStatusBarTextChangedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
@@ -1012,6 +1065,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2CallDevToolsProtocolMethodCompletedHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf11) then
+    try
+      TempHandler := TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.Create(TWVBrowserBase(aBrowserComponent), aExecutionID);
+      Result      := succeeded(FBaseIntf11.CallDevToolsProtocolMethodForSession(PWideChar(aSessionId), PWideChar(aMethodName), PWideChar(aParametersAsJson), TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant) : boolean;
 begin
   Result := Initialized and
@@ -1219,6 +1287,21 @@ begin
     Result := TPoint(TempResult)
    else
     Result := point(0, 0);
+end;
+
+function TCoreWebView2.GetStatusBarText : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if assigned(FBaseIntf12) and
+     succeeded(FBaseIntf12.Get_StatusBarText(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
 end;
 
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);

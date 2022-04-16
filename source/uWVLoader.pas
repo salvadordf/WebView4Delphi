@@ -44,6 +44,7 @@ type
       FLanguage                               : wvstring;
       FTargetCompatibleBrowserVersion         : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
+      FExclusiveUserDataFolderAccess          : boolean;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -146,6 +147,7 @@ type
       property Language                               : wvstring                           read FLanguage                                write FLanguage;                               // ICoreWebView2EnvironmentOptions.get_Language
       property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;         // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount; // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
+      property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;          // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
 
       // Properties used to set command line switches
       property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;                        // --enable-gpu-plugin
@@ -261,6 +263,7 @@ begin
   FLanguage                               := '';
   FTargetCompatibleBrowserVersion         := LowestChromiumVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount := False;
+  FExclusiveUserDataFolderAccess          := False;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1031,7 +1034,8 @@ begin
         TempOptions := TCoreWebView2EnvironmentOptions.Create(CustomCommandLineSwitches,
                                                               FLanguage,
                                                               FTargetCompatibleBrowserVersion,
-                                                              FAllowSingleSignOnUsingOSPrimaryAccount);
+                                                              FAllowSingleSignOnUsingOSPrimaryAccount,
+                                                              FExclusiveUserDataFolderAccess);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),

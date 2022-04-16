@@ -73,6 +73,10 @@ type
   TOnFrameDOMContentLoadedEvent                            = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer) of object;
   TOnFrameWebMessageReceivedEvent                          = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer) of object;
   TOnBasicAuthenticationRequestedEvent                     = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs) of object;
+  TOnContextMenuRequestedEvent                             = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ContextMenuRequestedEventArgs) of object;
+  TOnCustomItemSelectedEvent                               = procedure(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem) of object;
+  TOnStatusBarTextChangedEvent                             = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
+  TOnFramePermissionRequestedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

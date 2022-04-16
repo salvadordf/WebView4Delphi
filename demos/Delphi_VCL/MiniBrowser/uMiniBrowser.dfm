@@ -239,6 +239,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
     OnBasicAuthenticationRequested = WVBrowser1BasicAuthenticationRequested
+    OnStatusBarTextChanged = WVBrowser1StatusBarTextChanged
     Left = 48
     Top = 64
   end

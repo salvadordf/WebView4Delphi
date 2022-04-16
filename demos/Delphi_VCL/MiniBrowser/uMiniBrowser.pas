@@ -106,6 +106,8 @@ type
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: Boolean; const aText: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
+    procedure WVBrowser1StatusBarTextChanged(Sender: TObject;
+      const aWebView: ICoreWebView2);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -632,6 +634,12 @@ end;
 procedure TMiniBrowserFrm.WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
 begin
   URLCbx.Text := WVBrowser1.Source;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1StatusBarTextChanged(Sender: TObject;
+  const aWebView: ICoreWebView2);
+begin
+  StatusBar1.Panels[0].Text := WVBrowser1.StatusBarText;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1WebResourceRequested(Sender: TObject;

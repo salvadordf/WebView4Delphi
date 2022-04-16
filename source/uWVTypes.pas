@@ -43,6 +43,9 @@ type
   TWVColor                                = type COREWEBVIEW2_COLOR;
   TWVDefaultDownloadDialogCornerAlignment = type COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT;
   TWVProcessKind                          = type COREWEBVIEW2_PROCESS_KIND;
+  TWVMenuItemKind                         = type COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND;
+  TWVMenuTargetKind                       = type COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND;
+  TWVPDFToolbarItems                      = type COREWEBVIEW2_PDF_TOOLBAR_ITEMS;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,
