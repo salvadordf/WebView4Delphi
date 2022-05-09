@@ -24,6 +24,7 @@ type
       FBaseIntf7                            : ICoreWebView2Environment7;
       FBaseIntf8                            : ICoreWebView2Environment8;
       FBaseIntf9                            : ICoreWebView2Environment9;
+      FBaseIntf10                           : ICoreWebView2Environment10;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
       FProcessInfosChangedEventToken        : EventRegistrationToken;
@@ -31,6 +32,7 @@ type
       function  GetInitialized : boolean;
       function  GetBrowserVersionInfo : wvstring;
       function  GetSupportsCompositionController : boolean;
+      function  GetSupportsControllerOptions : boolean;
       function  GetUserDataFolder : wvstring;
       function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
 
@@ -57,11 +59,15 @@ type
       function    GetAutomationProviderForWindow(aHandle : THandle; var aProvider : IUnknown) : boolean;
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
       function    CreateContextMenuItem(const aLabel : wvstring; const aIconStream : IStream; aKind : TWVMenuItemKind; var aMenuItem : ICoreWebView2ContextMenuItem) : boolean;
+      function    CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions): boolean;
+      function    CreateCoreWebView2ControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
+      function    CreateCoreWebView2CompositionControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
 
       property    Initialized                   : boolean                             read GetInitialized;
       property    BaseIntf                      : ICoreWebView2Environment            read FBaseIntf;
       property    BrowserVersionInfo            : wvstring                            read GetBrowserVersionInfo;
       property    SupportsCompositionController : boolean                             read GetSupportsCompositionController;
+      property    SupportsControllerOptions     : boolean                             read GetSupportsControllerOptions;
       property    UserDataFolder                : wvstring                            read GetUserDataFolder;
       property    ProcessInfos                  : ICoreWebView2ProcessInfoCollection  read GetProcessInfos;
   end;
@@ -86,8 +92,9 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment5, FBaseIntf5)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment6, FBaseIntf6)) and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment7, FBaseIntf7)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment8, FBaseIntf8)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2Environment9, FBaseIntf9);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment8, FBaseIntf8)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment9, FBaseIntf9)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2Environment10, FBaseIntf10);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -102,15 +109,16 @@ end;
 
 procedure TCoreWebView2Environment.InitializeFields;
 begin
-  FBaseIntf  := nil;
-  FBaseIntf2 := nil;
-  FBaseIntf3 := nil;
-  FBaseIntf4 := nil;
-  FBaseIntf5 := nil;
-  FBaseIntf6 := nil;
-  FBaseIntf7 := nil;
-  FBaseIntf8 := nil;
-  FBaseIntf9 := nil;
+  FBaseIntf   := nil;
+  FBaseIntf2  := nil;
+  FBaseIntf3  := nil;
+  FBaseIntf4  := nil;
+  FBaseIntf5  := nil;
+  FBaseIntf6  := nil;
+  FBaseIntf7  := nil;
+  FBaseIntf8  := nil;
+  FBaseIntf9  := nil;
+  FBaseIntf10 := nil;
 
   InitializeTokens;
 end;
@@ -232,7 +240,9 @@ begin
     end;
 end;
 
-function TCoreWebView2Environment.CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents; var aResult: HRESULT) : boolean;
+function TCoreWebView2Environment.CreateCoreWebView2Controller(      aParentWindow  : THandle;
+                                                               const aBrowserEvents : IWVBrowserEvents;
+                                                               var   aResult        : HRESULT) : boolean;
 var
   TempHandler : ICoreWebView2CreateCoreWebView2ControllerCompletedHandler;
 begin
@@ -301,7 +311,14 @@ begin
   Result := assigned(FBaseIntf3);
 end;
 
-function TCoreWebView2Environment.CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents: IWVBrowserEvents; var aResult: HRESULT) : boolean;
+function TCoreWebView2Environment.GetSupportsControllerOptions : boolean;
+begin
+  Result := assigned(FBaseIntf10);
+end;
+
+function TCoreWebView2Environment.CreateCoreWebView2CompositionController(      aParentWindow  : THandle;
+                                                                          const aBrowserEvents : IWVBrowserEvents;
+                                                                          var   aResult        : HRESULT) : boolean;
 var
   TempHandler : ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler;
 begin
@@ -348,6 +365,54 @@ begin
   Result    := assigned(FBaseIntf9) and
                succeeded(FBaseIntf9.CreateContextMenuItem(PWideChar(aLabel), aIconStream, aKind, aMenuItem)) and
                assigned(aMenuItem);
+end;
+
+function TCoreWebView2Environment.CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions): boolean;
+begin
+  aOptions := nil;
+  Result   := assigned(FBaseIntf10) and
+              succeeded(FBaseIntf10.CreateCoreWebView2ControllerOptions(aOptions)) and
+              assigned(aOptions);
+end;
+
+function TCoreWebView2Environment.CreateCoreWebView2ControllerWithOptions(      aParentWindow  : HWND;
+                                                                          const aOptions       : ICoreWebView2ControllerOptions;
+                                                                          const aBrowserEvents : IWVBrowserEvents;
+                                                                          var   aResult        : HResult): boolean;
+var
+  TempHandler : ICoreWebView2CreateCoreWebView2ControllerCompletedHandler;
+begin
+  Result  := False;
+  aResult := E_FAIL;
+
+  if assigned(FBaseIntf10) then
+    try
+      TempHandler := TCoreWebView2CreateCoreWebView2ControllerCompletedHandler.Create(aBrowserEvents);
+      aResult     := FBaseIntf10.CreateCoreWebView2ControllerWithOptions(aParentWindow, aOptions, TempHandler);
+      Result      := succeeded(aResult);
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Environment.CreateCoreWebView2CompositionControllerWithOptions(      aParentWindow  : HWND;
+                                                                                     const aOptions       : ICoreWebView2ControllerOptions;
+                                                                                     const aBrowserEvents : IWVBrowserEvents;
+                                                                                     var   aResult        : HResult): boolean;
+var
+  TempHandler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler;
+begin
+  Result  := False;
+  aResult := E_FAIL;
+
+  if assigned(FBaseIntf10) then
+    try
+      TempHandler := TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.Create(aBrowserEvents);
+      aResult     := FBaseIntf10.CreateCoreWebView2CompositionControllerWithOptions(aParentWindow, aOptions, TempHandler);
+      Result      := succeeded(aResult);
+    finally
+      TempHandler := nil;
+    end;
 end;
 
 function TCoreWebView2Environment.GetUserDataFolder : wvstring;

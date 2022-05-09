@@ -14,7 +14,6 @@ object MainForm: TMainForm
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent
     Left = 0

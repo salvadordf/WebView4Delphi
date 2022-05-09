@@ -143,6 +143,8 @@
         <DCCReference Include="..\source\uWVCoreWebView2ContextMenuItemCollection.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ContextMenuItem.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ContextMenuTarget.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2Profile.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ControllerOptions.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

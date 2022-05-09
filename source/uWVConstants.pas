@@ -7,13 +7,13 @@ interface
 const
   WEBVIEW2LOADERLIB_VERSION_MAJOR   = 1;
   WEBVIEW2LOADERLIB_VERSION_MINOR   = 0;
-  WEBVIEW2LOADERLIB_VERSION_RELEASE = 1072;
-  WEBVIEW2LOADERLIB_VERSION_BUILD   = 54;
+  WEBVIEW2LOADERLIB_VERSION_RELEASE = 1210;
+  WEBVIEW2LOADERLIB_VERSION_BUILD   = 39;
 
-  CHROMIUM_VERSION_MAJOR   = 97;
+  CHROMIUM_VERSION_MAJOR   = 101;
   CHROMIUM_VERSION_MINOR   = 0;
-  CHROMIUM_VERSION_RELEASE = 1072;
-  CHROMIUM_VERSION_BUILD   = 55;
+  CHROMIUM_VERSION_RELEASE = 1210;
+  CHROMIUM_VERSION_BUILD   = 39;
 
   CRLF = #13 + #10;
 
@@ -21,7 +21,7 @@ const
   USER_DEFAULT_SCREEN_DPI = 96;
   {$ENDIF}
 
-  // These contants are declared in the "Windows" unit but
+  // These constants are declared in the "Windows" unit but
   // some old Delphi versions don't have them.
   // We have to add "WV2_" to be compatible with C++ Builder.
   WV2_IMAGE_FILE_MACHINE_I386  = $014C;

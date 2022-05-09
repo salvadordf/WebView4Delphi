@@ -27,6 +27,7 @@ type
       FBaseIntf10                              : ICoreWebView2_10;
       FBaseIntf11                              : ICoreWebView2_11;
       FBaseIntf12                              : ICoreWebView2_12;
+      FBaseIntf13                              : ICoreWebView2_13;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -75,6 +76,7 @@ type
       function  GetDefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment;
       function  GetDefaultDownloadDialogMargin : TPoint;
       function  GetStatusBarText : wvstring;
+      function  GetProfile : ICoreWebView2Profile;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
@@ -166,6 +168,7 @@ type
       property DefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment   read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
       property DefaultDownloadDialogMargin          : TPoint                                    read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
       property StatusBarText                        : wvstring                                  read GetStatusBarText;
+      property Profile                              : ICoreWebView2Profile                      read GetProfile;
   end;
 
 implementation
@@ -191,8 +194,9 @@ begin
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8,  FBaseIntf8))  and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_9,  FBaseIntf9))  and
      succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_10, FBaseIntf10)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_11, FBaseIntf11)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2_12, FBaseIntf12);
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_11, FBaseIntf11)) and
+     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_12, FBaseIntf12)) then
+    FBaseIntf.QueryInterface(IID_ICoreWebView2_13, FBaseIntf13);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -236,6 +240,7 @@ begin
   FBaseIntf10          := nil;
   FBaseIntf11          := nil;
   FBaseIntf12          := nil;
+  FBaseIntf13          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -1302,6 +1307,19 @@ begin
       Result := TempString;
       CoTaskMemFree(TempString);
     end;
+end;
+
+function TCoreWebView2.GetProfile : ICoreWebView2Profile;
+var
+  TempResult : ICoreWebView2Profile;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf13) and
+     succeeded(FBaseIntf13.Get_Profile(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
 end;
 
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);

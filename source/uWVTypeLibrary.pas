@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 13/04/2022 10:14:53 from Type Library described below.
+// File generated on 09/05/2022 20:43:26 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: T:\microsoft.web.webview2.1.0.1185.39.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: Z:\microsoft.web.webview2.1.0.1210.39.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -190,6 +190,7 @@ const
   IID_ICoreWebView2Controller3: TGUID = '{F9614724-5D2B-41DC-AEF7-73D62B51543B}';
   IID_ICoreWebView2RasterizationScaleChangedEventHandler: TGUID = '{9C98C8B1-AC53-427E-A345-3049B5524BBE}';
   IID_ICoreWebView2Controller4: TGUID = '{97D418D5-A426-4E49-A151-E1A10F327D9E}';
+  IID_ICoreWebView2ControllerOptions: TGUID = '{12AAE616-8CCB-44EC-BCB3-EB1831881635}';
   IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
@@ -204,6 +205,7 @@ const
   IID_ICoreWebView2ProcessInfoCollection: TGUID = '{402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}';
   IID_ICoreWebView2ProcessInfo: TGUID = '{84FA7612-3F3D-4FBF-889D-FAD000492D72}';
   IID_ICoreWebView2Environment9: TGUID = '{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}';
+  IID_ICoreWebView2Environment10: TGUID = '{EE0EB9DF-6F12-46CE-B53F-3F47B9C928E0}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
@@ -221,12 +223,14 @@ const
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
+  IID_ICoreWebView2Profile: TGUID = '{79110AD3-CD5D-4373-8BC3-C60658F17A5F}';
   IID_ICoreWebView2Settings2: TGUID = '{EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}';
   IID_ICoreWebView2Settings3: TGUID = '{FDB5AB74-AF33-4854-84F0-0A631DEB5EBA}';
   IID_ICoreWebView2Settings4: TGUID = '{CB56846C-4168-4D53-B04F-03B6D6796FF2}';
   IID_ICoreWebView2Settings5: TGUID = '{183E7052-1D03-43A0-AB99-98E043B66B39}';
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
+  IID_ICoreWebView2_13: TGUID = '{F75F09A8-667E-4983-88D6-C8773F315E84}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -530,6 +534,14 @@ const
   COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED = $00000004;
   COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY = $00000005;
 
+// Constants for enum COREWEBVIEW2_PREFERRED_COLOR_SCHEME
+type
+  COREWEBVIEW2_PREFERRED_COLOR_SCHEME = TOleEnum;
+const
+  COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO = $00000000;
+  COREWEBVIEW2_PREFERRED_COLOR_SCHEME_LIGHT = $00000001;
+  COREWEBVIEW2_PREFERRED_COLOR_SCHEME_DARK = $00000002;
+
 // Constants for enum COREWEBVIEW2_PDF_TOOLBAR_ITEMS
 type
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS = TOleEnum;
@@ -538,6 +550,14 @@ const
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE = $00000001;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT = $00000002;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS = $00000004;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_IN = $00000008;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_OUT = $00000010;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ROTATE = $00000020;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE = $00000040;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_LAYOUT = $00000080;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS = $00000100;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR = $00000200;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH = $00000400;
 
 type
 
@@ -657,6 +677,7 @@ type
   ICoreWebView2Controller3 = interface;
   ICoreWebView2RasterizationScaleChangedEventHandler = interface;
   ICoreWebView2Controller4 = interface;
+  ICoreWebView2ControllerOptions = interface;
   ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
@@ -671,6 +692,7 @@ type
   ICoreWebView2ProcessInfoCollection = interface;
   ICoreWebView2ProcessInfo = interface;
   ICoreWebView2Environment9 = interface;
+  ICoreWebView2Environment10 = interface;
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2Frame2 = interface;
@@ -688,12 +710,14 @@ type
   ICoreWebView2NavigationStartingEventArgs2 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
+  ICoreWebView2Profile = interface;
   ICoreWebView2Settings2 = interface;
   ICoreWebView2Settings3 = interface;
   ICoreWebView2Settings4 = interface;
   ICoreWebView2Settings5 = interface;
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
+  ICoreWebView2_13 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -2430,6 +2454,19 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2ControllerOptions
+// Flags:     (0)
+// GUID:      {12AAE616-8CCB-44EC-BCB3-EB1831881635}
+// *********************************************************************//
+  ICoreWebView2ControllerOptions = interface(IUnknown)
+    ['{12AAE616-8CCB-44EC-BCB3-EB1831881635}']
+    function Get_ProfileName(out value: PWideChar): HResult; stdcall;
+    function Set_ProfileName(value: PWideChar): HResult; stdcall;
+    function Get_IsInPrivateModeEnabled(out value: Integer): HResult; stdcall;
+    function Set_IsInPrivateModeEnabled(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
 // Flags:     (0)
 // GUID:      {02FAB84B-1428-4FB7-AD45-1B2E64736184}
@@ -2582,6 +2619,24 @@ type
     function CreateContextMenuItem(Label_: PWideChar; const iconStream: IStream; 
                                    Kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND; 
                                    out item: ICoreWebView2ContextMenuItem): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2Environment10
+// Flags:     (0)
+// GUID:      {EE0EB9DF-6F12-46CE-B53F-3F47B9C928E0}
+// *********************************************************************//
+  ICoreWebView2Environment10 = interface(ICoreWebView2Environment9)
+    ['{EE0EB9DF-6F12-46CE-B53F-3F47B9C928E0}']
+    function CreateCoreWebView2ControllerOptions(out options: ICoreWebView2ControllerOptions): HResult; stdcall;
+    // var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI **************
+    function CreateCoreWebView2ControllerWithOptions(ParentWindow: HWND;
+                                                     const options: ICoreWebView2ControllerOptions;
+                                                     const handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler): HResult; stdcall;
+    // var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI **************
+    function CreateCoreWebView2CompositionControllerWithOptions(ParentWindow: HWND;
+                                                                const options: ICoreWebView2ControllerOptions; 
+                                                                const handler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2797,6 +2852,22 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Profile
+// Flags:     (0)
+// GUID:      {79110AD3-CD5D-4373-8BC3-C60658F17A5F}
+// *********************************************************************//
+  ICoreWebView2Profile = interface(IUnknown)
+    ['{79110AD3-CD5D-4373-8BC3-C60658F17A5F}']
+    function Get_ProfileName(out value: PWideChar): HResult; stdcall;
+    function Get_IsInPrivateModeEnabled(out value: Integer): HResult; stdcall;
+    function Get_ProfilePath(out value: PWideChar): HResult; stdcall;
+    function Get_DefaultDownloadFolderPath(out value: PWideChar): HResult; stdcall;
+    function Set_DefaultDownloadFolderPath(value: PWideChar): HResult; stdcall;
+    function Get_PreferredColorScheme(out value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME): HResult; stdcall;
+    function Set_PreferredColorScheme(value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2Settings2
 // Flags:     (0)
 // GUID:      {EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}
@@ -2862,6 +2933,16 @@ type
     ['{488DC902-35EF-42D2-BC7D-94B65C4BC49C}']
     function Get_HiddenPdfToolbarItems(out hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
     function Set_HiddenPdfToolbarItems(hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_13
+// Flags:     (0)
+// GUID:      {F75F09A8-667E-4983-88D6-C8773F315E84}
+// *********************************************************************//
+  ICoreWebView2_13 = interface(ICoreWebView2_12)
+    ['{F75F09A8-667E-4983-88D6-C8773F315E84}']
+    function Get_Profile(out value: ICoreWebView2Profile): HResult; stdcall;
   end;
 
 implementation

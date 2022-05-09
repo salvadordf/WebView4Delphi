@@ -37,7 +37,6 @@ type
 
     public
       constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess : boolean);
-      destructor  Destroy; override;
   end;
 
 implementation
@@ -58,11 +57,6 @@ begin
   FTargetCompatibleBrowserVersion         := aTargetCompatibleBrowserVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount := aAllowSingleSignOnUsingOSPrimaryAccount;
   FExclusiveUserDataFolderAccess          := aExclusiveUserDataFolderAccess;
-end;
-
-destructor TCoreWebView2EnvironmentOptions.Destroy;
-begin
-  inherited Destroy;
 end;
 
 function TCoreWebView2EnvironmentOptions.Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
