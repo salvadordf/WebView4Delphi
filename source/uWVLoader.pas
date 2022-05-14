@@ -80,6 +80,8 @@ type
       function  GetDefaultUserDataPath : string;
       function  GetEnvironment : ICoreWebView2Environment;
       function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
+      function  GetSupportsCompositionController : boolean;
+      function  GetSupportsControllerOptions : boolean;
       function  GetCustomCommandLineSwitches : wvstring;
       function  GetInstalledRuntimeVersion : wvstring;
 
@@ -177,8 +179,14 @@ type
       property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;                    // --log-level
       property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
 
+      // ICoreWebView2Environment3 properties
+      property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;
+
       // ICoreWebView2Environment8 properties
       property ProcessInfos                           : ICoreWebView2ProcessInfoCollection read GetProcessInfos;
+
+      // ICoreWebView2Environment10 properties
+      property SupportsControllerOptions              : boolean                            read GetSupportsControllerOptions;
 
       // Custom events
       property OnEnvironmentCreated                   : TLoaderNotifyEvent                      read FOnEnvironmentCreated                    write FOnEnvironmentCreated;
@@ -1108,6 +1116,18 @@ begin
     Result := FCoreWebView2Environment.ProcessInfos
    else
     Result := nil;
+end;
+
+function TWVLoader.GetSupportsCompositionController : boolean;
+begin
+  Result := EnvironmentIsInitialized and
+            FCoreWebView2Environment.SupportsCompositionController;
+end;
+
+function TWVLoader.GetSupportsControllerOptions : boolean;
+begin
+  Result := EnvironmentIsInitialized and
+            FCoreWebView2Environment.SupportsControllerOptions;
 end;
 
 function TWVLoader.GetAvailableBrowserVersion : wvstring;

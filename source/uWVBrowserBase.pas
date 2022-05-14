@@ -2099,9 +2099,14 @@ begin
       TempOptionsIntf := nil;
     end
    else
-    Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
-                                                                               self,
-                                                                               TempHResult);
+    begin
+      FProfileName            := '';
+      FIsInPrivateModeEnabled := False;
+
+      Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
+                                                                                 self,
+                                                                                 TempHResult);
+    end;
 
   if not(Result) then
     begin
@@ -2140,9 +2145,14 @@ begin
       TempOptionsIntf := nil;
     end
    else
-    Result := FCoreWebView2Environment.CreateCoreWebView2Controller(FWindowParentHandle,
-                                                                    self,
-                                                                    TempHResult);
+    begin
+      FProfileName            := '';
+      FIsInPrivateModeEnabled := False;
+
+      Result := FCoreWebView2Environment.CreateCoreWebView2Controller(FWindowParentHandle,
+                                                                      self,
+                                                                      TempHResult);
+    end;
 
   if not(Result) then
     begin
