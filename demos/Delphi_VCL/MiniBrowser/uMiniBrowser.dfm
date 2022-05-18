@@ -230,6 +230,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
     OnWebResourceRequested = WVBrowser1WebResourceRequested
     OnWebResourceResponseReceived = WVBrowser1WebResourceResponseReceived
+    OnWebResourceResponseViewGetContentCompleted = WVBrowser1WebResourceResponseViewGetContentCompleted
     OnDownloadStarting = WVBrowser1DownloadStarting
     OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
     OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
@@ -237,6 +238,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
+    OnClearDataForOriginCompleted = WVBrowser1ClearDataForOriginCompleted
     OnBasicAuthenticationRequested = WVBrowser1BasicAuthenticationRequested
     OnStatusBarTextChanged = WVBrowser1StatusBarTextChanged
     Left = 48
@@ -260,6 +262,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object SaveToFileMi: TMenuItem
       Caption = 'Save to file...'
       OnClick = SaveToFileMiClick
+    end
+    object Saveresourceas1: TMenuItem
+      Caption = 'Save resource as...'
+      OnClick = Saveresourceas1Click
     end
     object N2: TMenuItem
       Caption = '-'
@@ -313,6 +319,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object Clearcache1: TMenuItem
       Caption = 'Clear cache'
       OnClick = Clearcache1Click
+    end
+    object Cleatallstorage1: TMenuItem
+      Caption = 'Cleat all browser data'
+      OnClick = Cleatallstorage1Click
     end
     object Offline1: TMenuItem
       Caption = 'Offline'

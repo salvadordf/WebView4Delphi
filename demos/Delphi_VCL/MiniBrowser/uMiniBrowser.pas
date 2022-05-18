@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus,
-  WinApi.TlHelp32, Winapi.PsAPI,
+  WinApi.TlHelp32, Winapi.PsAPI, Winapi.ActiveX, Vcl.AxCtrls,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args, uWVCoreWebView2DownloadOperation,
   uWVBrowserBase, uBasicUserAuthForm;
@@ -55,6 +55,8 @@ type
     Changeuseragentstring1: TMenuItem;
     Muted1: TMenuItem;
     Browserprocesses1: TMenuItem;
+    Cleatallstorage1: TMenuItem;
+    Saveresourceas1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -88,6 +90,7 @@ type
     procedure Changeuseragentstring1Click(Sender: TObject);
     procedure Muted1Click(Sender: TObject);
     procedure Browserprocesses1Click(Sender: TObject);
+    procedure Cleatallstorage1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -107,6 +110,9 @@ type
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1StatusBarTextChanged(Sender: TObject; const aWebView: ICoreWebView2);
+    procedure WVBrowser1ClearDataForOriginCompleted(Sender: TObject; aResult: Boolean);
+    procedure WVBrowser1WebResourceResponseViewGetContentCompleted(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID: Integer);
+    procedure Saveresourceas1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -116,6 +122,7 @@ type
     FGetHeaders        : boolean;
     FHeaders           : TStringList;
     FUserAuthFrm       : TTBasicUserAuthForm;
+    FResourceContents  : TBytes;
 
     procedure UpdateNavButtons(aIsNavigating : boolean);
     procedure UpdateDownloadInfo(aDownloadID : integer);
@@ -140,10 +147,11 @@ implementation
 {$R *.dfm}
 
 uses
-  Winapi.ActiveX, uTextViewerForm,
+  uTextViewerForm,
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2HttpResponseHeaders,
   uWVCoreWebView2HttpHeadersCollectionIterator,
-  uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo;
+  uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo,
+  uWVCoreWebView2Delegates;
 
 procedure TMiniBrowserFrm.Takesnapshot1Click(Sender: TObject);
 var
@@ -268,6 +276,11 @@ begin
   WVBrowser1.ClearCache;
 end;
 
+procedure TMiniBrowserFrm.Cleatallstorage1Click(Sender: TObject);
+begin
+  WVBrowser1.ClearDataForOrigin('*');
+end;
+
 procedure TMiniBrowserFrm.ConfigBtnClick(Sender: TObject);
 var
   TempPoint : TPoint;
@@ -295,6 +308,7 @@ begin
   FHeaders                := TStringList.Create;
   FFileStream             := nil;
   FUserAuthFrm            := nil;
+  FResourceContents       := nil;
   FBlockImages            := False;
   FDownloadIDGen          := 0;
   FDownloadOperation      := nil;
@@ -303,10 +317,10 @@ end;
 
 procedure TMiniBrowserFrm.FormDestroy(Sender: TObject);
 begin
-  if (FHeaders <> nil) then
+  if assigned(FHeaders) then
     FreeAndNil(FHeaders);
 
-  if (FFileStream <> nil) then
+  if assigned(FFileStream) then
     FreeAndNil(FFileStream);
 
   if assigned(FDownloadOperation) then
@@ -471,6 +485,15 @@ begin
     FreeAndNil(FFileStream);
 end;
 
+procedure TMiniBrowserFrm.WVBrowser1ClearDataForOriginCompleted(
+  Sender: TObject; aResult: Boolean);
+begin
+  if aResult then
+    showmessage('Browser data cleared successfully!')
+   else
+    showmessage('There was an error clearing the browser data');
+end;
+
 procedure TMiniBrowserFrm.UpdateDownloadInfo(aDownloadID : integer);
 var
   TempStatus : string;
@@ -609,6 +632,32 @@ begin
     end;
 end;
 
+procedure TMiniBrowserFrm.Saveresourceas1Click(Sender: TObject);
+begin
+  try
+    if assigned(FResourceContents) and (length(FResourceContents) > 0) then
+      begin
+        SaveDialog1.Filter     := 'HTML files (*.html)|*.html';
+        SaveDialog1.DefaultExt := 'html';
+
+        if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+          try
+            if (FFileStream <> nil) then FreeAndNil(FFileStream);
+
+            FFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+            FFileStream.Write(FResourceContents, length(FResourceContents));
+          finally
+            FreeAndNil(FFileStream);
+          end;
+      end;
+  except
+    {$IFDEF DEBUG}
+    on e : exception do
+      OutputDebugString(PWideChar('TMiniBrowserFrm.Saveresourceas1Click error: ' + e.message + chr(0)));
+    {$ENDIF}
+  end;
+end;
+
 procedure TMiniBrowserFrm.WVBrowser1RetrieveHTMLCompleted(Sender: TObject;
   aResult: Boolean; const aHTML: wvstring);
 begin
@@ -669,6 +718,7 @@ var
   TempIterator : TCoreWebView2HttpHeadersCollectionIterator;
   TempName     : wvstring;
   TempValue    : wvstring;
+  TempHandler  : ICoreWebView2WebResourceResponseViewGetContentCompletedHandler;
 begin
   if FGetHeaders then
     try
@@ -676,8 +726,13 @@ begin
       FGetHeaders  := False;
       TempArgs     := TCoreWebView2WebResourceResponseReceivedEventArgs.Create(aArgs);
       TempResponse := TCoreWebView2WebResourceResponseView.Create(TempArgs.Response);
+      TempHandler  := TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Create(WVBrowser1);
       TempHeaders  := TCoreWebView2HttpResponseHeaders.Create(TempResponse.Headers);
       TempIterator := TCoreWebView2HttpHeadersCollectionIterator.Create(TempHeaders.Iterator);
+
+      // GetContent will trigger the TWVBrowserBase.OnWebResourceResponseViewGetContentCompleted
+      // event with the contents of this resource, which in this case corresponds to the HTML contents.
+      TempResponse.GetContent(TempHandler);
 
       while TempIterator.HasCurrentHeader do
         begin
@@ -691,7 +746,35 @@ begin
       FreeAndNil(TempHeaders);
       FreeAndNil(TempResponse);
       FreeAndNil(TempArgs);
+      TempHandler := nil;
     end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1WebResourceResponseViewGetContentCompleted(
+  Sender: TObject; aErrorCode: HRESULT; const aContents: IStream;
+  aResourceID: Integer);
+var
+  TempOLEStream : TOLEStream;
+begin
+  TempOLEStream := nil;
+  try
+    // Copy the resource contents into FResourceContents
+    // The "Save resource as..." menu option will save FResourceContents in an HTML file.
+    if succeeded(aErrorCode) and assigned(aContents) then
+      begin
+        TempOLEStream          := TOLEStream.Create(aContents);
+        TempOLEStream.Position := 0;
+
+        if (TempOLEStream.Size > 0) then
+          begin
+            SetLength(FResourceContents, TempOLEStream.Size);
+            TempOLEStream.Read(FResourceContents, TempOLEStream.Size);
+          end;
+      end;
+  finally
+    if assigned(TempOLEStream) then
+      FreeAndNil(TempOLEStream);
+  end;
 end;
 
 procedure TMiniBrowserFrm.ReloadBtnClick(Sender: TObject);
