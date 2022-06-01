@@ -8,9 +8,9 @@ interface
 
 uses
   {$IFDEF FPC}
-  Windows, Classes, ActiveX, SysUtils, Graphics, Math, Controls,
+  Windows, Classes, ActiveX, SysUtils, Graphics, Math, Controls, StrUtils,
   {$ELSE}
-  Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils, System.Math,
+  Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils, System.Math, System.StrUtils,
   {$ENDIF}
   uWVConstants, uWVTypeLibrary, uWVTypes;
 
@@ -271,7 +271,7 @@ begin
       end;
     Inc(TempPos, 2);
     result := result + Temp;
-    EscapeCharPos := Pos(ESCAPE_CHAR, Source, TempPos);
+    EscapeCharPos := PosEx(ESCAPE_CHAR, Source, TempPos);
   end;
   result := result + Copy(Source, TempPos, Length(Source) - TempPos + 1);
 end;
