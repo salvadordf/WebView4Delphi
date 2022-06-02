@@ -36,6 +36,7 @@ contains
   uWVConstants in '..\source\uWVConstants.pas',
   uWVLibFunctions in '..\source\uWVLibFunctions.pas',
   uWVLoader in '..\source\uWVLoader.pas',
+  uWVLoaderInternal in '..\source\uWVLoaderInternal.pas',
   uWVTypeLibrary in '..\source\uWVTypeLibrary.pas',
   uWVTypes in '..\source\uWVTypes.pas',
   uWVInterfaces in '..\source\uWVInterfaces.pas',

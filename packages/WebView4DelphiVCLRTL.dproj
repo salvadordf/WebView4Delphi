@@ -99,6 +99,7 @@
         <DCCReference Include="..\source\uWVConstants.pas"/>
         <DCCReference Include="..\source\uWVLibFunctions.pas"/>
         <DCCReference Include="..\source\uWVLoader.pas"/>
+        <DCCReference Include="..\source\uWVLoaderInternal.pas"/>
         <DCCReference Include="..\source\uWVTypeLibrary.pas"/>
         <DCCReference Include="..\source\uWVTypes.pas"/>
         <DCCReference Include="..\source\uWVInterfaces.pas"/>

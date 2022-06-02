@@ -38,6 +38,8 @@ type
       FDeviceScaleFactor                      : single;
       FForcedDeviceScaleFactor                : single;
       FReRaiseExceptions                      : boolean;
+      FLoaderDllPath                          : wvstring;
+      FUseInternalLoader                      : boolean;
 
       // Fields used to create the environment
       FAdditionalBrowserArguments             : wvstring;
@@ -141,6 +143,8 @@ type
       property DeviceScaleFactor                      : single                             read FDeviceScaleFactor;
       property ReRaiseExceptions                      : boolean                            read FReRaiseExceptions                       write FReRaiseExceptions;
       property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
+      property LoaderDllPath                          : wvstring                           read FLoaderDllPath                           write FLoaderDllPath;
+      property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
 
       // Properties used to create the environment
       property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;                        // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
@@ -229,7 +233,7 @@ implementation
 
 uses
   uWVConstants, uWVMiscFunctions, uWVCoreWebView2Delegates,
-  uWVCoreWebView2EnvironmentOptions;
+  uWVCoreWebView2EnvironmentOptions, uWVLoaderInternal;
 
 const
   WEBVIEW2LOADERLIB = 'WebView2Loader.dll';
@@ -262,6 +266,8 @@ begin
   FInitCOMLibrary                         := {$IFDEF FPC}True{$ELSE}False{$ENDIF};
   FForcedDeviceScaleFactor                := 0;
   FReRaiseExceptions                      := False;
+  FLoaderDllPath                          := '';
+  FUseInternalLoader                      := False;
   FRemoteDebuggingPort                    := 0;
 
   UpdateDeviceScaleFactor;
@@ -424,7 +430,13 @@ end;
 function TWVLoader.LoadWebView2Library : boolean;
 var
   TempOldDir : string;
+  LoaderLibPath : wvstring;
 begin
+  if FUseInternalLoader then begin
+    Result := True;
+    exit;
+  end;
+
   Result := False;
 
   try
@@ -439,13 +451,19 @@ begin
           end;
 
         FStatus    := wvlsLoading;
-        FLibHandle := LoadLibraryExW(PWideChar(WEBVIEW2LOADERLIB), 0, LOAD_WITH_ALTERED_SEARCH_PATH);
+
+        if FLoaderDllPath <> '' then
+          LoaderLibPath := FLoaderDllPath
+        else
+          LoaderLibPath := WEBVIEW2LOADERLIB;
+
+        FLibHandle := LoadLibraryW(PWideChar(LoaderLibPath));
 
         if (FLibHandle = 0) then
           begin
             FStatus   := wvlsError;
             FError    := GetLastError;
-            FErrorMsg := 'Error loading ' + WEBVIEW2LOADERLIB + CRLF + CRLF +
+            FErrorMsg := 'Error loading ' + LoaderLibPath + CRLF + CRLF +
                          'Error code : 0x' + inttohex(cardinal(FError), 8) + CRLF +
                          SysErrorMessage(cardinal(FError));
 
@@ -468,6 +486,9 @@ end;
 
 procedure TWVLoader.UnLoadWebView2Library;
 begin
+  if FUseInternalLoader then
+    exit;
+
   try
     if (FLibHandle <> 0) then
       begin
@@ -605,16 +626,27 @@ function TWVLoader.CheckWV2DLL : boolean;
 var
   TempMachine : integer;
   TempVersionInfo : TFileVersionInfo;
+  LoaderLibPath: wvstring;
 begin
+  if FUseInternalLoader then begin
+    Result := True;
+    exit;
+  end;
+
   Result := False;
 
-  if CheckDLLVersion(WEBVIEW2LOADERLIB,
+  if FLoaderDllPath <> '' then
+    LoaderLibPath := FLoaderDllPath
+  else
+    LoaderLibPath := WEBVIEW2LOADERLIB;
+
+  if CheckDLLVersion(LoaderLibPath,
                      WEBVIEW2LOADERLIB_VERSION_MAJOR,
                      WEBVIEW2LOADERLIB_VERSION_MINOR,
                      WEBVIEW2LOADERLIB_VERSION_RELEASE,
                      WEBVIEW2LOADERLIB_VERSION_BUILD) then
     begin
-      if GetDLLHeaderMachine(WEBVIEW2LOADERLIB, TempMachine) then
+      if GetDLLHeaderMachine(LoaderLibPath, TempMachine) then
         case TempMachine of
           WV2_IMAGE_FILE_MACHINE_I386 :
             if Is32BitProcess then
@@ -657,7 +689,7 @@ begin
       FStatus   := wvlsError;
       FErrorMsg := 'Unsupported WebView2Loader.dll version !';
 
-      if GetDLLVersion(WEBVIEW2LOADERLIB, TempVersionInfo) then
+      if GetDLLVersion(LoaderLibPath, TempVersionInfo) then
         begin
           FErrorMsg := FErrorMsg + CRLF + CRLF +
                        'Expected WebView2Loader.dll version : ';
@@ -697,7 +729,7 @@ begin
     end;
 
   Result := CheckBrowserExecPath and
-            CheckWV2DLL;
+            (FUseInternalLoader or CheckWV2DLL);
 
   if FSetCurrentDir then chdir(TempOldDir);
 end;
@@ -782,6 +814,17 @@ end;
 
 function TWVLoader.LoadLibProcedures : boolean;
 begin
+  if FUseInternalLoader then
+    begin
+      CreateCoreWebView2EnvironmentWithOptions     := Internal_CreateCoreWebView2EnvironmentWithOptions;
+      CreateCoreWebView2Environment                := Internal_CreateCoreWebView2Environment;
+      GetAvailableCoreWebView2BrowserVersionString := Internal_GetAvailableCoreWebView2BrowserVersionString;
+      CompareBrowserVersions                       := Internal_CompareBrowserVersions;
+      FStatus := wvlsImported;
+      Result := True;
+      exit;
+    end;
+
   Result := False;
 
   try
