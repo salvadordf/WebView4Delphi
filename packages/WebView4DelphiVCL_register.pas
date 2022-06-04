@@ -1,4 +1,4 @@
-unit WebView4Delphi_register;
+unit WebView4DelphiVCL_register;
 
 {$R res\webview4delphi.dcr}
 
@@ -9,13 +9,12 @@ procedure Register;
 implementation
 
 uses
-  System.Classes, uWVBrowser, uWVWindowParent, uWVFMXBrowser;
+  System.Classes, uWVBrowser, uWVWindowParent;
 
 procedure Register;
 begin
   RegisterComponents('WebView4Delphi', [TWVBrowser]);
   RegisterComponents('WebView4Delphi', [TWVWindowParent]);
-  RegisterComponents('WebView4Delphi', [TWVFMXBrowser]);
 end;
 
 end.

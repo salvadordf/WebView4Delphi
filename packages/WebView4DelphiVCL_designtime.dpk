@@ -1,4 +1,4 @@
-package WebView4Delphi_designtime;
+package WebView4DelphiVCL_designtime;
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
@@ -24,17 +24,16 @@ package WebView4Delphi_designtime;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'WebView4Delphi'}
+{$DESCRIPTION 'WebView4Delphi VCL'}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
 
 requires
   rtl,
   vcl,
-  WebView4DelphiVCLRTL,
-  WebView4DelphiFMXRTL;
+  WebView4DelphiVCLRTL;
 
 contains
-  WebView4Delphi_register in 'WebView4Delphi_register.pas';
+  WebView4DelphiVCL_register in 'WebView4DelphiVCL_register.pas';
 
 end.

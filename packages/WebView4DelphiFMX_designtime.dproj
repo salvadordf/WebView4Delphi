@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{9E27A6E7-4432-4661-A8FE-F7CC613CDF61}</ProjectGuid>
-        <MainSource>WebView4Delphi_designtime.dpk</MainSource>
+        <ProjectGuid>{BB9E393E-A00B-454B-9785-0537BF04F1F4}</ProjectGuid>
+        <MainSource>WebView4DelphiFMX_designtime.dpk</MainSource>
         <ProjectVersion>19.4</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
@@ -66,7 +66,7 @@
         <GenPackage>true</GenPackage>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
-        <SanitizedProjectName>WebView4Delphi_designtime</SanitizedProjectName>
+        <SanitizedProjectName>WebView4DelphiFMX_designtime</SanitizedProjectName>
         <DesignOnlyPackage>true</DesignOnlyPackage>
         <VerInfo_Locale>3082</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -95,10 +95,10 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UsePackage>vcl;rtl;WebView4Delphi_runtime;WebView4DelphiFMXRTL;WebView4DelphiVCLRTL;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vcl;rtl;WebView4DelphiFMXRTL;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>vcl;rtl;WebView4Delphi_runtime;WebView4DelphiVCLRTL;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vcl;rtl;WebView4DelphiFMXRTL;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -127,9 +127,8 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="vcl.dcp"/>
-        <DCCReference Include="WebView4DelphiVCLRTL.dcp"/>
         <DCCReference Include="WebView4DelphiFMXRTL.dcp"/>
-        <DCCReference Include="WebView4Delphi_register.pas"/>
+        <DCCReference Include="WebView4DelphiFMX_register.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -148,7 +147,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">WebView4Delphi_designtime.dpk</Source>
+                    <Source Name="MainSource">WebView4DelphiFMX_designtime.dpk</Source>
                 </Source>
                 <Excluded_Packages/>
             </Delphi.Personality>
@@ -178,9 +177,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="C:\Components_10\TEMP\Delphi\Bpl\WebView4Delphi_designtime.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="C:\Components_10\TEMP\Delphi\Bpl\WebView4DelphiFMX_designtime.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>WebView4Delphi_designtime.bpl</RemoteName>
+                        <RemoteName>WebView4DelphiFMX_designtime.bpl</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
