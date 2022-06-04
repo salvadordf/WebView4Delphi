@@ -38,6 +38,8 @@ type
       FDeviceScaleFactor                      : single;
       FForcedDeviceScaleFactor                : single;
       FReRaiseExceptions                      : boolean;
+      FLoaderDllPath                          : wvstring;
+      FUseInternalLoader                      : boolean;
 
       // Fields used to create the environment
       FAdditionalBrowserArguments             : wvstring;
@@ -72,6 +74,7 @@ type
       FDebugLog                               : TWV2DebugLog;
       FDebugLogLevel                          : TWV2DebugLogLevel;
       FJavaScriptFlags                        : wvstring;
+      FDisableEdgePitchNotification           : boolean;
 
       function  GetAvailableBrowserVersion : wvstring;
       function  GetInitialized : boolean;
@@ -141,6 +144,8 @@ type
       property DeviceScaleFactor                      : single                             read FDeviceScaleFactor;
       property ReRaiseExceptions                      : boolean                            read FReRaiseExceptions                       write FReRaiseExceptions;
       property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
+      property LoaderDllPath                          : wvstring                           read FLoaderDllPath                           write FLoaderDllPath;
+      property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
 
       // Properties used to create the environment
       property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;                        // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
@@ -178,6 +183,7 @@ type
       property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;                         // --enable-logging
       property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;                    // --log-level
       property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
+      property DisableEdgePitchNotification           : boolean                            read FDisableEdgePitchNotification            write FDisableEdgePitchNotification;     // --disable-features=msEdgeRose
 
       // ICoreWebView2Environment3 properties
       property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;
@@ -229,7 +235,7 @@ implementation
 
 uses
   uWVConstants, uWVMiscFunctions, uWVCoreWebView2Delegates,
-  uWVCoreWebView2EnvironmentOptions;
+  uWVCoreWebView2EnvironmentOptions, uWVLoaderInternal;
 
 const
   WEBVIEW2LOADERLIB = 'WebView2Loader.dll';
@@ -262,6 +268,8 @@ begin
   FInitCOMLibrary                         := {$IFDEF FPC}True{$ELSE}False{$ENDIF};
   FForcedDeviceScaleFactor                := 0;
   FReRaiseExceptions                      := False;
+  FLoaderDllPath                          := '';
+  FUseInternalLoader                      := False;
   FRemoteDebuggingPort                    := 0;
 
   UpdateDeviceScaleFactor;
@@ -297,6 +305,7 @@ begin
   FDebugLog                               := TWV2DebugLog.dlDisabled;
   FDebugLogLevel                          := TWV2DebugLogLevel.dllDefault;
   FJavaScriptFlags                        := '';
+  FDisableEdgePitchNotification           := True;
 
   FProxySettings := TWVProxySettings.Create;
 
@@ -424,8 +433,15 @@ end;
 function TWVLoader.LoadWebView2Library : boolean;
 var
   TempOldDir : string;
+  TempLoaderLibPath : wvstring;
 begin
   Result := False;
+
+  if FUseInternalLoader then
+    begin
+      Result := True;
+      exit;
+    end;
 
   try
     if (FLibHandle <> 0) then
@@ -438,14 +454,20 @@ begin
             chdir(GetModulePath);
           end;
 
-        FStatus    := wvlsLoading;
-        FLibHandle := LoadLibraryExW(PWideChar(WEBVIEW2LOADERLIB), 0, LOAD_WITH_ALTERED_SEARCH_PATH);
+        FStatus := wvlsLoading;
+
+        if (FLoaderDllPath <> '') then
+          TempLoaderLibPath := FLoaderDllPath
+         else
+          TempLoaderLibPath := WEBVIEW2LOADERLIB;
+
+        FLibHandle := LoadLibraryW(PWideChar(TempLoaderLibPath));
 
         if (FLibHandle = 0) then
           begin
             FStatus   := wvlsError;
             FError    := GetLastError;
-            FErrorMsg := 'Error loading ' + WEBVIEW2LOADERLIB + CRLF + CRLF +
+            FErrorMsg := 'Error loading ' + TempLoaderLibPath + CRLF + CRLF +
                          'Error code : 0x' + inttohex(cardinal(FError), 8) + CRLF +
                          SysErrorMessage(cardinal(FError));
 
@@ -468,6 +490,9 @@ end;
 
 procedure TWVLoader.UnLoadWebView2Library;
 begin
+  if FUseInternalLoader then
+    exit;
+
   try
     if (FLibHandle <> 0) then
       begin
@@ -605,16 +630,28 @@ function TWVLoader.CheckWV2DLL : boolean;
 var
   TempMachine : integer;
   TempVersionInfo : TFileVersionInfo;
+  TempLoaderLibPath : wvstring;
 begin
   Result := False;
 
-  if CheckDLLVersion(WEBVIEW2LOADERLIB,
+  if FUseInternalLoader then
+    begin
+      Result := True;
+      exit;
+    end;
+
+  if FLoaderDllPath <> '' then
+    TempLoaderLibPath := FLoaderDllPath
+   else
+    TempLoaderLibPath := WEBVIEW2LOADERLIB;
+
+  if CheckDLLVersion(TempLoaderLibPath,
                      WEBVIEW2LOADERLIB_VERSION_MAJOR,
                      WEBVIEW2LOADERLIB_VERSION_MINOR,
                      WEBVIEW2LOADERLIB_VERSION_RELEASE,
                      WEBVIEW2LOADERLIB_VERSION_BUILD) then
     begin
-      if GetDLLHeaderMachine(WEBVIEW2LOADERLIB, TempMachine) then
+      if GetDLLHeaderMachine(TempLoaderLibPath, TempMachine) then
         case TempMachine of
           WV2_IMAGE_FILE_MACHINE_I386 :
             if Is32BitProcess then
@@ -657,7 +694,7 @@ begin
       FStatus   := wvlsError;
       FErrorMsg := 'Unsupported WebView2Loader.dll version !';
 
-      if GetDLLVersion(WEBVIEW2LOADERLIB, TempVersionInfo) then
+      if GetDLLVersion(TempLoaderLibPath, TempVersionInfo) then
         begin
           FErrorMsg := FErrorMsg + CRLF + CRLF +
                        'Expected WebView2Loader.dll version : ';
@@ -697,7 +734,7 @@ begin
     end;
 
   Result := CheckBrowserExecPath and
-            CheckWV2DLL;
+            (FUseInternalLoader or CheckWV2DLL);
 
   if FSetCurrentDir then chdir(TempOldDir);
 end;
@@ -784,6 +821,17 @@ function TWVLoader.LoadLibProcedures : boolean;
 begin
   Result := False;
 
+  if FUseInternalLoader then
+    begin
+      CreateCoreWebView2EnvironmentWithOptions     := Internal_CreateCoreWebView2EnvironmentWithOptions;
+      CreateCoreWebView2Environment                := Internal_CreateCoreWebView2Environment;
+      GetAvailableCoreWebView2BrowserVersionString := Internal_GetAvailableCoreWebView2BrowserVersionString;
+      CompareBrowserVersions                       := Internal_CompareBrowserVersions;
+      FStatus := wvlsImported;
+      Result := True;
+      exit;
+    end;
+
   try
     if (FLibHandle <> 0) then
       begin
@@ -835,12 +883,22 @@ begin
   // https://source.chromium.org/search?q=base::Feature
   TempFeatures := FDisableFeatures;
 
+  // This is the workaround given my Microsoft to disable the SmartScreen protection.
   if not(FSmartScreenProtectionEnabled) then
     begin
       if (length(TempFeatures) > 0) then
         TempFeatures := TempFeatures + ',msSmartScreenProtection'
        else
         TempFeatures := 'msSmartScreenProtection';
+    end;
+
+  // This is the workaround given my Microsoft to disable the "Download Edge" notifications.
+  if FDisableEdgePitchNotification then
+    begin
+      if (length(TempFeatures) > 0) then
+        TempFeatures := TempFeatures + ',msEdgeRose'
+       else
+        TempFeatures := 'msEdgeRose';
     end;
 
   if (length(TempFeatures) > 0) then

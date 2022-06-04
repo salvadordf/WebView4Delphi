@@ -13,7 +13,7 @@
       </SearchPaths>
     </CompilerOptions>
     <Version Major="1" Release="1210" Build="39"/>
-    <Files Count="47">
+    <Files Count="48">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
         <HasRegisterProc Value="True"/>
@@ -204,6 +204,10 @@
         <Filename Value="..\source\uWVCoreWebView2ContextMenuTarget.pas"/>
         <UnitName Value="uWVCoreWebView2ContextMenuTarget"/>
       </Item47>
+      <Item48>
+        <Filename Value="..\source\uWVLoaderInternal.pas"/>
+        <UnitName Value="uWVLoaderInternal"/>
+      </Item48>
     </Files>
     <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">

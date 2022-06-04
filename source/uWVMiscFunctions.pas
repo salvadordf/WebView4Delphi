@@ -42,7 +42,7 @@ function JSONEscape(const Source: wvstring): wvstring;
 
 function CustomPathIsRelative(const aPath : wvstring) : boolean;
 function CustomPathCanonicalize(const aOriginalPath : wvstring; var aCanonicalPath : wvstring) : boolean;
-function CustomAbsolutePath(const aPath : wvstring) : wvstring;
+function CustomAbsolutePath(const aPath : wvstring; aMustExist : boolean = False) : wvstring;
 function CustomPathIsURL(const aPath : wvstring) : boolean;
 function CustomPathIsUNC(const aPath : wvstring) : boolean;
 function GetModulePath : wvstring;
@@ -568,7 +568,7 @@ begin
     end;
 end;
 
-function CustomAbsolutePath(const aPath : wvstring) : wvstring;
+function CustomAbsolutePath(const aPath : wvstring; aMustExist : boolean) : wvstring;
 var
   TempNewPath, TempOldPath : wvstring;
 begin
@@ -582,7 +582,10 @@ begin
       if not(CustomPathCanonicalize(TempOldPath, TempNewPath)) then
         TempNewPath := TempOldPath;
 
-      Result := TempNewPath;
+      if aMustExist and not(DirectoryExists(TempNewPath)) then
+        Result := ''
+       else
+        Result := TempNewPath;
     end
    else
     Result := '';
