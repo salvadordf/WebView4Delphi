@@ -51,7 +51,7 @@ type
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates;
+  uWVMiscFunctions, uWVBrowserBase, uWVCoreWebView2Delegates;
 
 constructor TCoreWebView2CompositionController.Create(const aBaseIntf: ICoreWebView2CompositionController);
 begin
@@ -62,7 +62,7 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2CompositionController2, FBaseIntf2);
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2CompositionController.Destroy;

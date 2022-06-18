@@ -82,6 +82,7 @@ contains
   uWVCoreWebView2ContextMenuTarget in '..\source\uWVCoreWebView2ContextMenuTarget.pas',
   uWVCoreWebView2Profile in '..\source\uWVCoreWebView2Profile.pas',
   uWVCoreWebView2ControllerOptions in '..\source\uWVCoreWebView2ControllerOptions.pas',
-  uWVLoaderInternal in '..\source\uWVLoaderInternal.pas';
+  uWVLoaderInternal in '..\source\uWVLoaderInternal.pas',
+  uWVCoreWebView2Certificate in '..\source\uWVCoreWebView2Certificate.pas';
 
 end.

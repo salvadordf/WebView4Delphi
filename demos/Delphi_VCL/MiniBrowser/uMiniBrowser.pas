@@ -110,9 +110,13 @@ type
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: Boolean; const aMHTML: wvstring);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1StatusBarTextChanged(Sender: TObject; const aWebView: ICoreWebView2);
-    procedure WVBrowser1ClearDataForOriginCompleted(Sender: TObject; aResult: Boolean);
     procedure WVBrowser1WebResourceResponseViewGetContentCompleted(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID: Integer);
     procedure Saveresourceas1Click(Sender: TObject);
+    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject;
+      aErrorCode: HRESULT);
+    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject;
+      const aWebView: ICoreWebView2;
+      const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -278,7 +282,7 @@ end;
 
 procedure TMiniBrowserFrm.Cleatallstorage1Click(Sender: TObject);
 begin
-  WVBrowser1.ClearDataForOrigin('*');
+  WVBrowser1.ClearBrowsingDataAll;
 end;
 
 procedure TMiniBrowserFrm.ConfigBtnClick(Sender: TObject);
@@ -457,6 +461,9 @@ begin
   // We need to a filter to enable the TWVBrowser.OnWebResourceRequested event
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE);
   WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA);
+
+  WVBrowser1.CoreWebView2PrintSettings.HeaderTitle := 'Tituloooooo';
+  WVBrowser1.CoreWebView2PrintSettings.ShouldPrintHeaderAndFooter := True;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1BasicAuthenticationRequested(
@@ -485,10 +492,10 @@ begin
     FreeAndNil(FFileStream);
 end;
 
-procedure TMiniBrowserFrm.WVBrowser1ClearDataForOriginCompleted(
-  Sender: TObject; aResult: Boolean);
+procedure TMiniBrowserFrm.WVBrowser1ClearBrowsingDataCompleted(
+  Sender: TObject; aErrorCode: HRESULT);
 begin
-  if aResult then
+  if succeeded(aErrorCode) then
     showmessage('Browser data cleared successfully!')
    else
     showmessage('There was an error clearing the browser data');
@@ -579,9 +586,15 @@ begin
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
+var
+  TempArgs : TCoreWebView2NavigationCompletedEventArgs;
+  TempStatus : integer;
 begin
+  TempArgs := TCoreWebView2NavigationCompletedEventArgs.Create(aArgs);
+  TempStatus := TempArgs.HttpStatusCode;
+  TempArgs.Free;
   UpdateNavButtons(False);
-  StatusBar1.Panels[0].Text := 'Navigation completed.';
+  StatusBar1.Panels[0].Text := 'Navigation completed. HTTP Status code: ' + inttostr(TempStatus);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
@@ -677,6 +690,20 @@ procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
 begin
   if aResult then
     SaveAsTextFile(SaveDialog1.FileName, aText);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ServerCertificateErrorDetected(
+  Sender: TObject; const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+var
+  TempArgs : TCoreWebView2ServerCertificateErrorDetectedEventArgs;
+begin
+  StatusBar1.Panels[0].Text := 'Server certificate error detected';
+
+  // This will override the safety warning and allow the bad server certificate
+  TempArgs        := TCoreWebView2ServerCertificateErrorDetectedEventArgs.Create(aArgs);
+  TempArgs.Action := COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW;
+  TempArgs.Free;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
@@ -847,9 +874,14 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
+
+  // Set GlobalWebView2Loader.BrowserExecPath if you don't want to use the evergreen version of WebView Runtime
+  //GlobalWebView2Loader.BrowserExecPath := 'c:\WVRuntime';
+
   // Uncomment these lines to enable the debug log in 'CustomCache\EBWebView\chrome_debug.log'
   //GlobalWebView2Loader.DebugLog       := TWV2DebugLog.dlEnabled;
   //GlobalWebView2Loader.DebugLogLevel  := TWV2DebugLogLevel.dllInfo;
+
   GlobalWebView2Loader.StartWebView2;
 
 end.

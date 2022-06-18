@@ -48,6 +48,7 @@ type
       FProfileName                                    : wvstring;
       FIsInPrivateModeEnabled                         : boolean;
       FMenuItemHandler                                : ICoreWebView2CustomItemSelectedEventHandler;
+      FClearBrowsingDataCompletedHandler              : ICoreWebView2ClearBrowsingDataCompletedHandler;
 
       FOldWidget0CompWndPrc                           : TFNWndProc;
       FOldWidget1CompWndPrc                           : TFNWndProc;
@@ -138,6 +139,9 @@ type
       FOnCustomItemSelected                           : TOnCustomItemSelectedEvent;
       FOnStatusBarTextChanged                         : TOnStatusBarTextChangedEvent;
       FOnFramePermissionRequested                     : TOnFramePermissionRequestedEvent;
+      FOnClearBrowsingDataCompleted                   : TOnClearBrowsingDataCompletedEvent;
+      FOnServerCertificateErrorActionsCompleted       : TOnServerCertificateErrorActionsCompletedEvent;
+      FOnServerCertificateErrorDetected               : TOnServerCertificateErrorDetectedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -313,6 +317,9 @@ type
       function CustomItemSelectedEventHandler_Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HRESULT;
       function StatusBarTextChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HRESULT;
+      function ClearBrowsingDataCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+      function ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+      function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -386,10 +393,13 @@ type
       procedure doOnCustomItemSelectedEvent(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown); virtual;
       procedure doOnStatusBarTextChangedEvent(const sender: ICoreWebView2; const args: IUnknown); virtual;
       procedure doOnFramePermissionRequestedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer); virtual;
-
+      procedure doOnClearBrowsingDataCompletedEvent(aErrorCode: HRESULT); virtual;
+      procedure doOnServerCertificateErrorActionsCompletedEvent(aErrorCode: HRESULT); virtual;
+      procedure doOnServerCertificateErrorDetectedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs); virtual;
     public
       constructor Create(AOwner: TComponent); override;
       destructor  Destroy; override;
+      procedure   AfterConstruction; override;
 
       function    CreateBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean = True) : boolean; overload;
       function    CreateBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean; overload;
@@ -482,6 +492,10 @@ type
 
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
       function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+
+      function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;
+      function    ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime): boolean;
+      function    ClearBrowsingDataAll: boolean;
 
       // Custom properties
       property Initialized                            : boolean                                     read GetInitialized;
@@ -656,6 +670,10 @@ type
       // ICoreWebView2_12 events
       property OnStatusBarTextChanged                         : TOnStatusBarTextChangedEvent                           read FOnStatusBarTextChanged                          write FOnStatusBarTextChanged;
 
+      // ICoreWebView2_14 events
+      property OnServerCertificateErrorActionsCompleted        : TOnServerCertificateErrorActionsCompletedEvent        read FOnServerCertificateErrorActionsCompleted        write FOnServerCertificateErrorActionsCompleted;
+      property OnServerCertificateErrorDetected                : TOnServerCertificateErrorDetectedEvent                read FOnServerCertificateErrorDetected                write FOnServerCertificateErrorDetected;
+
       // ICoreWebView2Controller events
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
@@ -694,6 +712,9 @@ type
       // ICoreWebView2ContextMenuItem events
       property OnCustomItemSelected                            : TOnCustomItemSelectedEvent                            read FOnCustomItemSelected                            write FOnCustomItemSelected;
 
+      // ICoreWebView2Profile2 events
+      property OnClearBrowsingDataCompleted                    : TOnClearBrowsingDataCompletedEvent                    read FOnClearBrowsingDataCompleted                    write FOnClearBrowsingDataCompleted;
+
       // Custom events
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
@@ -727,7 +748,8 @@ type
 implementation
 
 uses
-  uWVMiscFunctions, uWVCoreWebView2EnvironmentOptions, uWVCoreWebView2ControllerOptions;
+  uWVMiscFunctions, uWVCoreWebView2EnvironmentOptions, uWVCoreWebView2ControllerOptions,
+  uWVCoreWebView2Profile;
 
 constructor TWVBrowserBase.Create(AOwner: TComponent);
 begin
@@ -753,6 +775,7 @@ begin
   FProfileName                                     := '';
   FIsInPrivateModeEnabled                          := False;
   FMenuItemHandler                                 := nil;
+  FClearBrowsingDataCompletedHandler               := nil;
 
   FOldWidget0CompWndPrc                            := nil;
   FOldWidget1CompWndPrc                            := nil;
@@ -843,6 +866,9 @@ begin
   FOnCustomItemSelected                            := nil;
   FOnStatusBarTextChanged                          := nil;
   FOnFramePermissionRequested                      := nil;
+  FOnClearBrowsingDataCompleted                    := nil;
+  FOnServerCertificateErrorActionsCompleted        := nil;
+  FOnServerCertificateErrorDetected                := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -856,6 +882,7 @@ begin
     DestroyController;
     DestroyCompositionController;
     DestroyMenuItemHandler;
+    FClearBrowsingDataCompletedHandler := nil;
   finally
     inherited Destroy;
   end;
@@ -901,7 +928,7 @@ procedure TWVBrowserBase.DestroyMenuItemHandler;
 begin
   try
     try
-      // WebView2 doesn't release any ICoreWebView2CustomItemSelectedEventHandler instance
+      // WebView2 doesn't release any ICoreWebView2CustomItemSelectedEventHandler instances
       while assigned(FMenuItemHandler) and
             (TCoreWebView2CustomItemSelectedEventHandler(FMenuItemHandler).RefCount > 1) do
         FMenuItemHandler._Release;
@@ -912,6 +939,13 @@ begin
   finally
     FMenuItemHandler := nil;
   end;
+end;
+
+procedure TWVBrowserBase.AfterConstruction;
+begin
+  inherited AfterConstruction;
+
+  FClearBrowsingDataCompletedHandler := TCoreWebView2ClearBrowsingDataCompletedHandler.Create(self);
 end;
 
 {$IFNDEF FPC}
@@ -1782,7 +1816,27 @@ begin
     FOnFramePermissionRequested(self, sender, args, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring);
+procedure TWVBrowserBase.doOnClearBrowsingDataCompletedEvent(aErrorCode: HRESULT);
+begin
+  if assigned(FOnClearBrowsingDataCompleted) then
+    FOnClearBrowsingDataCompleted(self, aErrorCode);
+end;
+
+procedure TWVBrowserBase.doOnServerCertificateErrorActionsCompletedEvent(aErrorCode: HRESULT);
+begin
+  if assigned(FOnServerCertificateErrorActionsCompleted) then
+    FOnServerCertificateErrorActionsCompleted(self, aErrorCode);
+end;
+
+procedure TWVBrowserBase.doOnServerCertificateErrorDetectedEvent(const sender : ICoreWebView2;
+                                                                 const args   : ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+begin
+  if assigned(FOnServerCertificateErrorDetected) then
+    FOnServerCertificateErrorDetected(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
+                                                    const aReturnObjectAsJson : wvstring);
 var
   TempMHTML  : wvstring;
   TempResult : boolean;
@@ -1996,6 +2050,25 @@ function TWVBrowserBase.FramePermissionRequestedEventHandler_Invoke(const sender
 begin
   Result := S_OK;
   doOnFramePermissionRequestedEvent(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.ClearBrowsingDataCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+begin
+  Result := S_OK;
+  doOnClearBrowsingDataCompletedEvent(errorCode);
+end;
+
+function TWVBrowserBase.ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+begin
+  Result := S_OK;
+  doOnServerCertificateErrorActionsCompletedEvent(errorCode);
+end;
+
+function TWVBrowserBase.ServerCertificateErrorDetectedEventHandler_Invoke(const sender : ICoreWebView2;
+                                                                          const args   : ICoreWebView2ServerCertificateErrorDetectedEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnServerCertificateErrorDetectedEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -3842,6 +3915,57 @@ begin
   Result := FUseCompositionController and
             Initialized and
             FCoreWebView2CompositionController.SendPointerInput(aEventKind, aPointerInfo);
+end;
+
+function TWVBrowserBase.ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := False;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.ClearBrowsingData(dataKinds, FClearBrowsingDataCompletedHandler);
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+function TWVBrowserBase.ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime): boolean;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := False;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.ClearBrowsingDataInTimeRange(dataKinds, startTime, endTime, FClearBrowsingDataCompletedHandler);
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+function TWVBrowserBase.ClearBrowsingDataAll: boolean;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := False;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.ClearBrowsingDataAll(FClearBrowsingDataCompletedHandler);
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
 end;
 
 end.

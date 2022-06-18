@@ -47,6 +47,8 @@ type
   TWVMenuTargetKind                       = type COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND;
   TWVPDFToolbarItems                      = type COREWEBVIEW2_PDF_TOOLBAR_ITEMS;
   TWVPreferredColorScheme                 = type COREWEBVIEW2_PREFERRED_COLOR_SCHEME;
+  TWVBrowsingDataKinds                    = type COREWEBVIEW2_BROWSING_DATA_KINDS;
+  TWVServerCertificateErrorAction         = type COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

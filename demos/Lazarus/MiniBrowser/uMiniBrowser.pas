@@ -21,6 +21,7 @@ type
 
   TMiniBrowserFrm = class(TForm)
     MenuItem1: TMenuItem;
+    Cleatallstorage1: TMenuItem;
     Muted1: TMenuItem;
     SaveToFileMi: TMenuItem;
     MenuItem3: TMenuItem;
@@ -61,6 +62,7 @@ type
     Offline1: TMenuItem;
     Ignorecertificateerrors1: TMenuItem;
 
+    procedure Cleatallstorage1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -97,12 +99,17 @@ type
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
+    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject;
+      aErrorCode: HRESULT);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: boolean; const aMHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: boolean; const aText: wvstring);
+    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject;
+      const aWebView: ICoreWebView2;
+      const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
     procedure WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
@@ -350,6 +357,11 @@ begin
       Timer1.Enabled := True;
 end;
 
+procedure TMiniBrowserFrm.Cleatallstorage1Click(Sender: TObject);
+begin
+  WVBrowser1.ClearBrowsingDataAll;
+end;
+
 procedure TMiniBrowserFrm.ForwardBtnClick(Sender: TObject);
 begin
   WVBrowser1.GoForward;
@@ -442,6 +454,15 @@ begin
   // Modal forms and dialogs must be shown outside WebView events
   // https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/threading-model
   PostMessage(Handle, PWV_SHOWUSERAUTH, 0, 0);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ClearBrowsingDataCompleted(Sender: TObject;
+  aErrorCode: HRESULT);
+begin
+  if succeeded(aErrorCode) then
+    showmessage('Browser data cleared successfully!')
+   else
+    showmessage('There was an error clearing the browser data');
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1BytesReceivedChanged(Sender: TObject;
@@ -590,9 +611,15 @@ begin
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
+var
+  TempArgs : TCoreWebView2NavigationCompletedEventArgs;
+  TempStatus : integer;
 begin
+  TempArgs := TCoreWebView2NavigationCompletedEventArgs.Create(aArgs);
+  TempStatus := TempArgs.HttpStatusCode;
+  TempArgs.Free;
   UpdateNavButtons(False);
-  StatusBar1.Panels[0].Text := 'Navigation completed.';
+  StatusBar1.Panels[0].Text := 'Navigation completed. HTTP Status code: ' + inttostr(TempStatus);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
@@ -638,7 +665,21 @@ procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
 begin
   if aResult then
     SaveAsTextFile(SaveDialog1.FileName, aText);
-end;   
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ServerCertificateErrorDetected(
+  Sender: TObject; const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+var
+  TempArgs : TCoreWebView2ServerCertificateErrorDetectedEventArgs;
+begin
+  StatusBar1.Panels[0].Text := 'Server certificate error detected';
+
+  // This will override the safety warning and allow the bad server certificate
+  TempArgs        := TCoreWebView2ServerCertificateErrorDetectedEventArgs.Create(aArgs);
+  TempArgs.Action := COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW;
+  TempArgs.Free;
+end;
 
 procedure TMiniBrowserFrm.SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
 var
@@ -779,9 +820,14 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := UTF8Decode(ExtractFileDir(Application.ExeName) + '\CustomCache');
+
+  // Set GlobalWebView2Loader.BrowserExecPath if you don't want to use the evergreen version of WebView Runtime
+  //GlobalWebView2Loader.BrowserExecPath := 'c:\WVRuntime';
+
   // Uncomment these lines to enable the debug log in 'CustomCache\EBWebView\chrome_debug.log'
   //GlobalWebView2Loader.DebugLog       := TWV2DebugLog.dlEnabled;
   //GlobalWebView2Loader.DebugLogLevel  := TWV2DebugLogLevel.dllInfo;
+
   GlobalWebView2Loader.StartWebView2;
 
 end.

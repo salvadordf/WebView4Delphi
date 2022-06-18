@@ -146,6 +146,7 @@
         <DCCReference Include="..\source\uWVCoreWebView2Profile.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ControllerOptions.pas"/>
         <DCCReference Include="..\source\uWVLoaderInternal.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2Certificate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

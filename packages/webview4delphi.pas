@@ -30,7 +30,7 @@ uses
   uWVCoreWebView2ProcessInfo, uWVCoreWebView2ProcessInfoCollection, 
   uWVCoreWebView2BasicAuthenticationResponse, uWVCoreWebView2ContextMenuItem, 
   uWVCoreWebView2ContextMenuItemCollection, uWVCoreWebView2ContextMenuTarget, 
-  uWVLoaderInternal, LazarusPackageIntf;
+  uWVLoaderInternal, uWVCoreWebView2Certificate, LazarusPackageIntf;
 
 implementation
 

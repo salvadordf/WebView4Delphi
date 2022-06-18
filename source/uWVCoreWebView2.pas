@@ -28,6 +28,7 @@ type
       FBaseIntf11                              : ICoreWebView2_11;
       FBaseIntf12                              : ICoreWebView2_12;
       FBaseIntf13                              : ICoreWebView2_13;
+      FBaseIntf14                              : ICoreWebView2_14;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -55,6 +56,7 @@ type
       FBasicAuthenticationRequestedToken       : EventRegistrationToken;
       FContextMenuRequestedToken               : EventRegistrationToken;
       FStatusBarTextChangedToken               : EventRegistrationToken;
+      FServerCertificateErrorDetectedToken     : EventRegistrationToken;
 
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -114,6 +116,7 @@ type
       function  AddBasicAuthenticationRequestedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddContextMenuRequestedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddStatusBarTextChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddServerCertificateErrorDetectedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -149,6 +152,7 @@ type
       function    RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
       function    OpenDefaultDownloadDialog : boolean;
       function    CloseDefaultDownloadDialog : boolean;
+      function    ClearServerCertificateErrorActions(const aBrowserComponent : TComponent) : boolean;
 
       property Initialized                          : boolean                                   read GetInitialized;
       property BaseIntf                             : ICoreWebView2                             read FBaseIntf;
@@ -185,18 +189,19 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_2,  FBaseIntf2))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_3,  FBaseIntf3))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_4,  FBaseIntf4))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_5,  FBaseIntf5))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_6,  FBaseIntf6))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_7,  FBaseIntf7))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_8,  FBaseIntf8))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_9,  FBaseIntf9))  and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_10, FBaseIntf10)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_11, FBaseIntf11)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2_12, FBaseIntf12)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2_13, FBaseIntf13);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_2,  FBaseIntf2)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_3,  FBaseIntf3)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_4,  FBaseIntf4)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_5,  FBaseIntf5)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_6,  FBaseIntf6)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_7,  FBaseIntf7)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_8,  FBaseIntf8)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_9,  FBaseIntf9)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_10, FBaseIntf10) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_11, FBaseIntf11) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_12, FBaseIntf12) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_13, FBaseIntf13) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_14, FBaseIntf14);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -241,6 +246,7 @@ begin
   FBaseIntf11          := nil;
   FBaseIntf12          := nil;
   FBaseIntf13          := nil;
+  FBaseIntf14          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -276,6 +282,7 @@ begin
   FBasicAuthenticationRequestedToken.value       := 0;
   FContextMenuRequestedToken.value               := 0;
   FStatusBarTextChangedToken.value               := 0;
+  FServerCertificateErrorDetectedToken.value     := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -384,6 +391,11 @@ begin
           if assigned(FBaseIntf12) and
              (FStatusBarTextChangedToken.Value <> 0) then
             FBaseIntf12.remove_StatusBarTextChanged(FStatusBarTextChangedToken);
+
+//          Access violation when we try to remove this event
+//          if assigned(FBaseIntf14) and
+//             (FServerCertificateErrorDetectedToken.Value <> 0) then
+//            FBaseIntf14.remove_ServerCertificateErrorDetected(FServerCertificateErrorDetectedToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -801,6 +813,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddServerCertificateErrorDetectedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ServerCertificateErrorDetectedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf14) and (FServerCertificateErrorDetectedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ServerCertificateErrorDetectedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf14.add_ServerCertificateErrorDetected(TempHandler, FServerCertificateErrorDetectedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -829,7 +856,8 @@ begin
             AddIsDefaultDownloadDialogOpenChangedEvent(aBrowserComponent) and
             AddBasicAuthenticationRequestedEvent(aBrowserComponent)       and
             AddContextMenuRequestedEvent(aBrowserComponent)               and
-            AddStatusBarTextChangedEvent(aBrowserComponent);
+            AddStatusBarTextChangedEvent(aBrowserComponent)               and
+            AddServerCertificateErrorDetectedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
@@ -1128,6 +1156,21 @@ function TCoreWebView2.CloseDefaultDownloadDialog : boolean;
 begin
   Result := assigned(FBaseIntf9) and
             succeeded(FBaseIntf9.CloseDefaultDownloadDialog);
+end;
+
+function TCoreWebView2.ClearServerCertificateErrorActions(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf14) then
+    try
+      TempHandler := TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf14.ClearServerCertificateErrorActions(TempHandler));
+    finally
+      TempHandler := nil;
+    end;
 end;
 
 function TCoreWebView2.GetBrowserProcessID : cardinal;

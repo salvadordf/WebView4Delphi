@@ -75,7 +75,7 @@ type
 implementation
 
 uses
-  uWVCoreWebView2Delegates, uWVBrowserBase, uWVLoader;
+  uWVMiscFunctions, uWVCoreWebView2Delegates, uWVBrowserBase, uWVLoader;
 
 constructor TCoreWebView2Environment.Create(const aBaseIntf : ICoreWebView2Environment);
 begin
@@ -86,15 +86,15 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment2, FBaseIntf2)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment3, FBaseIntf3)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment4, FBaseIntf4)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment5, FBaseIntf5)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment6, FBaseIntf6)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment7, FBaseIntf7)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment8, FBaseIntf8)) and
-     succeeded(FBaseIntf.QueryInterface(IID_ICoreWebView2Environment9, FBaseIntf9)) then
-    FBaseIntf.QueryInterface(IID_ICoreWebView2Environment10, FBaseIntf10);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment2, FBaseIntf2) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment3, FBaseIntf3) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment4, FBaseIntf4) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment5, FBaseIntf5) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment6, FBaseIntf6) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment7, FBaseIntf7) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment8, FBaseIntf8) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9, FBaseIntf9) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10);
 end;
 
 destructor TCoreWebView2Environment.Destroy;

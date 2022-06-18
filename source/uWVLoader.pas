@@ -26,7 +26,7 @@ type
       FOnBrowserProcessExited                 : TLoaderBrowserProcessExitedEvent;
       FOnProcessInfosChanged                  : TLoaderProcessInfosChangedEvent;
       FLibHandle                              : THandle;
-      FErrorMsg                               : string;
+      FErrorLog                               : TStringList;
       FError                                  : int64;
       FBrowserExecPath                        : wvstring;
       FUserDataFolder                         : wvstring;
@@ -87,23 +87,25 @@ type
       function  GetSupportsControllerOptions : boolean;
       function  GetCustomCommandLineSwitches : wvstring;
       function  GetInstalledRuntimeVersion : wvstring;
+      function  GetErrorMessage : wvstring;
 
       function  CreateEnvironment : boolean;
       procedure DestroyEnvironment;
 
-      function  GetDLLVersion(const aDLLFile : wvstring; var aVersionInfo : TFileVersionInfo) : boolean;
+      function  GetFileVersion(const aFile : wvstring; var aVersionInfo : TFileVersionInfo) : boolean;
       function  GetExtendedFileVersion(const aFileName : wvstring) : uint64;
       function  LoadLibProcedures : boolean;
       function  LoadWebView2Library : boolean;
       procedure UnLoadWebView2Library;
       function  CheckWV2Library : boolean;
       function  CheckBrowserExecPath : boolean;
+      function  CheckWebViewRuntimeVersion : boolean;
       function  CheckWV2DLL : boolean;
-      function  CheckDLLVersion(const aDLLFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
+      function  CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
       function  GetDLLHeaderMachine(const aDLLFile : string; var aMachine : integer) : boolean;
       function  Is32BitProcess : boolean;
       function  CheckInstalledRuntimeRegEntry(aLocalMachine : boolean; const aPath : string; var aVersion : wvstring) : boolean;
-      procedure ShowErrorMessageDlg(const aError : string);
+      procedure ShowErrorMessageDlg(const aError : wvstring);
       function  SearchInstalledProgram(const aDisplayName, aPublisher : string) : boolean;
       function  SearchInstalledProgramInPath(const aRegPath, aDisplayName, aPublisher : string; aLocalMachine : boolean) : boolean;
 
@@ -124,15 +126,17 @@ type
     public
       constructor Create(AOwner: TComponent); override;
       destructor  Destroy; override;
+      procedure   AfterConstruction; override;
       function    StartWebView2 : boolean;
       function    CompareVersions(const aVersion1, aVersion2 : wvstring; var aCompRslt : integer): boolean;
       procedure   UpdateDeviceScaleFactor; virtual;
+      procedure   AppendErrorLog(const aText : wvstring);
 
       // Custom properties
       property Environment                            : ICoreWebView2Environment           read GetEnvironment;
       property Status                                 : TWV2LoaderStatus                   read FStatus;
       property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;                                                             // GetAvailableCoreWebView2BrowserVersionString
-      property ErrorMessage                           : string                             read FErrorMsg;
+      property ErrorMessage                           : wvstring                           read GetErrorMessage;
       property ErrorCode                              : int64                              read FError;
       property SetCurrentDir                          : boolean                            read FSetCurrentDir                           write FSetCurrentDir;
       property Initialized                            : boolean                            read GetInitialized;
@@ -258,7 +262,6 @@ begin
   FOnBrowserProcessExited                 := nil;
   FStatus                                 := wvlsCreated;
   FLibHandle                              := 0;
-  FErrorMsg                               := '';
   FError                                  := 0;
   FBrowserExecPath                        := '';
   FUserDataFolder                         := '';
@@ -306,8 +309,8 @@ begin
   FDebugLogLevel                          := TWV2DebugLogLevel.dllDefault;
   FJavaScriptFlags                        := '';
   FDisableEdgePitchNotification           := True;
-
-  FProxySettings := TWVProxySettings.Create;
+  FProxySettings                          := nil;
+  FErrorLog                               := nil;
 
   SetExceptionMask([exInvalidOp, exDenormalized, exZeroDivide, exOverflow, exUnderflow, exPrecision]);
 end;
@@ -321,10 +324,22 @@ begin
     if FInitCOMLibrary then
       CoUnInitialize;
 
-    FreeAndNil(FProxySettings);
+    if assigned(FProxySettings) then
+      FreeAndNil(FProxySettings);
+
+    if assigned(FErrorLog) then
+      FreeAndNil(FErrorLog);
   finally
     inherited Destroy;
   end;
+end;
+
+procedure TWVLoader.AfterConstruction;
+begin
+  inherited AfterConstruction;
+
+  FProxySettings := TWVProxySettings.Create;
+  FErrorLog      := TStringList.Create;
 end;
 
 procedure TWVLoader.DestroyEnvironment;
@@ -403,16 +418,16 @@ begin
   end;
 end;
 
-function TWVLoader.GetDLLVersion(const aDLLFile : wvstring; var aVersionInfo : TFileVersionInfo) : boolean;
+function TWVLoader.GetFileVersion(const aFile : wvstring; var aVersionInfo : TFileVersionInfo) : boolean;
 var
   TempVersion : uint64;
 begin
   Result := False;
 
   try
-    if FileExists(aDLLFile) then
+    if FileExists(aFile) then
       begin
-        TempVersion := GetExtendedFileVersion(aDLLFile);
+        TempVersion := GetExtendedFileVersion(aFile);
 
         if (TempVersion <> 0) then
           begin
@@ -426,7 +441,7 @@ begin
       end;
   except
     on e : exception do
-      if CustomExceptionHandler('TWVLoader.GetDLLVersion', e) then raise;
+      if CustomExceptionHandler('TWVLoader.GetFileVersion', e) then raise;
   end;
 end;
 
@@ -467,11 +482,12 @@ begin
           begin
             FStatus   := wvlsError;
             FError    := GetLastError;
-            FErrorMsg := 'Error loading ' + TempLoaderLibPath + CRLF + CRLF +
-                         'Error code : 0x' + inttohex(cardinal(FError), 8) + CRLF +
-                         SysErrorMessage(cardinal(FError));
 
-            ShowErrorMessageDlg(FErrorMsg);
+            AppendErrorLog('Error loading ' + TempLoaderLibPath);
+            AppendErrorLog('Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(cardinal(FError), 8){$IFDEF FPC}){$ENDIF});
+            AppendErrorLog({$IFDEF FPC}UTF8Decode({$ENDIF}SysErrorMessage(cardinal(FError)){$IFDEF FPC}){$ENDIF});
+
+            ShowErrorMessageDlg(ErrorMessage);
           end
          else
           begin
@@ -506,13 +522,13 @@ begin
   end;
 end;
 
-function TWVLoader.CheckDLLVersion(const aDLLFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
+function TWVLoader.CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
 var
   TempVersionInfo : TFileVersionInfo;
 begin
   Result := False;
 
-  if GetDLLVersion(aDLLFile, TempVersionInfo) then
+  if GetFileVersion(aFile, TempVersionInfo) then
     begin
       if (TempVersionInfo.MajorVer > aMajor) then
         Result := True
@@ -587,24 +603,50 @@ begin
         Result := True
        else
         begin
-          FStatus   := wvlsError;
-          FErrorMsg := 'WebView2 Runtime is not installed correctly.' + CRLF + CRLF +
-                       'Download and run the Evergreen Standalone Installer from ' + CRLF +
-                       'https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section';
+          FStatus := wvlsError;
+          AppendErrorLog('WebView2 Runtime is not installed correctly.');
+          AppendErrorLog('Download and run the Evergreen Standalone Installer from ');
+          AppendErrorLog('https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section');
 
-          ShowErrorMessageDlg(FErrorMsg);
+          ShowErrorMessageDlg(ErrorMessage);
         end;
     end
    else
-    if DirectoryExists(FBrowserExecPath) then
-      Result := True
-     else
-      begin
-        FStatus   := wvlsError;
-        FErrorMsg := 'The Browser Executable Folder doesn' + #39 + 't exist.';
+    try
+      if FileExists(IncludeTrailingPathDelimiter(FBrowserExecPath) + 'msedgewebview2.exe') then
+        Result := True
+       else
+        begin
+          FStatus := wvlsError;
+          AppendErrorLog('The Browser Executable Folder doesn' + #39 + 't exist.');
 
-        ShowErrorMessageDlg(FErrorMsg);
-      end;
+          ShowErrorMessageDlg(ErrorMessage);
+        end;
+    except
+      on e : exception do
+        if CustomExceptionHandler('TWVLoader.CheckBrowserExecPath', e) then raise;
+    end;
+end;
+
+function TWVLoader.CheckWebViewRuntimeVersion : boolean;
+var
+  TempCompRslt : integer;
+begin
+  Result := False;
+
+  if (length(FBrowserExecPath) = 0) then
+    Result := CompareVersions(InstalledRuntimeVersion, LowestChromiumVersion, TempCompRslt) and
+              (TempCompRslt >= 0)
+   else
+    if CheckFileVersion(IncludeTrailingPathDelimiter(FBrowserExecPath) + 'msedgewebview2.exe',
+                        CHROMIUM_VERSION_MAJOR,
+                        CHROMIUM_VERSION_MINOR,
+                        CHROMIUM_VERSION_RELEASE,
+                        CHROMIUM_VERSION_BUILD) then
+      Result := True;
+
+  if not(Result) then
+    AppendErrorLog('The WebView Runtime version is older than expected! Some WebView4Delphi features won'+ #39 + 't work.');
 end;
 
 function TWVLoader.Is32BitProcess : boolean;
@@ -616,11 +658,11 @@ begin
 {$ENDIF}
 end;
 
-procedure TWVLoader.ShowErrorMessageDlg(const aError : string);
+procedure TWVLoader.ShowErrorMessageDlg(const aError : wvstring);
 begin
   if FShowMessageDlg then
     {$IFDEF FPC}
-    ShowMessage(aError);
+    ShowMessage(UTF8Encode(aError));
     {$ELSE}
     MessageBox(0, PChar(aError + #0), PChar('Error' + #0), MB_ICONERROR or MB_OK or MB_TOPMOST);
     {$ENDIF}
@@ -645,11 +687,11 @@ begin
    else
     TempLoaderLibPath := WEBVIEW2LOADERLIB;
 
-  if CheckDLLVersion(TempLoaderLibPath,
-                     WEBVIEW2LOADERLIB_VERSION_MAJOR,
-                     WEBVIEW2LOADERLIB_VERSION_MINOR,
-                     WEBVIEW2LOADERLIB_VERSION_RELEASE,
-                     WEBVIEW2LOADERLIB_VERSION_BUILD) then
+  if CheckFileVersion(TempLoaderLibPath,
+                      WEBVIEW2LOADERLIB_VERSION_MAJOR,
+                      WEBVIEW2LOADERLIB_VERSION_MINOR,
+                      WEBVIEW2LOADERLIB_VERSION_RELEASE,
+                      WEBVIEW2LOADERLIB_VERSION_BUILD) then
     begin
       if GetDLLHeaderMachine(TempLoaderLibPath, TempMachine) then
         case TempMachine of
@@ -658,11 +700,11 @@ begin
               Result := True
              else
               begin
-                FStatus   := wvlsError;
-                FErrorMsg := 'Wrong WebView2Loader.dll !' + CRLF + CRLF +
-                             'Use the 32 bit loader DLL with 32 bits applications only.';
+                FStatus := wvlsError;
+                AppendErrorLog('Wrong WebView2Loader.dll !');
+                AppendErrorLog('Use the 32 bit loader DLL with 32 bits applications only.');
 
-                ShowErrorMessageDlg(FErrorMsg);
+                ShowErrorMessageDlg(ErrorMessage);
               end;
 
           WV2_IMAGE_FILE_MACHINE_AMD64 :
@@ -671,19 +713,19 @@ begin
              else
 
               begin
-                FStatus   := wvlsError;
-                FErrorMsg := 'Wrong WebView2Loader.dll !' + CRLF + CRLF +
-                             'Use the 64 bit loader DLL with 64 bits applications only.';
+                FStatus := wvlsError;
+                AppendErrorLog('Wrong WebView2Loader.dll !');
+                AppendErrorLog('Use the 64 bit loader DLL with 64 bits applications only.');
 
-                ShowErrorMessageDlg(FErrorMsg);
+                ShowErrorMessageDlg(ErrorMessage);
               end;
 
           else
             begin
-              FStatus   := wvlsError;
-              FErrorMsg := 'Unknown WebView2Loader.dll !';
+              FStatus := wvlsError;
+              AppendErrorLog('Unknown WebView2Loader.dll !');
 
-              ShowErrorMessageDlg(FErrorMsg);
+              ShowErrorMessageDlg(ErrorMessage);
             end;
         end
        else
@@ -691,29 +733,20 @@ begin
     end
    else
     begin
-      FStatus   := wvlsError;
-      FErrorMsg := 'Unsupported WebView2Loader.dll version !';
+      FStatus := wvlsError;
+      AppendErrorLog('Unsupported WebView2Loader.dll version !');
 
-      if GetDLLVersion(TempLoaderLibPath, TempVersionInfo) then
+      if GetFileVersion(TempLoaderLibPath, TempVersionInfo) then
         begin
-          FErrorMsg := FErrorMsg + CRLF + CRLF +
-                       'Expected WebView2Loader.dll version : ';
-
-          {$IFDEF FPC}
-          FErrorMsg := FErrorMsg + UTF8Encode(LowestChromiumVersion);
-          {$ELSE}
-          FErrorMsg := FErrorMsg + LowestChromiumVersion;
-          {$ENDIF}
-
-          FErrorMsg := FErrorMsg + CRLF +
-                       'Found WebView2Loader.dll version : ' +
-                       IntToStr(TempVersionInfo.MajorVer) + '.' +
-                       IntToStr(TempVersionInfo.MinorVer) + '.' +
-                       IntToStr(TempVersionInfo.Release)  + '.' +
-                       IntToStr(TempVersionInfo.Build);
+          AppendErrorLog('Expected WebView2Loader.dll version : ' + LowestLoaderDLLVersion);
+          AppendErrorLog('Found WebView2Loader.dll version : ' +
+                         IntToStr(TempVersionInfo.MajorVer) + '.' +
+                         IntToStr(TempVersionInfo.MinorVer) + '.' +
+                         IntToStr(TempVersionInfo.Release)  + '.' +
+                         IntToStr(TempVersionInfo.Build));
         end;
 
-      ShowErrorMessageDlg(FErrorMsg);
+      ShowErrorMessageDlg(ErrorMessage);
     end;
 end;
 
@@ -829,37 +862,39 @@ begin
       CompareBrowserVersions                       := Internal_CompareBrowserVersions;
       FStatus := wvlsImported;
       Result := True;
-      exit;
-    end;
-
-  try
+    end
+   else
     if (FLibHandle <> 0) then
-      begin
-        CreateCoreWebView2EnvironmentWithOptions      := GetProcAddress(FLibHandle, 'CreateCoreWebView2EnvironmentWithOptions');
-        CreateCoreWebView2Environment                 := GetProcAddress(FLibHandle, 'CreateCoreWebView2Environment');
-        GetAvailableCoreWebView2BrowserVersionString  := GetProcAddress(FLibHandle, 'GetAvailableCoreWebView2BrowserVersionString');
-        CompareBrowserVersions                        := GetProcAddress(FLibHandle, 'CompareBrowserVersions');
+      try
+        begin
+          CreateCoreWebView2EnvironmentWithOptions      := GetProcAddress(FLibHandle, 'CreateCoreWebView2EnvironmentWithOptions');
+          CreateCoreWebView2Environment                 := GetProcAddress(FLibHandle, 'CreateCoreWebView2Environment');
+          GetAvailableCoreWebView2BrowserVersionString  := GetProcAddress(FLibHandle, 'GetAvailableCoreWebView2BrowserVersionString');
+          CompareBrowserVersions                        := GetProcAddress(FLibHandle, 'CompareBrowserVersions');
 
-        if assigned(CreateCoreWebView2EnvironmentWithOptions)     and
-           assigned(CreateCoreWebView2Environment)                and
-           assigned(GetAvailableCoreWebView2BrowserVersionString) and
-           assigned(CompareBrowserVersions)                       then
-          begin
-            Result  := True;
-            FStatus := wvlsImported;
-          end
-         else
-          begin
-            FStatus   := wvlsError;
-            FErrorMsg := 'There was a problem loading the library procedures';
+          if assigned(CreateCoreWebView2EnvironmentWithOptions)     and
+             assigned(CreateCoreWebView2Environment)                and
+             assigned(GetAvailableCoreWebView2BrowserVersionString) and
+             assigned(CompareBrowserVersions)                       then
+            begin
+              Result  := True;
+              FStatus := wvlsImported;
+            end
+           else
+            begin
+              FStatus := wvlsError;
+              AppendErrorLog('There was a problem loading the library procedures');
 
-            ShowErrorMessageDlg(FErrorMsg);
-          end;
+              ShowErrorMessageDlg(ErrorMessage);
+            end;
+        end;
+      except
+        on e : exception do
+          if CustomExceptionHandler('TWVLoader.LoadLibProcedures', e) then raise;
       end;
-  except
-    on e : exception do
-      if CustomExceptionHandler('TWVLoader.LoadLibProcedures', e) then raise;
-  end;
+
+  if Result then
+    CheckWebViewRuntimeVersion;
 end;
 
 function TWVLoader.GetCustomCommandLineSwitches : wvstring;
@@ -1049,11 +1084,7 @@ begin
         begin
           if TempReg.ValueExists(RUNTIME_REG_VERSION) then
             begin
-              {$IFDEF FPC}
-              aVersion := UTF8Decode(TempReg.ReadString(RUNTIME_REG_VERSION));
-              {$ELSE}
-              aVersion := TempReg.ReadString(RUNTIME_REG_VERSION);
-              {$ENDIF}
+              aVersion := {$IFDEF FPC}UTF8Decode({$ENDIF}TempReg.ReadString(RUNTIME_REG_VERSION){$IFDEF FPC}){$ENDIF};
               Result   := length(aVersion) > 0;
             end;
 
@@ -1070,8 +1101,8 @@ end;
 
 function TWVLoader.GetInstalledRuntimeVersion : wvstring;
 const
-  RUNTIME_REG_PATH_32BIT = 'SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
-  RUNTIME_REG_PATH_64BIT = 'SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
+  RUNTIME_REG_PATH_32BIT  = 'SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
+  RUNTIME_REG_PATH_64BIT  = 'SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}';
 var
   TempResult : wvstring;
 begin
@@ -1082,6 +1113,14 @@ begin
      CheckInstalledRuntimeRegEntry(True,  RUNTIME_REG_PATH_32BIT, TempResult) or
      CheckInstalledRuntimeRegEntry(True,  RUNTIME_REG_PATH_64BIT, TempResult) then
     Result := TempResult;
+end;
+
+function TWVLoader.GetErrorMessage : wvstring;
+begin
+  if assigned(FErrorLog) then
+    Result := FErrorLog.Text
+   else
+    Result := '';
 end;
 
 function TWVLoader.CreateEnvironment : boolean;
@@ -1112,18 +1151,13 @@ begin
           Result := True
          else
           begin
-            FStatus   := wvlsError;
-            FError    := TempHResult;
-            FErrorMsg := 'There was an error creating the browser environment. (1)' + CRLF +
-                         'Error code : 0x' +
-                         {$IFDEF FPC}
-                         UTF8Decode(inttohex(TempHResult, 8))
-                         {$ELSE}
-                         inttohex(TempHResult, 8)
-                         {$ENDIF}
-                         + CRLF + EnvironmentCreationErrorToString(TempHResult);
+            FStatus := wvlsError;
+            FError  := TempHResult;
+            AppendErrorLog('There was an error creating the browser environment. (1)');
+            AppendErrorLog('Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(TempHResult, 8){$IFDEF FPC}){$ENDIF});
+            AppendErrorLog(EnvironmentCreationErrorToString(TempHResult));
 
-            ShowErrorMessageDlg(FErrorMsg);
+            ShowErrorMessageDlg(ErrorMessage);
           end;
       end;
   finally
@@ -1211,6 +1245,13 @@ begin
                succeeded(CompareBrowserVersions(PWideChar(aVersion1), PWideChar(aVersion2), @aCompRslt));
 end;
 
+procedure TWVLoader.AppendErrorLog(const aText : wvstring);
+begin
+  OutputDebugMessage(aText);
+  if assigned(FErrorLog) then
+    FErrorLog.Add(aText);
+end;
+
 procedure TWVLoader.UpdateDeviceScaleFactor;
 begin
   if (FForcedDeviceScaleFactor <> 0) then
@@ -1250,13 +1291,9 @@ begin
     begin
       FStatus   := wvlsError;
       FError    := errorCode;
-      FErrorMsg := 'There was a problem initializing the browser environment.' + CRLF + CRLF +
-                   'Error code : 0x' + IntToHex(errorCode, 8) + CRLF +
-                   {$IFDEF FPC}
-                   UTF8Encode(EnvironmentCreationErrorToString(errorCode));
-                   {$ELSE}
-                   EnvironmentCreationErrorToString(errorCode);
-                   {$ENDIF}
+      AppendErrorLog('There was a problem initializing the browser environment.');
+      AppendErrorLog('Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(errorCode, 8){$IFDEF FPC}){$ENDIF});
+      AppendErrorLog(EnvironmentCreationErrorToString(errorCode));
 
       doOnInitializationError;
     end;

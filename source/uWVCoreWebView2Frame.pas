@@ -65,7 +65,7 @@ type
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates;
+  uWVMiscFunctions, uWVBrowserBase, uWVCoreWebView2Delegates;
 
 constructor TCoreWebView2Frame.Create(const aBaseIntf: ICoreWebView2Frame; aFrameID : integer);
 begin
@@ -77,8 +77,8 @@ begin
   FFrameID  := aFrameID;
 
   if Initialized and
-     succeeded(FBaseIntf.QueryInterface(ICoreWebView2Frame2, FBaseIntf2)) then
-    FBaseIntf.QueryInterface(ICoreWebView2Frame3, FBaseIntf3);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame2, FBaseIntf2) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3);
 end;
 
 destructor TCoreWebView2Frame.Destroy;

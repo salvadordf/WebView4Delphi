@@ -713,6 +713,39 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2ClearBrowsingDataCompletedHandler = class(TInterfacedObject, ICoreWebView2ClearBrowsingDataCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler = class(TInterfacedObject, ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2ServerCertificateErrorDetectedEventHandler = class(TInterfacedObject, ICoreWebView2ServerCertificateErrorDetectedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2313,5 +2346,80 @@ begin
     Result := E_FAIL;
 end;
 
+
+// TCoreWebView2ClearBrowsingDataCompletedHandler
+
+constructor TCoreWebView2ClearBrowsingDataCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ClearBrowsingDataCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ClearBrowsingDataCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ClearBrowsingDataCompletedHandler_Invoke(errorCode)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+
+constructor TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ServerCertificateErrorDetectedEventHandler
+
+constructor TCoreWebView2ServerCertificateErrorDetectedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ServerCertificateErrorDetectedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ServerCertificateErrorDetectedEventHandler.Invoke(const sender : ICoreWebView2;
+                                                                        const args   : ICoreWebView2ServerCertificateErrorDetectedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ServerCertificateErrorDetectedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
 
 end.

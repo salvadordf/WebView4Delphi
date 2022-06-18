@@ -10,7 +10,8 @@ uses
 type
   TCoreWebView2Profile = class
     protected
-      FBaseIntf : ICoreWebView2Profile;
+      FBaseIntf  : ICoreWebView2Profile;
+      FBaseIntf2 : ICoreWebView2Profile2;
 
       function GetInitialized : boolean;
       function GetProfileName : wvstring;
@@ -25,6 +26,9 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2Profile); reintroduce;
       destructor  Destroy; override;
+      function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds; const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
+      function    ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime; const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
+      function    ClearBrowsingDataAll(const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
 
       property Initialized                : boolean                     read GetInitialized;
       property BaseIntf                   : ICoreWebView2Profile        read FBaseIntf                     write FBaseIntf;
@@ -39,16 +43,21 @@ implementation
 
 uses
   {$IFDEF FPC}
-  ActiveX;
+  DateUtils, ActiveX,
   {$ELSE}
-  Winapi.ActiveX;
+  System.DateUtils, Winapi.ActiveX,
   {$ENDIF}
+  uWVMiscFunctions;
 
 constructor TCoreWebView2Profile.Create(const aBaseIntf: ICoreWebView2Profile);
 begin
   inherited Create;
 
-  FBaseIntf := aBaseIntf;
+  FBaseIntf  := aBaseIntf;
+  FBaseIntf2 := nil;
+
+  if Initialized then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2Profile.Destroy;
@@ -142,6 +151,39 @@ procedure TCoreWebView2Profile.SetPreferredColorScheme(aValue : TWVPreferredColo
 begin
   if Initialized then
     FBaseIntf.Set_PreferredColorScheme(aValue);
+end;
+
+function TCoreWebView2Profile.ClearBrowsingData(      dataKinds : TWVBrowsingDataKinds;
+                                                const handler   : ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
+begin
+  Result := assigned(FBaseIntf2) and
+            assigned(handler)    and
+            succeeded(FBaseIntf2.ClearBrowsingData(dataKinds, handler));
+end;
+
+function TCoreWebView2Profile.ClearBrowsingDataInTimeRange(      dataKinds : TWVBrowsingDataKinds;
+                                                           const startTime : TDateTime;
+                                                           const endTime   : TDateTime;
+                                                           const handler   : ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
+var
+  TempStart, TempEnd : int64;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf2) and
+     assigned(handler)    then
+    begin
+      TempStart := DateTimeToUnix(startTime{$IFDEF DELPHI20_UP}, False{$ENDIF});
+      TempEnd   := DateTimeToUnix(endTime{$IFDEF DELPHI20_UP}, False{$ENDIF});
+      Result    := succeeded(FBaseIntf2.ClearBrowsingDataInTimeRange(dataKinds, TempStart, TempEnd, handler));
+    end;
+end;
+
+function TCoreWebView2Profile.ClearBrowsingDataAll(const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
+begin
+  Result := assigned(FBaseIntf2) and
+            assigned(handler)    and
+            succeeded(FBaseIntf2.ClearBrowsingDataAll(handler));
 end;
 
 end.

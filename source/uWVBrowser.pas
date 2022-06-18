@@ -112,6 +112,9 @@ type
       property OnCustomItemSelected;
       property OnStatusBarTextChanged;
       property OnFramePermissionRequested;
+      property OnClearBrowsingDataCompleted;
+      property OnServerCertificateErrorActionsCompleted;
+      property OnServerCertificateErrorDetected;
   end;
 
 {$IFDEF FPC}

@@ -211,6 +211,15 @@ type
 
     // ICoreWebView2FramePermissionRequestedEventHandler
     function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HResult;
+
+    // ICoreWebView2ClearBrowsingDataCompletedHandler
+    function ClearBrowsingDataCompletedHandler_Invoke(errorCode: HResult): HResult;
+
+    // ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+    function ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode: HResult): HResult;
+
+    // ICoreWebView2ServerCertificateErrorDetectedEventHandler
+    function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HResult;
   end;
 
 implementation

@@ -143,6 +143,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'https://frames-per-second.appspot.com/'
           'https://badssl.com/'
           'https://www.httpwatch.com/httpgallery/authentication/'
+          
+            'https://www.sede.fnmt.gob.es/certificados/persona-fisica/verific' +
+            'ar-estado'
+          'https://badssl.com/'
           'edge://flags/'
           'edge://gpu/'
           'edge://about/')
@@ -238,9 +242,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
-    OnClearDataForOriginCompleted = WVBrowser1ClearDataForOriginCompleted
     OnBasicAuthenticationRequested = WVBrowser1BasicAuthenticationRequested
     OnStatusBarTextChanged = WVBrowser1StatusBarTextChanged
+    OnClearBrowsingDataCompleted = WVBrowser1ClearBrowsingDataCompleted
+    OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
     Left = 48
     Top = 64
   end

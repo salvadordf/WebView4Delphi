@@ -28,6 +28,7 @@ function GetDeviceScaleFactor : single;
 function EditingCommandToString(aEditingCommand : TWV2EditingCommand): wvstring;
 function DeleteDirContents(const aDirectory : string; const aExcludeFiles : TStringList = nil) : boolean;
 function SystemCursorIDToDelphiCursor(aSystemCursorID : cardinal) : TCursor;
+function LoggedQueryInterface(const aBaseIntf: IInterface; const aGUID: TGUID; out Obj): boolean;
 
 procedure OutputDebugMessage(const aMessage : string);
 function  CustomExceptionHandler(const aFunctionName : string; const aException : exception) : boolean;
@@ -530,6 +531,22 @@ begin
     32514 : Result := crHourGlass;
     else    Result := crDefault;
   end;
+end;
+
+function LoggedQueryInterface(const aBaseIntf: IInterface; const aGUID: TGUID; out Obj): boolean;
+var
+  TempResult  : HRESULT;
+  TempMessage : wvstring;
+begin
+  TempResult := aBaseIntf.QueryInterface(aGUID, Obj);
+  Result     := succeeded(TempResult);
+
+  if not(Result) then
+    begin
+      TempMessage := 'The QueryInterface call for ' + aGUID.ToString + ' failed. ' +
+                     'Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(cardinal(TempResult), 8){$IFDEF FPC}){$ENDIF};
+      GlobalWebView2Loader.AppendErrorLog(TempMessage);
+    end;
 end;
 
 function CustomPathIsRelative(const aPath : wvstring) : boolean;

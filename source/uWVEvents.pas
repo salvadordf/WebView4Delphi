@@ -77,6 +77,9 @@ type
   TOnCustomItemSelectedEvent                               = procedure(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem) of object;
   TOnStatusBarTextChangedEvent                             = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
   TOnFramePermissionRequestedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer) of object;
+  TOnClearBrowsingDataCompletedEvent                       = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
+  TOnServerCertificateErrorActionsCompletedEvent           = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
+  TOnServerCertificateErrorDetectedEvent                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;
