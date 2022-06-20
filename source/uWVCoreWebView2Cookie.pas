@@ -18,6 +18,7 @@ type
       function GetDomain : wvstring;
       function GetPath : wvstring;
       function GetExpires : double;
+      function GetExpiresDate : TDateTime;
       function GetIsHttpOnly : boolean;
       function GetSameSite : TWVCookieSameSiteKind;
       function GetIsSecure : boolean;
@@ -25,6 +26,7 @@ type
 
       procedure SetValue(const aValue : wvstring);
       procedure SetExpires(const aValue : double);
+      procedure SetExpiresDate(const aValue : TDateTime);
       procedure SetIsHttpOnly(aValue : boolean);
       procedure SetSameSite(aValue : TWVCookieSameSiteKind);
       procedure SetIsSecure(aValue : boolean);
@@ -34,15 +36,16 @@ type
       destructor  Destroy; override;
 
       property Initialized    : boolean                     read GetInitialized;
-      property BaseIntf       : ICoreWebView2Cookie         read FBaseIntf        write FBaseIntf;
+      property BaseIntf       : ICoreWebView2Cookie         read FBaseIntf           write FBaseIntf;
       property Name           : wvstring                    read GetName;
-      property Value          : wvstring                    read GetValue         write SetValue;
+      property Value          : wvstring                    read GetValue            write SetValue;
       property Domain         : wvstring                    read GetDomain;
       property Path           : wvstring                    read GetPath;
-      property Expires        : double                      read GetExpires       write SetExpires;
-      property IsHttpOnly     : boolean                     read GetIsHttpOnly    write SetIsHttpOnly;
-      property SameSite       : TWVCookieSameSiteKind       read GetSameSite      write SetSameSite;
-      property IsSecure       : boolean                     read GetIsSecure      write SetIsSecure;
+      property Expires        : double                      read GetExpires          write SetExpires;
+      property ExpiresDate    : TDateTime                   read GetExpiresDate      write SetExpiresDate;
+      property IsHttpOnly     : boolean                     read GetIsHttpOnly       write SetIsHttpOnly;
+      property SameSite       : TWVCookieSameSiteKind       read GetSameSite         write SetSameSite;
+      property IsSecure       : boolean                     read GetIsSecure         write SetIsSecure;
       property IsSession      : boolean                     read GetIsSession;
   end;
 
@@ -50,9 +53,9 @@ implementation
 
 uses
   {$IFDEF FPC}
-  ActiveX;
+  DateUtils, ActiveX;
   {$ELSE}
-  Winapi.ActiveX;
+  System.DateUtils, Winapi.ActiveX;
   {$ENDIF}
 
 constructor TCoreWebView2Cookie.Create(const aBaseIntf: ICoreWebView2Cookie);
@@ -150,6 +153,19 @@ begin
     Result := TempResult;
 end;
 
+function TCoreWebView2Cookie.GetExpiresDate : TDateTime;
+var
+  TempExpires : double;
+begin
+  Result      := 0;
+  TempExpires := 0;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Expires(TempExpires)) and
+     (TempExpires <> -1) then
+    Result := UnixToDateTime(round(TempExpires){$IFDEF DELPHI20_UP}, False{$ENDIF})
+end;
+
 function TCoreWebView2Cookie.GetIsHttpOnly : boolean;
 var
   TempResult : integer;
@@ -199,6 +215,12 @@ procedure TCoreWebView2Cookie.SetExpires(const aValue : double);
 begin
   if Initialized then
     FBaseIntf.Set_Expires(aValue);
+end;
+
+procedure TCoreWebView2Cookie.SetExpiresDate(const aValue : TDateTime);
+begin
+  if Initialized then
+    FBaseIntf.Set_Expires(DateTimeToUnix(aValue){$IFDEF DELPHI20_UP}, False{$ENDIF});
 end;
 
 procedure TCoreWebView2Cookie.SetIsHttpOnly(aValue : boolean);
