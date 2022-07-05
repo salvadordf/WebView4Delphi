@@ -1,5 +1,7 @@
 unit uWVLoaderInternal;
-// Based on https://github.com/YWtheGod/DRT/blob/main/SOURCE/DRT.WIN.WebView2Loader.pas
+// Based on
+//   https://github.com/YWtheGod/DRT/blob/main/SOURCE/DRT.WIN.WebView2Loader.pas
+//   https://github.com/jchv/OpenWebView2Loader
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 {$I webview2.inc}
@@ -82,9 +84,14 @@ end;
 // }
 function ReadEnvironmentVariable(LpName: wvstring;
   var outValue: wvstring): boolean;
+var tmp: wvstring;
 begin
-  outValue := GetEnvironmentVariable(LpName);
-  Result := outValue <> '';
+  tmp := GetEnvironmentVariable(LpName);
+  if tmp <> '' then
+  begin
+    outValue := tmp;
+  end;
+  Result := tmp <> '';
 end;
 
 // int GetAppUserModelIdForCurrentProcess(WString* idOut) {
@@ -142,8 +149,10 @@ begin
       l := $100;
       hr := G(l, PWideChar(idOut));
       if hr = ERROR_SUCCESS then
-        SetLength(idOut, l);
-      exit(hr);
+        begin
+          SetLength(idOut, l);
+          exit(hr);
+        end;
     end;
   AppID := nil;
   hr := GetCurrentProcessExplicitAppUserModelID(AppID);
@@ -151,11 +160,11 @@ begin
     begin
       CoTaskMemFree(AppID);
       AppID := nil;
+      idOut := '';
       exit(hr)
     end;
   idOut := AppID;
   CoTaskMemFree(AppID);
-  AppID := nil;
   exit(S_OK)
 end;
 
@@ -286,6 +295,7 @@ function ReadOverrideFromRegistry(key: wvstring; root: HKEY; lpValue: wvstring;
 var
   pvData: wvstring;
   Reg: TRegistry;
+  tmp: wvstring;
 begin
   Reg := TRegistry.Create(KEY_READ);
   try
@@ -300,12 +310,17 @@ begin
       exit(False);
     gShouldCheckRegistryOverride := true;
     try
-      outStr := Reg.ReadString(lpValue);
+      tmp := Reg.ReadString(lpValue);
+      if tmp <> '' then
+        begin
+          outStr := tmp;
+          exit(True);
+        end;
     except
       on E: Exception do
         exit(False)
     end;
-    Result := true;
+    exit(False);
   finally
     Reg.Free;
   end;
@@ -391,7 +406,7 @@ begin
     end;
   if gShouldCheckPolicyOverride and redist then
     begin
-      if ReadOverrideFromRegistry(key, root, aumID, outStr, redist) then
+      if (aumID <> '') and ReadOverrideFromRegistry(key, root, aumID, outStr, redist) then
         exit(true);
       if ReadOverrideFromRegistry(key, root, exeName, outStr, redist) then
         exit(true);
@@ -399,7 +414,7 @@ begin
         exit(true);
       exit(False)
     end;
-  if ReadOverrideFromRegistry(aumID, root, key, outStr, redist) then
+  if (aumID <> '') and ReadOverrideFromRegistry(aumID, root, key, outStr, redist) then
     exit(true);
   if ReadOverrideFromRegistry(exeName, root, key, outStr, redist) then
     exit(true);
@@ -455,8 +470,7 @@ begin
     end;
   if ReadEnvironmentVariable(env, outStr) then
     begin
-      ret := strtointdef(outStr, 0) = 1;
-      exit(ret);
+      exit(true);
     end;
   if not gShouldCheckRegistryOverride and not gShouldCheckPolicyOverride and not checkOverride then
     exit(False);
@@ -479,7 +493,7 @@ begin
     end;
   if ReadEnvironmentVariable(env, outStr) then
     begin
-      exit(strtointdef(outStr, 0) = 1);
+      exit(true);
     end;
   if not gShouldCheckRegistryOverride and not gShouldCheckPolicyOverride and not checkOverride
   then
