@@ -125,15 +125,15 @@ end;
 
 function TBrowserFrame.GetFMXWindowParentRect : System.Types.TRect;
 var
-  TempRect  : TRectF;
+  TempPoint : TPointF;
   TempScale : single;
 begin
-  TempScale       := GlobalWebView2Loader.DeviceScaleFactor;
-  TempRect        := WindowParentLay.AbsoluteRect;
-  Result.Left     := round(TempRect.Left   * TempScale);
-  Result.Top      := round(TempRect.Top    * TempScale);
-  Result.Right    := round(TempRect.Right  * TempScale) - 1;
-  Result.Bottom   := round(TempREct.Bottom * TempScale) - 1;
+  TempScale     := GlobalWebView2Loader.DeviceScaleFactor;
+  TempPoint     := LocalToAbsolute(WindowParentLay.Position.Point);
+  Result.Left   := round(TempPoint.x);
+  Result.Top    := round(TempPoint.y);
+  Result.Right  := round(TempPoint.x + (WindowParentLay.Width  * TempScale));
+  Result.Bottom := round(TempPoint.y + (WindowParentLay.Height * TempScale));
 end;
 
 procedure TBrowserFrame.GoBtnClick(Sender: TObject);
