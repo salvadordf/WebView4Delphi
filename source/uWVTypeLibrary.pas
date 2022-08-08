@@ -28,10 +28,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 06/07/2022 9:14:37 from Type Library described below.
+// File generated on 08/08/2022 19:48:23 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: T:\microsoft.web.webview2.1.0.1264.42.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: T:\microsoft.web.webview2.1.0.1293.44.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -238,7 +238,10 @@ const
   IID_ICoreWebView2Settings5: TGUID = '{183E7052-1D03-43A0-AB99-98E043B66B39}';
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
+  IID_ICoreWebView2FaviconChangedEventHandler: TGUID = '{2913DA94-833D-4DE0-8DCA-900FC524A1A4}';
+  IID_ICoreWebView2GetFaviconCompletedHandler: TGUID = '{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}';
   IID_ICoreWebView2_14: TGUID = '{6DAA4F10-4A90-4753-8898-77C5DF534165}';
+  IID_ICoreWebView2_15: TGUID = '{517B2D1D-7DAE-4A66-A4F4-10352FFB9518}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -595,6 +598,13 @@ const
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR = $00000200;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH = $00000400;
 
+// Constants for enum COREWEBVIEW2_FAVICON_IMAGE_FORMAT
+type
+  COREWEBVIEW2_FAVICON_IMAGE_FORMAT = TOleEnum;
+const
+  COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG = $00000000;
+  COREWEBVIEW2_FAVICON_IMAGE_FORMAT_JPEG = $00000001;
+
 type
 
 // *********************************************************************//
@@ -761,7 +771,10 @@ type
   ICoreWebView2Settings5 = interface;
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
+  ICoreWebView2FaviconChangedEventHandler = interface;
+  ICoreWebView2GetFaviconCompletedHandler = interface;
   ICoreWebView2_14 = interface;
+  ICoreWebView2_15 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -3078,6 +3091,26 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2FaviconChangedEventHandler
+// Flags:     (0)
+// GUID:      {2913DA94-833D-4DE0-8DCA-900FC524A1A4}
+// *********************************************************************//
+  ICoreWebView2FaviconChangedEventHandler = interface(IUnknown)
+    ['{2913DA94-833D-4DE0-8DCA-900FC524A1A4}']
+    function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2GetFaviconCompletedHandler
+// Flags:     (0)
+// GUID:      {A2508329-7DA8-49D7-8C05-FA125E4AEE8D}
+// *********************************************************************//
+  ICoreWebView2GetFaviconCompletedHandler = interface(IUnknown)
+    ['{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}']
+    function Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2_14
 // Flags:     (0)
 // GUID:      {6DAA4F10-4A90-4753-8898-77C5DF534165}
@@ -3088,6 +3121,21 @@ type
                                                 out token: EventRegistrationToken): HResult; stdcall;
     function remove_ServerCertificateErrorDetected(token: EventRegistrationToken): HResult; stdcall;
     function ClearServerCertificateErrorActions(const handler: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_15
+// Flags:     (0)
+// GUID:      {517B2D1D-7DAE-4A66-A4F4-10352FFB9518}
+// *********************************************************************//
+  ICoreWebView2_15 = interface(ICoreWebView2_14)
+    ['{517B2D1D-7DAE-4A66-A4F4-10352FFB9518}']
+    function add_FaviconChanged(const eventHandler: ICoreWebView2FaviconChangedEventHandler; 
+                                out token: EventRegistrationToken): HResult; stdcall;
+    function remove_FaviconChanged(token: EventRegistrationToken): HResult; stdcall;
+    function Get_FaviconUri(out value: PWideChar): HResult; stdcall;
+    function GetFavicon(format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT; 
+                        const completedHandler: ICoreWebView2GetFaviconCompletedHandler): HResult; stdcall;
   end;
 
 implementation

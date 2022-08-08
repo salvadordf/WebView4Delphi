@@ -80,6 +80,8 @@ type
   TOnClearBrowsingDataCompletedEvent                       = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnServerCertificateErrorActionsCompletedEvent           = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnServerCertificateErrorDetectedEvent                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs) of object;
+  TOnFaviconChangedEvent                                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: IUnknown) of object;
+  TOnGetFaviconCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

@@ -246,6 +246,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnStatusBarTextChanged = WVBrowser1StatusBarTextChanged
     OnClearBrowsingDataCompleted = WVBrowser1ClearBrowsingDataCompleted
     OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
+    OnGetFaviconCompleted = WVBrowser1GetFaviconCompleted
     Left = 48
     Top = 64
   end
@@ -352,6 +353,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object Browserprocesses1: TMenuItem
       Caption = 'Browser processes...'
       OnClick = Browserprocesses1Click
+    end
+    object Downloadfavicon1: TMenuItem
+      Caption = 'Download favicon...'
+      OnClick = Downloadfavicon1Click
     end
   end
   object OpenDialog1: TOpenDialog

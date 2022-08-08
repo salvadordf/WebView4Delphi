@@ -115,6 +115,8 @@ type
       property OnClearBrowsingDataCompleted;
       property OnServerCertificateErrorActionsCompleted;
       property OnServerCertificateErrorDetected;
+      property OnFaviconChanged;
+      property OnGetFaviconCompleted;
   end;
 
 {$IFDEF FPC}

@@ -29,6 +29,7 @@ type
       FBaseIntf12                              : ICoreWebView2_12;
       FBaseIntf13                              : ICoreWebView2_13;
       FBaseIntf14                              : ICoreWebView2_14;
+      FBaseIntf15                              : ICoreWebView2_15;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -57,6 +58,7 @@ type
       FContextMenuRequestedToken               : EventRegistrationToken;
       FStatusBarTextChangedToken               : EventRegistrationToken;
       FServerCertificateErrorDetectedToken     : EventRegistrationToken;
+      FFaviconChangedToken                     : EventRegistrationToken;
 
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -79,6 +81,7 @@ type
       function  GetDefaultDownloadDialogMargin : TPoint;
       function  GetStatusBarText : wvstring;
       function  GetProfile : ICoreWebView2Profile;
+      function  GetFaviconURI : wvstring;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
@@ -117,6 +120,7 @@ type
       function  AddContextMenuRequestedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddStatusBarTextChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddServerCertificateErrorDetectedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddFaviconChanged(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -153,6 +157,7 @@ type
       function    OpenDefaultDownloadDialog : boolean;
       function    CloseDefaultDownloadDialog : boolean;
       function    ClearServerCertificateErrorActions(const aBrowserComponent : TComponent) : boolean;
+      function    GetFavicon(aFormat: TWVFaviconImageFormat; const aBrowserComponent : TComponent) : boolean;
 
       property Initialized                          : boolean                                   read GetInitialized;
       property BaseIntf                             : ICoreWebView2                             read FBaseIntf;
@@ -173,6 +178,7 @@ type
       property DefaultDownloadDialogMargin          : TPoint                                    read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
       property StatusBarText                        : wvstring                                  read GetStatusBarText;
       property Profile                              : ICoreWebView2Profile                      read GetProfile;
+      property FaviconURI                           : wvstring                                  read GetFaviconURI;
   end;
 
 implementation
@@ -200,8 +206,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_10, FBaseIntf10) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_11, FBaseIntf11) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_12, FBaseIntf12) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_13, FBaseIntf13) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_14, FBaseIntf14);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_13, FBaseIntf13) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_14, FBaseIntf14) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_15, FBaseIntf15);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -247,6 +254,7 @@ begin
   FBaseIntf12          := nil;
   FBaseIntf13          := nil;
   FBaseIntf14          := nil;
+  FBaseIntf15          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -283,6 +291,7 @@ begin
   FContextMenuRequestedToken.value               := 0;
   FStatusBarTextChangedToken.value               := 0;
   FServerCertificateErrorDetectedToken.value     := 0;
+  FFaviconChangedToken.value                     := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -396,6 +405,10 @@ begin
 //          if assigned(FBaseIntf14) and
 //             (FServerCertificateErrorDetectedToken.Value <> 0) then
 //            FBaseIntf14.remove_ServerCertificateErrorDetected(FServerCertificateErrorDetectedToken);
+
+          if assigned(FBaseIntf15) and
+             (FFaviconChangedToken.Value <> 0) then
+            FBaseIntf15.remove_FaviconChanged(FFaviconChangedToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -828,6 +841,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddFaviconChanged(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2FaviconChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf15) and (FFaviconChangedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2FaviconChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf15.add_FaviconChanged(TempHandler, FFaviconChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -857,7 +885,8 @@ begin
             AddBasicAuthenticationRequestedEvent(aBrowserComponent)       and
             AddContextMenuRequestedEvent(aBrowserComponent)               and
             AddStatusBarTextChangedEvent(aBrowserComponent)               and
-            AddServerCertificateErrorDetectedEvent(aBrowserComponent);
+            AddServerCertificateErrorDetectedEvent(aBrowserComponent)     and
+            AddFaviconChanged(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
@@ -1173,6 +1202,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.GetFavicon(aFormat: TWVFaviconImageFormat; const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2GetFaviconCompletedHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf15) then
+    try
+      TempHandler := TCoreWebView2GetFaviconCompletedHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf15.GetFavicon(aFormat, TempHandler));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.GetBrowserProcessID : cardinal;
 var
   TempID : DWORD;
@@ -1363,6 +1407,21 @@ begin
      succeeded(FBaseIntf13.Get_Profile(TempResult)) and
      assigned(TempResult) then
     Result := TempResult;
+end;
+
+function TCoreWebView2.GetFaviconURI : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if assigned(FBaseIntf15) and
+     succeeded(FBaseIntf15.Get_FaviconUri(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
 end;
 
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);

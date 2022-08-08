@@ -49,6 +49,7 @@ type
   TWVPreferredColorScheme                 = type COREWEBVIEW2_PREFERRED_COLOR_SCHEME;
   TWVBrowsingDataKinds                    = type COREWEBVIEW2_BROWSING_DATA_KINDS;
   TWVServerCertificateErrorAction         = type COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION;
+  TWVFaviconImageFormat                   = type COREWEBVIEW2_FAVICON_IMAGE_FORMAT;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

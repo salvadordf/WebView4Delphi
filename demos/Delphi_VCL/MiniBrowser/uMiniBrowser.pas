@@ -57,6 +57,7 @@ type
     Browserprocesses1: TMenuItem;
     Cleatallstorage1: TMenuItem;
     Saveresourceas1: TMenuItem;
+    Downloadfavicon1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -91,6 +92,8 @@ type
     procedure Muted1Click(Sender: TObject);
     procedure Browserprocesses1Click(Sender: TObject);
     procedure Cleatallstorage1Click(Sender: TObject);
+    procedure Saveresourceas1Click(Sender: TObject);
+    procedure Downloadfavicon1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -111,12 +114,9 @@ type
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1StatusBarTextChanged(Sender: TObject; const aWebView: ICoreWebView2);
     procedure WVBrowser1WebResourceResponseViewGetContentCompleted(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID: Integer);
-    procedure Saveresourceas1Click(Sender: TObject);
-    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject;
-      aErrorCode: HRESULT);
-    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject; aErrorCode: HRESULT);
+    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+    procedure WVBrowser1GetFaviconCompleted(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -304,6 +304,11 @@ end;
 procedure TMiniBrowserFrm.DevTools1Click(Sender: TObject);
 begin
   WVBrowser1.OpenDevToolsWindow;
+end;
+
+procedure TMiniBrowserFrm.Downloadfavicon1Click(Sender: TObject);
+begin
+  WVBrowser1.GetFavicon;
 end;
 
 procedure TMiniBrowserFrm.FormCreate(Sender: TObject);
@@ -577,6 +582,46 @@ begin
           end;
       end;
     end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1GetFaviconCompleted(Sender: TObject;
+  aErrorCode: HRESULT; const aFaviconStream: IStream);
+var
+  TempOLEStream  : TOLEStream;
+  TempFavicon    : TBytes;
+  TempFileStream : TFileStream;
+begin
+  TempOLEStream  := nil;
+  TempFileStream := nil;
+  try
+    if succeeded(aErrorCode) and assigned(aFaviconStream) then
+      begin
+        TempOLEStream          := TOLEStream.Create(aFaviconStream);
+        TempOLEStream.Position := 0;
+
+        if (TempOLEStream.Size > 0) then
+          begin
+            SetLength(TempFavicon, TempOLEStream.Size);
+            TempOLEStream.Read(TempFavicon, TempOLEStream.Size);
+
+            SaveDialog1.Filter     := 'PNG files (*.png)|*.png';
+            SaveDialog1.DefaultExt := 'png';
+
+            if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+              try
+                TempFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+                TempFileStream.Write(TempFavicon, length(TempFavicon));
+              finally
+                FreeAndNil(TempFileStream);
+              end;
+          end;
+      end
+     else
+      showmessage('There was an error downloading the favicon');
+  finally
+    if assigned(TempOLEStream) then
+      FreeAndNil(TempOLEStream);
+  end;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1InitializationError(Sender: TObject;

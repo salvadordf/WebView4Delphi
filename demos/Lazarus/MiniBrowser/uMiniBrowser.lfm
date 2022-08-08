@@ -343,6 +343,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     Top = 272
   end
   object SaveDialog1: TSaveDialog
+    Filter = 'HTML files (*.html)|*.html'
     Left = 48
     Top = 344
   end

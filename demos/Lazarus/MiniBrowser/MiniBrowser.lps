@@ -4,11 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="34">
+    <Units Count="35">
       <Unit0>
         <Filename Value="MiniBrowser.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -19,11 +19,11 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="803"/>
-        <CursorPos X="3" Y="830"/>
-        <UsageCount Value="22"/>
+        <TopLine Value="142"/>
+        <CursorPos X="23" Y="153"/>
+        <UsageCount Value="23"/>
         <Bookmarks Count="1">
-          <Item0 Y="487" ID="1"/>
+          <Item0 Y="483" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -36,7 +36,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20" Y="8"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
@@ -45,7 +45,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos X="43" Y="72"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\..\..\source\uWVCoreWebView2HttpHeadersCollectionIterator.pas"/>
@@ -54,7 +54,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
@@ -64,7 +64,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
@@ -74,12 +74,11 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\CookieManager\ConverterBackup\uWVBrowser.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -89,7 +88,6 @@
       </Unit7>
       <Unit8>
         <Filename Value="..\CookieManager\ConverterBackup\uWVConstants.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -99,7 +97,6 @@
       </Unit8>
       <Unit9>
         <Filename Value="..\CookieManager\ConverterBackup\uWVCoreWebView2Args.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -109,7 +106,6 @@
       </Unit9>
       <Unit10>
         <Filename Value="..\CookieManager\ConverterBackup\uWVInterfaces.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -119,7 +115,6 @@
       </Unit10>
       <Unit11>
         <Filename Value="..\CookieManager\ConverterBackup\uWVLibFunctions.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -129,7 +124,6 @@
       </Unit11>
       <Unit12>
         <Filename Value="..\CookieManager\ConverterBackup\uWVLoader.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -139,7 +133,6 @@
       </Unit12>
       <Unit13>
         <Filename Value="..\CookieManager\ConverterBackup\uWVTypeLibrary.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -149,7 +142,6 @@
       </Unit13>
       <Unit14>
         <Filename Value="..\CookieManager\ConverterBackup\uWVTypes.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -159,7 +151,6 @@
       </Unit14>
       <Unit15>
         <Filename Value="..\CookieManager\ConverterBackup\uWVWinControl.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -169,7 +160,6 @@
       </Unit15>
       <Unit16>
         <Filename Value="..\CookieManager\ConverterBackup\uWVWindowParent.pas"/>
-        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -194,11 +184,10 @@
       </Unit18>
       <Unit19>
         <Filename Value="..\..\..\source\uWVLoader.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1230"/>
         <CursorPos X="78" Y="1233"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="C:\lazarus\fpc\3.2.0\source\rtl\objpas\sysutils\sysutilh.inc"/>
@@ -209,14 +198,13 @@
       </Unit20>
       <Unit21>
         <Filename Value="..\..\..\source\uWVBrowserBase.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3862"/>
         <CursorPos X="51" Y="3877"/>
         <UsageCount Value="10"/>
         <Bookmarks Count="1">
           <Item0 X="27" Y="2319" ID="2"/>
         </Bookmarks>
-        <Loaded Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:\lazarus\fpc\3.2.0\source\rtl\win\messages.pp"/>
@@ -262,11 +250,10 @@
       </Unit27>
       <Unit28>
         <Filename Value="..\..\..\source\uWVMiscFunctions.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="254"/>
         <CursorPos X="76" Y="269"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit28>
       <Unit29>
         <Filename Value="uBasicUserAuthForm.pas"/>
@@ -300,133 +287,141 @@
       </Unit32>
       <Unit33>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\syshelph.inc"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="29"/>
         <CursorPos X="14" Y="47"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit33>
+      <Unit34>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="162"/>
+        <CursorPos X="14" Y="175"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit34>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="468" Column="17" TopLine="461"/>
+        <Caret Line="596" Column="59" TopLine="580"/>
       </Position1>
       <Position2>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="488" Column="17" TopLine="467"/>
+        <Caret Line="598" Column="65" TopLine="580"/>
       </Position2>
       <Position3>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="579" Column="23" TopLine="564"/>
+        <Caret Line="702" Column="31" TopLine="683"/>
       </Position3>
       <Position4>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="585" Column="23" TopLine="564"/>
+        <Caret Line="709" Column="31" TopLine="690"/>
       </Position4>
       <Position5>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="595" Column="13" TopLine="574"/>
+        <Caret Line="716" Column="31" TopLine="697"/>
       </Position5>
       <Position6>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="602" Column="13" TopLine="581"/>
+        <Caret Line="50" Column="16" TopLine="40"/>
       </Position6>
       <Position7>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="465" Column="28" TopLine="453"/>
+        <Caret Line="170" Column="9" TopLine="151"/>
       </Position7>
       <Position8>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="466" TopLine="453"/>
+        <Caret Line="171" Column="14" TopLine="152"/>
       </Position8>
       <Position9>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="467" Column="36" TopLine="453"/>
+        <Caret Line="173" Column="49" TopLine="154"/>
       </Position9>
       <Position10>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="488" Column="17" TopLine="467"/>
+        <Caret Line="177" Column="52" TopLine="158"/>
       </Position10>
       <Position11>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="579" Column="23" TopLine="558"/>
+        <Caret Line="347" Column="58" TopLine="333"/>
       </Position11>
       <Position12>
-        <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="585" Column="23" TopLine="564"/>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <Caret Line="175" Column="39" TopLine="165"/>
       </Position12>
       <Position13>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="595" Column="13" TopLine="574"/>
+        <Caret Line="347" Column="58" TopLine="333"/>
       </Position13>
       <Position14>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="602" Column="13" TopLine="581"/>
+        <Caret Line="350" Column="51" TopLine="333"/>
       </Position14>
       <Position15>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="39" Column="15" TopLine="27"/>
+        <Caret Line="583" TopLine="576"/>
       </Position15>
       <Position16>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="466" Column="13" TopLine="445"/>
+        <Caret Line="585" TopLine="576"/>
       </Position16>
       <Position17>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="488" Column="17" TopLine="467"/>
+        <Caret Line="586" TopLine="576"/>
       </Position17>
       <Position18>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="579" Column="23" TopLine="558"/>
+        <Caret Line="588" TopLine="576"/>
       </Position18>
       <Position19>
-        <Filename Value="..\..\..\source\uWVLoader.pas"/>
-        <Caret Line="910" Column="82" TopLine="890"/>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="590" TopLine="576"/>
       </Position19>
       <Position20>
-        <Filename Value="..\..\..\source\uWVLoader.pas"/>
-        <Caret Line="133" Column="19" TopLine="104"/>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="591" TopLine="576"/>
       </Position20>
       <Position21>
-        <Filename Value="..\..\..\source\uWVLoader.pas"/>
-        <Caret Line="1233" Column="78" TopLine="1230"/>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="590" Column="62" TopLine="576"/>
       </Position21>
       <Position22>
-        <Filename Value="..\..\..\source\uWVBrowserBase.pas"/>
-        <Caret Line="3841" Column="52" TopLine="3821"/>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="593" Column="31" TopLine="576"/>
       </Position22>
       <Position23>
-        <Filename Value="..\..\..\source\uWVBrowserBase.pas"/>
-        <Caret Line="3877" Column="51" TopLine="3862"/>
+        <Filename Value="uMiniBrowser.pas"/>
+        <Caret Line="170" Column="53" TopLine="159"/>
       </Position23>
       <Position24>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="594" Column="60" TopLine="567"/>
+        <Caret Line="346" Column="21" TopLine="327"/>
       </Position24>
       <Position25>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="657" Column="17" TopLine="646"/>
+        <Caret Line="441" Column="21" TopLine="422"/>
       </Position25>
       <Position26>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="805" Column="58" TopLine="780"/>
+        <Caret Line="571" Column="5" TopLine="114"/>
       </Position26>
       <Position27>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="806" Column="58" TopLine="781"/>
+        <Caret Line="108" Column="63" TopLine="97"/>
       </Position27>
       <Position28>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="805" Column="58" TopLine="780"/>
+        <Caret Line="107" Column="63" TopLine="96"/>
       </Position28>
       <Position29>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="812" Column="58" TopLine="787"/>
+        <Caret Line="98" Column="57" TopLine="116"/>
       </Position29>
       <Position30>
         <Filename Value="uMiniBrowser.pas"/>
-        <Caret Line="362" Column="35" TopLine="360"/>
+        <Caret Line="238" TopLine="227"/>
       </Position30>
     </JumpHistory>
     <RunParams>

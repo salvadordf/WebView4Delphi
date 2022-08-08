@@ -62,7 +62,6 @@ type
     Offline1: TMenuItem;
     Ignorecertificateerrors1: TMenuItem;
 
-    procedure Cleatallstorage1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -95,21 +94,19 @@ type
     procedure ChangeUserAgentMiClick(Sender: TObject); 
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
-    procedure Muted1Click(Sender: TObject);
+    procedure Muted1Click(Sender: TObject);      
+    procedure Cleatallstorage1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
-    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject;
-      aErrorCode: HRESULT);
+    procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject; aErrorCode: HRESULT);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: boolean; const aMHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: boolean; const aText: wvstring);
-    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
+    procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
     procedure WVBrowser1NavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
@@ -117,8 +114,7 @@ type
     procedure WVBrowser1DownloadStateChanged(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID : integer);
     procedure WVBrowser1BytesReceivedChanged(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID : integer);
     procedure WVBrowser1CapturePreviewCompleted(Sender: TObject; aErrorCode: HRESULT);
-    procedure WVBrowser1StatusBarTextChanged(Sender: TObject;
-      const aWebView: ICoreWebView2);
+    procedure WVBrowser1StatusBarTextChanged(Sender: TObject; const aWebView: ICoreWebView2);
     procedure WVBrowser1WebResourceRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceRequestedEventArgs);
     procedure WVBrowser1WebResourceResponseReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebResourceResponseReceivedEventArgs);
 

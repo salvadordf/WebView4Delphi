@@ -34,7 +34,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="17">
+    <Units Count="7">
       <Unit0>
         <Filename Value="MiniBrowser.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -69,46 +69,6 @@
         <Filename Value="..\..\..\source\uWVCoreWebView2WebResourceResponseView.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
-      <Unit7>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVBrowser.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVConstants.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVCoreWebView2Args.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVInterfaces.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVLibFunctions.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVLoader.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVTypeLibrary.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVTypes.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVWinControl.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="..\CookieManager\ConverterBackup\uWVWindowParent.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit16>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -119,7 +79,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="..\CookieManager\ConverterBackup;..\..\..\source;$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\CookieManager\ConverterBackup;..\..\..\source"/>
+      <OtherUnitFiles Value="..\..\..\source"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>

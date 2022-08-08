@@ -746,6 +746,28 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2FaviconChangedEventHandler = class(TInterfacedObject, ICoreWebView2FaviconChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2GetFaviconCompletedHandler = class(TInterfacedObject, ICoreWebView2GetFaviconCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2421,5 +2443,56 @@ begin
    else
     Result := E_FAIL;
 end;
+
+
+// TCoreWebView2FaviconChangedEventHandler
+
+constructor TCoreWebView2FaviconChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2FaviconChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FaviconChangedEventHandler.Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FaviconChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2GetFaviconCompletedHandler
+
+constructor TCoreWebView2GetFaviconCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2GetFaviconCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2GetFaviconCompletedHandler.Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).GetFaviconCompletedHandler_Invoke(errorCode, faviconStream)
+   else
+    Result := E_FAIL;
+end;
+
 
 end.

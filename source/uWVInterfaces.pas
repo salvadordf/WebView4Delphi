@@ -220,6 +220,12 @@ type
 
     // ICoreWebView2ServerCertificateErrorDetectedEventHandler
     function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HResult;
+
+    // ICoreWebView2FaviconChangedEventHandler
+    function FaviconChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
+
+    // ICoreWebView2GetFaviconCompletedHandler
+    function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const faviconStream: IStream): HResult;
   end;
 
 implementation
