@@ -194,6 +194,7 @@ type
       function  GetAllowExternalDrop : boolean;
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
       function  GetCustomItemSelectedEventHandler : ICoreWebView2CustomItemSelectedEventHandler;
+      function  GetFaviconURI : wvstring;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -566,6 +567,9 @@ type
 
       // ICoreWebView2_12
       property StatusBarText                          : wvstring                                read GetStatusBarText;
+
+      // ICoreWebView2_15
+      property FaviconURI                             : wvstring                                read GetFaviconURI;
 
       // ICoreWebView2Controller properties
       property Bounds                                 : TRect                                   read GetBounds                                write SetBounds;                                  // ICoreWebView2Controller.get_Bounds
@@ -2649,6 +2653,14 @@ begin
     FMenuItemHandler := TCoreWebView2CustomItemSelectedEventHandler.Create(self);
 
   Result := FMenuItemHandler;
+end;
+
+function TWVBrowserBase.GetFaviconURI : wvstring;
+begin
+  if Initialized then
+    Result := FCoreWebView2.FaviconURI
+   else
+    Result := '';
 end;
 
 function TWVBrowserBase.GetZoomFactor: Double;
