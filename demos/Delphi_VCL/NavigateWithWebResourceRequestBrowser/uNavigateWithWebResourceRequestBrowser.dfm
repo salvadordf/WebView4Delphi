@@ -16,7 +16,6 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -26,9 +25,6 @@ object MainForm: TMainForm
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
-    ExplicitTop = 24
-    ExplicitWidth = 995
-    ExplicitHeight = 677
   end
   object AddressPnl: TPanel
     Left = 0
@@ -135,6 +131,14 @@ object MainForm: TMainForm
       Caption = 'Check results in PTSV2.com'
       TabOrder = 6
       OnClick = Button1Click
+    end
+    object SendCustomHTTPHeaderChk: TCheckBox
+      Left = 432
+      Top = 39
+      Width = 241
+      Height = 17
+      Caption = 'Send custom HTTP header'
+      TabOrder = 7
     end
   end
   object Timer1: TTimer
