@@ -7,16 +7,16 @@ interface
 const
   WEBVIEW2LOADERLIB_VERSION_MAJOR   = 1;
   WEBVIEW2LOADERLIB_VERSION_MINOR   = 0;
-  WEBVIEW2LOADERLIB_VERSION_RELEASE = 1293;
-  WEBVIEW2LOADERLIB_VERSION_BUILD   = 44;
+  WEBVIEW2LOADERLIB_VERSION_RELEASE = 1343;
+  WEBVIEW2LOADERLIB_VERSION_BUILD   = 22;
 
   // For full API compatibility, WebView4Delphi requires the same
   // WebView2 Runtime version mentioned in the release notes :
   // https://docs.microsoft.com/en-us/microsoft-edge/webview2/release-notes
-  CHROMIUM_VERSION_MAJOR   = 104;
+  CHROMIUM_VERSION_MAJOR   = 105;
   CHROMIUM_VERSION_MINOR   = 0;
-  CHROMIUM_VERSION_RELEASE = 1293;
-  CHROMIUM_VERSION_BUILD   = 44;
+  CHROMIUM_VERSION_RELEASE = 1343;
+  CHROMIUM_VERSION_BUILD   = 22;
 
   CRLF = #13 + #10;
 
