@@ -500,6 +500,10 @@ type
 
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
       function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+      function    DragEnter(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+      function    DragLeave : HResult;
+      function    DragOver(keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+      function    Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
 
       function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;
       function    ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime): boolean;
@@ -3980,6 +3984,56 @@ begin
   Result := FUseCompositionController and
             Initialized and
             FCoreWebView2CompositionController.SendPointerInput(aEventKind, aPointerInfo);
+end;
+
+function TWVBrowserBase.DragEnter(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+var
+  TempPoint : tagPoint;
+begin
+  Result := S_OK;
+  effect := DROPEFFECT_NONE;
+
+  TempPoint.x := point.X;
+  TempPoint.y := point.Y;
+
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.DragEnter(dataObject, keyState, TempPoint, effect);
+end;
+
+function TWVBrowserBase.DragLeave : HResult;
+begin
+  Result := S_OK;
+
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.DragLeave;
+end;
+
+function TWVBrowserBase.DragOver(keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+var
+  TempPoint : tagPoint;
+begin
+  Result := S_OK;
+  effect := DROPEFFECT_NONE;
+
+  TempPoint.x := point.X;
+  TempPoint.y := point.Y;
+
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.DragOver(keyState, TempPoint, effect);
+end;
+
+function TWVBrowserBase.Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+var
+  TempPoint : tagPoint;
+begin
+  Result := S_OK;
+  effect := DROPEFFECT_NONE;
+
+  TempPoint.x := point.X;
+  TempPoint.y := point.Y;
+
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.Drop(dataObject, keyState, TempPoint, effect);
 end;
 
 function TWVBrowserBase.ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;

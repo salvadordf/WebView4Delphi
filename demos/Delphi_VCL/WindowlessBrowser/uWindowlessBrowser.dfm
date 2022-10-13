@@ -14,7 +14,6 @@ object MainForm: TMainForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object AddressPnl: TPanel
     Left = 0
@@ -39,6 +38,9 @@ object MainForm: TMainForm
       Text = 'https://www.bing.com'
       Items.Strings = (
         'https://www.bing.com'
+        
+          'https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_draga' +
+          'nddrop'
         'https://www.google.com'
         
           'https://www.whatismybrowser.com/detect/what-http-headers-is-my-b' +

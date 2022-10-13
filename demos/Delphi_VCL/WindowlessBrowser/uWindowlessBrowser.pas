@@ -3,14 +3,15 @@ unit uWindowlessBrowser;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.AppEvnts,
+  Winapi.Windows, Winapi.Messages, WinApi.ActiveX, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.StdCtrls, Vcl.AppEvnts,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args, uWVBrowserBase,
   uDirectCompositionHost;
 
 type
-  TMainForm = class(TForm)
+  TMainForm = class(TForm, IDropTarget)
     Timer1: TTimer;
     WVBrowser1: TWVBrowser;
     AddressPnl: TPanel;
@@ -33,14 +34,24 @@ type
 
   protected
     FWVDirectCompositionHost : TWVDirectCompositionHost;
-    FIsCapturingMouse : boolean;
-    FIsTrackingMouse  : boolean;
+    FIsCapturingMouse        : boolean;
+    FIsTrackingMouse         : boolean;
+    FDragAndDropInitialized  : boolean;
 
     function HandleMouseMessage(aMessage : cardinal; aWParam : WPARAM; aLParam : LPARAM) : boolean;
     function TrackMouseEvents(aMouseTrackingFlags : cardinal) : boolean;
+    function OffsetPointToWebView(aPoint : TPoint) : TPoint;
 
   public
-    { Public declarations }
+    // IDropTarget
+    function DragEnter(const dataObj: IDataObject; grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+    function IDropTarget.DragOver = IDropTarget_DragOver;
+    function IDropTarget_DragOver(grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+    function DragLeave: HResult; stdcall;
+    function Drop(const dataObj: IDataObject; grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+
+    procedure InitializeDragAndDrop;
+    procedure ShutdownDragAndDrop;
   end;
 
 var
@@ -199,12 +210,14 @@ procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WVBrowser1.RootVisualTarget := nil;
   FWVDirectCompositionHost.DestroyDCompVisualTree;
+  ShutdownDragAndDrop;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  FIsCapturingMouse := False;
-  FIsTrackingMouse  := False;
+  FIsCapturingMouse       := False;
+  FIsTrackingMouse        := False;
+  FDragAndDropInitialized := False;
 
   WVBrowser1.DefaultURL := AddressCb.Text;
 
@@ -242,6 +255,10 @@ begin
   FWVDirectCompositionHost.UpdateSize;
   FWVDirectCompositionHost.SetFocus;
 
+  WVBrowser1.AllowExternalDrop := True;
+
+  InitializeDragAndDrop;
+
   Caption := 'WindowlessBrowser';
   AddressPnl.Enabled := True;
 end;
@@ -270,6 +287,46 @@ begin
     WVBrowser1.CreateWindowlessBrowser(FWVDirectCompositionHost.Handle)
    else
     Timer1.Enabled := True;
+end;
+
+procedure TMainForm.InitializeDragAndDrop;
+begin
+  if not(FDragAndDropInitialized) then
+    FDragAndDropInitialized := succeeded(RegisterDragDrop(Handle, self));
+end;
+
+procedure TMainForm.ShutdownDragAndDrop;
+begin
+  if FDragAndDropInitialized then
+    RevokeDragDrop(Handle);
+end;
+
+// IDropTarget
+function TMainForm.DragEnter(const dataObj: IDataObject; grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+begin
+  Result := WVBrowser1.DragEnter(DataObj, grfKeyState, OffsetPointToWebView(pt), LongWord(dwEffect));
+end;
+
+function TMainForm.IDropTarget_DragOver(grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+begin
+  Result := WVBrowser1.DragOver(grfKeyState, OffsetPointToWebView(pt), LongWord(dwEffect));
+end;
+
+function TMainForm.DragLeave: HRESULT; stdcall;
+begin
+  Result := WVBrowser1.DragLeave;
+end;
+
+function TMainForm.Drop(const dataObj: IDataObject; grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
+begin
+  Result := WVBrowser1.Drop(dataObj, grfKeyState, OffsetPointToWebView(pt), LongWord(dwEffect));
+end;
+
+function TMainForm.OffsetPointToWebView(aPoint : TPoint) : TPoint;
+begin
+  Result   := ScreenToClient(aPoint);
+  Result.X := Result.X - FWVDirectCompositionHost.Left;
+  Result.Y := Result.Y - FWVDirectCompositionHost.Top;
 end;
 
 initialization
