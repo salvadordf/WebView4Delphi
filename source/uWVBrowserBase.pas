@@ -2204,41 +2204,53 @@ var
   TempHResult     : HRESULT;
   TempOptions     : TCoreWebView2ControllerOptions;
   TempOptionsIntf : ICoreWebView2ControllerOptions;
+  TempOldWinVer   : boolean;
 begin
-  if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf) then
-    try
-      TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
-      TempOptions.ProfileName            := FProfileName;
-      TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
+  Result        := False;
+  TempOldWinVer := False;
+  TempHResult   := S_OK;
 
-      Result := FCoreWebView2Environment.CreateCoreWebView2CompositionControllerWithOptions(FWindowParentHandle,
-                                                                                            TempOptions.BaseIntf,
-                                                                                            self,
-                                                                                            TempHResult);
-    finally
-      FreeAndNil(TempOptions);
-      TempOptionsIntf := nil;
-    end
+  if (Win32MajorVersion < 10) then
+    TempOldWinVer := True
    else
-    begin
-      FProfileName            := '';
-      FIsInPrivateModeEnabled := False;
+    if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf) then
+      try
+        TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
+        TempOptions.ProfileName            := FProfileName;
+        TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
 
-      Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
-                                                                                 self,
-                                                                                 TempHResult);
-    end;
+        Result := FCoreWebView2Environment.CreateCoreWebView2CompositionControllerWithOptions(FWindowParentHandle,
+                                                                                              TempOptions.BaseIntf,
+                                                                                              self,
+                                                                                              TempHResult);
+      finally
+        FreeAndNil(TempOptions);
+        TempOptionsIntf := nil;
+      end
+     else
+      begin
+        FProfileName            := '';
+        FIsInPrivateModeEnabled := False;
+
+        Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
+                                                                                   self,
+                                                                                   TempHResult);
+      end;
 
   if not(Result) then
     begin
-      TempError := 'There was an error creating the composition controller. (3)' + CRLF +
-                   'Error code : 0x' +
-                   {$IFDEF FPC}
-                   UTF8Decode(inttohex(TempHResult, 8))
-                   {$ELSE}
-                   inttohex(TempHResult, 8)
-                   {$ENDIF}
-                    + CRLF + CompositionControllerCreationErrorToString(TempHResult);
+      TempError := 'There was an error creating the composition controller. (3)' + CRLF;
+
+      if TempOldWinVer then
+        TempError := TempError + 'The composition controller requires at least Windows 10 or Windows Server 2016.'
+       else
+        TempError := TempError + 'Error code : 0x' +
+                     {$IFDEF FPC}
+                     UTF8Decode(inttohex(TempHResult, 8))
+                     {$ELSE}
+                     inttohex(TempHResult, 8)
+                     {$ENDIF}
+                      + CRLF + CompositionControllerCreationErrorToString(TempHResult);
 
       doOnInitializationError(TempHResult, TempError);
     end;
