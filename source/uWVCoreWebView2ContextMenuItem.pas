@@ -7,10 +7,10 @@ unit uWVCoreWebView2ContextMenuItem;
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, ActiveX,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes, Winapi.ActiveX,
+  {$ELSE}
+  Classes, ActiveX,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 

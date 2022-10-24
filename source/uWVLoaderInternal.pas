@@ -4,16 +4,17 @@ unit uWVLoaderInternal;
 //   https://github.com/jchv/OpenWebView2Loader
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
+
 {$I webview2.inc}
 
 interface
 
 uses
-{$IFDEF FPC}
-  Windows,
-{$ELSE}
+  {$IFDEF DELPHI16_UP}
   WinApi.Windows, WinApi.ShlObj, WinApi.ActiveX,
-{$ENDIF}
+  {$ELSE}
+  Windows,
+  {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 
 function Internal_CreateCoreWebView2EnvironmentWithOptions
@@ -34,11 +35,11 @@ function Internal_CompareBrowserVersions(version1, version2: LPCWSTR;
 implementation
 
 uses
-{$IFDEF FPC}
-  ActiveX, Registry,
-{$ELSE}
+  {$IFDEF DELPHI16_UP}
   IOUtils, System.Win.Registry,
-{$ENDIF}
+  {$ELSE}
+  ActiveX, Registry,
+  {$ENDIF}
   SysUtils;
 
 {$IFDEF FPC}

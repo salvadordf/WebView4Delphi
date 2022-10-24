@@ -34,10 +34,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  ActiveX;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   Winapi.ActiveX;
+  {$ELSE}
+  ActiveX;
   {$ENDIF}
 
 constructor TCoreWebView2BasicAuthenticationResponse.Create(const aBaseIntf: ICoreWebView2BasicAuthenticationResponse);

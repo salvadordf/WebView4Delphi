@@ -7,10 +7,10 @@ unit uWVLoader;
 interface
 
 uses
-  {$IFDEF FPC}
-  Windows, Classes, SysUtils, ActiveX, Registry, ShlObj, Math, Dialogs,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   WinApi.Windows, System.Classes, System.SysUtils, WinApi.ActiveX, System.Win.Registry, Winapi.ShlObj, System.Math,
+  {$ELSE}
+  Windows, Classes, SysUtils, ActiveX, Registry, ShlObj, Math, Dialogs,
   {$ENDIF}
   uWVLibFunctions, uWVInterfaces, uWVTypeLibrary, uWVTypes, uWVEvents, uWVCoreWebView2Environment;
 

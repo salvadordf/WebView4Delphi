@@ -7,10 +7,10 @@ unit uWVCoreWebView2DownloadOperation;
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, ActiveX, DateUtils,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes, Winapi.ActiveX, System.DateUtils,
+  {$ELSE}
+  Classes, ActiveX, DateUtils,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 

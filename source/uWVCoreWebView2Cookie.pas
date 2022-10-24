@@ -2,6 +2,8 @@ unit uWVCoreWebView2Cookie;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -52,10 +54,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  DateUtils, ActiveX;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.DateUtils, Winapi.ActiveX;
+  {$ELSE}
+  DateUtils, ActiveX;
   {$ENDIF}
 
 constructor TCoreWebView2Cookie.Create(const aBaseIntf: ICoreWebView2Cookie);
@@ -220,7 +222,7 @@ end;
 procedure TCoreWebView2Cookie.SetExpiresDate(const aValue : TDateTime);
 begin
   if Initialized then
-    FBaseIntf.Set_Expires(DateTimeToUnix(aValue){$IFDEF DELPHI20_UP}, False{$ENDIF});
+    FBaseIntf.Set_Expires(DateTimeToUnix(aValue{$IFDEF DELPHI20_UP}, False{$ENDIF}));
 end;
 
 procedure TCoreWebView2Cookie.SetIsHttpOnly(aValue : boolean);

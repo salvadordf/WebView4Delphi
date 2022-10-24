@@ -15,6 +15,8 @@ unit uWVTypeLibrary;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 
 // ************************************************************************ //
 // WARNING                                                                    
@@ -55,10 +57,10 @@ unit uWVTypeLibrary;
 interface
 
 uses
-  {$IFDEF FPC}
-  Windows, Classes, Variants, Graphics, ActiveX;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   Winapi.Windows, System.Classes, System.Variants, System.Win.StdVCL, Vcl.Graphics, Winapi.ActiveX;
+  {$ELSE}
+  Windows, Classes, Variants, Graphics, ActiveX;
   {$ENDIF}
 
   

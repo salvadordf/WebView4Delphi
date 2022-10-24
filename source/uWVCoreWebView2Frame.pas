@@ -2,13 +2,15 @@ unit uWVCoreWebView2Frame;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, ActiveX,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes, Winapi.ActiveX,
+  {$ELSE}
+  Classes, ActiveX,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 

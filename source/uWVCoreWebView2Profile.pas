@@ -2,6 +2,8 @@ unit uWVCoreWebView2Profile;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -42,10 +44,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  DateUtils, ActiveX,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.DateUtils, Winapi.ActiveX,
+  {$ELSE}
+  DateUtils, ActiveX,
   {$ENDIF}
   uWVMiscFunctions;
 

@@ -2,13 +2,15 @@ unit uWVCoreWebView2CompositionController;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, Windows, ActiveX,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes, System.Types, Winapi.Windows, Winapi.ActiveX,
+  {$ELSE}
+  Classes, Windows, ActiveX,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 

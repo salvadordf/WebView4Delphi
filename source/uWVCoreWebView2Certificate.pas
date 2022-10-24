@@ -42,10 +42,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  DateUtils, ActiveX;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.DateUtils, Winapi.ActiveX;
+  {$ELSE}
+  DateUtils, ActiveX;
   {$ENDIF}
 
 constructor TCoreWebView2Certificate.Create(const aBaseIntf: ICoreWebView2Certificate);

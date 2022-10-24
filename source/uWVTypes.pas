@@ -2,22 +2,24 @@ unit uWVTypes;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes,
+  {$ELSE}
+  Classes,
   {$ENDIF}
   uWVTypeLibrary;
 
 type
-{$IFDEF FPC}
-  wvstring = type UnicodeString;
-{$ELSE}
+  {$IFDEF DELPHI16_UP}
   wvstring = type string;
-{$ENDIF}
+  {$ELSE}
+  wvstring = type UnicodeString;
+  {$ENDIF}
 
   TWVKeyEventKind                         = type COREWEBVIEW2_KEY_EVENT_KIND;
   TWVMoveFocusReason                      = type COREWEBVIEW2_MOVE_FOCUS_REASON;

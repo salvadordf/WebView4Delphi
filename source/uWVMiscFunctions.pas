@@ -7,10 +7,10 @@ unit uWVMiscFunctions;
 interface
 
 uses
-  {$IFDEF FPC}
-  Windows, Classes, ActiveX, SysUtils, Graphics, Math, Controls, StrUtils,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   Winapi.Windows, System.Classes, System.UITypes, Winapi.ActiveX, System.SysUtils, System.Math, System.StrUtils,
+  {$ELSE}
+  Windows, Classes, ActiveX, SysUtils, Graphics, Math, Controls, StrUtils,
   {$ENDIF}
   uWVConstants, uWVTypeLibrary, uWVTypes;
 

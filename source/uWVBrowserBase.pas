@@ -7,13 +7,13 @@ unit uWVBrowserBase;
 interface
 
 uses
-  {$IFDEF FPC}
-    Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
-    CommCtrl, fpjson, jsonparser,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
     Winapi.Windows, System.Classes, System.Types, System.UITypes, System.SysUtils,
     Winapi.ActiveX, Winapi.Messages, {$IFDEF DELPHI20_UP}System.JSON,{$ENDIF}
     {$IFDEF DELPHI21_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
+  {$ELSE}
+    Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
+    CommCtrl, fpjson, jsonparser,
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,

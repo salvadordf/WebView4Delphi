@@ -7,15 +7,15 @@ unit uWVBrowser;
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, Types, Forms, Math, LResources,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Classes, System.Types, Vcl.Forms, System.Math,
+  {$ELSE}
+  Classes, Types, Forms, Math, LResources,
   {$ENDIF}
   uWVBrowserBase;
 
 type
-  {$IFNDEF FPC}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}
+  {$IFNDEF FPC}{$IFDEF DELPHI16_UP}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}{$ENDIF}
   TWVBrowser = class(TWVBrowserBase)
     protected
       function  GetParentForm : TCustomForm;

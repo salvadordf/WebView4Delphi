@@ -2,18 +2,20 @@ unit uWVWindowParent;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Classes, Controls, LResources,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   WinApi.Windows, System.Classes, Vcl.Controls,
+  {$ELSE}
+  Classes, Controls, LResources,
   {$ENDIF}
   uWVWinControl, uWVBrowserBase;
 
 type
-  {$IFNDEF FPC}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}
+  {$IFNDEF FPC}{$IFDEF DELPHI16_UP}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}{$ENDIF}
   TWVWindowParent = class(TWVWinControl)
     protected
       FBrowser : TWVBrowserBase;

@@ -2,13 +2,15 @@ unit uWVCoreWebView2PointerInfo;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Types, ActiveX,
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   System.Types, Winapi.ActiveX,
+  {$ELSE}
+  Types, ActiveX,
   {$ENDIF}
   uWVTypeLibrary;
 

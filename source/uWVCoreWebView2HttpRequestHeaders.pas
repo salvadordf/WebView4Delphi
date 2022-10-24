@@ -2,6 +2,8 @@ unit uWVCoreWebView2HttpRequestHeaders;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
@@ -32,10 +34,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  ActiveX;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   Winapi.ActiveX;
+  {$ELSE}
+  ActiveX;
   {$ENDIF}
 
 constructor TCoreWebView2HttpRequestHeaders.Create(const aBaseIntf: ICoreWebView2HttpRequestHeaders);

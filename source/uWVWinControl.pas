@@ -2,13 +2,15 @@ unit uWVWinControl;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
+{$I webview2.inc}
+
 interface
 
 uses
-  {$IFDEF FPC}
-  Windows, Classes, Controls, Graphics;
-  {$ELSE}
+  {$IFDEF DELPHI16_UP}
   WinApi.Windows, System.Classes, Vcl.Controls, Vcl.Graphics;
+  {$ELSE}
+  Windows, Classes, Controls, Graphics;
   {$ENDIF}
 
 type
