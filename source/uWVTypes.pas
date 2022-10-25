@@ -15,10 +15,14 @@ uses
   uWVTypeLibrary;
 
 type
-  {$IFDEF DELPHI16_UP}
+  {$IFDEF DELPHI12_UP}
   wvstring = type string;
   {$ELSE}
-  wvstring = type UnicodeString;
+    {$IFDEF FPC}
+    wvstring = type UnicodeString;
+    {$ELSE}
+    wvstring = type WideString;
+    {$ENDIF}
   {$ENDIF}
 
   TWVKeyEventKind                         = type COREWEBVIEW2_KEY_EVENT_KIND;
@@ -219,10 +223,10 @@ type
                         ecYankAndSelect);
 
   TFileVersionInfo = record
-    MajorVer : uint16;
-    MinorVer : uint16;
-    Release  : uint16;
-    Build    : uint16;
+    MajorVer : word;
+    MinorVer : word;
+    Release  : word;
+    Build    : word;
   end;
 
   TWVWindowFeatures = record

@@ -10,7 +10,7 @@ uses
   {$IFDEF DELPHI16_UP}
   System.Classes, System.Types, Vcl.Forms, System.Math,
   {$ELSE}
-  Classes, Types, Forms, Math, LResources,
+  Classes, Types, Forms, Math, {$IFDEF FPC}LResources,{$ENDIF}
   {$ENDIF}
   uWVBrowserBase;
 

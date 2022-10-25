@@ -48,11 +48,16 @@ type
       property  OnStartDrag;
       property  OnEndDrag;
       {$IFNDEF FPC}
+      property  OnCanResize;
+      {$ENDIF}
+      {$IFDEF DELPHI14_UP}
       property  Touch;
       property  OnGesture;
       {$ENDIF}
       property  DoubleBuffered;
+      {$IFDEF DELPHI12_UP}
       property  ParentDoubleBuffered;
+      {$ENDIF}
   end;
 
 implementation

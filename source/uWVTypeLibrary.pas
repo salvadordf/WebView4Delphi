@@ -3160,10 +3160,10 @@ type
 implementation
 
 uses
-  {$IFDEF FPC}
-  ComObj;
+  {$IFDEF DELPHI16_UP}  
+  System.Win.ComObj;    
   {$ELSE}
-  System.Win.ComObj;
+  ComObj;
   {$ENDIF}
 
 

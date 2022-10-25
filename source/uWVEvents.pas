@@ -16,10 +16,10 @@ uses
 
 type
   // Loader events
-  TLoaderNotifyEvent                                       = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject);
-  TLoaderBrowserProcessExitedEvent                         = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment; const aArgs: ICoreWebView2BrowserProcessExitedEventArgs);
-  TLoaderNewBrowserVersionAvailableEvent                   = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment);
-  TLoaderProcessInfosChangedEvent                          = {$IFNDEF FPC}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment);
+  TLoaderNotifyEvent                                       = {$IFDEF DELPHI12_UP}reference to{$ENDIF} procedure(Sender: TObject) {$IFNDEF DELPHI12_UP}{$IFNDEF FPC} of object{$ENDIF}{$ENDIF};
+  TLoaderBrowserProcessExitedEvent                         = {$IFDEF DELPHI12_UP}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment; const aArgs: ICoreWebView2BrowserProcessExitedEventArgs) {$IFNDEF DELPHI12_UP}{$IFNDEF FPC} of object{$ENDIF}{$ENDIF};
+  TLoaderNewBrowserVersionAvailableEvent                   = {$IFDEF DELPHI12_UP}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment) {$IFNDEF DELPHI12_UP}{$IFNDEF FPC} of object{$ENDIF}{$ENDIF};
+  TLoaderProcessInfosChangedEvent                          = {$IFDEF DELPHI12_UP}reference to{$ENDIF} procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment) {$IFNDEF DELPHI12_UP}{$IFNDEF FPC} of object{$ENDIF}{$ENDIF};
 
   // Browser events
   TOnExecuteScriptCompletedEvent                           = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring; aExecutionID: integer) of object;

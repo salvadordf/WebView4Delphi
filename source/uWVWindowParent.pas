@@ -10,7 +10,7 @@ uses
   {$IFDEF DELPHI16_UP}
   WinApi.Windows, System.Classes, Vcl.Controls,
   {$ELSE}
-  Classes, Controls, LResources,
+  Classes, Controls, {$IFDEF FPC}LResources,{$ENDIF}
   {$ENDIF}
   uWVWinControl, uWVBrowserBase;
 

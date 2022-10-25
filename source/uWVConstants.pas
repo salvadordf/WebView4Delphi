@@ -20,9 +20,9 @@ const
 
   CRLF = #13 + #10;
 
-  {$IFDEF FPC}
+  {$IF NOT DECLARED(USER_DEFAULT_SCREEN_DPI)}
   USER_DEFAULT_SCREEN_DPI = 96;
-  {$ENDIF}
+  {$IFEND}
 
   // These constants are declared in the "Windows" unit but
   // some old Delphi versions don't have them.

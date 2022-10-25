@@ -58,6 +58,17 @@ function PathIsUNCUnicode(pszPath: LPCWSTR): BOOL; stdcall; external SHLWAPIDLL 
 function PathIsURLAnsi(pszPath: LPCSTR): BOOL; stdcall; external SHLWAPIDLL name 'PathIsURLA';
 function PathIsURLUnicode(pszPath: LPCWSTR): BOOL; stdcall; external SHLWAPIDLL name 'PathIsURLW';
 
+{$IFNDEF DELPHI12_UP}
+const
+  GWLP_WNDPROC    = GWL_WNDPROC;
+  GWLP_HWNDPARENT = GWL_HWNDPARENT;
+  {$IFDEF WIN64}
+    function SetWindowLongPtr(hWnd: HWND; nIndex: Integer; dwNewLong: int64): int64; stdcall; external user32 name 'SetWindowLongPtrW';
+  {$ELSE}
+    function SetWindowLongPtr(hWnd: HWND; nIndex: Integer; dwNewLong: LongInt): LongInt; stdcall; external user32 name 'SetWindowLongW';
+  {$ENDIF}
+{$ENDIF}
+
 implementation
 
 uses
@@ -192,7 +203,7 @@ end;
 procedure OutputDebugMessage(const aMessage : string);
 begin
   {$IFDEF DEBUG}
-  OutputDebugString({$IFDEF FPC}PAnsiChar{$ELSE}PWideChar{$ENDIF}(aMessage + #0));
+  OutputDebugString({$IFNDEF DELPHI16_UP}PAnsiChar{$ELSE}PWideChar{$ENDIF}(aMessage + #0));
   {$ENDIF}
 end;
 

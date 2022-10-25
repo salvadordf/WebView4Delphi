@@ -101,7 +101,7 @@ type
       function  CheckBrowserExecPath : boolean;
       function  CheckWebViewRuntimeVersion : boolean;
       function  CheckWV2DLL : boolean;
-      function  CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
+      function  CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : word) : boolean;
       function  GetDLLHeaderMachine(const aDLLFile : string; var aMachine : integer) : boolean;
       function  Is32BitProcess : boolean;
       function  CheckInstalledRuntimeRegEntry(aLocalMachine : boolean; const aPath : string; var aVersion : wvstring) : boolean;
@@ -268,7 +268,7 @@ begin
   FSetCurrentDir                          := True;
   FCheckFiles                             := True;
   FShowMessageDlg                         := True;
-  FInitCOMLibrary                         := {$IFDEF FPC}True{$ELSE}False{$ENDIF};
+  FInitCOMLibrary                         := {$IFDEF DELPHI16_UP}False{$ELSE}True{$ENDIF};
   FForcedDeviceScaleFactor                := 0;
   FReRaiseExceptions                      := False;
   FLoaderDllPath                          := '';
@@ -305,8 +305,8 @@ begin
   FAllowFileAccessFromFiles               := False;
   FAllowRunningInsecureContent            := False;
   FDisableBackgroundNetworking            := False;
-  FDebugLog                               := TWV2DebugLog.dlDisabled;
-  FDebugLogLevel                          := TWV2DebugLogLevel.dllDefault;
+  FDebugLog                               := dlDisabled;
+  FDebugLogLevel                          := dllDefault;
   FJavaScriptFlags                        := '';
   FDisableEdgePitchNotification           := True;
   FProxySettings                          := nil;
@@ -431,10 +431,10 @@ begin
 
         if (TempVersion <> 0) then
           begin
-            aVersionInfo.MajorVer := uint16(TempVersion shr 48);
-            aVersionInfo.MinorVer := uint16((TempVersion shr 32) and $FFFF);
-            aVersionInfo.Release  := uint16((TempVersion shr 16) and $FFFF);
-            aVersionInfo.Build    := uint16(TempVersion and $FFFF);
+            aVersionInfo.MajorVer := word(TempVersion shr 48);
+            aVersionInfo.MinorVer := word((TempVersion shr 32) and $FFFF);
+            aVersionInfo.Release  := word((TempVersion shr 16) and $FFFF);
+            aVersionInfo.Build    := word(TempVersion and $FFFF);
 
             Result := True;
           end;
@@ -522,7 +522,7 @@ begin
   end;
 end;
 
-function TWVLoader.CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : uint16) : boolean;
+function TWVLoader.CheckFileVersion(const aFile : wvstring; aMajor, aMinor, aRelease, aBuild : word) : boolean;
 var
   TempVersionInfo : TFileVersionInfo;
 begin
@@ -1037,16 +1037,16 @@ begin
     Result := Result + '--remote-debugging-port=' + inttostr(FRemoteDebuggingPort) + ' ';
 
   case FDebugLog of
-    TWV2DebugLog.dlEnabled       : Result := Result + '--enable-logging ';
-    TWV2DebugLog.dlEnabledStdOut : Result := Result + '--enable-logging=stdout ';
-    TWV2DebugLog.dlEnabledStdErr : Result := Result + '--enable-logging=stderr ';
+    dlEnabled       : Result := Result + '--enable-logging ';
+    dlEnabledStdOut : Result := Result + '--enable-logging=stdout ';
+    dlEnabledStdErr : Result := Result + '--enable-logging=stderr ';
   end;
 
   case FDebugLogLevel of
-    TWV2DebugLogLevel.dllInfo    : Result := Result + '--log-level=0 ';
-    TWV2DebugLogLevel.dllWarning : Result := Result + '--log-level=1 ';
-    TWV2DebugLogLevel.dllError   : Result := Result + '--log-level=2 ';
-    TWV2DebugLogLevel.dllFatal   : Result := Result + '--log-level=3 ';
+    dllInfo    : Result := Result + '--log-level=0 ';
+    dllWarning : Result := Result + '--log-level=1 ';
+    dllError   : Result := Result + '--log-level=2 ';
+    dllFatal   : Result := Result + '--log-level=3 ';
   end;
 
   // The list of JavaScript flags is here :
@@ -1183,12 +1183,14 @@ begin
 end;
 
 function TWVLoader.GetDefaultUserDataPath : string;
+const
+  CSIDL_LOCAL_APPDATA = $001c;
 var
   TempPath : array [0..MAX_PATH] of char;
 begin
   System.FillChar(TempPath, SizeOf(TempPath), 0);
 
-  if ShGetSpecialFolderPath(0, TempPath, CSIDL_LOCAL_APPDATA, False) then
+  if SHGetSpecialFolderPath(0, TempPath, CSIDL_LOCAL_APPDATA, False) then
     Result := IncludeTrailingPathDelimiter(TempPath) + 'WebView2\UserData'
    else
     Result := '';

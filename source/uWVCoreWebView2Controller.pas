@@ -410,10 +410,10 @@ begin
      succeeded(FBaseIntf2.Get_DefaultBackgroundColor(TempResult)) then
     Result := CoreWebViewColorToDelphiColor(TempResult)
    else
-    {$IFDEF FPC}
-    Result := clNone;
-    {$ELSE}
+    {$IFDEF DELPHI16_UP}
     Result := TColors.SysNone;  // clNone
+    {$ELSE}
+    Result := clNone;
     {$ENDIF}
 end;
 
