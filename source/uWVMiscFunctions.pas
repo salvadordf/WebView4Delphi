@@ -40,6 +40,7 @@ function DelphiColorToCoreWebViewColor(const aColor : TColor) : COREWEBVIEW2_COL
 function TryIso8601BasicToDate(const Str: string; out Date: TDateTime): Boolean;
 function JSONUnescape(const Source: wvstring): wvstring;
 function JSONEscape(const Source: wvstring): wvstring;
+function CustomURLDecode(const aEncodedStr : wvstring) : AnsiString;
 
 function CustomPathIsRelative(const aPath : wvstring) : boolean;
 function CustomPathCanonicalize(const aOriginalPath : wvstring; var aCanonicalPath : wvstring) : boolean;
@@ -649,6 +650,42 @@ begin
 
       inc(i);
     end;
+end;
+
+function CustomURLDecode(const aEncodedStr : wvstring) : AnsiString;
+const
+  HEXCHARS = ['A'..'F', 'a'..'z', '0'..'9'];
+var
+  i, TempLen : integer;
+begin
+  Result  := '';
+  i       := 1;
+  TempLen := length(aEncodedStr);
+
+  while (i <= TempLen) do
+    if (aEncodedStr[i] = '+') then
+      begin
+        Result := Result + ' ';
+        inc(i);
+      end
+     else
+      if (aEncodedStr[i] = '%') then
+        begin
+          if (i + 2 <= TempLen) and
+             {$IFDEF DELPHI12_UP}
+             CharInSet(aEncodedStr[i + 1], HEXCHARS) and CharInSet(aEncodedStr[i + 2], HEXCHARS) then
+             {$ELSE}
+             (char(aEncodedStr[i + 1]) in HEXCHARS) and (char(aEncodedStr[i + 2]) in HEXCHARS) then
+             {$ENDIF}
+            Result := Result + AnsiChar(StrToInt('$' + char(aEncodedStr[i + 1]) + char(aEncodedStr[i + 2])));
+
+          inc(i, 3);
+        end
+       else
+        begin
+          Result := Result + AnsiChar(aEncodedStr[i]);
+          inc(i);
+        end;
 end;
 
 end.

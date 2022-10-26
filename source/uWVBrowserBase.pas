@@ -13,7 +13,7 @@ uses
     {$IFDEF DELPHI21_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
   {$ELSE}
     Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages,
-    {$IFDEF FPC}httpprotocol, CommCtrl, fpjson, jsonparser,{$ELSE}HTTPApp,{$ENDIF}
+    {$IFDEF FPC}httpprotocol, CommCtrl, fpjson, jsonparser,{$ENDIF}
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
@@ -259,6 +259,7 @@ type
       procedure ReplaceWndProcs;
 
       function  ExtractJSONData(const aJSON: wvstring; var aData: wvstring) : boolean; virtual;
+      function  ExtractEncodedJSON(const aJSON: wvstring): wvstring;
 
       function EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const createdEnvironment: ICoreWebView2Environment): HRESULT;
       function ControllerCompletedHandler_Invoke(errorCode: HRESULT; const createdController: ICoreWebView2Controller): HRESULT;
@@ -1977,6 +1978,24 @@ end;
 {$ENDIF}
 {$ENDIF}
 
+function TWVBrowserBase.ExtractEncodedJSON(const aJSON: wvstring): wvstring;
+begin
+  Result := '';
+
+  {$IFDEF DELPHI21_UP}
+    Result := TNetEncoding.URL.Decode(aJSON);
+  {$ELSE}
+    {$IFDEF FPC}
+    Result := UTF8Decode(HTTPDecode(UTF8Encode(aJSON)));
+    {$ELSE}
+    Result := UTF8Decode(CustomURLDecode(aJSON));
+    {$ENDIF}
+  {$ENDIF}
+
+  if (length(Result) > 0) and (Result[1] = '"') and (Result[length(Result)] = '"') then
+    Result := copy(Result, 2, length(Result) - 2);
+end;
+
 function TWVBrowserBase.AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
 begin
   Result := S_OK;
@@ -3483,75 +3502,23 @@ end;
 
 procedure TWVBrowserBase.doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
 var
-  TempHTML   : wvstring;
-  TempResult : boolean;
-  TempLen    : integer;
+  TempResult : wvstring;
 begin
-  if assigned(FOnRetrieveHTMLCompleted) then
+  if succeeded(aErrorCode) and assigned(FOnRetrieveHTMLCompleted) then
     begin
-      TempHTML   := '';
-      TempResult := False;
-
-      if succeeded(aErrorCode) then
-        begin
-          {$IFDEF DELPHI21_UP}
-            TempHTML := TNetEncoding.URL.Decode(aResultObjectAsJson);
-          {$ELSE}
-            {$IFDEF FPC}
-            TempHTML := UTF8Decode(HTTPDecode(UTF8Encode(aResultObjectAsJson)));
-            {$ELSE}
-            TempHTML := HTMLDecode(aResultObjectAsJson);
-            {$ENDIF}
-          {$ENDIF}
-          TempLen := length(TempHTML);
-
-          if (TempLen > 0) then
-            begin
-              if (TempHTML[1] = '"') and (TempHTML[TempLen] = '"') then
-                TempHTML := copy(TempHTML, 2, TempLen - 2);
-
-              TempResult := True;
-            end;
-        end;
-
-      FOnRetrieveHTMLCompleted(self, TempResult, TempHTML);
+      TempResult := ExtractEncodedJSON(aResultObjectAsJson);
+      FOnRetrieveHTMLCompleted(self, length(TempResult) > 0, TempResult);
     end;
 end;
 
 procedure TWVBrowserBase.doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
 var
-  TempText   : wvstring;
-  TempResult : boolean;
-  TempLen    : integer;
+  TempResult : wvstring;
 begin
-  if assigned(FOnRetrieveTextCompleted) then
+  if succeeded(aErrorCode) and assigned(FOnRetrieveTextCompleted) then
     begin
-      TempText   := '';
-      TempResult := False;
-
-      if succeeded(aErrorCode) then
-        begin
-          {$IFDEF DELPHI21_UP}
-            TempText := TNetEncoding.URL.Decode(aResultObjectAsJson);
-          {$ELSE}
-            {$IFDEF FPC}
-            TempText := UTF8Decode(HTTPDecode(UTF8Encode(aResultObjectAsJson)));
-            {$ELSE}
-            TempText := HTMLDecode(aResultObjectAsJson);
-            {$ENDIF}
-          {$ENDIF}
-          TempLen := length(TempText);
-
-          if (TempLen > 0) then
-            begin
-              if (TempText[1] = '"') and (TempText[TempLen] = '"') then
-                TempText := copy(TempText, 2, TempLen - 2);
-
-              TempResult := True;
-            end;
-        end;
-
-      FOnRetrieveTextCompleted(self, TempResult, TempText);
+      TempResult := ExtractEncodedJSON(aResultObjectAsJson);
+      FOnRetrieveTextCompleted(self, length(TempResult) > 0, TempResult);
     end;
 end;
 
