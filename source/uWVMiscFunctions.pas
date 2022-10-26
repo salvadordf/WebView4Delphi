@@ -554,7 +554,7 @@ begin
 
   if not(Result) then
     begin
-      TempMessage := 'The QueryInterface call for ' + aGUID.ToString + ' failed. ' +
+      TempMessage := 'The QueryInterface call for ' + GUIDToString(aGUID) + ' failed. ' +
                      'Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(cardinal(TempResult), 8){$IFDEF FPC}){$ENDIF};
       GlobalWebView2Loader.AppendErrorLog(TempMessage);
     end;
@@ -638,7 +638,11 @@ begin
 
   while (i <= length(aParameter)) do
     begin
+      {$IFDEF DELPHI12_UP}
       if CharInSet(aParameter[i], RESERVEDCHARS) then
+      {$ELSE}
+      if (char(aParameter[i]) in RESERVEDCHARS) then
+      {$ENDIF}
         Result := Result + '\' + aParameter[i]
        else
         Result := Result + aParameter[i];

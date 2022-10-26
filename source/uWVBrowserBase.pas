@@ -12,8 +12,8 @@ uses
     Winapi.ActiveX, Winapi.Messages, {$IFDEF DELPHI20_UP}System.JSON,{$ENDIF}
     {$IFDEF DELPHI21_UP}System.NetEncoding,{$ELSE}Web.HTTPApp,{$ENDIF}
   {$ELSE}
-    Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages, httpprotocol,
-    CommCtrl, fpjson, jsonparser,
+    Windows, Classes, Types, SysUtils, Graphics, ActiveX, Messages,
+    {$IFDEF FPC}httpprotocol, CommCtrl, fpjson, jsonparser,{$ELSE}HTTPApp,{$ENDIF}
   {$ENDIF}
   uWVTypes, uWVConstants, uWVTypeLibrary, uWVLibFunctions, uWVLoader,
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
@@ -2882,7 +2882,11 @@ begin
 
   while (i <= length(aValue)) do
     begin
+      {$IFDEF DELPHI12_UP}
       if CharInSet(aValue[i], PROFILENAME_VALID_CHARS) then
+      {$ELSE}
+      if (Char(aValue[i]) in PROFILENAME_VALID_CHARS) then
+      {$ENDIF}
         TempValue := TempValue + aValue[i];
 
       inc(i);
@@ -2891,7 +2895,11 @@ begin
   TempValue := copy(TempValue, 1, PROFILENAME_MAX_LENGTH);
 
   while (length(TempValue) > 0) and
+        {$IFDEF DELPHI12_UP}
         CharInSet(TempValue[length(TempValue)], PROFILENAME_INVALID_ENDCHARS) do
+        {$ELSE}
+        (Char(TempValue[length(TempValue)]) in PROFILENAME_INVALID_ENDCHARS) do
+        {$ENDIF}
     TempValue := copy(TempValue, 1, pred(length(TempValue)));
 
   FProfileName := TempValue;
@@ -3968,8 +3976,8 @@ end;
 // This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutSearch : boolean;
 begin
-  Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $100, VK_F3, integer($003D0001)) and
-            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $100, VK_F3, integer($C03D0001));
+  Result := SimulateKeyEvent(ketRawKeyDown, $100, VK_F3, integer($003D0001)) and
+            SimulateKeyEvent(ketKeyUp,      $100, VK_F3, integer($C03D0001));
 end;
 
 // Simulate that SHIFT + F5 keys were pressed and released
@@ -3978,10 +3986,10 @@ end;
 // This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutRefreshIgnoreCache : boolean;
 begin
-  Result := SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $502, VK_Shift, integer($002A0001)) and
-            SimulateKeyEvent(TWV2KeyEventType.ketRawKeyDown, $102, VK_F5,    integer($003F0001)) and
-            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $102, VK_F5,    integer($C03F0001)) and
-            SimulateKeyEvent(TWV2KeyEventType.ketKeyUp,      $100, VK_Shift, integer($C02A0001));
+  Result := SimulateKeyEvent(ketRawKeyDown, $502, VK_Shift, integer($002A0001)) and
+            SimulateKeyEvent(ketRawKeyDown, $102, VK_F5,    integer($003F0001)) and
+            SimulateKeyEvent(ketKeyUp,      $102, VK_F5,    integer($C03F0001)) and
+            SimulateKeyEvent(ketKeyUp,      $100, VK_Shift, integer($C02A0001));
 end;
 
 function TWVBrowserBase.SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;

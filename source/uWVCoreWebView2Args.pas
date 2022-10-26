@@ -717,7 +717,7 @@ var
   TempID : Largeuint;
 begin
   if Initialized and succeeded(FBaseIntf.Get_NavigationId(TempID)) then
-    Result := TempID
+    Result := uint64(TempID)
    else
     Result := 0;
 end;
@@ -873,7 +873,7 @@ var
   TempID : Largeuint;
 begin
   if Initialized and succeeded(FBaseIntf.Get_NavigationId(TempID)) then
-    Result := TempID
+    Result := uint64(TempID)
    else
     Result := 0;
 end;
@@ -980,10 +980,10 @@ end;
 
 function TCoreWebView2NavigationStartingEventArgs.GetNavigationID : uint64;
 var
-  TempInt : Largeuint;
+  TempID : Largeuint;
 begin
-  if Initialized and succeeded(FBaseIntf.Get_NavigationId(TempInt)) then
-    Result := TempInt
+  if Initialized and succeeded(FBaseIntf.Get_NavigationId(TempID)) then
+    Result := uint64(TempID)
    else
     Result := 0;
 end;
@@ -1766,7 +1766,7 @@ var
   TempID : Largeuint;
 begin
   if Initialized and succeeded(FBaseIntf.Get_NavigationId(TempID)) then
-    Result := TempID
+    Result := uint64(TempID)
    else
     Result := 0;
 end;
