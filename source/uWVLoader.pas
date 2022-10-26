@@ -664,7 +664,11 @@ begin
     {$IFDEF FPC}
     ShowMessage(UTF8Encode(aError));
     {$ELSE}
-    MessageBox(0, PChar(aError + #0), PChar('Error' + #0), MB_ICONERROR or MB_OK or MB_TOPMOST);
+      {$IFDEF DELPHI12_UP}
+      MessageBox(0, PChar(aError + #0), PChar('Error' + #0), MB_ICONERROR or MB_OK or MB_TOPMOST);
+      {$ELSE}
+      MessageBoxW(0, PWideChar(aError + #0), PWideChar(WideString('Error') + #0), MB_ICONERROR or MB_OK or MB_TOPMOST);
+      {$ENDIF}
     {$ENDIF}
 end;
 
