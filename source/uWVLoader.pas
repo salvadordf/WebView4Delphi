@@ -1247,7 +1247,7 @@ end;
 function TWVLoader.CompareVersions(const aVersion1, aVersion2 : wvstring; var aCompRslt : integer) : boolean;
 begin
   aCompRslt := 0;
-  Result    := Initialized and
+  Result    := (FStatus in [wvlsImported, wvlsInitialized]) and
                succeeded(CompareBrowserVersions(PWideChar(aVersion1), PWideChar(aVersion2), @aCompRslt));
 end;
 

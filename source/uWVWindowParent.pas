@@ -8,9 +8,9 @@ interface
 
 uses
   {$IFDEF DELPHI16_UP}
-  WinApi.Windows, System.Classes, Vcl.Controls,
+  WinApi.Windows, System.Classes, Vcl.Controls, WinApi.Messages,
   {$ELSE}
-  Classes, Controls, {$IFDEF FPC}LResources,{$ENDIF}
+  Windows, Classes, Controls, {$IFDEF FPC}LMessages, LResources,{$ELSE} Messages,{$ENDIF}
   {$ENDIF}
   uWVWinControl, uWVBrowserBase;
 
@@ -24,6 +24,7 @@ type
 
       procedure SetBrowser(const aValue : TWVBrowserBase);
 
+      procedure WndProc(var aMessage: TMessage); override;
       procedure Notification(AComponent: TComponent; Operation: TOperation); override;
       procedure Resize; override;
 
@@ -91,6 +92,16 @@ begin
 
   if (FBrowser <> nil) then
     FBrowser.SetFocus;
+end;
+
+procedure TWVWindowParent.WndProc(var aMessage: TMessage);
+begin
+  case aMessage.Msg of
+    WM_ERASEBKGND:
+      if (ChildWindowHandle = 0) then inherited WndProc(aMessage);
+
+    else inherited WndProc(aMessage);
+  end;
 end;
 
 {$IFDEF FPC}

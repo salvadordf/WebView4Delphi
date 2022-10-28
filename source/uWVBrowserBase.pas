@@ -1983,12 +1983,16 @@ begin
   Result := '';
 
   {$IFDEF DELPHI21_UP}
-    Result := TNetEncoding.URL.Decode(aJSON);
+  Result := TNetEncoding.URL.Decode(aJSON);
   {$ELSE}
     {$IFDEF FPC}
     Result := UTF8Decode(HTTPDecode(UTF8Encode(aJSON)));
     {$ELSE}
-    Result := UTF8Decode(CustomURLDecode(aJSON));
+      {$IFDEF DELPHI12_UP}
+      Result := UTF8ToWideString(CustomURLDecode(aJSON));
+      {$ELSE}
+      Result := UTF8Decode(CustomURLDecode(aJSON));
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
 
