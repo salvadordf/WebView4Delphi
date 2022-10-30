@@ -1,8 +1,8 @@
 object MainForm: TMainForm
-  Left = 0
-  Top = 0
+  Left = 303
+  Top = 133
   Caption = 'SimpleBrowser - Initializing...'
-  ClientHeight = 701
+  ClientHeight = 700
   ClientWidth = 995
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,13 +12,12 @@ object MainForm: TMainForm
   Font.Style = []
   Position = poScreenCenter
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent
     Left = 0
     Top = 24
     Width = 995
-    Height = 677
+    Height = 676
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
@@ -75,13 +74,14 @@ object MainForm: TMainForm
         'https://frames-per-second.appspot.com/')
     end
     object GoBtn: TButton
-      Left = 946
+      Left = 945
       Top = 0
-      Width = 49
+      Width = 50
       Height = 24
-      Align = alRight
+      Anchors = [akTop, akRight]
       Caption = 'Go'
       TabOrder = 1
+      WordWrap = True
       OnClick = GoBtnClick
     end
   end
