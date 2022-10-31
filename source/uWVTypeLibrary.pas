@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 12/10/2022 14:52:14 from Type Library described below.
+// File generated on 31/10/2022 19:01:44 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: T:\microsoft.web.webview2.1.0.1370.28.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: T:\microsoft.web.webview2.1.0.1418.22.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -555,6 +555,7 @@ const
   COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED = $00000003;
   COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED = $00000004;
   COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY = $00000005;
+  COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED = $00000006;
 
 // Constants for enum COREWEBVIEW2_BROWSING_DATA_KINDS
 type
@@ -600,6 +601,8 @@ const
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS = $00000100;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR = $00000200;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH = $00000400;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN = $00000800;
+  COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS = $00001000;
 
 // Constants for enum COREWEBVIEW2_FAVICON_IMAGE_FORMAT
 type
