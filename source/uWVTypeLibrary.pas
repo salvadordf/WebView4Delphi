@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 31/10/2022 19:01:44 from Type Library described below.
+// File generated on 06/12/2022 11:28:25 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: T:\microsoft.web.webview2.1.0.1418.22.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: S:\microsoft.web.webview2.1.0.1462.37.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
