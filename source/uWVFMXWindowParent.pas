@@ -22,7 +22,9 @@ type
       procedure SetBrowser(const aValue : TWVBrowserBase);
 
       procedure Notification(AComponent: TComponent; Operation: TOperation); override;
+      {$IFDEF DELPHI17_UP}
       procedure Resize; override;
+      {$ENDIF}
       {$IFDEF DELPHI18_UP}
       procedure DoFocusChanged; override;
       {$ELSE}
@@ -32,6 +34,9 @@ type
       constructor CreateNew(AOwner: TComponent; Dummy: {$IFDEF DELPHI19_UP}NativeInt{$ELSE}Integer{$ENDIF} = 0); override;
       procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
       procedure   UpdateSize;
+      {$IFNDEF DELPHI17_UP}
+      procedure   SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
+      {$ENDIF}
 
       property  ChildWindowHandle : HWND             read GetChildWindowHandle;
       property  Browser           : TWVBrowserBase   read GetBrowser            write SetBrowser;
@@ -40,8 +45,10 @@ type
       property Visible;
       property Height;
       property Width;
+      {$IFDEF DELPHI17_UP}
       property Touch;
       property OnGesture;
+      {$ENDIF}
   end;
 
 implementation
@@ -62,12 +69,21 @@ begin
   FBrowser := nil;
 end;
 
+{$IFDEF DELPHI17_UP}
 procedure TWVFMXWindowParent.Resize;
 begin
   inherited Resize;
 
   UpdateSize;
 end;
+{$ELSE}
+procedure TWVFMXWindowParent.SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
+begin
+  inherited SetBounds(ALeft, ATop, AWidth, AHeight);
+
+  UpdateSize;
+end;
+{$ENDIF}
 
 {$IFDEF DELPHI18_UP}
 procedure TWVFMXWindowParent.DoFocusChanged;
