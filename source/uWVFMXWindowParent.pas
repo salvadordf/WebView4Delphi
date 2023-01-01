@@ -33,7 +33,7 @@ type
     public
       constructor CreateNew(AOwner: TComponent; Dummy: {$IFDEF DELPHI19_UP}NativeInt{$ELSE}Integer{$ENDIF} = 0); override;
       procedure   Reparent(const aNewParentHandle : {$IFDEF DELPHI18_UP}TWindowHandle{$ELSE}TFmxHandle{$ENDIF});
-      procedure   UpdateSize;
+      procedure   UpdateSize; virtual;
       {$IFNDEF DELPHI17_UP}
       procedure   SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
       {$ENDIF}
@@ -60,7 +60,8 @@ implementation
 // It's also necessary to call "Reparent" to add this component as a child component to your form.
 
 uses
-  System.SysUtils, FMX.Platform, FMX.Platform.Win;
+  System.SysUtils, FMX.Platform, FMX.Platform.Win,
+  uWVLoader;
 
 constructor TWVFMXWindowParent.CreateNew(AOwner: TComponent; Dummy: {$IFDEF DELPHI19_UP}NativeInt{$ELSE}Integer{$ENDIF});
 begin
@@ -137,12 +138,14 @@ var
   TempHWND, TempChildHWND : HWND;
   TempRect : System.Types.TRect;
   TempClientRect : TRectF;
+  TempScale : single;
 begin
+  TempScale       := GlobalWebView2Loader.DeviceScaleFactor;
   TempClientRect  := ClientRect;
   TempRect.Left   := round(TempClientRect.Left);
   TempRect.Top    := round(TempClientRect.Top);
-  TempRect.Right  := round(TempClientRect.Right);
-  TempRect.Bottom := round(TempClientRect.Bottom);
+  TempRect.Right  := round(TempClientRect.Right  * TempScale);
+  TempRect.Bottom := round(TempClientRect.Bottom * TempScale);
 
   if (FBrowser <> nil) then
     FBrowser.Bounds := TempRect

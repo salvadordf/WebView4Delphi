@@ -22,9 +22,9 @@ object MainForm: TMainForm
   object BrowserLay: TLayout
     Align = Client
     Size.Width = 1000.000000000000000000
-    Size.Height = 568.000000000000000000
+    Size.Height = 546.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 1
+    TabOrder = 2
     object FocusWorkaroundBtn: TButton
       Position.X = 368.000000000000000000
       Position.Y = 208.000000000000000000
@@ -67,12 +67,32 @@ object MainForm: TMainForm
       OnClick = GoBtnClick
     end
   end
+  object StatusBar1: TStatusBar
+    Padding.Left = 3.000000000000000000
+    Padding.Top = 3.000000000000000000
+    Padding.Right = 30.000000000000000000
+    Padding.Bottom = 3.000000000000000000
+    Position.Y = 578.000000000000000000
+    ShowSizeGrip = True
+    Size.Width = 1000.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object StatusLbl: TLabel
+      Align = Client
+      Size.Width = 967.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
   object WVFMXBrowser1: TWVFMXBrowser
     TargetCompatibleBrowserVersion = '95.0.1020.44'
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVFMXBrowser1InitializationError
     OnAfterCreated = WVFMXBrowser1AfterCreated
     OnGotFocus = WVFMXBrowser1GotFocus
+    OnStatusBarTextChanged = WVFMXBrowser1StatusBarTextChanged
     Left = 104
     Top = 104
   end

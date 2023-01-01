@@ -7,7 +7,8 @@ uses
   System.Classes, System.Variants, Winapi.Messages,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Layouts,
-  uWVLoader, uWVBrowserBase, uWVFMXBrowser, uWVFMXWindowParent, uWVTypes;
+  uWVLoader, uWVBrowserBase, uWVFMXBrowser, uWVFMXWindowParent, uWVTypeLibrary,
+  uWVTypes;
 
 const
   WEBVIEW2_SHOWBROWSER = WM_APP + $101;
@@ -21,6 +22,8 @@ type
     BrowserLay: TLayout;
     AddressLay: TLayout;
     FocusWorkaroundBtn: TButton;
+    StatusBar1: TStatusBar;
+    StatusLbl: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -32,6 +35,7 @@ type
     procedure WVFMXBrowser1AfterCreated(Sender: TObject);
     procedure WVFMXBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVFMXBrowser1GotFocus(Sender: TObject);
+    procedure WVFMXBrowser1StatusBarTextChanged(Sender: TObject; const aWebView: ICoreWebView2);
 
   private
     FMXWindowParent         : TWVFMXWindowParent;
@@ -122,7 +126,10 @@ end;
 procedure TMainForm.ResizeChild;
 begin
   if (FMXWindowParent <> nil) then
-    FMXWindowParent.SetBounds(GetFMXWindowParentRect);
+    begin
+      FMXWindowParent.SetBounds(GetFMXWindowParentRect);
+      FMXWindowParent.UpdateSize;
+    end;
 end;
 
 procedure TMainForm.CreateFMXWindowParent;
@@ -138,14 +145,11 @@ begin
 end;
 
 function TMainForm.GetFMXWindowParentRect : System.Types.TRect;
-var
-  TempScale : single;
 begin
-  TempScale     := GlobalWebView2Loader.DeviceScaleFactor;
   Result.Left   := round(BrowserLay.Position.x);
   Result.Top    := round(BrowserLay.Position.y);
-  Result.Right  := Result.Left + round(BrowserLay.Width  * TempScale);
-  Result.Bottom := Result.Top  + round(BrowserLay.Height * TempScale);
+  Result.Right  := round(Result.Left + BrowserLay.Width);
+  Result.Bottom := round(Result.Top  + BrowserLay.Height);
 end;
 
 procedure TMainForm.SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
@@ -270,6 +274,12 @@ procedure TMainForm.WVFMXBrowser1InitializationError(Sender: TObject;
   aErrorCode: HRESULT; const aErrorMessage: wvstring);
 begin
   showmessage(aErrorMessage);
+end;
+
+procedure TMainForm.WVFMXBrowser1StatusBarTextChanged(Sender: TObject;
+  const aWebView: ICoreWebView2);
+begin
+  StatusLbl.Text := WVFMXBrowser1.StatusBarText;
 end;
 
 function TMainForm.GetCurrentWindowState : TWindowState;
