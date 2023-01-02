@@ -195,6 +195,7 @@ type
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
       function  GetCustomItemSelectedEventHandler : ICoreWebView2CustomItemSelectedEventHandler;
       function  GetFaviconURI : wvstring;
+      function  GetScreenScale : single; virtual;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -530,6 +531,7 @@ type
       property RenderCompHWND                         : THandle                                     read FRenderCompHWND;
       property D3DWindowCompHWND                      : THandle                                     read FD3DWindowCompHWND;
       property CustomItemSelectedEventHandler         : ICoreWebView2CustomItemSelectedEventHandler read GetCustomItemSelectedEventHandler;
+      property ScreenScale                            : single                                      read GetScreenScale;
 
       // Custom properties created using DevTool methods
       property Offline                                : boolean                                 read FOffline                                 write SetOffline;
@@ -2700,6 +2702,14 @@ begin
     Result := FCoreWebView2.FaviconURI
    else
     Result := '';
+end;
+
+function TWVBrowserBase.GetScreenScale : single;
+begin
+  if (GlobalWebView2Loader <> nil) then
+    Result := GlobalWebView2Loader.DeviceScaleFactor
+   else
+    Result := 1;
 end;
 
 function TWVBrowserBase.GetZoomFactor: Double;

@@ -140,7 +140,11 @@ var
   TempClientRect : TRectF;
   TempScale : single;
 begin
-  TempScale       := GlobalWebView2Loader.DeviceScaleFactor;
+  if (FBrowser <> nil) then
+    TempScale := FBrowser.ScreenScale
+   else
+    TempScale := GlobalWebView2Loader.DeviceScaleFactor;
+
   TempClientRect  := ClientRect;
   TempRect.Left   := round(TempClientRect.Left);
   TempRect.Top    := round(TempClientRect.Top);
