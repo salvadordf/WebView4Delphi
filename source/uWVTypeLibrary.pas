@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 06/12/2022 11:28:25 from Type Library described below.
+// File generated on 17/01/2023 15:45:14 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: S:\microsoft.web.webview2.1.0.1462.37.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: S:\microsoft.web.webview2.1.0.1518.46.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -214,8 +214,10 @@ const
   IID_ICoreWebView2ProcessInfo: TGUID = '{84FA7612-3F3D-4FBF-889D-FAD000492D72}';
   IID_ICoreWebView2Environment9: TGUID = '{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}';
   IID_ICoreWebView2Environment10: TGUID = '{EE0EB9DF-6F12-46CE-B53F-3F47B9C928E0}';
+  IID_ICoreWebView2Environment11: TGUID = '{F0913DC6-A0EC-42EF-9805-91DFF3A2966A}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
+  IID_ICoreWebView2EnvironmentOptions3: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -231,6 +233,9 @@ const
   IID_ICoreWebView2NavigationCompletedEventArgs2: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
+  IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
+  IID_ICoreWebView2PrintCompletedHandler: TGUID = '{8FD80075-ED08-42DB-8570-F5D14977461E}';
+  IID_ICoreWebView2PrintToPdfStreamCompletedHandler: TGUID = '{4C9F8229-8F93-444F-A711-2C0DFD6359D5}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
   IID_ICoreWebView2Profile2: TGUID = '{FA740D4B-5EAE-4344-A8AD-74BE31925397}';
   IID_ICoreWebView2ServerCertificateErrorDetectedEventArgs: TGUID = '{012193ED-7C13-48FF-969D-A84C1F432A14}';
@@ -245,6 +250,7 @@ const
   IID_ICoreWebView2GetFaviconCompletedHandler: TGUID = '{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}';
   IID_ICoreWebView2_14: TGUID = '{6DAA4F10-4A90-4753-8898-77C5DF534165}';
   IID_ICoreWebView2_15: TGUID = '{517B2D1D-7DAE-4A66-A4F4-10352FFB9518}';
+  IID_ICoreWebView2_16: TGUID = '{0EB34DC9-9F91-41E1-8639-95CD5943906B}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -545,6 +551,46 @@ const
   COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN = $00000005;
   COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = $00000006;
 
+// Constants for enum COREWEBVIEW2_PRINT_COLLATION
+type
+  COREWEBVIEW2_PRINT_COLLATION = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_COLLATION_DEFAULT = $00000000;
+  COREWEBVIEW2_PRINT_COLLATION_COLLATED = $00000001;
+  COREWEBVIEW2_PRINT_COLLATION_UNCOLLATED = $00000002;
+
+// Constants for enum COREWEBVIEW2_PRINT_COLOR_MODE
+type
+  COREWEBVIEW2_PRINT_COLOR_MODE = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT = $00000000;
+  COREWEBVIEW2_PRINT_COLOR_MODE_COLOR = $00000001;
+  COREWEBVIEW2_PRINT_COLOR_MODE_GRAYSCALE = $00000002;
+
+// Constants for enum COREWEBVIEW2_PRINT_DUPLEX
+type
+  COREWEBVIEW2_PRINT_DUPLEX = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_DUPLEX_DEFAULT = $00000000;
+  COREWEBVIEW2_PRINT_DUPLEX_ONE_SIDED = $00000001;
+  COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_LONG_EDGE = $00000002;
+  COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_SHORT_EDGE = $00000003;
+
+// Constants for enum COREWEBVIEW2_PRINT_MEDIA_SIZE
+type
+  COREWEBVIEW2_PRINT_MEDIA_SIZE = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT = $00000000;
+  COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM = $00000001;
+
+// Constants for enum COREWEBVIEW2_PRINT_STATUS
+type
+  COREWEBVIEW2_PRINT_STATUS = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_STATUS_SUCCEEDED = $00000000;
+  COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE = $00000001;
+  COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR = $00000002;
+
 // Constants for enum COREWEBVIEW2_PROCESS_FAILED_REASON
 type
   COREWEBVIEW2_PROCESS_FAILED_REASON = TOleEnum;
@@ -610,6 +656,13 @@ type
 const
   COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG = $00000000;
   COREWEBVIEW2_FAVICON_IMAGE_FORMAT_JPEG = $00000001;
+
+// Constants for enum COREWEBVIEW2_PRINT_DIALOG_KIND
+type
+  COREWEBVIEW2_PRINT_DIALOG_KIND = TOleEnum;
+const
+  COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER = $00000000;
+  COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM = $00000001;
 
 type
 
@@ -751,8 +804,10 @@ type
   ICoreWebView2ProcessInfo = interface;
   ICoreWebView2Environment9 = interface;
   ICoreWebView2Environment10 = interface;
+  ICoreWebView2Environment11 = interface;
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
+  ICoreWebView2EnvironmentOptions3 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -768,6 +823,9 @@ type
   ICoreWebView2NavigationCompletedEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs2 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
+  ICoreWebView2PrintSettings2 = interface;
+  ICoreWebView2PrintCompletedHandler = interface;
+  ICoreWebView2PrintToPdfStreamCompletedHandler = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
   ICoreWebView2Profile2 = interface;
   ICoreWebView2ServerCertificateErrorDetectedEventArgs = interface;
@@ -782,6 +840,7 @@ type
   ICoreWebView2GetFaviconCompletedHandler = interface;
   ICoreWebView2_14 = interface;
   ICoreWebView2_15 = interface;
+  ICoreWebView2_16 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -2782,6 +2841,16 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Environment11
+// Flags:     (0)
+// GUID:      {F0913DC6-A0EC-42EF-9805-91DFF3A2966A}
+// *********************************************************************//
+  ICoreWebView2Environment11 = interface(ICoreWebView2Environment10)
+    ['{F0913DC6-A0EC-42EF-9805-91DFF3A2966A}']
+    function Get_FailureReportFolderPath(out value: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2EnvironmentOptions
 // Flags:     (0)
 // GUID:      {2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}
@@ -2807,6 +2876,17 @@ type
     ['{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}']
     function Get_ExclusiveUserDataFolderAccess(out value: Integer): HResult; stdcall;
     function Set_ExclusiveUserDataFolderAccess(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2EnvironmentOptions3
+// Flags:     (0)
+// GUID:      {4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}
+// *********************************************************************//
+  ICoreWebView2EnvironmentOptions3 = interface(IUnknown)
+    ['{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}']
+    function Get_IsCustomCrashReportingEnabled(out value: Integer): HResult; stdcall;
+    function Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -2991,6 +3071,51 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2PrintSettings2
+// Flags:     (0)
+// GUID:      {CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}
+// *********************************************************************//
+  ICoreWebView2PrintSettings2 = interface(ICoreWebView2PrintSettings)
+    ['{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}']
+    function Get_PageRanges(out value: PWideChar): HResult; stdcall;
+    function Set_PageRanges(value: PWideChar): HResult; stdcall;
+    function Get_PagesPerSide(out value: SYSINT): HResult; stdcall;
+    function Set_PagesPerSide(value: SYSINT): HResult; stdcall;
+    function Get_Copies(out value: SYSINT): HResult; stdcall;
+    function Set_Copies(value: SYSINT): HResult; stdcall;
+    function Get_Collation(out value: COREWEBVIEW2_PRINT_COLLATION): HResult; stdcall;
+    function Set_Collation(value: COREWEBVIEW2_PRINT_COLLATION): HResult; stdcall;
+    function Get_ColorMode(out value: COREWEBVIEW2_PRINT_COLOR_MODE): HResult; stdcall;
+    function Set_ColorMode(value: COREWEBVIEW2_PRINT_COLOR_MODE): HResult; stdcall;
+    function Get_Duplex(out value: COREWEBVIEW2_PRINT_DUPLEX): HResult; stdcall;
+    function Set_Duplex(value: COREWEBVIEW2_PRINT_DUPLEX): HResult; stdcall;
+    function Get_MediaSize(out value: COREWEBVIEW2_PRINT_MEDIA_SIZE): HResult; stdcall;
+    function Set_MediaSize(value: COREWEBVIEW2_PRINT_MEDIA_SIZE): HResult; stdcall;
+    function Get_PrinterName(out value: PWideChar): HResult; stdcall;
+    function Set_PrinterName(value: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2PrintCompletedHandler
+// Flags:     (0)
+// GUID:      {8FD80075-ED08-42DB-8570-F5D14977461E}
+// *********************************************************************//
+  ICoreWebView2PrintCompletedHandler = interface(IUnknown)
+    ['{8FD80075-ED08-42DB-8570-F5D14977461E}']
+    function Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2PrintToPdfStreamCompletedHandler
+// Flags:     (0)
+// GUID:      {4C9F8229-8F93-444F-A711-2C0DFD6359D5}
+// *********************************************************************//
+  ICoreWebView2PrintToPdfStreamCompletedHandler = interface(IUnknown)
+    ['{4C9F8229-8F93-444F-A711-2C0DFD6359D5}']
+    function Invoke(errorCode: HResult; const pdfStream: IStream): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2ProcessFailedEventArgs2
 // Flags:     (0)
 // GUID:      {4DAB9422-46FA-4C3E-A5D2-41D2071D3680}
@@ -3158,6 +3283,20 @@ type
     function Get_FaviconUri(out value: PWideChar): HResult; stdcall;
     function GetFavicon(format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT; 
                         const completedHandler: ICoreWebView2GetFaviconCompletedHandler): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_16
+// Flags:     (0)
+// GUID:      {0EB34DC9-9F91-41E1-8639-95CD5943906B}
+// *********************************************************************//
+  ICoreWebView2_16 = interface(ICoreWebView2_15)
+    ['{0EB34DC9-9F91-41E1-8639-95CD5943906B}']
+    function Print(const printSettings: ICoreWebView2PrintSettings; 
+                   const handler: ICoreWebView2PrintCompletedHandler): HResult; stdcall;
+    function ShowPrintUI(printDialogKind: COREWEBVIEW2_PRINT_DIALOG_KIND): HResult; stdcall;
+    function PrintToPdfStream(const printSettings: ICoreWebView2PrintSettings; 
+                              const handler: ICoreWebView2PrintToPdfStreamCompletedHandler): HResult; stdcall;
   end;
 
 implementation

@@ -27,7 +27,6 @@ type
     Label4: TLabel;
     AddressCb: TComboBox;
     Label5: TLabel;
-    Button1: TButton;
     SendCustomHTTPHeaderChk: TCheckBox;
 
     procedure Timer1Timer(Sender: TObject);
@@ -38,7 +37,6 @@ type
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
 
   protected
     FBody    : TStringStream;
@@ -73,11 +71,6 @@ implementation
 
 uses
   uWVCoreWebView2WebResourceRequest, uWVCoreWebView2HttpRequestHeaders;
-
-procedure TMainForm.Button1Click(Sender: TObject);
-begin
-  ShellExecute(0, 'open', 'https://ptsv2.com/t/cef4delphi', nil, nil, SW_SHOWNORMAL);
-end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin

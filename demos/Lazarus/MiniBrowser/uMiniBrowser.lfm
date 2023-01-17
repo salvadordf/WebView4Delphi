@@ -14,7 +14,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object NavControlPnl: TPanel
     Left = 0
     Height = 25
@@ -227,6 +227,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
     OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
     OnDownloadStateChanged = WVBrowser1DownloadStateChanged
+    OnPrintCompleted = WVBrowser1PrintCompleted
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
@@ -260,8 +261,12 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = '-'
     end
     object Print1: TMenuItem
-      Caption = 'Print...'
+      Caption = 'Silent print...'
       OnClick = Print1Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Print with dialog UI...'
+      OnClick = MenuItem4Click
     end
     object Print2: TMenuItem
       Caption = 'Print to PDF...'

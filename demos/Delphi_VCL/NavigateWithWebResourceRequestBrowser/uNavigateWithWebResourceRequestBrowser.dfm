@@ -25,6 +25,8 @@ object MainForm: TMainForm
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
+    ExplicitWidth = 678
+    ExplicitHeight = 109
   end
   object AddressPnl: TPanel
     Left = 0
@@ -35,6 +37,7 @@ object MainForm: TMainForm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
+    ExplicitWidth = 678
     object Label1: TLabel
       Left = 8
       Top = 39
@@ -118,19 +121,10 @@ object MainForm: TMainForm
       Height = 23
       ItemIndex = 0
       TabOrder = 5
-      Text = 'https://ptsv2.com/t/cef4delphi/post'
+      Text = 'https://httpbin.org/post'
       Items.Strings = (
         'https://ptsv2.com/t/cef4delphi/post'
         '')
-    end
-    object Button1: TButton
-      Left = 432
-      Top = 65
-      Width = 241
-      Height = 23
-      Caption = 'Check results in PTSV2.com'
-      TabOrder = 6
-      OnClick = Button1Click
     end
     object SendCustomHTTPHeaderChk: TCheckBox
       Left = 432
@@ -138,7 +132,7 @@ object MainForm: TMainForm
       Width = 241
       Height = 17
       Caption = 'Send custom HTTP header'
-      TabOrder = 7
+      TabOrder = 6
     end
   end
   object Timer1: TTimer

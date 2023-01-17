@@ -117,6 +117,7 @@ type
       property OnServerCertificateErrorDetected;
       property OnFaviconChanged;
       property OnGetFaviconCompleted;
+      property OnPrintToPdfStreamCompleted;
   end;
 
 implementation

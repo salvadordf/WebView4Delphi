@@ -56,6 +56,12 @@ type
   TWVBrowsingDataKinds                    = type COREWEBVIEW2_BROWSING_DATA_KINDS;
   TWVServerCertificateErrorAction         = type COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION;
   TWVFaviconImageFormat                   = type COREWEBVIEW2_FAVICON_IMAGE_FORMAT;
+  TWVPrintCollation                       = type COREWEBVIEW2_PRINT_COLLATION;
+  TWVPrintColorMode                       = type COREWEBVIEW2_PRINT_COLOR_MODE;
+  TWVPrintDuplex                          = type COREWEBVIEW2_PRINT_DUPLEX;
+  TWVPrintMediaSize                       = type COREWEBVIEW2_PRINT_MEDIA_SIZE;
+  TWVPrintStatus                          = type COREWEBVIEW2_PRINT_STATUS;
+  TWVPrintDialogKind                      = type COREWEBVIEW2_PRINT_DIALOG_KIND;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

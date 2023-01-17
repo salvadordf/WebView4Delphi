@@ -47,6 +47,7 @@ type
       FTargetCompatibleBrowserVersion         : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
       FExclusiveUserDataFolderAccess          : boolean;
+      FCustomCrashReportingEnabled            : boolean;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -88,6 +89,7 @@ type
       function  GetCustomCommandLineSwitches : wvstring;
       function  GetInstalledRuntimeVersion : wvstring;
       function  GetErrorMessage : wvstring;
+      function  GetFailureReportFolderPath : wvstring;
 
       function  CreateEnvironment : boolean;
       procedure DestroyEnvironment;
@@ -159,6 +161,7 @@ type
       property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;         // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount; // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
       property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;          // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
+      property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;            // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
 
       // Properties used to set command line switches
       property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;                        // --enable-gpu-plugin
@@ -197,6 +200,9 @@ type
 
       // ICoreWebView2Environment10 properties
       property SupportsControllerOptions              : boolean                            read GetSupportsControllerOptions;
+
+      // ICoreWebView2Environment11 properties
+      property FailureReportFolderPath                : wvstring                           read GetFailureReportFolderPath;
 
       // Custom events
       property OnEnvironmentCreated                   : TLoaderNotifyEvent                      read FOnEnvironmentCreated                    write FOnEnvironmentCreated;
@@ -283,6 +289,7 @@ begin
   FTargetCompatibleBrowserVersion         := LowestChromiumVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount := False;
   FExclusiveUserDataFolderAccess          := False;
+  FCustomCrashReportingEnabled            := False;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1119,6 +1126,14 @@ begin
     Result := '';
 end;
 
+function TWVLoader.GetFailureReportFolderPath : wvstring;
+begin
+  if EnvironmentIsInitialized then
+    Result := FCoreWebView2Environment.FailureReportFolderPath
+   else
+    Result := '';
+end;
+
 function TWVLoader.CreateEnvironment : boolean;
 var
   TempOptions : ICoreWebView2EnvironmentOptions;
@@ -1136,7 +1151,8 @@ begin
                                                               FLanguage,
                                                               FTargetCompatibleBrowserVersion,
                                                               FAllowSingleSignOnUsingOSPrimaryAccount,
-                                                              FExclusiveUserDataFolderAccess);
+                                                              FExclusiveUserDataFolderAccess,
+                                                              FCustomCrashReportingEnabled);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),

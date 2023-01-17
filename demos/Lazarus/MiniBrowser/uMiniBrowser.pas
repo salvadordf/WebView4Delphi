@@ -22,6 +22,7 @@ type
   TMiniBrowserFrm = class(TForm)
     MenuItem1: TMenuItem;
     Cleatallstorage1: TMenuItem;
+    MenuItem4: TMenuItem;
     Muted1: TMenuItem;
     SaveToFileMi: TMenuItem;
     MenuItem3: TMenuItem;
@@ -95,13 +96,15 @@ type
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure Muted1Click(Sender: TObject);      
-    procedure Cleatallstorage1Click(Sender: TObject);
+    procedure Cleatallstorage1Click(Sender: TObject);  
+    procedure MenuItem4Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject; aErrorCode: HRESULT);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: boolean; const aMHTML: wvstring);
@@ -233,6 +236,11 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.MenuItem4Click(Sender: TObject);
+begin
+  WVBrowser1.ShowPrintUI;
 end;
 
 procedure TMiniBrowserFrm.MenuItem1Click(Sender: TObject);
@@ -561,6 +569,28 @@ procedure TMiniBrowserFrm.WVBrowser1InitializationError(Sender: TObject;
   aErrorCode: HRESULT; const aErrorMessage: wvstring);
 begin
   showmessage(UTF8Encode(aErrorMessage));
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1PrintCompleted(Sender: TObject;
+  aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
+begin
+  case aErrorCode of
+    S_OK :
+      case aPrintStatus of
+        COREWEBVIEW2_PRINT_STATUS_SUCCEEDED           : showmessage('Print operation succeeded.');
+        COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE : showmessage('The printer was not found or the printer status is not available, offline or error state.');
+        COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         : showmessage('Print operation is failed.');
+      end;
+
+    E_INVALIDARG :
+      showmessage('Invalid settings for the specified printer.');
+
+    E_ABORT :
+      showmessage('Print operation is failed as printing job already in progress.');
+
+    else
+      showmessage('Print operation is failed.');
+  end;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1DownloadStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2DownloadStartingEventArgs);

@@ -24,6 +24,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
+    ExplicitWidth = 1115
     object NavButtonPnl: TPanel
       Left = 0
       Top = 0
@@ -103,6 +104,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Padding.Top = 9
       Padding.Bottom = 8
       TabOrder = 1
+      ExplicitWidth = 909
       object URLCbx: TComboBox
         Left = 0
         Top = 9
@@ -150,6 +152,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'edge://flags/'
           'edge://gpu/'
           'edge://about/')
+        ExplicitWidth = 909
       end
     end
     object ConfigPnl: TPanel
@@ -160,6 +163,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 2
+      ExplicitLeft = 1042
       object ConfigBtn: TButton
         Left = 40
         Top = 8
@@ -210,6 +214,8 @@ object MiniBrowserFrm: TMiniBrowserFrm
       item
         Width = 400
       end>
+    ExplicitTop = 697
+    ExplicitWidth = 1115
   end
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -220,6 +226,8 @@ object MiniBrowserFrm: TMiniBrowserFrm
     TabStop = True
     TabOrder = 2
     Browser = WVBrowser1
+    ExplicitWidth = 1115
+    ExplicitHeight = 656
   end
   object WVBrowser1: TWVBrowser
     DefaultURL = 'about:blank'
@@ -239,6 +247,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPrintToPdfCompleted = WVBrowser1PrintToPdfCompleted
     OnBytesReceivedChanged = WVBrowser1BytesReceivedChanged
     OnDownloadStateChanged = WVBrowser1DownloadStateChanged
+    OnPrintCompleted = WVBrowser1PrintCompleted
     OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
     OnRetrieveTextCompleted = WVBrowser1RetrieveTextCompleted
     OnRetrieveMHTMLCompleted = WVBrowser1RetrieveMHTMLCompleted
@@ -247,6 +256,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnClearBrowsingDataCompleted = WVBrowser1ClearBrowsingDataCompleted
     OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
     OnGetFaviconCompleted = WVBrowser1GetFaviconCompleted
+    OnPrintToPdfStreamCompleted = WVBrowser1PrintToPdfStreamCompleted
     Left = 48
     Top = 64
   end
@@ -277,12 +287,20 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = '-'
     end
     object Print1: TMenuItem
-      Caption = 'Print...'
+      Caption = 'Silent print...'
       OnClick = Print1Click
+    end
+    object ShowprintUI1: TMenuItem
+      Caption = 'Print with dialog UI...'
+      OnClick = ShowprintUI1Click
     end
     object Print2: TMenuItem
       Caption = 'Print to PDF...'
       OnClick = Print2Click
+    end
+    object PrinttoPDFtostream1: TMenuItem
+      Caption = 'Print to PDF with stream...'
+      OnClick = PrinttoPDFtostream1Click
     end
     object N1: TMenuItem
       Caption = '-'

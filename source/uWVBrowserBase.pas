@@ -41,6 +41,7 @@ type
       FTargetCompatibleBrowserVersion                 : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount         : boolean;
       FExclusiveUserDataFolderAccess                  : boolean;
+      FCustomCrashReportingEnabled                    : boolean;
       FIgnoreCertificateErrors                        : boolean;
       FZoomStep                                       : byte;
       FOffline                                        : boolean;
@@ -144,6 +145,7 @@ type
       FOnServerCertificateErrorDetected               : TOnServerCertificateErrorDetectedEvent;
       FOnFaviconChanged                               : TOnFaviconChangedEvent;
       FOnGetFaviconCompleted                          : TOnGetFaviconCompletedEvent;
+      FOnPrintToPdfStreamCompleted                    : TOnPrintToPdfStreamCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -327,6 +329,8 @@ type
       function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HRESULT;
       function FaviconChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const faviconStream: IStream): HRESULT;
+      function PrintCompletedHandler_Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HRESULT;
+      function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -376,7 +380,6 @@ type
       procedure doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer); virtual;
       procedure doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID : integer); virtual;
       procedure doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aID : wvstring); virtual;
-      procedure doOnPrintCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring); virtual;
@@ -405,6 +408,8 @@ type
       procedure doOnServerCertificateErrorDetectedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs); virtual;
       procedure doOnFaviconChangedEvent(const sender: ICoreWebView2; const args: IUnknown); virtual;
       procedure doOnGetFaviconCompletedEvent(errorCode: HResult; const faviconStream: IStream); virtual;
+      procedure doOnPrintCompletedEvent(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS); virtual;
+      procedure doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const pdfStream: IStream); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -450,7 +455,9 @@ type
       function    RetrieveMHTML : boolean;
 
       function    Print : boolean;
+      function    ShowPrintUI(aUseSystemPrintDialog : boolean = False): boolean;
       function    PrintToPdf(const aResultFilePath : wvstring) : boolean;
+      function    PrintToPdfStream : boolean;
 
       function    OpenDevToolsWindow : boolean;
       function    OpenTaskManagerWindow : boolean;
@@ -545,6 +552,8 @@ type
       property TargetCompatibleBrowserVersion         : wvstring                                read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;            // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                                 read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;    // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
       property ExclusiveUserDataFolderAccess          : boolean                                 read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;             // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
+      property CustomCrashReportingEnabled            : boolean                                 read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;               // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
+
 
       // ICoreWebView2Environment properties
       property BrowserVersionInfo                     : wvstring                                read GetBrowserVersionInfo;                                                                     // ICoreWebView2Environment.get_BrowserVersionString
@@ -699,6 +708,10 @@ type
       property OnFaviconChanged                                : TOnFaviconChangedEvent                                read FOnFaviconChanged                                write FOnFaviconChanged;
       property OnGetFaviconCompleted                           : TOnGetFaviconCompletedEvent                           read FOnGetFaviconCompleted                           write FOnGetFaviconCompleted;
 
+      // ICoreWebView2_16 events
+      property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
+      property OnPrintToPdfStreamCompleted                     : TOnPrintToPdfStreamCompletedEvent                     read FOnPrintToPdfStreamCompleted                     write FOnPrintToPdfStreamCompleted;
+
       // ICoreWebView2Controller events
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
@@ -758,7 +771,6 @@ type
       property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
       property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
       property OnD3DWindowCompMsg                              : TOnCompMsgEvent                                       read FOnD3DWindowCompMsg                              write FOnD3DWindowCompMsg;
-      property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
       property OnRetrieveHTMLCompleted                         : TOnRetrieveHTMLCompletedEvent                         read FOnRetrieveHTMLCompleted                         write FOnRetrieveHTMLCompleted;
       property OnRetrieveTextCompleted                         : TOnRetrieveTextCompletedEvent                         read FOnRetrieveTextCompleted                         write FOnRetrieveTextCompleted;
       property OnRetrieveMHTMLCompleted                        : TOnRetrieveMHTMLCompletedEvent                        read FOnRetrieveMHTMLCompleted                        write FOnRetrieveMHTMLCompleted;
@@ -794,6 +806,7 @@ begin
   FTargetCompatibleBrowserVersion                  := LowestChromiumVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount          := False;
   FExclusiveUserDataFolderAccess                   := False;
+  FCustomCrashReportingEnabled                     := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
   FIsNavigating                                    := False;
@@ -894,6 +907,9 @@ begin
   FOnClearBrowsingDataCompleted                    := nil;
   FOnServerCertificateErrorActionsCompleted        := nil;
   FOnServerCertificateErrorDetected                := nil;
+  FOnFaviconChanged                                := nil;
+  FOnGetFaviconCompleted                           := nil;
+  FOnPrintToPdfStreamCompleted                     := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1874,6 +1890,18 @@ begin
     FOnGetFaviconCompleted(self, errorCode, faviconStream);
 end;
 
+procedure TWVBrowserBase.doOnPrintCompletedEvent(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS);
+begin
+  if assigned(FOnPrintCompleted) then
+    FOnPrintCompleted(self, errorCode, printStatus);
+end;
+
+procedure TWVBrowserBase.doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const pdfStream: IStream);
+begin
+  if assigned(FOnPrintToPdfStreamCompleted) then
+    FOnPrintToPdfStreamCompleted(self, errorCode, pdfStream);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -2144,14 +2172,23 @@ begin
   doOnGetFaviconCompletedEvent(errorCode, faviconStream);
 end;
 
+function TWVBrowserBase.PrintCompletedHandler_Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HRESULT;
+begin
+  Result := S_OK;
+  doOnPrintCompletedEvent(errorCode, printStatus);
+end;
+
+function TWVBrowserBase.PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HRESULT;
+begin
+  Result := S_OK;
+  doOnPrintToPdfStreamCompletedEvent(errorCode, pdfStream);
+end;
+
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
 
   case aExecutionID of
-    WEBVIEW4DELPHI_JS_PRINTJOB_ID :
-      doOnPrintCompleted(errorCode, wvstring(resultObjectAsJson));
-
     WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID :
       doOnRetrieveHTMLCompleted(errorCode, wvstring(resultObjectAsJson));
 
@@ -2753,7 +2790,8 @@ begin
                                                           FLanguage,
                                                           FTargetCompatibleBrowserVersion,
                                                           FAllowSingleSignOnUsingOSPrimaryAccount,
-                                                          FExclusiveUserDataFolderAccess);
+                                                          FExclusiveUserDataFolderAccess,
+                                                          FCustomCrashReportingEnabled);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),
@@ -3084,8 +3122,33 @@ end;
 
 // This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes
 function TWVBrowserBase.Print : boolean;
+var
+  TempHandler : ICoreWebView2PrintCompletedHandler;
 begin
-  Result := ExecuteScript('window.print();', WEBVIEW4DELPHI_JS_PRINTJOB_ID);
+  Result := False;
+
+  if Initialized and
+     assigned(FCoreWebView2PrintSettings) and
+     FCoreWebView2PrintSettings.Initialized then
+    try
+      TempHandler := TCoreWebView2PrintCompletedHandler.Create(self);
+      Result      := FCoreWebView2.Print(FCoreWebView2PrintSettings.BaseIntf, TempHandler);
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TWVBrowserBase.ShowPrintUI(aUseSystemPrintDialog : boolean): boolean;
+begin
+  if Initialized then
+    begin
+      if aUseSystemPrintDialog then
+        Result := FCoreWebView2.ShowPrintUI(COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM)
+       else
+        Result := FCoreWebView2.ShowPrintUI(COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER);
+    end
+   else
+    Result := False;
 end;
 
 // This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes
@@ -3101,6 +3164,24 @@ begin
     try
       TempHandler := TCoreWebView2PrintToPdfCompletedHandler.Create(self);
       Result      := FCoreWebView2.PrintToPdf(aResultFilePath, FCoreWebView2PrintSettings.BaseIntf, TempHandler);
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStream event
+function TWVBrowserBase.PrintToPdfStream : boolean;
+var
+  TempHandler : ICoreWebView2PrintToPdfStreamCompletedHandler;
+begin
+  Result := False;
+
+  if Initialized and
+     assigned(FCoreWebView2PrintSettings) and
+     FCoreWebView2PrintSettings.Initialized then
+    try
+      TempHandler := TCoreWebView2PrintToPdfStreamCompletedHandler.Create(self);
+      Result      := FCoreWebView2.PrintToPdfStream(FCoreWebView2PrintSettings.BaseIntf, TempHandler);
     finally
       TempHandler := nil;
     end;
@@ -3500,12 +3581,6 @@ procedure TWVBrowserBase.doOnExecuteScriptCompleted(aErrorCode: HRESULT; const a
 begin
   if assigned(FOnExecuteScriptCompleted) then
     FOnExecuteScriptCompleted(self, aErrorCode, aResultObjectAsJson, aExecutionID);
-end;
-
-procedure TWVBrowserBase.doOnPrintCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);
-begin
-  if assigned(FOnPrintCompleted) then
-    FOnPrintCompleted(self, aErrorCode, aResultObjectAsJson);
 end;
 
 procedure TWVBrowserBase.doOnRefreshIgnoreCacheCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring);

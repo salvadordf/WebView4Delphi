@@ -55,7 +55,7 @@ type
   TOnFrameNameChangedEvent                                 = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
   TOnFrameDestroyedEvent                                   = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
   TOnInitializationErrorEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring) of object;
-  TOnPrintCompletedEvent                                   = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring) of object;
+  TOnPrintCompletedEvent                                   = procedure(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus) of object;
   TOnRefreshIgnoreCacheCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring) of object;
   TOnRetrieveHTMLCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aHTML: wvstring) of object;
   TOnRetrieveTextCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aText: wvstring) of object;
@@ -84,6 +84,7 @@ type
   TOnServerCertificateErrorDetectedEvent                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs) of object;
   TOnFaviconChangedEvent                                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: IUnknown) of object;
   TOnGetFaviconCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;
+  TOnPrintToPdfStreamCompletedEvent                        = procedure(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

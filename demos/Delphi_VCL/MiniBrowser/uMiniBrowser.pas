@@ -58,6 +58,8 @@ type
     Cleatallstorage1: TMenuItem;
     Saveresourceas1: TMenuItem;
     Downloadfavicon1: TMenuItem;
+    ShowprintUI1: TMenuItem;
+    PrinttoPDFtostream1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -94,6 +96,8 @@ type
     procedure Cleatallstorage1Click(Sender: TObject);
     procedure Saveresourceas1Click(Sender: TObject);
     procedure Downloadfavicon1Click(Sender: TObject);
+    procedure ShowprintUI1Click(Sender: TObject);
+    procedure PrinttoPDFtostream1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -117,6 +121,8 @@ type
     procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject; aErrorCode: HRESULT);
     procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
     procedure WVBrowser1GetFaviconCompleted(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream);
+    procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
+    procedure WVBrowser1PrintToPdfStreamCompleted(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -457,6 +463,11 @@ begin
     WVBrowser1.PrintToPDF(SaveDialog1.FileName);
 end;
 
+procedure TMiniBrowserFrm.PrinttoPDFtostream1Click(Sender: TObject);
+begin
+  WVBrowser1.PrintToPdfStream;
+end;
+
 procedure TMiniBrowserFrm.WVBrowser1AfterCreated(Sender: TObject);
 begin
   WVWindowParent1.UpdateSize;
@@ -657,6 +668,28 @@ begin
   StopBtn.Enabled    := aIsNavigating;
 end;
 
+procedure TMiniBrowserFrm.WVBrowser1PrintCompleted(Sender: TObject;
+  aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
+begin
+  case aErrorCode of
+    S_OK :
+      case aPrintStatus of
+        COREWEBVIEW2_PRINT_STATUS_SUCCEEDED           : showmessage('Print operation succeeded.');
+        COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE : showmessage('The printer was not found or the printer status is not available, offline or error state.');
+        COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         : showmessage('Print operation is failed.');
+      end;
+
+    E_INVALIDARG :
+      showmessage('Invalid settings for the specified printer.');
+
+    E_ABORT :
+      showmessage('Print operation is failed as printing job already in progress.');
+
+    else
+      showmessage('Print operation is failed.');
+  end;
+end;
+
 procedure TMiniBrowserFrm.WVBrowser1PrintToPdfCompleted(Sender: TObject;
   aErrorCode: HRESULT; aIsSuccessful: Boolean);
 begin
@@ -664,6 +697,46 @@ begin
     showmessage('The PDF file was generated successfully')
    else
     showmessage('There was a problem generating the PDF file.');
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1PrintToPdfStreamCompleted(
+  Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream);
+var
+  TempOLEStream  : TOLEStream;
+  TempFile       : TBytes;
+  TempFileStream : TFileStream;
+begin
+  TempOLEStream  := nil;
+  TempFileStream := nil;
+  try
+    if succeeded(aErrorCode) and assigned(aPdfStream) then
+      begin
+        TempOLEStream          := TOLEStream.Create(aPdfStream);
+        TempOLEStream.Position := 0;
+
+        if (TempOLEStream.Size > 0) then
+          begin
+            SetLength(TempFile, TempOLEStream.Size);
+            TempOLEStream.Read(TempFile, TempOLEStream.Size);
+
+            SaveDialog1.Filter     := 'PDF files (*.pdf)|*.pdf';
+            SaveDialog1.DefaultExt := 'pdf';
+
+            if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
+              try
+                TempFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+                TempFileStream.Write(TempFile, length(TempFile));
+              finally
+                FreeAndNil(TempFileStream);
+              end;
+          end;
+      end
+     else
+      showmessage('There was an error printing to PDF');
+  finally
+    if assigned(TempOLEStream) then
+      FreeAndNil(TempOLEStream);
+  end;
 end;
 
 procedure TMiniBrowserFrm.SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
@@ -878,6 +951,11 @@ begin
   TextViewerFrm.Caption := 'Headers';
   TextViewerFrm.Memo1.Lines.Text := FHeaders.Text;
   TextViewerFrm.Show;
+end;
+
+procedure TMiniBrowserFrm.ShowprintUI1Click(Sender: TObject);
+begin
+  WVBrowser1.ShowPrintUI;
 end;
 
 procedure TMiniBrowserFrm.StopBtnClick(Sender: TObject);

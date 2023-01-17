@@ -22,6 +22,7 @@ type
       FTargetCompatibleBrowserVersion         : wvstring;
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
       FExclusiveUserDataFolderAccess          : boolean;
+      FCustomCrashReportingEnabled            : boolean;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -37,8 +38,12 @@ type
       function Get_ExclusiveUserDataFolderAccess(out value: Integer): HResult; stdcall;
       function Set_ExclusiveUserDataFolderAccess(value: Integer): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions3
+      function Get_IsCustomCrashReportingEnabled(out value: Integer): HResult; stdcall;
+      function Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
+
     public
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess : boolean);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean);
   end;
 
 implementation
@@ -50,7 +55,8 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                    const aLanguage                               : wvstring;
                                                    const aTargetCompatibleBrowserVersion         : wvstring;
                                                          aAllowSingleSignOnUsingOSPrimaryAccount : boolean;
-                                                         aExclusiveUserDataFolderAccess          : boolean);
+                                                         aExclusiveUserDataFolderAccess          : boolean;
+                                                         aCustomCrashReportingEnabled            : boolean);
 begin
   inherited Create;
 
@@ -59,6 +65,7 @@ begin
   FTargetCompatibleBrowserVersion         := aTargetCompatibleBrowserVersion;
   FAllowSingleSignOnUsingOSPrimaryAccount := aAllowSingleSignOnUsingOSPrimaryAccount;
   FExclusiveUserDataFolderAccess          := aExclusiveUserDataFolderAccess;
+  FCustomCrashReportingEnabled            := aCustomCrashReportingEnabled;
 end;
 
 function TCoreWebView2EnvironmentOptions.Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -140,6 +147,18 @@ function TCoreWebView2EnvironmentOptions.Set_ExclusiveUserDataFolderAccess(value
 begin
   Result := S_OK;
   FExclusiveUserDataFolderAccess := (value <> 0);
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_IsCustomCrashReportingEnabled(out value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := ord(FCustomCrashReportingEnabled);
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  FCustomCrashReportingEnabled := (value <> 0);
 end;
 
 end.

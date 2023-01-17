@@ -12,7 +12,7 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Major="1" Release="1462" Build="37"/>
+    <Version Major="1" Release="1518" Build="46"/>
     <Files Count="49">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>

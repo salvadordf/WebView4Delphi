@@ -27,6 +27,7 @@ type
       FBaseIntf8                            : ICoreWebView2Environment8;
       FBaseIntf9                            : ICoreWebView2Environment9;
       FBaseIntf10                           : ICoreWebView2Environment10;
+      FBaseIntf11                           : ICoreWebView2Environment11;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
       FProcessInfosChangedEventToken        : EventRegistrationToken;
@@ -37,6 +38,7 @@ type
       function  GetSupportsControllerOptions : boolean;
       function  GetUserDataFolder : wvstring;
       function  GetProcessInfos : ICoreWebView2ProcessInfoCollection;
+      function  GetFailureReportFolderPath : wvstring;
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -72,6 +74,7 @@ type
       property    SupportsControllerOptions     : boolean                             read GetSupportsControllerOptions;
       property    UserDataFolder                : wvstring                            read GetUserDataFolder;
       property    ProcessInfos                  : ICoreWebView2ProcessInfoCollection  read GetProcessInfos;
+      property    FailureReportFolderPath       : wvstring                            read GetFailureReportFolderPath;
   end;
 
 implementation
@@ -95,8 +98,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment6, FBaseIntf6) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment7, FBaseIntf7) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment8, FBaseIntf8) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9, FBaseIntf9) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9, FBaseIntf9) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -121,6 +125,7 @@ begin
   FBaseIntf8  := nil;
   FBaseIntf9  := nil;
   FBaseIntf10 := nil;
+  FBaseIntf11 := nil;
 
   InitializeTokens;
 end;
@@ -446,6 +451,24 @@ begin
      succeeded(FBaseIntf8.GetProcessInfos(TempResult)) and
      assigned(TempResult) then
     Result := TempResult;
+end;
+
+function TCoreWebView2Environment.GetFailureReportFolderPath : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result := '';
+
+  if assigned(FBaseIntf11) then
+    begin
+      TempString := nil;
+
+      if succeeded(FBaseIntf11.Get_FailureReportFolderPath(TempString)) then
+        begin
+          Result := TempString;
+          CoTaskMemFree(TempString);
+        end;
+   end;
 end;
 
 end.
