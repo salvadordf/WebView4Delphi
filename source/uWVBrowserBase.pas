@@ -146,6 +146,7 @@ type
       FOnFaviconChanged                               : TOnFaviconChangedEvent;
       FOnGetFaviconCompleted                          : TOnGetFaviconCompletedEvent;
       FOnPrintToPdfStreamCompleted                    : TOnPrintToPdfStreamCompletedEvent;
+      FOnGetCustomSchemes                             : TOnGetCustomSchemesEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -410,6 +411,7 @@ type
       procedure doOnGetFaviconCompletedEvent(errorCode: HResult; const faviconStream: IStream); virtual;
       procedure doOnPrintCompletedEvent(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS); virtual;
       procedure doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const pdfStream: IStream); virtual;
+      procedure doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -780,13 +782,14 @@ type
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
       property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
       property OnSimulateKeyEventCompleted                     : TOnSimulateKeyEventCompletedEvent                     read FOnSimulateKeyEventCompleted                     write FOnSimulateKeyEventCompleted;
+      property OnGetCustomSchemes                              : TOnGetCustomSchemesEvent                              read FOnGetCustomSchemes                              write FOnGetCustomSchemes;
   end;
 
 implementation
 
 uses
   uWVMiscFunctions, uWVCoreWebView2EnvironmentOptions, uWVCoreWebView2ControllerOptions,
-  uWVCoreWebView2Profile;
+  uWVCoreWebView2Profile, uWVCoreWebView2CustomSchemeRegistration;
 
 constructor TWVBrowserBase.Create(AOwner: TComponent);
 begin
@@ -910,6 +913,7 @@ begin
   FOnFaviconChanged                                := nil;
   FOnGetFaviconCompleted                           := nil;
   FOnPrintToPdfStreamCompleted                     := nil;
+  FOnGetCustomSchemes                              := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1902,6 +1906,28 @@ begin
     FOnPrintToPdfStreamCompleted(self, errorCode, pdfStream);
 end;
 
+procedure TWVBrowserBase.doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray);
+var
+  TempArray : TWVCustomSchemeInfoArray;
+  i, TempLen : integer;
+begin
+  if not(assigned(FOnGetCustomSchemes)) then exit;
+
+  TempArray := nil;
+  FOnGetCustomSchemes(self, TempArray);
+  TempLen := length(TempArray);
+
+  if (TempLen = 0) then exit;
+
+  SetLength(aSchemeRegistrations, TempLen);
+  i := 0;
+  while (i < TempLen) do
+    begin
+      aSchemeRegistrations[i] := TCoreWebView2CustomSchemeRegistration.Create(TempArray[i]);
+      inc(i);
+    end;
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -2780,10 +2806,15 @@ var
   TempHandler : ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler;
   TempError   : wvstring;
   TempHResult : HRESULT;
+  TempSchemeRegistrations : TWVCustomSchemeRegistrationArray;
+  i : integer;
 begin
-  Result := False;
+  Result                  := False;
+  TempSchemeRegistrations := nil;
 
   try
+    doOnGetCustomSchemes(TempSchemeRegistrations);
+
     TempHandler := TCoreWebView2EnvironmentCompletedHandler.Create(self);
 
     TempOptions := TCoreWebView2EnvironmentOptions.Create(FAdditionalBrowserArguments,
@@ -2791,7 +2822,8 @@ begin
                                                           FTargetCompatibleBrowserVersion,
                                                           FAllowSingleSignOnUsingOSPrimaryAccount,
                                                           FExclusiveUserDataFolderAccess,
-                                                          FCustomCrashReportingEnabled);
+                                                          FCustomCrashReportingEnabled,
+                                                          TempSchemeRegistrations);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),
@@ -2816,6 +2848,16 @@ begin
   finally
     TempOptions := nil;
     TempHandler := nil;
+
+    if assigned(TempSchemeRegistrations) then
+      begin
+        i := pred(length(TempSchemeRegistrations));
+        while (i >= 0) do
+          begin
+            TempSchemeRegistrations[i] := nil;
+            dec(i);
+          end;
+      end;
   end;
 end;
 

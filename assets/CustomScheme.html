@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handling custom schemes</title>
+	<script type="application/javascript" src="myscheme://domain/test.js" charset="utf-8"></script>
+</head>
+<body>
+    <div>These resources are loaded via a URL with custom scheme that has an authority component:</div>
+    <p><img src="myscheme://domain/emoji.png" /><br>Local image</p>
+	<p><img src='myscheme://domain/dontexist.png'><br>Non existing local image</p>
+	<p><img src='https://www.briskbard.com/images/logo2.png'><br>Remote image</p>
+	<p><button onclick="myAlertFunction()">Show Alert box</button></p>
+</body>
+</html>

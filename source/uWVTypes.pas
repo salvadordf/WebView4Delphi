@@ -270,6 +270,16 @@ type
                        appNoUserGestureRequired,
                        appUserGestureRequired);
 
+  TWVCustomSchemeInfo = record
+    SchemeName            : wvstring;  // The name of the custom scheme to register.
+    TreatAsSecure         : boolean;   // Whether the sites with this scheme will be treated as a Secure Context like an HTTPS site.
+    AllowedDomains        : wvstring;  // Comma separated list of origins that are allowed to issue requests with the custom scheme, such as XHRs and subresource requests that have an Origin header.
+    HasAuthorityComponent : boolean;   // Set this property to true if the URIs with this custom scheme will have an authority component (a host for custom schemes).
+  end;
+  TWVCustomSchemeInfoArray = array of TWVCustomSchemeInfo;
+
+  TWVCustomSchemeRegistrationArray = array of ICoreWebView2CustomSchemeRegistration;
+
 implementation
 
 end.

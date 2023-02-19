@@ -161,16 +161,15 @@ uses
 procedure TMiniBrowserFrm.akesnapshot1Click(Sender: TObject);
 var
   TempAdapter : IStream;
+  TempStream  : TFileStream;
 begin
   SaveDialog1.Filter     := 'PNG files (*.png)|*.png';
   SaveDialog1.DefaultExt := 'png';
 
   if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
     try
-      if (FFileStream <> nil) then FreeAndNil(FFileStream);
-
-      FFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
-      TempAdapter := TStreamAdapter.Create(FFileStream, soReference);
+      TempStream  := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+      TempAdapter := TStreamAdapter.Create(TempStream, soOwned);
 
       WVBrowser1.CapturePreview(COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG, TempAdapter);
     finally

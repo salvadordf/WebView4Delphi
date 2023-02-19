@@ -12,8 +12,8 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Major="1" Release="1518" Build="46"/>
-    <Files Count="49">
+    <Version Major="1" Release="1587" Build="40"/>
+    <Files Count="50">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
         <HasRegisterProc Value="True"/>
@@ -212,6 +212,10 @@
         <Filename Value="..\source\uWVCoreWebView2Certificate.pas"/>
         <UnitName Value="uWVCoreWebView2Certificate"/>
       </Item49>
+      <Item50>
+        <Filename Value="..\source\uWVCoreWebView2CustomSchemeRegistration.pas"/>
+        <UnitName Value="uWVCoreWebView2CustomSchemeRegistration"/>
+      </Item50>
     </Files>
     <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">

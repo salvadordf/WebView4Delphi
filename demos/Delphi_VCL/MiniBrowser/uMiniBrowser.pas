@@ -127,7 +127,6 @@ type
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
     FDownloadIDGen     : integer;
-    FFileStream        : TFileStream;
     FBlockImages       : boolean;
     FGetHeaders        : boolean;
     FHeaders           : TStringList;
@@ -166,16 +165,15 @@ uses
 procedure TMiniBrowserFrm.Takesnapshot1Click(Sender: TObject);
 var
   TempAdapter : IStream;
+  TempStream  : TFileStream;
 begin
   SaveDialog1.Filter     := 'PNG files (*.png)|*.png';
   SaveDialog1.DefaultExt := 'png';
 
   if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
     try
-      if (FFileStream <> nil) then FreeAndNil(FFileStream);
-
-      FFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
-      TempAdapter := TStreamAdapter.Create(FFileStream, soReference);
+      TempStream  := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+      TempAdapter := TStreamAdapter.Create(TempStream, soOwned);
 
       WVBrowser1.CapturePreview(COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG, TempAdapter);
     finally
@@ -321,7 +319,6 @@ procedure TMiniBrowserFrm.FormCreate(Sender: TObject);
 begin
   FGetHeaders             := True;
   FHeaders                := TStringList.Create;
-  FFileStream             := nil;
   FUserAuthFrm            := nil;
   FResourceContents       := nil;
   FBlockImages            := False;
@@ -334,9 +331,6 @@ procedure TMiniBrowserFrm.FormDestroy(Sender: TObject);
 begin
   if assigned(FHeaders) then
     FreeAndNil(FHeaders);
-
-  if assigned(FFileStream) then
-    FreeAndNil(FFileStream);
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
@@ -503,9 +497,6 @@ procedure TMiniBrowserFrm.WVBrowser1CapturePreviewCompleted(
 begin
   if not(succeeded(aErrorCode)) then
     showmessage('There was an error taking the snapshot');
-
-  if (FFileStream <> nil) then
-    FreeAndNil(FFileStream);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1ClearBrowsingDataCompleted(
@@ -764,6 +755,8 @@ begin
 end;
 
 procedure TMiniBrowserFrm.Saveresourceas1Click(Sender: TObject);
+var
+  TempStream : TFileStream;
 begin
   try
     if assigned(FResourceContents) and (length(FResourceContents) > 0) then
@@ -773,12 +766,10 @@ begin
 
         if SaveDialog1.Execute and (length(SaveDialog1.FileName) > 0) then
           try
-            if (FFileStream <> nil) then FreeAndNil(FFileStream);
-
-            FFileStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
-            FFileStream.Write(FResourceContents, length(FResourceContents));
+            TempStream := TFileStream.Create(SaveDialog1.FileName, fmCreate);
+            TempStream.Write(FResourceContents, length(FResourceContents));
           finally
-            FreeAndNil(FFileStream);
+            FreeAndNil(TempStream);
           end;
       end;
   except

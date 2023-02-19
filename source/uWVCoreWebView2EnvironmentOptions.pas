@@ -15,7 +15,11 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
-  TCoreWebView2EnvironmentOptions = class(TInterfacedObject, ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions2)
+  TCoreWebView2EnvironmentOptions = class(TInterfacedObject,
+                                          ICoreWebView2EnvironmentOptions,
+                                          ICoreWebView2EnvironmentOptions2,
+                                          ICoreWebView2EnvironmentOptions3,
+                                          ICoreWebView2EnvironmentOptions4)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
@@ -23,6 +27,7 @@ type
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
       FExclusiveUserDataFolderAccess          : boolean;
       FCustomCrashReportingEnabled            : boolean;
+      FSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -42,8 +47,15 @@ type
       function Get_IsCustomCrashReportingEnabled(out value: Integer): HResult; stdcall;
       function Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions4
+      function GetCustomSchemeRegistrations(out Count: SYSUINT; out schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
+      function SetCustomSchemeRegistrations(Count: SYSUINT; schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
+
+      procedure DestroySchemeRegistrations;
+
     public
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray);
+      destructor  Destroy; override;
   end;
 
 implementation
@@ -56,7 +68,10 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                    const aTargetCompatibleBrowserVersion         : wvstring;
                                                          aAllowSingleSignOnUsingOSPrimaryAccount : boolean;
                                                          aExclusiveUserDataFolderAccess          : boolean;
-                                                         aCustomCrashReportingEnabled            : boolean);
+                                                         aCustomCrashReportingEnabled            : boolean;
+                                                   const aSchemeRegistrations                    : TWVCustomSchemeRegistrationArray);
+var
+  i : integer;
 begin
   inherited Create;
 
@@ -66,6 +81,46 @@ begin
   FAllowSingleSignOnUsingOSPrimaryAccount := aAllowSingleSignOnUsingOSPrimaryAccount;
   FExclusiveUserDataFolderAccess          := aExclusiveUserDataFolderAccess;
   FCustomCrashReportingEnabled            := aCustomCrashReportingEnabled;
+  FSchemeRegistrations                    := nil;
+
+  if assigned(aSchemeRegistrations) then
+    begin
+      i := length(aSchemeRegistrations);
+      SetLength(FSchemeRegistrations, i);
+      ZeroMemory(FSchemeRegistrations, i);
+
+      dec(i);
+      while (i >= 0) do
+        begin
+          FSchemeRegistrations[i] := aSchemeRegistrations[i];
+          dec(i);
+        end;
+    end;
+end;
+
+destructor TCoreWebView2EnvironmentOptions.Destroy;
+begin
+  DestroySchemeRegistrations;
+
+  inherited Destroy;
+end;
+
+procedure TCoreWebView2EnvironmentOptions.DestroySchemeRegistrations;
+var
+  i : integer;
+begin
+  if assigned(FSchemeRegistrations) then
+    begin
+      i := pred(length(FSchemeRegistrations));
+
+      while (i >= 0) do
+        begin
+          FSchemeRegistrations[i] := nil;
+          dec(i);
+        end;
+
+      SetLength(FSchemeRegistrations, 0);
+    end;
 end;
 
 function TCoreWebView2EnvironmentOptions.Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -157,8 +212,62 @@ end;
 
 function TCoreWebView2EnvironmentOptions.Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
 begin
-  Result := S_OK;
+  Result                       := S_OK;
   FCustomCrashReportingEnabled := (value <> 0);
+end;
+
+function TCoreWebView2EnvironmentOptions.GetCustomSchemeRegistrations(out Count               : SYSUINT;
+                                                                      out schemeRegistrations : PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
+var
+  TempArray : PPCoreWebView2CustomSchemeRegistration;
+  i         : SYSUINT;
+  TempLen   : integer;
+begin
+  Result              := S_OK;
+  Count               := length(FSchemeRegistrations);
+  schemeRegistrations := nil;
+
+  if (Count = 0) then exit;
+
+  TempLen             := Count * SizeOf(ICoreWebView2CustomSchemeRegistration);
+  schemeRegistrations := CoTaskMemAlloc(TempLen);
+  TempArray           := schemeRegistrations;
+  ZeroMemory(TempArray, TempLen);
+
+  i := 0;
+  while (i < count) do
+    begin
+      TempArray^ := FSchemeRegistrations[i];
+      inc(TempArray);
+      inc(i);
+    end;
+end;
+
+function TCoreWebView2EnvironmentOptions.SetCustomSchemeRegistrations(Count               : SYSUINT;
+                                                                      schemeRegistrations : PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
+var
+  TempArray : PPCoreWebView2CustomSchemeRegistration;
+  i         : SYSUINT;
+begin
+  Result := S_OK;
+  DestroySchemeRegistrations;
+
+  if (Count = 0) then exit;
+
+  SetLength(FSchemeRegistrations, Count);
+  ZeroMemory(FSchemeRegistrations, Count);
+
+  TempArray := schemeRegistrations;
+  i         := 0;
+
+  while (i < Count) do
+    begin
+      FSchemeRegistrations[i] := TempArray^;
+      inc(TempArray);
+      inc(i);
+    end;
+
+  CoTaskMemFree(schemeRegistrations);
 end;
 
 end.

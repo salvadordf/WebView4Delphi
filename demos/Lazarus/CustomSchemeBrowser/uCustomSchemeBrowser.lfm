@@ -1,0 +1,107 @@
+object MainForm: TMainForm
+  Left = 303
+  Height = 700
+  Top = 133
+  Width = 995
+  Caption = 'CustomSchemeBrowser - Initializing...'
+  ClientHeight = 700
+  ClientWidth = 995
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.2.4.0'
+  object WVWindowParent1: TWVWindowParent
+    Left = 0
+    Height = 677
+    Top = 23
+    Width = 995
+    Align = alClient
+    TabOrder = 1
+    Browser = WVBrowser1
+  end
+  object AddressPnl: TPanel
+    Left = 0
+    Height = 23
+    Top = 0
+    Width = 995
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 23
+    ClientWidth = 995
+    Enabled = False
+    TabOrder = 0
+    object AddressCb: TComboBox
+      Left = 0
+      Height = 23
+      Top = 0
+      Width = 870
+      Align = alClient
+      ItemHeight = 15
+      Items.Strings = (
+        'https://www.bing.com'
+        'https://www.google.com'
+        'https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_win_close'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert'
+        'https://www.w3schools.com/js/tryit.asp?filename=tryjs_loc_assign'
+        'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_backgroundcolor'
+        'https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_iframe_name'
+        'https://www.w3schools.com/html/html5_video.asp'
+        'http://html5test.com/'
+        'https://webrtc.github.io/samples/src/content/devices/input-output/'
+        'https://test.webrtc.org/'
+        'https://www.browserleaks.com/webrtc'
+        'https://shaka-player-demo.appspot.com/demo/'
+        'http://webglsamples.org/'
+        'https://get.webgl.org/'
+        'https://www.briskbard.com'
+        'https://www.youtube.com'
+        'https://html5demos.com/drag/'
+        'https://frames-per-second.appspot.com/'
+      )
+      TabOrder = 0
+      Text = 'myscheme://domain/CustomScheme.html'
+    end
+    object GoBtn: TButton
+      Left = 945
+      Height = 23
+      Top = 0
+      Width = 50
+      Align = alRight
+      Caption = 'Go'
+      OnClick = GoBtnClick
+      TabOrder = 1
+    end
+    object DevToolsBtn: TButton
+      Left = 870
+      Height = 23
+      Top = 0
+      Width = 75
+      Align = alRight
+      Caption = 'DevTools'
+      OnClick = DevToolsBtnClick
+      TabOrder = 2
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = Timer1Timer
+    Left = 312
+    Top = 160
+  end
+  object WVBrowser1: TWVBrowser
+    DefaultURL = 'myscheme://domain/CustomScheme.html'
+    TargetCompatibleBrowserVersion = '95.0.1020.44'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnInitializationError = WVBrowser1InitializationError
+    OnAfterCreated = WVBrowser1AfterCreated
+    OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnWebResourceRequested = WVBrowser1WebResourceRequested
+    Left = 200
+    Top = 160
+  end
+end

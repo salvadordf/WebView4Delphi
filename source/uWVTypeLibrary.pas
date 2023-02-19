@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 17/01/2023 15:45:14 from Type Library described below.
+// File generated on 17/02/2023 10:19:18 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: S:\microsoft.web.webview2.1.0.1518.46.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: S:\microsoft.web.webview2.1.0.1587.40.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -201,6 +201,7 @@ const
   IID_ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler: TGUID = '{3B40AAC6-ACFE-4FFD-8211-F607B96E2D5B}';
   IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
+  IID_ICoreWebView2CustomSchemeRegistration: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
   IID_ICoreWebView2Environment2: TGUID = '{41F3632B-5EF4-404F-AD82-2D606C5A9A21}';
   IID_ICoreWebView2Environment3: TGUID = '{80A22AE3-BE7C-4CE2-AFE1-5A50056CDEEB}';
@@ -218,6 +219,7 @@ const
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2EnvironmentOptions3: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';
+  IID_ICoreWebView2EnvironmentOptions4: TGUID = '{AC52D13F-0D38-475A-9DCA-876580D6793E}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -316,6 +318,10 @@ const
   COREWEBVIEW2_PERMISSION_KIND_NOTIFICATIONS = $00000004;
   COREWEBVIEW2_PERMISSION_KIND_OTHER_SENSORS = $00000005;
   COREWEBVIEW2_PERMISSION_KIND_CLIPBOARD_READ = $00000006;
+  COREWEBVIEW2_PERMISSION_KIND_MULTIPLE_AUTOMATIC_DOWNLOADS = $00000007;
+  COREWEBVIEW2_PERMISSION_KIND_FILE_READ_WRITE = $00000008;
+  COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY = $00000009;
+  COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS = $0000000A;
 
 // Constants for enum COREWEBVIEW2_PERMISSION_STATE
 type
@@ -791,6 +797,7 @@ type
   ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler = interface;
   ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
+  ICoreWebView2CustomSchemeRegistration = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
   ICoreWebView2Environment2 = interface;
   ICoreWebView2Environment3 = interface;
@@ -808,6 +815,7 @@ type
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2EnvironmentOptions3 = interface;
+  ICoreWebView2EnvironmentOptions4 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -842,6 +850,7 @@ type
   ICoreWebView2_15 = interface;
   ICoreWebView2_16 = interface;
 
+
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
 // *********************************************************************//
@@ -850,7 +859,11 @@ type
   PUserType1 = ^GUID; {*}
   POleVariant1 = ^OleVariant; {*}
   PByte1 = ^Byte; {*}
-  PPWideChar1 = ^PWideChar; {*}
+  // Replace PPWideChar1 with PPWideChar    ************** WEBVIEW4DELPHI **************
+  // PPWideChar1 = ^PWideChar; {*}
+  // Replace PPUserType3 with PPCoreWebView2CustomSchemeRegistration    ************** WEBVIEW4DELPHI **************
+  // PPUserType3 = ^ICoreWebView2CustomSchemeRegistration; {*}
+  PPCoreWebView2CustomSchemeRegistration = ^ICoreWebView2CustomSchemeRegistration;
 
   __MIDL___MIDL_itf_webview2_0005_0001_0001 = record
     Data1: LongWord;
@@ -2688,6 +2701,22 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2CustomSchemeRegistration
+// Flags:     (0)
+// GUID:      {D60AC92C-37A6-4B26-A39E-95CFE59047BB}
+// *********************************************************************//
+  ICoreWebView2CustomSchemeRegistration = interface(IUnknown)
+    ['{D60AC92C-37A6-4B26-A39E-95CFE59047BB}']
+    function Get_SchemeName(out SchemeName: PWideChar): HResult; stdcall;
+    function Get_TreatAsSecure(out TreatAsSecure: Integer): HResult; stdcall;
+    function Set_TreatAsSecure(TreatAsSecure: Integer): HResult; stdcall;
+    function GetAllowedOrigins(out allowedOriginsCount: SYSUINT; out allowedOrigins: PPWideChar): HResult; stdcall; // ************** WEBVIEW4DELPHI **************
+    function SetAllowedOrigins(allowedOriginsCount: SYSUINT; allowedOrigins: PPWideChar): HResult; stdcall; // ************** WEBVIEW4DELPHI **************
+    function Get_HasAuthorityComponent(out HasAuthorityComponent: Integer): HResult; stdcall;
+    function Set_HasAuthorityComponent(HasAuthorityComponent: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2DevToolsProtocolEventReceivedEventArgs2
 // Flags:     (0)
 // GUID:      {2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}
@@ -2887,6 +2916,19 @@ type
     ['{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}']
     function Get_IsCustomCrashReportingEnabled(out value: Integer): HResult; stdcall;
     function Set_IsCustomCrashReportingEnabled(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2EnvironmentOptions4
+// Flags:     (0)
+// GUID:      {AC52D13F-0D38-475A-9DCA-876580D6793E}
+// *********************************************************************//
+  ICoreWebView2EnvironmentOptions4 = interface(IUnknown)
+    ['{AC52D13F-0D38-475A-9DCA-876580D6793E}']
+    // out schemeRegistrations: PPUserType3 --> out schemeRegistrations: PPCoreWebView2CustomSchemeRegistration    ************** WEBVIEW4DELPHI **************
+    function GetCustomSchemeRegistrations(out Count: SYSUINT; out schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
+    // var schemeRegistrations: ICoreWebView2CustomSchemeRegistration --> schemeRegistrations: PPCoreWebView2CustomSchemeRegistration    ************** WEBVIEW4DELPHI **************
+    function SetCustomSchemeRegistrations(Count: SYSUINT; schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
   end;
 
 // *********************************************************************//

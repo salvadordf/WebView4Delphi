@@ -118,6 +118,7 @@ type
       property OnFaviconChanged;
       property OnGetFaviconCompleted;
       property OnPrintToPdfStreamCompleted;
+      property OnGetCustomSchemes;
   end;
 
 implementation
