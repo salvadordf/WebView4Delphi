@@ -88,11 +88,14 @@ begin
       j := 1;
 
       for i := 1 to Length(FCustomSchemeInfo.AllowedDomains) do
-        if (FCustomSchemeInfo.AllowedDomains[i] = ',') then
+        if (FCustomSchemeInfo.AllowedDomains[i] = ',') or (i = Length(FCustomSchemeInfo.AllowedDomains)) then
           begin
-            if (j > i) then
+            if (i > j) then
               begin
-                TempOrigin := trim(copy(FCustomSchemeInfo.AllowedDomains, j, j - i));
+                if (i = Length(FCustomSchemeInfo.AllowedDomains)) then
+                  TempOrigin := trim(copy(FCustomSchemeInfo.AllowedDomains, j, i - j + 1))
+                 else
+                  TempOrigin := trim(copy(FCustomSchemeInfo.AllowedDomains, j, i - j));
 
                 if (length(TempOrigin) > 0) then
                   begin
