@@ -1919,7 +1919,9 @@ begin
 
   if (TempLen = 0) then exit;
 
-  SetLength(aSchemeRegistrations, TempLen);
+  SetLength(aSchemeRegistrations,  TempLen);
+  ZeroMemory(aSchemeRegistrations, TempLen * SizeOf(ICoreWebView2CustomSchemeRegistration));
+
   i := 0;
   while (i < TempLen) do
     begin

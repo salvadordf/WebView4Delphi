@@ -86,8 +86,8 @@ begin
   if assigned(aSchemeRegistrations) then
     begin
       i := length(aSchemeRegistrations);
-      SetLength(FSchemeRegistrations, i);
-      ZeroMemory(FSchemeRegistrations, i);
+      SetLength(FSchemeRegistrations,  i);
+      ZeroMemory(FSchemeRegistrations, i * SizeOf(ICoreWebView2CustomSchemeRegistration));
 
       dec(i);
       while (i >= 0) do
@@ -254,8 +254,8 @@ begin
 
   if (Count = 0) then exit;
 
-  SetLength(FSchemeRegistrations, Count);
-  ZeroMemory(FSchemeRegistrations, Count);
+  SetLength(FSchemeRegistrations,  Count);
+  ZeroMemory(FSchemeRegistrations, Count * SizeOf(ICoreWebView2CustomSchemeRegistration));
 
   TempArray := schemeRegistrations;
   i         := 0;
