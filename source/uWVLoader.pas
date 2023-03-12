@@ -73,6 +73,7 @@ type
       FAllowRunningInsecureContent            : boolean;
       FDisableBackgroundNetworking            : boolean;
       FRemoteDebuggingPort                    : integer;
+      FRemoteAllowOrigins                     : wvstring;
       FDebugLog                               : TWV2DebugLog;
       FDebugLogLevel                          : TWV2DebugLogLevel;
       FJavaScriptFlags                        : wvstring;
@@ -190,6 +191,7 @@ type
       property DisableBackgroundNetworking            : boolean                            read FDisableBackgroundNetworking             write FDisableBackgroundNetworking;      // --disable-background-networking
       property ForcedDeviceScaleFactor                : single                             read FForcedDeviceScaleFactor                 write FForcedDeviceScaleFactor;          // --force-device-scale-factor
       property RemoteDebuggingPort                    : integer                            read FRemoteDebuggingPort                     write FRemoteDebuggingPort;              // --remote-debugging-port
+      property RemoteAllowOrigins                     : wvstring                           read FRemoteAllowOrigins                      write FRemoteAllowOrigins;               // --remote-allow-origins
       property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;                         // --enable-logging
       property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;                    // --log-level
       property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
@@ -287,6 +289,7 @@ begin
   FLoaderDllPath                          := '';
   FUseInternalLoader                      := False;
   FRemoteDebuggingPort                    := 0;
+  FRemoteAllowOrigins                     := '';
 
   UpdateDeviceScaleFactor;
 
@@ -1070,6 +1073,9 @@ begin
 
   if (FRemoteDebuggingPort > 0) then
     Result := Result + '--remote-debugging-port=' + inttostr(FRemoteDebuggingPort) + ' ';
+
+  if (length(FRemoteAllowOrigins) > 0) then
+    Result := Result + '--remote-allow-origins=' + FRemoteAllowOrigins + ' ';
 
   case FDebugLog of
     dlEnabled       : Result := Result + '--enable-logging ';
