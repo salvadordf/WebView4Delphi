@@ -28,6 +28,7 @@ type
       FBaseIntf9                            : ICoreWebView2Environment9;
       FBaseIntf10                           : ICoreWebView2Environment10;
       FBaseIntf11                           : ICoreWebView2Environment11;
+      FBaseIntf12                           : ICoreWebView2Environment12;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
       FProcessInfosChangedEventToken        : EventRegistrationToken;
@@ -66,6 +67,7 @@ type
       function    CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions): boolean;
       function    CreateCoreWebView2ControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
       function    CreateCoreWebView2CompositionControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
+      function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
 
       property    Initialized                   : boolean                             read GetInitialized;
       property    BaseIntf                      : ICoreWebView2Environment            read FBaseIntf;
@@ -91,16 +93,17 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment2, FBaseIntf2) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment3, FBaseIntf3) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment4, FBaseIntf4) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment5, FBaseIntf5) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment6, FBaseIntf6) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment7, FBaseIntf7) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment8, FBaseIntf8) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9, FBaseIntf9) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment2,  FBaseIntf2)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment3,  FBaseIntf3)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment4,  FBaseIntf4)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment5,  FBaseIntf5)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment6,  FBaseIntf6)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment7,  FBaseIntf7)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment8,  FBaseIntf8)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9,  FBaseIntf9)  and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment12, FBaseIntf12);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -126,6 +129,7 @@ begin
   FBaseIntf9  := nil;
   FBaseIntf10 := nil;
   FBaseIntf11 := nil;
+  FBaseIntf12 := nil;
 
   InitializeTokens;
 end;
@@ -419,6 +423,24 @@ begin
       Result      := succeeded(aResult);
     finally
       TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Environment.CreateSharedBuffer(    aSize         : Largeuint;
+                                                     var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
+var
+  TempBuffer : ICoreWebView2SharedBuffer;
+begin
+  Result        := False;
+  TempBuffer    := nil;
+  aSharedBuffer := nil;
+
+  if assigned(FBaseIntf12) and
+     succeeded(FBaseIntf12.CreateSharedBuffer(aSize, TempBuffer)) and
+     (TempBuffer <> nil) then
+    begin
+      aSharedBuffer := TempBuffer;
+      Result        := True;
     end;
 end;
 

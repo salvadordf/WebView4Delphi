@@ -20,6 +20,7 @@ type
       FBaseIntf                                : ICoreWebView2Frame;
       FBaseIntf2                               : ICoreWebView2Frame2;
       FBaseIntf3                               : ICoreWebView2Frame3;
+      FBaseIntf4                               : ICoreWebView2Frame4;
       FNameChangedToken                        : EventRegistrationToken;
       FDestroyedToken                          : EventRegistrationToken;
       FFrameNavigationStartingToken            : EventRegistrationToken;
@@ -56,6 +57,7 @@ type
       function    ExecuteScript(const JavaScript : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
+      function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
       property Initialized         : boolean                         read GetInitialized;
       property BaseIntf            : ICoreWebView2Frame              read FBaseIntf;
@@ -79,8 +81,9 @@ begin
   FFrameID  := aFrameID;
 
   if Initialized and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame2, FBaseIntf2) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame2, FBaseIntf2) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame4, FBaseIntf4);
 end;
 
 destructor TCoreWebView2Frame.Destroy;
@@ -361,6 +364,14 @@ function TCoreWebView2Frame.PostWebMessageAsString(const aWebMessageAsString : w
 begin
   Result := assigned(FBaseIntf2) and
             succeeded(FBaseIntf2.PostWebMessageAsString(PWideChar(aWebMessageAsString)));
+end;
+
+function TCoreWebView2Frame.PostSharedBufferToScript(const aSharedBuffer         : ICoreWebView2SharedBuffer;
+                                                           aAccess               : TWVSharedBufferAccess;
+                                                     const aAdditionalDataAsJson : wvstring): boolean;
+begin
+  Result := assigned(FBaseIntf4) and
+            succeeded(FBaseIntf4.PostSharedBufferToScript(aSharedBuffer, aAccess, PWideChar(aAdditionalDataAsJson)));
 end;
 
 end.

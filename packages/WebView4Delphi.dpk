@@ -83,7 +83,10 @@ contains
   uWVCoreWebView2ControllerOptions in '..\source\uWVCoreWebView2ControllerOptions.pas',
   uWVLoaderInternal in '..\source\uWVLoaderInternal.pas',
   uWVCoreWebView2Certificate in '..\source\uWVCoreWebView2Certificate.pas',
-  uWVCoreWebView2CustomSchemeRegistration in '..\source\uWVCoreWebView2CustomSchemeRegistration.pas';
+  uWVCoreWebView2CustomSchemeRegistration in '..\source\uWVCoreWebView2CustomSchemeRegistration.pas',
+  uWVCoreWebView2PermissionSettingCollectionView in '..\source\uWVCoreWebView2PermissionSettingCollectionView.pas',
+  uWVCoreWebView2PermissionSetting in '..\source\uWVCoreWebView2PermissionSetting.pas',
+  uWVCoreWebView2SharedBuffer in '..\source\uWVCoreWebView2SharedBuffer.pas';
 
 end.
 

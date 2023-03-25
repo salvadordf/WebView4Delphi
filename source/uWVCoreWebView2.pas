@@ -33,6 +33,7 @@ type
       FBaseIntf14                              : ICoreWebView2_14;
       FBaseIntf15                              : ICoreWebView2_15;
       FBaseIntf16                              : ICoreWebView2_16;
+      FBaseIntf17                              : ICoreWebView2_17;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -164,6 +165,7 @@ type
       function    Print(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintCompletedHandler): boolean;
       function    ShowPrintUI(aPrintDialogKind: TWVPrintDialogKind): boolean;
       function    PrintToPdfStream(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintToPdfStreamCompletedHandler): boolean;
+      function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
       property Initialized                          : boolean                                   read GetInitialized;
       property BaseIntf                             : ICoreWebView2                             read FBaseIntf;
@@ -214,8 +216,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_12, FBaseIntf12) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_13, FBaseIntf13) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_14, FBaseIntf14) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_15, FBaseIntf15) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_15, FBaseIntf15) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_17, FBaseIntf17);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -263,6 +266,7 @@ begin
   FBaseIntf14          := nil;
   FBaseIntf15          := nil;
   FBaseIntf16          := nil;
+  FBaseIntf17          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -1243,6 +1247,14 @@ function TCoreWebView2.PrintToPdfStream(const aPrintSettings : ICoreWebView2Prin
 begin
   Result := assigned(FBaseIntf16) and
             succeeded(FBaseIntf16.PrintToPdfStream(aPrintSettings, aHandler));
+end;
+
+function TCoreWebView2.PostSharedBufferToScript(const aSharedBuffer         : ICoreWebView2SharedBuffer;
+                                                      aAccess               : TWVSharedBufferAccess;
+                                                const aAdditionalDataAsJson : wvstring): boolean;
+begin
+  Result := assigned(FBaseIntf17) and
+            succeeded(FBaseIntf17.PostSharedBufferToScript(aSharedBuffer, aAccess, PWideChar(aAdditionalDataAsJson)));
 end;
 
 function TCoreWebView2.GetBrowserProcessID : cardinal;

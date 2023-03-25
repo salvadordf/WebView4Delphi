@@ -49,6 +49,7 @@ type
       FAllowSingleSignOnUsingOSPrimaryAccount : boolean;
       FExclusiveUserDataFolderAccess          : boolean;
       FCustomCrashReportingEnabled            : boolean;
+      FEnableTrackingPrevention               : boolean;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -166,6 +167,7 @@ type
       property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount; // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
       property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;          // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
       property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;            // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
+      property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;               // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
 
       // Properties used to set command line switches
       property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;                        // --enable-gpu-plugin
@@ -300,6 +302,7 @@ begin
   FAllowSingleSignOnUsingOSPrimaryAccount := False;
   FExclusiveUserDataFolderAccess          := False;
   FCustomCrashReportingEnabled            := False;
+  FEnableTrackingPrevention               := True;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1199,7 +1202,8 @@ begin
                                                               FAllowSingleSignOnUsingOSPrimaryAccount,
                                                               FExclusiveUserDataFolderAccess,
                                                               FCustomCrashReportingEnabled,
-                                                              TempSchemeRegistrations);
+                                                              TempSchemeRegistrations,
+                                                              FEnableTrackingPrevention);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),

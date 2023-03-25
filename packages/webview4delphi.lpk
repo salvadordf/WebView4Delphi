@@ -12,8 +12,8 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Major="1" Release="1587" Build="40"/>
-    <Files Count="50">
+    <Version Major="1" Release="1661" Build="34"/>
+    <Files Count="53">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
         <HasRegisterProc Value="True"/>
@@ -216,6 +216,18 @@
         <Filename Value="..\source\uWVCoreWebView2CustomSchemeRegistration.pas"/>
         <UnitName Value="uWVCoreWebView2CustomSchemeRegistration"/>
       </Item50>
+      <Item51>
+        <Filename Value="..\source\uWVCoreWebView2SharedBuffer.pas"/>
+        <UnitName Value="uWVCoreWebView2SharedBuffer"/>
+      </Item51>
+      <Item52>
+        <Filename Value="..\source\uWVCoreWebView2PermissionSetting.pas"/>
+        <UnitName Value="uWVCoreWebView2PermissionSetting"/>
+      </Item52>
+      <Item53>
+        <Filename Value="..\source\uWVCoreWebView2PermissionSettingCollectionView.pas"/>
+        <UnitName Value="uWVCoreWebView2PermissionSettingCollectionView"/>
+      </Item53>
     </Files>
     <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">

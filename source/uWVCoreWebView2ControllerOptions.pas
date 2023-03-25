@@ -12,14 +12,17 @@ uses
 type
   TCoreWebView2ControllerOptions = class
     protected
-      FBaseIntf : ICoreWebView2ControllerOptions;
+      FBaseIntf  : ICoreWebView2ControllerOptions;
+      FBaseIntf2 : ICoreWebView2ControllerOptions2;
 
       function GetInitialized : boolean;
       function GetProfileName : wvstring;
       function GetIsInPrivateModeEnabled : boolean;
+      function GetScriptLocale : wvstring;
 
       procedure SetProfileName(const aValue : wvstring);
       procedure SetIsInPrivateModeEnabled(aValue : boolean);
+      procedure SetScriptLocale(const aValue : wvstring);
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2ControllerOptions); reintroduce;
@@ -29,22 +32,27 @@ type
       property BaseIntf                : ICoreWebView2ControllerOptions read FBaseIntf                  write FBaseIntf;
       property ProfileName             : wvstring                       read GetProfileName             write SetProfileName;
       property IsInPrivateModeEnabled  : boolean                        read GetIsInPrivateModeEnabled  write SetIsInPrivateModeEnabled;
+      property ScriptLocale            : wvstring                       read GetScriptLocale            write SetScriptLocale;
   end;
 
 implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  Winapi.ActiveX;
+  Winapi.ActiveX,
   {$ELSE}
-  ActiveX;
+  ActiveX,
   {$ENDIF}
+  uWVMiscFunctions;
 
 constructor TCoreWebView2ControllerOptions.Create(const aBaseIntf : ICoreWebView2ControllerOptions);
 begin
   inherited Create;
 
   FBaseIntf := aBaseIntf;
+
+  if Initialized then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2ControllerOptions.Destroy;
@@ -84,6 +92,22 @@ begin
             (TempResult <> 0);
 end;
 
+function TCoreWebView2ControllerOptions.GetScriptLocale : wvstring;
+var
+  TempResult : PWideChar;
+begin
+  Result     := '';
+  TempResult := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_ScriptLocale(TempResult)) and
+     (TempResult <> nil) then
+    begin
+      Result := TempResult;
+      CoTaskMemFree(TempResult);
+    end;
+end;
+
 procedure TCoreWebView2ControllerOptions.SetProfileName(const aValue : wvstring);
 begin
   if Initialized then
@@ -94,6 +118,12 @@ procedure TCoreWebView2ControllerOptions.SetIsInPrivateModeEnabled(aValue : bool
 begin
   if Initialized then
     FBaseIntf.Set_IsInPrivateModeEnabled(ord(aValue));
+end;
+
+procedure TCoreWebView2ControllerOptions.SetScriptLocale(const aValue : wvstring);
+begin
+  if assigned(FBaseIntf2) then
+    FBaseIntf2.Set_ScriptLocale(PWideChar(aValue));
 end;
 
 end.

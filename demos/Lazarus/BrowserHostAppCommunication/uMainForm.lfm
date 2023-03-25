@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 429
+  Left = 0
   Height = 701
-  Top = 234
+  Top = 0
   Width = 995
   Caption = 'BrowserHostAppCommunication - Initializing...'
   ClientHeight = 701
@@ -10,9 +10,11 @@ object MainForm: TMainForm
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.6.0'
   object WVWindowParent1: TWVWindowParent
     Left = 0
     Height = 701
@@ -33,14 +35,14 @@ object MainForm: TMainForm
     ClientWidth = 355
     Enabled = False
     TabOrder = 0
-    object GoBtn: TButton
+    object SendMsgBtn: TButton
       Left = 0
       Height = 24
       Top = 23
       Width = 355
       Align = alTop
       Caption = '<<< Send a message to the web browser'
-      OnClick = GoBtnClick
+      OnClick = SendMsgBtnClick
       TabOrder = 0
     end
     object Edit1: TEdit
@@ -54,12 +56,12 @@ object MainForm: TMainForm
     end
     object Panel1: TPanel
       Left = 0
-      Height = 654
+      Height = 219
       Top = 47
       Width = 355
-      Align = alClient
+      Align = alTop
       BevelOuter = bvNone
-      ClientHeight = 654
+      ClientHeight = 219
       ClientWidth = 355
       TabOrder = 2
       object Label1: TLabel
@@ -73,12 +75,43 @@ object MainForm: TMainForm
       end
       object MessagesMem: TMemo
         Left = 0
-        Height = 639
+        Height = 204
         Top = 15
         Width = 355
         Align = alClient
         ReadOnly = True
         TabOrder = 0
+      end
+    end
+    object Panel2: TPanel
+      Left = 0
+      Height = 77
+      Top = 266
+      Width = 355
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 77
+      ClientWidth = 355
+      TabOrder = 3
+      object SharedBufferEdt: TEdit
+        Left = 0
+        Height = 23
+        Top = 0
+        Width = 355
+        Align = alTop
+        MaxLength = 256
+        TabOrder = 0
+        Text = 'Shared buffer custom contents'
+      end
+      object PostSharedBufferBtn: TButton
+        Left = 0
+        Height = 24
+        Top = 23
+        Width = 355
+        Align = alTop
+        Caption = '<<< Post the shared buffer to the web browser'
+        OnClick = PostSharedBufferBtnClick
+        TabOrder = 1
       end
     end
   end

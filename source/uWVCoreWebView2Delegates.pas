@@ -792,6 +792,28 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = class(TInterfacedObject, ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  TCoreWebView2SetPermissionStateCompletedHandler = class(TInterfacedObject, ICoreWebView2SetPermissionStateCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2564,6 +2586,56 @@ function TCoreWebView2PrintToPdfStreamCompletedHandler.Invoke(errorCode: HResult
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).PrintToPdfStreamCompletedHandler_Invoke(errorCode, pdfStream)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler
+
+constructor TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode, collectionView)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2SetPermissionStateCompletedHandler
+
+constructor TCoreWebView2SetPermissionStateCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2SetPermissionStateCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2SetPermissionStateCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).SetPermissionStateCompletedHandler_Invoke(errorCode)
    else
     Result := E_FAIL;
 end;

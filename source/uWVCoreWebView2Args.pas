@@ -201,6 +201,7 @@ type
     protected
       FBaseIntf  : ICoreWebView2PermissionRequestedEventArgs;
       FBaseIntf2 : ICoreWebView2PermissionRequestedEventArgs2;
+      FBaseIntf3 : ICoreWebView2PermissionRequestedEventArgs3;
 
       function  GetInitialized : boolean;
       function  GetURI : wvstring;
@@ -209,9 +210,13 @@ type
       function  GetState : TWVPermissionState;
       function  GetDeferral : ICoreWebView2Deferral;
       function  GetHandled : boolean;
+      function  GetSavesInProfile : boolean;
 
       procedure SetState(aValue : TWVPermissionState);
-      procedure SetHandled(avalue : boolean);
+      procedure SetHandled(aValue : boolean);
+      procedure SetSavesInProfile(aValue : boolean);
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs); reintroduce; overload;
@@ -226,6 +231,7 @@ type
       property IsUserInitiated  : boolean                                    read GetIsUserInitiated;
       property Deferral         : ICoreWebView2Deferral                      read GetDeferral;
       property Handled          : boolean                                    read GetHandled           write SetHandled;
+      property SavesInProfile   : boolean                                    read GetSavesInProfile    write SetSavesInProfile;
   end;
 
   TCoreWebView2ProcessFailedEventArgs = class
@@ -1150,26 +1156,40 @@ constructor TCoreWebView2PermissionRequestedEventArgs.Create(const aArgs: ICoreW
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aArgs;
 
-  if Initialized then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2PermissionRequestedEventArgs2, FBaseIntf2);
+  if assigned(aArgs) and
+     LoggedQueryInterface(aArgs, IID_ICoreWebView2PermissionRequestedEventArgs2, FBaseIntf2) then
+    LoggedQueryInterface(aArgs, IID_ICoreWebView2PermissionRequestedEventArgs3, FBaseIntf3);
 end;
 
 constructor TCoreWebView2PermissionRequestedEventArgs.Create(const aArgs: ICoreWebView2PermissionRequestedEventArgs2);
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf2 := aArgs;
 
-  LoggedQueryInterface(aArgs, IID_ICoreWebView2PermissionRequestedEventArgs, FBaseIntf);
+  if assigned(aArgs) and
+     LoggedQueryInterface(aArgs, IID_ICoreWebView2PermissionRequestedEventArgs, FBaseIntf) then
+    LoggedQueryInterface(aArgs, IID_ICoreWebView2PermissionRequestedEventArgs3, FBaseIntf3);
 end;
 
 destructor TCoreWebView2PermissionRequestedEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2PermissionRequestedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
+  FBaseIntf3 := nil;
 end;
 
 function TCoreWebView2PermissionRequestedEventArgs.GetInitialized : boolean;
@@ -1246,16 +1266,31 @@ begin
             (TempResult <> 0);
 end;
 
+function TCoreWebView2PermissionRequestedEventArgs.GetSavesInProfile : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf3) and
+            succeeded(FBaseIntf3.Get_SavesInProfile(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2PermissionRequestedEventArgs.SetState(aValue : TWVPermissionState);
 begin
   if Initialized then
     FBaseIntf.Set_State(aValue);
 end;
 
-procedure TCoreWebView2PermissionRequestedEventArgs.SetHandled(avalue : boolean);
+procedure TCoreWebView2PermissionRequestedEventArgs.SetHandled(aValue : boolean);
 begin
   if assigned(FBaseIntf2) then
     FBaseIntf2.Set_Handled(ord(aValue));
+end;
+
+procedure TCoreWebView2PermissionRequestedEventArgs.SetSavesInProfile(aValue : boolean);
+begin
+  if assigned(FBaseIntf3) then
+    FBaseIntf3.Set_SavesInProfile(ord(aValue));
 end;
 
 

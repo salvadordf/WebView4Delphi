@@ -87,6 +87,8 @@ type
   TOnGetFaviconCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;
   TOnPrintToPdfStreamCompletedEvent                        = procedure(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream) of object;
   TOnGetCustomSchemesEvent                                 = procedure(Sender: TObject; var aCustomSchemes: TWVCustomSchemeInfoArray) of object;
+  TOnGetNonDefaultPermissionSettingsCompletedEvent         = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView) of object;
+  TOnSetPermissionStateCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

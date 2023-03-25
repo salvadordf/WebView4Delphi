@@ -119,6 +119,8 @@ type
       property OnGetFaviconCompleted;
       property OnPrintToPdfStreamCompleted;
       property OnGetCustomSchemes;
+      property OnGetNonDefaultPermissionSettingsCompleted;
+      property OnSetPermissionStateCompleted;
   end;
 
 {$IFDEF FPC}

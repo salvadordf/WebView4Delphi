@@ -62,6 +62,8 @@ type
   TWVPrintMediaSize                       = type COREWEBVIEW2_PRINT_MEDIA_SIZE;
   TWVPrintStatus                          = type COREWEBVIEW2_PRINT_STATUS;
   TWVPrintDialogKind                      = type COREWEBVIEW2_PRINT_DIALOG_KIND;
+  TWVSharedBufferAccess                   = type COREWEBVIEW2_SHARED_BUFFER_ACCESS;
+  TWVTrackingPreventionLevel              = type COREWEBVIEW2_TRACKING_PREVENTION_LEVEL;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

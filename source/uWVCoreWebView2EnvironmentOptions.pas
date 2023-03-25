@@ -19,7 +19,8 @@ type
                                           ICoreWebView2EnvironmentOptions,
                                           ICoreWebView2EnvironmentOptions2,
                                           ICoreWebView2EnvironmentOptions3,
-                                          ICoreWebView2EnvironmentOptions4)
+                                          ICoreWebView2EnvironmentOptions4,
+                                          ICoreWebView2EnvironmentOptions5)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
@@ -28,6 +29,7 @@ type
       FExclusiveUserDataFolderAccess          : boolean;
       FCustomCrashReportingEnabled            : boolean;
       FSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
+      FEnableTrackingPrevention               : boolean;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -51,10 +53,14 @@ type
       function GetCustomSchemeRegistrations(out Count: SYSUINT; out schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
       function SetCustomSchemeRegistrations(Count: SYSUINT; schemeRegistrations: PPCoreWebView2CustomSchemeRegistration): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions5
+      function Get_EnableTrackingPrevention(out value: Integer): HResult; stdcall;
+      function Set_EnableTrackingPrevention(value: Integer): HResult; stdcall;
+
       procedure DestroySchemeRegistrations;
 
     public
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention: boolean);
       destructor  Destroy; override;
   end;
 
@@ -69,7 +75,8 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                          aAllowSingleSignOnUsingOSPrimaryAccount : boolean;
                                                          aExclusiveUserDataFolderAccess          : boolean;
                                                          aCustomCrashReportingEnabled            : boolean;
-                                                   const aSchemeRegistrations                    : TWVCustomSchemeRegistrationArray);
+                                                   const aSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
+                                                         aEnableTrackingPrevention               : boolean);
 var
   i : integer;
 begin
@@ -82,6 +89,7 @@ begin
   FExclusiveUserDataFolderAccess          := aExclusiveUserDataFolderAccess;
   FCustomCrashReportingEnabled            := aCustomCrashReportingEnabled;
   FSchemeRegistrations                    := nil;
+  FEnableTrackingPrevention               := aEnableTrackingPrevention;
 
   if assigned(aSchemeRegistrations) then
     begin
@@ -268,6 +276,18 @@ begin
     end;
 
   CoTaskMemFree(schemeRegistrations);
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_EnableTrackingPrevention(out value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := ord(FEnableTrackingPrevention);
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_EnableTrackingPrevention(value: Integer): HResult; stdcall;
+begin
+  Result                    := S_OK;
+  FEnableTrackingPrevention := (value <> 0);
 end;
 
 end.
