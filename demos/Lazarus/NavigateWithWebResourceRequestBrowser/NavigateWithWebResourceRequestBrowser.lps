@@ -10,7 +10,6 @@
         <IsPartOfProject Value="True"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
@@ -20,10 +19,11 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
+        <TopLine Value="54"/>
+        <CursorPos X="72" Y="78"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\source\uWVBrowser.pas"/>
@@ -126,7 +126,28 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
+        <Caret Line="73" Column="42" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
+        <Caret Line="72" Column="42" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
+        <Caret Line="151" Column="5" TopLine="139"/>
+      </Position>
+      <Position>
+        <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
+        <Caret Line="162" Column="74" TopLine="142"/>
+      </Position>
+      <Position>
+        <Filename Value="uNavigateWithWebResourceRequestBrowser.pas"/>
+        <Caret Line="50" Column="39" TopLine="35"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

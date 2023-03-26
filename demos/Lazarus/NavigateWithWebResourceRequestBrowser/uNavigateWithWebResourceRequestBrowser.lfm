@@ -1,136 +1,143 @@
 object MainForm: TMainForm
-  Left = 0
-  Top = 0
+  Left = 469
+  Height = 205
+  Top = 242
+  Width = 682
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'NavigateWithWebResourceRequestBrowser'
   ClientHeight = 205
   ClientWidth = 682
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
-  Font.Style = []
-  Position = poScreenCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  PixelsPerInch = 96
+  Position = poScreenCenter
+  LCLVersion = '2.2.6.0'
   object WVWindowParent1: TWVWindowParent
     Left = 0
+    Height = 110
     Top = 95
     Width = 682
-    Height = 110
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
   end
   object AddressPnl: TPanel
     Left = 0
+    Height = 95
     Top = 0
     Width = 682
-    Height = 95
     Align = alTop
     BevelOuter = bvNone
+    ClientHeight = 95
+    ClientWidth = 682
     Enabled = False
     TabOrder = 0
     object Label1: TLabel
       Left = 6
+      Height = 15
       Top = 37
       Width = 41
-      Height = 15
       Caption = 'Name 1'
+      ParentColor = False
     end
     object Label2: TLabel
       Left = 246
+      Height = 15
       Top = 37
       Width = 41
-      Height = 15
       Caption = 'Name 2'
+      ParentColor = False
     end
     object Label3: TLabel
       Left = 6
+      Height = 15
       Top = 66
       Width = 37
-      Height = 15
       Caption = 'Value 1'
+      ParentColor = False
     end
     object Label4: TLabel
       Left = 246
+      Height = 15
       Top = 66
       Width = 37
-      Height = 15
       Caption = 'Value 2'
+      ParentColor = False
     end
     object Label5: TLabel
       Left = 6
+      Height = 15
       Top = 9
       Width = 21
-      Height = 15
       Caption = 'URL'
+      ParentColor = False
     end
     object GoBtn: TButton
       Left = 430
+      Height = 23
       Top = 6
       Width = 241
-      Height = 23
       Caption = 'Send POST request'
-      TabOrder = 0
       OnClick = GoBtnClick
+      TabOrder = 0
     end
     object PostParam1NameEdt: TEdit
       Left = 53
+      Height = 23
       Top = 34
       Width = 121
-      Height = 23
       TabOrder = 1
       Text = 'ParamName1'
     end
     object PostParam2NameEdt: TEdit
       Left = 292
+      Height = 23
       Top = 34
       Width = 121
-      Height = 23
       TabOrder = 2
       Text = 'ParamName2'
     end
     object PostParam1ValueEdt: TEdit
       Left = 53
+      Height = 23
       Top = 63
       Width = 121
-      Height = 23
       TabOrder = 3
       Text = 'ParamValue1'
     end
     object PostParam2ValueEdt: TEdit
       Left = 292
+      Height = 23
       Top = 63
       Width = 121
-      Height = 23
       TabOrder = 4
       Text = 'ParamValue2'
     end
     object AddressCb: TComboBox
       Left = 53
+      Height = 23
       Top = 6
       Width = 360
-      Height = 23
-      ItemIndex = 0
-      TabOrder = 5
-      Text = 'https://ptsv2.com/t/cef4delphi/post'
+      ItemHeight = 15
       Items.Strings = (
         'https://ptsv2.com/t/cef4delphi/post'
-        '')
+        ''
+      )
+      TabOrder = 5
+      Text = 'https://httpbin.org/post'
     end
-    object Button1: TButton
+    object SendCustomHTTPHeaderChk: TCheckBox
       Left = 430
-      Top = 63
-      Width = 241
-      Height = 23
-      Caption = 'Check results in PTSV2.com'
+      Height = 19
+      Top = 33
+      Width = 159
+      Caption = 'Send custom HTTP header'
       TabOrder = 6
-      OnClick = Button1Click
     end
   end
   object Timer1: TTimer
