@@ -257,6 +257,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
     OnGetFaviconCompleted = WVBrowser1GetFaviconCompleted
     OnPrintToPdfStreamCompleted = WVBrowser1PrintToPdfStreamCompleted
+    OnGetNonDefaultPermissionSettingsCompleted = WVBrowser1GetNonDefaultPermissionSettingsCompleted
     Left = 48
     Top = 64
   end
@@ -375,6 +376,11 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object Downloadfavicon1: TMenuItem
       Caption = 'Download favicon...'
       OnClick = Downloadfavicon1Click
+    end
+    object SmartScreen1: TMenuItem
+      Caption = 'SmartScreen'
+      Checked = True
+      OnClick = SmartScreen1Click
     end
   end
   object OpenDialog1: TOpenDialog

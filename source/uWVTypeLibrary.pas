@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 21/03/2023 19:12:43 from Type Library described below.
+// File generated on 11/04/2023 11:20:54 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: R:\microsoft.web.webview2.1.0.1661.34.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: R:\microsoft.web.webview2.1.0.1722.32.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -266,6 +266,7 @@ const
   IID_ICoreWebView2Settings5: TGUID = '{183E7052-1D03-43A0-AB99-98E043B66B39}';
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
+  IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -336,6 +337,7 @@ const
   COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY = $00000009;
   COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS = $0000000A;
   COREWEBVIEW2_PERMISSION_KIND_MIDI_SYSTEM_EXCLUSIVE_MESSAGES = $0000000B;
+  COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT = $0000000C;
 
 // Constants for enum COREWEBVIEW2_PERMISSION_STATE
 type
@@ -892,6 +894,7 @@ type
   ICoreWebView2Settings5 = interface;
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
+  ICoreWebView2Settings8 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -2641,8 +2644,10 @@ type
   ICoreWebView2SharedBuffer = interface(IUnknown)
     ['{B747A495-0C6F-449E-97B8-2F81E9D6AB43}']
     function Get_Size(out value: Largeuint): HResult; stdcall;
+	// out value: PByte1 --> out value: PByte    ************** WEBVIEW4DELPHI **************
     function Get_Buffer(out value: PByte): HResult; stdcall;
     function OpenStream(out value: IStream): HResult; stdcall;
+	// out value: Pointer --> out value: HANDLE    ************** WEBVIEW4DELPHI **************
     function Get_FileMappingHandle(out value: HANDLE): HResult; stdcall;
     function Close: HResult; stdcall;
   end;
@@ -2905,8 +2910,10 @@ type
     function Get_SchemeName(out SchemeName: PWideChar): HResult; stdcall;
     function Get_TreatAsSecure(out TreatAsSecure: Integer): HResult; stdcall;
     function Set_TreatAsSecure(TreatAsSecure: Integer): HResult; stdcall;
-    function GetAllowedOrigins(out allowedOriginsCount: SYSUINT; out allowedOrigins: PPWideChar): HResult; stdcall; // ************** WEBVIEW4DELPHI **************
-    function SetAllowedOrigins(allowedOriginsCount: SYSUINT; allowedOrigins: PPWideChar): HResult; stdcall; // ************** WEBVIEW4DELPHI **************
+	// out allowedOrigins: PPWideChar1 --> out allowedOrigins: PPWideChar    ************** WEBVIEW4DELPHI **************
+    function GetAllowedOrigins(out allowedOriginsCount: SYSUINT; out allowedOrigins: PPWideChar): HResult; stdcall; 
+	// var allowedOrigins: PWideChar --> allowedOrigins: PPWideChar    ************** WEBVIEW4DELPHI **************
+    function SetAllowedOrigins(allowedOriginsCount: SYSUINT; allowedOrigins: PPWideChar): HResult; stdcall; 
     function Get_HasAuthorityComponent(out HasAuthorityComponent: Integer): HResult; stdcall;
     function Set_HasAuthorityComponent(HasAuthorityComponent: Integer): HResult; stdcall;
   end;
@@ -3540,6 +3547,17 @@ type
     function Set_HiddenPdfToolbarItems(hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
   end;
 
+// *********************************************************************//
+// Interface: ICoreWebView2Settings8
+// Flags:     (0)
+// GUID:      {9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}
+// *********************************************************************//
+  ICoreWebView2Settings8 = interface(ICoreWebView2Settings7)
+    ['{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}']
+    function Get_IsReputationCheckingRequired(out value: Integer): HResult; stdcall;
+    function Set_IsReputationCheckingRequired(value: Integer): HResult; stdcall;
+  end;
+
 implementation
 
 uses
@@ -3548,6 +3566,5 @@ uses
   {$ELSE}
   ComObj;
   {$ENDIF}
-
 
 end.

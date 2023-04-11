@@ -22,6 +22,7 @@ type
   TMiniBrowserFrm = class(TForm)
     MenuItem1: TMenuItem;
     Cleatallstorage1: TMenuItem;
+    SmartScreen1: TMenuItem;
     MenuItem4: TMenuItem;
     Muted1: TMenuItem;
     SaveToFileMi: TMenuItem;
@@ -66,6 +67,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure SmartScreen1Click(Sender: TObject);
 
     procedure Timer1Timer(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
@@ -235,6 +237,12 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.SmartScreen1Click(Sender: TObject);
+begin
+  if (WVBrowser1 <> nil) then
+    WVBrowser1.IsReputationCheckingRequired := not(SmartScreen1.Checked);
 end;
 
 procedure TMiniBrowserFrm.MenuItem4Click(Sender: TObject);
@@ -422,7 +430,8 @@ begin
   Blockimages1.Checked             := FBlockImages;
   Offline1.Checked                 := WVBrowser1.Offline;
   Ignorecertificateerrors1.Checked := WVBrowser1.IgnoreCertificateErrors;    
-  Muted1.Checked                   := WVBrowser1.IsMuted;
+  Muted1.Checked                   := WVBrowser1.IsMuted;      
+  SmartScreen1.Checked             := WVBrowser1.IsReputationCheckingRequired;
 end;
 
 procedure TMiniBrowserFrm.Print1Click(Sender: TObject);

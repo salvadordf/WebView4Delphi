@@ -203,6 +203,7 @@ type
       function  GetStatusBarText : wvstring;
       function  GetAllowExternalDrop : boolean;
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
+      function  GetIsReputationCheckingRequired : boolean;
       function  GetCustomItemSelectedEventHandler : ICoreWebView2CustomItemSelectedEventHandler;
       function  GetFaviconURI : wvstring;
       function  GetScreenScale : single; virtual;
@@ -246,6 +247,7 @@ type
       procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
       procedure SetAllowExternalDrop(aValue : boolean);
       procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
+      procedure SetIsReputationCheckingRequired(aValue : boolean);
       procedure SetProfileName(const aValue : wvstring);
       procedure SetDefaultDownloadFolderPath(const aValue : wvstring);
       procedure SetPreferredColorScheme(const aValue : TWVPreferredColorScheme);
@@ -584,30 +586,30 @@ type
       property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;                  // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
 
       // ICoreWebView2Environment properties
-      property BrowserVersionInfo                              : wvstring                                              read GetBrowserVersionInfo;                                                                     // ICoreWebView2Environment.get_BrowserVersionString
+      property BrowserVersionInfo                              : wvstring                                              read GetBrowserVersionInfo;                                                                             // ICoreWebView2Environment.get_BrowserVersionString
 
       // ICoreWebView2 properties
-      property BrowserProcessID                                : cardinal                                              read GetBrowserProcessID;                                                                       // ICoreWebView2.get_BrowserProcessId
-      property CanGoBack                                       : boolean                                               read GetCanGoBack;                                                                              // ICoreWebView2.get_CanGoBack
-      property CanGoForward                                    : boolean                                               read GetCanGoForward;                                                                           // ICoreWebView2.get_CanGoForward
-      property ContainsFullScreenElement                       : boolean                                               read GetContainsFullScreenElement;                                                              // ICoreWebView2.get_ContainsFullScreenElement
-      property DocumentTitle                                   : wvstring                                              read GetDocumentTitle;                                                                          // ICoreWebView2.get_DocumentTitle
-      property Source                                          : wvstring                                              read GetSource;                                                                                 // ICoreWebView2.get_Source
+      property BrowserProcessID                                : cardinal                                              read GetBrowserProcessID;                                                                               // ICoreWebView2.get_BrowserProcessId
+      property CanGoBack                                       : boolean                                               read GetCanGoBack;                                                                                      // ICoreWebView2.get_CanGoBack
+      property CanGoForward                                    : boolean                                               read GetCanGoForward;                                                                                   // ICoreWebView2.get_CanGoForward
+      property ContainsFullScreenElement                       : boolean                                               read GetContainsFullScreenElement;                                                                      // ICoreWebView2.get_ContainsFullScreenElement
+      property DocumentTitle                                   : wvstring                                              read GetDocumentTitle;                                                                                  // ICoreWebView2.get_DocumentTitle
+      property Source                                          : wvstring                                              read GetSource;                                                                                         // ICoreWebView2.get_Source
 
       // ICoreWebView2_2 properties
-      property CookieManager                                   : ICoreWebView2CookieManager                            read GetCookieManager;                                                                          // ICoreWebView2_2.get_CookieManager
+      property CookieManager                                   : ICoreWebView2CookieManager                            read GetCookieManager;                                                                                  // ICoreWebView2_2.get_CookieManager
 
       // ICoreWebView2_3 properties
-      property IsSuspended                                     : boolean                                               read GetIsSuspended;                                                                            // ICoreWebView2_3.get_IsSuspended
+      property IsSuspended                                     : boolean                                               read GetIsSuspended;                                                                                    // ICoreWebView2_3.get_IsSuspended
 
       // ICoreWebView2_8 properties
-      property IsDocumentPlayingAudio                          : boolean                                               read GetIsDocumentPlayingAudio;                                                                 // ICoreWebView2_8.get_IsDocumentPlayingAudio
+      property IsDocumentPlayingAudio                          : boolean                                               read GetIsDocumentPlayingAudio;                                                                         // ICoreWebView2_8.get_IsDocumentPlayingAudio
       property IsMuted                                         : boolean                                               read GetIsMuted                                       write SetIsMuted;                                 // ICoreWebView2_8.get_IsMuted
 
       // ICoreWebView2_9 properties
       property DefaultDownloadDialogCornerAlignment            : TWVDefaultDownloadDialogCornerAlignment               read GetDefaultDownloadDialogCornerAlignment          write SetDefaultDownloadDialogCornerAlignment;    // ICoreWebView2_9.get_DefaultDownloadDialogCornerAlignment
       property DefaultDownloadDialogMargin                     : TPoint                                                read GetDefaultDownloadDialogMargin                   write SetDefaultDownloadDialogMargin;             // ICoreWebView2_9.get_DefaultDownloadDialogMargin
-      property IsDefaultDownloadDialogOpen                     : boolean                                               read GetIsDefaultDownloadDialogOpen;                                                            // ICoreWebView2_9.get_IsDefaultDownloadDialogOpen
+      property IsDefaultDownloadDialogOpen                     : boolean                                               read GetIsDefaultDownloadDialogOpen;                                                                    // ICoreWebView2_9.get_IsDefaultDownloadDialogOpen
 
       // ICoreWebView2_12
       property StatusBarText                                   : wvstring                                              read GetStatusBarText;
@@ -660,18 +662,21 @@ type
       property IsSwipeNavigationEnabled                        : boolean                                               read GetIsSwipeNavigationEnabled                      write SetIsSwipeNavigationEnabled;                // ICoreWebView2Settings6.get_IsSwipeNavigationEnabled
 
       // ICoreWebView2Settings7 properties
-      property HiddenPdfToolbarItems                           : TWVPDFToolbarItems                                    read GetHiddenPdfToolbarItems                         write SetHiddenPdfToolbarItems;                   // ICoreWebView2Settings7.HiddenPdfToolbarItems
+      property HiddenPdfToolbarItems                           : TWVPDFToolbarItems                                    read GetHiddenPdfToolbarItems                         write SetHiddenPdfToolbarItems;                   // ICoreWebView2Settings7.Get_HiddenPdfToolbarItems
+
+      // ICoreWebView2Settings8 properties
+      property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;            // ICoreWebView2Settings8.Get_IsReputationCheckingRequired
 
       // ICoreWebView2CompositionController properties
-      property Cursor                                          : HCURSOR                                               read GetCursor;                                                                                 // ICoreWebView2CompositionController.get_Cursor
+      property Cursor                                          : HCURSOR                                               read GetCursor;                                                                                         // ICoreWebView2CompositionController.get_Cursor
       property RootVisualTarget                                : IUnknown                                              read GetRootVisualTarget                              write SetRootVisualTarget;                        // ICoreWebView2CompositionController.get_RootVisualTarget
-      property SystemCursorID                                  : cardinal                                              read GetSystemCursorID;                                                                         // ICoreWebView2CompositionController.get_SystemCursorId
+      property SystemCursorID                                  : cardinal                                              read GetSystemCursorID;                                                                                 // ICoreWebView2CompositionController.get_SystemCursorId
 
       // ICoreWebView2CompositionController2 properties
-      property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;                                                                     // ICoreWebView2CompositionController2.get_UIAProvider
+      property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;                                                                             // ICoreWebView2CompositionController2.get_UIAProvider
 
       // ICoreWebView2Environment8 properties
-      property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;                                                                           // ICoreWebView2Environment8.GetProcessInfos
+      property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;                                                                                   // ICoreWebView2Environment8.GetProcessInfos
 
       // ICoreWebView2ControllerOptions and ICoreWebView2Profile properties
       property ProfileName                                     : wvstring                                              read GetProfileName                                   write SetProfileName;                             // ICoreWebView2ControllerOptions.Get_ProfileName and ICoreWebView2Profile.Get_ProfileName
@@ -679,7 +684,7 @@ type
       property ScriptLocale                                    : wvstring                                              read FScriptLocale                                    write FScriptLocale;                              // ICoreWebView2ControllerOptions2.Get_ScriptLocale
 
       // ICoreWebView2Profile properties
-      property ProfilePath                                     : wvstring                                              read GetProfilePath;                                                                            // ICoreWebView2Profile.Get_ProfilePath
+      property ProfilePath                                     : wvstring                                              read GetProfilePath;                                                                                    // ICoreWebView2Profile.Get_ProfilePath
       property DefaultDownloadFolderPath                       : wvstring                                              read GetDefaultDownloadFolderPath                     write SetDefaultDownloadFolderPath;               // ICoreWebView2Profile.Get_DefaultDownloadFolderPath
       property PreferredColorScheme                            : TWVPreferredColorScheme                               read GetPreferredColorScheme                          write SetPreferredColorScheme;                    // ICoreWebView2Profile.Get_PreferredColorScheme
 
@@ -2824,6 +2829,14 @@ begin
     Result := 0;
 end;
 
+function TWVBrowserBase.GetIsReputationCheckingRequired : boolean;
+begin
+  if Initialized then
+    Result := FCoreWebView2Settings.IsReputationCheckingRequired
+   else
+    Result := True;
+end;
+
 function TWVBrowserBase.GetCustomItemSelectedEventHandler : ICoreWebView2CustomItemSelectedEventHandler;
 begin
   if not(assigned(FMenuItemHandler)) then
@@ -3053,6 +3066,12 @@ procedure TWVBrowserBase.SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
 begin
   if Initialized then
     FCoreWebView2Settings.HiddenPdfToolbarItems := aValue;
+end;
+
+procedure TWVBrowserBase.SetIsReputationCheckingRequired(aValue : boolean);
+begin
+  if Initialized then
+    FCoreWebView2Settings.IsReputationCheckingRequired := aValue;
 end;
 
 procedure TWVBrowserBase.SetProfileName(const aValue : wvstring);

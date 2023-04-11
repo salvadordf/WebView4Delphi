@@ -60,6 +60,7 @@ type
     Downloadfavicon1: TMenuItem;
     ShowprintUI1: TMenuItem;
     PrinttoPDFtostream1: TMenuItem;
+    SmartScreen1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -123,6 +124,8 @@ type
     procedure WVBrowser1GetFaviconCompleted(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream);
     procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
     procedure WVBrowser1PrintToPdfStreamCompleted(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream);
+    procedure WVBrowser1GetNonDefaultPermissionSettingsCompleted(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView);
+    procedure SmartScreen1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -441,6 +444,7 @@ begin
   Offline1.Checked                 := WVBrowser1.Offline;
   Ignorecertificateerrors1.Checked := WVBrowser1.IgnoreCertificateErrors;
   Muted1.Checked                   := WVBrowser1.IsMuted;
+  SmartScreen1.Checked             := WVBrowser1.IsReputationCheckingRequired;
 end;
 
 procedure TMiniBrowserFrm.Print1Click(Sender: TObject);
@@ -624,6 +628,13 @@ begin
     if assigned(TempOLEStream) then
       FreeAndNil(TempOLEStream);
   end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1GetNonDefaultPermissionSettingsCompleted(
+  Sender: TObject; aErrorCode: HRESULT;
+  const aCollectionView: ICoreWebView2PermissionSettingCollectionView);
+begin
+  //
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1InitializationError(Sender: TObject;
@@ -985,9 +996,17 @@ begin
   FUserAuthFrm.ShowModal;
 end;
 
+procedure TMiniBrowserFrm.SmartScreen1Click(Sender: TObject);
+begin
+  if (WVBrowser1 <> nil) then
+    WVBrowser1.IsReputationCheckingRequired := not(SmartScreen1.Checked);
+end;
+
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
+  GlobalWebView2Loader.RemoteDebuggingPort := 9999;
+  GlobalWebView2Loader.RemoteAllowOrigins := '*';
 
   // Set GlobalWebView2Loader.BrowserExecPath if you don't want to use the evergreen version of WebView Runtime
   //GlobalWebView2Loader.BrowserExecPath := 'c:\WVRuntime';

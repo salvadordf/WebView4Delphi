@@ -19,6 +19,7 @@ type
       FBaseIntf5 : ICoreWebView2Settings5;
       FBaseIntf6 : ICoreWebView2Settings6;
       FBaseIntf7 : ICoreWebView2Settings7;
+      FBaseIntf8 : ICoreWebView2Settings8;
 
       function  GetInitialized : boolean;
       function  GetIsBuiltInErrorPageEnabled : boolean;
@@ -37,6 +38,7 @@ type
       function  GetIsPinchZoomEnabled : boolean;
       function  GetIsSwipeNavigationEnabled : boolean;
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
+      function  GetIsReputationCheckingRequired : boolean;
 
       procedure SetIsBuiltInErrorPageEnabled(aValue : boolean);
       procedure SetAreDefaultContextMenusEnabled(aValue : boolean);
@@ -54,6 +56,7 @@ type
       procedure SetIsPinchZoomEnabled(aValue : boolean);
       procedure SetIsSwipeNavigationEnabled(aValue : boolean);
       procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
+      procedure SetIsReputationCheckingRequired(aValue : boolean);
 
       procedure InitializeFields;
 
@@ -79,6 +82,7 @@ type
       property    IsPinchZoomEnabled               : boolean                read GetIsPinchZoomEnabled                write SetIsPinchZoomEnabled;
       property    IsSwipeNavigationEnabled         : boolean                read GetIsSwipeNavigationEnabled          write SetIsSwipeNavigationEnabled;
       property    HiddenPdfToolbarItems            : TWVPDFToolbarItems     read GetHiddenPdfToolbarItems             write SetHiddenPdfToolbarItems;
+      property    IsReputationCheckingRequired     : boolean                read GetIsReputationCheckingRequired      write SetIsReputationCheckingRequired;
   end;
 
 implementation
@@ -105,8 +109,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings3, FBaseIntf3) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings4, FBaseIntf4) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings5, FBaseIntf5) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings6, FBaseIntf6) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings7, FBaseIntf7);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings6, FBaseIntf6) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings7, FBaseIntf7) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings8, FBaseIntf8);
 end;
 
 destructor TCoreWebView2Settings.Destroy;
@@ -125,6 +130,7 @@ begin
   FBaseIntf5 := nil;
   FBaseIntf6 := nil;
   FBaseIntf7 := nil;
+  FBaseIntf8 := nil;
 end;
 
 function TCoreWebView2Settings.GetInitialized : boolean;
@@ -286,6 +292,15 @@ begin
     Result := 0;
 end;
 
+function TCoreWebView2Settings.GetIsReputationCheckingRequired : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf8) and
+            succeeded(FBaseIntf8.Get_IsReputationCheckingRequired(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2Settings.SetIsBuiltInErrorPageEnabled(aValue : boolean);
 begin
   if Initialized then
@@ -380,6 +395,12 @@ procedure TCoreWebView2Settings.SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarI
 begin
   if assigned(FBaseIntf7) then
     FBaseIntf7.Set_HiddenPdfToolbarItems(aValue);
+end;
+
+procedure TCoreWebView2Settings.SetIsReputationCheckingRequired(aValue : boolean);
+begin
+  if assigned(FBaseIntf8) then
+    FBaseIntf8.Set_IsReputationCheckingRequired(ord(aValue));
 end;
 
 end.

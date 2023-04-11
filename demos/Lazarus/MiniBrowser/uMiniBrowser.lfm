@@ -14,7 +14,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '2.2.6.0'
   object NavControlPnl: TPanel
     Left = 0
     Height = 25
@@ -341,6 +341,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object MenuItem1: TMenuItem
       Caption = 'Browser processes...'
       OnClick = MenuItem1Click
+    end
+    object SmartScreen1: TMenuItem
+      Caption = 'SmartScreen'
+      OnClick = SmartScreen1Click
     end
   end
   object OpenDialog1: TOpenDialog
