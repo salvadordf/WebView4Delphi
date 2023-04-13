@@ -5,10 +5,7 @@ unit uWVConstants;
 interface
 
 const
-  WEBVIEW2LOADERLIB_VERSION_MAJOR   = 1;
-  WEBVIEW2LOADERLIB_VERSION_MINOR   = 0;
-  WEBVIEW2LOADERLIB_VERSION_RELEASE = 1722;
-  WEBVIEW2LOADERLIB_VERSION_BUILD   = 32;
+  {$I uWVVersion.inc}
 
   // For full API compatibility, WebView4Delphi requires the same
   // WebView2 Runtime version mentioned in the release notes :

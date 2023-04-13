@@ -1,3 +1,4 @@
 TWVBrowser BITMAP "webbrowser.bmp"
 TWVWindowParent BITMAP "windowparent.bmp"
 TWVFMXBrowser BITMAP "webbrowser.bmp"
+WebView2 BITMAP "WebView2.bmp"

@@ -31,6 +31,7 @@ package WebView4DelphiVCL_designtime;
 requires
   rtl,
   vcl,
+  designide,
   WebView4DelphiVCLRTL;
 
 contains
