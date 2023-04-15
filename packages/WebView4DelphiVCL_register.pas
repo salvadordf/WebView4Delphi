@@ -2,7 +2,7 @@ unit WebView4DelphiVCL_register;
 
 {$R res\webview4delphi.dcr}
 
-{$I webview2.inc}
+{$I ..\source\webview2.inc}
 
 interface
 
@@ -12,16 +12,19 @@ implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  System.Classes, Winapi.Windows, System.SysUtils, ToolsApi,
+  System.Classes, Winapi.Windows, System.SysUtils,
   {$ELSE}
-  Classes,
+  Classes, Windows, SysUtils,
+  {$ENDIF}
+  {$IFDEF DELPHI9_UP}
+  ToolsApi,
   {$ENDIF}
   uWVBrowser, uWVWindowParent;
 
-{$IFDEF DELPHI16_UP}
+{$IFDEF DELPHI9_UP}
 procedure AddBitmapToSplashScreen;
 const
-  {$I uWVVersion.inc}
+  {$I ..\source\uWVVersion.inc}
 var
   TempBitmap : HBITMAP;
   TempVersion : string;
@@ -48,7 +51,7 @@ begin
   RegisterComponents('WebView4Delphi', [TWVBrowser]);
   RegisterComponents('WebView4Delphi', [TWVWindowParent]);
 
-  {$IFDEF DELPHI16_UP}
+  {$IFDEF DELPHI9_UP}
   AddBitmapToSplashScreen;
   {$ENDIF}
 end;

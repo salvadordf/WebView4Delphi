@@ -7,14 +7,6 @@ interface
 const
   {$I uWVVersion.inc}
 
-  // For full API compatibility, WebView4Delphi requires the same
-  // WebView2 Runtime version mentioned in the release notes :
-  // https://docs.microsoft.com/en-us/microsoft-edge/webview2/release-notes
-  CHROMIUM_VERSION_MAJOR   = 112;
-  CHROMIUM_VERSION_MINOR   = 0;
-  CHROMIUM_VERSION_RELEASE = WEBVIEW2LOADERLIB_VERSION_RELEASE;
-  CHROMIUM_VERSION_BUILD   = WEBVIEW2LOADERLIB_VERSION_BUILD;
-
   CRLF = #13 + #10;
 
   {$IF NOT DECLARED(USER_DEFAULT_SCREEN_DPI)}

@@ -2,3 +2,11 @@
   WEBVIEW2LOADERLIB_VERSION_MINOR   = 0;
   WEBVIEW2LOADERLIB_VERSION_RELEASE = 1722;
   WEBVIEW2LOADERLIB_VERSION_BUILD   = 45;
+
+  // For full API compatibility, WebView4Delphi requires the same
+  // WebView2 Runtime version mentioned in the release notes :
+  // https://docs.microsoft.com/en-us/microsoft-edge/webview2/release-notes
+  CHROMIUM_VERSION_MAJOR   = 112;
+  CHROMIUM_VERSION_MINOR   = 0;
+  CHROMIUM_VERSION_RELEASE = WEBVIEW2LOADERLIB_VERSION_RELEASE;
+  CHROMIUM_VERSION_BUILD   = WEBVIEW2LOADERLIB_VERSION_BUILD;
