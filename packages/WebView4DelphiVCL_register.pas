@@ -12,16 +12,13 @@ implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  System.Classes, Winapi.Windows, System.SysUtils,
+  System.Classes, Winapi.Windows, System.SysUtils, ToolsApi,
   {$ELSE}
   Classes, Windows, SysUtils,
   {$ENDIF}
-  {$IFDEF DELPHI9_UP}
-  ToolsApi,
-  {$ENDIF}
   uWVBrowser, uWVWindowParent;
 
-{$IFDEF DELPHI9_UP}
+{$IFDEF DELPHI16_UP}
 procedure AddBitmapToSplashScreen;
 const
   {$I ..\source\uWVVersion.inc}
@@ -51,7 +48,7 @@ begin
   RegisterComponents('WebView4Delphi', [TWVBrowser]);
   RegisterComponents('WebView4Delphi', [TWVWindowParent]);
 
-  {$IFDEF DELPHI9_UP}
+  {$IFDEF DELPHI16_UP}
   AddBitmapToSplashScreen;
   {$ENDIF}
 end;
