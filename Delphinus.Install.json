@@ -31,7 +31,7 @@
 		{
 			"project": "packages\\WebView4Delphi_group.groupproj",
       "compiler_min": 24,
-      "compiler_max": 24,      
+      "compiler_max": 24
 		}
 	],
 
