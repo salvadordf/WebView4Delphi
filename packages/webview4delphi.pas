@@ -33,7 +33,8 @@ uses
   uWVLoaderInternal, uWVCoreWebView2Certificate, 
   uWVCoreWebView2CustomSchemeRegistration, uWVCoreWebView2SharedBuffer, 
   uWVCoreWebView2PermissionSetting, 
-  uWVCoreWebView2PermissionSettingCollectionView, LazarusPackageIntf;
+  uWVCoreWebView2PermissionSettingCollectionView, uWVCoreWebView2File, 
+  uWVCoreWebView2ObjectCollectionView, LazarusPackageIntf;
 
 implementation
 

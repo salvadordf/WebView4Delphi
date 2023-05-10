@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 13/04/2023 22:31:54 from Type Library described below.
+// File generated on 09/05/2023 15:22:18 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: R:\microsoft.web.webview2.1.0.1722.45.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: R:\microsoft.web.webview2.1.0.1774.30.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -260,6 +260,7 @@ const
   IID_ICoreWebView2Profile3: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';
   IID_ICoreWebView2Profile4: TGUID = '{8F4AE680-192E-4EC8-833A-21CFADAEF628}';
   IID_ICoreWebView2SetPermissionStateCompletedHandler: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';
+  IID_ICoreWebView2Profile5: TGUID = '{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}';
   IID_ICoreWebView2Settings2: TGUID = '{EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}';
   IID_ICoreWebView2Settings3: TGUID = '{FDB5AB74-AF33-4854-84F0-0A631DEB5EBA}';
   IID_ICoreWebView2Settings4: TGUID = '{CB56846C-4168-4D53-B04F-03B6D6796FF2}';
@@ -267,6 +268,9 @@ const
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
+  IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
+  IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
+  IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
 
 // *********************************************************************//
 // Declaration of Enumerations defined in Type Library                    
@@ -888,6 +892,7 @@ type
   ICoreWebView2Profile3 = interface;
   ICoreWebView2Profile4 = interface;
   ICoreWebView2SetPermissionStateCompletedHandler = interface;
+  ICoreWebView2Profile5 = interface;
   ICoreWebView2Settings2 = interface;
   ICoreWebView2Settings3 = interface;
   ICoreWebView2Settings4 = interface;
@@ -895,6 +900,9 @@ type
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
+  ICoreWebView2File = interface;
+  ICoreWebView2ObjectCollectionView = interface;
+  ICoreWebView2WebMessageReceivedEventArgs2 = interface;
 
 // *********************************************************************//
 // Declaration of structures, unions and aliases.                         
@@ -3480,6 +3488,16 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Profile5
+// Flags:     (0)
+// GUID:      {2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}
+// *********************************************************************//
+  ICoreWebView2Profile5 = interface(ICoreWebView2Profile4)
+    ['{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}']
+    function Get_CookieManager(out CookieManager: ICoreWebView2CookieManager): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2Settings2
 // Flags:     (0)
 // GUID:      {EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}
@@ -3556,6 +3574,37 @@ type
     ['{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}']
     function Get_IsReputationCheckingRequired(out value: Integer): HResult; stdcall;
     function Set_IsReputationCheckingRequired(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2File
+// Flags:     (0)
+// GUID:      {F2C19559-6BC1-4583-A757-90021BE9AFEC}
+// *********************************************************************//
+  ICoreWebView2File = interface(IUnknown)
+    ['{F2C19559-6BC1-4583-A757-90021BE9AFEC}']
+    function Get_Path(out Path: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2ObjectCollectionView
+// Flags:     (0)
+// GUID:      {0F36FD87-4F69-4415-98DA-888F89FB9A33}
+// *********************************************************************//
+  ICoreWebView2ObjectCollectionView = interface(IUnknown)
+    ['{0F36FD87-4F69-4415-98DA-888F89FB9A33}']
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: IUnknown): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2WebMessageReceivedEventArgs2
+// Flags:     (0)
+// GUID:      {06FC7AB7-C90C-4297-9389-33CA01CF6D5E}
+// *********************************************************************//
+  ICoreWebView2WebMessageReceivedEventArgs2 = interface(ICoreWebView2WebMessageReceivedEventArgs)
+    ['{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}']
+    function Get_AdditionalObjects(out value: ICoreWebView2ObjectCollectionView): HResult; stdcall;
   end;
 
 implementation

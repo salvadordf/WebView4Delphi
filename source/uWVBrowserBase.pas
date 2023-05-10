@@ -213,6 +213,7 @@ type
       function  GetDefaultDownloadFolderPath : wvstring;
       function  GetPreferredColorScheme : TWVPreferredColorScheme;
       function  GetPreferredTrackingPreventionLevel : TWVTrackingPreventionLevel;
+      function  GetProfileCookieManager : ICoreWebView2CookieManager;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -690,6 +691,9 @@ type
 
       // ICoreWebView2Profile3 properties
       property PreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel                            read GetPreferredTrackingPreventionLevel              write SetPreferredTrackingPreventionLevel;        // ICoreWebView2Profile3.Get_PreferredTrackingPreventionLevel
+
+      // ICoreWebView2Profile5 properties
+      property ProfileCookieManager                            : ICoreWebView2CookieManager                            read GetProfileCookieManager;                                                                           // ICoreWebView2Profile5.get_CookieManager
 
       // ICoreWebView2Environment5 events
       property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
@@ -4468,6 +4472,23 @@ begin
     try
       TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
       Result      := TempProfile.PreferredTrackingPreventionLevel;
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+function TWVBrowserBase.GetProfileCookieManager : ICoreWebView2CookieManager;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := nil;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.CookieManager;
     finally
       if assigned(TempProfile) then
         FreeAndNil(TempProfile);

@@ -78,6 +78,8 @@ type
       function GetParameterObjectAsJson : wvstring;
       function GetSessionId : wvstring;
 
+      procedure InitializeFields;
+
     public
       constructor Create(const aArgs: ICoreWebView2DevToolsProtocolEventReceivedEventArgs); reintroduce;
       destructor  Destroy; override;
@@ -118,6 +120,8 @@ type
       function GetWebErrorStatus : TWVWebErrorStatus;
       function GetNavigationID : uint64;
       function GetHttpStatusCode : integer;
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2NavigationCompletedEventArgs); reintroduce;
@@ -181,6 +185,8 @@ type
 
       procedure SetNewWindow(const aValue : ICoreWebView2);
       procedure SetHandled(aValue : boolean);
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2NewWindowRequestedEventArgs); reintroduce;
@@ -246,6 +252,8 @@ type
       function GetProcessDescription : wvstring;
       function GetFrameInfosForFailedProcess : ICoreWebView2FrameInfoCollection;
 
+      procedure InitializeFields;
+
     public
       constructor Create(const aArgs: ICoreWebView2ProcessFailedEventArgs); reintroduce;
       destructor  Destroy; override;
@@ -306,12 +314,16 @@ type
 
   TCoreWebView2WebMessageReceivedEventArgs = class
     protected
-      FBaseIntf : ICoreWebView2WebMessageReceivedEventArgs;
+      FBaseIntf  : ICoreWebView2WebMessageReceivedEventArgs;
+      FBaseIntf2 : ICoreWebView2WebMessageReceivedEventArgs2;
 
       function GetInitialized : boolean;
       function GetSource : wvstring;
       function GetWebMessageAsJson : wvstring;
       function GetWebMessageAsString : wvstring;
+      function GetAdditionalObjects : ICoreWebView2ObjectCollectionView;
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2WebMessageReceivedEventArgs); reintroduce;
@@ -322,6 +334,7 @@ type
       property Source             : wvstring                                  read GetSource;
       property WebMessageAsJson   : wvstring                                  read GetWebMessageAsJson;
       property WebMessageAsString : wvstring                                  read GetWebMessageAsString;
+      property AdditionalObjects  : ICoreWebView2ObjectCollectionView         read GetAdditionalObjects;
   end;
 
   TCoreWebView2WebResourceRequestedEventArgs = class
@@ -735,6 +748,8 @@ constructor TCoreWebView2DevToolsProtocolEventReceivedEventArgs.Create(const aAr
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aArgs;
 
   if Initialized then
@@ -743,9 +758,15 @@ end;
 
 destructor TCoreWebView2DevToolsProtocolEventReceivedEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2DevToolsProtocolEventReceivedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2DevToolsProtocolEventReceivedEventArgs.GetInitialized : boolean;
@@ -836,8 +857,9 @@ constructor TCoreWebView2NavigationCompletedEventArgs.Create(const aArgs: ICoreW
 begin
   inherited Create;
 
-  FBaseIntf  := aArgs;
-  FBaseIntf2 := nil;
+  InitializeFields;
+
+  FBaseIntf := aArgs;
 
   if Initialized then
     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2NavigationCompletedEventArgs2, FBaseIntf2);
@@ -845,9 +867,15 @@ end;
 
 destructor TCoreWebView2NavigationCompletedEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2NavigationCompletedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2NavigationCompletedEventArgs.GetInitialized : boolean;
@@ -1028,8 +1056,9 @@ constructor TCoreWebView2NewWindowRequestedEventArgs.Create(const aArgs: ICoreWe
 begin
   inherited Create;
 
-  FBaseIntf  := aArgs;
-  FBaseIntf2 := nil;
+  InitializeFields;
+
+  FBaseIntf := aArgs;
 
   if Initialized then
     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2NewWindowRequestedEventArgs2, FBaseIntf2);
@@ -1037,10 +1066,15 @@ end;
 
 destructor TCoreWebView2NewWindowRequestedEventArgs.Destroy;
 begin
-  FBaseIntf  := nil;
-  FBaseIntf2 := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2NewWindowRequestedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2NewWindowRequestedEventArgs.GetInitialized : boolean;
@@ -1300,8 +1334,9 @@ constructor TCoreWebView2ProcessFailedEventArgs.Create(const aArgs: ICoreWebView
 begin
   inherited Create;
 
-  FBaseIntf  := aArgs;
-  FBaseIntf2 := nil;
+  InitializeFields;
+
+  FBaseIntf := aArgs;
 
   if Initialized then
     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs2, FBaseIntf2);
@@ -1309,10 +1344,15 @@ end;
 
 destructor TCoreWebView2ProcessFailedEventArgs.Destroy;
 begin
-  FBaseIntf  := nil;
-  FBaseIntf2 := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2ProcessFailedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2ProcessFailedEventArgs.GetInitialized : boolean;
@@ -1544,14 +1584,25 @@ constructor TCoreWebView2WebMessageReceivedEventArgs.Create(const aArgs: ICoreWe
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aArgs;
+
+  if Initialized then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2WebMessageReceivedEventArgs2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2WebMessageReceivedEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2WebMessageReceivedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2WebMessageReceivedEventArgs.GetInitialized : boolean;
@@ -1602,6 +1653,19 @@ begin
       Result := TempString;
       CoTaskMemFree(TempString);
     end;
+end;
+
+function TCoreWebView2WebMessageReceivedEventArgs.GetAdditionalObjects : ICoreWebView2ObjectCollectionView;
+var
+  TempCollectionView : ICoreWebView2ObjectCollectionView;
+begin
+  Result             := nil;
+  TempCollectionView := nil;
+
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_AdditionalObjects(TempCollectionView)) and
+     (TempCollectionView <> nil) then
+    Result := TempCollectionView;
 end;
 
 

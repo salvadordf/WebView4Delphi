@@ -16,6 +16,7 @@ type
       FBaseIntf2 : ICoreWebView2Profile2;
       FBaseIntf3 : ICoreWebView2Profile3;
       FBaseIntf4 : ICoreWebView2Profile4;
+      FBaseIntf5 : ICoreWebView2Profile5;
 
       function GetInitialized : boolean;
       function GetProfileName : wvstring;
@@ -24,6 +25,7 @@ type
       function GetDefaultDownloadFolderPath : wvstring;
       function GetPreferredColorScheme : TWVPreferredColorScheme;
       function GetPreferredTrackingPreventionLevel : TWVTrackingPreventionLevel;
+      function GetCookieManager : ICoreWebView2CookieManager;
 
       procedure SetDefaultDownloadFolderPath(const aValue : wvstring);
       procedure SetPreferredColorScheme(aValue : TWVPreferredColorScheme);
@@ -48,6 +50,7 @@ type
       property DefaultDownloadFolderPath         : wvstring                    read GetDefaultDownloadFolderPath         write SetDefaultDownloadFolderPath;
       property PreferredColorScheme              : TWVPreferredColorScheme     read GetPreferredColorScheme              write SetPreferredColorScheme;
       property PreferredTrackingPreventionLevel  : TWVTrackingPreventionLevel  read GetPreferredTrackingPreventionLevel  write SetPreferredTrackingPreventionLevel;
+      property CookieManager                     : ICoreWebView2CookieManager  read GetCookieManager;
   end;
 
 implementation
@@ -70,8 +73,9 @@ begin
 
   if Initialized and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile2, FBaseIntf2) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile3, FBaseIntf3) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile4, FBaseIntf4);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile3, FBaseIntf3) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile4, FBaseIntf4) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile5, FBaseIntf5);
 end;
 
 destructor TCoreWebView2Profile.Destroy;
@@ -87,6 +91,7 @@ begin
   FBaseIntf2 := nil;
   FBaseIntf3 := nil;
   FBaseIntf4 := nil;
+  FBaseIntf5 := nil;
 end;
 
 function TCoreWebView2Profile.GetInitialized : boolean;
@@ -171,6 +176,19 @@ begin
 
   if assigned(FBaseIntf3) and
      succeeded(FBaseIntf3.Get_PreferredTrackingPreventionLevel(TempResult)) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2Profile.GetCookieManager : ICoreWebView2CookieManager;
+var
+  TempResult : ICoreWebView2CookieManager;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf5) and
+     succeeded(FBaseIntf5.Get_CookieManager(TempResult)) and
+     assigned(TempResult) then
     Result := TempResult;
 end;
 
