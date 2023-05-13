@@ -4,6 +4,9 @@ unit WebView4DelphiVCL_register;
 
 {$I ..\source\webview2.inc}
 
+// Disable this DEFINE if your Delphi installation can't find ToolsAPI.pas or designide.dcp
+{$DEFINE ADDSPLASHSCREENLOGO}
+
 interface
 
 procedure Register;
@@ -12,13 +15,13 @@ implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  System.Classes, Winapi.Windows, System.SysUtils, ToolsApi,
+  System.Classes, Winapi.Windows, System.SysUtils, {$IFDEF ADDSPLASHSCREENLOGO}ToolsApi,{$ENDIF}
   {$ELSE}
   Classes, Windows, SysUtils,
   {$ENDIF}
   uWVBrowser, uWVWindowParent;
 
-{$IFDEF DELPHI16_UP}
+{$IFDEF DELPHI16_UP}{$IFDEF ADDSPLASHSCREENLOGO}
 procedure AddBitmapToSplashScreen;
 const
   {$I ..\source\uWVVersion.inc}
@@ -41,16 +44,16 @@ begin
       end;
     end;
 end;
-{$ENDIF}
+{$ENDIF}{$ENDIF}
 
 procedure Register;
 begin
   RegisterComponents('WebView4Delphi', [TWVBrowser]);
   RegisterComponents('WebView4Delphi', [TWVWindowParent]);
 
-  {$IFDEF DELPHI16_UP}
+  {$IFDEF DELPHI16_UP}{$IFDEF ADDSPLASHSCREENLOGO}
   AddBitmapToSplashScreen;
-  {$ENDIF}
+  {$ENDIF}{$ENDIF}
 end;
 
 end.
