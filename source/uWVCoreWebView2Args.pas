@@ -572,6 +572,32 @@ type
       property Deferral                      : ICoreWebView2Deferral                                read GetDeferral;
   end;
 
+  TCoreWebView2LaunchingExternalUriSchemeEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2LaunchingExternalUriSchemeEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetUri : wvstring;
+      function  GetInitiatingOrigin : wvstring;
+      function  GetIsUserInitiated : boolean;
+      function  GetCancel : boolean;
+      function  GetDeferral : ICoreWebView2Deferral;
+
+      procedure SetCancel(aValue : boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2LaunchingExternalUriSchemeEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      property Initialized                   : boolean                                           read GetInitialized;
+      property BaseIntf                      : ICoreWebView2LaunchingExternalUriSchemeEventArgs  read FBaseIntf;
+      property Uri                           : wvstring                                          read GetUri;
+      property InitiatingOrigin              : wvstring                                          read GetInitiatingOrigin;
+      property IsUserInitiated               : boolean                                           read GetIsUserInitiated;
+      property Cancel                        : boolean                                           read GetCancel             write SetCancel;
+      property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
+  end;
+
 
 implementation
 
@@ -2429,6 +2455,95 @@ procedure TCoreWebView2ServerCertificateErrorDetectedEventArgs.SetAction(aValue:
 begin
   if Initialized then
     FBaseIntf.Set_Action(aValue);
+end;
+
+
+// TCoreWebView2LaunchingExternalUriSchemeEventArgs
+
+constructor TCoreWebView2LaunchingExternalUriSchemeEventArgs.Create(const aArgs: ICoreWebView2LaunchingExternalUriSchemeEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2LaunchingExternalUriSchemeEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetUri : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Uri(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetInitiatingOrigin : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_InitiatingOrigin(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetIsUserInitiated: boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_IsUserInitiated(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetCancel: boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Cancel(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventArgs.GetDeferral: ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2LaunchingExternalUriSchemeEventArgs.SetCancel(aValue: boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Cancel(ord(aValue));
 end;
 
 end.

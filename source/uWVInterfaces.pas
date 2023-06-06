@@ -240,6 +240,9 @@ type
 
     // ICoreWebView2SetPermissionStateCompletedHandler
     function SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HResult;
+
+    // ICoreWebView2LaunchingExternalUriSchemeEventHandler
+    function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult;
   end;
 
 implementation

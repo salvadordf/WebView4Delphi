@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 09/05/2023 15:22:18 from Type Library described below.
+// File generated on 06/06/2023 11:23:24 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: R:\microsoft.web.webview2.1.0.1774.30.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: R:\microsoft.web.webview2.1.0.1823.32.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -197,6 +197,9 @@ const
   IID_ICoreWebView2PrintToPdfStreamCompletedHandler: TGUID = '{4C9F8229-8F93-444F-A711-2C0DFD6359D5}';
   IID_ICoreWebView2_17: TGUID = '{702E75D4-FD44-434D-9D70-1A68A6B1192A}';
   IID_ICoreWebView2SharedBuffer: TGUID = '{B747A495-0C6F-449E-97B8-2F81E9D6AB43}';
+  IID_ICoreWebView2_18: TGUID = '{7A626017-28BE-49B2-B865-3BA2B3522D90}';
+  IID_ICoreWebView2LaunchingExternalUriSchemeEventHandler: TGUID = '{74F712E0-8165-43A9-A13F-0CCE597E75DF}';
+  IID_ICoreWebView2LaunchingExternalUriSchemeEventArgs: TGUID = '{07D1A6C3-7175-4BA1-9306-E593CA07E46C}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -261,6 +264,7 @@ const
   IID_ICoreWebView2Profile4: TGUID = '{8F4AE680-192E-4EC8-833A-21CFADAEF628}';
   IID_ICoreWebView2SetPermissionStateCompletedHandler: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';
   IID_ICoreWebView2Profile5: TGUID = '{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}';
+  IID_ICoreWebView2Profile6: TGUID = '{BD82FA6A-1D65-4C33-B2B4-0393020CC61B}';
   IID_ICoreWebView2Settings2: TGUID = '{EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}';
   IID_ICoreWebView2Settings3: TGUID = '{FDB5AB74-AF33-4854-84F0-0A631DEB5EBA}';
   IID_ICoreWebView2Settings4: TGUID = '{CB56846C-4168-4D53-B04F-03B6D6796FF2}';
@@ -268,6 +272,7 @@ const
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
+  IID_ICoreWebView2_19: TGUID = '{6921F954-79B0-437F-A997-C85811897C68}';
   IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
   IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
   IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
@@ -706,6 +711,13 @@ const
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN = $00000800;
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS = $00001000;
 
+// Constants for enum COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL
+type
+  COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL = TOleEnum;
+const
+  COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL = $00000000;
+  COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW = $00000001;
+
 type
 
 // *********************************************************************//
@@ -829,6 +841,9 @@ type
   ICoreWebView2PrintToPdfStreamCompletedHandler = interface;
   ICoreWebView2_17 = interface;
   ICoreWebView2SharedBuffer = interface;
+  ICoreWebView2_18 = interface;
+  ICoreWebView2LaunchingExternalUriSchemeEventHandler = interface;
+  ICoreWebView2LaunchingExternalUriSchemeEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -893,6 +908,7 @@ type
   ICoreWebView2Profile4 = interface;
   ICoreWebView2SetPermissionStateCompletedHandler = interface;
   ICoreWebView2Profile5 = interface;
+  ICoreWebView2Profile6 = interface;
   ICoreWebView2Settings2 = interface;
   ICoreWebView2Settings3 = interface;
   ICoreWebView2Settings4 = interface;
@@ -900,6 +916,7 @@ type
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
+  ICoreWebView2_19 = interface;
   ICoreWebView2File = interface;
   ICoreWebView2ObjectCollectionView = interface;
   ICoreWebView2WebMessageReceivedEventArgs2 = interface;
@@ -2661,6 +2678,44 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2_18
+// Flags:     (0)
+// GUID:      {7A626017-28BE-49B2-B865-3BA2B3522D90}
+// *********************************************************************//
+  ICoreWebView2_18 = interface(ICoreWebView2_17)
+    ['{7A626017-28BE-49B2-B865-3BA2B3522D90}']
+    function add_LaunchingExternalUriScheme(const eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler; 
+                                            out token: EventRegistrationToken): HResult; stdcall;
+    function remove_LaunchingExternalUriScheme(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2LaunchingExternalUriSchemeEventHandler
+// Flags:     (0)
+// GUID:      {74F712E0-8165-43A9-A13F-0CCE597E75DF}
+// *********************************************************************//
+  ICoreWebView2LaunchingExternalUriSchemeEventHandler = interface(IUnknown)
+    ['{74F712E0-8165-43A9-A13F-0CCE597E75DF}']
+    function Invoke(const sender: ICoreWebView2; 
+                    const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2LaunchingExternalUriSchemeEventArgs
+// Flags:     (0)
+// GUID:      {07D1A6C3-7175-4BA1-9306-E593CA07E46C}
+// *********************************************************************//
+  ICoreWebView2LaunchingExternalUriSchemeEventArgs = interface(IUnknown)
+    ['{07D1A6C3-7175-4BA1-9306-E593CA07E46C}']
+    function Get_uri(out value: PWideChar): HResult; stdcall;
+    function Get_InitiatingOrigin(out value: PWideChar): HResult; stdcall;
+    function Get_IsUserInitiated(out value: Integer): HResult; stdcall;
+    function Get_Cancel(out value: Integer): HResult; stdcall;
+    function Set_Cancel(value: Integer): HResult; stdcall;
+    function GetDeferral(out value: ICoreWebView2Deferral): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2BrowserProcessExitedEventArgs
 // Flags:     (0)
 // GUID:      {1F00663F-AF8C-4782-9CDD-DD01C52E34CB}
@@ -3498,6 +3553,19 @@ type
   end;
 
 // *********************************************************************//
+// Interface: ICoreWebView2Profile6
+// Flags:     (0)
+// GUID:      {BD82FA6A-1D65-4C33-B2B4-0393020CC61B}
+// *********************************************************************//
+  ICoreWebView2Profile6 = interface(ICoreWebView2Profile5)
+    ['{BD82FA6A-1D65-4C33-B2B4-0393020CC61B}']
+    function Get_IsPasswordAutosaveEnabled(out value: Integer): HResult; stdcall;
+    function Set_IsPasswordAutosaveEnabled(value: Integer): HResult; stdcall;
+    function Get_IsGeneralAutofillEnabled(out value: Integer): HResult; stdcall;
+    function Set_IsGeneralAutofillEnabled(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface: ICoreWebView2Settings2
 // Flags:     (0)
 // GUID:      {EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}
@@ -3574,6 +3642,17 @@ type
     ['{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}']
     function Get_IsReputationCheckingRequired(out value: Integer): HResult; stdcall;
     function Set_IsReputationCheckingRequired(value: Integer): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2_19
+// Flags:     (0)
+// GUID:      {6921F954-79B0-437F-A997-C85811897C68}
+// *********************************************************************//
+  ICoreWebView2_19 = interface(ICoreWebView2_18)
+    ['{6921F954-79B0-437F-A997-C85811897C68}']
+    function Get_MemoryUsageTargetLevel(out level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
+    function Set_MemoryUsageTargetLevel(level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
   end;
 
 // *********************************************************************//

@@ -64,6 +64,7 @@ type
   TWVPrintDialogKind                      = type COREWEBVIEW2_PRINT_DIALOG_KIND;
   TWVSharedBufferAccess                   = type COREWEBVIEW2_SHARED_BUFFER_ACCESS;
   TWVTrackingPreventionLevel              = type COREWEBVIEW2_TRACKING_PREVENTION_LEVEL;
+  TWVMemoryUsageTargetLevel               = type COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,

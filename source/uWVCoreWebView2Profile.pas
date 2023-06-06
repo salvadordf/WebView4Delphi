@@ -17,6 +17,7 @@ type
       FBaseIntf3 : ICoreWebView2Profile3;
       FBaseIntf4 : ICoreWebView2Profile4;
       FBaseIntf5 : ICoreWebView2Profile5;
+      FBaseIntf6 : ICoreWebView2Profile6;
 
       function GetInitialized : boolean;
       function GetProfileName : wvstring;
@@ -26,10 +27,14 @@ type
       function GetPreferredColorScheme : TWVPreferredColorScheme;
       function GetPreferredTrackingPreventionLevel : TWVTrackingPreventionLevel;
       function GetCookieManager : ICoreWebView2CookieManager;
+      function GetIsPasswordAutosaveEnabled : boolean;
+      function GetIsGeneralAutofillEnabled : boolean;
 
       procedure SetDefaultDownloadFolderPath(const aValue : wvstring);
       procedure SetPreferredColorScheme(aValue : TWVPreferredColorScheme);
       procedure SetPreferredTrackingPreventionLevel(aValue : TWVTrackingPreventionLevel);
+      procedure SetIsPasswordAutosaveEnabled(aValue : boolean);
+      procedure SetIsGeneralAutofillEnabled(aValue : boolean);
 
       procedure InitializeFields;
 
@@ -51,6 +56,8 @@ type
       property PreferredColorScheme              : TWVPreferredColorScheme     read GetPreferredColorScheme              write SetPreferredColorScheme;
       property PreferredTrackingPreventionLevel  : TWVTrackingPreventionLevel  read GetPreferredTrackingPreventionLevel  write SetPreferredTrackingPreventionLevel;
       property CookieManager                     : ICoreWebView2CookieManager  read GetCookieManager;
+      property IsPasswordAutosaveEnabled         : boolean                     read GetIsPasswordAutosaveEnabled         write SetIsPasswordAutosaveEnabled;
+      property IsGeneralAutofillEnabled          : boolean                     read GetIsGeneralAutofillEnabled          write SetIsGeneralAutofillEnabled;
   end;
 
 implementation
@@ -74,8 +81,9 @@ begin
   if Initialized and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile2, FBaseIntf2) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile3, FBaseIntf3) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile4, FBaseIntf4) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile5, FBaseIntf5);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile4, FBaseIntf4) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile5, FBaseIntf5) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile6, FBaseIntf6);
 end;
 
 destructor TCoreWebView2Profile.Destroy;
@@ -92,6 +100,7 @@ begin
   FBaseIntf3 := nil;
   FBaseIntf4 := nil;
   FBaseIntf5 := nil;
+  FBaseIntf6 := nil;
 end;
 
 function TCoreWebView2Profile.GetInitialized : boolean;
@@ -192,6 +201,24 @@ begin
     Result := TempResult;
 end;
 
+function TCoreWebView2Profile.GetIsPasswordAutosaveEnabled : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf6) and
+            succeeded(FBaseIntf6.Get_IsPasswordAutosaveEnabled(TempResult)) and
+            (TempResult <> 0);
+end;
+
+function TCoreWebView2Profile.GetIsGeneralAutofillEnabled : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf6) and
+            succeeded(FBaseIntf6.Get_IsGeneralAutofillEnabled(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2Profile.SetDefaultDownloadFolderPath(const aValue : wvstring);
 begin
   if Initialized then
@@ -208,6 +235,18 @@ procedure TCoreWebView2Profile.SetPreferredTrackingPreventionLevel(aValue : TWVT
 begin
   if assigned(FBaseIntf3) then
     FBaseIntf3.Set_PreferredTrackingPreventionLevel(aValue);
+end;
+
+procedure TCoreWebView2Profile.SetIsPasswordAutosaveEnabled(aValue: boolean);
+begin
+  if assigned(FBaseIntf6) then
+    FBaseIntf6.Set_IsPasswordAutosaveEnabled(ord(aValue));
+end;
+
+procedure TCoreWebView2Profile.SetIsGeneralAutofillEnabled(aValue: boolean);
+begin
+  if assigned(FBaseIntf6) then
+    FBaseIntf6.Set_IsGeneralAutofillEnabled(ord(aValue));
 end;
 
 function TCoreWebView2Profile.ClearBrowsingData(      dataKinds : TWVBrowsingDataKinds;

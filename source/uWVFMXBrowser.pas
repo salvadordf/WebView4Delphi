@@ -121,6 +121,7 @@ type
       property OnGetCustomSchemes;
       property OnGetNonDefaultPermissionSettingsCompleted;
       property OnSetPermissionStateCompleted;
+      property OnLaunchingExternalUriScheme;
   end;
 
 implementation

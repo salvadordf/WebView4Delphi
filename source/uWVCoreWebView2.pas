@@ -34,6 +34,8 @@ type
       FBaseIntf15                              : ICoreWebView2_15;
       FBaseIntf16                              : ICoreWebView2_16;
       FBaseIntf17                              : ICoreWebView2_17;
+      FBaseIntf18                              : ICoreWebView2_18;
+      FBaseIntf19                              : ICoreWebView2_19;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -63,6 +65,7 @@ type
       FStatusBarTextChangedToken               : EventRegistrationToken;
       FServerCertificateErrorDetectedToken     : EventRegistrationToken;
       FFaviconChangedToken                     : EventRegistrationToken;
+      FLaunchingExternalUriSchemeToken         : EventRegistrationToken;
 
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -86,10 +89,12 @@ type
       function  GetStatusBarText : wvstring;
       function  GetProfile : ICoreWebView2Profile;
       function  GetFaviconURI : wvstring;
+      function  GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
       procedure SetDefaultDownloadDialogMargin(aValue : TPoint);
+      procedure SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -125,6 +130,7 @@ type
       function  AddStatusBarTextChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddServerCertificateErrorDetectedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddFaviconChanged(const aBrowserComponent : TComponent) : boolean;
+      function  AddLaunchingExternalUriScheme(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -187,6 +193,7 @@ type
       property StatusBarText                        : wvstring                                  read GetStatusBarText;
       property Profile                              : ICoreWebView2Profile                      read GetProfile;
       property FaviconURI                           : wvstring                                  read GetFaviconURI;
+      property MemoryUsageTargetLevel               : TWVMemoryUsageTargetLevel                 read GetMemoryUsageTargetLevel                write SetMemoryUsageTargetLevel;
   end;
 
 implementation
@@ -217,8 +224,10 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_13, FBaseIntf13) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_14, FBaseIntf14) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_15, FBaseIntf15) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_17, FBaseIntf17);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_17, FBaseIntf17) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_18, FBaseIntf18) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -267,6 +276,8 @@ begin
   FBaseIntf15          := nil;
   FBaseIntf16          := nil;
   FBaseIntf17          := nil;
+  FBaseIntf18          := nil;
+  FBaseIntf19          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
 
@@ -304,6 +315,7 @@ begin
   FStatusBarTextChangedToken.value               := 0;
   FServerCertificateErrorDetectedToken.value     := 0;
   FFaviconChangedToken.value                     := 0;
+  FLaunchingExternalUriSchemeToken.value         := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -421,6 +433,10 @@ begin
           if assigned(FBaseIntf15) and
              (FFaviconChangedToken.Value <> 0) then
             FBaseIntf15.remove_FaviconChanged(FFaviconChangedToken);
+
+          if assigned(FBaseIntf18) and
+             (FLaunchingExternalUriSchemeToken.Value <> 0) then
+            FBaseIntf18.remove_LaunchingExternalUriScheme(FLaunchingExternalUriSchemeToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -868,6 +884,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddLaunchingExternalUriScheme(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2LaunchingExternalUriSchemeEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf18) and (FLaunchingExternalUriSchemeToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2LaunchingExternalUriSchemeEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf18.add_LaunchingExternalUriScheme(TempHandler, FLaunchingExternalUriSchemeToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -898,7 +929,8 @@ begin
             AddContextMenuRequestedEvent(aBrowserComponent)               and
             AddStatusBarTextChangedEvent(aBrowserComponent)               and
             AddServerCertificateErrorDetectedEvent(aBrowserComponent)     and
-            AddFaviconChanged(aBrowserComponent);
+            AddFaviconChanged(aBrowserComponent)                          and
+            AddLaunchingExternalUriScheme(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;
@@ -1464,6 +1496,17 @@ begin
     end;
 end;
 
+function TCoreWebView2.GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
+var
+  TempResult : COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL;
+begin
+  if assigned(FBaseIntf19) and
+     succeeded(FBaseIntf19.Get_MemoryUsageTargetLevel(TempResult)) then
+    Result := TempResult
+   else
+    Result := COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL;
+end;
+
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);
 begin
   if assigned(FBaseIntf8) then
@@ -1480,6 +1523,12 @@ procedure TCoreWebView2.SetDefaultDownloadDialogMargin(aValue : TPoint);
 begin
   if assigned(FBaseIntf9) then
     FBaseIntf9.Set_DefaultDownloadDialogMargin(tagPOINT(aValue));
+end;
+
+procedure TCoreWebView2.SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);
+begin
+  if assigned(FBaseIntf19) then
+    FBaseIntf19.Set_MemoryUsageTargetLevel(aValue);
 end;
 
 end.

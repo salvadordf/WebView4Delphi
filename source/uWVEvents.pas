@@ -89,6 +89,7 @@ type
   TOnGetCustomSchemesEvent                                 = procedure(Sender: TObject; var aCustomSchemes: TWVCustomSchemeInfoArray) of object;
   TOnGetNonDefaultPermissionSettingsCompletedEvent         = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView) of object;
   TOnSetPermissionStateCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
+  TOnLaunchingExternalUriSchemeEvent                       = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2LaunchingExternalUriSchemeEventArgs) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

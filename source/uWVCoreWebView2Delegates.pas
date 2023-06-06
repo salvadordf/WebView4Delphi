@@ -814,6 +814,17 @@ type
       destructor  Destroy; override;
   end;
 
+  TCoreWebView2LaunchingExternalUriSchemeEventHandler = class(TInterfacedObject, ICoreWebView2LaunchingExternalUriSchemeEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -2639,5 +2650,32 @@ begin
    else
     Result := E_FAIL;
 end;
+
+
+// TCoreWebView2LaunchingExternalUriSchemeEventHandler
+
+constructor TCoreWebView2LaunchingExternalUriSchemeEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2LaunchingExternalUriSchemeEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2LaunchingExternalUriSchemeEventHandler.Invoke(const sender: ICoreWebView2;
+                                                                    const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).LaunchingExternalUriSchemeEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
 
 end.

@@ -154,6 +154,7 @@ type
       FOnGetCustomSchemes                             : TOnGetCustomSchemesEvent;
       FOnGetNonDefaultPermissionSettingsCompleted     : TOnGetNonDefaultPermissionSettingsCompletedEvent;
       FOnSetPermissionStateCompleted                  : TOnSetPermissionStateCompletedEvent;
+      FOnLaunchingExternalUriScheme                   : TOnLaunchingExternalUriSchemeEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -214,6 +215,9 @@ type
       function  GetPreferredColorScheme : TWVPreferredColorScheme;
       function  GetPreferredTrackingPreventionLevel : TWVTrackingPreventionLevel;
       function  GetProfileCookieManager : ICoreWebView2CookieManager;
+      function  GetProfileIsPasswordAutosaveEnabled : boolean;
+      function  GetProfileIsGeneralAutofillEnabled : boolean;
+      function  GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -253,6 +257,9 @@ type
       procedure SetDefaultDownloadFolderPath(const aValue : wvstring);
       procedure SetPreferredColorScheme(const aValue : TWVPreferredColorScheme);
       procedure SetPreferredTrackingPreventionLevel(const aValue : TWVTrackingPreventionLevel);
+      procedure SetProfileIsPasswordAutosaveEnabled(aValue : boolean);
+      procedure SetProfileIsGeneralAutofillEnabled(aValue : boolean);
+      procedure SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);
 
       function  CreateEnvironment : boolean;
       function  CreateCompositionController: boolean;
@@ -353,6 +360,7 @@ type
       function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HRESULT;
       function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HRESULT;
       function SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+      function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -435,6 +443,7 @@ type
       procedure doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray); virtual;
       procedure doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView); virtual;
       procedure doOnSetPermissionStateCompleted(errorCode: HResult); virtual;
+      procedure doOnLaunchingExternalUriSchemeEvent(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -618,6 +627,9 @@ type
       // ICoreWebView2_15
       property FaviconURI                                      : wvstring                                              read GetFaviconURI;
 
+      // ICoreWebView2_19
+      property MemoryUsageTargetLevel                          : TWVMemoryUsageTargetLevel                             read GetMemoryUsageTargetLevel                        write SetMemoryUsageTargetLevel;                  // ICoreWebView2_19.Get_MemoryUsageTargetLevel
+
       // ICoreWebView2Controller properties
       property Bounds                                          : TRect                                                 read GetBounds                                        write SetBounds;                                  // ICoreWebView2Controller.get_Bounds
       property IsVisible                                       : boolean                                               read GetIsVisible                                     write SetIsVisible;                               // ICoreWebView2Controller.get_IsVisible
@@ -694,6 +706,10 @@ type
 
       // ICoreWebView2Profile5 properties
       property ProfileCookieManager                            : ICoreWebView2CookieManager                            read GetProfileCookieManager;                                                                           // ICoreWebView2Profile5.get_CookieManager
+
+      // ICoreWebView2Profile6 properties
+      property ProfileIsPasswordAutosaveEnabled                : boolean                                               read GetProfileIsPasswordAutosaveEnabled              write SetProfileIsPasswordAutosaveEnabled;        // ICoreWebView2Profile6.Get_IsPasswordAutosaveEnabled
+      property ProfileIsGeneralAutofillEnabled                 : boolean                                               read GetProfileIsGeneralAutofillEnabled               write SetProfileIsGeneralAutofillEnabled;         // ICoreWebView2Profile6.Get_IsGeneralAutofillEnabled
 
       // ICoreWebView2Environment5 events
       property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
@@ -829,6 +845,7 @@ type
       property OnGetCustomSchemes                              : TOnGetCustomSchemesEvent                              read FOnGetCustomSchemes                              write FOnGetCustomSchemes;
       property OnGetNonDefaultPermissionSettingsCompleted      : TOnGetNonDefaultPermissionSettingsCompletedEvent      read FOnGetNonDefaultPermissionSettingsCompleted      write FOnGetNonDefaultPermissionSettingsCompleted;
       property OnSetPermissionStateCompleted                   : TOnSetPermissionStateCompletedEvent                   read FOnSetPermissionStateCompleted                   write FOnSetPermissionStateCompleted;
+      property OnLaunchingExternalUriScheme                    : TOnLaunchingExternalUriSchemeEvent                    read FOnLaunchingExternalUriScheme                    write FOnLaunchingExternalUriScheme;
   end;
 
 implementation
@@ -964,6 +981,9 @@ begin
   FOnGetFaviconCompleted                           := nil;
   FOnPrintToPdfStreamCompleted                     := nil;
   FOnGetCustomSchemes                              := nil;
+  FOnGetNonDefaultPermissionSettingsCompleted      := nil;
+  FOnSetPermissionStateCompleted                   := nil;
+  FOnLaunchingExternalUriScheme                    := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -1996,6 +2016,12 @@ begin
     FOnSetPermissionStateCompleted(self, errorCode);
 end;
 
+procedure TWVBrowserBase.doOnLaunchingExternalUriSchemeEvent(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs);
+begin
+  if assigned(FOnLaunchingExternalUriScheme) then
+    FOnLaunchingExternalUriScheme(self, sender, args);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -2288,6 +2314,12 @@ function TWVBrowserBase.SetPermissionStateCompletedHandler_Invoke(errorCode: HRe
 begin
   Result := S_OK;
   doOnSetPermissionStateCompleted(errorCode);
+end;
+
+function TWVBrowserBase.LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnLaunchingExternalUriSchemeEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -2855,6 +2887,14 @@ begin
     Result := FCoreWebView2.FaviconURI
    else
     Result := '';
+end;
+
+function TWVBrowserBase.GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
+begin
+  if Initialized then
+    Result := FCoreWebView2.MemoryUsageTargetLevel
+   else
+    Result := COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL;
 end;
 
 function TWVBrowserBase.GetScreenScale : single;
@@ -4495,6 +4535,40 @@ begin
     end;
 end;
 
+function TWVBrowserBase.GetProfileIsPasswordAutosaveEnabled : boolean;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := False;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.IsPasswordAutosaveEnabled;
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+function TWVBrowserBase.GetProfileIsGeneralAutofillEnabled : boolean;
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  Result      := False;
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      Result      := TempProfile.IsGeneralAutofillEnabled;
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
 procedure TWVBrowserBase.SetPreferredTrackingPreventionLevel(const aValue : TWVTrackingPreventionLevel);
 var
   TempProfile : TCoreWebView2Profile;
@@ -4509,6 +4583,44 @@ begin
       if assigned(TempProfile) then
         FreeAndNil(TempProfile);
     end;
+end;
+
+procedure TWVBrowserBase.SetProfileIsPasswordAutosaveEnabled(aValue : boolean);
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      TempProfile.IsPasswordAutosaveEnabled := aValue;
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+procedure TWVBrowserBase.SetProfileIsGeneralAutofillEnabled(aValue : boolean);
+var
+  TempProfile : TCoreWebView2Profile;
+begin
+  TempProfile := nil;
+
+  if Initialized then
+    try
+      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+      TempProfile.IsGeneralAutofillEnabled := aValue;
+    finally
+      if assigned(TempProfile) then
+        FreeAndNil(TempProfile);
+    end;
+end;
+
+procedure TWVBrowserBase.SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);
+begin
+  if Initialized then
+    FCoreWebView2.MemoryUsageTargetLevel := aValue;
 end;
 
 function TWVBrowserBase.CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
