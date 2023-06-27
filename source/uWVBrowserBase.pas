@@ -2413,7 +2413,7 @@ begin
   if (Win32MajorVersion < 10) then
     TempOldWinVer := True
    else
-    if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf) then
+    if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf, TempHResult) then
       try
         TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
         TempOptions.ProfileName            := FProfileName;
@@ -2429,14 +2429,29 @@ begin
         TempOptionsIntf := nil;
       end
      else
-      begin
-        FProfileName            := '';
-        FIsInPrivateModeEnabled := False;
+      if (TempHResult <> E_NOTIMPL) then
+        begin
+          FProfileName            := '';
+          FIsInPrivateModeEnabled := False;
 
-        Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
-                                                                                   self,
-                                                                                   TempHResult);
-      end;
+          Result := FCoreWebView2Environment.CreateCoreWebView2CompositionController(FWindowParentHandle,
+                                                                                     self,
+                                                                                     TempHResult);
+        end
+       else
+        begin
+          TempError := 'There was an error creating the controller options. (1)' + CRLF +
+                       'Error code : 0x' +
+                       {$IFDEF FPC}
+                       UTF8Decode(inttohex(TempHResult, 8))
+                       {$ELSE}
+                       inttohex(TempHResult, 8)
+                       {$ENDIF}
+                       + CRLF + ControllerOptionsCreationErrorToString(TempHResult);
+
+          doOnInitializationError(TempHResult, TempError);
+          exit;
+        end;
 
   if not(Result) then
     begin
@@ -2464,7 +2479,9 @@ var
   TempOptions     : TCoreWebView2ControllerOptions;
   TempOptionsIntf : ICoreWebView2ControllerOptions;
 begin
-  if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf) then
+  Result := False;
+
+  if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf, TempHResult) then
     try
       TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
       TempOptions.ProfileName            := FProfileName;
@@ -2480,14 +2497,29 @@ begin
       TempOptionsIntf := nil;
     end
    else
-    begin
-      FProfileName            := '';
-      FIsInPrivateModeEnabled := False;
+    if (TempHResult <> E_NOTIMPL) then
+      begin
+        FProfileName            := '';
+        FIsInPrivateModeEnabled := False;
 
-      Result := FCoreWebView2Environment.CreateCoreWebView2Controller(FWindowParentHandle,
-                                                                      self,
-                                                                      TempHResult);
-    end;
+        Result := FCoreWebView2Environment.CreateCoreWebView2Controller(FWindowParentHandle,
+                                                                        self,
+                                                                        TempHResult);
+      end
+     else
+      begin
+        TempError := 'There was an error creating the controller options. (2)' + CRLF +
+                     'Error code : 0x' +
+                     {$IFDEF FPC}
+                     UTF8Decode(inttohex(TempHResult, 8))
+                     {$ELSE}
+                     inttohex(TempHResult, 8)
+                     {$ENDIF}
+                     + CRLF + ControllerOptionsCreationErrorToString(TempHResult);
+
+        doOnInitializationError(TempHResult, TempError);
+        exit;
+      end;
 
   if not(Result) then
     begin

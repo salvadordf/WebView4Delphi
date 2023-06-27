@@ -80,6 +80,7 @@ type
       FJavaScriptFlags                        : wvstring;
       FDisableEdgePitchNotification           : boolean;
       FTreatInsecureOriginAsSecure            : wvstring;
+      FAutoAcceptCamAndMicCapture             : boolean;
 
       function  GetAvailableBrowserVersion : wvstring;
       function  GetInitialized : boolean;
@@ -199,6 +200,7 @@ type
       property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
       property DisableEdgePitchNotification           : boolean                            read FDisableEdgePitchNotification            write FDisableEdgePitchNotification;     // --disable-features=msEdgeRose
       property TreatInsecureOriginAsSecure            : wvstring                           read FTreatInsecureOriginAsSecure             write FTreatInsecureOriginAsSecure;      // --unsafely-treat-insecure-origin-as-secure
+      property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;       // --auto-accept-camera-and-microphone-capture
 
 
       // ICoreWebView2Environment3 properties
@@ -330,6 +332,7 @@ begin
   FJavaScriptFlags                        := '';
   FDisableEdgePitchNotification           := True;
   FTreatInsecureOriginAsSecure            := '';
+  FAutoAcceptCamAndMicCapture             := False;
   FProxySettings                          := nil;
   FErrorLog                               := nil;
 
@@ -1095,6 +1098,9 @@ begin
 
   if (length(FTreatInsecureOriginAsSecure) > 0) then
     Result := Result + '--unsafely-treat-insecure-origin-as-secure=' + FTreatInsecureOriginAsSecure + ' ';
+
+  if FAutoAcceptCamAndMicCapture then
+    Result := Result + '--auto-accept-camera-and-microphone-capture ';
 
   // The list of JavaScript flags is here :
   // https://chromium.googlesource.com/v8/v8/+/master/src/flags/flag-definitions.h

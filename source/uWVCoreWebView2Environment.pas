@@ -64,7 +64,7 @@ type
       function    GetAutomationProviderForWindow(aHandle : THandle; var aProvider : IUnknown) : boolean;
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
       function    CreateContextMenuItem(const aLabel : wvstring; const aIconStream : IStream; aKind : TWVMenuItemKind; var aMenuItem : ICoreWebView2ContextMenuItem) : boolean;
-      function    CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions): boolean;
+      function    CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions; var aResult: HResult): boolean;
       function    CreateCoreWebView2ControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
       function    CreateCoreWebView2CompositionControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
@@ -378,12 +378,20 @@ begin
                assigned(aMenuItem);
 end;
 
-function TCoreWebView2Environment.CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions): boolean;
+function TCoreWebView2Environment.CreateCoreWebView2ControllerOptions(var aOptions : ICoreWebView2ControllerOptions;
+                                                                      var aResult  : HResult): boolean;
 begin
+  Result   := False;
   aOptions := nil;
-  Result   := assigned(FBaseIntf10) and
-              succeeded(FBaseIntf10.CreateCoreWebView2ControllerOptions(aOptions)) and
-              assigned(aOptions);
+  aResult  := E_FAIL;
+
+  if assigned(FBaseIntf10) then
+    begin
+      aResult := FBaseIntf10.CreateCoreWebView2ControllerOptions(aOptions);
+      Result  := succeeded(aResult);
+    end
+   else
+    aResult := E_NOTIMPL;
 end;
 
 function TCoreWebView2Environment.CreateCoreWebView2ControllerWithOptions(      aParentWindow  : HWND;
