@@ -9,7 +9,7 @@
   ],
   "UpdatePackageData" : {
     "DisableInOPM" : false,
-    "DownloadZipURL" : "https://github.com/salvadordf/WebView4Delphi/archive/refs/heads/main.zip",
+    "DownloadZipURL" : "https://github.com/salvadordf/WebView4Delphi/archive/master.zip",
     "Name" : "WebView4Delphi"
   }
 }
