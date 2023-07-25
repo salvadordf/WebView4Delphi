@@ -3,7 +3,7 @@ WebView4Delphi is an open source project created by Salvador Díaz Fau to embed 
 
 WebView4Delphi only supports Windows. If you need to embed a web browser in Linux, Windows or MacOS consider using [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) instead. 
 
-WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.1823.32](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser.
+WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.1901.177](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser.
 
 WebView4Delphi was developed and tested on Delphi 11.3, Delphi XE2, Delphi 7 and Lazarus 2.2.6/FPC 3.2.2. 
 
@@ -38,6 +38,8 @@ You can also support this project with Liberapay.
 ## Other resources
 * [Learn Delphi](https://learndelphi.org/)
 * [Essential Pascal by Marco Cantù](https://www.marcocantu.com/epascal/)
+* [Free Pascal Reference guide](https://www.freepascal.org/docs-html/ref/ref.html)
+* [Modern Object Pascal Introduction for Programmers](https://castle-engine.io/modern_pascal)
 * [FreePascal from Square One by Jeff Duntemann](http://www.copperwood.com/pub/FreePascalFromSquareOne.pdf)
 * [Pascal and Lazarus Books and Magazines](https://wiki.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines)
 * [Lazarus Documentation](https://wiki.freepascal.org/Lazarus_Documentation)

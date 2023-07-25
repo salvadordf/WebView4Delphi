@@ -30,10 +30,10 @@ unit uWVTypeLibrary;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 06/06/2023 11:23:24 from Type Library described below.
+// File generated on 25/07/2023 15:25:36 from Type Library described below.
 
 // ************************************************************************  //
-// Type Lib: R:\microsoft.web.webview2.1.0.1823.32.nupkg_FILES\WebView2.tlb (1)
+// Type Lib: R:\microsoft.web.webview2.1.0.1901.177.nupkg_FILES\WebView2.tlb (1)
 // LIBID: {26D34152-879F-4065-BEA2-3DAA2CFADFB8}
 // LCID: 0
 // Helpfile: 
@@ -255,6 +255,7 @@ const
   IID_ICoreWebView2PermissionSetting: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';
   IID_ICoreWebView2NavigationCompletedEventArgs2: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
+  IID_ICoreWebView2NavigationStartingEventArgs3: TGUID = '{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
   IID_ICoreWebView2PermissionRequestedEventArgs3: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';
   IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
@@ -619,6 +620,14 @@ const
   COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN = $00000005;
   COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = $00000006;
 
+// Constants for enum COREWEBVIEW2_NAVIGATION_KIND
+type
+  COREWEBVIEW2_NAVIGATION_KIND = TOleEnum;
+const
+  COREWEBVIEW2_NAVIGATION_KIND_RELOAD = $00000000;
+  COREWEBVIEW2_NAVIGATION_KIND_BACK_OR_FORWARD = $00000001;
+  COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT = $00000002;
+
 // Constants for enum COREWEBVIEW2_PRINT_COLLATION
 type
   COREWEBVIEW2_PRINT_COLLATION = TOleEnum;
@@ -682,6 +691,7 @@ const
   COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY = $00001000;
   COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS = $00002000;
   COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE = $00004000;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS = $00008000;
 
 // Constants for enum COREWEBVIEW2_TRACKING_PREVENTION_LEVEL
 type
@@ -899,6 +909,7 @@ type
   ICoreWebView2PermissionSetting = interface;
   ICoreWebView2NavigationCompletedEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs2 = interface;
+  ICoreWebView2NavigationStartingEventArgs3 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
   ICoreWebView2PermissionRequestedEventArgs3 = interface;
   ICoreWebView2PrintSettings2 = interface;
@@ -3432,6 +3443,16 @@ type
     ['{9086BE93-91AA-472D-A7E0-579F2BA006AD}']
     function Get_AdditionalAllowedFrameAncestors(out value: PWideChar): HResult; stdcall;
     function Set_AdditionalAllowedFrameAncestors(value: PWideChar): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: ICoreWebView2NavigationStartingEventArgs3
+// Flags:     (0)
+// GUID:      {DDFFE494-4942-4BD2-AB73-35B8FF40E19F}
+// *********************************************************************//
+  ICoreWebView2NavigationStartingEventArgs3 = interface(ICoreWebView2NavigationStartingEventArgs2)
+    ['{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}']
+    function Get_NavigationKind(out navigation_kind: COREWEBVIEW2_NAVIGATION_KIND): HResult; stdcall;
   end;
 
 // *********************************************************************//

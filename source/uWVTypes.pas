@@ -65,6 +65,7 @@ type
   TWVSharedBufferAccess                   = type COREWEBVIEW2_SHARED_BUFFER_ACCESS;
   TWVTrackingPreventionLevel              = type COREWEBVIEW2_TRACKING_PREVENTION_LEVEL;
   TWVMemoryUsageTargetLevel               = type COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL;
+  TWVNavigationKind                       = type COREWEBVIEW2_NAVIGATION_KIND;
 
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,
