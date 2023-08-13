@@ -16,6 +16,10 @@ uses
 
 type
   {$IFNDEF FPC}{$IFDEF DELPHI16_UP}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}{$ENDIF}
+  /// <summary>
+  ///  VCL and LCL version of TWVBrowserBase that puts together all browser procedures, functions, properties and events in one place.
+  ///  It has all you need to create, modify and destroy a web browser.
+  /// </summary>
   TWVBrowser = class(TWVBrowserBase)
     protected
       function  GetParentForm : TCustomForm;

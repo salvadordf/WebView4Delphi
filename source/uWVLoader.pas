@@ -16,7 +16,9 @@ uses
 
 type
   TWVProxySettings = class;
-
+  /// <summary>
+  /// Class used to simplify the WebView2 initialization and destruction.
+  /// </summary>
   TWVLoader = class(TComponent, IWVLoaderEvents)
     protected
       FCoreWebView2Environment                : TCoreWebView2Environment;
@@ -80,7 +82,8 @@ type
       FJavaScriptFlags                        : wvstring;
       FDisableEdgePitchNotification           : boolean;
       FTreatInsecureOriginAsSecure            : wvstring;
-      FAutoAcceptCamAndMicCapture             : boolean;
+
+      FAutoAcceptCamAndMicCapture             : boolean;
 
       function  GetAvailableBrowserVersion : wvstring;
       function  GetInitialized : boolean;
@@ -135,6 +138,9 @@ type
       constructor Create(AOwner: TComponent); override;
       destructor  Destroy; override;
       procedure   AfterConstruction; override;
+      /// <summary>
+      /// Used to initialize WebView2.
+      /// </summary>
       function    StartWebView2 : boolean;
       function    CompareVersions(const aVersion1, aVersion2 : wvstring; var aCompRslt : integer): boolean;
       procedure   UpdateDeviceScaleFactor; virtual;
@@ -200,8 +206,7 @@ type
       property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
       property DisableEdgePitchNotification           : boolean                            read FDisableEdgePitchNotification            write FDisableEdgePitchNotification;     // --disable-features=msEdgeRose
       property TreatInsecureOriginAsSecure            : wvstring                           read FTreatInsecureOriginAsSecure             write FTreatInsecureOriginAsSecure;      // --unsafely-treat-insecure-origin-as-secure
-      property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;       // --auto-accept-camera-and-microphone-capture
-
+      property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;       // --auto-accept-camera-and-microphone-capture
 
       // ICoreWebView2Environment3 properties
       property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;

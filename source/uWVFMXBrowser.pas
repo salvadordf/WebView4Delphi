@@ -14,6 +14,10 @@ uses
 
 type
   {$IFNDEF FPC}{$IFDEF DELPHI16_UP}[ComponentPlatformsAttribute(pidWin32 or pidWin64)]{$ENDIF}{$ENDIF}
+  /// <summary>
+  ///  FMX version of TWVBrowserBase that puts together all browser procedures, functions, properties and events in one place.
+  ///  It has all you need to create, modify and destroy a web browser.
+  /// </summary>
   TWVFMXBrowser = class(TWVBrowserBase)
     protected
       function  GetParentForm : TCustomForm;

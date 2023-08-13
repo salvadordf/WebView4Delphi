@@ -22,6 +22,10 @@ uses
   uWVCoreWebView2CookieManager, uWVCoreWebView2Delegates;
 
 type
+  /// <summary>
+  ///  Parent class of TWVBrowser and TWVFMXBrowser that puts together all browser procedures, functions, properties and events in one place.
+  ///  It has all you need to create, modify and destroy a web browser.
+  /// </summary>
   TWVBrowserBase = class(TComponent, IWVBrowserEvents)
     protected
       FCoreWebView2PrintSettings                       : TCoreWebView2PrintSettings;
@@ -522,11 +526,29 @@ type
       function    ClearCache : boolean;
       function    ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes = cdstAll) : boolean;
 
+      /// <summary>
+      /// Move the parent form to the x and y coordinates.
+      /// </summary>
       procedure   MoveFormTo(const x, y: Integer); virtual; abstract;
+      /// <summary>
+      /// Move the parent form adding x and y to the coordinates.
+      /// </summary>
       procedure   MoveFormBy(const x, y: Integer); virtual; abstract;
+      /// <summary>
+      /// Add x to the parent form width.
+      /// </summary>
       procedure   ResizeFormWidthTo(const x : Integer); virtual; abstract;
+      /// <summary>
+      /// Add y to the parent form height.
+      /// </summary>
       procedure   ResizeFormHeightTo(const y : Integer); virtual; abstract;
+      /// <summary>
+      /// Set the parent form left property to x.
+      /// </summary>
       procedure   SetFormLeftTo(const x : Integer); virtual; abstract;
+      /// <summary>
+      /// Set the parent form top property to y.
+      /// </summary>
       procedure   SetFormTopTo(const y : Integer); virtual; abstract;
 
       procedure   IncZoomStep;
