@@ -351,6 +351,9 @@ type
   /// </remarks>
   TWVNavigationKind                       = type COREWEBVIEW2_NAVIGATION_KIND;
 
+  /// <summary>
+  /// TWVLoader status values
+  /// </summary>
   TWV2LoaderStatus = (wvlsCreated,
                       wvlsLoading,
                       wvlsLoaded,
@@ -358,24 +361,35 @@ type
                       wvlsInitialized,
                       wvlsError,
                       wvlsUnloaded);
-
+  /// <summary>
+  /// Event type used by TWVBrowserBase.SimulateKeyEvent
+  /// </summary>
   TWV2KeyEventType = (ketKeyDown,
                       ketKeyUp,
                       ketRawKeyDown,
                       ketChar);
 
+  /// <summary>
+  /// Debug log values used by TWVLoader.DebugLog
+  /// </summary>
   TWV2DebugLog = (dlDisabled, dlEnabled, dlEnabledStdOut, dlEnabledStdErr);
 
-  // Debug log level used when the logging is enabled
+  /// <summary>
+  /// Debug log level used when the logging is enabled
+  /// </summary>
   TWV2DebugLogLevel = (dllDefault,
                        dllInfo,
                        dllWarning,
                        dllError,
                        dllFatal);
 
-  // Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
-  // https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
-  // https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h
+  /// <summary>
+  /// Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+  /// <para><see href="https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h">See the Chromium sources.</see></para>
+  /// </remarks>
   TWV2EditingCommand = (ecAlignCenter,
                         ecAlignJustified,
                         ecAlignLeft,
@@ -516,6 +530,9 @@ type
                         ecYank,
                         ecYankAndSelect);
 
+  /// <summary>
+  /// Record used by GetDLLVersion to get the DLL version information
+  /// </summary>
   TFileVersionInfo = record
     MajorVer : word;
     MinorVer : word;
@@ -523,6 +540,9 @@ type
     Build    : word;
   end;
 
+  /// <summary>
+  /// Record used by TCoreWebView2WindowFeatures.CopyToRecord to copy the windows featres
+  /// </summary>
   TWVWindowFeatures = record
     HasPosition             : boolean;
     HasSize                 : boolean;
@@ -536,6 +556,9 @@ type
     ShouldDisplayScrollBars : boolean;
   end;
 
+  /// <summary>
+  /// Used by TWVBrowserBase.ClearDataForOrigin to clear the storage
+  /// </summary>
   TWVClearDataStorageTypes = (cdstAppCache,
                               cdstCookies,
                               cdstFileSystems,
@@ -547,22 +570,52 @@ type
                               cdstCacheStorage,
                               cdstAll);
 
+  /// <summary>
+  /// Represents the state of a setting.
+  /// </summary>
   TWVState = (
+    /// <summary>
+    /// Use the default state for the setting.
+    /// </summary>
     STATE_DEFAULT = 0,
+    /// <summary>
+    /// Enable or allow the setting.
+    /// </summary>
     STATE_ENABLED,
+    /// <summary>
+    /// Disable or disallow the setting.
+    /// </summary>
     STATE_DISABLED
   );
 
+  /// <summary>
+  /// Autoplay policy types used by TWVLoader.AutoplayPolicy. See the --autoplay-policy switch.
+  /// </summary>
   TWVAutoplayPolicy = (appDefault,
                        appDocumentUserActivationRequired,
                        appNoUserGestureRequired,
                        appUserGestureRequired);
 
+  /// <summary>
+  /// Record with all the information to create a TCoreWebView2CustomSchemeRegistration instance.
+  /// </summary>
   TWVCustomSchemeInfo = record
-    SchemeName            : wvstring;  // The name of the custom scheme to register.
-    TreatAsSecure         : boolean;   // Whether the sites with this scheme will be treated as a Secure Context like an HTTPS site.
-    AllowedDomains        : wvstring;  // Comma separated list of origins that are allowed to issue requests with the custom scheme, such as XHRs and subresource requests that have an Origin header.
-    HasAuthorityComponent : boolean;   // Set this property to true if the URIs with this custom scheme will have an authority component (a host for custom schemes).
+    /// <summary>
+    /// The name of the custom scheme to register.
+    /// </summary>
+    SchemeName            : wvstring;
+    /// <summary>
+    /// Whether the sites with this scheme will be treated as a Secure Context like an HTTPS site.
+    /// </summary>
+    TreatAsSecure         : boolean;
+    /// <summary>
+    /// Comma separated list of origins that are allowed to issue requests with the custom scheme, such as XHRs and subresource requests that have an Origin header.
+    /// </summary>
+    AllowedDomains        : wvstring;
+    /// <summary>
+    /// Set this property to true if the URIs with this custom scheme will have an authority component (a host for custom schemes).
+    /// </summary>
+    HasAuthorityComponent : boolean;
   end;
   TWVCustomSchemeInfoArray = array of TWVCustomSchemeInfo;
 

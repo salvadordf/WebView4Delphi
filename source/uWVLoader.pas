@@ -139,30 +139,98 @@ type
       destructor  Destroy; override;
       procedure   AfterConstruction; override;
       /// <summary>
-      /// Used to initialize WebView2.
+      /// This function is used to initialize WebView2.
       /// </summary>
       function    StartWebView2 : boolean;
+      /// <summary>
+      /// This method is for anyone want to compare version correctly to determine
+      /// which version is newer, older or same.Use it to determine whether
+      /// to use webview2 or certain feature based upon version. Sets the value of
+      /// aCompRslt to -1, 0 or 1 if aVersion1 is less than, equal or greater
+      /// than aVersion2 respectively. Returns false if it fails to parse
+      /// any of the version strings.
+      /// </summary>
       function    CompareVersions(const aVersion1, aVersion2 : wvstring; var aCompRslt : integer): boolean;
+      /// <summary>
+      /// Update the DeviceScaleFactor property value with the current scale or the ForcedDeviceScaleFactor value.
+      /// </summary>
       procedure   UpdateDeviceScaleFactor; virtual;
+      /// <summary>
+      /// Append aText to the ErrorMessage property.
+      /// </summary>
       procedure   AppendErrorLog(const aText : wvstring);
 
-      // Custom properties
+      /// <summary>
+      /// Represents the global WebView2 Environment.
+      /// </summary>
       property Environment                            : ICoreWebView2Environment           read GetEnvironment;
+      /// <summary>
+      /// Returns the TWVLoader initialization status.
+      /// </summary>
       property Status                                 : TWV2LoaderStatus                   read FStatus;
-      property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;                                                             // GetAvailableCoreWebView2BrowserVersionString
+      /// <summary>
+      /// Get the browser version info including channel name if it is not the
+      /// WebView2 Runtime.  Channel names are Beta, Dev, and Canary.
+      /// </summary>
+      property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;
+      /// <summary>
+      /// Returns all the text appended to the error log with AppendErrorLog.
+      /// </summary>
       property ErrorMessage                           : wvstring                           read GetErrorMessage;
+      /// <summary>
+      /// Returns the last initialization error code.
+      /// </summary>
       property ErrorCode                              : int64                              read FError;
+      /// <summary>
+      ///	Used to set the current directory when the WebView2 library is loaded. This is required if the application is launched from a different application.
+      /// </summary>
       property SetCurrentDir                          : boolean                            read FSetCurrentDir                           write FSetCurrentDir;
+      /// <summary>
+      /// Returns true if the Status is wvlsInitialized.
+      /// </summary>
       property Initialized                            : boolean                            read GetInitialized;
+      /// <summary>
+      /// Returns true if the Status is wvlsError.
+      /// </summary>
       property InitializationError                    : boolean                            read GetInitializationError;
+      /// <summary>
+      /// Checks if the WebView2 library is present and the DLL version.
+      /// </summary>
       property CheckFiles                             : boolean                            read FCheckFiles                              write FCheckFiles;
+      /// <summary>
+      /// Set to true when you need to use a showmessage dialog to show the error messages.
+      /// </summary>
       property ShowMessageDlg                         : boolean                            read FShowMessageDlg                          write FShowMessageDlg;
+      /// <summary>
+      /// Set to true to call CoInitializeEx and CoUnInitialize in TWVLoader.Create and TWVLoader.Destroy.
+      /// </summary>
       property InitCOMLibrary                         : boolean                            read FInitCOMLibrary                          write FInitCOMLibrary;
+      /// <summary>
+      /// Custom command line switches used by TCoreWebView2EnvironmentOptions.Create to initialize WebView2.
+      /// </summary>
       property CustomCommandLineSwitches              : wvstring                           read GetCustomCommandLineSwitches;
+      /// <summary>
+      /// Returns the device scale factor.
+      /// </summary>
       property DeviceScaleFactor                      : single                             read FDeviceScaleFactor;
+      /// <summary>
+      /// Set to true to raise all exceptions.
+      /// </summary>
       property ReRaiseExceptions                      : boolean                            read FReRaiseExceptions                       write FReRaiseExceptions;
+      /// <summary>
+      /// Return the installed WebView2 runtime version.
+      /// </summary>
       property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
+      /// <summary>
+      /// Full path to WebView2Loader.dll. Leave empty to load WebView2Loader.dll from the current directory.
+      /// </summary>
       property LoaderDllPath                          : wvstring                           read FLoaderDllPath                           write FLoaderDllPath;
+      /// <summary>
+      /// Use a WebView2Loader.dll replacement based on the OpenWebView2Loader project.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://github.com/jchv/OpenWebView2Loader">See the OpenWebView2Loader project repository at GitHub.</see></para>
+      /// </remarks>
       property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
 
       // Properties used to create the environment
@@ -176,37 +244,259 @@ type
       property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;            // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
       property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;               // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
 
-      // Properties used to set command line switches
-      property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;                        // --enable-gpu-plugin
-      property EnableFeatures                         : wvstring                           read FEnableFeatures                          write FEnableFeatures;                   // --enable-features
-      property DisableFeatures                        : wvstring                           read FDisableFeatures                         write FDisableFeatures;                  // --disable-features
-      property EnableBlinkFeatures                    : wvstring                           read FEnableBlinkFeatures                     write FEnableBlinkFeatures;              // --enable-blink-features
-      property DisableBlinkFeatures                   : wvstring                           read FDisableBlinkFeatures                    write FDisableBlinkFeatures;             // --disable-blink-features
-      property BlinkSettings                          : wvstring                           read FBlinkSettings                           write FBlinkSettings;                    // --blink-settings
-      property ForceFieldTrials                       : wvstring                           read FForceFieldTrials                        write FForceFieldTrials;                 // --force-fieldtrials
-      property ForceFieldTrialParams                  : wvstring                           read FForceFieldTrialParams                   write FForceFieldTrialParams;            // --force-fieldtrial-params
-      property SmartScreenProtectionEnabled           : boolean                            read FSmartScreenProtectionEnabled            write FSmartScreenProtectionEnabled;     // --disable-features=msSmartScreenProtection
-      property AllowInsecureLocalhost                 : boolean                            read FAllowInsecureLocalhost                  write FAllowInsecureLocalhost;           // --allow-insecure-localhost
-      property DisableWebSecurity                     : boolean                            read FDisableWebSecurity                      write FDisableWebSecurity;               // --disable-web-security
-      property TouchEvents                            : TWVState                           read FTouchEvents                             write FTouchEvents;                      // --touch-events
-      property HyperlinkAuditing                      : boolean                            read FHyperlinkAuditing                       write FHyperlinkAuditing;                // --no-pings
-      property AutoplayPolicy                         : TWVAutoplayPolicy                  read FAutoplayPolicy                          write FAutoplayPolicy;                   // --autoplay-policy
-      property MuteAudio                              : boolean                            read FMuteAudio                               write FMuteAudio;                        // --mute-audio
-      property DefaultEncoding                        : wvstring                           read FDefaultEncoding                         write FDefaultEncoding;                  // --default-encoding
-      property KioskPrinting                          : boolean                            read FKioskPrinting                           write FKioskPrinting;                    // --kiosk-printing
-      property ProxySettings                          : TWVProxySettings                   read FProxySettings;                                                                   // --no-proxy-server  --proxy-auto-detect  --proxy-bypass-list  --proxy-pac-url  --proxy-server
-      property AllowFileAccessFromFiles               : boolean                            read FAllowFileAccessFromFiles                write FAllowFileAccessFromFiles;         // --allow-file-access-from-files
-      property AllowRunningInsecureContent            : boolean                            read FAllowRunningInsecureContent             write FAllowRunningInsecureContent;      // --allow-running-insecure-content
-      property DisableBackgroundNetworking            : boolean                            read FDisableBackgroundNetworking             write FDisableBackgroundNetworking;      // --disable-background-networking
-      property ForcedDeviceScaleFactor                : single                             read FForcedDeviceScaleFactor                 write FForcedDeviceScaleFactor;          // --force-device-scale-factor
-      property RemoteDebuggingPort                    : integer                            read FRemoteDebuggingPort                     write FRemoteDebuggingPort;              // --remote-debugging-port
-      property RemoteAllowOrigins                     : wvstring                           read FRemoteAllowOrigins                      write FRemoteAllowOrigins;               // --remote-allow-origins
-      property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;                         // --enable-logging
-      property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;                    // --log-level
-      property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;                  // --js-flags
-      property DisableEdgePitchNotification           : boolean                            read FDisableEdgePitchNotification            write FDisableEdgePitchNotification;     // --disable-features=msEdgeRose
-      property TreatInsecureOriginAsSecure            : wvstring                           read FTreatInsecureOriginAsSecure             write FTreatInsecureOriginAsSecure;      // --unsafely-treat-insecure-origin-as-secure
-      property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;       // --auto-accept-camera-and-microphone-capture
+      /// <summary>
+      /// Enable GPU hardware acceleration.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-gpu</see></para>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-gpu-compositing</see></para>
+      /// </remarks>
+      property EnableGPU                              : boolean                            read FEnableGPU                               write FEnableGPU;
+      /// <summary>
+      /// List of feature names to enable.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --enable-features</see></para>
+      /// <para>The list of features you can enable is here:</para>
+      /// <para>https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc</para>
+      /// <para>https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc</para>
+      /// <para>https://source.chromium.org/search?q=base::Feature</para>
+      /// </remarks>
+      property EnableFeatures                         : wvstring                           read FEnableFeatures                          write FEnableFeatures;
+      /// <summary>
+      /// List of feature names to disable.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-features</see></para>
+      /// <para>The list of features you can disable is here:</para>
+      /// <para>https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc</para>
+      /// <para>https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc</para>
+      /// <para>https://source.chromium.org/search?q=base::Feature</para>
+      /// </remarks>
+      property DisableFeatures                        : wvstring                           read FDisableFeatures                         write FDisableFeatures;
+      /// <summary>
+      /// Enable one or more Blink runtime-enabled features.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --enable-blink-features</see></para>
+      /// <para>The list of Blink features you can enable is here:</para>
+      /// <para>https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5</para>
+      /// </remarks>
+      property EnableBlinkFeatures                    : wvstring                           read FEnableBlinkFeatures                     write FEnableBlinkFeatures;
+      /// <summary>
+      /// Disable one or more Blink runtime-enabled features.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-blink-features</see></para>
+      /// <para>The list of Blink features you can disable is here:</para>
+      /// <para>https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5</para>
+      /// </remarks>
+      property DisableBlinkFeatures                   : wvstring                           read FDisableBlinkFeatures                    write FDisableBlinkFeatures;
+      /// <summary>
+      /// Set blink settings. Format is <name>[=<value],<name>[=<value>],...
+      /// The names are declared in Settings.json5. For boolean type, use "true", "false",
+      /// or omit '=<value>' part to set to true. For enum type, use the int value of the
+      /// enum value. Applied after other command line flags and prefs.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --blink-settings</see></para>
+      /// <para>The list of Blink settings you can disable is here:</para>
+      /// <para>https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/frame/settings.json5</para>
+      /// </remarks>
+      property BlinkSettings                          : wvstring                           read FBlinkSettings                           write FBlinkSettings;
+      /// <summary>
+      /// This option can be used to force field trials when testing changes locally.
+      /// The argument is a list of name and value pairs, separated by slashes.
+      /// If a trial name is prefixed with an asterisk, that trial will start activated.
+      /// For example, the following argument defines two trials, with the second one
+      /// activated: "GoogleNow/Enable/*MaterialDesignNTP/Default/" This option can also
+      /// be used by the browser process to send the list of trials to a non-browser
+      /// process, using the same format. See FieldTrialList::CreateTrialsFromString()
+      /// in field_trial.h for details.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --force-fieldtrials</see></para>
+      /// <para>https://source.chromium.org/chromium/chromium/src/+/master:base/base_switches.cc</para>
+      /// </remarks>
+      property ForceFieldTrials                       : wvstring                           read FForceFieldTrials                        write FForceFieldTrials;
+      /// <summary>
+      /// This option can be used to force parameters of field trials when testing
+      /// changes locally. The argument is a param list of (key, value) pairs prefixed
+      /// by an associated (trial, group) pair. You specify the param list for multiple
+      /// (trial, group) pairs with a comma separator.
+      /// Example: "Trial1.Group1:k1/v1/k2/v2,Trial2.Group2:k3/v3/k4/v4"
+      /// Trial names, groups names, parameter names, and value should all be URL
+      /// escaped for all non-alphanumeric characters.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --force-fieldtrial-params</see></para>
+      /// <para>https://source.chromium.org/chromium/chromium/src/+/master:components/variations/variations_switches.cc</para>
+      /// </remarks>
+      property ForceFieldTrialParams                  : wvstring                           read FForceFieldTrialParams                   write FForceFieldTrialParams;
+      /// <summary>
+      /// Workaround given my Microsoft to disable the SmartScreen protection.
+      /// </summary>
+      property SmartScreenProtectionEnabled           : boolean                            read FSmartScreenProtectionEnabled            write FSmartScreenProtectionEnabled;
+      /// <summary>
+      /// Enables TLS/SSL errors on localhost to be ignored (no interstitial, no blocking of requests).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --allow-insecure-localhost</see></para>
+      /// </remarks>
+      property AllowInsecureLocalhost                 : boolean                            read FAllowInsecureLocalhost                  write FAllowInsecureLocalhost;
+      /// <summary>
+      /// Don't enforce the same-origin policy.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-web-security</see></para>
+      /// </remarks>
+      property DisableWebSecurity                     : boolean                            read FDisableWebSecurity                      write FDisableWebSecurity;
+      /// <summary>
+      /// Enable support for touch event feature detection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --touch-events</see></para>
+      /// </remarks>
+      property TouchEvents                            : TWVState                           read FTouchEvents                             write FTouchEvents;
+      /// <summary>
+      /// Don't send hyperlink auditing pings.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --no-pings</see></para>
+      /// </remarks>
+      property HyperlinkAuditing                      : boolean                            read FHyperlinkAuditing                       write FHyperlinkAuditing;
+      /// <summary>
+      /// Autoplay policy.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --autoplay-policy</see></para>
+      /// </remarks>
+      property AutoplayPolicy                         : TWVAutoplayPolicy                  read FAutoplayPolicy                          write FAutoplayPolicy;
+      /// <summary>
+      /// Mutes audio sent to the audio device so it is not audible during automated testing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --mute-audio</see></para>
+      /// </remarks>
+      property MuteAudio                              : boolean                            read FMuteAudio                               write FMuteAudio;
+      /// <summary>
+      /// Default encoding.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://bitbucket.org/chromiumembedded/cef/src/master/libcef/common/cef_switches.cc">Uses the following command line switch: --default-encoding</see></para>
+      /// </remarks>
+      property DefaultEncoding                        : wvstring                           read FDefaultEncoding                         write FDefaultEncoding;
+      /// <summary>
+      /// Enable automatically pressing the print button in print preview.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --kiosk-printing</see></para>
+      /// </remarks>
+      property KioskPrinting                          : boolean                            read FKioskPrinting                           write FKioskPrinting;
+      /// <summary>
+      /// Configure the browser to use a proxy server.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --no-proxy-server</see></para>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-auto-detect</see></para>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-bypass-list</see></para>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-pac-url</see></para>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-server</see></para>
+      /// </remarks>
+      property ProxySettings                          : TWVProxySettings                   read FProxySettings;
+      /// <summary>
+      /// By default, file:// URIs cannot read other file:// URIs. This is an override for developers who need the old behavior for testing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --allow-file-access-from-files</see></para>
+      /// </remarks>
+      property AllowFileAccessFromFiles               : boolean                            read FAllowFileAccessFromFiles                write FAllowFileAccessFromFiles;
+      /// <summary>
+      /// By default, an https page cannot run JavaScript, CSS or plugins from http URLs. This provides an override to get the old insecure behavior.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --allow-running-insecure-content</see></para>
+      /// </remarks>
+      property AllowRunningInsecureContent            : boolean                            read FAllowRunningInsecureContent             write FAllowRunningInsecureContent;
+      /// <summary>
+      /// Disable several subsystems which run network requests in the background.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --disable-background-networking</see></para>
+      /// </remarks>
+      property DisableBackgroundNetworking            : boolean                            read FDisableBackgroundNetworking             write FDisableBackgroundNetworking;
+      /// <summary>
+      /// Overrides the device scale factor for the browser UI and the contents.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --force-device-scale-factor</see></para>
+      /// </remarks>
+      property ForcedDeviceScaleFactor                : single                             read FForcedDeviceScaleFactor                 write FForcedDeviceScaleFactor;
+      /// <summary>
+      /// Set to a value between 1024 and 65535 to enable remote debugging on the
+      /// specified port. Also configurable using the "remote-debugging-port"
+      /// command-line switch. Remote debugging can be accessed by loading the
+      /// chrome://inspect page in Google Chrome. Port numbers 9222 and 9229 are
+      /// discoverable by default. Other port numbers may need to be configured via
+      /// "Discover network targets" on the Devices tab.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --remote-debugging-port</see></para>
+      /// </remarks>
+      property RemoteDebuggingPort                    : integer                            read FRemoteDebuggingPort                     write FRemoteDebuggingPort;
+      /// <summary>
+      /// Enables web socket connections from the specified origins only. '*' allows any origin.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --remote-allow-origins</see></para>
+      /// </remarks>
+      property RemoteAllowOrigins                     : wvstring                           read FRemoteAllowOrigins                      write FRemoteAllowOrigins;
+      /// <summary>
+      /// Force logging to be enabled. Logging is disabled by default in release builds.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --enable-logging</see></para>
+      /// </remarks>
+      property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;
+      /// <summary>
+      /// Sets the minimum log level. Valid values are from 0 to 3: INFO = 0, WARNING = 1, LOG_ERROR = 2, LOG_FATAL = 3.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --log-level</see></para>
+      /// </remarks>
+      property DebugLogLevel                          : TWV2DebugLogLevel                  read FDebugLogLevel                           write FDebugLogLevel;
+      /// <summary>
+      /// Specifies the flags passed to JS engine.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --js-flags</see></para>
+      /// </remarks>
+      property JavaScriptFlags                        : wvstring                           read FJavaScriptFlags                         write FJavaScriptFlags;
+      /// <summary>
+      /// Workaround given my Microsoft to disable the "Download Edge" notifications.
+      /// </summary>
+      property DisableEdgePitchNotification           : boolean                            read FDisableEdgePitchNotification            write FDisableEdgePitchNotification;
+      /// <summary>
+      /// Treat given (insecure) origins as secure origins.
+      /// Multiple origins can be supplied as a comma-separated list.
+      /// For the definition of secure contexts, see https://w3c.github.io/webappsec-secure-contexts/
+      /// and https://www.w3.org/TR/powerful-features/#is-origin-trustworthy
+      /// Example: --unsafely-treat-insecure-origin-as-secure=http://a.test,http://b.test
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --unsafely-treat-insecure-origin-as-secure</see></para>
+      /// </remarks>
+      property TreatInsecureOriginAsSecure            : wvstring                           read FTreatInsecureOriginAsSecure             write FTreatInsecureOriginAsSecure;
+      /// <summary>
+      /// Bypasses the dialog prompting the user for permission to capture cameras and microphones.
+      /// Useful in automatic tests of video-conferencing Web applications. This is nearly
+      /// identical to kUseFakeUIForMediaStream, with the exception being that this flag does NOT
+      /// affect screen-capture.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --auto-accept-camera-and-microphone-capture</see></para>
+      /// </remarks>
+      property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;
 
       // ICoreWebView2Environment3 properties
       property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;
