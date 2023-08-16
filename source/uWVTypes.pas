@@ -372,7 +372,10 @@ type
   /// <summary>
   /// Debug log values used by TWVLoader.DebugLog
   /// </summary>
-  TWV2DebugLog = (dlDisabled, dlEnabled, dlEnabledStdOut, dlEnabledStdErr);
+  TWV2DebugLog = (dlDisabled,
+                  dlEnabled,
+                  dlEnabledStdOut,
+                  dlEnabledStdErr);
 
   /// <summary>
   /// Debug log level used when the logging is enabled

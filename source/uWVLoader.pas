@@ -218,7 +218,7 @@ type
       /// </summary>
       property ReRaiseExceptions                      : boolean                            read FReRaiseExceptions                       write FReRaiseExceptions;
       /// <summary>
-      /// Return the installed WebView2 runtime version.
+      /// Returns the installed WebView2 runtime version.
       /// </summary>
       property InstalledRuntimeVersion                : wvstring                           read GetInstalledRuntimeVersion;
       /// <summary>
@@ -232,18 +232,97 @@ type
       /// <para><see href="https://github.com/jchv/OpenWebView2Loader">See the OpenWebView2Loader project repository at GitHub.</see></para>
       /// </remarks>
       property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
-
-      // Properties used to create the environment
-      property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;                        // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
-      property UserDataFolder                         : wvstring                           read FUserDataFolder                          write FUserDataFolder;                         // CreateCoreWebView2EnvironmentWithOptions "userDataFolder" parameter
-      property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;             // ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments
-      property Language                               : wvstring                           read FLanguage                                write FLanguage;                               // ICoreWebView2EnvironmentOptions.get_Language
-      property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;         // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
-      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount; // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
-      property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;          // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
-      property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;            // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
-      property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;               // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
-
+      /// <summary>
+      /// Use BrowserExecPath to specify whether WebView2 controls use a fixed or
+      /// installed version of the WebView2 Runtime that exists on a user machine.
+      /// To use a fixed version of the WebView2 Runtime, pass the folder path that
+      /// contains the fixed version of the WebView2 Runtime to BrowserExecPath.
+      /// BrowserExecPath supports both relative (to the application's executable)
+      /// and absolute files paths. To create WebView2 controls that use the installed
+      /// version of the WebView2 Runtime that exists on user machines,
+      /// pass an empty string to BrowserExecPath.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as the browserExecutableFolder parameter of CreateCoreWebView2EnvironmentWithOptions.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">See the Globals article.</see></para>
+      /// </remarks>
+      property BrowserExecPath                        : wvstring                           read FBrowserExecPath                         write FBrowserExecPath;
+      /// <summary>
+      /// You may specify the userDataFolder to change the default user data folder
+      /// location for WebView2. The path is either an absolute file path or a relative
+      /// file path that is interpreted as relative to the compiled code for the
+      /// current process.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as the userDataFolder parameter of CreateCoreWebView2EnvironmentWithOptions.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">See the Globals article.</see></para>
+      /// </remarks>
+      property UserDataFolder                         : wvstring                           read FUserDataFolder                          write FUserDataFolder;
+      /// <summary>
+      /// Additional command line switches.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;
+      /// <summary>
+      /// The default display language for WebView.  It applies to browser UI such as
+      /// context menu and dialogs.  It also applies to the `accept-languages` HTTP
+      /// header that WebView sends to websites.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_Language.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property Language                               : wvstring                           read FLanguage                                write FLanguage;
+      /// <summary>
+      /// Specifies the version of the WebView2 Runtime binaries required to be
+      /// compatible with your app.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property TargetCompatibleBrowserVersion         : wvstring                           read FTargetCompatibleBrowserVersion          write FTargetCompatibleBrowserVersion;
+      /// <summary>
+      /// Used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft
+      /// Account (MSA) resources inside WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property AllowSingleSignOnUsingOSPrimaryAccount : boolean                            read FAllowSingleSignOnUsingOSPrimaryAccount  write FAllowSingleSignOnUsingOSPrimaryAccount;
+      /// <summary>
+      /// Whether other processes can create WebView2 from WebView2Environment created with the
+      /// same user data folder and therefore sharing the same WebView browser process instance.
+      /// Default is FALSE.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
+      /// </remarks>
+      property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;
+      /// <summary>
+      /// When `CustomCrashReportingEnabled` is set to `TRUE`, Windows won't send crash data to Microsoft endpoint.
+      /// `CustomCrashReportingEnabled` is default to be `FALSE`, in this case, WebView will respect OS consent.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3">See the ICoreWebView2EnvironmentOptions3 article.</see></para>
+      /// </remarks>
+      property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;
+      /// <summary>
+      /// The `EnableTrackingPrevention` property is used to enable/disable tracking prevention
+      /// feature in WebView2. This property enable/disable tracking prevention for all the
+      /// WebView2's created in the same environment.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
+      /// </remarks>
+      property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;
       /// <summary>
       /// Enable GPU hardware acceleration.
       /// </summary>
@@ -459,7 +538,7 @@ type
       /// </remarks>
       property DebugLog                               : TWV2DebugLog                       read FDebugLog                                write FDebugLog;
       /// <summary>
-      /// Sets the minimum log level. Valid values are from 0 to 3: INFO = 0, WARNING = 1, LOG_ERROR = 2, LOG_FATAL = 3.
+      /// Sets the minimum log level.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --log-level</see></para>
@@ -497,34 +576,105 @@ type
       /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --auto-accept-camera-and-microphone-capture</see></para>
       /// </remarks>
       property AutoAcceptCamAndMicCapture             : boolean                            read FAutoAcceptCamAndMicCapture              write FAutoAcceptCamAndMicCapture;
-
-      // ICoreWebView2Environment3 properties
+      /// <summary>
+      /// Returns true if the current WebView2 runtime version supports Composition Controllers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3">See the ICoreWebView2Environment3 article.</see></para>
+      /// </remarks>
       property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;
-
-      // ICoreWebView2Environment8 properties
+      /// <summary>
+      /// Returns the `ICoreWebView2ProcessInfoCollection`
+      /// Provide a list of all process using same user data folder except for crashpad process.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8">See the ICoreWebView2Environment8 article.</see></para>
+      /// </remarks>
       property ProcessInfos                           : ICoreWebView2ProcessInfoCollection read GetProcessInfos;
-
-      // ICoreWebView2Environment10 properties
+      /// <summary>
+      /// Returns true if the current WebView2 runtime version supports Controller Options.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10">See the ICoreWebView2Environment10 article.</see></para>
+      /// </remarks>
       property SupportsControllerOptions              : boolean                            read GetSupportsControllerOptions;
-
-      // ICoreWebView2Environment11 properties
+      /// <summary>
+      /// `FailureReportFolderPath` returns the path of the folder where minidump files are written.
+      /// Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder.
+      /// The crash dump format is minidump files. Please see
+      /// [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.
+      /// Normally when a single child process fails, a minidump will be generated and written to disk,
+      /// then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated
+      /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
+      /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
+      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
+      /// \snippet AppWindow.cpp GetFailureReportFolder
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11">See the ICoreWebView2Environment11 article.</see></para>
+      /// </remarks>
       property FailureReportFolderPath                : wvstring                           read GetFailureReportFolderPath;
 
-      // Custom events
+      /// <summary>
+      /// OnEnvironmentCreated is triggered when the Environment is successfully created and Status is wvlsInitialized.
+      /// </summary>
       property OnEnvironmentCreated                   : TLoaderNotifyEvent                      read FOnEnvironmentCreated                    write FOnEnvironmentCreated;
+      /// <summary>
+      /// OnInitializationError is triggered when there was a problem creating the Environment ans Status is wvlsError. ErrorCode and ErrorMessage have more details about this error.
+      /// </summary>
       property OnInitializationError                  : TLoaderNotifyEvent                      read FOnInitializationError                   write FOnInitializationError;
+      /// <summary>
+      /// OnGetCustomSchemes is triggered to register custom schemes. Fill the aCustomSchemes event parameter with
+      /// all the information to create one or more ICoreWebView2CustomSchemeRegistration instances that will be used
+      /// during the creation of the Environment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see cref="uWVTypes|TWVCustomSchemeInfo">See TWVCustomSchemeInfo.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">See the ICoreWebView2CustomSchemeRegistration article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">See the ICoreWebView2EnvironmentOptions4 article.</see></para>
+      /// </remarks>
       property OnGetCustomSchemes                     : TLoaderGetCustomSchemesEvent            read FOnGetCustomSchemes                      write FOnGetCustomSchemes;
-
-      // ICoreWebView2Environment events
+      /// <summary>
+      /// OnNewBrowserVersionAvailable runs when a newer version of the WebView2
+      /// Runtime is installed and available using WebView2.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
       property OnNewBrowserVersionAvailable           : TLoaderNewBrowserVersionAvailableEvent  read FOnNewBrowserVersionAvailable            write FOnNewBrowserVersionAvailable;
-
-      // ICoreWebView2Environment5 events
+      /// <summary>
+      /// The OnBrowserProcessExited event is triggered when the collection of WebView2
+      /// Runtime processes for the browser process of this environment terminate
+      /// due to browser process failure or normal shutdown (for example, when all
+      /// associated WebViews are closed), after all resources have been released
+      /// (including the user data folder).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5">See the ICoreWebView2Environment5 article.</see></para>
+      /// </remarks>
       property OnBrowserProcessExited                 : TLoaderBrowserProcessExitedEvent        read FOnBrowserProcessExited                  write FOnBrowserProcessExited;
-
-      // ICoreWebView2Environment8 events
+      /// <summary>
+      /// OnProcessInfosChanged is triggered when the ProcessInfos property has changed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8">See the ICoreWebView2Environment8 article.</see></para>
+      /// </remarks>
       property OnProcessInfosChanged                  : TLoaderProcessInfosChangedEvent         read FOnProcessInfosChanged                   write FOnProcessInfosChanged;
   end;
 
+  /// <summary>
+  /// Class used by the TWVLoader.ProxySettigns property to configure
+  /// a custom proxy server using the following command line switches:
+  /// --no-proxy-server, --proxy-auto-detect, --proxy-bypass-list,
+  /// --proxy-pac-url and --proxy-server.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --no-proxy-server</see></para>
+  /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-auto-detect</see></para>
+  /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-bypass-list</see></para>
+  /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-pac-url</see></para>
+  /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --proxy-server</see></para>
+  /// </remarks>
   TWVProxySettings = class
     protected
       FNoProxyServer : boolean;
@@ -544,6 +694,12 @@ type
   end;
 
 var
+  /// <summary>
+  /// Global instance of TWVLoader used to simplify the WebView2 initialization and destruction.
+  /// </summary>
+  /// <remarks>
+  /// <para><see cref="uWVLoader|TWVLoader">See TWVLoader.</see></para>
+  /// </remarks>
   GlobalWebView2Loader : TWVLoader = nil;
 
 procedure DestroyGlobalWebView2Loader;

@@ -118,7 +118,7 @@ var
   i : integer;
 begin
   if assigned(FSchemeRegistrations) then
-    begin
+    try
       i := pred(length(FSchemeRegistrations));
 
       while (i >= 0) do
@@ -126,7 +126,7 @@ begin
           FSchemeRegistrations[i] := nil;
           dec(i);
         end;
-
+    finally
       SetLength(FSchemeRegistrations, 0);
     end;
 end;
