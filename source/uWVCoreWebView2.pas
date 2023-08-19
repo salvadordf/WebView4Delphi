@@ -136,41 +136,684 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
       destructor  Destroy; override;
       procedure   AfterConstruction; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Subscribe to a DevTools protocol event. The TWVBrowserBase.OnDevToolsProtocolEventReceived
+      /// event will be triggered on each DevTools event.
+      /// </summary>
+      /// <param name="aEventName">The DevTools protocol event name.</param>
+      /// <param name="aEventID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    SubscribeToDevToolsProtocolEvent(const aEventName: wvstring; aEventID : integer; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Capture an image of what WebView is displaying.  Specify the format of
+      /// the image with the aImageFormat parameter.  The resulting image binary
+      /// data is written to the provided aImageStream parameter. This method fails if called
+      /// before the first ContentLoading event.  For example if this is called in
+      /// the NavigationStarting event for the first navigation it will fail.
+      /// For subsequent navigations, the method may not fail, but will not capture
+      /// an image of a given webpage until the ContentLoading event has been fired
+      /// for it.  Any call to this method prior to that will result in a capture of
+      /// the page being navigated away from. When this function finishes writing to the stream,
+      /// the TWVBrowserBase.OnCapturePreviewCompleted event is triggered.
+      /// </summary>
+      /// <param name="aImageFormat">The format of the image.</param>
+      /// <param name="aImageStream">The resulting image binary data is written to this stream.</param>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// <para>Run JavaScript code from the JavaScript parameter in the current
+      /// top-level document rendered in the WebView.
+      /// The TWVBrowserBase.OnExecuteScriptCompleted event is triggered
+      /// when it finishes.</para>
+      /// <para>The result of evaluating the provided JavaScript is available in the
+      /// aResultObjectAsJson parameter of the TWVBrowserBase.OnExecuteScriptCompleted
+      /// event as a JSON encoded string.  If the result is undefined, contains a reference
+      /// cycle, or otherwise is not able to be encoded into JSON, then the result
+      /// is considered to be null, which is encoded in JSON as the string "null".
+      /// If the script that was run throws an unhandled exception, then the result is
+      /// also "null".</para>
+      /// <para>If the method is run after the `NavigationStarting` event during a navigation,
+      /// the script runs in the new document when loading it, around the time
+      /// `ContentLoading` is run.  This operation executes the script even if
+      /// `ICoreWebView2Settings.IsScriptEnabled` is set to `FALSE`.</para>
+      /// </summary>
+      /// <param name="JavaScript">The JavaScript code.</param>
+      /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    ExecuteScript(const JavaScript : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Navigates the WebView to the previous page in the navigation history.
+      /// </summary>
       function    GoBack : boolean;
+      /// <summary>
+      /// Navigates the WebView to the next page in the navigation history.
+      /// </summary>
       function    GoForward : boolean;
+      /// <summary>
+      /// Cause a navigation of the top-level document to run to the specified URI.
+      /// </summary>
       function    Navigate(const aURI : wvstring) : boolean;
+      /// <summary>
+      /// Initiates a navigation to aHTMLContent as source HTML of a new document.
+      /// The `aHTMLContent` parameter may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size.
+      /// The origin of the new page is `about:blank`.
+      /// </summary>
       function    NavigateToString(const aHTMLContent : wvstring) : boolean;
+      /// <summary>
+      /// Navigates using a constructed ICoreWebView2WebResourceRequest object. This lets you
+      /// provide post data or additional request headers during navigation.
+      /// The headers in aRequest override headers added by WebView2 runtime except for Cookie headers.
+      /// Method can only be either "GET" or "POST". Provided post data will only
+      /// be sent only if the method is "POST" and the uri scheme is HTTP(S).
+      /// </summary>
       function    NavigateWithWebResourceRequest(const aRequest : ICoreWebView2WebResourceRequest) : boolean;
+      /// <summary>
+      /// Reload the current page.  This is similar to navigating to the URI of
+      /// current top level document including all navigation events firing and
+      /// respecting any entries in the HTTP cache.  But, the back or forward
+      /// history are not modified.
+      /// </summary>
       function    Reload : boolean;
+      /// <summary>
+      /// Stop all navigations and pending resource fetches. Does not stop scripts.
+      /// </summary>
       function    Stop : boolean;
+      /// <summary>
+      /// An app may call the `TrySuspend` API to have the WebView2 consume less memory.
+      /// This is useful when a Win32 app becomes invisible, or when a Universal Windows
+      /// Platform app is being suspended, during the suspended event handler before completing
+      /// the suspended event.
+      /// The CoreWebView2Controller's IsVisible property must be false when the API is called.
+      /// Otherwise, the API fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.
+      /// Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses
+      /// WebView script timers and animations, minimizes CPU usage for the associated
+      /// browser renderer process and allows the operating system to reuse the memory that was
+      /// used by the renderer process for other processes.
+      /// Note that Suspend is best effort and considered completed successfully once the request
+      /// is sent to browser renderer process. If there is a running script, the script will continue
+      /// to run and the renderer process will be suspended after that script is done.
+      /// See [Sleeping Tabs FAQ](https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434)
+      /// for conditions that might prevent WebView from being suspended. In those situations,
+      /// the completed handler will be invoked with isSuccessful as false and errorCode as S_OK.
+      /// The WebView will be automatically resumed when it becomes visible. Therefore, the
+      /// app normally does not have to call `Resume` explicitly.
+      /// The app can call `Resume` and then `TrySuspend` periodically for an invisible WebView so that
+      /// the invisible WebView can sync up with latest data and the page ready to show fresh content
+      /// when it becomes visible.
+      /// All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate
+      /// will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property
+      /// before calling APIs that might change WebView state.
+      ///
+      /// \snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
+      ///
+      /// \snippet ViewComponent.cpp Suspend
+      /// </summary>
       function    TrySuspend(const aHandler: ICoreWebView2TrySuspendCompletedHandler) : boolean;
+      /// <summary>
+      /// Resumes the WebView so that it resumes activities on the web page.
+      /// This API can be called while the WebView2 controller is invisible.
+      /// The app can interact with the WebView immediately after `Resume`.
+      /// WebView will be automatically resumed when it becomes visible.
+      ///
+      /// \snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
+      ///
+      /// \snippet ViewComponent.cpp Resume
+      /// </summary>
       function    Resume : boolean;
+      /// <summary>
+      /// Sets a mapping between a virtual host name and a folder path to make available to web sites
+      /// via that host name.
+      ///
+      /// After setting the mapping, documents loaded in the WebView can use HTTP or HTTPS URLs at
+      /// the specified host name specified by hostName to access files in the local folder specified
+      /// by folderPath.
+      ///
+      /// This mapping applies to both top-level document and iframe navigations as well as subresource
+      /// references from a document. This also applies to web workers including dedicated/shared worker
+      /// and service worker, for loading either worker scripts or subresources
+      /// (importScripts(), fetch(), XHR, etc.) issued from within a worker.
+      /// For virtual host mapping to work with service worker, please keep the virtual host name
+      /// mappings consistent among all WebViews sharing the same browser instance. As service worker
+      /// works independently of WebViews, we merge mappings from all WebViews when resolving virtual
+      /// host name, inconsistent mappings between WebViews would lead unexpected behavior.
+      ///
+      /// Due to a current implementation limitation, media files accessed using virtual host name can be
+      /// very slow to load.
+      /// As the resource loaders for the current page might have already been created and running,
+      /// changes to the mapping might not be applied to the current page and a reload of the page is
+      /// needed to apply the new mapping.
+      ///
+      /// Both absolute and relative paths are supported for folderPath. Relative paths are interpreted
+      /// as relative to the folder where the exe of the app is in.
+      ///
+      /// Note that the folderPath length must not exceed the Windows MAX_PATH limit.
+      ///
+      /// accessKind specifies the level of access to resources under the virtual host from other sites.
+      ///
+      /// For example, after calling
+      /// ```cpp
+      ///    SetVirtualHostNameToFolderMapping(
+      ///        L"appassets.example", L"assets",
+      ///        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY);
+      /// ```
+      /// navigating to `https://appassets.example/my-local-file.html` will
+      /// show the content from my-local-file.html in the assets subfolder located on disk under
+      /// the same path as the app's executable file.
+      ///
+      /// DOM elements that want to reference local files will have their host reference virtual host in the source.
+      /// If there are multiple folders being used, define one unique virtual host per folder.
+      /// For example, you can embed a local image like this
+      /// ```cpp
+      ///    WCHAR c_navString[] = L"<img src=\"http://appassets.example/wv2.png\"/>";
+      ///    m_webView->NavigateToString(c_navString);
+      /// ```
+      /// The example above shows the image wv2.png by resolving the folder mapping above.
+      ///
+      /// You should typically choose virtual host names that are never used by real sites.
+      /// If you own a domain such as example.com, another option is to use a subdomain reserved for
+      /// the app (like my-app.example.com).
+      ///
+      /// [RFC 6761](https://tools.ietf.org/html/rfc6761) has reserved several special-use domain
+      /// names that are guaranteed to not be used by real sites (for example, .example, .test, and
+      /// .invalid.)
+      ///
+      /// Note that using `.local` as the top-level domain name will work but can cause a delay
+      /// during navigations. You should avoid using `.local` if you can.
+      ///
+      /// Apps should use distinct domain names when mapping folder from different sources that
+      /// should be isolated from each other. For instance, the app might use app-file.example for
+      /// files that ship as part of the app, and book1.example might be used for files containing
+      /// books from a less trusted source that were previously downloaded and saved to the disk by
+      /// the app.
+      ///
+      /// The host name used in the APIs is canonicalized using Chromium's host name parsing logic
+      /// before being used internally. For more information see [HTML5 2.6 URLs](https://dev.w3.org/html5/spec-LC/urls.html).
+      ///
+      /// All host names that are canonicalized to the same string are considered identical.
+      /// For example, `EXAMPLE.COM` and `example.com` are treated as the same host name.
+      /// An international host name and its Punycode-encoded host name are considered the same host
+      /// name. There is no DNS resolution for host name and the trailing '.' is not normalized as
+      /// part of canonicalization.
+      ///
+      /// Therefore `example.com` and `example.com.` are treated as different host names. Similarly,
+      /// `virtual-host-name` and `virtual-host-name.example.com` are treated as different host names
+      /// even if the machine has a DNS suffix of `example.com`.
+      ///
+      /// Specify the minimal cross-origin access necessary to run the app. If there is not a need to
+      /// access local resources from other origins, use COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY.
+      ///
+      /// \snippet AppWindow.cpp AddVirtualHostNameToFolderMapping
+      ///
+      /// \snippet AppWindow.cpp LocalUrlUsage
+      /// </summary>
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
+      /// <summary>
+      /// Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`.
+      /// </summary>
       function    ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
+      /// <summary>
+      /// Opens the Browser Task Manager view as a new window in the foreground.
+      /// If the Browser Task Manager is already open, this will bring it into
+      /// the foreground. WebView2 currently blocks the Shift+Esc shortcut for
+      /// opening the task manager. An end user can open the browser task manager
+      /// manually via the `Browser task manager` entry of the DevTools window's
+      /// title bar's context menu.
+      /// </summary>
       function    OpenTaskManagerWindow : boolean;
+      /// <summary>
+      /// Print the current page to PDF asynchronously with the provided settings.
+      /// See `ICoreWebView2PrintSettings` for description of settings. Passing
+      /// nullptr for `printSettings` results in default print settings used.
+      ///
+      /// Use `resultFilePath` to specify the path to the PDF file. The host should
+      /// provide an absolute path, including file name. If the path
+      /// points to an existing file, the file will be overwritten. If the path is
+      /// not valid, the method fails with `E_INVALIDARG`.
+      ///
+      /// The async `PrintToPdf` operation completes when the data has been written
+      /// to the PDF file. At this time the
+      /// `ICoreWebView2PrintToPdfCompletedHandler` is invoked. If the
+      /// application exits before printing is complete, the file is not saved.
+      /// Only one `Printing` operation can be in progress at a time. If
+      /// `PrintToPdf` is called while a `PrintToPdf` or `PrintToPdfStream` or `Print` or
+      /// `ShowPrintUI` job is in progress, the completed handler is immediately invoked
+      /// with `isSuccessful` set to FALSE.
+      ///
+      /// \snippet FileComponent.cpp PrintToPdf
+      /// </summary>
       function    PrintToPdf(const aResultFilePath : wvstring; const aPrintSettings : ICoreWebView2PrintSettings; const aHandler : ICoreWebView2PrintToPdfCompletedHandler) : boolean;
+      /// <summary>
+      /// Opens the DevTools window for the current document in the WebView. Does
+      /// nothing if run when the DevTools window is already open.
+      /// </summary>
       function    OpenDevToolsWindow : boolean;
+      /// <summary>
+      /// Post the specified webMessage to the top level document in this WebView.
+      /// The main page receives the message by subscribing to the `message` event of the
+      /// `window.chrome.webview` of the page document.
+      ///
+      /// ```cpp
+      /// window.chrome.webview.addEventListener('message', handler)
+      /// window.chrome.webview.removeEventListener('message', handler)
+      /// ```
+      ///
+      /// The event args is an instance of `MessageEvent`.  The
+      /// `ICoreWebView2Settings::IsWebMessageEnabled` setting must be `TRUE` or
+      /// the web message will not be sent. The `data` property of the event
+      /// arg is the `webMessage` string parameter parsed as a JSON string into a
+      /// JavaScript object.  The `source` property of the event arg is a reference
+      ///  to the `window.chrome.webview` object.  For information about sending
+      /// messages from the HTML document in the WebView to the host, navigate to
+      /// [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived).
+      /// The message is delivered asynchronously.  If a navigation occurs before
+      /// the message is posted to the page, the message is discarded.
+      ///
+      /// \snippet ScenarioWebMessage.cpp WebMessageReceived
+      /// </summary>
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
+      /// <summary>
+      /// Posts a message that is a simple string rather than a JSON string
+      /// representation of a JavaScript object.  This behaves in exactly the same
+      /// manner as `PostWebMessageAsJson`, but the `data` property of the event
+      /// arg of the `window.chrome.webview` message is a string with the same
+      /// value as `webMessageAsString`.  Use this instead of
+      /// `PostWebMessageAsJson` if you want to communicate using simple strings
+      /// rather than JSON objects.
+      /// </summary>
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
+      /// <summary>
+      /// Runs an asynchronous `DevToolsProtocol` method.  For more information
+      /// about available methods, navigate to
+      /// [DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/tot)
+      /// .  The `methodName` parameter is the full name of the method in the
+      /// `{domain}.{method}` format.  The `parametersAsJson` parameter is a JSON
+      /// formatted string containing the parameters for the corresponding method.
+      /// The `Invoke` method of the `handler` is run when the method
+      /// asynchronously completes.  `Invoke` is run with the return object of the
+      /// method as a JSON string.  This function returns E_INVALIDARG if the `methodName` is
+      /// unknown or the `parametersAsJson` has an error.  In the case of such an error, the
+      /// `returnObjectAsJson` parameter of the handler will include information
+      /// about the error.
+      /// Note even though WebView2 dispatches the CDP messages in the order called,
+      /// CDP method calls may be processed out of order.
+      /// If you require CDP methods to run in a particular order, you should wait
+      /// for the previous method's completed handler to run before calling the
+      /// next method.
+      ///
+      /// \snippet ScriptComponent.cpp CallDevToolsProtocolMethod
+      /// </summary>
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Runs an asynchronous `DevToolsProtocol` method for a specific session of
+      /// an attached target.
+      /// There could be multiple `DevToolsProtocol` targets in a WebView.
+      /// Besides the top level page, iframes from different origin and web workers
+      /// are also separate targets. Attaching to these targets allows interaction with them.
+      /// When the DevToolsProtocol is attached to a target, the connection is identified
+      /// by a sessionId.
+      /// To use this API, you must set the `flatten` parameter to true when calling
+      /// `Target.attachToTarget` or `Target.setAutoAttach` `DevToolsProtocol` method.
+      /// Using `Target.setAutoAttach` is recommended as that would allow you to attach
+      /// to dedicated worker targets, which are not discoverable via other APIs like
+      /// `Target.getTargets`.
+      /// For more information about targets and sessions, navigate to
+      /// [DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/tot/Target).
+      /// For more information about available methods, navigate to
+      /// [DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/tot)
+      /// The `sessionId` parameter is the sessionId for an attached target.
+      /// nullptr or empty string is treated as the session for the default target for the top page.
+      /// The `methodName` parameter is the full name of the method in the
+      /// `{domain}.{method}` format.  The `parametersAsJson` parameter is a JSON
+      /// formatted string containing the parameters for the corresponding method.
+      /// The `Invoke` method of the `handler` is run when the method
+      /// asynchronously completes.  `Invoke` is run with the return object of the
+      /// method as a JSON string.  This function returns E_INVALIDARG if the `methodName` is
+      /// unknown or the `parametersAsJson` has an error.  In the case of such an error, the
+      /// `returnObjectAsJson` parameter of the handler will include information
+      /// about the error.
+      ///
+      /// \snippet ScriptComponent.cpp DevToolsProtocolMethodMultiSession
+      ///
+      /// \snippet ScriptComponent.cpp CallDevToolsProtocolMethodForSession
+      /// </summary>
       function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Adds a URI and resource context filter for the `WebResourceRequested`
+      /// event.  A web resource request with a resource context that matches this
+      /// filter's resource context and a URI that matches this filter's URI
+      /// wildcard string will be raised via the `WebResourceRequested` event.
+      ///
+      /// The `uri` parameter value is a wildcard string matched against the URI
+      /// of the web resource request. This is a glob style
+      /// wildcard string in which a `*` matches zero or more characters and a `?`
+      /// matches exactly one character.
+      /// These wildcard characters can be escaped using a backslash just before
+      /// the wildcard character in order to represent the literal `*` or `?`.
+      ///
+      /// The matching occurs over the URI as a whole string and not limiting
+      /// wildcard matches to particular parts of the URI.
+      /// The wildcard filter is compared to the URI after the URI has been
+      /// normalized, any URI fragment has been removed, and non-ASCII hostnames
+      /// have been converted to punycode.
+      ///
+      /// Specifying a `nullptr` for the uri is equivalent to an empty string which
+      /// matches no URIs.
+      ///
+      /// For more information about resource context filters, navigate to
+      /// [COREWEBVIEW2_WEB_RESOURCE_CONTEXT](/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_web_resource_context).
+      ///
+      /// | URI Filter String | Request URI | Match | Notes |
+      /// | ---- | ---- | ---- | ---- |
+      /// | `*` | `https://contoso.com/a/b/c` | Yes | A single * will match all URIs |
+      /// | `*://contoso.com/*` | `https://contoso.com/a/b/c` | Yes | Matches everything in contoso.com across all schemes |
+      /// | `*://contoso.com/*` | `https://example.com/?https://contoso.com/` | Yes | But also matches a URI with just the same text anywhere in the URI |
+      /// | `example` | `https://contoso.com/example` | No | The filter does not perform partial matches |
+      /// | `*example` | `https://contoso.com/example` | Yes | The filter matches across URI parts  |
+      /// | `*example` | `https://contoso.com/path/?example` | Yes | The filter matches across URI parts |
+      /// | `*example` | `https://contoso.com/path/?query#example` | No | The filter is matched against the URI with no fragment |
+      /// | `*example` | `https://example` | No | The URI is normalized before filter matching so the actual URI used for comparison is `https://example/` |
+      /// | `*example/` | `https://example` | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
+      /// | `https://xn--qei.example/` | `https://&#x2764;.example/` | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// | `https://&#x2764;.example/` | `https://xn--qei.example/` | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// </summary>
       function    AddWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
+      /// <summary>
+      /// Removes a matching WebResource filter that was previously added for the
+      /// `WebResourceRequested` event.  If the same filter was added multiple
+      /// times, then it must be removed as many times as it was added for the
+      /// removal to be effective.  Returns `E_INVALIDARG` for a filter that was
+      /// never added.
+      /// </summary>
       function    RemoveWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
+      /// <summary>
+      /// Add the provided host object to script running in the WebView with the
+      /// specified name.  Host objects are exposed as host object proxies using
+      /// `window.chrome.webview.hostObjects.{name}`.  Host object proxies are
+      /// promises and resolves to an object representing the host object.  The
+      /// promise is rejected if the app has not added an object with the name.
+      /// When JavaScript code access a property or method of the object, a promise
+      ///  is return, which resolves to the value returned from the host for the
+      /// property or method, or rejected in case of error, for example, no
+      /// property or method on the object or parameters are not valid.
+      ///
+      /// \> [!NOTE]\n\> While simple types, `IDispatch` and array are supported, and
+      /// `IUnknown` objects that also implement `IDispatch` are treated as `IDispatch`,
+      /// generic `IUnknown`, `VT_DECIMAL`, or `VT_RECORD` variant is not supported.
+      /// Remote JavaScript objects like callback functions are represented as an
+      /// `VT_DISPATCH` `VARIANT` with the object implementing `IDispatch`.  The
+      /// JavaScript callback method may be invoked using `DISPID_VALUE` for the
+      /// `DISPID`.  Nested arrays are supported up to a depth of 3.  Arrays of by
+      /// reference types are not supported. `VT_EMPTY` and `VT_NULL` are mapped
+      /// into JavaScript as `null`.  In JavaScript, `null` and undefined are
+      /// mapped to `VT_EMPTY`.
+      ///
+      /// Additionally, all host objects are exposed as
+      /// `window.chrome.webview.hostObjects.sync.{name}`.  Here the host objects
+      /// are exposed as synchronous host object proxies. These are not promises
+      /// and function runtimes or property access synchronously block running
+      /// script waiting to communicate cross process for the host code to run.
+      /// Accordingly the result may have reliability issues and it is recommended
+      /// that you use the promise-based asynchronous
+      /// `window.chrome.webview.hostObjects.{name}` API.
+      ///
+      /// Synchronous host object proxies and asynchronous host object proxies may
+      /// both use a proxy to the same host object.  Remote changes made by one
+      /// proxy propagates to any other proxy of that same host object whether
+      /// the other proxies and synchronous or asynchronous.
+      ///
+      /// While JavaScript is blocked on a synchronous run to native code, that
+      /// native code is unable to run back to JavaScript.  Attempts to do so fail
+      ///  with `HRESULT_FROM_WIN32(ERROR_POSSIBLE_DEADLOCK)`.
+      ///
+      /// Host object proxies are JavaScript Proxy objects that intercept all
+      /// property get, property set, and method invocations. Properties or methods
+      ///  that are a part of the Function or Object prototype are run locally.
+      /// Additionally any property or method in the
+      /// `chrome.webview.hostObjects.options.forceLocalProperties`
+      /// array are also run locally.  This defaults to including optional methods
+      /// that have meaning in JavaScript like `toJSON` and `Symbol.toPrimitive`.
+      /// Add more to the array as required.
+      ///
+      /// The `chrome.webview.hostObjects.cleanupSome` method performs a best
+      /// effort garbage collection on host object proxies.
+      ///
+      /// The `chrome.webview.hostObjects.options` object provides the ability to
+      /// change some functionality of host objects.
+      ///
+      /// Options property | Details
+      /// ---|---
+      /// `forceLocalProperties` | This is an array of host object property names that will be run locally, instead of being called on the native host object. This defaults to `then`, `toJSON`, `Symbol.toString`, and `Symbol.toPrimitive`. You can add other properties to specify that they should be run locally on the javascript host object proxy.
+      /// `log` | This is a callback that will be called with debug information. For example, you can set this to `console.log.bind(console)` to have it print debug information to the console to help when troubleshooting host object usage. By default this is null.
+      /// `shouldSerializeDates` | By default this is false, and javascript Date objects will be sent to host objects as a string using `JSON.stringify`. You can set this property to true to have Date objects properly serialize as a `VT_DATE` when sending to the native host object, and have `VT_DATE` properties and return values create a javascript Date object.
+      /// `defaultSyncProxy` | When calling a method on a synchronous proxy, the result should also be a synchronous proxy. But in some cases, the sync/async context is lost (for example, when providing to native code a reference to a function, and then calling that function in native code). In these cases, the proxy will be asynchronous, unless this property is set.
+      /// `forceAsyncMethodMatches ` | This is an array of regular expressions. When calling a method on a synchronous proxy, the method call will be performed asynchronously if the method name matches a string or regular expression in this array. Setting this value to `Async` will make any method that ends with Async be an asynchronous method call. If an async method doesn't match here and isn't forced to be asynchronous, the method will be invoked synchronously, blocking execution of the calling JavaScript and then returning the resolution of the promise, rather than returning a promise.
+      /// `ignoreMemberNotFoundError` | By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to `true` switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning `undefined` with no error.
+      ///
+      /// Host object proxies additionally have the following methods which run
+      /// locally.
+      ///
+      /// Method name | Details
+      /// ---|---
+      ///`applyHostFunction`, `getHostProperty`, `setHostProperty` | Perform a method invocation, property get, or property set on the host object. Use the methods to explicitly force a method or property to run remotely if a conflicting local method or property exists.  For instance, `proxy.toString()` runs the local `toString` method on the proxy object. But proxy.applyHostFunction('toString') runs `toString` on the host proxied object instead.
+      ///`getLocalProperty`, `setLocalProperty` | Perform property get, or property set locally.  Use the methods to force getting or setting a property on the host object proxy rather than on the host object it represents. For instance, `proxy.unknownProperty` gets the property named `unknownProperty` from the host proxied object.  But proxy.getLocalProperty('unknownProperty') gets the value of the property `unknownProperty` on the proxy object.
+      ///`sync` | Asynchronous host object proxies expose a sync method which returns a promise for a synchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sample.methodCall()` returns an asynchronous host object proxy.  Use the `sync` method to obtain a synchronous host object proxy instead: `const syncProxy = await chrome.webview.hostObjects.sample.methodCall().sync()`.
+      ///`async` | Synchronous host object proxies expose an async method which blocks and returns an asynchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sync.sample.methodCall()` returns a synchronous host object proxy.  Running the `async` method on this blocks and then returns an asynchronous host object proxy for the same host object: `const asyncProxy = chrome.webview.hostObjects.sync.sample.methodCall().async()`.
+      ///`then` | Asynchronous host object proxies have a `then` method.  Allows proxies to be awaitable.  `then` returns a promise that resolves with a representation of the host object.  If the proxy represents a JavaScript literal, a copy of that is returned locally.  If the proxy represents a function, a non-awaitable proxy is returned.  If the proxy represents a JavaScript object with a mix of literal properties and function properties, the a copy of the object is returned with some properties as host object proxies.
+      ///
+      /// All other property and method invocations (other than the above Remote
+      /// object proxy methods, `forceLocalProperties` list, and properties on
+      /// Function and Object prototypes) are run remotely.  Asynchronous host
+      /// object proxies return a promise representing asynchronous completion of
+      /// remotely invoking the method, or getting the property.  The promise
+      /// resolves after the remote operations complete and the promises resolve to
+      ///  the resulting value of the operation.  Synchronous host object proxies
+      /// work similarly, but block running JavaScript and wait for the remote
+      /// operation to complete.
+      ///
+      /// Setting a property on an asynchronous host object proxy works slightly
+      /// differently.  The set returns immediately and the return value is the
+      /// value that is set.  This is a requirement of the JavaScript Proxy object.
+      /// If you need to asynchronously wait for the property set to complete, use
+      /// the `setHostProperty` method which returns a promise as described above.
+      /// Synchronous object property set property synchronously blocks until the
+      /// property is set.
+      ///
+      /// For example, suppose you have a COM object with the following interface.
+      ///
+      /// \snippet HostObjectSample.idl AddHostObjectInterface
+      ///
+      /// Add an instance of this interface into your JavaScript with
+      /// `AddHostObjectToScript`.  In this case, name it `sample`.
+      ///
+      /// \snippet ScenarioAddHostObject.cpp AddHostObjectToScript
+      ///
+      /// In the HTML document, use the COM object using
+      /// `chrome.webview.hostObjects.sample`.
+      ///
+      /// \snippet assets\ScenarioAddHostObject.html HostObjectUsage
+      ///
+      /// Exposing host objects to script has security risk.  For more information
+      /// about best practices, navigate to
+      /// [Best practices for developing secure WebView2 applications](/microsoft-edge/webview2/concepts/security).
+      /// </summary>
       function    AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;
+      /// <summary>
+      /// Remove the host object specified by the name so that it is no longer
+      /// accessible from JavaScript code in the WebView.  While new access
+      /// attempts are denied, if the object is already obtained by JavaScript code
+      /// in the WebView, the JavaScript code continues to have access to that
+      /// object.   Run this method for a name that is already removed or never
+      /// added fails.
+      /// </summary>
       function    RemoveHostObjectFromScript(const aName : wvstring) : boolean;
+      /// <summary>
+      /// Add the provided JavaScript to a list of scripts that should be run after
+      /// the global object has been created, but before the HTML document has
+      /// been parsed and before any other script included by the HTML document is
+      /// run.  This method injects a script that runs on all top-level document
+      /// and child frame page navigations.  This method runs asynchronously, and
+      /// you must wait for the completion handler to finish before the injected
+      /// script is ready to run.  When this method completes, the `Invoke` method
+      /// of the handler is run with the `id` of the injected script.  `id` is a
+      /// string.  To remove the injected script, use
+      /// `RemoveScriptToExecuteOnDocumentCreated`.
+      ///
+      /// If the method is run in add_NewWindowRequested handler it should be called
+      /// before the new window is set. If called after setting the NewWindow property, the initial script
+      /// may or may not apply to the initial navigation and may only apply to the subsequent navigation.
+      /// For more details see `ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow`.
+      ///
+      /// \> [!NOTE]\n\> If an HTML document is running in a sandbox of some kind using
+      /// [sandbox](https://developer.mozilla.org/docs/Web/HTML/Element/iframe#attr-sandbox)
+      /// properties or the
+      /// [Content-Security-Policy](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy)
+      /// HTTP header affects the script that runs.  For example, if the
+      /// `allow-modals` keyword is not set then requests to run the `alert`
+      /// function are ignored.
+      ///
+      /// \snippet ScriptComponent.cpp AddScriptToExecuteOnDocumentCreated
+      /// </summary>
       function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Remove the corresponding JavaScript added using
+      /// `AddScriptToExecuteOnDocumentCreated` with the specified script ID. The
+      /// script ID should be the one returned by the `AddScriptToExecuteOnDocumentCreated`.
+      /// Both use `AddScriptToExecuteOnDocumentCreated` and this method in `NewWindowRequested`
+      /// event handler at the same time sometimes causes trouble.  Since invalid scripts will
+      /// be ignored, the script IDs you got may not be valid anymore.
+      /// </summary>
       function    RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
+      /// <summary>
+      /// Open the default download dialog. If the dialog is opened before there
+      /// are recent downloads, the dialog shows all past downloads for the
+      /// current profile. Otherwise, the dialog shows only the recent downloads
+      /// with a "See more" button for past downloads. Calling this method raises
+      /// the `IsDefaultDownloadDialogOpenChanged` event if the dialog was closed.
+      /// No effect if the dialog is already open.
+      ///
+      /// \snippet ViewComponent.cpp ToggleDefaultDownloadDialog
+      /// </summary>
       function    OpenDefaultDownloadDialog : boolean;
+      /// <summary>
+      /// Close the default download dialog. Calling this method raises the
+      /// `IsDefaultDownloadDialogOpenChanged` event if the dialog was open. No
+      /// effect if the dialog is already closed.
+      /// </summary>
       function    CloseDefaultDownloadDialog : boolean;
+      /// <summary>
+      /// Clears all cached decisions to proceed with TLS certificate errors from the
+      /// ServerCertificateErrorDetected event for all WebView2's sharing the same session.
+      /// </summary>
       function    ClearServerCertificateErrorActions(const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Async function for getting the actual image data of the favicon.
+      /// The image is copied to the `imageStream` object in `ICoreWebView2GetFaviconCompletedHandler`.
+      /// If there is no image then no data would be copied into the imageStream.
+      /// The `format` is the file format to return the image stream.
+      /// `completedHandler` is executed at the end of the operation.
+      ///
+      /// \snippet SettingsComponent.cpp FaviconChanged
+      /// </summary>
       function    GetFavicon(aFormat: TWVFaviconImageFormat; const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Print the current web page asynchronously to the specified printer with the provided settings.
+      /// See `ICoreWebView2PrintSettings` for description of settings. Passing
+      /// nullptr for `printSettings` results in default print settings used.
+      ///
+      /// The handler will return `errorCode` as `S_OK` and `printStatus` as COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE
+      /// if `printerName` doesn't match with the name of any installed printers on the user OS. The handler
+      /// will return `errorCode` as `E_INVALIDARG` and `printStatus` as COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR
+      /// if the caller provides invalid settings for a given printer.
+      ///
+      /// The async `Print` operation completes when it finishes printing to the printer.
+      /// At this time the `ICoreWebView2PrintCompletedHandler` is invoked.
+      /// Only one `Printing` operation can be in progress at a time. If `Print` is called while a `Print` or `PrintToPdf`
+      /// or `PrintToPdfStream` or `ShowPrintUI` job is in progress, the completed handler is immediately invoked
+      /// with `E_ABORT` and `printStatus` is COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR.
+      /// This is only for printing operation on one webview.
+      ///
+      /// |       errorCode     |      printStatus                              |               Notes                                                                           |
+      /// | --- | --- | --- |
+      /// |        S_OK         | COREWEBVIEW2_PRINT_STATUS_SUCCEEDED           | Print operation succeeded.                                                                    |
+      /// |        S_OK         | COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE | If specified printer is not found or printer status is not available, offline or error state. |
+      /// |        S_OK         | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | Print operation is failed.                                                                    |
+      /// |     E_INVALIDARG    | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | If the caller provides invalid settings for the specified printer.                            |
+      /// |       E_ABORT       | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | Print operation is failed as printing job already in progress.                                |
+      ///
+      /// \snippet AppWindow.cpp PrintToPrinter
+      /// </summary>
       function    Print(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintCompletedHandler): boolean;
+      /// <summary>
+      /// Opens the print dialog to print the current web page. See `COREWEBVIEW2_PRINT_DIALOG_KIND`
+      /// for descriptions of print dialog kinds.
+      ///
+      /// Invoking browser or system print dialog doesn't open new print dialog if
+      /// it is already open.
+      ///
+      /// \snippet AppWindow.cpp ShowPrintUI
+      /// </summary>
       function    ShowPrintUI(aPrintDialogKind: TWVPrintDialogKind): boolean;
+      /// <summary>
+      /// Provides the Pdf data of current web page asynchronously for the provided settings.
+      /// Stream will be rewound to the start of the pdf data.
+      ///
+      /// See `ICoreWebView2PrintSettings` for description of settings. Passing
+      /// nullptr for `printSettings` results in default print settings used.
+      ///
+      /// The async `PrintToPdfStream` operation completes when it finishes
+      /// writing to the stream. At this time the `ICoreWebView2PrintToPdfStreamCompletedHandler`
+      /// is invoked. Only one `Printing` operation can be in progress at a time. If
+      /// `PrintToPdfStream` is called while a `PrintToPdfStream` or `PrintToPdf` or `Print`
+      /// or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `E_ABORT`.
+      /// This is only for printing operation on one webview.
+      ///
+      /// \snippet AppWindow.cpp PrintToPdfStream
+      /// </summary>
       function    PrintToPdfStream(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintToPdfStreamCompletedHandler): boolean;
+      /// <summary>
+      /// Share a shared buffer object with script of the main frame in the WebView.
+      /// The script will receive a `sharedbufferreceived` event from chrome.webview.
+      /// The event arg for that event will have the following methods and properties:
+      ///   `getBuffer()`: return an ArrayBuffer object with the backing content from the shared buffer.
+      ///   `additionalData`: an object as the result of parsing `additionalDataAsJson` as JSON string.
+      ///           This property will be `undefined` if `additionalDataAsJson` is nullptr or empty string.
+      ///   `source`: with a value set as `chrome.webview` object.
+      /// If a string is provided as `additionalDataAsJson` but it is not a valid JSON string,
+      /// the API will fail with `E_INVALIDARG`.
+      /// If `access` is COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY, the script will only have read access to the buffer.
+      /// If the script tries to modify the content in a read only buffer, it will cause an access
+      /// violation in WebView renderer process and crash the renderer process.
+      /// If the shared buffer is already closed, the API will fail with `RO_E_CLOSED`.
+      ///
+      /// The script code should call `chrome.webview.releaseBuffer` with
+      /// the shared buffer as the parameter to release underlying resources as soon
+      /// as it does not need access to the shared buffer any more.
+      ///
+      /// The application can post the same shared buffer object to multiple web pages or iframes, or
+      /// post to the same web page or iframe multiple times. Each `PostSharedBufferToScript` will
+      /// create a separate ArrayBuffer object with its own view of the memory and is separately
+      /// released. The underlying shared memory will be released when all the views are released.
+      ///
+      /// For example, if we want to send data to script for one time read only consumption.
+      ///
+      /// \snippet ScenarioSharedBuffer.cpp OneTimeShareBuffer
+      ///
+      /// In the HTML document,
+      ///
+      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_1
+      ///
+      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_2
+      ///
+      /// Sharing a buffer to script has security risk. You should only share buffer with trusted site.
+      /// If a buffer is shared to a untrusted site, possible sensitive information could be leaked.
+      /// If a buffer is shared as modifiable by the script and the script modifies it in an unexpected way,
+      /// it could result in corrupted data that might even crash the application.
+      /// </summary>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
       property Initialized                          : boolean                                   read GetInitialized;

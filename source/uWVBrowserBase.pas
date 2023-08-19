@@ -23,8 +23,8 @@ uses
 
 type
   /// <summary>
-  ///  Parent class of TWVBrowser and TWVFMXBrowser that puts together all browser procedures, functions, properties and events in one place.
-  ///  It has all you need to create, modify and destroy a web browser.
+  /// Parent class of TWVBrowser and TWVFMXBrowser that puts together all browser procedures, functions, properties and events in one place.
+  /// It has all you need to create, modify and destroy a web browser.
   /// </summary>
   TWVBrowserBase = class(TComponent, IWVBrowserEvents)
     protected
@@ -453,51 +453,298 @@ type
       constructor Create(AOwner: TComponent); override;
       destructor  Destroy; override;
       procedure   AfterConstruction; override;
-
+      /// <summary>
+      /// Used to create the browser using the global environment by default.
+      /// The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated
+      /// event is triggered.
+      /// </summary>
+      /// <param name="aHandle">The TWVWindowParent handle.</param>
+      /// <param name="aUseDefaultEnvironment">Use the global environment or create a new one for this browser.</param>
       function    CreateBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean = True) : boolean; overload;
+      /// <summary>
+      /// Used to create the browser using a cusotm environment. The browser will be
+      /// fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered.
+      /// </summary>
+      /// <param name="aHandle">The TWVWindowParent handle.</param>
+      /// <param name="aEnvironment">Custom environment to be used by this browser.</param>
       function    CreateBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean; overload;
-
+      /// <summary>
+      /// Used to create a windowless browser using the global environment by default.
+      /// The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated
+      /// event is triggered.
+      /// </summary>
+      /// <param name="aHandle">The TWVDirectCompositionHost handle.</param>
+      /// <param name="aUseDefaultEnvironment">Use the global environment or create a new one for this browser.</param>
       function    CreateWindowlessBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean = True) : boolean; overload;
+      /// <summary>
+      /// Used to create a windowless browser using a cusotm environment. The browser will be
+      /// fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered.
+      /// </summary>
+      /// <param name="aHandle">The TWVDirectCompositionHost handle.</param>
+      /// <param name="aEnvironment">Custom environment to be used by this browser.</param>
       function    CreateWindowlessBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean; overload;
-
+      /// <summary>
+      /// Navigates the WebView to the previous page in the navigation history.
+      /// </summary>
       function    GoBack : boolean;
+      /// <summary>
+      /// Navigates the WebView to the next page in the navigation history.
+      /// </summary>
       function    GoForward : boolean;
+      /// <summary>
+      /// Reload the current page.  This is similar to navigating to the URI of
+      /// current top level document including all navigation events firing and
+      /// respecting any entries in the HTTP cache.  But, the back or forward
+      /// history are not modified.
+      /// </summary>
       function    Refresh : boolean;
+      /// <summary>
+      /// Reload the current page. Browser cache is ignored as if the user pressed Shift+refresh.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnRefreshIgnoreCacheCompleted event when it finishes.
+      /// </summary>
       function    RefreshIgnoreCache : boolean;
+      /// <summary>
+      /// Stop all navigations and pending resource fetches. Does not stop scripts.
+      /// </summary>
       function    Stop : boolean;
-
+      /// <summary>
+      /// Cause a navigation of the top-level document to run to the specified URI.
+      /// </summary>
       function    Navigate(const aURI : wvstring) : boolean;
+      /// <summary>
+      /// Initiates a navigation to aHTMLContent as source HTML of a new document.
+      /// The origin of the new page is `about:blank`.
+      /// </summary>
+      /// <param name="aHTMLContent">Source HTML. It may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size.</param>
       function    NavigateToString(const aHTMLContent: wvstring) : boolean;
+      /// <summary>
+      /// Navigates using a constructed ICoreWebView2WebResourceRequest object. This lets you
+      /// provide post data or additional request headers during navigation.
+      /// The headers in aRequest override headers added by WebView2 runtime except for Cookie headers.
+      /// Method can only be either "GET" or "POST". Provided post data will only
+      /// be sent only if the method is "POST" and the uri scheme is HTTP(S).
+      /// </summary>
       function    NavigateWithWebResourceRequest(const aRequest : ICoreWebView2WebResourceRequest) : boolean;
-
+      /// <summary>
+      /// Subscribe to a DevTools protocol event. The TWVBrowserBase.OnDevToolsProtocolEventReceived
+      /// event will be triggered on each DevTools event.
+      /// </summary>
+      /// <param name="aEventName">The DevTools protocol event name.</param>
+      /// <param name="aEventID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
       function    SubscribeToDevToolsProtocolEvent(const aEventName : wvstring; aEventID : integer = 0) : boolean;
+      /// <summary>
+      /// <para>Runs an asynchronous `DevToolsProtocol` method.</para>
+      /// <para>The TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event is triggered
+      /// when it finishes executing. This function returns E_INVALIDARG if the `aMethodName` is
+      /// unknown or the `aParametersAsJson` has an error.  In the case of such an error, the
+      /// `aReturnObjectAsJson` parameter of the event will include information
+      /// about the error.</para>
+      /// <para>Note even though WebView2 dispatches the CDP messages in the order called,
+      /// CDP method calls may be processed out of order.
+      /// If you require CDP methods to run in a particular order, you should wait
+      /// for the previous method is finished before calling the next method.</para>
+      /// </summary>
+      /// <param name="aMethodName">The DevTools protocol full method name.</param>
+      /// <param name="aParametersAsJson">JSON formatted string containing the parameters for the corresponding method.</param>
+      /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot">See the Chrome DevTools Protocol web page.</see></para>
+      /// </remarks>
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
+      /// <summary>
+      /// <para>Runs an asynchronous `DevToolsProtocol` method for a specific session of
+      /// an attached target.</para>
+      /// <para>There could be multiple `DevToolsProtocol` targets in a WebView.
+      /// Besides the top level page, iframes from different origin and web workers
+      /// are also separate targets. Attaching to these targets allows interaction with them.
+      /// When the DevToolsProtocol is attached to a target, the connection is identified
+      /// by a sessionId.</para>
+      /// <para>To use this API, you must set the `flatten` parameter to true when calling
+      /// `Target.attachToTarget` or `Target.setAutoAttach` `DevToolsProtocol` method.
+      /// Using `Target.setAutoAttach` is recommended as that would allow you to attach
+      /// to dedicated worker targets, which are not discoverable via other APIs like
+      /// `Target.getTargets`.</para>
+      /// <para>The TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event is triggered
+      /// when it finishes executing. This function returns E_INVALIDARG if the `aMethodName` is
+      /// unknown or the `aParametersAsJson` has an error.  In the case of such an error, the
+      /// `aReturnObjectAsJson` parameter of the event will include information
+      /// about the error.</para>
+      /// <para>Note even though WebView2 dispatches the CDP messages in the order called,
+      /// CDP method calls may be processed out of order.
+      /// If you require CDP methods to run in a particular order, you should wait
+      /// for the previous method is finished before calling the next method.</para>
+      /// </summary>
+      /// <param name="aSessionId">The sessionId for an attached target. An empty string is treated as the session for the default target for the top page.</param>
+      /// <param name="aMethodName">The DevTools protocol full method name.</param>
+      /// <param name="aParametersAsJson">JSON formatted string containing the parameters for the corresponding method.</param>
+      /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot">See the Chrome DevTools Protocol web page.</see></para>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Target">Information about targets and sessions.</see></para>
+      /// </remarks>
       function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
-
+      /// <summary>
+      /// Moves focus into WebView.
+      /// </summary>
       function    SetFocus : boolean;
+      /// <summary>
+      /// Moves the focus to the next element.
+      /// </summary>
       function    FocusNext : boolean;
+      /// <summary>
+      /// Moves the focus to the previous element.
+      /// </summary>
       function    FocusPrevious : boolean;
-
+      /// <summary>
+      /// <para>Run JavaScript code from the aJavaScript parameter in the current
+      /// top-level document rendered in the WebView.</para>
+      /// <para>The TWVBrowserBase.OnExecuteScriptCompleted event is triggered
+      /// when it finishes.</para>
+      /// <para>The result of evaluating the provided JavaScript is available in the
+      /// aResultObjectAsJson parameter of the TWVBrowserBase.OnExecuteScriptCompleted
+      /// event as a JSON encoded string.  If the result is undefined, contains a reference
+      /// cycle, or otherwise is not able to be encoded into JSON, then the result
+      /// is considered to be null, which is encoded in JSON as the string "null".
+      /// If the script that was run throws an unhandled exception, then the result is
+      /// also "null".</para>
+      /// <para>If the method is run after the `NavigationStarting` event during a navigation,
+      /// the script runs in the new document when loading it, around the time
+      /// `ContentLoading` is run.  This operation executes the script even if
+      /// `ICoreWebView2Settings.IsScriptEnabled` is set to `FALSE`.</para>
+      /// </summary>
+      /// <param name="aJavaScript">The JavaScript code.</param>
+      /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
       function    ExecuteScript(const aJavaScript : wvstring; aExecutionID : integer = 0) : boolean;
+      /// <summary>
+      /// <para>Capture an image of what WebView is displaying.  Specify the format of
+      /// the image with the aImageFormat parameter.  The resulting image binary
+      /// data is written to the provided aImageStream parameter. This method fails if called
+      /// before the first ContentLoading event.  For example if this is called in
+      /// the NavigationStarting event for the first navigation it will fail.</para>
+      /// <para>For subsequent navigations, the method may not fail, but will not capture
+      /// an image of a given webpage until the ContentLoading event has been fired
+      /// for it.  Any call to this method prior to that will result in a capture of
+      /// the page being navigated away from. When this function finishes writing to the stream,
+      /// the TWVBrowserBase.OnCapturePreviewCompleted event is triggered.</para>
+      /// </summary>
+      /// <param name="aImageFormat">The format of the image.</param>
+      /// <param name="aImageStream">The resulting image binary data is written to this stream.</param>
       function    CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream) : boolean;
+      /// <summary>
+      /// This is a notification that tells WebView that the main WebView parent
+      /// (or any ancestor) `HWND` moved.  This is needed for accessibility and
+      /// certain dialogs in WebView to work correctly.
+      /// </summary>
       function    NotifyParentWindowPositionChanged : boolean;
-
+      /// <summary>
+      /// <para>Sets permission state for the given permission kind and origin
+      /// asynchronously. The change persists across sessions until it is changed by
+      /// another call to `SetPermissionState`, or by setting the `State` property
+      /// in `PermissionRequestedEventArgs`.</para>
+      /// <para>Setting the state to `COREWEBVIEW2_PERMISSION_STATE_DEFAULT` will
+      /// erase any state saved in the profile and restore the default behavior.</para>
+      /// <para>The origin should have a valid scheme and host (e.g. "https://www.example.com"),
+      /// otherwise the method fails with `E_INVALIDARG`. Additional URI parts like
+      /// path and fragment are ignored. For example, "https://wwww.example.com/app1/index.html/"
+      /// is treated the same as "https://wwww.example.com".</para>
+      /// <para>This function triggers the TWVBrowserBase.OnSetPermissionStateCompleted event.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">See the MDN origin definition.</see></para>
+      /// </remarks>
       function    SetPermissionState(aPermissionKind: TWVPermissionKind; const aOrigin: wvstring; aState: TWVPermissionState) : boolean;
+      /// <summary>
+      /// <para>Invokes the handler with a collection of all nondefault permission settings.
+      /// Use this method to get the permission state set in the current and previous
+      /// sessions.</para>
+      /// <para>This function triggers the TWVBrowserBase.OnGetNonDefaultPermissionSettingsCompleted event.</para>
+      /// </summary>
       function    GetNonDefaultPermissionSettings: boolean;
-
+      /// <summary>
+      /// <para>An app may call the `TrySuspend` API to have the WebView2 consume less memory.
+      /// This is useful when a Win32 app becomes invisible, or when a Universal Windows
+      /// Platform app is being suspended, during the suspended event handler before completing
+      /// the suspended event.</para>
+      /// <para>The IsVisible property must be false when the API is called.
+      /// Otherwise, the API fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.
+      /// Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses
+      /// WebView script timers and animations, minimizes CPU usage for the associated
+      /// browser renderer process and allows the operating system to reuse the memory that was
+      /// used by the renderer process for other processes.</para>
+      /// <para>Note that Suspend is best effort and considered completed successfully once the request
+      /// is sent to browser renderer process. If there is a running script, the script will continue
+      /// to run and the renderer process will be suspended after that script is done.
+      /// for conditions that might prevent WebView from being suspended. In those situations,
+      /// the completed handler will be invoked with isSuccessful as false and errorCode as S_OK.
+      /// The WebView will be automatically resumed when it becomes visible. Therefore, the
+      /// app normally does not have to call `Resume` explicitly.</para>
+      /// <para>The app can call `Resume` and then `TrySuspend` periodically for an invisible WebView so that
+      /// the invisible WebView can sync up with latest data and the page ready to show fresh content
+      /// when it becomes visible.</para>
+      /// <para>All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate
+      /// will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property
+      /// before calling APIs that might change WebView state.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">See the sleeping Tabs FAQ.</see></para>
+      /// </remarks>
       function    TrySuspend : boolean;
+      /// <summary>
+      /// Resumes the WebView so that it resumes activities on the web page.
+      /// This API can be called while the WebView2 controller is invisible.
+      /// The app can interact with the WebView immediately after `Resume`.
+      /// WebView will be automatically resumed when it becomes visible.
+      /// </summary>
       function    Resume : boolean;
-
+      /// <summary>
+      /// <para>Sets a mapping between a virtual host name and a folder path to make available to web sites
+      /// via that host name.</para>
+      /// <para>After setting the mapping, documents loaded in the WebView can use HTTP or HTTPS URLs at
+      /// the specified host name specified by hostName to access files in the local folder specified
+      /// by folderPath.</para>
+      /// </summary>
+      /// <param name="aHostName">Host name to access files in the local folder specified by aFolderPath.</param>
+      /// <param name="aFolderPath">The path to the local files. Both absolute and relative paths are supported. Relative paths are interpreted as relative to the folder where the exe of the app is in. Note that the aFolderPath length must not exceed the Windows MAX_PATH limit.</param>
+      /// <param name="aAccessKind">aAccessKind specifies the level of access to resources under the virtual host from other sites.</param>
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
+      /// <summary>
+      /// Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`.
+      /// </summary>
+      /// <param name="aHostName">Host name used previously with SetVirtualHostNameToFolderMapping to access files in the local folder.</param>
       function    ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
-
+      /// <summary>
+      /// Retrieve the HTML contents. The TWVBrowserBase.OnRetrieveHTMLCompleted event is triggered asynchronously with the HTML contents.
+      /// </summary>
       function    RetrieveHTML : boolean;
+      /// <summary>
+      /// Retrieve the text contents. The TWVBrowserBase.OnRetrieveTextCompleted event is triggered asynchronously with the text contents.
+      /// </summary>
       function    RetrieveText : boolean;
+      /// <summary>
+      /// Retrieve the web page contents in MHTML format. The TWVBrowserBase.OnRetrieveMHTMLCompleted event is triggered asynchronously with the MHTML contents.
+      /// </summary>
       function    RetrieveMHTML : boolean;
-
+      /// <summary>
+      /// <para>Print the current web page asynchronously to the specified printer with the TWVBrowserBase.CoreWebView2PrintSettings settings.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes.</para>
+      /// </summary>
       function    Print : boolean;
+      /// <summary>
+      /// Opens the print dialog to print the current web page using the system print dialog or the browser print preview dialog.
+      /// </summary>
       function    ShowPrintUI(aUseSystemPrintDialog : boolean = False): boolean;
+      /// <summary>
+      /// Print the current page to PDF asynchronously with the TWVBrowserBase.CoreWebView2PrintSettings settings.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes.
+      /// </summary>
+      /// <param name="aResultFilePath">The path to the PDF file.</param>
       function    PrintToPdf(const aResultFilePath : wvstring) : boolean;
+      /// <summary>
+      /// Provides the Pdf data of current web page asynchronously for the TWVBrowserBase.CoreWebView2PrintSettings settings.
+      /// Stream will be rewound to the start of the pdf data.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStream event.
+      /// </summary>
       function    PrintToPdfStream : boolean;
 
       function    OpenDevToolsWindow : boolean;
@@ -1822,6 +2069,9 @@ begin
     WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID :
       doOnSimulateKeyEventCompleted(errorCode);
 
+    WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID :
+      doOnRefreshIgnoreCacheCompleted(errorCode, wvstring(returnObjectAsJson));
+
     else
       doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
   end;
@@ -2355,9 +2605,6 @@ begin
     WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID :
       doOnRetrieveTextCompleted(errorCode, wvstring(resultObjectAsJson));
 
-    WEBVIEW4DELPHI_JS_REFRESH_ID :
-      doOnRefreshIgnoreCacheCompleted(errorCode, wvstring(resultObjectAsJson));
-
     else
       doOnExecuteScriptCompleted(errorCode, wvstring(resultObjectAsJson), aExecutionID);
   end;
@@ -2378,7 +2625,6 @@ begin
   doCapturePreviewCompleted(errorCode);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean) : boolean;
 begin
   if aUseDefaultEnvironment and assigned(GlobalWebView2Loader) then
@@ -2387,7 +2633,6 @@ begin
     Result := CreateBrowser(aHandle, nil);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean;
 begin
   Result := False;
@@ -2411,7 +2656,6 @@ begin
     Result := CreateEnvironment;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateWindowlessBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean) : boolean;
 begin
   if aUseDefaultEnvironment and assigned(GlobalWebView2Loader) then
@@ -2558,7 +2802,6 @@ begin
     end;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnAfterCreated event when the browser is fully initialized
 function TWVBrowserBase.CreateWindowlessBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean;
 begin
   Result := False;
@@ -3070,10 +3313,9 @@ begin
             FCoreWebView2.Reload;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnRefreshIgnoreCacheCompleted event when it finishes
 function TWVBrowserBase.RefreshIgnoreCache : boolean;
 begin
-  Result := ExecuteScript('location.reload(true);', WEBVIEW4DELPHI_JS_REFRESH_ID);
+  Result := CallDevToolsProtocolMethod('Page.reload', '{"ignoreCache": true}', WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID);
 end;
 
 procedure TWVBrowserBase.SetBounds(aValue : TRect);
@@ -3302,7 +3544,6 @@ begin
             FCoreWebView2.PostSharedBufferToScript(aSharedBuffer, aAccess, aAdditionalDataAsJson);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes
 function TWVBrowserBase.TrySuspend : boolean;
 var
   TempHandler : ICoreWebView2TrySuspendCompletedHandler;
@@ -3342,26 +3583,22 @@ begin
             FCoreWebView2.OpenTaskManagerWindow;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveHTMLCompleted event with the HTML contents
 function TWVBrowserBase.RetrieveHTML : boolean;
 begin
   // JS code created by Alessandro Mancini
   Result := ExecuteScript('encodeURI(document.documentElement.outerHTML);', WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveTextCompleted event with the text contents
 function TWVBrowserBase.RetrieveText : boolean;
 begin
   Result := ExecuteScript('encodeURI(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnRetrieveMHTMLCompleted event with the MHTML contents
 function TWVBrowserBase.RetrieveMHTML : boolean;
 begin
   Result := CallDevToolsProtocolMethod('Page.captureSnapshot', '{"format": "mhtml"}', WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes
 function TWVBrowserBase.Print : boolean;
 var
   TempHandler : ICoreWebView2PrintCompletedHandler;
@@ -3392,7 +3629,6 @@ begin
     Result := False;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes
 function TWVBrowserBase.PrintToPdf(const aResultFilePath : wvstring) : boolean;
 var
   TempHandler : ICoreWebView2PrintToPdfCompletedHandler;
@@ -3410,7 +3646,6 @@ begin
     end;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStream event
 function TWVBrowserBase.PrintToPdfStream : boolean;
 var
   TempHandler : ICoreWebView2PrintToPdfStreamCompletedHandler;
@@ -3446,14 +3681,12 @@ begin
             FCoreWebView2.PostWebMessageAsString(aWebMessageAsString);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event when it finishes
 function TWVBrowserBase.CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer) : boolean;
 begin
   Result := Initialized and
             FCoreWebView2.CallDevToolsProtocolMethod(aMethodName, aParametersAsJson, aExecutionID, self);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event when it finishes
 function TWVBrowserBase.CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer) : boolean;
 begin
   Result := Initialized and

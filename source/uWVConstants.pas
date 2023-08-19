@@ -13,9 +13,11 @@ const
   USER_DEFAULT_SCREEN_DPI = 96;
   {$IFEND}
 
-  // These constants are declared in the "Windows" unit but
-  // some old Delphi versions don't have them.
-  // We have to add "WV2_" to be compatible with C++ Builder.
+  {*
+   These constants are declared in the "Windows" unit but
+   some old Delphi versions don't have them.
+   We have to add "WV2_" to be compatible with C++ Builder.
+  *}
   WV2_IMAGE_FILE_MACHINE_I386  = $014C;
   WV2_IMAGE_FILE_MACHINE_AMD64 = $8664;
 
@@ -46,14 +48,13 @@ const
 
   URI_ABOUTBLANK = 'about:blank';
 
-  // Reserved IDs used in some JavaScript functions
+  {* Reserved IDs used in some JavaScript functions *}
   WEBVIEW4DELPHI_JS_FIRST_ID              = 10000;
-  WEBVIEW4DELPHI_JS_REFRESH_ID            = WEBVIEW4DELPHI_JS_FIRST_ID;
-  WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID    = WEBVIEW4DELPHI_JS_FIRST_ID + 1;
-  WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID    = WEBVIEW4DELPHI_JS_FIRST_ID + 2;
+  WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID    = WEBVIEW4DELPHI_JS_FIRST_ID;
+  WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID    = WEBVIEW4DELPHI_JS_FIRST_ID + 1;
   WEBVIEW4DELPHI_JS_LAST_ID               = WEBVIEW4DELPHI_JS_FIRST_ID + 100;
 
-  // Reserved IDs used in some DevTools functions
+  {* Reserved IDs used in some DevTools functions *}
   WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID                       = 10000;
   WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID               = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID;
   WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID           = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 1;
@@ -61,6 +62,7 @@ const
   WEBVIEW4DELPHI_DEVTOOLS_EMULATENETWORKCONDITIONS_ID    = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 3;
   WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID  = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 4;
   WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID            = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 5;
+  WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID                     = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 6;
   WEBVIEW4DELPHI_DEVTOOLS_LAST_ID                        = WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID + 100;
 
   WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_1       = 1;

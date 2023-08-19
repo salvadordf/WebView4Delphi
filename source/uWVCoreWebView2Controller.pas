@@ -64,10 +64,82 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2Controller); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Moves focus into WebView.  WebView gets focus and focus is set to
+      /// correspondent element in the page hosted in the WebView.  For
+      /// Programmatic reason, focus is set to previously focused element or the
+      /// default element if no previously focused element exists.  For `Next`
+      /// reason, focus is set to the first element.  For `Previous` reason, focus
+      /// is set to the last element.  WebView changes focus through user
+      /// interaction including selecting into a WebView or Tab into it.  For
+      /// tabbing, the app runs MoveFocus with Next or Previous to align with Tab
+      /// and Shift+Tab respectively when it decides the WebView is the next
+      /// element that may exist in a tab.  Or, the app runs `IsDialogMessage`
+      /// as part of the associated message loop to allow the platform to auto
+      /// handle tabbing.  The platform rotates through all windows with
+      /// `WS_TABSTOP`.  When the WebView gets focus from `IsDialogMessage`, it is
+      /// internally put the focus on the first or last element for tab and
+      /// Shift+Tab respectively.
+      ///
+      /// \snippet App.cpp MoveFocus0
+      ///
+      /// \snippet ControlComponent.cpp MoveFocus1
+      ///
+      /// \snippet ControlComponent.cpp MoveFocus2
+      /// </summary>
       function    MoveFocus(aReason : TWVMoveFocusReason) : boolean;
+      /// <summary>
+      /// Closes the WebView and cleans up the underlying browser instance.
+      /// Cleaning up the browser instance releases the resources powering the
+      /// WebView.  The browser instance is shut down if no other WebViews are
+      /// using it.
+      ///
+      /// After running `Close`, most methods will fail and event handlers stop
+      /// running.  Specifically, the WebView releases the associated references to
+      /// any associated event handlers when `Close` is run.
+      ///
+      /// `Close` is implicitly run when the `CoreWebView2Controller` loses the
+      /// final reference and is destructed.  But it is best practice to
+      /// explicitly run `Close` to avoid any accidental cycle of references
+      /// between the WebView and the app code.  Specifically, if you capture a
+      /// reference to the WebView in an event handler you create a reference cycle
+      /// between the WebView and the event handler.  Run `Close` to break the
+      /// cycle by releasing all event handlers.  But to avoid the situation, it is
+      /// best to both explicitly run `Close` on the WebView and to not capture a
+      /// reference to the WebView to ensure the WebView is cleaned up correctly.
+      /// `Close` is synchronous and won't trigger the `beforeunload` event.
+      ///
+      /// \snippet AppWindow.cpp Close
+      /// </summary>
       function    Close : boolean;
+      /// <summary>
+      /// Updates `aBounds` and `aZoomFactor` properties at the same time.  This
+      /// operation is atomic from the perspective of the host.  After returning
+      /// from this function, the `aBounds` and `aZoomFactor` properties are both
+      /// updated if the function is successful, or neither is updated if the
+      /// function fails.  If `aBounds` and `aZoomFactor` are both updated by the
+      /// same scale (for example, `aBounds` and `aZoomFactor` are both doubled),
+      /// then the page does not display a change in `window.innerWidth` or
+      /// `window.innerHeight` and the WebView renders the content at the new size
+      /// and zoom without intermediate renderings.  This function also updates
+      /// just one of `aZoomFactor` or `aBounds` by passing in the new value for one
+      /// and the current value for the other.
+      ///
+      /// \snippet ViewComponent.cpp SetBoundsAndZoomFactor
+      /// </summary>
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
+      /// <summary>
+      /// This is a notification separate from `Bounds` that tells WebView that the
+      ///  main WebView parent (or any ancestor) `HWND` moved.  This is needed
+      /// for accessibility and certain dialogs in WebView to work correctly.
+      ///
+      /// \snippet ViewComponent.cpp NotifyParentWindowPositionChanged
+      /// </summary>
       function    NotifyParentWindowPositionChanged : boolean;
 
       property Initialized                     : boolean                  read GetInitialized;
