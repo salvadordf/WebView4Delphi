@@ -141,6 +141,9 @@ type
       /// <summary>
       /// This function is used to initialize WebView2.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">See the Globals article.</see></para>
+      /// </remarks>
       function    StartWebView2 : boolean;
       /// <summary>
       /// This method is for anyone want to compare version correctly to determine
@@ -150,6 +153,9 @@ type
       /// than aVersion2 respectively. Returns false if it fails to parse
       /// any of the version strings.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#comparebrowserversions">See the Globals article.</see></para>
+      /// </remarks>
       function    CompareVersions(const aVersion1, aVersion2 : wvstring; var aCompRslt : integer): boolean;
       /// <summary>
       /// Update the DeviceScaleFactor property value with the current scale or the ForcedDeviceScaleFactor value.
@@ -614,7 +620,6 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11">See the ICoreWebView2Environment11 article.</see></para>
       /// </remarks>
       property FailureReportFolderPath                : wvstring                           read GetFailureReportFolderPath;
-
       /// <summary>
       /// OnEnvironmentCreated is triggered when the Environment is successfully created and Status is wvlsInitialized.
       /// </summary>

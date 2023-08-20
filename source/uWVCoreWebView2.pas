@@ -828,6 +828,9 @@ type
       property CookieManager                        : ICoreWebView2CookieManager                read GetCookieManager;
       property Environment                          : ICoreWebView2Environment                  read GetEnvironment;
       property IsSuspended                          : boolean                                   read GetIsSuspended;
+      /// <summary>
+      /// Indicates whether all audio output from this CoreWebView2 is muted or not.
+      /// </summary>
       property IsMuted                              : boolean                                   read GetIsMuted                               write SetIsMuted;
       property IsDocumentPlayingAudio               : boolean                                   read GetIsDocumentPlayingAudio;
       property IsDefaultDownloadDialogOpen          : boolean                                   read GetIsDefaultDownloadDialogOpen;

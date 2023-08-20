@@ -486,10 +486,16 @@ type
       /// <summary>
       /// Navigates the WebView to the previous page in the navigation history.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#goback">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    GoBack : boolean;
       /// <summary>
       /// Navigates the WebView to the next page in the navigation history.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#goforward">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    GoForward : boolean;
       /// <summary>
       /// Reload the current page.  This is similar to navigating to the URI of
@@ -497,6 +503,9 @@ type
       /// respecting any entries in the HTTP cache.  But, the back or forward
       /// history are not modified.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#reload">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    Refresh : boolean;
       /// <summary>
       /// Reload the current page. Browser cache is ignored as if the user pressed Shift+refresh.
@@ -506,16 +515,25 @@ type
       /// <summary>
       /// Stop all navigations and pending resource fetches. Does not stop scripts.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#stop">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    Stop : boolean;
       /// <summary>
       /// Cause a navigation of the top-level document to run to the specified URI.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#navigate">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    Navigate(const aURI : wvstring) : boolean;
       /// <summary>
       /// Initiates a navigation to aHTMLContent as source HTML of a new document.
       /// The origin of the new page is `about:blank`.
       /// </summary>
       /// <param name="aHTMLContent">Source HTML. It may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#navigatetostring">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    NavigateToString(const aHTMLContent: wvstring) : boolean;
       /// <summary>
       /// Navigates using a constructed ICoreWebView2WebResourceRequest object. This lets you
@@ -524,6 +542,9 @@ type
       /// Method can only be either "GET" or "POST". Provided post data will only
       /// be sent only if the method is "POST" and the uri scheme is HTTP(S).
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#navigatewithwebresourcerequest">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
       function    NavigateWithWebResourceRequest(const aRequest : ICoreWebView2WebResourceRequest) : boolean;
       /// <summary>
       /// Subscribe to a DevTools protocol event. The TWVBrowserBase.OnDevToolsProtocolEventReceived
@@ -531,6 +552,9 @@ type
       /// </summary>
       /// <param name="aEventName">The DevTools protocol event name.</param>
       /// <param name="aEventID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceiver#add_devtoolsprotocoleventreceived">See the ICoreWebView2DevToolsProtocolEventReceiver article.</see></para>
+      /// </remarks>
       function    SubscribeToDevToolsProtocolEvent(const aEventName : wvstring; aEventID : integer = 0) : boolean;
       /// <summary>
       /// <para>Runs an asynchronous `DevToolsProtocol` method.</para>
@@ -549,6 +573,7 @@ type
       /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot">See the Chrome DevTools Protocol web page.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#calldevtoolsprotocolmethod">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
       /// <summary>
@@ -581,19 +606,29 @@ type
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot">See the Chrome DevTools Protocol web page.</see></para>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Target">Information about targets and sessions.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_11#calldevtoolsprotocolmethodforsession">See the ICoreWebView2_11 article.</see></para>
       /// </remarks>
       function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
       /// <summary>
       /// Moves focus into WebView.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#movefocus">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       function    SetFocus : boolean;
       /// <summary>
       /// Moves the focus to the next element.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#movefocus">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       function    FocusNext : boolean;
       /// <summary>
       /// Moves the focus to the previous element.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#movefocus">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       function    FocusPrevious : boolean;
       /// <summary>
       /// <para>Run JavaScript code from the aJavaScript parameter in the current
@@ -614,6 +649,9 @@ type
       /// </summary>
       /// <param name="aJavaScript">The JavaScript code.</param>
       /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#executescript">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    ExecuteScript(const aJavaScript : wvstring; aExecutionID : integer = 0) : boolean;
       /// <summary>
       /// <para>Capture an image of what WebView is displaying.  Specify the format of
@@ -629,12 +667,18 @@ type
       /// </summary>
       /// <param name="aImageFormat">The format of the image.</param>
       /// <param name="aImageStream">The resulting image binary data is written to this stream.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#capturepreview">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream) : boolean;
       /// <summary>
       /// This is a notification that tells WebView that the main WebView parent
       /// (or any ancestor) `HWND` moved.  This is needed for accessibility and
       /// certain dialogs in WebView to work correctly.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#notifyparentwindowpositionchanged">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       function    NotifyParentWindowPositionChanged : boolean;
       /// <summary>
       /// <para>Sets permission state for the given permission kind and origin
@@ -651,6 +695,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para><see href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">See the MDN origin definition.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#setpermissionstate">See the ICoreWebView2Profile4 article.</see></para>
       /// </remarks>
       function    SetPermissionState(aPermissionKind: TWVPermissionKind; const aOrigin: wvstring; aState: TWVPermissionState) : boolean;
       /// <summary>
@@ -659,6 +704,9 @@ type
       /// sessions.</para>
       /// <para>This function triggers the TWVBrowserBase.OnGetNonDefaultPermissionSettingsCompleted event.</para>
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>
+      /// </remarks>
       function    GetNonDefaultPermissionSettings: boolean;
       /// <summary>
       /// <para>An app may call the `TrySuspend` API to have the WebView2 consume less memory.
@@ -688,6 +736,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para><see href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">See the sleeping Tabs FAQ.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#trysuspend">See the ICoreWebView2_3 article.</see></para>
       /// </remarks>
       function    TrySuspend : boolean;
       /// <summary>
@@ -696,6 +745,9 @@ type
       /// The app can interact with the WebView immediately after `Resume`.
       /// WebView will be automatically resumed when it becomes visible.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#resume">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
       function    Resume : boolean;
       /// <summary>
       /// <para>Sets a mapping between a virtual host name and a folder path to make available to web sites
@@ -707,11 +759,17 @@ type
       /// <param name="aHostName">Host name to access files in the local folder specified by aFolderPath.</param>
       /// <param name="aFolderPath">The path to the local files. Both absolute and relative paths are supported. Relative paths are interpreted as relative to the folder where the exe of the app is in. Note that the aFolderPath length must not exceed the Windows MAX_PATH limit.</param>
       /// <param name="aAccessKind">aAccessKind specifies the level of access to resources under the virtual host from other sites.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#setvirtualhostnametofoldermapping">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
       /// <summary>
       /// Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`.
       /// </summary>
       /// <param name="aHostName">Host name used previously with SetVirtualHostNameToFolderMapping to access files in the local folder.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#clearvirtualhostnametofoldermapping">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
       function    ClearVirtualHostNameToFolderMapping(const aHostName : wvstring) : boolean;
       /// <summary>
       /// Retrieve the HTML contents. The TWVBrowserBase.OnRetrieveHTMLCompleted event is triggered asynchronously with the HTML contents.
@@ -729,50 +787,245 @@ type
       /// <para>Print the current web page asynchronously to the specified printer with the TWVBrowserBase.CoreWebView2PrintSettings settings.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes.</para>
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#print">See the ICoreWebView2_16 article.</see></para>
+      /// </remarks>
       function    Print : boolean;
       /// <summary>
       /// Opens the print dialog to print the current web page using the system print dialog or the browser print preview dialog.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#showprintui">See the ICoreWebView2_16 article.</see></para>
+      /// </remarks>
       function    ShowPrintUI(aUseSystemPrintDialog : boolean = False): boolean;
       /// <summary>
       /// Print the current page to PDF asynchronously with the TWVBrowserBase.CoreWebView2PrintSettings settings.
       /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes.
       /// </summary>
       /// <param name="aResultFilePath">The path to the PDF file.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_7#printtopdf">See the ICoreWebView2_7 article.</see></para>
+      /// </remarks>
       function    PrintToPdf(const aResultFilePath : wvstring) : boolean;
       /// <summary>
       /// Provides the Pdf data of current web page asynchronously for the TWVBrowserBase.CoreWebView2PrintSettings settings.
       /// Stream will be rewound to the start of the pdf data.
       /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStream event.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#printtopdfstream">See the ICoreWebView2_16 article.</see></para>
+      /// </remarks>
       function    PrintToPdfStream : boolean;
-
+      /// <summary>
+      /// Opens the DevTools window for the current document in the WebView. Does
+      /// nothing if run when the DevTools window is already open.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#opendevtoolswindow">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    OpenDevToolsWindow : boolean;
+      /// <summary>
+      /// Opens the Browser Task Manager view as a new window in the foreground.
+      /// If the Browser Task Manager is already open, this will bring it into
+      /// the foreground. WebView2 currently blocks the Shift+Esc shortcut for
+      /// opening the task manager. An end user can open the browser task manager
+      /// manually via the `Browser task manager` entry of the DevTools window's
+      /// title bar's context menu.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_6#opentaskmanagerwindow">See the ICoreWebView2_6 article.</see></para>
+      /// </remarks>
       function    OpenTaskManagerWindow : boolean;
-
+      /// <summary>
+      /// Post the specified webMessage to the top level document in this WebView.
+      /// The main page receives the message by subscribing to the `message` event of the
+      /// `window.chrome.webview` of the page document.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#postwebmessageasjson">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
+      /// <summary>
+      /// Posts a message that is a simple string rather than a JSON string
+      /// representation of a JavaScript object.  This behaves in exactly the same
+      /// manner as `PostWebMessageAsJson`, but the `data` property of the event
+      /// arg of the `window.chrome.webview` message is a string with the same
+      /// value as `aWebMessageAsString`.  Use this instead of
+      /// `PostWebMessageAsJson` if you want to communicate using simple strings
+      /// rather than JSON objects.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#postwebmessageasstring">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
-
+      /// <summary>
+      /// <para>Adds a URI and resource context filter for the `WebResourceRequested`
+      /// event.  A web resource request with a resource context that matches this
+      /// filter's resource context and a URI that matches this filter's URI
+      /// wildcard string will be raised via the `WebResourceRequested` event.</para>
+      /// <para>The `aURI` parameter value is a wildcard string matched against the URI
+      /// of the web resource request. This is a glob style
+      /// wildcard string in which a `*` matches zero or more characters and a `?`
+      /// matches exactly one character.
+      /// These wildcard characters can be escaped using a backslash just before
+      /// the wildcard character in order to represent the literal `*` or `?`.</para>
+      /// <para>The matching occurs over the URI as a whole string and not limiting
+      /// wildcard matches to particular parts of the URI.
+      /// The wildcard filter is compared to the URI after the URI has been
+      /// normalized, any URI fragment has been removed, and non-ASCII hostnames
+      /// have been converted to punycode.</para>
+      /// <para>Specifying an empty string for aURI matches no URIs.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addwebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    AddWebResourceRequestedFilter(const aURI: wvstring; aResourceContext: TWVWebResourceContext) : boolean;
+      /// <summary>
+      /// Removes a matching WebResource filter that was previously added for the
+      /// `WebResourceRequested` event.  If the same filter was added multiple
+      /// times, then it must be removed as many times as it was added for the
+      /// removal to be effective.  Returns false for a filter that was
+      /// never added.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#removewebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    RemoveWebResourceRequestedFilter(const aURI: wvstring; aResourceContext: TWVWebResourceContext) : boolean;
-
+      /// <summary>
+      /// Add the provided host object to script running in the WebView with the
+      /// specified name.  Host objects are exposed as host object proxies using
+      /// `window.chrome.webview.hostObjects.{name}`.  Host object proxies are
+      /// promises and resolves to an object representing the host object.  The
+      /// promise is rejected if the app has not added an object with the name.
+      /// When JavaScript code access a property or method of the object, a promise
+      ///  is return, which resolves to the value returned from the host for the
+      /// property or method, or rejected in case of error, for example, no
+      /// property or method on the object or parameters are not valid.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addhostobjecttoscript">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;
+      /// <summary>
+      /// Remove the host object specified by the name so that it is no longer
+      /// accessible from JavaScript code in the WebView.  While new access
+      /// attempts are denied, if the object is already obtained by JavaScript code
+      /// in the WebView, the JavaScript code continues to have access to that
+      /// object.   Run this method for a name that is already removed or never
+      /// added fails.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#removehostobjectfromscript">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    RemoveHostObjectFromScript(const aName : wvstring) : boolean;
-
+      /// <summary>
+      /// <para>Add the provided JavaScript to a list of scripts that should be run after
+      /// the global object has been created, but before the HTML document has
+      /// been parsed and before any other script included by the HTML document is
+      /// run.  This method injects a script that runs on all top-level document
+      /// and child frame page navigations.  This method runs asynchronously, and
+      /// you must wait for the completion handler to finish before the injected
+      /// script is ready to run.  When this method completes, the `Invoke` method
+      /// of the handler is run with the `id` of the injected script.  `id` is a
+      /// string.  To remove the injected script, use
+      /// `RemoveScriptToExecuteOnDocumentCreated`.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addscripttoexecuteondocumentcreated">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring) : boolean;
+      /// <summary>
+      /// Remove the corresponding JavaScript added using
+      /// `AddScriptToExecuteOnDocumentCreated` with the specified script ID. The
+      /// script ID should be the one returned by the `AddScriptToExecuteOnDocumentCreated`.
+      /// Both use `AddScriptToExecuteOnDocumentCreated` and this method in `NewWindowRequested`
+      /// event handler at the same time sometimes causes trouble.  Since invalid scripts will
+      /// be ignored, the script IDs you got may not be valid anymore.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#removescripttoexecuteondocumentcreated">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       function    RemoveScriptToExecuteOnDocumentCreated(const aID : wvstring) : boolean;
-
+      /// <summary>
+      /// Create a cookie object with a specified name, value, domain, and path.
+      /// One can set other optional properties after cookie creation.
+      /// This only creates a cookie object and it is not added to the cookie
+      /// manager until you call AddOrUpdateCookie.
+      /// Leading or trailing whitespace(s), empty string, and special characters
+      /// are not allowed for name.
+      /// See ICoreWebView2Cookie for more details.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#createcookie">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    CreateCookie(const aName, aValue, aDomain, aPath : wvstring) : ICoreWebView2Cookie;
+      /// <summary>
+      /// Creates a cookie whose params matches those of the specified cookie.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#copycookie">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    CopyCookie(const aCookie : ICoreWebView2Cookie) : ICoreWebView2Cookie;
+      /// <summary>
+      /// Gets a list of cookies matching the specific URI.
+      /// If uri is empty string or null, all cookies under the same profile are
+      /// returned.
+      /// You can modify the cookie objects by calling
+      /// ICoreWebView2CookieManager::AddOrUpdateCookie, and the changes
+      /// will be applied to the webview.
+      /// \snippet ScenarioCookieManagement.cpp GetCookies
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#getcookies">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    GetCookies(const aURI : wvstring = ''):  boolean;
+      /// <summary>
+      /// Adds or updates a cookie with the given cookie data; may overwrite
+      /// cookies with matching name, domain, and path if they exist.
+      /// This method will fail if the domain of the given cookie is not specified.
+      /// \snippet ScenarioCookieManagement.cpp AddOrUpdateCookie
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#addorupdatecookie">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    AddOrUpdateCookie(const aCookie : ICoreWebView2Cookie): boolean;
+      /// <summary>
+      /// Deletes a cookie whose name and domain/path pair
+      /// match those of the specified cookie.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#deletecookie">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    DeleteCookie(const aCookie : ICoreWebView2Cookie): boolean;
+      /// <summary>
+      /// Deletes cookies with matching name and uri.
+      /// Cookie name is required.
+      /// All cookies with the given name where domain
+      /// and path match provided URI are deleted.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#deletecookies">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    DeleteCookies(const aName, aURI : wvstring): boolean;
+      /// <summary>
+      /// Deletes cookies with matching name and domain/path pair.
+      /// Cookie name is required.
+      /// If domain is specified, deletes only cookies with the exact domain.
+      /// If path is specified, deletes only cookies with the exact path.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#deletecookieswithdomainandpath">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    DeleteCookiesWithDomainAndPath(const aName, aDomain, aPath : wvstring): boolean;
+      /// <summary>
+      /// Deletes all cookies under the same profile.
+      /// This could affect other WebViews under the same user profile.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#deleteallcookies">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       function    DeleteAllCookies : boolean;
-      function    ClearCache : boolean;
-      function    ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes = cdstAll) : boolean;
-
       /// <summary>
       /// Move the parent form to the x and y coordinates.
       /// </summary>
@@ -797,37 +1050,293 @@ type
       /// Set the parent form top property to y.
       /// </summary>
       procedure   SetFormTopTo(const y : Integer); virtual; abstract;
-
+      /// <summary>
+      /// Increments the browser zoom.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       procedure   IncZoomStep;
+      /// <summary>
+      /// Decrements the browser zoom.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       procedure   DecZoomStep;
+      /// <summary>
+      /// Sets the browser zoom to 100%.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       procedure   ResetZoom;
+      /// <summary>
+      /// Updates `Bounds` and `ZoomFactor` properties at the same time.  This
+      /// operation is atomic from the perspective of the host.  After returning
+      /// from this function, the `Bounds` and `ZoomFactor` properties are both
+      /// updated if the function is successful, or neither is updated if the
+      /// function fails.  If `Bounds` and `ZoomFactor` are both updated by the
+      /// same scale (for example, `Bounds` and `ZoomFactor` are both doubled),
+      /// then the page does not display a change in `window.innerWidth` or
+      /// `window.innerHeight` and the WebView renders the content at the new size
+      /// and zoom without intermediate renderings.  This function also updates
+      /// just one of `ZoomFactor` or `Bounds` by passing in the new value for one
+      /// and the current value for the other.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#setboundsandzoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
-
+      /// <summary>
+      /// Enables or disables all audio output from this browser.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#get_ismuted">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
       procedure   ToggleMuteState;
-
+      /// <summary>
+      /// Open the default download dialog. If the dialog is opened before there
+      /// are recent downloads, the dialog shows all past downloads for the
+      /// current profile. Otherwise, the dialog shows only the recent downloads
+      /// with a "See more" button for past downloads. Calling this method raises
+      /// the `IsDefaultDownloadDialogOpenChanged` event if the dialog was closed.
+      /// No effect if the dialog is already open.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#opendefaultdownloaddialog">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       function    OpenDefaultDownloadDialog : boolean;
+      /// <summary>
+      /// Close the default download dialog. Calling this method raises the
+      /// IsDefaultDownloadDialogOpenChanged event if the dialog was open.
+      /// No effect if the dialog is already closed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#opendefaultdownloaddialog">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       function    CloseDefaultDownloadDialog : boolean;
-
+      /// <summary>
+      /// Simulate editing commands using the "Input.dispatchKeyEvent" DevTools method.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+      /// <para><see href="https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h">See the Chromium sources.</see></para>
+      /// </remarks>
       function    SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
+      /// <summary>
+      /// Dispatches a key event to the page using the "Input.dispatchKeyEvent"
+      /// DevTools method. The browser has to be focused before simulating any
+      /// key event. This function is asynchronous and it triggers the
+      /// TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+      /// </remarks>
       function    SimulateKeyEvent(type_: TWV2KeyEventType; modifiers, windowsVirtualKeyCode, nativeVirtualKeyCode: integer; timestamp: integer = 0; location: integer = 0; autoRepeat: boolean = False; isKeypad: boolean = False; isSystemKey: boolean = False; const text: wvstring = ''; const unmodifiedtext: wvstring = ''; const keyIdentifier: wvstring = ''; const code: wvstring = ''; const key: wvstring = ''): boolean; virtual;
+      /// <summary>
+      /// Simulate that the F3 key was pressed and released.
+      /// The browser has to be focused before simulating any key event.
+      /// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+      /// </remarks>
       function    KeyboardShortcutSearch : boolean; virtual;
+      /// <summary>
+      /// Simulate that SHIFT + F5 keys were pressed and released.
+      /// The browser has to be focused before simulating any key event.
+      /// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+      /// </remarks>
       function    KeyboardShortcutRefreshIgnoreCache : boolean; virtual;
-
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and provides mouse input meant for the WebView.</para>
+      /// <para>If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL or
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL, then mouseData specifies the amount of
+      /// wheel movement. A positive value indicates that the wheel was rotated
+      /// forward, away from the user; a negative value indicates that the wheel was
+      /// rotated backward, toward the user. One wheel click is defined as
+      /// WHEEL_DELTA, which is 120.</para>
+      /// <para>If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN, or
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP, then mouseData specifies which X
+      /// buttons were pressed or released. This value should be 1 if the first X
+      /// button is pressed/released and 2 if the second X button is
+      /// pressed/released.</para>
+      /// <para>If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE, then virtualKeys,
+      /// mouseData, and point should all be zero.</para>
+      /// <para>If eventKind is any other value, then mouseData should be zero.
+      /// Point is expected to be in the client coordinate space of the WebView.
+      /// To track mouse events that start in the WebView and can potentially move
+      /// outside of the WebView and host application, calling SetCapture and
+      /// ReleaseCapture is recommended.</para>
+      /// <para>To dismiss hover popups, it is also recommended to send
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE messages.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#sendmouseinput">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and provides pointer input meant for the WebView.</para>
+      /// <para>SendPointerInput accepts touch or pen pointer input of types defined in
+      /// COREWEBVIEW2_POINTER_EVENT_KIND. Any pointer input from the system must be
+      /// converted into an ICoreWebView2PointerInfo first.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#sendpointerinput">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       function    SendPointerInput(aEventKind : TWVPointerEventKind; const aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and corresponds to
+      /// [IDropTarget::DragEnter](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragenter).</para>
+      /// <para>This function has a dependency on AllowExternalDrop property of
+      /// CoreWebView2Controller and return E_FAIL to callers to indicate this
+      /// operation is not allowed if AllowExternalDrop property is set to false.</para>
+      /// <para>The hosting application must register as an IDropTarget and implement
+      /// and forward DragEnter calls to this function.</para>
+      /// <para>point parameter must be modified to include the WebView's offset and be in
+      /// the WebView's client coordinates (Similar to how SendMouseInput works).</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3#dragenter">See the ICoreWebView2CompositionController3 article.</see></para>
+      /// </remarks>
       function    DragEnter(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and corresponds to
+      /// [IDropTarget::DragLeave](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragleave).</para>
+      /// <para>This function has a dependency on AllowExternalDrop property of
+      /// CoreWebView2Controller and return E_FAIL to callers to indicate this
+      /// operation is not allowed if AllowExternalDrop property is set to false.</para>
+      /// <para>The hosting application must register as an IDropTarget and implement
+      /// and forward DragLeave calls to this function.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3#dragleave">See the ICoreWebView2CompositionController3 article.</see></para>
+      /// </remarks>
       function    DragLeave : HResult;
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and corresponds to
+      /// [IDropTarget::DragOver](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragover).</para>
+      /// <para>This function has a dependency on AllowExternalDrop property of
+      /// CoreWebView2Controller and return E_FAIL to callers to indicate this
+      /// operation is not allowed if AllowExternalDrop property is set to false.</para>
+      /// <para>The hosting application must register as an IDropTarget and implement
+      /// and forward DragOver calls to this function.</para>
+      /// <para>point parameter must be modified to include the WebView's offset and be in
+      /// the WebView's client coordinates (Similar to how SendMouseInput works).</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3#dragover">See the ICoreWebView2CompositionController3 article.</see></para>
+      /// </remarks>
       function    DragOver(keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
+      /// <summary>
+      /// <para>This function is only available in "Windowless mode" and corresponds to
+      /// [IDropTarget::Drop](/windows/win32/api/oleidl/nf-oleidl-idroptarget-drop).</para>
+      /// <para>This function has a dependency on AllowExternalDrop property of
+      /// CoreWebView2Controller and return E_FAIL to callers to indicate this
+      /// operation is not allowed if AllowExternalDrop property is set to false.</para>
+      /// <para>The hosting application must register as an IDropTarget and implement
+      /// and forward Drop calls to this function.</para>
+      /// <para>point parameter must be modified to include the WebView's offset and be in
+      /// the WebView's client coordinates (Similar to how SendMouseInput works).</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3#drop">See the ICoreWebView2CompositionController3 article.</see></para>
+      /// </remarks>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
-
+      /// <summary>
+      /// Clears the browser cache. This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-clearBrowserCache">See the Chrome DevTools Protocol page about the Network.clearBrowserCache method.</see></para>
+      /// </remarks>
+      function    ClearCache : boolean;
+      /// <summary>
+      /// Clears the storage for origin. This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-clearDataForOrigin">See the Chrome DevTools Protocol page about the Storage.clearDataForOrigin method.</see></para>
+      /// </remarks>
+      function    ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes = cdstAll) : boolean;
+      /// <summary>
+      /// <para>Clear browsing data based on a data type. This method takes two parameters,
+      /// the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR
+      /// operation(s) can be applied to multiple `COREWEBVIEW2_BROWSING_DATA_KINDS` to
+      /// create a mask representing those data types.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;
+      /// <summary>
+      /// <para>ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it
+      /// takes in two additional parameters for the start and end time for which it
+      /// should clear the data between.  The `startTime` and `endTime`
+      /// parameters correspond to the number of seconds since the UNIX epoch.</para>
+      /// <para>`startTime` is inclusive while `endTime` is exclusive, therefore the data will
+      /// be cleared between [startTime, endTime).</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataintimerange">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime): boolean;
+      /// <summary>
+      /// <para>ClearBrowsingDataAll behaves like ClearBrowsingData except that it
+      /// clears the entirety of the data associated with the profile it is called on.
+      /// It clears the data regardless of timestamp.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataall">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingDataAll: boolean;
-
+      /// <summary>
+      /// Clears all cached decisions to proceed with TLS certificate errors from the
+      /// ServerCertificateErrorDetected event for all WebView2's sharing the same session.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#clearservercertificateerroractions">See the ICoreWebView2_14 article.</see></para>
+      /// </remarks>
       function    ClearServerCertificateErrorActions : boolean;
+      /// <summary>
+      /// <para>Async function for getting the actual image data of the favicon.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnGetFaviconCompleted event when it finishes.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#getfavicon">See the ICoreWebView2_15 article.</see></para>
+      /// </remarks>
       function    GetFavicon(aFormat: TWVFaviconImageFormat = COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG) : boolean;
-
+      /// <summary>
+      /// Create a shared memory based buffer with the specified size in bytes.
+      /// The buffer can be shared with web contents in WebView by calling
+      /// `PostSharedBufferToScript` on `CoreWebView2` or `CoreWebView2Frame` object.
+      /// Once shared, the same content of the buffer will be accessible from both
+      /// the app process and script in WebView. Modification to the content will be visible
+      /// to all parties that have access to the buffer.
+      /// The shared buffer is presented to the script as ArrayBuffer. All JavaScript APIs
+      /// that work for ArrayBuffer including Atomics APIs can be used on it.
+      /// There is currently a limitation that only size less than 2GB is supported.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer">See the ICoreWebView2Environment12 article.</see></para>
+      /// </remarks>
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
+      /// <summary>
+      /// <para>Share a shared buffer object with script of the main frame in the WebView.</para>
+      /// <para>The script will receive a `sharedbufferreceived` event from chrome.webview.</para>
+      /// <para>Read the linked article for all the details.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_17#postsharedbuffertoscript">See the ICoreWebView2_17 article.</see></para>
+      /// </remarks>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
       // Custom properties
@@ -2830,7 +3339,6 @@ begin
     Result := CreateEnvironment;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnExecuteScriptCompleted event when it finishes
 function TWVBrowserBase.ExecuteScript(const aJavaScript : wvstring; aExecutionID : integer) : boolean;
 begin
   Result := Initialized and
@@ -3529,7 +4037,6 @@ begin
             FCoreWebView2.ClearServerCertificateErrorActions(self);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnGetFaviconCompleted event when it finishes
 function TWVBrowserBase.GetFavicon(aFormat: TWVFaviconImageFormat) : boolean;
 begin
   Result := Initialized and
@@ -3705,7 +4212,6 @@ begin
             FCoreWebView2.RemoveHostObjectFromScript(aName);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes
 function TWVBrowserBase.AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring) : boolean;
 begin
   Result := Initialized and
@@ -3842,13 +4348,11 @@ begin
     end;
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes
 function TWVBrowserBase.ClearCache : boolean;
 begin
   Result := CallDevToolsProtocolMethod('Network.clearBrowserCache', '{}', WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes
 function TWVBrowserBase.ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes) : boolean;
 var
   TempParams : wvstring;
@@ -4414,10 +4918,6 @@ begin
     ZoomFactor := aValue / 100;
 end;
 
-// Blink editing commands used by the "Input.dispatchKeyEvent" DevTools method.
-// https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
-// https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h
-// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes
 function TWVBrowserBase.SimulateEditingCommand(aEditingCommand : TWV2EditingCommand): boolean;
 var
   TempParams : wvstring;
@@ -4426,10 +4926,6 @@ begin
   Result     := CallDevToolsProtocolMethod('Input.dispatchKeyEvent', TempParams, WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID);
 end;
 
-// Dispatches a key event to the page using the "Input.dispatchKeyEvent" DevTools method
-// https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent
-// The browser has to be focused before simulating any key event.
-// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes
 function TWVBrowserBase.SimulateKeyEvent(      type_                 : TWV2KeyEventType;
                                                modifiers             : integer;
                                                windowsVirtualKeyCode : integer;
@@ -4500,20 +4996,12 @@ begin
   Result := CallDevToolsProtocolMethod('Input.dispatchKeyEvent', TempParams, WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID);
 end;
 
-// Simulate that the F3 key was pressed and released.
-// The browser has to be focused before simulating any key event.
-// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
-// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutSearch : boolean;
 begin
   Result := SimulateKeyEvent(ketRawKeyDown, $100, VK_F3, integer($003D0001)) and
             SimulateKeyEvent(ketKeyUp,      $100, VK_F3, integer($C03D0001));
 end;
 
-// Simulate that SHIFT + F5 keys were pressed and released
-// The browser has to be focused before simulating any key event.       
-// This key information was logged using a Spanish keyboard. It might not work with different keyboard layouts.
-// This function is asynchronous and it triggers the TWVBrowserBase.OnSimulateKeyEventCompleted event several times
 function TWVBrowserBase.KeyboardShortcutRefreshIgnoreCache : boolean;
 begin
   Result := SimulateKeyEvent(ketRawKeyDown, $502, VK_Shift, integer($002A0001)) and
