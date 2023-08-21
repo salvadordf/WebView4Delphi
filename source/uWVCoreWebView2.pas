@@ -816,29 +816,170 @@ type
       /// </summary>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized                          : boolean                                   read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf                             : ICoreWebView2                             read FBaseIntf;
+      /// <summary>
+      /// The `ICoreWebView2Settings` object contains various modifiable settings
+      /// for the running WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_settings">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property Settings                             : ICoreWebView2Settings                     read GetSettings;
+      /// <summary>
+      /// The process ID of the browser process that hosts the WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_browserprocessid">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property BrowserProcessID                     : DWORD                                     read GetBrowserProcessID;
+      /// <summary>
+      /// `TRUE` if the WebView is able to navigate to a previous page in the
+      /// navigation history.  If `CanGoBack` changes value, the `HistoryChanged`
+      /// event runs.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2##get_cangoback">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property CanGoBack                            : boolean                                   read GetCanGoBack;
+      /// <summary>
+      /// `TRUE` if the WebView is able to navigate to a next page in the
+      /// navigation history.  If `CanGoForward` changes value, the
+      /// `HistoryChanged` event runs.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_cangoforward">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property CanGoForward                         : boolean                                   read GetCanGoForward;
+      /// <summary>
+      /// Indicates if the WebView contains a fullscreen HTML element.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_containsfullscreenelement">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property ContainsFullScreenElement            : boolean                                   read GetContainsFullScreenElement;
+      /// <summary>
+      /// The title for the current top-level document.  If the document has no
+      /// explicit title or is otherwise empty, a default that may or may not match
+      ///  the URI of the document is used.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_documenttitle">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property DocumentTitle                        : wvstring                                  read GetDocumentTitle;
+      /// <summary>
+      /// The URI of the current top level document.  This value potentially
+      /// changes as a part of the `SourceChanged` event that runs for some cases
+      /// such as navigating to a different site or fragment navigations.  It
+      /// remains the same for other types of navigations such as page refreshes
+      /// or `history.pushState` with the same URL as the current page.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_source">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property Source                               : wvstring                                  read GetSource;
+      /// <summary>
+      /// Gets the cookie manager object associated with this ICoreWebView2.
+      /// See ICoreWebView2CookieManager.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#get_cookiemanager">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
       property CookieManager                        : ICoreWebView2CookieManager                read GetCookieManager;
+      /// <summary>
+      /// Exposes the CoreWebView2Environment used to create this CoreWebView2.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#get_environment">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
       property Environment                          : ICoreWebView2Environment                  read GetEnvironment;
+      /// <summary>
+      /// Whether WebView is suspended.
+      /// `TRUE` when WebView is suspended, from the time when TrySuspend has completed
+      ///  successfully until WebView is resumed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#get_issuspended">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
       property IsSuspended                          : boolean                                   read GetIsSuspended;
       /// <summary>
       /// Indicates whether all audio output from this CoreWebView2 is muted or not.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#get_ismuted">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
       property IsMuted                              : boolean                                   read GetIsMuted                               write SetIsMuted;
+      /// <summary>
+      /// Indicates whether any audio output from this CoreWebView2 is playing.
+      /// This property will be true if audio is playing even if IsMuted is true.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#get_isdocumentplayingaudio">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
       property IsDocumentPlayingAudio               : boolean                                   read GetIsDocumentPlayingAudio;
+      /// <summary>
+      /// `TRUE` if the default download dialog is currently open. The value of this
+      /// property changes only when the default download dialog is explicitly
+      /// opened or closed. Hiding the WebView implicitly hides the dialog, but does
+      /// not change the value of this property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_isdefaultdownloaddialogopen">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       property IsDefaultDownloadDialogOpen          : boolean                                   read GetIsDefaultDownloadDialogOpen;
+      /// <summary>
+      /// Get the default download dialog corner alignment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_defaultdownloaddialogcorneralignment">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       property DefaultDownloadDialogCornerAlignment : TWVDefaultDownloadDialogCornerAlignment   read GetDefaultDownloadDialogCornerAlignment  write SetDefaultDownloadDialogCornerAlignment;
+      /// <summary>
+      /// Get the default download dialog margin.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_defaultdownloaddialogmargin">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       property DefaultDownloadDialogMargin          : TPoint                                    read GetDefaultDownloadDialogMargin           write SetDefaultDownloadDialogMargin;
+      /// <summary>
+      /// The status message text.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_12#get_statusbartext">See the ICoreWebView2_12 article.</see></para>
+      /// </remarks>
       property StatusBarText                        : wvstring                                  read GetStatusBarText;
+      /// <summary>
+      /// The associated `ICoreWebView2Profile` object. If this CoreWebView2 was created with a
+      /// CoreWebView2ControllerOptions, the CoreWebView2Profile will match those specified options.
+      /// Otherwise if this CoreWebView2 was created without a CoreWebView2ControllerOptions, then
+      /// this will be the default CoreWebView2Profile for the corresponding CoreWebView2Environment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_13#get_profile">See the ICoreWebView2_13 article.</see></para>
+      /// </remarks>
       property Profile                              : ICoreWebView2Profile                      read GetProfile;
+      /// <summary>
+      /// Get the current Uri of the favicon as a string.
+      /// If the value is null, then the return value is `E_POINTER`, otherwise it is `S_OK`.
+      /// If a page has no favicon then the value is an empty string.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#get_faviconuri">See the ICoreWebView2_15 article.</see></para>
+      /// </remarks>
       property FaviconURI                           : wvstring                                  read GetFaviconURI;
+      /// <summary>
+      /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
+      /// WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_19#get_memoryusagetargetlevel">See the ICoreWebView2_19 article.</see></para>
+      /// </remarks>
       property MemoryUsageTargetLevel               : TWVMemoryUsageTargetLevel                 read GetMemoryUsageTargetLevel                write SetMemoryUsageTargetLevel;
   end;
 

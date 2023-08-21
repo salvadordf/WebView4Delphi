@@ -51,6 +51,10 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2Frame; aFrameID : integer); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       function    AddHostObjectToScriptWithOrigins(const aName : wvstring; const aObject : OleVariant; aOriginsCount : cardinal; var aOrigins : wvstring) : boolean;
       function    RemoveHostObjectFromScript(const aName : wvstring) : boolean;
@@ -59,7 +63,13 @@ type
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized         : boolean                         read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf            : ICoreWebView2Frame              read FBaseIntf;
       property FrameID             : integer                         read FFrameID;
       property Name                : wvstring                        read GetName;

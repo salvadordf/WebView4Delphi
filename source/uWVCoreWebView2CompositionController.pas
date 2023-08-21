@@ -39,6 +39,10 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2CompositionController); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       /// <summary>
       /// If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL or
@@ -133,11 +137,63 @@ type
       /// </summary>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized        : boolean                              read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf           : ICoreWebView2CompositionController   read FBaseIntf;
+      /// <summary>
+      /// The RootVisualTarget is a visual in the hosting app's visual tree. This
+      /// visual is where the WebView will connect its visual tree. The app uses
+      /// this visual to position the WebView within the app. The app still needs
+      /// to use the Bounds property to size the WebView. The RootVisualTarget
+      /// property can be an IDCompositionVisual or a
+      /// Windows::UI::Composition::ContainerVisual. WebView will connect its visual
+      /// tree to the provided visual before returning from the property setter. The
+      /// app needs to commit on its device setting the RootVisualTarget property.
+      /// The RootVisualTarget property supports being set to nullptr to disconnect
+      /// the WebView from the app's visual tree.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_rootvisualtarget">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property RootVisualTarget   : IUnknown                             read GetRootVisualTarget     write SetRootVisualTarget;
+      /// <summary>
+      /// The current cursor that WebView thinks it should be. The cursor should be
+      /// set in WM_SETCURSOR through \::SetCursor or set on the corresponding
+      /// parent/ancestor HWND of the WebView through \::SetClassLongPtr. The HCURSOR
+      /// can be freed so CopyCursor/DestroyCursor is recommended to keep your own
+      /// copy if you are doing more than immediately setting the cursor.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_cursor">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property Cursor             : HCURSOR                              read GetCursor;
+      /// <summary>
+      /// The current system cursor ID reported by the underlying rendering engine
+      /// for WebView. For example, most of the time, when the cursor is over text,
+      /// this will return the int value for IDC_IBEAM. The systemCursorId is only
+      /// valid if the rendering engine reports a default Windows cursor resource
+      /// value. Navigate to
+      /// [LoadCursorW](/windows/win32/api/winuser/nf-winuser-loadcursorw) for more
+      /// details. Otherwise, if custom CSS cursors are being used, this will return
+      /// 0. To actually use systemCursorId in LoadCursor or LoadImage,
+      /// MAKEINTRESOURCE must be called on it first.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_systemcursorid">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property SystemCursorID     : cardinal                             read GetSystemCursorID;
+      /// <summary>
+      /// Returns the Automation Provider for the WebView. This object implements
+      /// IRawElementProviderSimple.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller2#get_automationprovider">See the ICoreWebView2CompositionController2 article.</see></para>
+      /// </remarks>
       property AutomationProvider : IUnknown                             read GetAutomationProvider;
   end;
 

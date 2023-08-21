@@ -46,12 +46,22 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2DownloadOperation; aDownloadID : integer); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       function    Cancel : boolean;
       function    Pause : boolean;
       function    Resume : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized         : boolean                         read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf            : ICoreWebView2DownloadOperation  read FBaseIntf;
       property DownloadID          : integer                         read FDownloadID;
       property URI                 : wvstring                        read GetURI;

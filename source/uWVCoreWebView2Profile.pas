@@ -116,7 +116,13 @@ type
       /// </summary>
       function    GetNonDefaultPermissionSettings(const completedHandler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized                       : boolean                     read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf                          : ICoreWebView2Profile        read FBaseIntf                            write FBaseIntf;
       property ProfileName                       : wvstring                    read GetProfileName;
       property IsInPrivateModeEnabled            : boolean                     read GetIsInPrivateModeEnabled;

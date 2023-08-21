@@ -54,7 +54,15 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2Environment); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVLoader instance.
+      /// </summary>
+      /// <param name="aLoaderComponent">The TWVLoader instance.</param>
       function    AddAllLoaderEvents(const aLoaderComponent : TComponent) : boolean;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       function    CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents; var aResult: HRESULT) : boolean;
       function    CreateWebResourceResponse(const aContent : IStream; aStatusCode : integer; aReasonPhrase, aHeaders : wvstring; var aResponse : ICoreWebView2WebResourceResponse) : boolean;
@@ -69,13 +77,72 @@ type
       function    CreateCoreWebView2CompositionControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property    Initialized                   : boolean                             read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property    BaseIntf                      : ICoreWebView2Environment            read FBaseIntf;
+      /// <summary>
+      /// The browser version info of the current `ICoreWebView2Environment`,
+      /// including channel name if it is not the WebView2 Runtime.  It matches the
+      /// format of the `GetAvailableCoreWebView2BrowserVersionString` API.
+      /// Channel names are `beta`, `dev`, and `canary`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#get_browserversionstring">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
       property    BrowserVersionInfo            : wvstring                            read GetBrowserVersionInfo;
+      /// <summary>
+      /// Returns true if the current WebView2 runtime version supports Composition Controllers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3">See the ICoreWebView2Environment3 article.</see></para>
+      /// </remarks>
       property    SupportsCompositionController : boolean                             read GetSupportsCompositionController;
+      /// <summary>
+      /// Returns true if the current WebView2 runtime version supports Controller Options.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10">See the ICoreWebView2Environment10 article.</see></para>
+      /// </remarks>
       property    SupportsControllerOptions     : boolean                             read GetSupportsControllerOptions;
+      /// <summary>
+      /// Returns the user data folder that all CoreWebView2's created from this
+      /// environment are using.
+      /// This could be either the value passed in by the developer when creating
+      /// the environment object or the calculated one for default handling.  It
+      /// will always be an absolute path.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment7#get_userdatafolder">See the ICoreWebView2Environment7 article.</see></para>
+      /// </remarks>
       property    UserDataFolder                : wvstring                            read GetUserDataFolder;
+      /// <summary>
+      /// Returns the `ICoreWebView2ProcessInfoCollection`. Provide a list of all
+      /// process using same user data folder except for crashpad process.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#getprocessinfos">See the ICoreWebView2Environment8 article.</see></para>
+      /// </remarks>
       property    ProcessInfos                  : ICoreWebView2ProcessInfoCollection  read GetProcessInfos;
+      /// <summary>
+      /// `FailureReportFolderPath` returns the path of the folder where minidump files are written.
+      /// Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder.
+      /// The crash dump format is minidump files. Please see
+      /// [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.
+      /// Normally when a single child process fails, a minidump will be generated and written to disk,
+      /// then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated
+      /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
+      /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
+      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
+      /// \snippet AppWindow.cpp GetFailureReportFolder
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>
+      /// </remarks>
       property    FailureReportFolderPath       : wvstring                            read GetFailureReportFolderPath;
   end;
 

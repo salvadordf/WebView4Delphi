@@ -1342,6 +1342,12 @@ type
       // Custom properties
       property Initialized                                     : boolean                                               read GetInitialized;
       property CoreWebView2PrintSettings                       : TCoreWebView2PrintSettings                            read FCoreWebView2PrintSettings;
+      /// <summary>
+      /// CoreWebView2Settings contains various modifiable settings for the running WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
       property CoreWebView2Settings                            : TCoreWebView2Settings                                 read FCoreWebView2Settings;
       property CoreWebView2Environment                         : TCoreWebView2Environment                              read FCoreWebView2Environment;
       property CoreWebView2Controller                          : TCoreWebView2Controller                               read FCoreWebView2Controller;
@@ -1364,7 +1370,17 @@ type
 
       // Properties used in the ICoreWebView2Environment creation
       property BrowserExecPath                                 : wvstring                                              read FBrowserExecPath                                 write FBrowserExecPath;                           // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
-      property UserDataFolder                                  : wvstring                                              read GetUserDataFolder                                write FUserDataFolder;                            // CreateCoreWebView2EnvironmentWithOptions "userDataFolder" parameter
+      /// <summary>
+      /// Returns the user data folder that all CoreWebView2's created from this
+      /// environment are using.
+      /// This could be either the value passed in by the developer when creating
+      /// the environment object or the calculated one for default handling.  It
+      /// will always be an absolute path.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment7#get_userdatafolder">See the ICoreWebView2Environment7 article.</see></para>
+      /// </remarks>
+      property UserDataFolder                                  : wvstring                                              read GetUserDataFolder                                write FUserDataFolder;
       property AdditionalBrowserArguments                      : wvstring                                              read FAdditionalBrowserArguments                      write FAdditionalBrowserArguments;                // ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments
       property Language                                        : wvstring                                              read FLanguage                                        write FLanguage;                                  // ICoreWebView2EnvironmentOptions.get_Language
       property TargetCompatibleBrowserVersion                  : wvstring                                              read FTargetCompatibleBrowserVersion                  write FTargetCompatibleBrowserVersion;            // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
@@ -1372,57 +1388,302 @@ type
       property ExclusiveUserDataFolderAccess                   : boolean                                               read FExclusiveUserDataFolderAccess                   write FExclusiveUserDataFolderAccess;             // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
       property CustomCrashReportingEnabled                     : boolean                                               read FCustomCrashReportingEnabled                     write FCustomCrashReportingEnabled;               // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
       property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;                  // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
-
-      // ICoreWebView2Environment properties
-      property BrowserVersionInfo                              : wvstring                                              read GetBrowserVersionInfo;                                                                             // ICoreWebView2Environment.get_BrowserVersionString
-
-      // ICoreWebView2 properties
-      property BrowserProcessID                                : cardinal                                              read GetBrowserProcessID;                                                                               // ICoreWebView2.get_BrowserProcessId
-      property CanGoBack                                       : boolean                                               read GetCanGoBack;                                                                                      // ICoreWebView2.get_CanGoBack
-      property CanGoForward                                    : boolean                                               read GetCanGoForward;                                                                                   // ICoreWebView2.get_CanGoForward
-      property ContainsFullScreenElement                       : boolean                                               read GetContainsFullScreenElement;                                                                      // ICoreWebView2.get_ContainsFullScreenElement
-      property DocumentTitle                                   : wvstring                                              read GetDocumentTitle;                                                                                  // ICoreWebView2.get_DocumentTitle
-      property Source                                          : wvstring                                              read GetSource;                                                                                         // ICoreWebView2.get_Source
-
-      // ICoreWebView2_2 properties
-      property CookieManager                                   : ICoreWebView2CookieManager                            read GetCookieManager;                                                                                  // ICoreWebView2_2.get_CookieManager
-
-      // ICoreWebView2_3 properties
-      property IsSuspended                                     : boolean                                               read GetIsSuspended;                                                                                    // ICoreWebView2_3.get_IsSuspended
-
-      // ICoreWebView2_8 properties
-      property IsDocumentPlayingAudio                          : boolean                                               read GetIsDocumentPlayingAudio;                                                                         // ICoreWebView2_8.get_IsDocumentPlayingAudio
-      property IsMuted                                         : boolean                                               read GetIsMuted                                       write SetIsMuted;                                 // ICoreWebView2_8.get_IsMuted
-
-      // ICoreWebView2_9 properties
-      property DefaultDownloadDialogCornerAlignment            : TWVDefaultDownloadDialogCornerAlignment               read GetDefaultDownloadDialogCornerAlignment          write SetDefaultDownloadDialogCornerAlignment;    // ICoreWebView2_9.get_DefaultDownloadDialogCornerAlignment
-      property DefaultDownloadDialogMargin                     : TPoint                                                read GetDefaultDownloadDialogMargin                   write SetDefaultDownloadDialogMargin;             // ICoreWebView2_9.get_DefaultDownloadDialogMargin
-      property IsDefaultDownloadDialogOpen                     : boolean                                               read GetIsDefaultDownloadDialogOpen;                                                                    // ICoreWebView2_9.get_IsDefaultDownloadDialogOpen
-
-      // ICoreWebView2_12
+      /// <summary>
+      /// The browser version info of the current `ICoreWebView2Environment`,
+      /// including channel name if it is not the WebView2 Runtime.  It matches the
+      /// format of the `GetAvailableCoreWebView2BrowserVersionString` API.
+      /// Channel names are `beta`, `dev`, and `canary`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#get_browserversionstring">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
+      property BrowserVersionInfo                              : wvstring                                              read GetBrowserVersionInfo;
+      /// <summary>
+      /// The process ID of the browser process that hosts the WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_browserprocessid">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property BrowserProcessID                                : cardinal                                              read GetBrowserProcessID;
+      /// <summary>
+      /// `TRUE` if the WebView is able to navigate to a previous page in the
+      /// navigation history.  If `CanGoBack` changes value, the `HistoryChanged`
+      /// event runs.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2##get_cangoback">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property CanGoBack                                       : boolean                                               read GetCanGoBack;
+      /// <summary>
+      /// `TRUE` if the WebView is able to navigate to a next page in the
+      /// navigation history.  If `CanGoForward` changes value, the
+      /// `HistoryChanged` event runs.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_cangoforward">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property CanGoForward                                    : boolean                                               read GetCanGoForward;
+      /// <summary>
+      /// Indicates if the WebView contains a fullscreen HTML element.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_containsfullscreenelement">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property ContainsFullScreenElement                       : boolean                                               read GetContainsFullScreenElement;
+      /// <summary>
+      /// The title for the current top-level document.  If the document has no
+      /// explicit title or is otherwise empty, a default that may or may not match
+      ///  the URI of the document is used.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_documenttitle">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property DocumentTitle                                   : wvstring                                              read GetDocumentTitle;
+      /// <summary>
+      /// The URI of the current top level document.  This value potentially
+      /// changes as a part of the `SourceChanged` event that runs for some cases
+      /// such as navigating to a different site or fragment navigations.  It
+      /// remains the same for other types of navigations such as page refreshes
+      /// or `history.pushState` with the same URL as the current page.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_source">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
+      property Source                                          : wvstring                                              read GetSource;
+      /// <summary>
+      /// Gets the cookie manager object associated with this ICoreWebView2.
+      /// See ICoreWebView2CookieManager.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#get_cookiemanager">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
+      property CookieManager                                   : ICoreWebView2CookieManager                            read GetCookieManager;
+      /// <summary>
+      /// Whether WebView is suspended.
+      /// `TRUE` when WebView is suspended, from the time when TrySuspend has completed
+      ///  successfully until WebView is resumed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#get_issuspended">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
+      property IsSuspended                                     : boolean                                               read GetIsSuspended;
+      /// <summary>
+      /// Indicates whether any audio output from this CoreWebView2 is playing.
+      /// This property will be true if audio is playing even if IsMuted is true.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#get_isdocumentplayingaudio">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
+      property IsDocumentPlayingAudio                          : boolean                                               read GetIsDocumentPlayingAudio;
+      /// <summary>
+      /// Indicates whether all audio output from this CoreWebView2 is muted or not.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#get_ismuted">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
+      property IsMuted                                         : boolean                                               read GetIsMuted                                       write SetIsMuted;
+      /// <summary>
+      /// Get the default download dialog corner alignment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_defaultdownloaddialogcorneralignment">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
+      property DefaultDownloadDialogCornerAlignment            : TWVDefaultDownloadDialogCornerAlignment               read GetDefaultDownloadDialogCornerAlignment          write SetDefaultDownloadDialogCornerAlignment;
+      /// <summary>
+      /// Get the default download dialog margin.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_defaultdownloaddialogmargin">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
+      property DefaultDownloadDialogMargin                     : TPoint                                                read GetDefaultDownloadDialogMargin                   write SetDefaultDownloadDialogMargin;
+      /// <summary>
+      /// `TRUE` if the default download dialog is currently open. The value of this
+      /// property changes only when the default download dialog is explicitly
+      /// opened or closed. Hiding the WebView implicitly hides the dialog, but does
+      /// not change the value of this property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#get_isdefaultdownloaddialogopen">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
+      property IsDefaultDownloadDialogOpen                     : boolean                                               read GetIsDefaultDownloadDialogOpen;
+      /// <summary>
+      /// The status message text.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_12#get_statusbartext">See the ICoreWebView2_12 article.</see></para>
+      /// </remarks>
       property StatusBarText                                   : wvstring                                              read GetStatusBarText;
-
-      // ICoreWebView2_15
+      /// <summary>
+      /// Get the current Uri of the favicon as a string.
+      /// If the value is null, then the return value is `E_POINTER`, otherwise it is `S_OK`.
+      /// If a page has no favicon then the value is an empty string.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#get_faviconuri">See the ICoreWebView2_15 article.</see></para>
+      /// </remarks>
       property FaviconURI                                      : wvstring                                              read GetFaviconURI;
-
-      // ICoreWebView2_19
-      property MemoryUsageTargetLevel                          : TWVMemoryUsageTargetLevel                             read GetMemoryUsageTargetLevel                        write SetMemoryUsageTargetLevel;                  // ICoreWebView2_19.Get_MemoryUsageTargetLevel
-
-      // ICoreWebView2Controller properties
-      property Bounds                                          : TRect                                                 read GetBounds                                        write SetBounds;                                  // ICoreWebView2Controller.get_Bounds
-      property IsVisible                                       : boolean                                               read GetIsVisible                                     write SetIsVisible;                               // ICoreWebView2Controller.get_IsVisible
-      property ParentWindow                                    : THandle                                               read GetParentWindow                                  write SetParentWindow;                            // ICoreWebView2Controller.get_ParentWindow
-      property ZoomFactor                                      : double                                                read GetZoomFactor                                    write SetZoomFactor;                              // ICoreWebView2Controller.get_ZoomFactor
-
-      // ICoreWebView2Controller2 properties
-      property DefaultBackgroundColor                          : TColor                                                read GetDefaultBackgroundColor                        write SetDefaultBackgroundColor;                  // ICoreWebView2Controller2.get_DefaultBackgroundColor
-
-      // ICoreWebView2Controller3 properties
-      property BoundsMode                                      : TWVBoundsMode                                         read GetBoundsMode                                    write SetBoundsMode;                              // ICoreWebView2Controller3.get_BoundsMode
-      property RasterizationScale                              : double                                                read GetRasterizationScale                            write SetRasterizationScale;                      // ICoreWebView2Controller3.get_RasterizationScale
-      property ShouldDetectMonitorScaleChanges                 : boolean                                               read GetShouldDetectMonitorScaleChanges               write SetShouldDetectMonitorScaleChanges;         // ICoreWebView2Controller3.get_ShouldDetectMonitorScaleChanges
-
-      // ICoreWebView2Controller4 properties
+      /// <summary>
+      /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
+      /// WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_19#get_memoryusagetargetlevel">See the ICoreWebView2_19 article.</see></para>
+      /// </remarks>
+      property MemoryUsageTargetLevel                          : TWVMemoryUsageTargetLevel                             read GetMemoryUsageTargetLevel                        write SetMemoryUsageTargetLevel;
+      /// <summary>
+      /// <para>The WebView bounds. Bounds are relative to the parent `HWND`.  The app
+      /// has two ways to position a WebView.</para>
+      /// <para>*   Create a child `HWND` that is the WebView parent `HWND`.  Position
+      ///     the window where the WebView should be.  Use `(0, 0)` for the
+      ///     top-left corner (the offset) of the `Bounds` of the WebView.</para>
+      /// <para>*   Use the top-most window of the app as the WebView parent HWND.  For
+      ///     example, to position WebView correctly in the app, set the top-left
+      ///     corner of the Bound of the WebView.</para>
+      /// <para>The values of `Bounds` are limited by the coordinate space of the host.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_bounds">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property Bounds                                          : TRect                                                 read GetBounds                                        write SetBounds;
+      /// <summary>
+      /// <para>The `IsVisible` property determines whether to show or hide the WebView2.</para>
+      /// <para>If `IsVisible` is set to `FALSE`, the WebView2 is transparent and is
+      /// not rendered.   However, this does not affect the window containing the
+      /// WebView2 (the `HWND` parameter that was passed to
+      /// `CreateCoreWebView2Controller`).  If you want that window to disappear
+      /// too, run `ShowWindow` on it directly in addition to modifying the
+      /// `IsVisible` property.  WebView2 as a child window does not get window
+      /// messages when the top window is minimized or restored.  For performance
+      /// reasons, developers should set the `IsVisible` property of the WebView to
+      /// `FALSE` when the app window is minimized and back to `TRUE` when the app
+      /// window is restored. The app window does this by handling
+      /// `SIZE_MINIMIZED and SIZE_RESTORED` command upon receiving `WM_SIZE`
+      /// message.</para>
+      /// <para>There are CPU and memory benefits when the page is hidden. For instance,
+      /// Chromium has code that throttles activities on the page like animations
+      /// and some tasks are run less frequently. Similarly, WebView2 will
+      /// purge some caches to reduce memory usage.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_isvisible">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property IsVisible                                       : boolean                                               read GetIsVisible                                     write SetIsVisible;
+      /// <summary>
+      /// The parent window provided by the app that this WebView is using to
+      /// render content.  This API initially returns the window passed into
+      /// `CreateCoreWebView2Controller`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property ParentWindow                                    : THandle                                               read GetParentWindow                                  write SetParentWindow;
+      /// <summary>
+      /// The zoom factor for the WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property ZoomFactor                                      : double                                                read GetZoomFactor                                    write SetZoomFactor;
+      /// <summary>
+      /// <para>The `DefaultBackgroundColor` property is the color WebView renders
+      /// underneath all web content. This means WebView renders this color when
+      /// there is no web content loaded such as before the initial navigation or
+      /// between navigations. This also means web pages with undefined css
+      /// background properties or background properties containing transparent
+      /// pixels will render their contents over this color. Web pages with defined
+      /// and opaque background properties that span the page will obscure the
+      /// `DefaultBackgroundColor` and display normally. The default value for this
+      /// property is white to resemble the native browser experience.</para>
+      /// <para>The Color is specified by the COREWEBVIEW2_COLOR that represents an RGBA
+      /// value. The `A` represents an Alpha value, meaning
+      /// `DefaultBackgroundColor` can be transparent. In the case of a transparent
+      /// `DefaultBackgroundColor` WebView will render hosting app content as the
+      /// background. This Alpha value is not supported on Windows 7. Any `A` value
+      /// other than 255 will result in E_INVALIDARG on Windows 7.
+      /// It is supported on all other WebView compatible platforms.</para>
+      /// <para>Semi-transparent colors are not currently supported by this API and
+      /// setting `DefaultBackgroundColor` to a semi-transparent color will fail
+      /// with E_INVALIDARG. The only supported alpha values are 0 and 255, all
+      /// other values will result in E_INVALIDARG.
+      /// `DefaultBackgroundColor` can only be an opaque color or transparent.</para>
+      /// <para>This value may also be set by using the
+      /// `WEBVIEW2_DEFAULT_BACKGROUND_COLOR` environment variable. There is a
+      /// known issue with background color where setting the color by API can
+      /// still leave the app with a white flicker before the
+      /// `DefaultBackgroundColor` takes effect. Setting the color via environment
+      /// variable solves this issue. The value must be a hex value that can
+      /// optionally prepend a 0x. The value must account for the alpha value
+      /// which is represented by the first 2 digits. So any hex value fewer than 8
+      /// digits will assume a prepended 00 to the hex value and result in a
+      /// transparent color.</para>
+      /// <para>`get_DefaultBackgroundColor` will return the result of this environment
+      /// variable if used. This environment variable can only set the
+      /// `DefaultBackgroundColor` once. Subsequent updates to background color
+      /// must be done through API call.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2#get_defaultbackgroundcolor">See the ICoreWebView2Controller2 article.</see></para>
+      /// </remarks>
+      property DefaultBackgroundColor                          : TColor                                                read GetDefaultBackgroundColor                        write SetDefaultBackgroundColor;
+      /// <summary>
+      /// <para>BoundsMode affects how setting the Bounds and RasterizationScale
+      /// properties work. Bounds mode can either be in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS
+      /// mode or COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE mode.</para>
+      /// <para>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, setting the bounds
+      /// property will set the size of the WebView in raw screen pixels. Changing
+      /// the rasterization scale in this mode won't change the raw pixel size of
+      /// the WebView and will only change the rasterization scale.</para>
+      /// <para>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the
+      /// bounds property will change the logical size of the WebView which can be
+      /// described by the following equation: Logical size * rasterization scale = Raw Pixel size</para>
+      /// <para>In this case, changing the rasterization scale will keep the logical size
+      /// the same and change the raw pixel size.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_boundsmode">See the ICoreWebView2Controller3 article.</see></para>
+      /// </remarks>
+      property BoundsMode                                      : TWVBoundsMode                                         read GetBoundsMode                                    write SetBoundsMode;
+      /// <summary>
+      /// <para>The rasterization scale for the WebView. The rasterization scale is the
+      /// combination of the monitor DPI scale and text scaling set by the user.
+      /// This value should be updated when the DPI scale of the app's top level
+      /// window changes (i.e. monitor DPI scale changes or window changes monitor)
+      /// or when the text scale factor of the system changes.</para>
+      /// <para>Rasterization scale applies to the WebView content, as well as
+      /// popups, context menus, scroll bars, and so on. Normal app scaling
+      /// scenarios should use the ZoomFactor property or SetBoundsAndZoomFactor
+      /// API which only scale the rendered HTML content and not popups, context
+      /// menus, scroll bars, and so on.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_rasterizationscale">See the ICoreWebView2Controller3 article.</see></para>
+      /// </remarks>
+      property RasterizationScale                              : double                                                read GetRasterizationScale                            write SetRasterizationScale;
+      /// <summary>
+      /// ShouldDetectMonitorScaleChanges property determines whether the WebView
+      /// attempts to track monitor DPI scale changes. When true, the WebView will
+      /// track monitor DPI scale changes, update the RasterizationScale property,
+      /// and raises RasterizationScaleChanged event. When false, the WebView will
+      /// not track monitor DPI scale changes, and the app must update the
+      /// RasterizationScale property itself. RasterizationScaleChanged event will
+      /// never raise when ShouldDetectMonitorScaleChanges is false. Apps that want
+      /// to set their own rasterization scale should set this property to false to
+      /// avoid the WebView2 updating the RasterizationScale property to match the
+      /// monitor DPI scale.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_shoulddetectmonitorscalechanges">See the ICoreWebView2Controller3 article.</see></para>
+      /// </remarks>
+      property ShouldDetectMonitorScaleChanges                 : boolean                                               read GetShouldDetectMonitorScaleChanges               write SetShouldDetectMonitorScaleChanges;
+      /// <summary>
+      /// Gets the `AllowExternalDrop` property which is used to configure the
+      /// capability that dragging objects from outside the bounds of webview2 and
+      /// dropping into webview2 is allowed or disallowed. The default value is
+      /// TRUE.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller4#get_allowexternaldrop">See the ICoreWebView2Controller4 article.</see></para>
+      /// </remarks>
       property AllowExternalDrop                               : boolean                                               read GetAllowExternalDrop                             write SetAllowExternalDrop;
 
       // ICoreWebView2Settings properties
@@ -1458,16 +1719,64 @@ type
       // ICoreWebView2Settings8 properties
       property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;            // ICoreWebView2Settings8.Get_IsReputationCheckingRequired
 
-      // ICoreWebView2CompositionController properties
+      /// <summary>
+      /// The current cursor that WebView thinks it should be. The cursor should be
+      /// set in WM_SETCURSOR through \::SetCursor or set on the corresponding
+      /// parent/ancestor HWND of the WebView through \::SetClassLongPtr. The HCURSOR
+      /// can be freed so CopyCursor/DestroyCursor is recommended to keep your own
+      /// copy if you are doing more than immediately setting the cursor.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_cursor">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property Cursor                                          : HCURSOR                                               read GetCursor;                                                                                         // ICoreWebView2CompositionController.get_Cursor
+      /// <summary>
+      /// The RootVisualTarget is a visual in the hosting app's visual tree. This
+      /// visual is where the WebView will connect its visual tree. The app uses
+      /// this visual to position the WebView within the app. The app still needs
+      /// to use the Bounds property to size the WebView. The RootVisualTarget
+      /// property can be an IDCompositionVisual or a
+      /// Windows::UI::Composition::ContainerVisual. WebView will connect its visual
+      /// tree to the provided visual before returning from the property setter. The
+      /// app needs to commit on its device setting the RootVisualTarget property.
+      /// The RootVisualTarget property supports being set to nullptr to disconnect
+      /// the WebView from the app's visual tree.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_rootvisualtarget">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property RootVisualTarget                                : IUnknown                                              read GetRootVisualTarget                              write SetRootVisualTarget;                        // ICoreWebView2CompositionController.get_RootVisualTarget
+      /// <summary>
+      /// The current system cursor ID reported by the underlying rendering engine
+      /// for WebView. For example, most of the time, when the cursor is over text,
+      /// this will return the int value for IDC_IBEAM. The systemCursorId is only
+      /// valid if the rendering engine reports a default Windows cursor resource
+      /// value. Navigate to
+      /// [LoadCursorW](/windows/win32/api/winuser/nf-winuser-loadcursorw) for more
+      /// details. Otherwise, if custom CSS cursors are being used, this will return
+      /// 0. To actually use systemCursorId in LoadCursor or LoadImage,
+      /// MAKEINTRESOURCE must be called on it first.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_systemcursorid">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property SystemCursorID                                  : cardinal                                              read GetSystemCursorID;                                                                                 // ICoreWebView2CompositionController.get_SystemCursorId
-
-      // ICoreWebView2CompositionController2 properties
+      /// <summary>
+      /// Returns the Automation Provider for the WebView. This object implements
+      /// IRawElementProviderSimple.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller2#get_automationprovider">See the ICoreWebView2CompositionController2 article.</see></para>
+      /// </remarks>
       property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;                                                                             // ICoreWebView2CompositionController2.get_UIAProvider
-
-      // ICoreWebView2Environment8 properties
-      property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;                                                                                   // ICoreWebView2Environment8.GetProcessInfos
+      /// <summary>
+      /// Returns the `ICoreWebView2ProcessInfoCollection`. Provide a list of all
+      /// process using same user data folder except for crashpad process.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#getprocessinfos">See the ICoreWebView2Environment8 article.</see></para>
+      /// </remarks>
+      property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;
 
       // ICoreWebView2ControllerOptions and ICoreWebView2Profile properties
       property ProfileName                                     : wvstring                                              read GetProfileName                                   write SetProfileName;                             // ICoreWebView2ControllerOptions.Get_ProfileName and ICoreWebView2Profile.Get_ProfileName

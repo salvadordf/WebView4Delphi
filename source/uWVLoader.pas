@@ -617,7 +617,7 @@ type
       /// \snippet AppWindow.cpp GetFailureReportFolder
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11">See the ICoreWebView2Environment11 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>
       /// </remarks>
       property FailureReportFolderPath                : wvstring                           read GetFailureReportFolderPath;
       /// <summary>
