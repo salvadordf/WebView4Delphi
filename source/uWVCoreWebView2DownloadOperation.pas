@@ -44,6 +44,11 @@ type
       function AddStateChangedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
+      /// <summary>
+      /// Constructor of the ICoreWebView2DownloadOperation wrapper.
+      /// </summary>
+      /// <param name="aBaseIntf">The ICoreWebView2DownloadOperation instance.</param>
+      /// <param name="aDownloadID">Custom ID used to identify this download operation.</param>
       constructor Create(const aBaseIntf : ICoreWebView2DownloadOperation; aDownloadID : integer); reintroduce;
       destructor  Destroy; override;
       /// <summary>
@@ -51,8 +56,35 @@ type
       /// </summary>
       /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Cancels the download. If canceled, the default download dialog shows
+      /// that the download was canceled. Host should set the `Cancel` property from
+      /// `ICoreWebView2SDownloadStartingEventArgs` if the download should be
+      /// canceled without displaying the default download dialog.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#cancel">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       function    Cancel : boolean;
+      /// <summary>
+      /// Pauses the download. If paused, the default download dialog shows that the
+      /// download is paused. No effect if download is already paused. Pausing a
+      /// download changes the state to `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED`
+      /// with `InterruptReason` set to `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#pause">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       function    Pause : boolean;
+      /// <summary>
+      /// Resumes a paused download. May also resume a download that was interrupted
+      /// for another reason, if `CanResume` returns true. Resuming a download changes
+      /// the state from `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` to
+      /// `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#resume">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       function    Resume : boolean;
 
       /// <summary>
@@ -63,16 +95,89 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf            : ICoreWebView2DownloadOperation  read FBaseIntf;
+      /// <summary>
+      /// Custom ID used to identify this download operation.
+      /// </summary>
       property DownloadID          : integer                         read FDownloadID;
+      /// <summary>
+      /// The URI of the download.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_uri">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property URI                 : wvstring                        read GetURI;
+      /// <summary>
+      /// The Content-Disposition header value from the download's HTTP response.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_contentdisposition">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property ContentDisposition  : wvstring                        read GetContentDisposition;
+      /// <summary>
+      /// MIME type of the downloaded content.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_mimetype">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property MimeType            : wvstring                        read GetMimeType;
+      /// <summary>
+      /// The expected size of the download in total number of bytes based on the
+      /// HTTP Content-Length header. Returns -1 if the size is unknown.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_totalbytestoreceive">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property TotalBytesToReceive : int64                           read GetTotalBytesToReceive;
+      /// <summary>
+      /// The number of bytes that have been written to the download file.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_bytesreceived">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property BytesReceived       : int64                           read GetBytesReceived;
+      /// <summary>
+      /// The estimated end time in [ISO 8601 Date and Time Format](https://www.iso.org/iso-8601-date-and-time-format.html).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_estimatedendtime">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property EstimatedEndTime    : TDateTime                       read GetEstimatedEndTime;
+      /// <summary>
+      /// The absolute path to the download file, including file name. Host can change
+      /// this from `ICoreWebView2DownloadStartingEventArgs`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_resultfilepath">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property ResultFilePath      : wvstring                        read GetResultFilePath;
+      /// <summary>
+      /// The state of the download. A download can be in progress, interrupted, or
+      /// completed. See `COREWEBVIEW2_DOWNLOAD_STATE` for descriptions of states.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_state">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property State               : TWVDownloadState                read GetState;
+      /// <summary>
+      /// The reason why connection with file host was broken.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_interruptreason">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property InterruptReason     : TWVDownloadInterruptReason      read GetInterruptReason;
+      /// <summary>
+      /// Returns true if an interrupted download can be resumed. Downloads with
+      /// the following interrupt reasons may automatically resume without you
+      /// calling any methods:
+      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE`,
+      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH`,
+      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT`.
+      /// In these cases download progress may be restarted with `BytesReceived`
+      /// reset to 0.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_canresume">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property CanResume           : boolean                         read GetCanResume;
   end;
 

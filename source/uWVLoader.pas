@@ -644,7 +644,7 @@ type
       /// Runtime is installed and available using WebView2.
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment">See the ICoreWebView2Environment article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#add_newbrowserversionavailable">See the ICoreWebView2Environment article.</see></para>
       /// </remarks>
       property OnNewBrowserVersionAvailable           : TLoaderNewBrowserVersionAvailableEvent  read FOnNewBrowserVersionAvailable            write FOnNewBrowserVersionAvailable;
       /// <summary>
@@ -655,14 +655,14 @@ type
       /// (including the user data folder).
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5">See the ICoreWebView2Environment5 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5#add_browserprocessexited">See the ICoreWebView2Environment5 article.</see></para>
       /// </remarks>
       property OnBrowserProcessExited                 : TLoaderBrowserProcessExitedEvent        read FOnBrowserProcessExited                  write FOnBrowserProcessExited;
       /// <summary>
       /// OnProcessInfosChanged is triggered when the ProcessInfos property has changed.
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8">See the ICoreWebView2Environment8 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#add_processinfoschanged">See the ICoreWebView2Environment8 article.</see></para>
       /// </remarks>
       property OnProcessInfosChanged                  : TLoaderProcessInfosChangedEvent         read FOnProcessInfosChanged                   write FOnProcessInfosChanged;
   end;

@@ -866,12 +866,12 @@ type
       /// <para>The `aURI` parameter value is a wildcard string matched against the URI
       /// of the web resource request. This is a glob style
       /// wildcard string in which a `*` matches zero or more characters and a `?`
-      /// matches exactly one character.
-      /// These wildcard characters can be escaped using a backslash just before
+      /// matches exactly one character.</para>
+      /// <para>These wildcard characters can be escaped using a backslash just before
       /// the wildcard character in order to represent the literal `*` or `?`.</para>
       /// <para>The matching occurs over the URI as a whole string and not limiting
-      /// wildcard matches to particular parts of the URI.
-      /// The wildcard filter is compared to the URI after the URI has been
+      /// wildcard matches to particular parts of the URI.</para>
+      /// <para>The wildcard filter is compared to the URI after the URI has been
       /// normalized, any URI fragment has been removed, and non-ASCII hostnames
       /// have been converted to punycode.</para>
       /// <para>Specifying an empty string for aURI matches no URIs.</para>
@@ -1299,8 +1299,9 @@ type
       /// </remarks>
       function    ClearBrowsingDataAll: boolean;
       /// <summary>
-      /// Clears all cached decisions to proceed with TLS certificate errors from the
-      /// ServerCertificateErrorDetected event for all WebView2's sharing the same session.
+      /// <para>Clears all cached decisions to proceed with TLS certificate errors from the
+      /// OnServerCertificateErrorDetected event for all WebView2's sharing the same session.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnServerCertificateErrorActionsCompleted event when it finishes.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#clearservercertificateerroractions">See the ICoreWebView2_14 article.</see></para>
@@ -1341,6 +1342,12 @@ type
 
       // Custom properties
       property Initialized                                     : boolean                                               read GetInitialized;
+      /// <summary>
+      /// Settings used for printing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property CoreWebView2PrintSettings                       : TCoreWebView2PrintSettings                            read FCoreWebView2PrintSettings;
       /// <summary>
       /// CoreWebView2Settings contains various modifiable settings for the running WebView.
@@ -1349,23 +1356,107 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property CoreWebView2Settings                            : TCoreWebView2Settings                                 read FCoreWebView2Settings;
+      /// <summary>
+      /// Represents the WebView2 Environment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
       property CoreWebView2Environment                         : TCoreWebView2Environment                              read FCoreWebView2Environment;
+      /// <summary>
+      /// The owner of the `CoreWebView2` object that provides support for resizing,
+      /// showing and hiding, focusing, and other functionality related to
+      /// windowing and composition.  The `CoreWebView2Controller` owns the
+      /// `CoreWebView2`, and if all references to the `CoreWebView2Controller` go
+      /// away, the WebView is closed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property CoreWebView2Controller                          : TCoreWebView2Controller                               read FCoreWebView2Controller;
+      /// <summary>
+      /// <para>ICoreWebView2CompositionController wrapper used by this browser.</para>
+      /// <para>This interface is an extension of the ICoreWebView2Controller interface to
+      /// support visual hosting. An object implementing the
+      /// ICoreWebView2CompositionController interface will also implement
+      /// ICoreWebView2Controller. Callers are expected to use
+      /// ICoreWebView2Controller for resizing, visibility, focus, and so on, and
+      /// then use ICoreWebView2CompositionController to connect to a composition
+      /// tree and provide input meant for the WebView.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property CoreWebView2CompositionController               : TCoreWebView2CompositionController                    read FCoreWebView2CompositionController;
+      /// <summary>
+      /// ICoreWebView2 wrapper used by this browser.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property CoreWebView2                                    : TCoreWebView2                                         read FCoreWebView2;
+      /// <summary>
+      /// First URL loaded by the browser after its creation.
+      /// </summary>
       property DefaultURL                                      : wvstring                                              read FDefaultURL                                      write FDefaultURL;
+      /// <summary>
+      /// Returns true after OnNavigationStarting and before OnNavigationCompleted.
+      /// </summary>
       property IsNavigating                                    : boolean                                               read FIsNavigating;
-      property ZoomPct                                         : double                                                read GetZoomPct                                       write SetZoomPct;                                 // ICoreWebView2Controller.get_ZoomFactor
-      property ZoomStep                                        : byte                                                  read FZoomStep                                        write SetZoomStep;                                // ICoreWebView2Controller.get_ZoomFactor
+      /// <summary>
+      /// Returns the current zoom value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property ZoomPct                                         : double                                                read GetZoomPct                                       write SetZoomPct;
+      /// <summary>
+      /// Returns the current zoom value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
+      property ZoomStep                                        : byte                                                  read FZoomStep                                        write SetZoomStep;
+      /// <summary>
+      /// Handle of one to the child controls created automatically by the browser to show the web contents.
+      /// </summary>
       property Widget0CompHWND                                 : THandle                                               read FWidget0CompHWND;
+      /// <summary>
+      /// Handle of one to the child controls created automatically by the browser to show the web contents.
+      /// </summary>
       property Widget1CompHWND                                 : THandle                                               read FWidget1CompHWND;
+      /// <summary>
+      /// Handle of one to the child controls created automatically by the browser to show the web contents.
+      /// </summary>
       property RenderCompHWND                                  : THandle                                               read FRenderCompHWND;
+      /// <summary>
+      /// Handle of one to the child controls created automatically by the browser to show the web contents.
+      /// </summary>
       property D3DWindowCompHWND                               : THandle                                               read FD3DWindowCompHWND;
+      /// <summary>
+      /// ICoreWebView2ContextMenuRequestedEventHandler wrapper used by this browser to handle context menu item events.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customitemselectedeventhandler">See the ICoreWebView2CustomItemSelectedEventHandler article.</see></para>
+      /// </remarks>
       property CustomItemSelectedEventHandler                  : ICoreWebView2CustomItemSelectedEventHandler           read GetCustomItemSelectedEventHandler;
+      /// <summary>
+      /// Returns the GlobalWebView2Loader.DeviceScaleFactor value.
+      /// </summary>
       property ScreenScale                                     : single                                                read GetScreenScale;
-
-      // Custom properties created using DevTool methods
+      /// <summary>
+      /// Uses the Network.emulateNetworkConditions DevTool method to set the browser in offline mode.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-emulateNetworkConditions">See the Network Domain article.</see></para>
+      /// </remarks>
       property Offline                                         : boolean                                               read FOffline                                         write SetOffline;
+      /// <summary>
+      /// Uses the Security.setIgnoreCertificateErrors DevTool method to enable/disable whether all certificate errors should be ignored.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Security/#method-setIgnoreCertificateErrors">See the Security Domain article.</see></para>
+      /// </remarks>
       property IgnoreCertificateErrors                         : boolean                                               read FIgnoreCertificateErrors                         write SetIgnoreCertificateErrors;
 
       // Properties used in the ICoreWebView2Environment creation
@@ -1381,13 +1472,71 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment7#get_userdatafolder">See the ICoreWebView2Environment7 article.</see></para>
       /// </remarks>
       property UserDataFolder                                  : wvstring                                              read GetUserDataFolder                                write FUserDataFolder;
-      property AdditionalBrowserArguments                      : wvstring                                              read FAdditionalBrowserArguments                      write FAdditionalBrowserArguments;                // ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments
-      property Language                                        : wvstring                                              read FLanguage                                        write FLanguage;                                  // ICoreWebView2EnvironmentOptions.get_Language
-      property TargetCompatibleBrowserVersion                  : wvstring                                              read FTargetCompatibleBrowserVersion                  write FTargetCompatibleBrowserVersion;            // ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion
-      property AllowSingleSignOnUsingOSPrimaryAccount          : boolean                                               read FAllowSingleSignOnUsingOSPrimaryAccount          write FAllowSingleSignOnUsingOSPrimaryAccount;    // ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount
-      property ExclusiveUserDataFolderAccess                   : boolean                                               read FExclusiveUserDataFolderAccess                   write FExclusiveUserDataFolderAccess;             // ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess
-      property CustomCrashReportingEnabled                     : boolean                                               read FCustomCrashReportingEnabled                     write FCustomCrashReportingEnabled;               // ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled
-      property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;                  // ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention
+      /// <summary>
+      /// Additional command line switches.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property AdditionalBrowserArguments                      : wvstring                                              read FAdditionalBrowserArguments                      write FAdditionalBrowserArguments;
+      /// <summary>
+      /// The default display language for WebView.  It applies to browser UI such as
+      /// context menu and dialogs.  It also applies to the `accept-languages` HTTP
+      /// header that WebView sends to websites.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_Language.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property Language                                        : wvstring                                              read FLanguage                                        write FLanguage;
+      /// <summary>
+      /// Specifies the version of the WebView2 Runtime binaries required to be
+      /// compatible with your app.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property TargetCompatibleBrowserVersion                  : wvstring                                              read FTargetCompatibleBrowserVersion                  write FTargetCompatibleBrowserVersion;
+      /// <summary>
+      /// Used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft
+      /// Account (MSA) resources inside WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// </remarks>
+      property AllowSingleSignOnUsingOSPrimaryAccount          : boolean                                               read FAllowSingleSignOnUsingOSPrimaryAccount          write FAllowSingleSignOnUsingOSPrimaryAccount;
+      /// <summary>
+      /// Whether other processes can create WebView2 from WebView2Environment created with the
+      /// same user data folder and therefore sharing the same WebView browser process instance.
+      /// Default is FALSE.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
+      /// </remarks>
+      property ExclusiveUserDataFolderAccess                   : boolean                                               read FExclusiveUserDataFolderAccess                   write FExclusiveUserDataFolderAccess;
+      /// <summary>
+      /// When `CustomCrashReportingEnabled` is set to `TRUE`, Windows won't send crash data to Microsoft endpoint.
+      /// `CustomCrashReportingEnabled` is default to be `FALSE`, in this case, WebView will respect OS consent.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3">See the ICoreWebView2EnvironmentOptions3 article.</see></para>
+      /// </remarks>
+      property CustomCrashReportingEnabled                     : boolean                                               read FCustomCrashReportingEnabled                     write FCustomCrashReportingEnabled;
+      /// <summary>
+      /// The `EnableTrackingPrevention` property is used to enable/disable tracking prevention
+      /// feature in WebView2. This property enable/disable tracking prevention for all the
+      /// WebView2's created in the same environment.
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
+      /// </remarks>
+      property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;
       /// <summary>
       /// The browser version info of the current `ICoreWebView2Environment`,
       /// including channel name if it is not the WebView2 Runtime.  It matches the
@@ -1685,40 +1834,251 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller4#get_allowexternaldrop">See the ICoreWebView2Controller4 article.</see></para>
       /// </remarks>
       property AllowExternalDrop                               : boolean                                               read GetAllowExternalDrop                             write SetAllowExternalDrop;
-
-      // ICoreWebView2Settings properties
-      property DefaultContextMenusEnabled                      : boolean                                               read GetDefaultContextMenusEnabled                    write SetDefaultContextMenusEnabled;              // ICoreWebView2Settings.get_AreDefaultContextMenusEnabled
-      property DefaultScriptDialogsEnabled                     : boolean                                               read GetDefaultScriptDialogsEnabled                   write SetDefaultScriptDialogsEnabled;             // ICoreWebView2Settings.get_AreDefaultScriptDialogsEnabled
-      property DevToolsEnabled                                 : boolean                                               read GetDevToolsEnabled                               write SetDevToolsEnabled;                         // ICoreWebView2Settings.get_AreDevToolsEnabled
-      property AreHostObjectsAllowed                           : boolean                                               read GetAreHostObjectsAllowed                         write SetAreHostObjectsAllowed;                   // ICoreWebView2Settings.get_AreHostObjectsAllowed
-      property BuiltInErrorPageEnabled                         : boolean                                               read GetBuiltInErrorPageEnabled                       write SetBuiltInErrorPageEnabled;                 // ICoreWebView2Settings.get_IsBuiltInErrorPageEnabled
-      property ScriptEnabled                                   : boolean                                               read GetScriptEnabled                                 write SetScriptEnabled;                           // ICoreWebView2Settings.get_IsScriptEnabled
-      property StatusBarEnabled                                : boolean                                               read GetStatusBarEnabled                              write SetStatusBarEnabled;                        // ICoreWebView2Settings.get_IsStatusBarEnabled
-      property WebMessageEnabled                               : boolean                                               read GetWebMessageEnabled                             write SetWebMessageEnabled;                       // ICoreWebView2Settings.get_IsWebMessageEnabled
-      property ZoomControlEnabled                              : boolean                                               read GetZoomControlEnabled                            write SetZoomControlEnabled;                      // ICoreWebView2Settings.get_IsZoomControlEnabled
-
-      // ICoreWebView2Settings2 properties
-      property UserAgent                                       : wvstring                                              read GetUserAgent                                     write SetUserAgent;                               // ICoreWebView2Settings2.get_UserAgent
-
-      // ICoreWebView2Settings3 properties
-      property AreBrowserAcceleratorKeysEnabled                : boolean                                               read GetAreBrowserAcceleratorKeysEnabled              write SetAreBrowserAcceleratorKeysEnabled;        // ICoreWebView2Settings3.get_AreBrowserAcceleratorKeysEnabled
-
-      // ICoreWebView2Settings4 properties
-      property IsGeneralAutofillEnabled                        : boolean                                               read GetIsGeneralAutofillEnabled                      write SetIsGeneralAutofillEnabled;                // ICoreWebView2Settings4.get_IsGeneralAutofillEnabled
-      property IsPasswordAutosaveEnabled                       : boolean                                               read GetIsPasswordAutosaveEnabled                     write SetIsPasswordAutosaveEnabled;               // ICoreWebView2Settings4.get_IsPasswordAutosaveEnabled
-
-      // ICoreWebView2Settings5 properties
-      property IsPinchZoomEnabled                              : boolean                                               read GetIsPinchZoomEnabled                            write SetIsPinchZoomEnabled;                      // ICoreWebView2Settings5.get_IsPinchZoomEnabled
-
-      // ICoreWebView2Settings6 properties
-      property IsSwipeNavigationEnabled                        : boolean                                               read GetIsSwipeNavigationEnabled                      write SetIsSwipeNavigationEnabled;                // ICoreWebView2Settings6.get_IsSwipeNavigationEnabled
-
-      // ICoreWebView2Settings7 properties
-      property HiddenPdfToolbarItems                           : TWVPDFToolbarItems                                    read GetHiddenPdfToolbarItems                         write SetHiddenPdfToolbarItems;                   // ICoreWebView2Settings7.Get_HiddenPdfToolbarItems
-
-      // ICoreWebView2Settings8 properties
-      property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;            // ICoreWebView2Settings8.Get_IsReputationCheckingRequired
-
+      /// <summary>
+      /// The `DefaultContextMenusEnabled` property is used to prevent default
+      /// context menus from being shown to user in WebView.
+      /// The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredefaultcontextmenusenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property DefaultContextMenusEnabled                      : boolean                                               read GetDefaultContextMenusEnabled                    write SetDefaultContextMenusEnabled;
+      /// <summary>
+      /// `DefaultScriptDialogsEnabled` is used when loading a new HTML
+      /// document.  If set to `FALSE`, WebView2 does not render the default JavaScript
+      /// dialog box (Specifically those displayed by the JavaScript alert,
+      /// confirm, prompt functions and `beforeunload` event).  Instead, if an
+      /// event handler is set using `add_ScriptDialogOpening`, WebView sends an
+      /// event that contains all of the information for the dialog and allow the
+      /// host app to show a custom UI. The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredefaultscriptdialogsenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property DefaultScriptDialogsEnabled                     : boolean                                               read GetDefaultScriptDialogsEnabled                   write SetDefaultScriptDialogsEnabled;
+      /// <summary>
+      /// `DevToolsEnabled` controls whether the user is able to use the context
+      /// menu or keyboard shortcuts to open the DevTools window.
+      /// The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredevtoolsenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property DevToolsEnabled                                 : boolean                                               read GetDevToolsEnabled                               write SetDevToolsEnabled;
+      /// <summary>
+      /// The `AreHostObjectsAllowed` property is used to control whether host
+      /// objects are accessible from the page in WebView.
+      /// The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_arehostobjectsallowed">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property AreHostObjectsAllowed                           : boolean                                               read GetAreHostObjectsAllowed                         write SetAreHostObjectsAllowed;
+      /// <summary>
+      /// The `BuiltInErrorPageEnabled` property is used to disable built in
+      /// error page for navigation failure and render process failure.  When
+      /// disabled, a blank page is displayed when the related error happens.
+      /// The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_isbuiltinerrorpageenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property BuiltInErrorPageEnabled                         : boolean                                               read GetBuiltInErrorPageEnabled                       write SetBuiltInErrorPageEnabled;
+      /// <summary>
+      /// Controls if running JavaScript is enabled in all future navigations in
+      /// the WebView.  This only affects scripts in the document.  Scripts
+      /// injected with `ExecuteScript` runs even if script is disabled.
+      /// The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_isscriptenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property ScriptEnabled                                   : boolean                                               read GetScriptEnabled                                 write SetScriptEnabled;
+      /// <summary>
+      /// `StatusBarEnabled` controls whether the status bar is displayed.  The
+      /// status bar is usually displayed in the lower left of the WebView and
+      /// shows things such as the URI of a link when the user hovers over it and
+      /// other information. The default value is `TRUE`. The status bar UI can be
+      /// altered by web content and should not be considered secure.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_isstatusbarenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property StatusBarEnabled                                : boolean                                               read GetStatusBarEnabled                              write SetStatusBarEnabled;
+      /// <summary>
+      /// <para>The `WebMessageEnabled` property is used when loading a new HTML
+      /// document.  If set to `TRUE`, communication from the host to the top-level
+      ///  HTML document of the WebView is allowed using `PostWebMessageAsJson`,
+      /// `PostWebMessageAsString`, and message event of `window.chrome.webview`.
+      /// For more information, navigate to PostWebMessageAsJson.  Communication
+      /// from the top-level HTML document of the WebView to the host is allowed
+      /// using the postMessage function of `window.chrome.webview` and
+      /// `add_WebMessageReceived` method.</para>
+      /// <para>If set to false, then communication is disallowed.  `PostWebMessageAsJson`
+      /// and `PostWebMessageAsString` fails with `E_ACCESSDENIED` and
+      /// `window.chrome.webview.postMessage` fails by throwing an instance of an
+      /// `Error` object. The default value is `TRUE`.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived">See the add_WebMessageReceived method article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_iswebmessageenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property WebMessageEnabled                               : boolean                                               read GetWebMessageEnabled                             write SetWebMessageEnabled;
+      /// <summary>
+      /// The `ZoomControlEnabled` property is used to prevent the user from
+      /// impacting the zoom of the WebView.  When disabled, the user is not able
+      /// to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom
+      /// is set using `ZoomFactor` API.  The default value is `TRUE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_iszoomcontrolenabled">See the ICoreWebView2Settings article.</see></para>
+      /// </remarks>
+      property ZoomControlEnabled                              : boolean                                               read GetZoomControlEnabled                            write SetZoomControlEnabled;
+      /// <summary>
+      /// Returns the User Agent. The default value is the default User Agent of the
+      /// Microsoft Edge browser.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>
+      /// </remarks>
+      property UserAgent                                       : wvstring                                              read GetUserAgent                                     write SetUserAgent;
+      /// <summary>
+      /// When this setting is set to FALSE, it disables all accelerator keys that
+      /// access features specific to a web browser.
+      /// The default value for `AreBrowserAcceleratorKeysEnabled` is TRUE.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings3#get_arebrowseracceleratorkeysenabled">See the ICoreWebView2Settings3 article.</see></para>
+      /// </remarks>
+      property AreBrowserAcceleratorKeysEnabled                : boolean                                               read GetAreBrowserAcceleratorKeysEnabled              write SetAreBrowserAcceleratorKeysEnabled;
+      /// <summary>
+      /// <para>IsGeneralAutofillEnabled controls whether autofill for information
+      /// like names, street and email addresses, phone numbers, and arbitrary input
+      /// is enabled. This excludes password and credit card information. When
+      /// IsGeneralAutofillEnabled is false, no suggestions appear, and no new information
+      /// is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions
+      /// appear and clicking on one will populate the form fields. It will take effect
+      /// immediately after setting. The default value is `TRUE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Profile.IsGeneralAutofillEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsGeneralAutofillEnabled` and
+      /// `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings4#get_isgeneralautofillenabled">See the ICoreWebView2Settings4 article.</see></para>
+      /// </remarks>
+      property IsGeneralAutofillEnabled                        : boolean                                               read GetIsGeneralAutofillEnabled                      write SetIsGeneralAutofillEnabled;
+      /// <summary>
+      /// <para>IsPasswordAutosaveEnabled controls whether autosave for password
+      /// information is enabled. The IsPasswordAutosaveEnabled property behaves
+      /// independently of the IsGeneralAutofillEnabled property. When IsPasswordAutosaveEnabled is
+      /// false, no new password data is saved and no Save/Update Password prompts are displayed.
+      /// However, if there was password data already saved before disabling this setting,
+      /// then that password information is auto-populated, suggestions are shown and clicking on
+      /// one will populate the fields.</para>
+      /// <para>When IsPasswordAutosaveEnabled is true, password information is auto-populated,
+      /// suggestions are shown and clicking on one will populate the fields, new data
+      /// is saved, and a Save/Update Password prompt is displayed.
+      /// It will take effect immediately after setting. The default value is `FALSE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled` and
+      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings4#get_ispasswordautosaveenabled">See the ICoreWebView2Settings4 article.</see></para>
+      /// </remarks>
+      property IsPasswordAutosaveEnabled                       : boolean                                               read GetIsPasswordAutosaveEnabled                     write SetIsPasswordAutosaveEnabled;
+      /// <summary>
+      /// <para>Pinch-zoom, referred to as "Page Scale" zoom, is performed as a post-rendering step,
+      /// it changes the page scale factor property and scales the surface the web page is
+      /// rendered onto when user performs a pinch zooming action. It does not change the layout
+      /// but rather changes the viewport and clips the web content, the content outside of the
+      /// viewport isn't visible onscreen and users can't reach this content using mouse.</para>
+      /// <para>The `IsPinchZoomEnabled` property enables or disables the ability of
+      /// the end user to use a pinching motion on touch input enabled devices
+      /// to scale the web content in the WebView2. It defaults to `TRUE`.
+      /// When set to `FALSE`, the end user cannot pinch zoom after the next navigation.
+      /// Disabling/Enabling `IsPinchZoomEnabled` only affects the end user's ability to use
+      /// pinch motions and does not change the page scale factor.
+      /// This API only affects the Page Scale zoom and has no effect on the
+      /// existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`)
+      /// or other end user mechanisms for zooming.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings5#get_ispinchzoomenabled">See the ICoreWebView2Settings5 article.</see></para>
+      /// </remarks>
+      property IsPinchZoomEnabled                              : boolean                                               read GetIsPinchZoomEnabled                            write SetIsPinchZoomEnabled;
+      /// <summary>
+      /// <para>The `IsSwipeNavigationEnabled` property enables or disables the ability of the
+      /// end user to use swiping gesture on touch input enabled devices to
+      /// navigate in WebView2. It defaults to `TRUE`.</para>
+      /// <para>When this property is `TRUE`, then all configured navigation gestures are enabled:
+      /// 1. Swiping left and right to navigate forward and backward is always configured.
+      /// 2. Swiping down to refresh is off by default and not exposed via our API currently,
+      /// it requires the "--pull-to-refresh" option to be included in the additional browser
+      /// arguments to be configured. (See put_AdditionalBrowserArguments.)</para>
+      /// <para>When set to `FALSE`, the end user cannot swipe to navigate or pull to refresh.
+      /// This API only affects the overscrolling navigation functionality and has no
+      /// effect on the scrolling interaction used to explore the web content shown
+      /// in WebView2.</para>
+      /// <para>Disabling/Enabling IsSwipeNavigationEnabled takes effect after the
+      /// next navigation.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings6#get_isswipenavigationenabled">See the ICoreWebView2Settings6 article.</see></para>
+      /// </remarks>
+      property IsSwipeNavigationEnabled                        : boolean                                               read GetIsSwipeNavigationEnabled                      write SetIsSwipeNavigationEnabled;
+      /// <summary>
+      /// `HiddenPdfToolbarItems` is used to customize the PDF toolbar items. By default, it is COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE and so it displays all of the items.
+      /// Changes to this property apply to all CoreWebView2s in the same environment and using the same profile.
+      /// Changes to this setting apply only after the next navigation.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings7#get_hiddenpdftoolbaritems">See the ICoreWebView2Settings7 article.</see></para>
+      /// </remarks>
+      property HiddenPdfToolbarItems                           : TWVPDFToolbarItems                                    read GetHiddenPdfToolbarItems                         write SetHiddenPdfToolbarItems;
+      /// <summary>
+      /// <para>SmartScreen helps webviews identify reported phishing and malware websites
+      /// and also helps users make informed decisions about downloads.
+      /// `IsReputationCheckingRequired` is used to control whether SmartScreen
+      /// enabled or not. SmartScreen is enabled or disabled for all CoreWebView2s
+      /// using the same user data folder. If
+      /// CoreWebView2Setting.IsReputationCheckingRequired is true for any
+      /// CoreWebView2 using the same user data folder, then SmartScreen is enabled.
+      /// If CoreWebView2Setting.IsReputationCheckingRequired is false for all
+      /// CoreWebView2 using the same user data folder, then SmartScreen is
+      /// disabled. When it is changed, the change will be applied to all WebViews
+      /// using the same user data folder on the next navigation or download. The
+      /// default value for `IsReputationCheckingRequired` is true. If the newly
+      /// created CoreWebview2 does not set SmartScreen to false, when
+      /// navigating(Such as Navigate(), LoadDataUrl(), ExecuteScript(), etc.), the
+      /// default value will be applied to all CoreWebview2 using the same user data
+      /// folder.</para>
+      /// <para>SmartScreen of WebView2 apps can be controlled by Windows system setting
+      /// "SmartScreen for Microsoft Edge", specially, for WebView2 in Windows
+      /// Store apps, SmartScreen is controlled by another Windows system setting
+      /// "SmartScreen for Microsoft Store apps". When the Windows setting is enabled, the
+      /// SmartScreen operates under the control of the `IsReputationCheckingRequired`.
+      /// When the Windows setting is disabled, the SmartScreen will be disabled
+      /// regardless of the `IsReputationCheckingRequired` value set in WebView2 apps.
+      /// In other words, under this circumstance the value of
+      /// `IsReputationCheckingRequired` will be saved but overridden by system setting.
+      /// Upon re-enabling the Windows setting, the CoreWebview2 will reference the
+      /// `IsReputationCheckingRequired` to determine the SmartScreen status.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings8#get_isreputationcheckingrequired">See the ICoreWebView2Settings8 article.</see></para>
+      /// </remarks>
+      property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;
       /// <summary>
       /// The current cursor that WebView thinks it should be. The cursor should be
       /// set in WM_SETCURSOR through \::SetCursor or set on the corresponding
@@ -1777,129 +2137,736 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#getprocessinfos">See the ICoreWebView2Environment8 article.</see></para>
       /// </remarks>
       property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;
+      /// <summary>
+      /// <para>`ProfileName` property is to specify a profile name, which is only allowed to contain
+      /// the following ASCII characters. It has a maximum length of 64 characters excluding the null-terminator.
+      /// It is ASCII case insensitive.</para>
+      /// <para>* alphabet characters: a-z and A-Z</para>
+      /// <para>* digit characters: 0-9</para>
+      /// <para>* and '#', '@', '$', '(', ')', '+', '-', '_', '~', '.', ' ' (space).</para>
+      /// <para>Note: the text must not end with a period '.' or ' ' (space). And, although upper-case letters are
+      /// allowed, they're treated just as lower-case counterparts because the profile name will be mapped to
+      /// the real profile directory path on disk and Windows file system handles path names in a case-insensitive way.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions#get_profilename">See the ICoreWebView2ControllerOptions article.</see></para>
+      /// </remarks>
+      property ProfileName                                     : wvstring                                              read GetProfileName                                   write SetProfileName;
+      /// <summary>
+      /// `IsInPrivateModeEnabled` property is to enable/disable InPrivate mode.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions#get_isinprivatemodeenabled">See the ICoreWebView2ControllerOptions article.</see></para>
+      /// </remarks>
+      property IsInPrivateModeEnabled                          : boolean                                               read GetIsInPrivateModeEnabled                        write FIsInPrivateModeEnabled;
+      /// <summary>
+      /// <para>The default locale for the WebView2.  It sets the default locale for all
+      /// Intl JavaScript APIs and other JavaScript APIs that depend on it, namely
+      /// `Intl.DateTimeFormat()` which affects string formatting like
+      /// in the time/date formats. Example: `Intl.DateTimeFormat().format(new Date())`
+      /// The intended locale value is in the format of
+      /// BCP 47 Language Tags. More information can be found from
+      /// [IETF BCP47](https://www.ietf.org/rfc/bcp/bcp47.html).</para>
+      /// <para>This property sets the locale for a CoreWebView2Environment used to create the
+      /// WebView2ControllerOptions object, which is passed as a parameter in
+      /// `CreateCoreWebView2ControllerWithOptions`.</para>
+      /// <para>Changes to the ScriptLocale property apply to renderer processes created after
+      /// the change. Any existing renderer processes will continue to use the previous
+      /// ScriptLocale value. To ensure changes are applied to all renderer process,
+      /// close and restart the CoreWebView2Environment and all associated WebView2 objects.</para>
+      /// <para>The default value for ScriptLocale will depend on the WebView2 language
+      /// and OS region. If the language portions of the WebView2 language and OS region
+      /// match, then it will use the OS region. Otherwise, it will use the WebView2
+      /// language.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions2#get_scriptlocale">See the ICoreWebView2ControllerOptions2 article.</see></para>
+      /// </remarks>
+      property ScriptLocale                                    : wvstring                                              read FScriptLocale                                    write FScriptLocale;
+      /// <summary>
+      /// Full path of the profile directory.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_profilepath">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
+      property ProfilePath                                     : wvstring                                              read GetProfilePath;
+      /// <summary>
+      /// Gets the `DefaultDownloadFolderPath` property. The default value is the
+      /// system default download folder path for the user.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_defaultdownloadfolderpath">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
+      property DefaultDownloadFolderPath                       : wvstring                                              read GetDefaultDownloadFolderPath                     write SetDefaultDownloadFolderPath;
+      /// <summary>
+      /// <para>The PreferredColorScheme property sets the overall color scheme of the
+      /// WebView2s associated with this profile. This sets the color scheme for
+      /// WebView2 UI like dialogs, prompts, and context menus by setting the
+      /// media feature `prefers-color-scheme` for websites to respond to.</para>
+      /// <para>The default value for this is COREWEBVIEW2_PREFERRED_COLOR_AUTO,
+      /// which will follow whatever theme the OS is currently set to.</para>
+      /// <para>Returns the value of the `PreferredColorScheme` property.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_preferredcolorscheme">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
+      property PreferredColorScheme                            : TWVPreferredColorScheme                               read GetPreferredColorScheme                          write SetPreferredColorScheme;
+      /// <summary>
+      /// <para>The `PreferredTrackingPreventionLevel` property allows you to control levels of tracking prevention for WebView2
+      /// which are associated with a profile. This level would apply to the context of the profile. That is, all WebView2s
+      /// sharing the same profile will be affected and also the value is persisted in the user data folder.</para>
+      /// <para>See `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL` for descriptions of levels.</para>
+      /// <para>If tracking prevention feature is enabled when creating the WebView2 environment, you can also disable tracking
+      /// prevention later using this property and `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE` value but that doesn't
+      /// improves runtime performance.</para>
+      /// <para>There is `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` property to enable/disable tracking prevention feature
+      /// for all the WebView2's created in the same environment. If enabled, `PreferredTrackingPreventionLevel` is set to
+      /// `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED` by default for all the WebView2's and profiles created in the same
+      /// environment or is set to the level whatever value was last changed/persisted to the profile. If disabled
+      /// `PreferredTrackingPreventionLevel` is not respected by WebView2. If `PreferredTrackingPreventionLevel` is set when the
+      /// feature is disabled, the property value get changed and persisted but it will takes effect only if
+      /// `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` is true.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile3#get_preferredtrackingpreventionlevel">See the ICoreWebView2Profile3 article.</see></para>
+      /// </remarks>
+      property PreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel                            read GetPreferredTrackingPreventionLevel              write SetPreferredTrackingPreventionLevel;
+      /// <summary>
+      /// Get the cookie manager for the profile. All CoreWebView2s associated with this
+      /// profile share the same cookie values. Changes to cookies in this cookie manager apply to all
+      /// CoreWebView2s associated with this profile. See ICoreWebView2CookieManager.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile5#get_cookiemanager">See the ICoreWebView2Profile5 article.</see></para>
+      /// </remarks>
+      property ProfileCookieManager                            : ICoreWebView2CookieManager                            read GetProfileCookieManager;
+      /// <summary>
+      /// <para>IsPasswordAutosaveEnabled controls whether autosave for password
+      /// information is enabled. The IsPasswordAutosaveEnabled property behaves
+      /// independently of the IsGeneralAutofillEnabled property. When IsPasswordAutosaveEnabled is
+      /// false, no new password data is saved and no Save/Update Password prompts are displayed.
+      /// However, if there was password data already saved before disabling this setting,
+      /// then that password information is auto-populated, suggestions are shown and clicking on
+      /// one will populate the fields.</para>
+      /// <para>When IsPasswordAutosaveEnabled is true, password information is auto-populated,
+      /// suggestions are shown and clicking on one will populate the fields, new data
+      /// is saved, and a Save/Update Password prompt is displayed.</para>
+      /// <para>It will take effect immediately after setting. The default value is `FALSE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled` and
+      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile6#get_ispasswordautosaveenabled">See the ICoreWebView2Profile6 article.</see></para>
+      /// </remarks>
+      property ProfileIsPasswordAutosaveEnabled                : boolean                                               read GetProfileIsPasswordAutosaveEnabled              write SetProfileIsPasswordAutosaveEnabled;
+      /// <summary>
+      /// <para>IsGeneralAutofillEnabled controls whether autofill for information
+      /// like names, street and email addresses, phone numbers, and arbitrary input
+      /// is enabled. This excludes password and credit card information. When
+      /// IsGeneralAutofillEnabled is false, no suggestions appear, and no new information
+      /// is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions
+      /// appear and clicking on one will populate the form fields.</para>
+      /// <para>It will take effect immediately after setting. The default value is `TRUE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Settings.IsGeneralAutofillEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsGeneralAutofillEnabled` and
+      /// `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile6#get_isgeneralautofillenabled">See the ICoreWebView2Profile6 article.</see></para>
+      /// </remarks>
+      property ProfileIsGeneralAutofillEnabled                 : boolean                                               read GetProfileIsGeneralAutofillEnabled               write SetProfileIsGeneralAutofillEnabled;
 
-      // ICoreWebView2ControllerOptions and ICoreWebView2Profile properties
-      property ProfileName                                     : wvstring                                              read GetProfileName                                   write SetProfileName;                             // ICoreWebView2ControllerOptions.Get_ProfileName and ICoreWebView2Profile.Get_ProfileName
-      property IsInPrivateModeEnabled                          : boolean                                               read GetIsInPrivateModeEnabled                        write FIsInPrivateModeEnabled;                    // ICoreWebView2ControllerOptions.Get_IsInPrivateModeEnabled and ICoreWebView2Profile.Get_IsInPrivateModeEnabled
-      property ScriptLocale                                    : wvstring                                              read FScriptLocale                                    write FScriptLocale;                              // ICoreWebView2ControllerOptions2.Get_ScriptLocale
-
-      // ICoreWebView2Profile properties
-      property ProfilePath                                     : wvstring                                              read GetProfilePath;                                                                                    // ICoreWebView2Profile.Get_ProfilePath
-      property DefaultDownloadFolderPath                       : wvstring                                              read GetDefaultDownloadFolderPath                     write SetDefaultDownloadFolderPath;               // ICoreWebView2Profile.Get_DefaultDownloadFolderPath
-      property PreferredColorScheme                            : TWVPreferredColorScheme                               read GetPreferredColorScheme                          write SetPreferredColorScheme;                    // ICoreWebView2Profile.Get_PreferredColorScheme
-
-      // ICoreWebView2Profile3 properties
-      property PreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel                            read GetPreferredTrackingPreventionLevel              write SetPreferredTrackingPreventionLevel;        // ICoreWebView2Profile3.Get_PreferredTrackingPreventionLevel
-
-      // ICoreWebView2Profile5 properties
-      property ProfileCookieManager                            : ICoreWebView2CookieManager                            read GetProfileCookieManager;                                                                           // ICoreWebView2Profile5.get_CookieManager
-
-      // ICoreWebView2Profile6 properties
-      property ProfileIsPasswordAutosaveEnabled                : boolean                                               read GetProfileIsPasswordAutosaveEnabled              write SetProfileIsPasswordAutosaveEnabled;        // ICoreWebView2Profile6.Get_IsPasswordAutosaveEnabled
-      property ProfileIsGeneralAutofillEnabled                 : boolean                                               read GetProfileIsGeneralAutofillEnabled               write SetProfileIsGeneralAutofillEnabled;         // ICoreWebView2Profile6.Get_IsGeneralAutofillEnabled
-
-      // ICoreWebView2Environment5 events
+      /// <summary>
+      /// The OnBrowserProcessExited event is triggered when the collection of WebView2
+      /// Runtime processes for the browser process of this environment terminate
+      /// due to browser process failure or normal shutdown (for example, when all
+      /// associated WebViews are closed), after all resources have been released
+      /// (including the user data folder).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5#add_browserprocessexited">See the ICoreWebView2Environment5 article.</see></para>
+      /// </remarks>
       property OnBrowserProcessExited                          : TOnBrowserProcessExitedEvent                          read FOnBrowserProcessExited                          write FOnBrowserProcessExited;
-
-      // ICoreWebView2Environment8 events
+      /// <summary>
+      /// OnProcessInfosChanged is triggered when the ProcessInfos property has changed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#add_processinfoschanged">See the ICoreWebView2Environment8 article.</see></para>
+      /// </remarks>
       property OnProcessInfosChanged                           : TOnProcessInfosChangedEvent                           read FOnProcessInfosChanged                           write FOnProcessInfosChanged;
-
-      // ICoreWebView2 events
+      /// <summary>
+      /// `OnContainsFullScreenElementChanged` triggers when the
+      /// `ContainsFullScreenElement` property changes.  An HTML element inside the
+      /// WebView may enter fullscreen to the size of the WebView or leave
+      /// fullscreen.  This event is useful when, for example, a video element
+      /// requests to go fullscreen.  The listener of
+      /// `ContainsFullScreenElementChanged` may resize the WebView in response.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_containsfullscreenelementchanged">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnContainsFullScreenElementChanged              : TNotifyEvent                                          read FOnContainsFullScreenElementChanged              write FOnContainsFullScreenElementChanged;
+      /// <summary>
+      /// `OnContentLoading` triggers before any content is loaded, including scripts added with
+      /// `AddScriptToExecuteOnDocumentCreated`.  `ContentLoading` does not trigger
+      /// if a same page navigation occurs (such as through `fragment`
+      /// navigations or `history.pushState` navigations).  This operation
+      /// follows the `NavigationStarting` and `SourceChanged` events and precedes
+      /// the `HistoryChanged` and `NavigationCompleted` events.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_contentloading">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnContentLoading                                : TOnContentLoadingEvent                                read FOnContentLoading                                write FOnContentLoading;
+      /// <summary>
+      /// `OnDocumentTitleChanged` runs when the `DocumentTitle` property of the
+      /// WebView changes and may run before or after the `NavigationCompleted`
+      /// event.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_documenttitlechanged">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnDocumentTitleChanged                          : TNotifyEvent                                          read FOnDocumentTitleChanged                          write FOnDocumentTitleChanged;
+      /// <summary>
+      /// `OnFrameNavigationCompleted` triggers when a child frame has completely
+      /// loaded (concurrently when `body.onload` has triggered) or loading stopped with error.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_framenavigationcompleted">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnFrameNavigationCompleted                      : TOnNavigationCompletedEvent                           read FOnFrameNavigationCompleted                      write FOnFrameNavigationCompleted;
+      /// <summary>
+      /// `OnFrameNavigationStarting` triggers when a child frame in the WebView
+      /// requests permission to navigate to a different URI.  Redirects trigger
+      /// this operation as well, and the navigation id is the same as the original
+      /// one. Navigations will be blocked until all `FrameNavigationStarting` event
+      /// handlers return.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_framenavigationstarting">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnFrameNavigationStarting                       : TOnNavigationStartingEvent                            read FOnFrameNavigationStarting                       write FOnFrameNavigationStarting;
+      /// <summary>
+      /// `OnHistoryChanged` is raised for changes to joint session history, which consists of top-level
+      /// and manual frame navigations.  Use `HistoryChanged` to verify that the
+      /// `CanGoBack` or `CanGoForward` value has changed.  `HistoryChanged` also
+      /// runs for using `GoBack` or `GoForward`.  `HistoryChanged` runs after
+      /// `SourceChanged` and `ContentLoading`.  `CanGoBack` is false for
+      /// navigations initiated through ICoreWebView2Frame APIs if there has not yet
+      /// been a user gesture.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_historychanged">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnHistoryChanged                                : TNotifyEvent                                          read FOnHistoryChanged                                write FOnHistoryChanged;
+      /// <summary>
+      /// `OnNavigationCompleted` runs when the WebView has completely loaded
+      /// (concurrently when `body.onload` runs) or loading stopped with error.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_navigationcompleted">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnNavigationCompleted                           : TOnNavigationCompletedEvent                           read FOnNavigationCompleted                           write FOnNavigationCompleted;
+      /// <summary>
+      /// `OnNavigationStarting` runs when the WebView main frame is requesting
+      /// permission to navigate to a different URI.  Redirects trigger this
+      /// operation as well, and the navigation id is the same as the original
+      /// one. Navigations will be blocked until all `NavigationStarting` event handlers
+      /// return.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_navigationstarting">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnNavigationStarting                            : TOnNavigationStartingEvent                            read FOnNavigationStarting                            write FOnNavigationStarting;
+      /// <summary>
+      /// <para>`OnNewWindowRequested` runs when content inside the WebView requests to
+      /// open a new window, such as through `window.open`.  The app can pass a
+      /// target WebView that is considered the opened window or mark the event as
+      /// `Handled`, in which case WebView2 does not open a window.
+      /// If either `Handled` or `NewWindow` properties are not set, the target
+      /// content will be opened on a popup window.</para>
+      /// <para>If a deferral is not taken on the event args, scripts that resulted in the
+      /// new window that are requested are blocked until the event handler returns.
+      /// If a deferral is taken, then scripts are blocked until the deferral is
+      /// completed or new window is set.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_newwindowrequested">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnNewWindowRequested                            : TOnNewWindowRequestedEvent                            read FOnNewWindowRequested                            write FOnNewWindowRequested;
+      /// <summary>
+      /// `OnPermissionRequested` runs when content in a WebView requests permission
+      /// to access some privileged resources. If a deferral is not taken on the event
+      /// args, the subsequent scripts are blocked until the event handler returns.
+      /// If a deferral is taken, the scripts are blocked until the deferral is completed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_permissionrequested">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnPermissionRequested                           : TOnPermissionRequestedEvent                           read FOnPermissionRequested                           write FOnPermissionRequested;
+      /// <summary>
+      /// `OnProcessFailed` runs when a WebView process ends unexpectedly or becomes unresponsive.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_processfailed">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnProcessFailed                                 : TOnProcessFailedEvent                                 read FOnProcessFailed                                 write FOnProcessFailed;
+      /// <summary>
+      /// <para>`OnScriptDialogOpening` runs when a JavaScript dialog (`alert`, `confirm`,
+      /// `prompt`, or `beforeunload`) displays for the webview.  This event only
+      /// triggers if the `ICoreWebView2Settings::AreDefaultScriptDialogsEnabled`
+      /// property is set to `FALSE`.  The `ScriptDialogOpening` event suppresses
+      /// dialogs or replaces default dialogs with custom dialogs.</para>
+      /// <para>If a deferral is not taken on the event args, the subsequent scripts are
+      /// blocked until the event handler returns.  If a deferral is taken, the
+      /// scripts are blocked until the deferral is completed.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_scriptdialogopening">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnScriptDialogOpening                           : TOnScriptDialogOpeningEvent                           read FOnScriptDialogOpening                           write FOnScriptDialogOpening;
+      /// <summary>
+      /// `OnSourceChanged` triggers when the `Source` property changes.  `SourceChanged` runs when
+      /// navigating to a different site or fragment navigations.  It does not
+      /// trigger for other types of navigations such as page refreshes or
+      /// `history.pushState` with the same URL as the current page.
+      /// `SourceChanged` runs before `ContentLoading` for navigation to a new
+      /// document.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_sourcechanged">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnSourceChanged                                 : TOnSourceChangedEvent                                 read FOnSourceChanged                                 write FOnSourceChanged;
+      /// <summary>
+      /// `OnWebMessageReceived` runs when the `ICoreWebView2Settings.IsWebMessageEnabled`
+      /// setting is set and the top-level document of the WebView runs
+      /// `window.chrome.webview.postMessage`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnWebMessageReceived                            : TOnWebMessageReceivedEvent                            read FOnWebMessageReceived                            write FOnWebMessageReceived;
+      /// <summary>
+      /// <para>`OnWebResourceRequested` runs when the WebView is performing a URL request
+      /// to a matching URL and resource context filter that was added with
+      /// `AddWebResourceRequestedFilter`.  At least one filter must be added for
+      /// the event to run.</para>
+      /// <para>The web resource requested may be blocked until the event handler returns
+      /// if a deferral is not taken on the event args.  If a deferral is taken,
+      /// then the web resource requested is blocked until the deferral is
+      /// completed.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webresourcerequested">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnWebResourceRequested                          : TOnWebResourceRequestedEvent                          read FOnWebResourceRequested                          write FOnWebResourceRequested;
+      /// <summary>
+      /// `OnWindowCloseRequested` triggers when content inside the WebView
+      /// requested to close the window, such as after `window.close` is run.  The
+      /// app should close the WebView and related app window if that makes sense
+      /// to the app.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_windowcloserequested">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnWindowCloseRequested                          : TNotifyEvent                                          read FOnWindowCloseRequested                          write FOnWindowCloseRequested;
-
-      // ICoreWebView2_2 events
+      /// <summary>
+      /// OnDOMContentLoaded is raised when the initial html document has been parsed.
+      /// This aligns with the document's DOMContentLoaded event in html.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#add_domcontentloaded">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
       property OnDOMContentLoaded                              : TOnDOMContentLoadedEvent                              read FOnDOMContentLoaded                              write FOnDOMContentLoaded;
+      /// <summary>
+      /// OnWebResourceResponseReceived is raised when the WebView receives the
+      /// response for a request for a web resource (any URI resolution performed by
+      /// the WebView; such as HTTP/HTTPS, file and data requests from redirects,
+      /// navigations, declarations in HTML, implicit favicon lookups, and fetch API
+      /// usage in the document). The host app can use this event to view the actual
+      /// request and response for a web resource. There is no guarantee about the
+      /// order in which the WebView processes the response and the host app's
+      /// handler runs. The app's handler will not block the WebView from processing
+      /// the response.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#add_webresourceresponsereceived">See the ICoreWebView2_2 article.</see></para>
+      /// </remarks>
       property OnWebResourceResponseReceived                   : TOnWebResourceResponseReceivedEvent                   read FOnWebResourceResponseReceived                   write FOnWebResourceResponseReceived;
-
-      // ICoreWebView2_4 events
+      /// <summary>
+      /// <para>This event is raised when a download has begun, blocking the default download dialog,
+      /// but not blocking the progress of the download.</para>
+      /// <para>The host can choose to cancel a download, change the result file path,
+      /// and hide the default download dialog.</para>
+      /// <para>If the host chooses to cancel the download, the download is not saved, no
+      /// dialog is shown, and the state is changed to
+      /// COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED with interrupt reason
+      /// COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED. Otherwise, the
+      /// download is saved to the default path after the event completes,
+      /// and default download dialog is shown if the host did not choose to hide it.
+      /// The host can change the visibility of the download dialog using the
+      /// `Handled` property. If the event is not handled, downloads complete
+      /// normally with the default dialog shown.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_4#add_downloadstarting">See the ICoreWebView2_4 article.</see></para>
+      /// </remarks>
       property OnDownloadStarting                              : TOnDownloadStartingEvent                              read FOnDownloadStarting                              write FOnDownloadStarting;
+      /// <summary>
+      /// Raised when a new iframe is created.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_4#add_framecreated">See the ICoreWebView2_4 article.</see></para>
+      /// </remarks>
       property OnFrameCreated                                  : TOnFrameCreatedEvent                                  read FOnFrameCreated                                  write FOnFrameCreated;
-
-      // ICoreWebView2_5 events
+      /// <summary>
+      /// The OnClientCertificateRequested event is raised when the WebView2
+      /// is making a request to an HTTP server that needs a client certificate
+      /// for HTTP authentication.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_5#add_clientcertificaterequested">See the ICoreWebView2_5 article.</see></para>
+      /// </remarks>
       property OnClientCertificateRequested                    : TOnClientCertificateRequestedEvent                    read FOnClientCertificateRequested                    write FOnClientCertificateRequested;
-
-      // ICoreWebView2_8 events
+      /// <summary>
+      /// `OnIsDocumentPlayingAudioChanged` is raised when the IsDocumentPlayingAudio property changes value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#add_isdocumentplayingaudiochanged">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
       property OnIsDocumentPlayingAudioChanged                 : TOnIsDocumentPlayingAudioChangedEvent                 read FOnIsDocumentPlayingAudioChanged                 write FOnIsDocumentPlayingAudioChanged;
+      /// <summary>
+      /// `OnIsMutedChanged` is raised when the IsMuted property changes value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#add_ismutedchanged">See the ICoreWebView2_8 article.</see></para>
+      /// </remarks>
       property OnIsMutedChanged                                : TOnIsMutedChangedEvent                                read FOnIsMutedChanged                                write FOnIsMutedChanged;
-
-      // ICoreWebView2_9 events
+      /// <summary>
+      /// Raised when the `IsDefaultDownloadDialogOpen` property changes. This event
+      /// comes after the `DownloadStarting` event. Setting the `Handled` property
+      /// on the `DownloadStartingEventArgs` disables the default download dialog
+      /// and ensures that this event is never raised.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9#add_isdefaultdownloaddialogopenchanged">See the ICoreWebView2_9 article.</see></para>
+      /// </remarks>
       property OnIsDefaultDownloadDialogOpenChanged            : TOnIsDefaultDownloadDialogOpenChangedEvent            read FOnIsDefaultDownloadDialogOpenChanged            write FOnIsDefaultDownloadDialogOpenChanged;
-
-      // ICoreWebView2_10 events
+      /// <summary>
+      /// <para>Add an event handler for the BasicAuthenticationRequested event.
+      /// BasicAuthenticationRequested event is raised when WebView encounters a
+      /// Basic HTTP Authentication request as described in
+      /// https://developer.mozilla.org/docs/Web/HTTP/Authentication, a Digest
+      /// HTTP Authentication request as described in
+      /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#digest,
+      /// an NTLM authentication or a Proxy Authentication request.</para>
+      /// <para>The host can provide a response with credentials for the authentication or
+      /// cancel the request. If the host sets the Cancel property to false but does not
+      /// provide either UserName or Password properties on the Response property, then
+      /// WebView2 will show the default authentication challenge dialog prompt to
+      /// the user.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_10#add_basicauthenticationrequested">See the ICoreWebView2_10 article.</see></para>
+      /// </remarks>
       property OnBasicAuthenticationRequested                  : TOnBasicAuthenticationRequestedEvent                  read FOnBasicAuthenticationRequested                  write FOnBasicAuthenticationRequested;
-
-      // ICoreWebView2_11 events
+      /// <summary>
+      /// `OnContextMenuRequested` event is raised when a context menu is requested by the user
+      /// and the content inside WebView hasn't disabled context menus.
+      /// The host has the option to create their own context menu with the information provided in
+      /// the event or can add items to or remove items from WebView context menu.
+      /// If the host doesn't handle the event, WebView will display the default context menu.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_11#add_contextmenurequested">See the ICoreWebView2_11 article.</see></para>
+      /// </remarks>
       property OnContextMenuRequested                          : TOnContextMenuRequestedEvent                          read FOnContextMenuRequested                          write FOnContextMenuRequested;
-
-      // ICoreWebView2_12 events
+      /// <summary>
+      /// `OnStatusBarTextChanged` fires when the WebView is showing a status message,
+      /// a URL, or an empty string (an indication to hide the status bar).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_12#add_statusbartextchanged">See the ICoreWebView2_12 article.</see></para>
+      /// </remarks>
       property OnStatusBarTextChanged                          : TOnStatusBarTextChangedEvent                          read FOnStatusBarTextChanged                          write FOnStatusBarTextChanged;
-
-      // ICoreWebView2_14 events
+      /// <summary>
+      /// Event triggered when TWVBrowserBase.ClearServerCertificateErrorActions finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#clearservercertificateerroractions">See the ICoreWebView2_14 article.</see></para>
+      /// </remarks>
       property OnServerCertificateErrorActionsCompleted        : TOnServerCertificateErrorActionsCompletedEvent        read FOnServerCertificateErrorActionsCompleted        write FOnServerCertificateErrorActionsCompleted;
+      /// <summary>
+      /// <para>The OnServerCertificateErrorDetected event is raised when the WebView2
+      /// cannot verify server's digital certificate while loading a web page.</para>
+      /// <para>This event will raise for all web resources and follows the `WebResourceRequested` event.</para>
+      /// <para>If you don't handle the event, WebView2 will show the default TLS interstitial error page to the user
+      /// for navigations, and for non-navigations the web request is cancelled.</para>
+      /// <para>Note that WebView2 before raising `OnServerCertificateErrorDetected` raises a `OnNavigationCompleted` event
+      /// with `IsSuccess` as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#add_servercertificateerrordetected">See the ICoreWebView2_14 article.</see></para>
+      /// </remarks>
       property OnServerCertificateErrorDetected                : TOnServerCertificateErrorDetectedEvent                read FOnServerCertificateErrorDetected                write FOnServerCertificateErrorDetected;
-
-      // ICoreWebView2_15 events
+      /// <summary>
+      /// The `OnFaviconChanged` event is raised when the
+      /// [favicon](https://developer.mozilla.org/docs/Glossary/Favicon)
+      /// had a different URL then the previous URL.
+      /// The OnFaviconChanged event will be raised for first navigating to a new
+      /// document, whether or not a document declares a Favicon in HTML if the
+      /// favicon is different from the previous fav icon. The event will
+      /// be raised again if a favicon is declared in its HTML or has script
+      /// to set its favicon. The favicon information can then be retrieved with
+      /// `GetFavicon` and `FaviconUri`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#add_faviconchanged">See the ICoreWebView2_15 article.</see></para>
+      /// </remarks>
       property OnFaviconChanged                                : TOnFaviconChangedEvent                                read FOnFaviconChanged                                write FOnFaviconChanged;
+      /// <summary>
+      /// The TWVBrowserBase.OnGetFaviconCompleted event is triggered when the TWVBrowserBase.GetFavicon call finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#getfavicon">See the ICoreWebView2_15 article.</see></para>
+      /// </remarks>
       property OnGetFaviconCompleted                           : TOnGetFaviconCompletedEvent                           read FOnGetFaviconCompleted                           write FOnGetFaviconCompleted;
-
-      // ICoreWebView2_16 events
+      /// <summary>
+      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.Print call finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#print">See the ICoreWebView2_16 article.</see></para>
+      /// </remarks>
       property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.PrintToPdfStream call finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#printtopdfstream">See the ICoreWebView2_16 article.</see></para>
+      /// </remarks>
       property OnPrintToPdfStreamCompleted                     : TOnPrintToPdfStreamCompletedEvent                     read FOnPrintToPdfStreamCompleted                     write FOnPrintToPdfStreamCompleted;
-
-      // ICoreWebView2Controller events
+      /// <summary>
+      /// <para>`OnAcceleratorKeyPressed` runs when an accelerator key or key combo is
+      /// pressed or released while the WebView is focused.  A key is considered an
+      ///  accelerator if either of the following conditions are true.</para>
+      /// <para>*   Ctrl or Alt is currently being held.</para>
+      /// <para>*   The pressed key does not map to a character.</para>
+      /// <para>A few specific keys are never considered accelerators, such as Shift.
+      /// The `Escape` key is always considered an accelerator.</para>
+      /// <para>Auto-repeated key events caused by holding the key down also triggers
+      /// this event.  Filter out the auto-repeated key events by verifying the
+      /// `KeyEventLParam` or `PhysicalKeyStatus` event args.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_acceleratorkeypressed">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
+      /// <summary>
+      /// `OnGotFocus` runs when WebView has focus.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_gotfocus">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
+      /// <summary>
+      /// `OnLostFocus` runs when WebView loses focus.  In the case where `OnMoveFocusRequested` event is
+      /// run, the focus is still on WebView when `OnMoveFocusRequested` event runs.
+      /// `LostFocus` only runs afterwards when code of the app or default action
+      /// of `OnMoveFocusRequested` event set focus away from WebView.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_lostfocus">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property OnLostFocus                                     : TNotifyEvent                                          read FOnLostFocus                                     write FOnLostFocus;
+      /// <summary>
+      /// `OnMoveFocusRequested` runs when user tries to tab out of the WebView.  The
+      /// focus of the WebView has not changed when this event is run.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_movefocusrequested">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property OnMoveFocusRequested                            : TOnMoveFocusRequestedEvent                            read FOnMoveFocusRequested                            write FOnMoveFocusRequested;
+      /// <summary>
+      /// `OnZoomFactorChanged` runs when the `ZoomFactor` property of the WebView
+      /// changes.  The event may run because the `ZoomFactor` property was
+      /// modified, or due to the user manually modifying the zoom.  When it is
+      /// modified using the `ZoomFactor` property, the internal zoom factor is
+      /// updated immediately and no `OnZoomFactorChanged` event is triggered.
+      /// WebView associates the last used zoom factor for each site.  It is
+      /// possible for the zoom factor to change when navigating to a different
+      /// page.  When the zoom factor changes due to a navigation change, the
+      /// `OnZoomFactorChanged` event runs right after the `ContentLoading` event.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_zoomfactorchanged">See the ICoreWebView2Controller article.</see></para>
+      /// </remarks>
       property OnZoomFactorChanged                             : TNotifyEvent                                          read FOnZoomFactorChanged                             write FOnZoomFactorChanged;
-
-      // ICoreWebView2Controller3 events
+      /// <summary>
+      /// The event is raised when the WebView detects that the monitor DPI scale
+      /// has changed, ShouldDetectMonitorScaleChanges is true, and the WebView has
+      /// changed the RasterizationScale property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#add_rasterizationscalechanged">See the ICoreWebView2Controller3 article.</see></para>
+      /// </remarks>
       property OnRasterizationScaleChanged                     : TNotifyEvent                                          read FOnRasterizationScaleChanged                     write FOnRasterizationScaleChanged;
-
-      // ICoreWebView2CompositionController events
+      /// <summary>
+      /// <para>The event is raised when WebView thinks the cursor should be changed. For
+      /// example, when the mouse cursor is currently the default cursor but is then
+      /// moved over text, it may try to change to the IBeam cursor.</para>
+      /// <para>It is expected for the developer to send
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE messages (in addition to
+      /// COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE messages) through the SendMouseInput
+      /// API. This is to ensure that the mouse is actually within the WebView that
+      /// sends out CursorChanged events.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#add_cursorchanged">See the ICoreWebView2CompositionController article.</see></para>
+      /// </remarks>
       property OnCursorChanged                                 : TNotifyEvent                                          read FOnCursorChanged                                 write FOnCursorChanged;
-
-      // ICoreWebView2DownloadOperation events
+      /// <summary>
+      /// The event is raised when the number of received bytes for a download operation changes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#add_bytesreceivedchanged">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property OnBytesReceivedChanged                          : TOnBytesReceivedChangedEvent                          read FOnBytesReceivedChanged                          write FOnBytesReceivedChanged;
+      /// <summary>
+      /// The event is raised when the estimated end time for a download operation changes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#add_estimatedendtimechanged">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property OnEstimatedEndTimeChanged                       : TOnEstimatedEndTimeChangedEvent                       read FOnEstimatedEndTimeChanged                       write FOnEstimatedEndTimeChanged;
+      /// <summary>
+      /// The event is raised when the download operation state changes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#add_statechanged">See the ICoreWebView2DownloadOperation article.</see></para>
+      /// </remarks>
       property OnDownloadStateChanged                          : TOnDownloadStateChangedEvent                          read FOnDownloadStateChanged                          write FOnDownloadStateChanged;
-
-      // ICoreWebView2Frame events
+      /// <summary>
+      /// The OnFrameDestroyed event is raised when the iframe corresponding
+      /// to this CoreWebView2Frame object is removed or the document
+      /// containing that iframe is destroyed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame#add_destroyed">See the ICoreWebView2Frame article.</see></para>
+      /// </remarks>
       property OnFrameDestroyed                                : TOnFrameDestroyedEvent                                read FOnFrameDestroyed                                write FOnFrameDestroyed;
+      /// <summary>
+      /// Raised when the iframe changes its window.name property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame#add_namechanged">See the ICoreWebView2Frame article.</see></para>
+      /// </remarks>
       property OnFrameNameChanged                              : TOnFrameNameChangedEvent                              read FOnFrameNameChanged                              write FOnFrameNameChanged;
-
-      // ICoreWebView2Frame2 events
+      /// <summary>
+      /// <para>A frame navigation will raise a `OnFrameNavigationStarting2` event and
+      /// a `OnFrameNavigationStarting` event. All of the
+      /// `FrameNavigationStarting` event handlers for the current frame will be
+      /// run before the `OnFrameNavigationStarting2` event handlers. All of the event handlers
+      /// share a common `NavigationStartingEventArgs` object. Whichever event handler is
+      /// last to change the `NavigationStartingEventArgs.Cancel` property will
+      /// decide if the frame navigation will be cancelled. Redirects raise this
+      /// event as well, and the navigation id is the same as the original one.</para>
+      /// <para>Navigations will be blocked until all `OnFrameNavigationStarting2` and
+      /// `OnFrameNavigationStarting` event handlers return.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_navigationstarting">See the ICoreWebView2Frame2 article.</see></para>
+      /// </remarks>
       property OnFrameNavigationStarting2                      : TOnFrameNavigationStartingEvent                       read FOnFrameNavigationStarting2                      write FOnFrameNavigationStarting2;
+      /// <summary>
+      /// `OnFrameNavigationCompleted2` runs when the CoreWebView2Frame has completely
+      /// loaded (concurrently when `body.onload` runs) or loading stopped with error.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_navigationcompleted">See the ICoreWebView2Frame2 article.</see></para>
+      /// </remarks>
       property OnFrameNavigationCompleted2                     : TOnFrameNavigationCompletedEvent                      read FOnFrameNavigationCompleted2                     write FOnFrameNavigationCompleted2;
+      /// <summary>
+      /// `OnFrameContentLoading` triggers before any content is loaded, including scripts added with
+      /// `AddScriptToExecuteOnDocumentCreated`.  `OnFrameContentLoading` does not trigger
+      /// if a same page navigation occurs (such as through `fragment`
+      /// navigations or `history.pushState` navigations).  This operation
+      /// follows the `OnFrameNavigationStarting2` and precedes `OnFrameNavigationCompleted2` events.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_contentloading">See the ICoreWebView2Frame2 article.</see></para>
+      /// </remarks>
       property OnFrameContentLoading                           : TOnFrameContentLoadingEvent                           read FOnFrameContentLoading                           write FOnFrameContentLoading;
+      /// <summary>
+      /// OnFrameDOMContentLoaded is raised when the iframe html document has been parsed.
+      /// This aligns with the document's DOMContentLoaded event in html.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_domcontentloaded">See the ICoreWebView2Frame2 article.</see></para>
+      /// </remarks>
       property OnFrameDOMContentLoaded                         : TOnFrameDOMContentLoadedEvent                         read FOnFrameDOMContentLoaded                         write FOnFrameDOMContentLoaded;
+      /// <summary>
+      /// `OnFrameWebMessageReceived` runs when the
+      /// `ICoreWebView2Settings.IsWebMessageEnabled` setting is set and the
+      /// frame document runs `window.chrome.webview.postMessage`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_webmessagereceived">See the ICoreWebView2Frame2 article.</see></para>
+      /// </remarks>
       property OnFrameWebMessageReceived                       : TOnFrameWebMessageReceivedEvent                       read FOnFrameWebMessageReceived                       write FOnFrameWebMessageReceived;
-
-      // ICoreWebView2Frame3 events
+      /// <summary>
+      /// <para>`OnFramePermissionRequested` is raised when content in an iframe any of its
+      /// descendant iframes requests permission to privileged resources.</para>
+      /// <para>This relates to the `OnPermissionRequested` event on the `CoreWebView2`.
+      /// Both these events will be raised in the case of an iframe requesting
+      /// permission. The `CoreWebView2Frame`'s event handlers will be invoked
+      /// before the event handlers on the `CoreWebView2`. If the `Handled` property
+      /// of the `PermissionRequestedEventArgs` is set to TRUE within the
+      /// `CoreWebView2Frame` event handler, then the event will not be
+      /// raised on the `CoreWebView2`, and it's event handlers will not be invoked.</para>
+      /// <para>In the case of nested iframes, the 'OnFramePermissionRequested' event will
+      /// be raised from the top level iframe.</para>
+      /// <para>If a deferral is not taken on the event args, the subsequent scripts are
+      /// blocked until the event handler returns.  If a deferral is taken, the
+      /// scripts are blocked until the deferral is completed.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame3#add_permissionrequested">See the ICoreWebView2Frame3 article.</see></para>
+      /// </remarks>
       property OnFramePermissionRequested                      : TOnFramePermissionRequestedEvent                      read FOnFramePermissionRequested                      write FOnFramePermissionRequested;
-
-      // ICoreWebView2DevToolsProtocolEventReceiver events
+      /// <summary>
+      /// OnDevToolsProtocolEventReceived is triggered when a DevTools protocol
+      /// event runs. It's necessary to subscribe to that event with a
+      /// SubscribeToDevToolsProtocolEvent call.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceiver#add_devtoolsprotocoleventreceived">See the ICoreWebView2DevToolsProtocolEventReceiver article.</see></para>
+      /// </remarks>
       property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
-
-      // ICoreWebView2ContextMenuItem events
+      /// <summary>
+      /// `OnCustomItemSelected` event is raised when the user selects a custom `ContextMenuItem`.
+      /// Will only be raised for end developer created context menu items.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#add_customitemselected">See the ICoreWebView2ContextMenuItem article.</see></para>
+      /// </remarks>
       property OnCustomItemSelected                            : TOnCustomItemSelectedEvent                            read FOnCustomItemSelected                            write FOnCustomItemSelected;
-
-      // ICoreWebView2Profile2 events
+      /// <summary>
+      /// This event is triggered when the TWVBrowserBase.ClearBrowsingData call finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       property OnClearBrowsingDataCompleted                    : TOnClearBrowsingDataCompletedEvent                    read FOnClearBrowsingDataCompleted                    write FOnClearBrowsingDataCompleted;
 
       // Custom events
@@ -1911,6 +2878,12 @@ type
       property OnCapturePreviewCompleted                       : TOnCapturePreviewCompletedEvent                       read FOnCapturePreviewCompleted                       write FOnCapturePreviewCompleted;
       property OnGetCookiesCompleted                           : TOnGetCookiesCompletedEvent                           read FOnGetCookiesCompleted                           write FOnGetCookiesCompleted;
       property OnTrySuspendCompleted                           : TOnTrySuspendCompletedEvent                           read FOnTrySuspendCompleted                           write FOnTrySuspendCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnPrintToPdfCompleted event is triggered when the TWVBrowserBase.PrintToPdf call finishes.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_7#printtopdf">See the ICoreWebView2_7 article.</see></para>
+      /// </remarks>
       property OnPrintToPdfCompleted                           : TOnPrintToPdfCompletedEvent                           read FOnPrintToPdfCompleted                           write FOnPrintToPdfCompleted;
       property OnCompositionControllerCompleted                : TNotifyEvent                                          read FOnCompositionControllerCompleted                write FOnCompositionControllerCompleted;
       property OnCallDevToolsProtocolMethodCompleted           : TOnCallDevToolsProtocolMethodCompletedEvent           read FOnCallDevToolsProtocolMethodCompleted           write FOnCallDevToolsProtocolMethodCompleted;

@@ -72,6 +72,9 @@ type
       /// the clear browsing data operation may or may not be completed.
       /// ClearBrowsingData clears the `dataKinds` regardless of timestamp.
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds; const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
       /// <summary>
       /// ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it
@@ -81,6 +84,9 @@ type
       /// `startTime` is inclusive while `endTime` is exclusive, therefore the data will
       /// be cleared between [startTime, endTime).
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataintimerange">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime; const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
       /// <summary>
       /// ClearBrowsingDataAll behaves like ClearBrowsingData except that it
@@ -89,6 +95,9 @@ type
       ///
       /// \snippet AppWindow.cpp ClearBrowsingData
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataall">See the ICoreWebView2Profile2 article.</see></para>
+      /// </remarks>
       function    ClearBrowsingDataAll(const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
       /// <summary>
       /// Sets permission state for the given permission kind and origin
@@ -106,6 +115,9 @@ type
       ///
       /// \snippet ScenarioPermissionManagement.cpp SetPermissionState
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#setpermissionstate">See the ICoreWebView2Profile4 article.</see></para>
+      /// </remarks>
       function    SetPermissionState(PermissionKind: TWVPermissionKind; const origin: wvstring; State: TWVPermissionState; const completedHandler: ICoreWebView2SetPermissionStateCompletedHandler): boolean;
       /// <summary>
       /// Invokes the handler with a collection of all nondefault permission settings.
@@ -114,6 +126,9 @@ type
       ///
       /// \snippet ScenarioPermissionManagement.cpp GetNonDefaultPermissionSettings
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>
+      /// </remarks>
       function    GetNonDefaultPermissionSettings(const completedHandler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): boolean;
 
       /// <summary>
@@ -124,14 +139,122 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf                          : ICoreWebView2Profile        read FBaseIntf                            write FBaseIntf;
+      /// <summary>
+      /// Name of the profile.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_profilename">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
       property ProfileName                       : wvstring                    read GetProfileName;
+      /// <summary>
+      /// InPrivate mode is enabled or not.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_isinprivatemodeenabled">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
       property IsInPrivateModeEnabled            : boolean                     read GetIsInPrivateModeEnabled;
+      /// <summary>
+      /// Full path of the profile directory.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_profilepath">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
       property ProfilePath                       : wvstring                    read GetProfilePath;
+      /// <summary>
+      /// Gets the `DefaultDownloadFolderPath` property. The default value is the
+      /// system default download folder path for the user.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_defaultdownloadfolderpath">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
       property DefaultDownloadFolderPath         : wvstring                    read GetDefaultDownloadFolderPath         write SetDefaultDownloadFolderPath;
+      /// <summary>
+      /// <para>The PreferredColorScheme property sets the overall color scheme of the
+      /// WebView2s associated with this profile. This sets the color scheme for
+      /// WebView2 UI like dialogs, prompts, and context menus by setting the
+      /// media feature `prefers-color-scheme` for websites to respond to.</para>
+      /// <para>The default value for this is COREWEBVIEW2_PREFERRED_COLOR_AUTO,
+      /// which will follow whatever theme the OS is currently set to.</para>
+      /// <para>Returns the value of the `PreferredColorScheme` property.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_preferredcolorscheme">See the ICoreWebView2Profile article.</see></para>
+      /// </remarks>
       property PreferredColorScheme              : TWVPreferredColorScheme     read GetPreferredColorScheme              write SetPreferredColorScheme;
+      /// <summary>
+      /// <para>The `PreferredTrackingPreventionLevel` property allows you to control levels of tracking prevention for WebView2
+      /// which are associated with a profile. This level would apply to the context of the profile. That is, all WebView2s
+      /// sharing the same profile will be affected and also the value is persisted in the user data folder.</para>
+      /// <para>See `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL` for descriptions of levels.</para>
+      /// <para>If tracking prevention feature is enabled when creating the WebView2 environment, you can also disable tracking
+      /// prevention later using this property and `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE` value but that doesn't
+      /// improves runtime performance.</para>
+      /// <para>There is `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` property to enable/disable tracking prevention feature
+      /// for all the WebView2's created in the same environment. If enabled, `PreferredTrackingPreventionLevel` is set to
+      /// `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED` by default for all the WebView2's and profiles created in the same
+      /// environment or is set to the level whatever value was last changed/persisted to the profile. If disabled
+      /// `PreferredTrackingPreventionLevel` is not respected by WebView2. If `PreferredTrackingPreventionLevel` is set when the
+      /// feature is disabled, the property value get changed and persisted but it will takes effect only if
+      /// `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` is true.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile3#get_preferredtrackingpreventionlevel">See the ICoreWebView2Profile3 article.</see></para>
+      /// </remarks>
       property PreferredTrackingPreventionLevel  : TWVTrackingPreventionLevel  read GetPreferredTrackingPreventionLevel  write SetPreferredTrackingPreventionLevel;
+      /// <summary>
+      /// Get the cookie manager for the profile. All CoreWebView2s associated with this
+      /// profile share the same cookie values. Changes to cookies in this cookie manager apply to all
+      /// CoreWebView2s associated with this profile. See ICoreWebView2CookieManager.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile5#get_cookiemanager">See the ICoreWebView2Profile5 article.</see></para>
+      /// </remarks>
       property CookieManager                     : ICoreWebView2CookieManager  read GetCookieManager;
+      /// <summary>
+      /// <para>IsPasswordAutosaveEnabled controls whether autosave for password
+      /// information is enabled. The IsPasswordAutosaveEnabled property behaves
+      /// independently of the IsGeneralAutofillEnabled property. When IsPasswordAutosaveEnabled is
+      /// false, no new password data is saved and no Save/Update Password prompts are displayed.
+      /// However, if there was password data already saved before disabling this setting,
+      /// then that password information is auto-populated, suggestions are shown and clicking on
+      /// one will populate the fields.</para>
+      /// <para>When IsPasswordAutosaveEnabled is true, password information is auto-populated,
+      /// suggestions are shown and clicking on one will populate the fields, new data
+      /// is saved, and a Save/Update Password prompt is displayed.</para>
+      /// <para>It will take effect immediately after setting. The default value is `FALSE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled` and
+      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile6#get_ispasswordautosaveenabled">See the ICoreWebView2Profile6 article.</see></para>
+      /// </remarks>
       property IsPasswordAutosaveEnabled         : boolean                     read GetIsPasswordAutosaveEnabled         write SetIsPasswordAutosaveEnabled;
+      /// <summary>
+      /// <para>IsGeneralAutofillEnabled controls whether autofill for information
+      /// like names, street and email addresses, phone numbers, and arbitrary input
+      /// is enabled. This excludes password and credit card information. When
+      /// IsGeneralAutofillEnabled is false, no suggestions appear, and no new information
+      /// is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions
+      /// appear and clicking on one will populate the form fields.</para>
+      /// <para>It will take effect immediately after setting. The default value is `TRUE`.</para>
+      /// <para>This property has the same value as
+      /// `CoreWebView2Settings.IsGeneralAutofillEnabled`, and changing one will
+      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
+      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// with the same profile, their
+      /// `CoreWebView2Settings.IsGeneralAutofillEnabled` and
+      /// `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same
+      /// value.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile6#get_isgeneralautofillenabled">See the ICoreWebView2Profile6 article.</see></para>
+      /// </remarks>
       property IsGeneralAutofillEnabled          : boolean                     read GetIsGeneralAutofillEnabled          write SetIsGeneralAutofillEnabled;
   end;
 
