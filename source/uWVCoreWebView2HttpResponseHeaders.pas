@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// HTTP response headers.  Used to construct a WebResourceResponse for the
+  /// WebResourceRequested event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+  /// </remarks>
   TCoreWebView2HttpResponseHeaders = class
     protected
       FBaseIntf : ICoreWebView2HttpResponseHeaders;

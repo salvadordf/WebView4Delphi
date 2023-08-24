@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Provides a set of properties that are used to manage an
+  /// ICoreWebView2Cookie.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie">See the ICoreWebView2Cookie article.</see></para>
+  /// </remarks>
   TCoreWebView2Cookie = class
     protected
       FBaseIntf : ICoreWebView2Cookie;

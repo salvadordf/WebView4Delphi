@@ -15,6 +15,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents a context menu item of a context menu displayed by WebView.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem">See the ICoreWebView2ContextMenuItem article.</see></para>
+  /// </remarks>
   TCoreWebView2ContextMenuItem = class
     protected
       FBaseIntf : ICoreWebView2ContextMenuItem;

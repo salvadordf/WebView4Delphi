@@ -10,6 +10,15 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Representation of a DOM
+  /// [File](https://developer.mozilla.org/en-US/docs/Web/API/File) object
+  /// passed via WebMessage. You can use this object to obtain the path of a
+  /// File dropped on WebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2file">See the ICoreWebView2File article.</see></para>
+  /// </remarks>
   TCoreWebView2File = class
     protected
       FBaseIntf : ICoreWebView2File;

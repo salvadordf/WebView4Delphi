@@ -10,6 +10,14 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Read-only collection of PermissionSettings (origin, kind, and state). Used to list
+  /// the nondefault permission settings on the profile that are persisted across
+  /// sessions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionsettingcollectionview">See the ICoreWebView2PermissionSettingCollectionView article.</see></para>
+  /// </remarks>
   TCoreWebView2PermissionSettingCollectionView = class
     protected
       FBaseIntf  : ICoreWebView2PermissionSettingCollectionView;

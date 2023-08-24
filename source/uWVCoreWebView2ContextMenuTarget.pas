@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents the information regarding the context menu target.
+  /// Includes the context selected and the appropriate data used for the actions of a context menu.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget">See the ICoreWebView2ContextMenuTarget article.</see></para>
+  /// </remarks>
   TCoreWebView2ContextMenuTarget = class
     protected
       FBaseIntf : ICoreWebView2ContextMenuTarget;

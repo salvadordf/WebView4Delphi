@@ -15,6 +15,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Settings used by the PrintToPdf method. Other programmatic printing is not
+  /// currently supported.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings">See the ICoreWebView2PrintSettings article.</see></para>
+  /// </remarks>
   TCoreWebView2PrintSettings = class
     protected
       FBaseIntf   : ICoreWebView2PrintSettings;

@@ -15,6 +15,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// An HTTP request used with the WebResourceRequested event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest">See the ICoreWebView2WebResourceRequest article.</see></para>
+  /// </remarks>
   TCoreWebView2WebResourceRequestRef = class
     protected
       FBaseIntf : ICoreWebView2WebResourceRequest;
@@ -33,14 +39,56 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2WebResourceRequest); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized : boolean                          read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf    : ICoreWebView2WebResourceRequest  read FBaseIntf;
+      /// <summary>
+      /// The request URI.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest#get_uri">See the ICoreWebView2WebResourceRequest article.</see></para>
+      /// </remarks>
       property URI         : wvstring                         read GetURI           write SetURI;
+      /// <summary>
+      /// The HTTP request method.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest#get_method">See the ICoreWebView2WebResourceRequest article.</see></para>
+      /// </remarks>
       property Method      : wvstring                         read GetMethod        write SetMethod;
+      /// <summary>
+      /// The HTTP request message body as stream.  POST data should be here.  If a
+      /// stream is set, which overrides the message body, the stream must have
+      /// all the content data available by the time the `WebResourceRequested`
+      /// event deferral of this response is completed.  Stream should be agile or
+      /// be created from a background STA to prevent performance impact to the UI
+      /// thread.  `Null` means no content data.  `IStream` semantics apply
+      /// (return `S_OK` to `Read` runs until all data is exhausted).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest#get_content">See the ICoreWebView2WebResourceRequest article.</see></para>
+      /// </remarks>
       property Content     : IStream                          read GetContent       write SetContent;
+      /// <summary>
+      /// The mutable HTTP request headers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest#get_headers">See the ICoreWebView2WebResourceRequest article.</see></para>
+      /// </remarks>
       property Headers     : ICoreWebView2HttpRequestHeaders  read GetHeaders;
   end;
 
+  /// <summary>
+  /// An HTTP request used with the WebResourceRequested event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest">See the ICoreWebView2WebResourceRequest article.</see></para>
+  /// </remarks>
   TCoreWebView2WebResourceRequestOwn = class(TInterfacedObject, ICoreWebView2WebResourceRequest)
     protected
       FURI      : wvstring;

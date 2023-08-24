@@ -15,6 +15,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Options used to create WebView2 Environment.  A default implementation is
+  /// provided in WebView2EnvironmentOptions.h.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+  /// </remarks>
   TCoreWebView2EnvironmentOptions = class(TInterfacedObject,
                                           ICoreWebView2EnvironmentOptions,
                                           ICoreWebView2EnvironmentOptions2,

@@ -15,6 +15,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// ICoreWebView2Frame provides direct access to the iframes information.
+  /// You can get an ICoreWebView2Frame by handling the ICoreWebView2_4.add_FrameCreated event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame">See the ICoreWebView2Frame article.</see></para>
+  /// </remarks>
   TCoreWebView2Frame = class
     protected
       FBaseIntf                                : ICoreWebView2Frame;

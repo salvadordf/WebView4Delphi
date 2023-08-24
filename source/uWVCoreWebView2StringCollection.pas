@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// A collection of strings.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2stringcollection">See the ICoreWebView2StringCollection article.</see></para>
+  /// </remarks>
   TCoreWebView2StringCollection = class
     protected
       FBaseIntf : ICoreWebView2StringCollection;

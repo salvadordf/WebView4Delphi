@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Provides a set of properties for a process in the ICoreWebView2Environment.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfo">See the ICoreWebView2ProcessInfo article.</see></para>
+  /// </remarks>
   TCoreWebView2ProcessInfo = class
     protected
       FBaseIntf : ICoreWebView2ProcessInfo;

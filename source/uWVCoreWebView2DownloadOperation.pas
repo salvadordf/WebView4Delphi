@@ -15,6 +15,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents a download operation. Gives access to the download's metadata
+  /// and supports a user canceling, pausing, or resuming the download.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation">See the ICoreWebView2DownloadOperation article.</see></para>
+  /// </remarks>
   TCoreWebView2DownloadOperation = class
     protected
       FBaseIntf                     : ICoreWebView2DownloadOperation;

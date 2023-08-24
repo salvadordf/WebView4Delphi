@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Provides access to the client certificate metadata.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate">See the ICoreWebView2ClientCertificate article.</see></para>
+  /// </remarks>
   TCoreWebView2ClientCertificate = class
     protected
       FBaseIntf : ICoreWebView2ClientCertificate;

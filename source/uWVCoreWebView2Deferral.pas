@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary;
 
 type
+  /// <summary>
+  /// This interface is used to complete deferrals on event args that support
+  /// getting deferrals using the GetDeferral method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2deferral">See the ICoreWebView2Deferral article.</see></para>
+  /// </remarks>
   TCoreWebView2Deferral = class
     protected
       FBaseIntf : ICoreWebView2Deferral;

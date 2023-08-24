@@ -15,6 +15,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// The shared buffer object.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedbuffer">See the ICoreWebView2SharedBuffer article.</see></para>
+  /// </remarks>
   TCoreWebView2SharedBuffer = class
     protected
       FBaseIntf  : ICoreWebView2SharedBuffer;

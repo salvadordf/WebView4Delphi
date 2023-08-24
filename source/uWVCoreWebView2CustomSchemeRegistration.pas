@@ -15,6 +15,16 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// <para>Represents the registration of a custom scheme with the
+  /// CoreWebView2Environment.</para>
+  /// <para>This allows the WebView2 app to be able to handle WebResourceRequested
+  /// event for requests with the specified scheme and be able to navigate the
+  /// WebView2 to the custom scheme.</para>
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">See the ICoreWebView2CustomSchemeRegistration article.</see></para>
+  /// </remarks>
   TCoreWebView2CustomSchemeRegistration = class(TInterfacedObject, ICoreWebView2CustomSchemeRegistration)
     protected
       FCustomSchemeInfo : TWVCustomSchemeInfo;

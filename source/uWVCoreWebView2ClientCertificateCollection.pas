@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary;
 
 type
+  /// <summary>
+  /// A collection of client certificate object.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection">See the ICoreWebView2ClientCertificateCollection article.</see></para>
+  /// </remarks>
   TCoreWebView2ClientCertificateCollection = class
     protected
       FBaseIntf : ICoreWebView2ClientCertificateCollection;

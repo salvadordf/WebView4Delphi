@@ -15,6 +15,16 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// The owner of the `CoreWebView2` object that provides support for resizing,
+  /// showing and hiding, focusing, and other functionality related to
+  /// windowing and composition.  The `CoreWebView2Controller` owns the
+  /// `CoreWebView2`, and if all references to the `CoreWebView2Controller` go
+  /// away, the WebView is closed.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller">See the ICoreWebView2Controller article.</see></para>
+  /// </remarks>
   TCoreWebView2Controller = class
     protected
       FBaseIntf                       : ICoreWebView2Controller;

@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Provides a set of properties to configure a Profile object.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile">See the ICoreWebView2Profile article.</see></para>
+  /// </remarks>
   TCoreWebView2Profile = class
     protected
       FBaseIntf  : ICoreWebView2Profile;

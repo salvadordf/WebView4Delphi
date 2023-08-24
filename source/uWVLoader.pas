@@ -390,14 +390,14 @@ type
       /// </remarks>
       property BlinkSettings                          : wvstring                           read FBlinkSettings                           write FBlinkSettings;
       /// <summary>
-      /// This option can be used to force field trials when testing changes locally.
-      /// The argument is a list of name and value pairs, separated by slashes.
-      /// If a trial name is prefixed with an asterisk, that trial will start activated.
-      /// For example, the following argument defines two trials, with the second one
+      /// <para>This option can be used to force field trials when testing changes locally.</para>
+      /// <para>The argument is a list of name and value pairs, separated by slashes.</para>
+      /// <para>If a trial name is prefixed with an asterisk, that trial will start activated.</para>
+      /// <para>For example, the following argument defines two trials, with the second one
       /// activated: "GoogleNow/Enable/*MaterialDesignNTP/Default/" This option can also
       /// be used by the browser process to send the list of trials to a non-browser
       /// process, using the same format. See FieldTrialList::CreateTrialsFromString()
-      /// in field_trial.h for details.
+      /// in field_trial.h for details.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --force-fieldtrials</see></para>
@@ -405,13 +405,13 @@ type
       /// </remarks>
       property ForceFieldTrials                       : wvstring                           read FForceFieldTrials                        write FForceFieldTrials;
       /// <summary>
-      /// This option can be used to force parameters of field trials when testing
+      /// <para>This option can be used to force parameters of field trials when testing
       /// changes locally. The argument is a param list of (key, value) pairs prefixed
       /// by an associated (trial, group) pair. You specify the param list for multiple
-      /// (trial, group) pairs with a comma separator.
-      /// Example: "Trial1.Group1:k1/v1/k2/v2,Trial2.Group2:k3/v3/k4/v4"
-      /// Trial names, groups names, parameter names, and value should all be URL
-      /// escaped for all non-alphanumeric characters.
+      /// (trial, group) pairs with a comma separator.</para>
+      /// <para>Example: "Trial1.Group1:k1/v1/k2/v2,Trial2.Group2:k3/v3/k4/v4"</para>
+      /// <para>Trial names, groups names, parameter names, and value should all be URL
+      /// escaped for all non-alphanumeric characters.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --force-fieldtrial-params</see></para>
@@ -605,16 +605,15 @@ type
       /// </remarks>
       property SupportsControllerOptions              : boolean                            read GetSupportsControllerOptions;
       /// <summary>
-      /// `FailureReportFolderPath` returns the path of the folder where minidump files are written.
+      /// <para>`FailureReportFolderPath` returns the path of the folder where minidump files are written.
       /// Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder.
-      /// The crash dump format is minidump files. Please see
-      /// [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.
-      /// Normally when a single child process fails, a minidump will be generated and written to disk,
+      /// The crash dump format is minidump files.</para>
+      /// <para>Please see [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.</para>
+      /// <para>Normally when a single child process fails, a minidump will be generated and written to disk,
       /// then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated
       /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
       /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
-      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
-      /// \snippet AppWindow.cpp GetFailureReportFolder
+      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>
@@ -629,9 +628,9 @@ type
       /// </summary>
       property OnInitializationError                  : TLoaderNotifyEvent                      read FOnInitializationError                   write FOnInitializationError;
       /// <summary>
-      /// OnGetCustomSchemes is triggered to register custom schemes. Fill the aCustomSchemes event parameter with
-      /// all the information to create one or more ICoreWebView2CustomSchemeRegistration instances that will be used
-      /// during the creation of the Environment.
+      /// <para>OnGetCustomSchemes is triggered automatically before creaing the environment to register custom schemes.</para>
+      /// <para>Fill the aCustomSchemes event parameter with all the information to create one or more
+      /// ICoreWebView2CustomSchemeRegistration instances that will be used during the creation of the Environment.</para>
       /// </summary>
       /// <remarks>
       /// <para><see cref="uWVTypes|TWVCustomSchemeInfo">See TWVCustomSchemeInfo.</see></para>

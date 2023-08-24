@@ -4879,12 +4879,11 @@ type
   end;
 
   /// <summary>
-  /// The window features for a WebView popup window.  The fields match the
+  /// <para>The window features for a WebView popup window.  The fields match the
   /// windowFeatures passed to window.open as specified in
   /// [Window features](https://developer.mozilla.org/docs/Web/API/Window/open#Window_features)
-  /// on MDN.
-  ///
-  /// There is no requirement for you to respect the values.  If your app does
+  /// on MDN.</para>
+  /// <para>There is no requirement for you to respect the values.  If your app does
   /// not have corresponding UI features (for example, no toolbar) or if all
   /// instance of WebView are opened in tabs and do not have distinct size or
   /// positions, then your app does not respect the values.  You may want to
@@ -4895,13 +4894,12 @@ type
   /// resulting value is the absolute value of the maximum for unsigned 32bit
   /// integer.  If you are not able to parse the value an integer, it is
   /// considered 0.  If the value is a floating point value, it is rounded down
-  /// to an integer.
-  ///
-  /// In runtime versions 98 or later, the values of ShouldDisplayMenuBar,
+  /// to an integer.</para>
+  /// <para>In runtime versions 98 or later, the values of ShouldDisplayMenuBar,
   /// ShouldDisplayStatus, ShouldDisplayToolbar, and ShouldDisplayScrollBars
   /// will not directly depend on the equivalent fields in the windowFeatures
   /// string.  Instead, they will all be false if the window is expected to be a
-  /// popup, and true if it is not.
+  /// popup, and true if it is not.</para>
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures">See the ICoreWebView2WindowFeatures article.</see></para>
@@ -8346,20 +8344,19 @@ type
   end;
 
   /// <summary>
-  /// This mostly represents a combined win32
+  /// <para>This mostly represents a combined win32
   /// POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO object. It takes fields
   /// from all three and excludes some win32 specific data types like HWND and
   /// HANDLE. Note, sourceDevice is taken out but we expect the PointerDeviceRect
   /// and DisplayRect to cover the existing use cases of sourceDevice.
   /// Another big difference is that any of the point or rect locations are
   /// expected to be in WebView physical coordinates. That is, coordinates
-  /// relative to the WebView and no DPI scaling applied.
-  //
-  // The PointerId, PointerFlags, ButtonChangeKind, PenFlags, PenMask, TouchFlags,
-  // and TouchMask are all #defined flags or enums in the
-  // POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO structure. We define those
-  // properties here as UINT32 or INT32 and expect the developer to know how to
-  // populate those values based on the Windows definitions.
+  /// relative to the WebView and no DPI scaling applied.</para>
+  /// <para>The PointerId, PointerFlags, ButtonChangeKind, PenFlags, PenMask, TouchFlags,
+  /// and TouchMask are all #defined flags or enums in the
+  /// POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO structure. We define those
+  /// properties here as UINT32 or INT32 and expect the developer to know how to
+  /// populate those values based on the Windows definitions.</para>
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo">See the ICoreWebView2PointerInfo article.</see></para>

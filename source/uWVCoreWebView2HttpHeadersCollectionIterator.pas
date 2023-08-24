@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Iterator for a collection of HTTP headers.  For more information, navigate
+  /// to ICoreWebView2HttpRequestHeaders and ICoreWebView2HttpResponseHeaders.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpheaderscollectioniterator">See the ICoreWebView2HttpHeadersCollectionIterator article.</see></para>
+  /// </remarks>
   TCoreWebView2HttpHeadersCollectionIterator = class
     protected
       FBaseIntf : ICoreWebView2HttpHeadersCollectionIterator;

@@ -10,6 +10,14 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// HTTP request headers.  Used to inspect the HTTP request on
+  /// WebResourceRequested event and NavigationStarting event.
+  /// </summary>
+  /// <remarks>
+  /// <para>It is possible to modify the HTTP request from a WebResourceRequested event, but not from a NavigationStarting event.</para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httprequestheaders">See the ICoreWebView2HttpRequestHeaders article.</see></para>
+  /// </remarks>
   TCoreWebView2HttpRequestHeaders = class
     protected
       FBaseIntf : ICoreWebView2HttpRequestHeaders;

@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Provides a set of properties for a frame in the ICoreWebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo">See the ICoreWebView2FrameInfo article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameInfo = class
     protected
       FBaseIntf : ICoreWebView2FrameInfo;

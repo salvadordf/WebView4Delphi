@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents a Basic HTTP authentication response that contains a user name
+  /// and a password as according to RFC7617 (https://tools.ietf.org/html/rfc7617)
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse">See the ICoreWebView2BasicAuthenticationResponse article.</see></para>
+  /// </remarks>
   TCoreWebView2BasicAuthenticationResponse = class
     protected
       FBaseIntf : ICoreWebView2BasicAuthenticationResponse;

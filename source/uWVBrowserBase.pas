@@ -508,9 +508,12 @@ type
       /// </remarks>
       function    Refresh : boolean;
       /// <summary>
-      /// Reload the current page. Browser cache is ignored as if the user pressed Shift+refresh.
-      /// This function is asynchronous and it triggers the TWVBrowserBase.OnRefreshIgnoreCacheCompleted event when it finishes.
+      /// <para>Reload the current page. Browser cache is ignored as if the user pressed Shift+refresh.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnRefreshIgnoreCacheCompleted event when it finishes executing.</para>
       /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-reload">See the Page Domain article.</see></para>
+      /// </remarks>
       function    RefreshIgnoreCache : boolean;
       /// <summary>
       /// Stop all navigations and pending resource fetches. Does not stop scripts.
@@ -634,7 +637,7 @@ type
       /// <para>Run JavaScript code from the aJavaScript parameter in the current
       /// top-level document rendered in the WebView.</para>
       /// <para>The TWVBrowserBase.OnExecuteScriptCompleted event is triggered
-      /// when it finishes.</para>
+      /// when it finishes executing.</para>
       /// <para>The result of evaluating the provided JavaScript is available in the
       /// aResultObjectAsJson parameter of the TWVBrowserBase.OnExecuteScriptCompleted
       /// event as a JSON encoded string.  If the result is undefined, contains a reference
@@ -732,7 +735,7 @@ type
       /// <para>All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate
       /// will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property
       /// before calling APIs that might change WebView state.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">See the sleeping Tabs FAQ.</see></para>
@@ -785,7 +788,7 @@ type
       function    RetrieveMHTML : boolean;
       /// <summary>
       /// <para>Print the current web page asynchronously to the specified printer with the TWVBrowserBase.CoreWebView2PrintSettings settings.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnPrintCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#print">See the ICoreWebView2_16 article.</see></para>
@@ -800,7 +803,7 @@ type
       function    ShowPrintUI(aUseSystemPrintDialog : boolean = False): boolean;
       /// <summary>
       /// Print the current page to PDF asynchronously with the TWVBrowserBase.CoreWebView2PrintSettings settings.
-      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfCompleted event when it finishes executing.
       /// </summary>
       /// <param name="aResultFilePath">The path to the PDF file.</param>
       /// <remarks>
@@ -929,7 +932,7 @@ type
       /// of the handler is run with the `id` of the injected script.  `id` is a
       /// string.  To remove the injected script, use
       /// `RemoveScriptToExecuteOnDocumentCreated`.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addscripttoexecuteondocumentcreated">See the ICoreWebView2 article.</see></para>
@@ -968,13 +971,13 @@ type
       /// </remarks>
       function    CopyCookie(const aCookie : ICoreWebView2Cookie) : ICoreWebView2Cookie;
       /// <summary>
-      /// Gets a list of cookies matching the specific URI.
+      /// <para>Gets a list of cookies matching the specific URI.
       /// If uri is empty string or null, all cookies under the same profile are
-      /// returned.
-      /// You can modify the cookie objects by calling
-      /// ICoreWebView2CookieManager::AddOrUpdateCookie, and the changes
-      /// will be applied to the webview.
-      /// \snippet ScenarioCookieManagement.cpp GetCookies
+      /// returned.</para>
+      /// <para>You can modify the cookie objects by calling
+      /// ICoreWebView2CookieManager.AddOrUpdateCookie, and the changes
+      /// will be applied to the webview.</para>
+      /// <para>The TWVBrowserBase.OnGetCookiesCompleted event is triggered asynchronously with the cookies.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#getcookies">See the ICoreWebView2CookieManager article.</see></para>
@@ -984,7 +987,6 @@ type
       /// Adds or updates a cookie with the given cookie data; may overwrite
       /// cookies with matching name, domain, and path if they exist.
       /// This method will fail if the domain of the given cookie is not specified.
-      /// \snippet ScenarioCookieManagement.cpp AddOrUpdateCookie
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#addorupdatecookie">See the ICoreWebView2CookieManager article.</see></para>
@@ -1128,7 +1130,7 @@ type
       /// Dispatches a key event to the page using the "Input.dispatchKeyEvent"
       /// DevTools method. The browser has to be focused before simulating any
       /// key event. This function is asynchronous and it triggers the
-      /// TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes.
+      /// TWVBrowserBase.OnSimulateKeyEventCompleted event when it finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
@@ -1251,14 +1253,14 @@ type
       /// </remarks>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
       /// <summary>
-      /// Clears the browser cache. This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes.
+      /// Clears the browser cache. This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-clearBrowserCache">See the Chrome DevTools Protocol page about the Network.clearBrowserCache method.</see></para>
       /// </remarks>
       function    ClearCache : boolean;
       /// <summary>
-      /// Clears the storage for origin. This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes.
+      /// Clears the storage for origin. This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-clearDataForOrigin">See the Chrome DevTools Protocol page about the Storage.clearDataForOrigin method.</see></para>
@@ -1269,7 +1271,7 @@ type
       /// the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR
       /// operation(s) can be applied to multiple `COREWEBVIEW2_BROWSING_DATA_KINDS` to
       /// create a mask representing those data types.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
@@ -1282,7 +1284,7 @@ type
       /// parameters correspond to the number of seconds since the UNIX epoch.</para>
       /// <para>`startTime` is inclusive while `endTime` is exclusive, therefore the data will
       /// be cleared between [startTime, endTime).</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataintimerange">See the ICoreWebView2Profile2 article.</see></para>
@@ -1292,7 +1294,7 @@ type
       /// <para>ClearBrowsingDataAll behaves like ClearBrowsingData except that it
       /// clears the entirety of the data associated with the profile it is called on.
       /// It clears the data regardless of timestamp.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataall">See the ICoreWebView2Profile2 article.</see></para>
@@ -1301,7 +1303,7 @@ type
       /// <summary>
       /// <para>Clears all cached decisions to proceed with TLS certificate errors from the
       /// OnServerCertificateErrorDetected event for all WebView2's sharing the same session.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnServerCertificateErrorActionsCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnServerCertificateErrorActionsCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#clearservercertificateerroractions">See the ICoreWebView2_14 article.</see></para>
@@ -1309,7 +1311,7 @@ type
       function    ClearServerCertificateErrorActions : boolean;
       /// <summary>
       /// <para>Async function for getting the actual image data of the favicon.</para>
-      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnGetFaviconCompleted event when it finishes.</para>
+      /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnGetFaviconCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#getfavicon">See the ICoreWebView2_15 article.</see></para>
@@ -1445,14 +1447,16 @@ type
       /// </summary>
       property ScreenScale                                     : single                                                read GetScreenScale;
       /// <summary>
-      /// Uses the Network.emulateNetworkConditions DevTool method to set the browser in offline mode.
+      /// <para>Uses the Network.emulateNetworkConditions DevTool method to set the browser in offline mode.</para>
+      /// <para>The TWVBrowserBase.OnOfflineCompleted event is triggered asynchronously after setting this property.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-emulateNetworkConditions">See the Network Domain article.</see></para>
       /// </remarks>
       property Offline                                         : boolean                                               read FOffline                                         write SetOffline;
       /// <summary>
-      /// Uses the Security.setIgnoreCertificateErrors DevTool method to enable/disable whether all certificate errors should be ignored.
+      /// <para>Uses the Security.setIgnoreCertificateErrors DevTool method to enable/disable whether all certificate errors should be ignored.</para>
+      /// <para>The TWVBrowserBase.OnIgnoreCertificateErrorsCompleted event is triggered asynchronously after setting this property.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Security/#method-setIgnoreCertificateErrors">See the Security Domain article.</see></para>
@@ -2219,13 +2223,13 @@ type
       /// <para>If tracking prevention feature is enabled when creating the WebView2 environment, you can also disable tracking
       /// prevention later using this property and `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE` value but that doesn't
       /// improves runtime performance.</para>
-      /// <para>There is `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` property to enable/disable tracking prevention feature
+      /// <para>There is `ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention` property to enable/disable tracking prevention feature
       /// for all the WebView2's created in the same environment. If enabled, `PreferredTrackingPreventionLevel` is set to
       /// `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED` by default for all the WebView2's and profiles created in the same
       /// environment or is set to the level whatever value was last changed/persisted to the profile. If disabled
       /// `PreferredTrackingPreventionLevel` is not respected by WebView2. If `PreferredTrackingPreventionLevel` is set when the
       /// feature is disabled, the property value get changed and persisted but it will takes effect only if
-      /// `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` is true.</para>
+      /// `ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention` is true.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile3#get_preferredtrackingpreventionlevel">See the ICoreWebView2Profile3 article.</see></para>
@@ -2425,7 +2429,7 @@ type
       /// <summary>
       /// <para>`OnScriptDialogOpening` runs when a JavaScript dialog (`alert`, `confirm`,
       /// `prompt`, or `beforeunload`) displays for the webview.  This event only
-      /// triggers if the `ICoreWebView2Settings::AreDefaultScriptDialogsEnabled`
+      /// triggers if the `ICoreWebView2Settings.AreDefaultScriptDialogsEnabled`
       /// property is set to `FALSE`.  The `ScriptDialogOpening` event suppresses
       /// dialogs or replaces default dialogs with custom dialogs.</para>
       /// <para>If a deferral is not taken on the event args, the subsequent scripts are
@@ -2601,7 +2605,7 @@ type
       /// </remarks>
       property OnStatusBarTextChanged                          : TOnStatusBarTextChangedEvent                          read FOnStatusBarTextChanged                          write FOnStatusBarTextChanged;
       /// <summary>
-      /// Event triggered when TWVBrowserBase.ClearServerCertificateErrorActions finishes.
+      /// Event triggered when TWVBrowserBase.ClearServerCertificateErrorActions finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#clearservercertificateerroractions">See the ICoreWebView2_14 article.</see></para>
@@ -2636,21 +2640,21 @@ type
       /// </remarks>
       property OnFaviconChanged                                : TOnFaviconChangedEvent                                read FOnFaviconChanged                                write FOnFaviconChanged;
       /// <summary>
-      /// The TWVBrowserBase.OnGetFaviconCompleted event is triggered when the TWVBrowserBase.GetFavicon call finishes.
+      /// The TWVBrowserBase.OnGetFaviconCompleted event is triggered when the TWVBrowserBase.GetFavicon call finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#getfavicon">See the ICoreWebView2_15 article.</see></para>
       /// </remarks>
       property OnGetFaviconCompleted                           : TOnGetFaviconCompletedEvent                           read FOnGetFaviconCompleted                           write FOnGetFaviconCompleted;
       /// <summary>
-      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.Print call finishes.
+      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.Print call finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#print">See the ICoreWebView2_16 article.</see></para>
       /// </remarks>
       property OnPrintCompleted                                : TOnPrintCompletedEvent                                read FOnPrintCompleted                                write FOnPrintCompleted;
       /// <summary>
-      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.PrintToPdfStream call finishes.
+      /// The TWVBrowserBase.OnPrintCompleted event is triggered when the TWVBrowserBase.PrintToPdfStream call finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#printtopdfstream">See the ICoreWebView2_16 article.</see></para>
@@ -2862,49 +2866,221 @@ type
       /// </remarks>
       property OnCustomItemSelected                            : TOnCustomItemSelectedEvent                            read FOnCustomItemSelected                            write FOnCustomItemSelected;
       /// <summary>
-      /// This event is triggered when the TWVBrowserBase.ClearBrowsingData call finishes.
+      /// This event is triggered when the TWVBrowserBase.ClearBrowsingData call finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
       /// </remarks>
       property OnClearBrowsingDataCompleted                    : TOnClearBrowsingDataCompletedEvent                    read FOnClearBrowsingDataCompleted                    write FOnClearBrowsingDataCompleted;
 
-      // Custom events
+      /// <summary>
+      /// Called if any of the browser initialization steps fail.
+      /// </summary>
       property OnInitializationError                           : TOnInitializationErrorEvent                           read FOnInitializationError                           write FOnInitializationError;
+      /// <summary>
+      /// Called when the environment was created successfully.
+      /// </summary>
       property OnEnvironmentCompleted                          : TNotifyEvent                                          read FOnEnvironmentCompleted                          write FOnEnvironmentCompleted;
+      /// <summary>
+      /// Called when the controller was created successfully.
+      /// </summary>
       property OnControllerCompleted                           : TNotifyEvent                                          read FOnControllerCompleted                           write FOnControllerCompleted;
+      /// <summary>
+      /// Called after a new browser is created and it's ready to navigate to the default URL.
+      /// </summary>
       property OnAfterCreated                                  : TNotifyEvent                                          read FOnAfterCreated                                  write FOnAfterCreated;
+      /// <summary>
+      /// Triggered when a TWVBrowserBase.ExecuteScript call finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#executescript">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnExecuteScriptCompleted                        : TOnExecuteScriptCompletedEvent                        read FOnExecuteScriptCompleted                        write FOnExecuteScriptCompleted;
+      /// <summary>
+      /// Triggered when a TWVBrowserBase.CapturePreview call finishes writting the image to the stream.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#capturepreview">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnCapturePreviewCompleted                       : TOnCapturePreviewCompletedEvent                       read FOnCapturePreviewCompleted                       write FOnCapturePreviewCompleted;
+      /// <summary>
+      /// Triggered when a TWVBrowserBase.GetCookies call finishes executing. This event includes the requested cookies.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager#getcookies">See the ICoreWebView2CookieManager article.</see></para>
+      /// </remarks>
       property OnGetCookiesCompleted                           : TOnGetCookiesCompletedEvent                           read FOnGetCookiesCompleted                           write FOnGetCookiesCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnTrySuspendCompleted event is triggered when a TWVBrowserBase.TrySuspend call finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3#trysuspend">See the ICoreWebView2_3 article.</see></para>
+      /// </remarks>
       property OnTrySuspendCompleted                           : TOnTrySuspendCompletedEvent                           read FOnTrySuspendCompleted                           write FOnTrySuspendCompleted;
       /// <summary>
-      /// The TWVBrowserBase.OnPrintToPdfCompleted event is triggered when the TWVBrowserBase.PrintToPdf call finishes.
+      /// The TWVBrowserBase.OnPrintToPdfCompleted event is triggered when the TWVBrowserBase.PrintToPdf call finishes executing.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_7#printtopdf">See the ICoreWebView2_7 article.</see></para>
       /// </remarks>
       property OnPrintToPdfCompleted                           : TOnPrintToPdfCompletedEvent                           read FOnPrintToPdfCompleted                           write FOnPrintToPdfCompleted;
+      /// <summary>
+      /// Called when the composition controller was created successfully.
+      /// </summary>
       property OnCompositionControllerCompleted                : TNotifyEvent                                          read FOnCompositionControllerCompleted                write FOnCompositionControllerCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event is triggered
+      /// when TWVBrowserBase.CallDevToolsProtocolMethod finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#calldevtoolsprotocolmethod">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnCallDevToolsProtocolMethodCompleted           : TOnCallDevToolsProtocolMethodCompletedEvent           read FOnCallDevToolsProtocolMethodCompleted           write FOnCallDevToolsProtocolMethodCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event is triggered
+      /// when TWVBrowserBase.AddScriptToExecuteOnDocumentCreated finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addscripttoexecuteondocumentcreated">See the ICoreWebView2 article.</see></para>
+      /// </remarks>
       property OnAddScriptToExecuteOnDocumentCreatedCompleted  : TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent  read FOnAddScriptToExecuteOnDocumentCreatedCompleted  write FOnAddScriptToExecuteOnDocumentCreatedCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnWebResourceResponseViewGetContentCompleted event is triggered
+      /// when TCoreWebView2WebResourceResponseView.GetContent finishes executing. This event includes the resource contents.
+      /// </summary>
+      /// <remarks>
+      /// <para>See the MiniBrowser demo for an example.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponseview#getcontent">See the ICoreWebView2WebResourceResponseView article.</see></para>
+      /// </remarks>
       property OnWebResourceResponseViewGetContentCompleted    : TOnWebResourceResponseViewGetContentCompletedEvent    read FOnWebResourceResponseViewGetContentCompleted    write FOnWebResourceResponseViewGetContentCompleted;
+      /// <summary>
+      /// Event triggered when the window called 'Chrome_WidgetWin_0' receives a message.
+      /// <summary>
       property OnWidget0CompMsg                                : TOnCompMsgEvent                                       read FOnWidget0CompMsg                                write FOnWidget0CompMsg;
+      /// <summary>
+      /// Event triggered when the window called 'Chrome_WidgetWin_1' receives a message.
+      /// <summary>
       property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
+      /// <summary>
+      /// Event triggered when the window called 'Chrome_RenderWidgetHostHWND' receives a message.
+      /// <summary>
       property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
+      /// <summary>
+      /// Event triggered when the window called 'Intermediate D3D Window' receives a message.
+      /// <summary>
       property OnD3DWindowCompMsg                              : TOnCompMsgEvent                                       read FOnD3DWindowCompMsg                              write FOnD3DWindowCompMsg;
+      /// <summary>
+      /// The TWVBrowserBase.OnRetrieveHTMLCompleted event is triggered when TWVBrowserBase.RetrieveHTML finishes executing. It includes the HTML contents.
+      /// </summary>
       property OnRetrieveHTMLCompleted                         : TOnRetrieveHTMLCompletedEvent                         read FOnRetrieveHTMLCompleted                         write FOnRetrieveHTMLCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnRetrieveTextCompleted event is triggered when TWVBrowserBase.RetrieveText finishes executing. It includes the text contents.
+      /// </summary>
       property OnRetrieveTextCompleted                         : TOnRetrieveTextCompletedEvent                         read FOnRetrieveTextCompleted                         write FOnRetrieveTextCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnRetrieveMHTMLCompleted event is triggered when TWVBrowserBase.RetrieveMHTML finishes executing. It includes the MHTML contents.
+      /// </summary>
       property OnRetrieveMHTMLCompleted                        : TOnRetrieveMHTMLCompletedEvent                        read FOnRetrieveMHTMLCompleted                        write FOnRetrieveMHTMLCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnClearCacheCompleted event is triggered when TWVBrowserBase.ClearCache finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-clearBrowserCache">See the Chrome DevTools Protocol page about the Network.clearBrowserCache method.</see></para>
+      /// </remarks>
       property OnClearCacheCompleted                           : TOnClearCacheCompletedEvent                           read FOnClearCacheCompleted                           write FOnClearCacheCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnClearDataForOriginCompleted event is triggered when TWVBrowserBase.ClearDataForOrigin finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-clearDataForOrigin">See the Chrome DevTools Protocol page about the Storage.clearDataForOrigin method.</see></para>
+      /// </remarks>
       property OnClearDataForOriginCompleted                   : TOnClearDataForOriginCompletedEvent                   read FOnClearDataForOriginCompleted                   write FOnClearDataForOriginCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnOfflineCompleted event is triggered after setting the TWVBrowserBase.Offline property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-emulateNetworkConditions">See the Network Domain article.</see></para>
+      /// </remarks>
       property OnOfflineCompleted                              : TOnOfflineCompletedEvent                              read FOnOfflineCompleted                              write FOnOfflineCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnIgnoreCertificateErrorsCompleted event is triggered after setting the TWVBrowserBase.IgnoreCertificateErrors property.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Security/#method-setIgnoreCertificateErrors">See the Security Domain article.</see></para>
+      /// </remarks>
       property OnIgnoreCertificateErrorsCompleted              : TOnIgnoreCertificateErrorsCompletedEvent              read FOnIgnoreCertificateErrorsCompleted              write FOnIgnoreCertificateErrorsCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnRefreshIgnoreCacheCompleted event is triggered when TWVBrowserBase.RefreshIgnoreCache finishes executing.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-reload">See the Page Domain article.</see></para>
+      /// </remarks>
       property OnRefreshIgnoreCacheCompleted                   : TOnRefreshIgnoreCacheCompletedEvent                   read FOnRefreshIgnoreCacheCompleted                   write FOnRefreshIgnoreCacheCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnSimulateKeyEventCompleted event is triggered when TWVBrowserBase.SimulateKeyEvent or TWVBrowserBase.SimulateEditingCommand finish executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/1-3/Input/#method-dispatchKeyEvent">See the "Input.dispatchKeyEvent" DevTools method.</see></para>
+      /// </remarks>
       property OnSimulateKeyEventCompleted                     : TOnSimulateKeyEventCompletedEvent                     read FOnSimulateKeyEventCompleted                     write FOnSimulateKeyEventCompleted;
+      /// <summary>
+      /// <para>OnGetCustomSchemes is triggered automatically before creaing the environment to register custom schemes.</para>
+      /// <para>Fill the aCustomSchemes event parameter with all the information to create one or more
+      /// ICoreWebView2CustomSchemeRegistration instances that will be used during the creation of the Environment.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see cref="uWVTypes|TWVCustomSchemeInfo">See TWVCustomSchemeInfo.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">See the ICoreWebView2CustomSchemeRegistration article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">See the ICoreWebView2EnvironmentOptions4 article.</see></para>
+      /// </remarks>
       property OnGetCustomSchemes                              : TOnGetCustomSchemesEvent                              read FOnGetCustomSchemes                              write FOnGetCustomSchemes;
+      /// <summary>
+      /// The TWVBrowserBase.OnGetNonDefaultPermissionSettingsCompleted event is triggered when TWVBrowserBase.GetNonDefaultPermissionSettings finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>
+      /// </remarks>
       property OnGetNonDefaultPermissionSettingsCompleted      : TOnGetNonDefaultPermissionSettingsCompletedEvent      read FOnGetNonDefaultPermissionSettingsCompleted      write FOnGetNonDefaultPermissionSettingsCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnSetPermissionStateCompleted event is triggered when TWVBrowserBase.SetPermissionState finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#setpermissionstate">See the ICoreWebView2Profile4 article.</see></para>
+      /// </remarks>
       property OnSetPermissionStateCompleted                   : TOnSetPermissionStateCompletedEvent                   read FOnSetPermissionStateCompleted                   write FOnSetPermissionStateCompleted;
+      /// <summary>
+      /// <para>The `OnLaunchingExternalUriScheme` event is raised when a navigation request is made to
+      /// a URI scheme that is registered with the OS.</para>
+      /// <para>The `OnLaunchingExternalUriScheme` event handler may suppress the default dialog
+      /// or replace the default dialog with a custom dialog.</para>
+      /// <para>If a deferral is not taken on the event args, the external URI scheme launch is
+      /// blocked until the event handler returns.  If a deferral is taken, the
+      /// external URI scheme launch is blocked until the deferral is completed.
+      /// The host also has the option to cancel the URI scheme launch.</para>
+      /// <para>The `NavigationStarting` and `NavigationCompleted` events will be raised,
+      /// regardless of whether the `Cancel` property is set to `TRUE` or
+      /// `FALSE`. The `NavigationCompleted` event will be raised with the `IsSuccess` property
+      /// set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of
+      /// whether the host sets the `Cancel` property on the
+      /// `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `SourceChanged`, `ContentLoading`,
+      /// and `HistoryChanged` events will not be raised for this navigation to the external URI
+      /// scheme regardless of the `Cancel` property.</para>
+      /// <para>The `OnLaunchingExternalUriScheme` event will be raised after the
+      /// `NavigationStarting` event and before the `NavigationCompleted` event.</para>
+      /// <para>The default `CoreWebView2Settings` will also be updated upon navigation to an external
+      /// URI scheme. If a setting on the `CoreWebView2Settings` interface has been changed,
+      /// navigating to an external URI scheme will trigger the `CoreWebView2Settings` to update.</para>
+      /// <para>The WebView2 may not display the default dialog based on user settings, browser settings,
+      /// and whether the origin is determined as a
+      /// [trustworthy origin](https://w3c.github.io/webappsec-secure-contexts#
+      /// potentially-trustworthy-origin); however, the event will still be raised.</para>
+      /// <para>If the request is initiated by a cross-origin frame without a user gesture,
+      /// the request will be blocked and the `OnLaunchingExternalUriScheme` event will not
+      /// be raised.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18#add_launchingexternalurischeme">See the ICoreWebView2_18 article.</see></para>
+      /// </remarks>
       property OnLaunchingExternalUriScheme                    : TOnLaunchingExternalUriSchemeEvent                    read FOnLaunchingExternalUriScheme                    write FOnLaunchingExternalUriScheme;
   end;
 

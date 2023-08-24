@@ -15,6 +15,24 @@ uses
   uWVTypeLibrary;
 
 type
+  /// <summary>
+  /// <para>This mostly represents a combined win32
+  /// POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO object. It takes fields
+  /// from all three and excludes some win32 specific data types like HWND and
+  /// HANDLE. Note, sourceDevice is taken out but we expect the PointerDeviceRect
+  /// and DisplayRect to cover the existing use cases of sourceDevice.
+  /// Another big difference is that any of the point or rect locations are
+  /// expected to be in WebView physical coordinates. That is, coordinates
+  /// relative to the WebView and no DPI scaling applied.</para>
+  /// <para>The PointerId, PointerFlags, ButtonChangeKind, PenFlags, PenMask, TouchFlags,
+  /// and TouchMask are all #defined flags or enums in the
+  /// POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO structure. We define those
+  /// properties here as UINT32 or INT32 and expect the developer to know how to
+  /// populate those values based on the Windows definitions.</para>
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo">See the ICoreWebView2PointerInfo article.</see></para>
+  /// </remarks>
   TCoreWebView2PointerInfo = class
     protected
       FBaseIntf : ICoreWebView2PointerInfo;

@@ -15,6 +15,18 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// This interface is an extension of the ICoreWebView2Controller interface to
+  /// support visual hosting. An object implementing the
+  /// ICoreWebView2CompositionController interface will also implement
+  /// ICoreWebView2Controller. Callers are expected to use
+  /// ICoreWebView2Controller for resizing, visibility, focus, and so on, and
+  /// then use ICoreWebView2CompositionController to connect to a composition
+  /// tree and provide input meant for the WebView.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller">See the ICoreWebView2CompositionController article.</see></para>
+  /// </remarks>
   TCoreWebView2CompositionController = class
     protected
       FBaseIntf           : ICoreWebView2CompositionController;

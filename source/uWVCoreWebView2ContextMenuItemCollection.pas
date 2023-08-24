@@ -10,6 +10,13 @@ uses
   uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents a collection of ContextMenuItem objects. Used to get, remove and add
+  /// ContextMenuItem objects at the specified index.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+  /// </remarks>
   TCoreWebView2ContextMenuItemCollection = class
     protected
       FBaseIntf : ICoreWebView2ContextMenuItemCollection;

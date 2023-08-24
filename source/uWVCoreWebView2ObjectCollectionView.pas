@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary;
 
 type
+  /// <summary>
+  /// Read-only collection of generic objects.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview">See the ICoreWebView2ObjectCollectionView article.</see></para>
+  /// </remarks>
   TCoreWebView2ObjectCollectionView = class
     protected
       FBaseIntf : ICoreWebView2ObjectCollectionView;

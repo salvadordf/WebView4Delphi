@@ -10,6 +10,12 @@ uses
   uWVTypeLibrary;
 
 type
+  /// <summary>
+  /// A list containing process id and corresponding process type.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfocollection">See the ICoreWebView2ProcessInfoCollection article.</see></para>
+  /// </remarks>
   TCoreWebView2ProcessInfoCollection = class
     protected
       FBaseIntf : ICoreWebView2ProcessInfoCollection;

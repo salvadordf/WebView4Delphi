@@ -15,6 +15,16 @@ uses
   uWVInterfaces, uWVTypeLibrary, uWVTypes;
 
 type
+  /// <summary>
+  /// Represents the WebView2 Environment.  WebViews created from an environment
+  /// run on the browser process specified with environment parameters and
+  /// objects created from an environment should be used in the same
+  /// environment.  Using it in different environments are not guaranteed to be
+  ///  compatible and may fail.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment">See the ICoreWebView2Environment article.</see></para>
+  /// </remarks>
   TCoreWebView2Environment = class
     protected
       FBaseIntf                             : ICoreWebView2Environment;
