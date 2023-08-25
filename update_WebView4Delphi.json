@@ -2,7 +2,7 @@
   "UpdateLazPackages" : [
     {
       "ForceNotify" : true,
-      "InternalVersion" : 111,
+      "InternalVersion" : 112,
       "Name" : "webview4delphi.lpk",
       "Version" : "1.0.1901.177"
     }

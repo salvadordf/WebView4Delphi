@@ -28,16 +28,72 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2ContextMenuItemCollection); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Removes the `ContextMenuItem` at the specified index.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#removevalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       function    RemoveValueAtIndex(index: cardinal): boolean;
+      /// <summary>
+      /// Inserts the `ContextMenuItem` at the specified index.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#insertvalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       function    InsertValueAtIndex(index: cardinal; const aValue: ICoreWebView2ContextMenuItem): boolean;
+      /// <summary>
+      /// Appends the aValue item at the end of the collection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#insertvalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       function    AppendValue(const aValue: ICoreWebView2ContextMenuItem): boolean;
+      /// <summary>
+      /// Removes all items from the collection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#removevalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       procedure   RemoveAllMenuItems;
+      /// <summary>
+      /// Removes the item with the commandId value specified in the paramaters.
+      /// </summary>
+      /// <param name="aCommandId">The commandId value of the item that has to be removed.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#removevalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       procedure   RemoveMenuItem(aCommandId : integer); overload;
+      /// <summary>
+      /// Removes the item with the label value specified in the paramaters.
+      /// </summary>
+      /// <param name="aLabel">The label value of the item that has to be removed.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#removevalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       procedure   RemoveMenuItem(const aLabel : wvstring); overload;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized           : boolean                                      read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf              : ICoreWebView2ContextMenuItemCollection       read FBaseIntf;
+      /// <summary>
+      /// Gets the number of `ContextMenuItem` objects contained in the `ContextMenuItemCollection`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#get_count">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       property Count                 : cardinal                                     read GetCount;
+      /// <summary>
+      /// Gets the `ContextMenuItem` at the specified index.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#getvalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
+      /// </remarks>
       property Items[idx : cardinal] : ICoreWebView2ContextMenuItem                 read GetValueAtIndex;
   end;
 

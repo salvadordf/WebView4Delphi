@@ -74,17 +74,172 @@ type
       /// </summary>
       /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+      /// <summary>
+      /// Asynchronously create a new WebView.
+      /// </summary>
+      /// <param name="aParentWindow">Handle of the control in which the WebView should be displayed.</param>
+      /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#createcorewebview2controller">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2Controller(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents; var aResult: HRESULT) : boolean;
+      /// <summary>
+      /// Create a new web resource response object.
+      /// </summary>
+      /// <param name="aContent">HTTP response content as stream.</param>
+      /// <param name="aStatusCode">The HTTP response status code.</param>
+      /// <param name="aReasonPhrase">The HTTP response reason phrase.</param>
+      /// <param name="aHeaders">Overridden HTTP response headers.</param>
+      /// <param name="aResponse">The new ICoreWebView2WebResourceResponse instance.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#createcorewebview2controller">See the ICoreWebView2Environment article.</see></para>
+      /// </remarks>
       function    CreateWebResourceResponse(const aContent : IStream; aStatusCode : integer; aReasonPhrase, aHeaders : wvstring; var aResponse : ICoreWebView2WebResourceResponse) : boolean;
+      /// <summary>
+      /// Create a new web resource request object.
+      /// URI parameter must be absolute URI.
+      /// The headers string is the raw request header string delimited by CRLF
+      /// (optional in last header).
+      /// It's also possible to create this object with null headers string
+      /// and then use the ICoreWebView2HttpRequestHeaders to construct the headers
+      /// line by line.
+      /// </summary>
+      /// <param name="aURI">The request URI.</param>
+      /// <param name="aMethod">The HTTP request method.</param>
+      /// <param name="aPostData">The HTTP request message body as stream.</param>
+      /// <param name="aHeaders">The mutable HTTP request headers.</param>
+      /// <param name="aRequest">The new ICoreWebView2WebResourceRequest instance.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment2">See the ICoreWebView2Environment2 article.</see></para>
+      /// </remarks>
       function    CreateWebResourceRequest(const aURI, aMethod : wvstring; const aPostData : IStream; const aHeaders : wvstring; var aRequest : ICoreWebView2WebResourceRequest): boolean;
+      /// <summary>
+      /// Asynchronously create a new WebView for use with visual hosting.
+      /// </summary>
+      /// <param name="aParentWindow">Handle of the control in which the app will connect the visual tree of the WebView.</param>
+      /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3#createcorewebview2compositioncontroller">See the ICoreWebView2Environment3 article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2CompositionController(aParentWindow : THandle; const aBrowserEvents : IWVBrowserEvents; var aResult: HRESULT) : boolean;
+      /// <summary>
+      /// Create an empty ICoreWebView2PointerInfo. The returned
+      /// ICoreWebView2PointerInfo needs to be populated with all of the relevant
+      /// info before calling SendPointerInput.
+      /// </summary>
+      /// <param name="aPointerInfo">The new ICoreWebView2PointerInfo instance.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3#createcorewebview2pointerinfo">See the ICoreWebView2Environment3 article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2PointerInfo(var aPointerInfo : ICoreWebView2PointerInfo) : boolean;
+      /// <summary>
+      /// Returns the Automation Provider for the WebView that matches the provided
+      /// window. Host apps are expected to implement
+      /// IRawElementProviderHwndOverride. When GetOverrideProviderForHwnd is
+      /// called, the app can pass the HWND to GetAutomationProviderForWindow to
+      /// find the matching WebView Automation Provider.
+      /// </summary>
+      /// <param name="aHandle">Handle used to find the matching WebView Automation Provider.</param>
+      /// <param name="aProvider">The Automation Provider for the WebView that matches the provided window.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment4#getautomationproviderforwindow">See the ICoreWebView2Environment4 article.</see></para>
+      /// </remarks>
       function    GetAutomationProviderForWindow(aHandle : THandle; var aProvider : IUnknown) : boolean;
+      /// <summary>
+      /// Creates the `ICoreWebView2PrintSettings` used by the `PrintToPdf` method.
+      /// </summary>
+      /// <param name="aPrintSettings">The new ICoreWebView2PrintSettings instance.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment6">See the ICoreWebView2Environment6 article.</see></para>
+      /// </remarks>
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
+      /// <summary>
+      /// <para>Create a custom `ContextMenuItem` object to insert into the WebView context menu.
+      /// CoreWebView2 will rewind the icon stream before decoding.</para>
+      /// <para>There is a limit of 1000 active custom context menu items at a given time.
+      /// Attempting to create more before deleting existing ones will fail with
+      /// ERROR_NOT_ENOUGH_QUOTA.</para>
+      /// <para>It is recommended to reuse ContextMenuItems across ContextMenuRequested events
+      /// for performance.</para>
+      /// <para>The returned ContextMenuItem object's `IsEnabled` property will default to `TRUE`
+      /// and `IsChecked` property will default to `FALSE`. A `CommandId` will be assigned
+      /// to the ContextMenuItem object that's unique across active custom context menu items,
+      /// but command ID values of deleted ContextMenuItems can be reassigned.</para>
+      /// </summary>
+      /// <param name="aLabel">Context menu item label.</param>
+      /// <param name="aIconStream">Context menu item icon as stream.</param>
+      /// <param name="aKind">Context menu item kind.</param>
+      /// <param name="aMenuItem">The new ICoreWebView2ContextMenuItem instance.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment9#createcontextmenuitem">See the ICoreWebView2Environment9 article.</see></para>
+      /// </remarks>
       function    CreateContextMenuItem(const aLabel : wvstring; const aIconStream : IStream; aKind : TWVMenuItemKind; var aMenuItem : ICoreWebView2ContextMenuItem) : boolean;
+      /// <summary>
+      /// Create a new ICoreWebView2ControllerOptions to be passed as a parameter of
+      /// CreateCoreWebView2ControllerWithOptions and CreateCoreWebView2CompositionControllerWithOptions.
+      /// The 'options' is settable and in it the default value for profile name is the empty string,
+      /// and the default value for IsInPrivateModeEnabled is false.
+      /// Also the profile name can be reused.
+      /// </summary>
+      /// <param name="aOptions">The new ICoreWebView2ControllerOptions instance.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10#createcorewebview2controlleroptions">See the ICoreWebView2Environment10 article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2ControllerOptions(var aOptions: ICoreWebView2ControllerOptions; var aResult: HResult): boolean;
+      /// <summary>
+      /// Create a new WebView with options.
+      /// </summary>
+      /// <param name="aParentWindow">Handle of the control in which the WebView should be displayed.</param>
+      /// <param name="aOptions">The ICoreWebView2ControllerOptions instance created with CreateCoreWebView2ControllerOptions.</param>
+      /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10#createcorewebview2controllerwithoptions">See the ICoreWebView2Environment10 article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2ControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
+      /// <summary>
+      /// Create a new WebView in visual hosting mode with options.
+      /// </summary>
+      /// <param name="aParentWindow">Handle of the control in which the app will connect the visual tree of the WebView.</param>
+      /// <param name="aOptions">The ICoreWebView2ControllerOptions instance created with CreateCoreWebView2ControllerOptions.</param>
+      /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
+      /// <param name="aResult">Result code.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10#createcorewebview2compositioncontrollerwithoptions">See the ICoreWebView2Environment10 article.</see></para>
+      /// </remarks>
       function    CreateCoreWebView2CompositionControllerWithOptions(aParentWindow: HWND; const aOptions: ICoreWebView2ControllerOptions; const aBrowserEvents: IWVBrowserEvents; var aResult: HResult): boolean;
+      /// <summary>
+      /// Create a shared memory based buffer with the specified size in bytes.
+      /// The buffer can be shared with web contents in WebView by calling
+      /// `PostSharedBufferToScript` on `CoreWebView2` or `CoreWebView2Frame` object.
+      /// Once shared, the same content of the buffer will be accessible from both
+      /// the app process and script in WebView. Modification to the content will be visible
+      /// to all parties that have access to the buffer.
+      /// The shared buffer is presented to the script as ArrayBuffer. All JavaScript APIs
+      /// that work for ArrayBuffer including Atomics APIs can be used on it.
+      /// There is currently a limitation that only size less than 2GB is supported.
+      /// </summary>
+      /// <param name="aSize">Buffer size in bytes.</param>
+      /// <param name="aSharedBuffer">The new ICoreWebView2SharedBuffer instance.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer">See the ICoreWebView2Environment12 article.</see></para>
+      /// </remarks>
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
 
       /// <summary>

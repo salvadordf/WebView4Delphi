@@ -31,7 +31,13 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2PermissionSetting); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property    Initialized      : boolean                         read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property    BaseIntf         : ICoreWebView2PermissionSetting  read FBaseIntf;
       property    PermissionKind   : TWVPermissionKind               read GetPermissionKind;
       property    PermissionOrigin : wvstring                        read GetPermissionOrigin;

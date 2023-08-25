@@ -38,7 +38,13 @@ type
       destructor  Destroy; override;
       function    Close : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property    Initialized        : boolean                    read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property    BaseIntf           : ICoreWebView2SharedBuffer  read FBaseIntf;
       property    Size               : Largeuint                  read GetSize;
       property    Buffer             : PByte                      read GetBuffer;

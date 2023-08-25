@@ -600,7 +600,7 @@ type
                        appUserGestureRequired);
 
   /// <summary>
-  /// Record with all the information to create a TCoreWebView2CustomSchemeRegistration instance.
+  /// Record with all the information to create a TCoreWebView2CustomSchemeRegistration instance to register a custom scheme.
   /// </summary>
   TWVCustomSchemeInfo = record
     /// <summary>

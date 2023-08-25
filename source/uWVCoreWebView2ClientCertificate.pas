@@ -33,17 +33,87 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2ClientCertificate); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// PEM encoded data for the certificate.
+      /// Returns Base64 encoding of DER encoded certificate.
+      /// Read more about PEM at [RFC 1421 Privacy Enhanced Mail]
+      /// (https://tools.ietf.org/html/rfc1421).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#topemencoding">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       function    ToPemEncoding : wvstring;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized                         : boolean                         read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf                            : ICoreWebView2ClientCertificate  read FBaseIntf                            write FBaseIntf;
+      /// <summary>
+      /// Subject of the certificate.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_subject">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property Subject                             : wvstring                        read GetSubject;
+      /// <summary>
+      /// Name of the certificate authority that issued the certificate.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_issuer">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property Issuer                              : wvstring                        read GetIssuer;
+      /// <summary>
+      /// The valid start date and time for the certificate as the number of seconds since
+      /// the UNIX epoch.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validfrom">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property ValidFrom                           : TDateTime                       read GetValidFrom;
+      /// <summary>
+      /// The valid expiration date and time for the certificate as the number of seconds since
+      /// the UNIX epoch.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validto">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property ValidTo                             : TDateTime                       read GetValidTo;
+      /// <summary>
+      /// Base64 encoding of DER encoded serial number of the certificate.
+      /// Read more about DER at [RFC 7468 DER]
+      /// (https://tools.ietf.org/html/rfc7468#appendix-B).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_derencodedserialnumber">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property DerEncodedSerialNumber              : wvstring                        read GetDerEncodedSerialNumber;
+      /// <summary>
+      /// Display name for a certificate.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_displayname">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property DisplayName                         : wvstring                        read GetDisplayName;
+      /// <summary>
+      /// Collection of PEM encoded client certificate issuer chain.
+      /// In this collection first element is the current certificate followed by
+      /// intermediate1, intermediate2...intermediateN-1. Root certificate is the
+      /// last element in collection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_pemencodedissuercertificatechain">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property PemEncodedIssuerCertificateChain    : ICoreWebView2StringCollection   read GetPemEncodedIssuerCertificateChain;
+      /// <summary>
+      /// Kind of a certificate (eg., smart card, pin, other).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_kind">See the ICoreWebView2ClientCertificate article.</see></para>
+      /// </remarks>
       property Kind                                : TWVClientCertificateKind        read GetKind;
   end;
 

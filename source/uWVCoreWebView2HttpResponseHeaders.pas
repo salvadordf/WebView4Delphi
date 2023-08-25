@@ -32,7 +32,13 @@ type
       function    Contains(const aName: wvstring) : boolean;
       function    AppendHeader(const aName, aValue : wvstring) : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized : boolean                                    read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf    : ICoreWebView2HttpResponseHeaders           read FBaseIntf;
       property Iterator    : ICoreWebView2HttpHeadersCollectionIterator read GetIterator;
   end;

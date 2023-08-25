@@ -100,7 +100,13 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2PointerInfo); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized          : boolean                    read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf             : ICoreWebView2PointerInfo   read FBaseIntf;
       property PointerKind          : cardinal                   read GetPointerKind           write SetPointerKind;
       property PointerId            : cardinal                   read GetPointerId             write SetPointerId;

@@ -76,7 +76,13 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2PrintSettings); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized                : boolean                         read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf                   : ICoreWebView2PrintSettings      read FBaseIntf;
 
       // ICoreWebView2PrintSettings

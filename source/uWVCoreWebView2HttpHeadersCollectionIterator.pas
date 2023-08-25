@@ -30,7 +30,13 @@ type
       function    GetCurrentHeader(var aName, aValue: wvstring): boolean;
       function    MoveNext : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized       : boolean                                      read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf          : ICoreWebView2HttpHeadersCollectionIterator   read FBaseIntf;
       property HasCurrentHeader  : boolean                                      read GetHasCurrentHeader;
   end;

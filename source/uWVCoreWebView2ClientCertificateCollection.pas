@@ -28,9 +28,28 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2ClientCertificateCollection); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized           : boolean                                      read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf              : ICoreWebView2ClientCertificateCollection     read FBaseIntf;
+      /// <summary>
+      /// The number of client certificates contained in the
+      /// ICoreWebView2ClientCertificateCollection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection#get_count">See the ICoreWebView2ClientCertificateCollection article.</see></para>
+      /// </remarks>
       property Count                 : cardinal                                     read GetCount;
+      /// <summary>
+      /// Gets the certificate object at the given index.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection#getvalueatindex">See the ICoreWebView2ClientCertificateCollection article.</see></para>
+      /// </remarks>
       property Items[idx : cardinal] : ICoreWebView2ClientCertificate               read GetValueAtIndex;
   end;
 

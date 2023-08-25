@@ -31,7 +31,13 @@ type
       destructor  Destroy; override;
       function    MoveNext : boolean;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized : boolean                                    read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf    : ICoreWebView2FrameInfoCollectionIterator   read FBaseIntf;
       property HasCurrent  : boolean                                    read GetHasCurrent;
       property Current     : ICoreWebView2FrameInfo                     read GetCurrent;

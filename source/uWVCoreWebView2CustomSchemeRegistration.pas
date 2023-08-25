@@ -39,7 +39,25 @@ type
       function Set_HasAuthorityComponent(HasAuthorityComponent: Integer): HResult; stdcall;
 
     public
+      /// <summary>
+      /// Constructor of the ICoreWebView2CustomSchemeRegistration wrapper.
+      /// </summary>
+      /// <param name="aCustomSchemeInfo">Record with all the information to register a custom scheme.</param>
+      /// <remarks>
+      /// <para><see cref="uWVTypes|TWVCustomSchemeInfo">See the TWVCustomSchemeInfo comments</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">See the ICoreWebView2CustomSchemeRegistration article.</see></para>
+      /// </remarks>
       constructor Create(const aCustomSchemeInfo : TWVCustomSchemeInfo); reintroduce; overload;
+      /// <summary>
+      /// Constructor of the ICoreWebView2CustomSchemeRegistration wrapper.
+      /// </summary>
+      /// <param name="aSchemeName">The name of the custom scheme to register.</param>
+      /// <param name="aAllowedDomains">Comma separated list of origins that are allowed to issue requests with the custom scheme, such as XHRs and subresource requests that have an Origin header.</param>
+      /// <param name="aTreatAsSecure">Whether the sites with this scheme will be treated as a Secure Context like an HTTPS site.</param>
+      /// <param name="aHasAuthorityComponent">Set this property to true if the URIs with this custom scheme will have an authority component (a host for custom schemes)</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">See the ICoreWebView2CustomSchemeRegistration article.</see></para>
+      /// </remarks>
       constructor Create(const aSchemeName, aAllowedDomains : wvstring; aTreatAsSecure, aHasAuthorityComponent : boolean); reintroduce; overload;
   end;
 

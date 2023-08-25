@@ -44,17 +44,95 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2Cookie); reintroduce;
       destructor  Destroy; override;
 
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
       property Initialized    : boolean                     read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
       property BaseIntf       : ICoreWebView2Cookie         read FBaseIntf           write FBaseIntf;
+      /// <summary>
+      /// Cookie name.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_name">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property Name           : wvstring                    read GetName;
+      /// <summary>
+      /// Cookie value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_value">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property Value          : wvstring                    read GetValue            write SetValue;
+      /// <summary>
+      /// The domain for which the cookie is valid.
+      /// The default is the host that this cookie has been received from.
+      /// Note that, for instance, ".bing.com", "bing.com", and "www.bing.com" are
+      /// considered different domains.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_domain">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property Domain         : wvstring                    read GetDomain;
+      /// <summary>
+      /// The path for which the cookie is valid. The default is "/", which means
+      /// this cookie will be sent to all pages on the Domain.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_path">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property Path           : wvstring                    read GetPath;
+      /// <summary>
+      /// The expiration date and time for the cookie as the number of seconds since the UNIX epoch.
+      /// The default is -1.0, which means cookies are session cookies by default.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_expires">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property Expires        : double                      read GetExpires          write SetExpires;
+      /// <summary>
+      /// The expiration date and time for the cookie in TDateTime format.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_expires">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property ExpiresDate    : TDateTime                   read GetExpiresDate      write SetExpiresDate;
+      /// <summary>
+      /// Whether this cookie is http-only.
+      /// True if a page script or other active content cannot access this
+      /// cookie. The default is false.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_ishttponly">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property IsHttpOnly     : boolean                     read GetIsHttpOnly       write SetIsHttpOnly;
+      /// <summary>
+      /// SameSite status of the cookie which represents the enforcement mode of the cookie.
+      /// The default is COREWEBVIEW2_COOKIE_SAME_SITE_KIND_LAX.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_samesite">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property SameSite       : TWVCookieSameSiteKind       read GetSameSite         write SetSameSite;
+      /// <summary>
+      /// The security level of this cookie. True if the client is only to return
+      /// the cookie in subsequent requests if those requests use HTTPS.
+      /// The default is false.
+      /// Note that cookie that requests COREWEBVIEW2_COOKIE_SAME_SITE_KIND_NONE but
+      /// is not marked Secure will be rejected.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_issecure">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property IsSecure       : boolean                     read GetIsSecure         write SetIsSecure;
+      /// <summary>
+      /// Whether this is a session cookie. The default is false.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookie#get_issession">See the ICoreWebView2Cookie article.</see></para>
+      /// </remarks>
       property IsSession      : boolean                     read GetIsSession;
   end;
 
