@@ -114,7 +114,7 @@ type
       /// <param name="aRequest">The new ICoreWebView2WebResourceRequest instance.</param>
       /// <returns>True if successfull.</return>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment2">See the ICoreWebView2Environment2 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment2#createwebresourcerequest">See the ICoreWebView2Environment2 article.</see></para>
       /// </remarks>
       function    CreateWebResourceRequest(const aURI, aMethod : wvstring; const aPostData : IStream; const aHeaders : wvstring; var aRequest : ICoreWebView2WebResourceRequest): boolean;
       /// <summary>
@@ -160,7 +160,7 @@ type
       /// <param name="aPrintSettings">The new ICoreWebView2PrintSettings instance.</param>
       /// <returns>True if successfull.</return>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment6">See the ICoreWebView2Environment6 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment6#createprintsettings">See the ICoreWebView2Environment6 article.</see></para>
       /// </remarks>
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
       /// <summary>
