@@ -48,14 +48,12 @@ type
       /// You can modify the cookie objects by calling
       /// ICoreWebView2CookieManager::AddOrUpdateCookie, and the changes
       /// will be applied to the webview.
-      /// \snippet ScenarioCookieManagement.cpp GetCookies
       /// </summary>
       function    GetCookies(const aURI : wvstring; const aHandler: ICoreWebView2GetCookiesCompletedHandler):  boolean;
       /// <summary>
       /// Adds or updates a cookie with the given cookie data; may overwrite
       /// cookies with matching name, domain, and path if they exist.
       /// This method will fail if the domain of the given cookie is not specified.
-      /// \snippet ScenarioCookieManagement.cpp AddOrUpdateCookie
       /// </summary>
       function    AddOrUpdateCookie(const aCookie : ICoreWebView2Cookie): boolean;
       /// <summary>

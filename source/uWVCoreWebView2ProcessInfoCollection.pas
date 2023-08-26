@@ -36,7 +36,20 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf              : ICoreWebView2ProcessInfoCollection           read FBaseIntf;
+      /// <summary>
+      /// The number of process contained in the ICoreWebView2ProcessInfoCollection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfocollection#get_count">See the ICoreWebView2ProcessInfoCollection article.</see></para>
+      /// </remarks>
       property Count                 : cardinal                                     read GetCount;
+      /// <summary>
+      /// Gets the `ICoreWebView2ProcessInfo` located in the `ICoreWebView2ProcessInfoCollection`
+      /// at the given index.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfocollection#getvalueatindex">See the ICoreWebView2ProcessInfoCollection article.</see></para>
+      /// </remarks>
       property Items[idx : cardinal] : ICoreWebView2ProcessInfo                     read GetValueAtIndex;
   end;
 

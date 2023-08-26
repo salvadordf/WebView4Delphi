@@ -27,9 +27,33 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2HttpResponseHeaders); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Gets the first header value in the collection matching the name.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheader">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+      /// </remarks>
       function    GetHeader(const aName: wvstring) : wvstring;
+      /// <summary>
+      /// Gets the header values matching the name.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheaders">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+      /// </remarks>
       function    GetHeaders(const aName: wvstring; var aIterator: ICoreWebView2HttpHeadersCollectionIterator): boolean;
+      /// <summary>
+      /// Verifies that the headers contain entries that match the header name.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#contains">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+      /// </remarks>
       function    Contains(const aName: wvstring) : boolean;
+      /// <summary>
+      /// Appends header line with name and value.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#appendheader">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+      /// </remarks>
       function    AppendHeader(const aName, aValue : wvstring) : boolean;
 
       /// <summary>
@@ -40,6 +64,12 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf    : ICoreWebView2HttpResponseHeaders           read FBaseIntf;
+      /// <summary>
+      /// Gets an iterator over the collection of entire response headers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getiterator">See the ICoreWebView2HttpResponseHeaders article.</see></para>
+      /// </remarks>
       property Iterator    : ICoreWebView2HttpHeadersCollectionIterator read GetIterator;
   end;
 

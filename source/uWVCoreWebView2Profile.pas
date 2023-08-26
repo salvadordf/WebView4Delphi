@@ -48,14 +48,14 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2Profile); reintroduce;
       destructor  Destroy; override;
       /// <summary>
-      /// Clear browsing data based on a data type. This method takes two parameters,
+      /// <para>Clear browsing data based on a data type. This method takes two parameters,
       /// the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR
       /// operation(s) can be applied to multiple `COREWEBVIEW2_BROWSING_DATA_KINDS` to
       /// create a mask representing those data types. The browsing data kinds that are
       /// supported are listed below. These data kinds follow a hierarchical structure in
-      /// which nested bullet points are included in their parent bullet point's data kind.
-      /// Ex: All DOM storage is encompassed in all site data which is encompassed in
-      /// all profile data.
+      /// which nested bullet points are included in their parent bullet point's data kind.</para>
+      /// <para>Ex: All DOM storage is encompassed in all site data which is encompassed in
+      /// all profile data.</para><code>
       /// * All Profile
       ///   * All Site Data
       ///     * All DOM Storage: File Systems, Indexed DB, Local Storage, Web SQL, Cache
@@ -66,29 +66,29 @@ type
       ///   * General Autofill
       ///   * Password Autosave
       ///   * Browsing History
-      ///   * Settings
-      /// The completed handler will be invoked when the browsing data has been cleared and
+      ///   * Settings</code>
+      /// <para>The completed handler will be invoked when the browsing data has been cleared and
       /// will indicate if the specified data was properly cleared. In the case in which
       /// the operation is interrupted and the corresponding data is not fully cleared
-      /// the handler will return `E_ABORT` and otherwise will return `S_OK`.
-      /// Because this is an asynchronous operation, code that is dependent on the cleared
-      /// data must be placed in the callback of this operation.
-      /// If the WebView object is closed before the clear browsing data operation
+      /// the handler will return `E_ABORT` and otherwise will return `S_OK`.</para>
+      /// <para>Because this is an asynchronous operation, code that is dependent on the cleared
+      /// data must be placed in the callback of this operation.</para>
+      /// <para>If the WebView object is closed before the clear browsing data operation
       /// has completed, the handler will be released, but not invoked. In this case
-      /// the clear browsing data operation may or may not be completed.
-      /// ClearBrowsingData clears the `dataKinds` regardless of timestamp.
+      /// the clear browsing data operation may or may not be completed.</para>
+      /// <para>ClearBrowsingData clears the `dataKinds` regardless of timestamp.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdata">See the ICoreWebView2Profile2 article.</see></para>
       /// </remarks>
       function    ClearBrowsingData(dataKinds: TWVBrowsingDataKinds; const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
       /// <summary>
-      /// ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it
+      /// <para>ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it
       /// takes in two additional parameters for the start and end time for which it
       /// should clear the data between.  The `startTime` and `endTime`
-      /// parameters correspond to the number of seconds since the UNIX epoch.
-      /// `startTime` is inclusive while `endTime` is exclusive, therefore the data will
-      /// be cleared between [startTime, endTime).
+      /// parameters correspond to the number of seconds since the UNIX epoch.</para>
+      /// <para>`startTime` is inclusive while `endTime` is exclusive, therefore the data will
+      /// be cleared between [startTime, endTime).</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataintimerange">See the ICoreWebView2Profile2 article.</see></para>
@@ -98,28 +98,24 @@ type
       /// ClearBrowsingDataAll behaves like ClearBrowsingData except that it
       /// clears the entirety of the data associated with the profile it is called on.
       /// It clears the data regardless of timestamp.
-      ///
-      /// \snippet AppWindow.cpp ClearBrowsingData
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2#clearbrowsingdataall">See the ICoreWebView2Profile2 article.</see></para>
       /// </remarks>
       function    ClearBrowsingDataAll(const handler: ICoreWebView2ClearBrowsingDataCompletedHandler): boolean;
       /// <summary>
-      /// Sets permission state for the given permission kind and origin
+      /// <para>Sets permission state for the given permission kind and origin
       /// asynchronously. The change persists across sessions until it is changed by
       /// another call to `SetPermissionState`, or by setting the `State` property
       /// in `PermissionRequestedEventArgs`. Setting the state to
       /// `COREWEBVIEW2_PERMISSION_STATE_DEFAULT` will erase any state saved in the
-      /// profile and restore the default behavior.
-      /// The origin should have a valid scheme and host (e.g. "https://www.example.com"),
+      /// profile and restore the default behavior.</para>
+      /// <para>The origin should have a valid scheme and host (e.g. "https://www.example.com"),
       /// otherwise the method fails with `E_INVALIDARG`. Additional URI parts like
       /// path and fragment are ignored. For example, "https://wwww.example.com/app1/index.html/"
       /// is treated the same as "https://wwww.example.com". See the
       /// [MDN origin definition](https://developer.mozilla.org/en-US/docs/Glossary/Origin)
-      /// for more details.
-      ///
-      /// \snippet ScenarioPermissionManagement.cpp SetPermissionState
+      /// for more details.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#setpermissionstate">See the ICoreWebView2Profile4 article.</see></para>
@@ -129,8 +125,6 @@ type
       /// Invokes the handler with a collection of all nondefault permission settings.
       /// Use this method to get the permission state set in the current and previous
       /// sessions.
-      ///
-      /// \snippet ScenarioPermissionManagement.cpp GetNonDefaultPermissionSettings
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>

@@ -248,10 +248,6 @@ type
       /// All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate
       /// will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property
       /// before calling APIs that might change WebView state.
-      ///
-      /// \snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
-      ///
-      /// \snippet ViewComponent.cpp Suspend
       /// </summary>
       function    TrySuspend(const aHandler: ICoreWebView2TrySuspendCompletedHandler) : boolean;
       /// <summary>
@@ -259,10 +255,6 @@ type
       /// This API can be called while the WebView2 controller is invisible.
       /// The app can interact with the WebView immediately after `Resume`.
       /// WebView will be automatically resumed when it becomes visible.
-      ///
-      /// \snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
-      ///
-      /// \snippet ViewComponent.cpp Resume
       /// </summary>
       function    Resume : boolean;
       /// <summary>
@@ -346,10 +338,6 @@ type
       ///
       /// Specify the minimal cross-origin access necessary to run the app. If there is not a need to
       /// access local resources from other origins, use COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY.
-      ///
-      /// \snippet AppWindow.cpp AddVirtualHostNameToFolderMapping
-      ///
-      /// \snippet AppWindow.cpp LocalUrlUsage
       /// </summary>
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
       /// <summary>
@@ -383,8 +371,6 @@ type
       /// `PrintToPdf` is called while a `PrintToPdf` or `PrintToPdfStream` or `Print` or
       /// `ShowPrintUI` job is in progress, the completed handler is immediately invoked
       /// with `isSuccessful` set to FALSE.
-      ///
-      /// \snippet FileComponent.cpp PrintToPdf
       /// </summary>
       function    PrintToPdf(const aResultFilePath : wvstring; const aPrintSettings : ICoreWebView2PrintSettings; const aHandler : ICoreWebView2PrintToPdfCompletedHandler) : boolean;
       /// <summary>
@@ -412,8 +398,6 @@ type
       /// [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived).
       /// The message is delivered asynchronously.  If a navigation occurs before
       /// the message is posted to the page, the message is discarded.
-      ///
-      /// \snippet ScenarioWebMessage.cpp WebMessageReceived
       /// </summary>
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
       /// <summary>
@@ -444,8 +428,6 @@ type
       /// If you require CDP methods to run in a particular order, you should wait
       /// for the previous method's completed handler to run before calling the
       /// next method.
-      ///
-      /// \snippet ScriptComponent.cpp CallDevToolsProtocolMethod
       /// </summary>
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
       /// <summary>
@@ -476,10 +458,6 @@ type
       /// unknown or the `parametersAsJson` has an error.  In the case of such an error, the
       /// `returnObjectAsJson` parameter of the handler will include information
       /// about the error.
-      ///
-      /// \snippet ScriptComponent.cpp DevToolsProtocolMethodMultiSession
-      ///
-      /// \snippet ScriptComponent.cpp CallDevToolsProtocolMethodForSession
       /// </summary>
       function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
       /// <summary>
@@ -622,24 +600,6 @@ type
       /// the `setHostProperty` method which returns a promise as described above.
       /// Synchronous object property set property synchronously blocks until the
       /// property is set.
-      ///
-      /// For example, suppose you have a COM object with the following interface.
-      ///
-      /// \snippet HostObjectSample.idl AddHostObjectInterface
-      ///
-      /// Add an instance of this interface into your JavaScript with
-      /// `AddHostObjectToScript`.  In this case, name it `sample`.
-      ///
-      /// \snippet ScenarioAddHostObject.cpp AddHostObjectToScript
-      ///
-      /// In the HTML document, use the COM object using
-      /// `chrome.webview.hostObjects.sample`.
-      ///
-      /// \snippet assets\ScenarioAddHostObject.html HostObjectUsage
-      ///
-      /// Exposing host objects to script has security risk.  For more information
-      /// about best practices, navigate to
-      /// [Best practices for developing secure WebView2 applications](/microsoft-edge/webview2/concepts/security).
       /// </summary>
       function    AddHostObjectToScript(const aName : wvstring; const aObject : OleVariant): boolean;
       /// <summary>
@@ -675,8 +635,6 @@ type
       /// HTTP header affects the script that runs.  For example, if the
       /// `allow-modals` keyword is not set then requests to run the `alert`
       /// function are ignored.
-      ///
-      /// \snippet ScriptComponent.cpp AddScriptToExecuteOnDocumentCreated
       /// </summary>
       function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring; const aBrowserComponent : TComponent) : boolean;
       /// <summary>
@@ -695,8 +653,6 @@ type
       /// with a "See more" button for past downloads. Calling this method raises
       /// the `IsDefaultDownloadDialogOpenChanged` event if the dialog was closed.
       /// No effect if the dialog is already open.
-      ///
-      /// \snippet ViewComponent.cpp ToggleDefaultDownloadDialog
       /// </summary>
       function    OpenDefaultDownloadDialog : boolean;
       /// <summary>
@@ -716,8 +672,6 @@ type
       /// If there is no image then no data would be copied into the imageStream.
       /// The `format` is the file format to return the image stream.
       /// `completedHandler` is executed at the end of the operation.
-      ///
-      /// \snippet SettingsComponent.cpp FaviconChanged
       /// </summary>
       function    GetFavicon(aFormat: TWVFaviconImageFormat; const aBrowserComponent : TComponent) : boolean;
       /// <summary>
@@ -744,8 +698,6 @@ type
       /// |        S_OK         | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | Print operation is failed.                                                                    |
       /// |     E_INVALIDARG    | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | If the caller provides invalid settings for the specified printer.                            |
       /// |       E_ABORT       | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR         | Print operation is failed as printing job already in progress.                                |
-      ///
-      /// \snippet AppWindow.cpp PrintToPrinter
       /// </summary>
       function    Print(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintCompletedHandler): boolean;
       /// <summary>
@@ -754,8 +706,6 @@ type
       ///
       /// Invoking browser or system print dialog doesn't open new print dialog if
       /// it is already open.
-      ///
-      /// \snippet AppWindow.cpp ShowPrintUI
       /// </summary>
       function    ShowPrintUI(aPrintDialogKind: TWVPrintDialogKind): boolean;
       /// <summary>
@@ -771,8 +721,6 @@ type
       /// `PrintToPdfStream` is called while a `PrintToPdfStream` or `PrintToPdf` or `Print`
       /// or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `E_ABORT`.
       /// This is only for printing operation on one webview.
-      ///
-      /// \snippet AppWindow.cpp PrintToPdfStream
       /// </summary>
       function    PrintToPdfStream(const aPrintSettings: ICoreWebView2PrintSettings; const aHandler: ICoreWebView2PrintToPdfStreamCompletedHandler): boolean;
       /// <summary>
@@ -798,21 +746,6 @@ type
       /// post to the same web page or iframe multiple times. Each `PostSharedBufferToScript` will
       /// create a separate ArrayBuffer object with its own view of the memory and is separately
       /// released. The underlying shared memory will be released when all the views are released.
-      ///
-      /// For example, if we want to send data to script for one time read only consumption.
-      ///
-      /// \snippet ScenarioSharedBuffer.cpp OneTimeShareBuffer
-      ///
-      /// In the HTML document,
-      ///
-      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_1
-      ///
-      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_2
-      ///
-      /// Sharing a buffer to script has security risk. You should only share buffer with trusted site.
-      /// If a buffer is shared to a untrusted site, possible sensitive information could be leaked.
-      /// If a buffer is shared as modifiable by the script and the script modifies it in an unexpected way,
-      /// it could result in corrupted data that might even crash the application.
       /// </summary>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
 

@@ -67,6 +67,24 @@ type
       procedure DestroySchemeRegistrations;
 
     public
+      /// <summary>
+      /// Constructor of the ICoreWebView2EnvironmentOptions wrapper.
+      /// </summary>
+      /// <param name="aAdditionalBrowserArguments">Additional command line switches.</param>
+      /// <param name="aLanguage">The default display language for WebView.  It applies to browser UI such as context menu and dialogs.  It also applies to the `accept-languages` HTTP header that WebView sends to websites.</param>
+      /// <param name="aTargetCompatibleBrowserVersion">Specifies the version of the WebView2 Runtime binaries required to be compatible with your app.</param>
+      /// <param name="aAllowSingleSignOnUsingOSPrimaryAccount">Used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft Account (MSA) resources inside WebView.</param>
+      /// <param name="aExclusiveUserDataFolderAccess">Whether other processes can create WebView2 from WebView2Environment created with the same user data folder and therefore sharing the same WebView browser process instance.</param>
+      /// <param name="aCustomCrashReportingEnabled">Send crash data to Microsoft endpoint or respect OS consent.</param>
+      /// <param name="aSchemeRegistrations">Array of custom scheme registrations.</param>
+      /// <param name="aEnableTrackingPrevention">Enable tracking prevention.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3">See the ICoreWebView2EnvironmentOptions3 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">See the ICoreWebView2EnvironmentOptions4 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
+      /// </remarks>
       constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention: boolean);
       destructor  Destroy; override;
   end;

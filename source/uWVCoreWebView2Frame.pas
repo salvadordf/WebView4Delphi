@@ -93,7 +93,6 @@ type
       /// <para>4. list with "file://" element - host object will be available for iframes
       /// loaded via file protocol.</para>
       /// <para>Calling this method fails if it is called after the iframe is destroyed.
-      /// \snippet ScenarioAddHostObject.cpp AddHostObjectToScriptWithOrigins
       /// For more information about host objects navigate to
       /// ICoreWebView2.AddHostObjectToScript.</para>
       /// </summary>
@@ -128,8 +127,6 @@ type
       /// and the string "null" will be returned.</para>
       /// <para>This operation executes the script even if `ICoreWebView2Settings::IsScriptEnabled` is
       /// set to `FALSE`.</para>
-      ///
-      /// \snippet ScenarioDOMContentLoaded.cpp ExecuteScriptFrame
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#executescript">See the ICoreWebView2Frame2 article.</see></para>
@@ -194,11 +191,7 @@ type
       /// post to the same web page or iframe multiple times. Each `PostSharedBufferToScript` will
       /// create a separate ArrayBuffer object with its own view of the memory and is separately
       /// released. The underlying shared memory will be released when all the views are released.</para>
-      /// <para>For example, if we want to send data to script for one time read only consumption.
-      /// \snippet ScenarioSharedBuffer.cpp OneTimeShareBuffer</para>
-      /// <para>In the HTML document,
-      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_1
-      /// \snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_2</para>
+      /// <para>For example, if we want to send data to script for one time read only consumption.</para>
       /// <para>Sharing a buffer to script has security risk. You should only share buffer with trusted site.
       /// If a buffer is shared to a untrusted site, possible sensitive information could be leaked.
       /// If a buffer is shared as modifiable by the script and the script modifies it in an unexpected way,

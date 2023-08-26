@@ -39,8 +39,27 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property    BaseIntf         : ICoreWebView2PermissionSetting  read FBaseIntf;
+      /// <summary>
+      /// The kind of the permission setting. See `COREWEBVIEW2_PERMISSION_KIND` for
+      /// more details.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionsetting#get_permissionkind">See the ICoreWebView2PermissionSetting article.</see></para>
+      /// </remarks>
       property    PermissionKind   : TWVPermissionKind               read GetPermissionKind;
+      /// <summary>
+      /// The origin of the permission setting.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionsetting#get_permissionorigin">See the ICoreWebView2PermissionSetting article.</see></para>
+      /// </remarks>
       property    PermissionOrigin : wvstring                        read GetPermissionOrigin;
+      /// <summary>
+      /// The state of the permission setting.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionsetting#get_permissionstate">See the ICoreWebView2PermissionSetting article.</see></para>
+      /// </remarks>
       property    PermissionState  : TWVPermissionState              read GetPermissionState;
   end;
 

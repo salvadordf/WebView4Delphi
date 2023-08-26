@@ -95,12 +95,6 @@ type
       /// `WS_TABSTOP`.  When the WebView gets focus from `IsDialogMessage`, it is
       /// internally put the focus on the first or last element for tab and
       /// Shift+Tab respectively.
-      ///
-      /// \snippet App.cpp MoveFocus0
-      ///
-      /// \snippet ControlComponent.cpp MoveFocus1
-      ///
-      /// \snippet ControlComponent.cpp MoveFocus2
       /// </summary>
       function    MoveFocus(aReason : TWVMoveFocusReason) : boolean;
       /// <summary>
@@ -123,8 +117,6 @@ type
       /// best to both explicitly run `Close` on the WebView and to not capture a
       /// reference to the WebView to ensure the WebView is cleaned up correctly.
       /// `Close` is synchronous and won't trigger the `beforeunload` event.
-      ///
-      /// \snippet AppWindow.cpp Close
       /// </summary>
       function    Close : boolean;
       /// <summary>
@@ -139,16 +131,12 @@ type
       /// and zoom without intermediate renderings.  This function also updates
       /// just one of `aZoomFactor` or `aBounds` by passing in the new value for one
       /// and the current value for the other.
-      ///
-      /// \snippet ViewComponent.cpp SetBoundsAndZoomFactor
       /// </summary>
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
       /// <summary>
       /// This is a notification separate from `Bounds` that tells WebView that the
       ///  main WebView parent (or any ancestor) `HWND` moved.  This is needed
       /// for accessibility and certain dialogs in WebView to work correctly.
-      ///
-      /// \snippet ViewComponent.cpp NotifyParentWindowPositionChanged
       /// </summary>
       function    NotifyParentWindowPositionChanged : boolean;
 

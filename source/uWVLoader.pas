@@ -130,8 +130,13 @@ type
       function  NewBrowserVersionAvailableEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
       function  BrowserProcessExitedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: ICoreWebView2BrowserProcessExitedEventArgs): HRESULT;
       function  ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
-
+      /// <summary>
+      /// Default value of the user data path.
+      /// </summary>
       property  DefaultUserDataPath       : string              read GetDefaultUserDataPath;
+      /// <summary>
+      /// Returns true if the environment is initialized.
+      /// </summary>
       property  EnvironmentIsInitialized  : boolean             read GetEnvironmentIsInitialized;
 
     public
@@ -239,14 +244,14 @@ type
       /// </remarks>
       property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
       /// <summary>
-      /// Use BrowserExecPath to specify whether WebView2 controls use a fixed or
+      /// <para>Use BrowserExecPath to specify whether WebView2 controls use a fixed or
       /// installed version of the WebView2 Runtime that exists on a user machine.
       /// To use a fixed version of the WebView2 Runtime, pass the folder path that
-      /// contains the fixed version of the WebView2 Runtime to BrowserExecPath.
-      /// BrowserExecPath supports both relative (to the application's executable)
+      /// contains the fixed version of the WebView2 Runtime to BrowserExecPath.</para>
+      /// <para>BrowserExecPath supports both relative (to the application's executable)
       /// and absolute files paths. To create WebView2 controls that use the installed
       /// version of the WebView2 Runtime that exists on user machines,
-      /// pass an empty string to BrowserExecPath.
+      /// pass an empty string to BrowserExecPath.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as the browserExecutableFolder parameter of CreateCoreWebView2EnvironmentWithOptions.</para>

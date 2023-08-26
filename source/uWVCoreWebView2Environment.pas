@@ -303,7 +303,6 @@ type
       /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
       /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
       /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
-      /// \snippet AppWindow.cpp GetFailureReportFolder
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>

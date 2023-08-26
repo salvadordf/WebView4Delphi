@@ -65,15 +65,79 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf                : ICoreWebView2WindowFeatures     read FBaseIntf;
+      /// <summary>
+      /// Specifies left and top values.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hasposition">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property HasPosition             : boolean                         read GetHasPosition;
+      /// <summary>
+      /// Specifies height and width values.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hassize">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property HasSize                 : boolean                         read GetHasSize;
+      /// <summary>
+      /// Specifies the left position of the window.   If `HasPosition` is set to
+      /// `FALSE`, this field is ignored.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_left">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property Left                    : cardinal                        read GetLeft;
+      /// <summary>
+      /// Specifies the top position of the window.   If `HasPosition` is set to
+      /// `FALSE`, this field is ignored.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_top">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property Top                     : cardinal                        read GetTop;
+      /// <summary>
+      /// Specifies the width of the window.  Minimum value is `100`.  If `HasSize`
+      /// is set to `FALSE`, this field is ignored.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_width">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property Width                   : cardinal                        read GetWidth;
+      /// <summary>
+      /// Specifies the height of the window.  Minimum value is `100`.  If
+      /// `HasSize` is set to `FALSE`, this field is ignored.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_height">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property Height                  : cardinal                        read GetHeight;
+      /// <summary>
+      /// Indicates that the menu bar is displayed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaymenubar">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property ShouldDisplayMenuBar    : boolean                         read GetShouldDisplayMenuBar;
+      /// <summary>
+      /// Indicates that the status bar is displayed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaystatus">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property ShouldDisplayStatus     : boolean                         read GetShouldDisplayStatus;
+      /// <summary>
+      /// Indicates that the browser toolbar is displayed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaytoolbar">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property ShouldDisplayToolbar    : boolean                         read GetShouldDisplayToolbar;
+      /// <summary>
+      /// Indicates that the scroll bars are displayed.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplayscrollbars">See the ICoreWebView2WindowFeatures article.</see></para>
+      /// </remarks>
       property ShouldDisplayScrollBars : boolean                         read GetShouldDisplayScrollBars;
   end;
 

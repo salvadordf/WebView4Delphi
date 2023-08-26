@@ -36,7 +36,19 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf                            : ICoreWebView2ProcessInfo        read FBaseIntf                            write FBaseIntf;
+      /// <summary>
+      /// The kind of the process.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfo#get_kind">See the ICoreWebView2ProcessInfo article.</see></para>
+      /// </remarks>
       property Kind                                : TWVProcessKind                  read GetKind;
+      /// <summary>
+      /// The process id of the process.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfo#get_processid">See the ICoreWebView2ProcessInfo article.</see></para>
+      /// </remarks>
       property ProcessId                           : integer                         read GetProcessId;
   end;
 

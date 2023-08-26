@@ -36,7 +36,20 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf              : ICoreWebView2ObjectCollectionView            read FBaseIntf;
+      /// <summary>
+      /// Gets the number of items in the collection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview#get_count">See the ICoreWebView2ObjectCollectionView article.</see></para>
+      /// </remarks>
       property Count                 : cardinal                                     read GetCount;
+      /// <summary>
+      /// Gets the object at the specified index. Cast the object to the native type
+      /// to access its specific properties.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview#getvalueatindex">See the ICoreWebView2ObjectCollectionView article.</see></para>
+      /// </remarks>
       property Items[idx : cardinal] : IUnknown                                     read GetValueAtIndex;
   end;
 

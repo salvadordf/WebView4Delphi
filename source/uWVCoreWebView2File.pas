@@ -38,6 +38,12 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf       : ICoreWebView2File           read FBaseIntf           write FBaseIntf;
+      /// <summary>
+      /// Get the absolute file path.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2file#get_path">See the ICoreWebView2File article.</see></para>
+      /// </remarks>
       property Path           : wvstring                    read GetPath;
   end;
 

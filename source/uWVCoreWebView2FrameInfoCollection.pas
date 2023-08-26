@@ -37,6 +37,12 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf    : ICoreWebView2FrameInfoCollection         read FBaseIntf;
+      /// <summary>
+      /// Gets an iterator over the collection of `FrameInfo`s.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollection#getiterator">See the ICoreWebView2FrameInfoCollection article.</see></para>
+      /// </remarks>
       property Iterator    : ICoreWebView2FrameInfoCollectionIterator read GetIterator;
   end;
 

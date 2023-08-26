@@ -78,7 +78,6 @@ type
       /// ReleaseCapture is recommended.
       /// To dismiss hover popups, it is also recommended to send
       /// COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE messages.
-      /// \snippet ViewComponent.cpp SendMouseInput
       /// </summary>
       function    SendMouseInput(aEventKind : TWVMouseEventKind; aVirtualKeys : TWVMouseEventVirtualKeys; aMouseData : cardinal; aPoint : TPoint) : boolean;
       /// <summary>
@@ -99,8 +98,6 @@ type
       ///
       /// point parameter must be modified to include the WebView's offset and be in
       /// the WebView's client coordinates (Similar to how SendMouseInput works).
-      ///
-      /// \snippet DropTarget.cpp DragEnter
       /// </summary>
       function    DragEnter(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;
       /// <summary>
@@ -112,8 +109,6 @@ type
       ///
       /// The hosting application must register as an IDropTarget and implement
       /// and forward DragLeave calls to this function.
-      ///
-      /// \snippet DropTarget.cpp DragLeave
       /// </summary>
       function    DragLeave : HResult;
       /// <summary>
@@ -128,8 +123,6 @@ type
       ///
       /// point parameter must be modified to include the WebView's offset and be in
       /// the WebView's client coordinates (Similar to how SendMouseInput works).
-      ///
-      /// \snippet DropTarget.cpp DragOver
       /// </summary>
       function    DragOver(keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;
       /// <summary>
@@ -144,8 +137,6 @@ type
       ///
       /// point parameter must be modified to include the WebView's offset and be in
       /// the WebView's client coordinates (Similar to how SendMouseInput works).
-      ///
-      /// \snippet DropTarget.cpp Drop
       /// </summary>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;
 

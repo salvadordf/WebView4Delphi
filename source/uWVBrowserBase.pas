@@ -462,7 +462,7 @@ type
       /// <param name="aUseDefaultEnvironment">Use the global environment or create a new one for this browser.</param>
       function    CreateBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean = True) : boolean; overload;
       /// <summary>
-      /// Used to create the browser using a cusotm environment. The browser will be
+      /// Used to create the browser using a custom environment. The browser will be
       /// fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered.
       /// </summary>
       /// <param name="aHandle">The TWVWindowParent handle.</param>
@@ -477,7 +477,7 @@ type
       /// <param name="aUseDefaultEnvironment">Use the global environment or create a new one for this browser.</param>
       function    CreateWindowlessBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean = True) : boolean; overload;
       /// <summary>
-      /// Used to create a windowless browser using a cusotm environment. The browser will be
+      /// Used to create a windowless browser using a custom environment. The browser will be
       /// fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered.
       /// </summary>
       /// <param name="aHandle">The TWVDirectCompositionHost handle.</param>
@@ -1728,6 +1728,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow">See the ICoreWebView2Controller article.</see></para>
+      /// <para><see href="https://github.com/salvadordf/WebView4Delphi/issues/13">See the WebView4Delphi issue #13 to know how to reparent a browser.</see></para>
       /// </remarks>
       property ParentWindow                                    : THandle                                               read GetParentWindow                                  write SetParentWindow;
       /// <summary>
@@ -2955,19 +2956,19 @@ type
       property OnWebResourceResponseViewGetContentCompleted    : TOnWebResourceResponseViewGetContentCompletedEvent    read FOnWebResourceResponseViewGetContentCompleted    write FOnWebResourceResponseViewGetContentCompleted;
       /// <summary>
       /// Event triggered when the window called 'Chrome_WidgetWin_0' receives a message.
-      /// <summary>
+      /// </summary>
       property OnWidget0CompMsg                                : TOnCompMsgEvent                                       read FOnWidget0CompMsg                                write FOnWidget0CompMsg;
       /// <summary>
       /// Event triggered when the window called 'Chrome_WidgetWin_1' receives a message.
-      /// <summary>
+      /// </summary>
       property OnWidget1CompMsg                                : TOnCompMsgEvent                                       read FOnWidget1CompMsg                                write FOnWidget1CompMsg;
       /// <summary>
       /// Event triggered when the window called 'Chrome_RenderWidgetHostHWND' receives a message.
-      /// <summary>
+      /// </summary>
       property OnRenderCompMsg                                 : TOnCompMsgEvent                                       read FOnRenderCompMsg                                 write FOnRenderCompMsg;
       /// <summary>
       /// Event triggered when the window called 'Intermediate D3D Window' receives a message.
-      /// <summary>
+      /// </summary>
       property OnD3DWindowCompMsg                              : TOnCompMsgEvent                                       read FOnD3DWindowCompMsg                              write FOnD3DWindowCompMsg;
       /// <summary>
       /// The TWVBrowserBase.OnRetrieveHTMLCompleted event is triggered when TWVBrowserBase.RetrieveHTML finishes executing. It includes the HTML contents.

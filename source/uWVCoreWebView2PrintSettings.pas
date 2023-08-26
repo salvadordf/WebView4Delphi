@@ -85,29 +85,179 @@ type
       /// </summary>
       property BaseIntf                   : ICoreWebView2PrintSettings      read FBaseIntf;
 
-      // ICoreWebView2PrintSettings
+      /// <summary>
+      /// The orientation can be portrait or landscape. The default orientation is
+      /// portrait. See `COREWEBVIEW2_PRINT_ORIENTATION`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_orientation">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property Orientation                : TWVPrintOrientation             read GetOrientation                   write SetOrientation;
+      /// <summary>
+      /// The scale factor is a value between 0.1 and 2.0. The default is 1.0.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_scalefactor">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property ScaleFactor                : double                          read GetScaleFactor                   write SetScaleFactor;
+      /// <summary>
+      /// The page width in inches. The default width is 8.5 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_pagewidth">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property PageWidth                  : double                          read GetPageWidth                     write SetPageWidth;
+      /// <summary>
+      /// The page height in inches. The default height is 11 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_pageheight">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property PageHeight                 : double                          read GetPageHeight                    write SetPageHeight;
+      /// <summary>
+      /// The top margin in inches. The default is 1 cm, or ~0.4 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_margintop">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property MarginTop                  : double                          read GetMarginTop                     write SetMarginTop;
+      /// <summary>
+      /// The bottom margin in inches. The default is 1 cm, or ~0.4 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_marginbottom">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property MarginBottom               : double                          read GetMarginBottom                  write SetMarginBottom;
+      /// <summary>
+      /// The left margin in inches. The default is 1 cm, or ~0.4 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_marginleft">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property MarginLeft                 : double                          read GetMarginLeft                    write SetMarginLeft;
+      /// <summary>
+      /// The right margin in inches. The default is 1 cm, or ~0.4 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_marginright">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property MarginRight                : double                          read GetMarginRight                   write SetMarginRight;
+      /// <summary>
+      /// `TRUE` if background colors and images should be printed. The default value
+      /// is `FALSE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_shouldprintbackgrounds">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property ShouldPrintBackgrounds     : boolean                         read GetShouldPrintBackgrounds        write SetShouldPrintBackgrounds;
+      /// <summary>
+      /// `TRUE` if only the current end user's selection of HTML in the document
+      /// should be printed. The default value is `FALSE`.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_shouldprintselectiononly">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property ShouldPrintSelectionOnly   : boolean                         read GetShouldPrintSelectionOnly      write SetShouldPrintSelectionOnly;
+      /// <summary>
+      /// `TRUE` if header and footer should be printed. The default value is `FALSE`.
+      /// The header consists of the date and time of printing, and the title of the
+      /// page. The footer consists of the URI and page number. The height of the
+      /// header and footer is 0.5 cm, or ~0.2 inches.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_shouldprintheaderandfooter">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property ShouldPrintHeaderAndFooter : boolean                         read GetShouldPrintHeaderAndFooter    write SetShouldPrintHeaderAndFooter;
+      /// <summary>
+      /// The title in the header if `ShouldPrintHeaderAndFooter` is `TRUE`. The
+      /// default value is the title of the current document.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_headertitle">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property HeaderTitle                : wvstring                        read GetHeaderTitle                   write SetHeaderTitle;
+      /// <summary>
+      /// The URI in the footer if `ShouldPrintHeaderAndFooter` is `TRUE`. The
+      /// default value is the current URI.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_footeruri">See the ICoreWebView2PrintSettings article.</see></para>
+      /// </remarks>
       property FooterUri                  : wvstring                        read GetFooterUri                     write SetFooterUri;
-
-      // ICoreWebView2PrintSettings2
+      /// <summary>
+      /// Page range to print.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_pageranges">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property PageRanges                 : wvstring                        read GetPageRanges                    write SetPageRanges;
+      /// <summary>
+      /// Prints multiple pages of a document on a single piece of paper. Choose from 1, 2, 4, 6, 9 or 16.
+      /// The default value is 1.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_pagesperside">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property PagesPerSide               : integer                         read GetPagesPerSide                  write SetPagesPerSide;
+      /// <summary>
+      /// Number of copies to print. Minimum value is `1` and the maximum copies count is `999`.
+      /// The default value is 1.
+      /// This value is ignored in PrintToPdfStream method.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_copies">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property Copies                     : integer                         read GetCopies                        write SetCopies;
+      /// <summary>
+      /// <para>Printer collation. See `COREWEBVIEW2_PRINT_COLLATION` for descriptions of
+      /// collation. The default value is `COREWEBVIEW2_PRINT_COLLATION_DEFAULT`.</para>
+      /// <para>Printing uses default value of printer's collation if an invalid value is provided
+      /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_collation">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property Collation                  : TWVPrintCollation               read GetCollation                     write SetCollation;
+      /// <summary>
+      /// <para>Printer color mode. See `COREWEBVIEW2_PRINT_COLOR_MODE` for descriptions
+      /// of color modes. The default value is `COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT`.</para>
+      /// <para>Printing uses default value of printer supported color if an invalid value is provided
+      /// for the specific printer.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_colormode">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property ColorMode                  : TWVPrintColorMode               read GetColorMode                     write SetColorMode;
+      /// <summary>
+      /// <para>Printer duplex settings. See `COREWEBVIEW2_PRINT_DUPLEX` for descriptions of duplex.
+      /// The default value is `COREWEBVIEW2_PRINT_DUPLEX_DEFAULT`.</para>
+      /// <para>Printing uses default value of printer's duplex if an invalid value is provided
+      /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_duplex">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property Duplex                     : TWVPrintDuplex                  read GetDuplex                        write SetDuplex;
+      /// <summary>
+      /// <para>Printer media size. See `COREWEBVIEW2_PRINT_MEDIA_SIZE` for descriptions of media size.
+      /// The default value is `COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT`.</para>
+      /// <para>If media size is `COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM`, you should set the `PageWidth`
+      /// and `PageHeight`.</para>
+      /// <para>Printing uses default value of printer supported media size if an invalid value is provided
+      /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_mediasize">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property MediaSize                  : TWVPrintMediaSize               read GetMediaSize                     write SetMediaSize;
+      /// <summary>
+      /// The name of the printer to use. Defaults to empty string.
+      /// If the printer name is empty string or null, then it prints to the default
+      /// printer on the user OS. This value is ignored in PrintToPdfStream method.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings2#get_printername">See the ICoreWebView2PrintSettings2 article.</see></para>
+      /// </remarks>
       property PrinterName                : wvstring                        read GetPrinterName                   write SetPrinterName;
   end;
 
