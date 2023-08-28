@@ -15,6 +15,12 @@ uses
   uWVTypeLibrary, uWVInterfaces, uWVTypes;
 
 type
+  /// <summary>
+  /// Receives AcceleratorKeyPressed events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventhandler">See the ICoreWebView2AcceleratorKeyPressedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2AcceleratorKeyPressedEventHandler = class(TInterfacedObject, ICoreWebView2AcceleratorKeyPressedEventHandler)
     protected
       FEvents : Pointer;
@@ -26,6 +32,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the CapturePreview method.  The result is written
+  /// to the stream provided in the CapturePreview method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2capturepreviewcompletedhandler">See the ICoreWebView2CapturePreviewCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CapturePreviewCompletedHandler = class(TInterfacedObject, ICoreWebView2CapturePreviewCompletedHandler)
     protected
       FEvents : Pointer;
@@ -37,6 +50,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives ContainsFullScreenElementChanged events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2containsfullscreenelementchangedeventhandler">See the ICoreWebView2ContainsFullScreenElementChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ContainsFullScreenElementChangedEventHandler = class(TInterfacedObject, ICoreWebView2ContainsFullScreenElementChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -48,6 +67,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives `ContentLoading` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contentloadingeventhandler">See the ICoreWebView2ContentLoadingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ContentLoadingEventHandler = class(TInterfacedObject, ICoreWebView2ContentLoadingEventHandler)
     protected
       FEvents : Pointer;
@@ -59,6 +84,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the CoreWebView2Controller created using CreateCoreWebView2Controller.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2controllercompletedhandler">See the ICoreWebView2CreateCoreWebView2ControllerCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CreateCoreWebView2ControllerCompletedHandler = class(TInterfacedObject, ICoreWebView2CreateCoreWebView2ControllerCompletedHandler)
     protected
       FEvents : Pointer;
@@ -70,6 +101,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives DevToolsProtocolEventReceived events from the WebView.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceivedeventhandler">See the ICoreWebView2DevToolsProtocolEventReceivedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2DevToolsProtocolEventReceivedEventHandler = class(TInterfacedObject, ICoreWebView2DevToolsProtocolEventReceivedEventHandler)
     protected
       FEvents     : Pointer;
@@ -88,6 +125,13 @@ type
       property EventID   : integer  read FEventID;
   end;
 
+  /// <summary>
+  /// Receives DocumentTitleChanged events.  Use the DocumentTitle property
+  /// to get the modified title.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2documenttitlechangedeventhandler">See the ICoreWebView2DocumentTitleChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2DocumentTitleChangedEventHandler = class(TInterfacedObject, ICoreWebView2DocumentTitleChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -99,6 +143,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the WebView2Environment created using
+  /// CreateCoreWebView2Environment.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2environmentcompletedhandler">See the ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2EnvironmentCompletedHandler = class(TInterfacedObject, ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)
     protected
       FBrowserEvents : Pointer;
@@ -112,6 +163,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the ExecuteScript method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptcompletedhandler">See the ICoreWebView2ExecuteScriptCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ExecuteScriptCompletedHandler = class(TInterfacedObject, ICoreWebView2ExecuteScriptCompletedHandler)
     protected
       FEvents : Pointer;
@@ -124,6 +181,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationCompleted events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationcompletedeventhandler">See the ICoreWebView2NavigationCompletedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameNavigationCompletedEventHandler = class(TInterfacedObject, ICoreWebView2NavigationCompletedEventHandler)
     protected
       FEvents : Pointer;
@@ -135,6 +198,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationStarting events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventhandler">See the ICoreWebView2NavigationStartingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameNavigationStartingEventHandler = class(TInterfacedObject, ICoreWebView2NavigationStartingEventHandler)
     protected
       FEvents : Pointer;
@@ -146,6 +215,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives GotFocus and LostFocus events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2focuschangedeventhandler">See the ICoreWebView2FocusChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2GotFocusEventHandler = class(TInterfacedObject, ICoreWebView2FocusChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -157,6 +232,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives HistoryChanged events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2historychangedeventhandler">See the ICoreWebView2HistoryChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2HistoryChangedEventHandler = class(TInterfacedObject, ICoreWebView2HistoryChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -168,6 +249,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives GotFocus and LostFocus events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2focuschangedeventhandler">See the ICoreWebView2FocusChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2LostFocusEventHandler = class(TInterfacedObject, ICoreWebView2FocusChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -179,6 +266,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives MoveFocusRequested events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2movefocusrequestedeventhandler">See the ICoreWebView2MoveFocusRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2MoveFocusRequestedEventHandler = class(TInterfacedObject, ICoreWebView2MoveFocusRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -190,6 +283,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationCompleted events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationcompletedeventhandler">See the ICoreWebView2NavigationCompletedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2NavigationCompletedEventHandler = class(TInterfacedObject, ICoreWebView2NavigationCompletedEventHandler)
     protected
       FEvents : Pointer;
@@ -201,6 +300,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationStarting events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventhandler">See the ICoreWebView2NavigationStartingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2NavigationStartingEventHandler = class(TInterfacedObject, ICoreWebView2NavigationStartingEventHandler)
     protected
       FEvents : Pointer;
@@ -212,6 +317,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NewBrowserVersionAvailable events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newbrowserversionavailableeventhandler">See the ICoreWebView2NewBrowserVersionAvailableEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2NewBrowserVersionAvailableEventHandler = class(TInterfacedObject, ICoreWebView2NewBrowserVersionAvailableEventHandler)
     protected
       FEvents : Pointer;
@@ -223,6 +334,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NewWindowRequested events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventhandler">See the ICoreWebView2NewWindowRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2NewWindowRequestedEventHandler = class(TInterfacedObject, ICoreWebView2NewWindowRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -234,6 +351,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives PermissionRequested events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventhandler">See the ICoreWebView2PermissionRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2PermissionRequestedEventHandler = class(TInterfacedObject, ICoreWebView2PermissionRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -245,6 +368,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives ProcessFailed events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventhandler">See the ICoreWebView2ProcessFailedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ProcessFailedEventHandler = class(TInterfacedObject, ICoreWebView2ProcessFailedEventHandler)
     protected
       FEvents : Pointer;
@@ -256,6 +385,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives ScriptDialogOpening events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptdialogopeningeventhandler">See the ICoreWebView2ScriptDialogOpeningEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ScriptDialogOpeningEventHandler = class(TInterfacedObject, ICoreWebView2ScriptDialogOpeningEventHandler)
     protected
       FEvents : Pointer;
@@ -267,6 +402,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives SourceChanged events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sourcechangedeventhandler">See the ICoreWebView2SourceChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2SourceChangedEventHandler = class(TInterfacedObject, ICoreWebView2SourceChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -278,6 +419,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives WebMessageReceived events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webmessagereceivedeventhandler">See the ICoreWebView2WebMessageReceivedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2WebMessageReceivedEventHandler = class(TInterfacedObject, ICoreWebView2WebMessageReceivedEventHandler)
     protected
       FEvents : Pointer;
@@ -289,6 +436,18 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Runs when a URL request (through network, file, and so on) is made in
+  /// the webview for a Web resource matching resource context filter and URL
+  /// specified in AddWebResourceRequestedFilter.  The host views and modifies
+  /// the request or provide a response in a similar pattern to HTTP, in which
+  /// case the request immediately completed.  This may not contain any request
+  /// headers that are added by the network stack, such as an Authorization
+  /// header.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventhandler">See the ICoreWebView2WebResourceRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2WebResourceRequestedEventHandler = class(TInterfacedObject, ICoreWebView2WebResourceRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -300,6 +459,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives WindowCloseRequested events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowcloserequestedeventhandler">See the ICoreWebView2WindowCloseRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2WindowCloseRequestedEventHandler = class(TInterfacedObject, ICoreWebView2WindowCloseRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -311,6 +476,14 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive ZoomFactorChanged events.  Use the
+  /// ICoreWebView2Controller.ZoomFactor property to get the modified zoom
+  /// factor.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2zoomfactorchangedeventhandler">See the ICoreWebView2ZoomFactorChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ZoomFactorChangedEventHandler = class(TInterfacedObject, ICoreWebView2ZoomFactorChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -322,6 +495,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to receive the CoreWebView2Controller
+  /// created via CreateCoreWebView2CompositionController.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2compositioncontrollercompletedhandler">See the ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = class(TInterfacedObject, ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler)
     protected
       FEvents : Pointer;
@@ -333,6 +513,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to receive CursorChanged events. Use
+  /// the Cursor property to get the new cursor.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cursorchangedeventhandler">See the ICoreWebView2CursorChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CursorChangedEventHandler = class(TInterfacedObject, ICoreWebView2CursorChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -344,6 +531,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives BrowserProcessExited events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserprocessexitedeventhandler">See the ICoreWebView2BrowserProcessExitedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2BrowserProcessExitedEventHandler = class(TInterfacedObject, ICoreWebView2BrowserProcessExitedEventHandler)
     protected
       FBrowserEvents : Pointer;
@@ -357,6 +550,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives RasterizationScaleChanged events.  Use the RasterizationScale
+  /// property to get the modified scale.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2rasterizationscalechangedeventhandler">See the ICoreWebView2RasterizationScaleChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2RasterizationScaleChangedEventHandler = class(TInterfacedObject, ICoreWebView2RasterizationScaleChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -368,6 +568,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives WebResourceResponseReceived events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventhandler">See the ICoreWebView2WebResourceResponseReceivedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2WebResourceResponseReceivedEventHandler = class(TInterfacedObject, ICoreWebView2WebResourceResponseReceivedEventHandler)
     protected
       FEvents : Pointer;
@@ -379,6 +585,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives DOMContentLoaded events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2domcontentloadedeventhandler">See the ICoreWebView2DOMContentLoadedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2DOMContentLoadedEventHandler = class(TInterfacedObject, ICoreWebView2DOMContentLoadedEventHandler)
     protected
       FEvents : Pointer;
@@ -390,6 +602,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponseviewgetcontentcompletedhandler">See the ICoreWebView2WebResourceResponseViewGetContentCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2WebResourceResponseViewGetContentCompletedHandler = class(TInterfacedObject, ICoreWebView2WebResourceResponseViewGetContentCompletedHandler)
     protected
       FEvents     : Pointer;
@@ -404,6 +622,13 @@ type
       property ResourceID : integer read FResourceID;
   end;
 
+  /// <summary>
+  /// Receives the result of the GetCookies method.  The result is written to
+  /// the cookie list provided in the GetCookies method call.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getcookiescompletedhandler">See the ICoreWebView2GetCookiesCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2GetCookiesCompletedHandler = class(TInterfacedObject, ICoreWebView2GetCookiesCompletedHandler)
     protected
       FEvents : Pointer;
@@ -415,6 +640,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to receive the TrySuspend result.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2trysuspendcompletedhandler">See the ICoreWebView2TrySuspendCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2TrySuspendCompletedHandler = class(TInterfacedObject, ICoreWebView2TrySuspendCompletedHandler)
     protected
       FEvents : Pointer;
@@ -426,6 +657,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives FrameCreated event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framecreatedeventhandler">See the ICoreWebView2FrameCreatedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameCreatedEventHandler = class(TInterfacedObject, ICoreWebView2FrameCreatedEventHandler)
     protected
       FEvents : Pointer;
@@ -437,6 +674,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Add an event handler for the DownloadStarting event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadstartingeventhandler">See the ICoreWebView2DownloadStartingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2DownloadStartingEventHandler = class(TInterfacedObject, ICoreWebView2DownloadStartingEventHandler)
     protected
       FEvents : Pointer;
@@ -448,6 +691,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// An event handler for the ClientCertificateRequested event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventhandler">See the ICoreWebView2ClientCertificateRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ClientCertificateRequestedEventHandler = class(TInterfacedObject, ICoreWebView2ClientCertificateRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -459,6 +708,15 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the PrintToPdf method. If the print to PDF
+  /// operation succeeds, isSuccessful is true. Otherwise, if the operation
+  /// failed, isSuccessful is set to false. An invalid path returns
+  /// E_INVALIDARG.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printtopdfcompletedhandler">See the ICoreWebView2PrintToPdfCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2PrintToPdfCompletedHandler = class(TInterfacedObject, ICoreWebView2PrintToPdfCompletedHandler)
     protected
       FEvents : Pointer;
@@ -470,6 +728,14 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive BytesReceivedChanged event.  Use the
+  /// ICoreWebView2DownloadOperation.BytesReceived property to get the received
+  /// bytes count.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2bytesreceivedchangedeventhandler">See the ICoreWebView2BytesReceivedChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2BytesReceivedChangedEventHandler = class(TInterfacedObject, ICoreWebView2BytesReceivedChangedEventHandler)
     protected
       FEvents     : Pointer;
@@ -482,6 +748,14 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive EstimatedEndTimeChanged event. Use the
+  /// ICoreWebView2DownloadOperation.EstimatedEndTime property to get the new
+  /// estimated end time.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2estimatedendtimechangedeventhandler">See the ICoreWebView2EstimatedEndTimeChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2EstimatedEndTimeChangedEventHandler = class(TInterfacedObject, ICoreWebView2EstimatedEndTimeChangedEventHandler)
     protected
       FEvents     : Pointer;
@@ -494,6 +768,16 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive StateChanged event. Use the
+  /// ICoreWebView2DownloadOperation.State property to get the current state,
+  /// which can be in progress, interrupted, or completed. Use the
+  /// ICoreWebView2DownloadOperation.InterruptReason property to get the
+  /// interrupt reason if the download is interrupted.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2statechangedeventhandler">See the ICoreWebView2StateChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2StateChangedEventHandler = class(TInterfacedObject, ICoreWebView2StateChangedEventHandler)
     protected
       FEvents     : Pointer;
@@ -506,6 +790,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives FrameNameChanged event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenamechangedeventhandler">See the ICoreWebView2FrameNameChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameNameChangedEventHandler = class(TInterfacedObject, ICoreWebView2FrameNameChangedEventHandler)
     protected
       FEvents  : Pointer;
@@ -518,6 +808,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives FrameDestroyed event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framedestroyedeventhandler">See the ICoreWebView2FrameDestroyedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameDestroyedEventHandler = class(TInterfacedObject, ICoreWebView2FrameDestroyedEventHandler)
     protected
       FEvents  : Pointer;
@@ -530,6 +826,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives CallDevToolsProtocolMethod completion results.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2calldevtoolsprotocolmethodcompletedhandler">See the ICoreWebView2CallDevToolsProtocolMethodCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CallDevToolsProtocolMethodCompletedHandler = class(TInterfacedObject, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler)
     protected
       FEvents : Pointer;
@@ -542,6 +844,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the AddScriptToExecuteOnDocumentCreated method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2addscripttoexecuteondocumentcreatedcompletedhandler">See the ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler = class(TInterfacedObject, ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler)
     protected
       FEvents : Pointer;
@@ -553,6 +861,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive IsMutedChanged events.  Use the
+  /// IsMuted property to get the mute state.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2ismutedchangedeventhandler">See the ICoreWebView2IsMutedChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2IsMutedChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsMutedChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -564,6 +879,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive IsDocumentPlayingAudioChanged events.  Use the
+  /// IsDocumentPlayingAudio property to get the audio playing state.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2isdocumentplayingaudiochangedeventhandler">See the ICoreWebView2IsDocumentPlayingAudioChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2IsDocumentPlayingAudioChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsDocumentPlayingAudioChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -575,6 +897,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Implements the interface to receive IsDefaultDownloadDialogOpenChanged
+  /// events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2isdefaultdownloaddialogopenchangedeventhandler">See the ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = class(TInterfacedObject, ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -586,6 +915,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// An event handler for the ProcessInfosChanged event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfoschangedeventhandler">See the ICoreWebView2ProcessInfosChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ProcessInfosChangedEventHandler = class(TInterfacedObject, ICoreWebView2ProcessInfosChangedEventHandler)
     protected
       FBrowserEvents : Pointer;
@@ -599,6 +934,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationCompleted events for iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenavigationcompletedeventhandler">See the ICoreWebView2FrameNavigationCompletedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameNavigationCompletedEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationCompletedEventHandler)
     protected
       FEvents  : Pointer;
@@ -611,6 +952,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives NavigationStarting events for iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenavigationstartingeventhandler">See the ICoreWebView2FrameNavigationStartingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameNavigationStartingEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationStartingEventHandler)
     protected
       FEvents  : Pointer;
@@ -623,6 +970,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives ContentLoading events for iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framecontentloadingeventhandler">See the ICoreWebView2FrameContentLoadingEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameContentLoadingEventHandler = class(TInterfacedObject, ICoreWebView2FrameContentLoadingEventHandler)
     protected
       FEvents  : Pointer;
@@ -635,6 +988,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives DOMContentLoaded events for iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framedomcontentloadedeventhandler">See the ICoreWebView2FrameDOMContentLoadedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameDOMContentLoadedEventHandler = class(TInterfacedObject, ICoreWebView2FrameDOMContentLoadedEventHandler)
     protected
       FEvents  : Pointer;
@@ -647,6 +1006,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives WebMessageReceived events for iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framewebmessagereceivedeventhandler">See the ICoreWebView2FrameWebMessageReceivedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FrameWebMessageReceivedEventHandler = class(TInterfacedObject, ICoreWebView2FrameWebMessageReceivedEventHandler)
     protected
       FEvents  : Pointer;
@@ -659,6 +1024,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to handle the BasicAuthenticationRequested event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationrequestedeventhandler">See the ICoreWebView2BasicAuthenticationRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2BasicAuthenticationRequestedEventHandler = class(TInterfacedObject, ICoreWebView2BasicAuthenticationRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -670,6 +1041,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives ContextMenuRequested events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventhandler">See the ICoreWebView2ContextMenuRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ContextMenuRequestedEventHandler = class(TInterfacedObject, ICoreWebView2ContextMenuRequestedEventHandler)
     protected
       FEvents : Pointer;
@@ -681,6 +1058,14 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Raised to notify the host that the end user selected a custom
+  /// ContextMenuItem. CustomItemSelected event is raised on the specific
+  /// ContextMenuItem that the end user selected.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customitemselectedeventhandler">See the ICoreWebView2CustomItemSelectedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2CustomItemSelectedEventHandler = class(TInterfacedObject, ICoreWebView2CustomItemSelectedEventHandler)
     protected
       FEvents : Pointer;
@@ -692,6 +1077,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives StatusBarTextChanged events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2statusbartextchangedeventhandler">See the ICoreWebView2StatusBarTextChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2StatusBarTextChangedEventHandler = class(TInterfacedObject, ICoreWebView2StatusBarTextChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -703,6 +1094,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives PermissionRequested events for iframes.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framepermissionrequestedeventhandler">See the ICoreWebView2FramePermissionRequestedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FramePermissionRequestedEventHandler = class(TInterfacedObject, ICoreWebView2FramePermissionRequestedEventHandler)
     protected
       FEvents  : Pointer;
@@ -715,6 +1112,12 @@ type
       destructor  Destroy; override;
   end;
 
+    /// <summary>
+    /// The caller implements this interface to receive the ClearBrowsingData result.
+    /// </summary>
+    /// <remarks>
+    /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clearbrowsingdatacompletedhandler">See the ICoreWebView2ClearBrowsingDataCompletedHandler article.</see></para>
+    /// </remarks>
   TCoreWebView2ClearBrowsingDataCompletedHandler = class(TInterfacedObject, ICoreWebView2ClearBrowsingDataCompletedHandler)
     protected
       FEvents : Pointer;
@@ -726,6 +1129,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the ClearServerCertificateErrorActions method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clearservercertificateerroractionscompletedhandler">See the ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler = class(TInterfacedObject, ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler)
     protected
       FEvents : Pointer;
@@ -737,6 +1146,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// An event handler for the ServerCertificateErrorDetected event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventhandler">See the ICoreWebView2ServerCertificateErrorDetectedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2ServerCertificateErrorDetectedEventHandler = class(TInterfacedObject, ICoreWebView2ServerCertificateErrorDetectedEventHandler)
     protected
       FEvents : Pointer;
@@ -748,6 +1163,17 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// This interface is a handler for when the Favicon is changed.
+  /// The sender is the ICoreWebView2 object the top-level document of
+  /// which has changed favicon and the eventArgs is nullptr. Use the
+  /// FaviconUri property and GetFavicon method to obtain the favicon
+  /// data. The second argument is always null.
+  /// For more information see add_FaviconChanged.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2faviconchangedeventhandler">See the ICoreWebView2FaviconChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2FaviconChangedEventHandler = class(TInterfacedObject, ICoreWebView2FaviconChangedEventHandler)
     protected
       FEvents : Pointer;
@@ -759,6 +1185,17 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// This interface is a handler for when the Favicon is changed.
+  /// The sender is the ICoreWebView2 object the top-level document of
+  /// which has changed favicon and the eventArgs is nullptr. Use the
+  /// FaviconUri property and GetFavicon method to obtain the favicon
+  /// data. The second argument is always null.
+  /// For more information see add_FaviconChanged.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2faviconchangedeventhandler">See the ICoreWebView2FaviconChangedEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2GetFaviconCompletedHandler = class(TInterfacedObject, ICoreWebView2GetFaviconCompletedHandler)
     protected
       FEvents : Pointer;
@@ -770,6 +1207,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the Print method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printcompletedhandler">See the ICoreWebView2PrintCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2PrintCompletedHandler = class(TInterfacedObject, ICoreWebView2PrintCompletedHandler)
     protected
       FEvents : Pointer;
@@ -781,6 +1224,14 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives the result of the PrintToPdfStream method.
+  /// errorCode returns S_OK if the PrintToPdfStream operation succeeded.
+  /// The printable pdf data is returned in the pdfStream object.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printtopdfstreamcompletedhandler">See the ICoreWebView2PrintToPdfStreamCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2PrintToPdfStreamCompletedHandler = class(TInterfacedObject, ICoreWebView2PrintToPdfStreamCompletedHandler)
     protected
       FEvents : Pointer;
@@ -792,6 +1243,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to handle the result of
+  /// GetNonDefaultPermissionSettings.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getnondefaultpermissionsettingscompletedhandler">See the ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = class(TInterfacedObject, ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler)
     protected
       FEvents : Pointer;
@@ -803,6 +1261,13 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// The caller implements this interface to handle the result of
+  /// SetPermissionState.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2setpermissionstatecompletedhandler">See the ICoreWebView2SetPermissionStateCompletedHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2SetPermissionStateCompletedHandler = class(TInterfacedObject, ICoreWebView2SetPermissionStateCompletedHandler)
     protected
       FEvents : Pointer;
@@ -814,6 +1279,12 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Event handler for the LaunchingExternalUriScheme event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2launchingexternalurischemeeventhandler">See the ICoreWebView2LaunchingExternalUriSchemeEventHandler article.</see></para>
+  /// </remarks>
   TCoreWebView2LaunchingExternalUriSchemeEventHandler = class(TInterfacedObject, ICoreWebView2LaunchingExternalUriSchemeEventHandler)
     protected
       FEvents : Pointer;

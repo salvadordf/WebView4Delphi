@@ -1283,7 +1283,7 @@ type
       /// should clear the data between.  The `startTime` and `endTime`
       /// parameters correspond to the number of seconds since the UNIX epoch.</para>
       /// <para>`startTime` is inclusive while `endTime` is exclusive, therefore the data will
-      /// be cleared between [startTime, endTime).</para>
+      /// be cleared between startTime and endTime.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
@@ -1464,7 +1464,7 @@ type
       property IgnoreCertificateErrors                         : boolean                                               read FIgnoreCertificateErrors                         write SetIgnoreCertificateErrors;
 
       // Properties used in the ICoreWebView2Environment creation
-      property BrowserExecPath                                 : wvstring                                              read FBrowserExecPath                                 write FBrowserExecPath;                           // CreateCoreWebView2EnvironmentWithOptions "browserExecutableFolder" parameter
+      property BrowserExecPath                                 : wvstring                                              read FBrowserExecPath                                 write FBrowserExecPath;
       /// <summary>
       /// Returns the user data folder that all CoreWebView2's created from this
       /// environment are using.
@@ -2094,7 +2094,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_cursor">See the ICoreWebView2CompositionController article.</see></para>
       /// </remarks>
-      property Cursor                                          : HCURSOR                                               read GetCursor;                                                                                         // ICoreWebView2CompositionController.get_Cursor
+      property Cursor                                          : HCURSOR                                               read GetCursor;
       /// <summary>
       /// The RootVisualTarget is a visual in the hosting app's visual tree. This
       /// visual is where the WebView will connect its visual tree. The app uses
@@ -2110,7 +2110,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_rootvisualtarget">See the ICoreWebView2CompositionController article.</see></para>
       /// </remarks>
-      property RootVisualTarget                                : IUnknown                                              read GetRootVisualTarget                              write SetRootVisualTarget;                        // ICoreWebView2CompositionController.get_RootVisualTarget
+      property RootVisualTarget                                : IUnknown                                              read GetRootVisualTarget                              write SetRootVisualTarget;
       /// <summary>
       /// The current system cursor ID reported by the underlying rendering engine
       /// for WebView. For example, most of the time, when the cursor is over text,
@@ -2125,7 +2125,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller#get_systemcursorid">See the ICoreWebView2CompositionController article.</see></para>
       /// </remarks>
-      property SystemCursorID                                  : cardinal                                              read GetSystemCursorID;                                                                                 // ICoreWebView2CompositionController.get_SystemCursorId
+      property SystemCursorID                                  : cardinal                                              read GetSystemCursorID;
       /// <summary>
       /// Returns the Automation Provider for the WebView. This object implements
       /// IRawElementProviderSimple.
@@ -2133,7 +2133,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller2#get_automationprovider">See the ICoreWebView2CompositionController2 article.</see></para>
       /// </remarks>
-      property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;                                                                             // ICoreWebView2CompositionController2.get_UIAProvider
+      property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;
       /// <summary>
       /// Returns the `ICoreWebView2ProcessInfoCollection`. Provide a list of all
       /// process using same user data folder except for crashpad process.
