@@ -16,7 +16,7 @@
     </CompilerOptions>
     <Description Value="WebView4Delphi is an open source project created by Salvador Díaz Fau to embed Chromium-based browsers in applications made with Delphi or Lazarus/FPC."/>
     <License Value="MIT"/>
-    <Version Major="1" Release="1901" Build="177"/>
+    <Version Major="1" Release="1938" Build="49"/>
     <Files Count="55">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>

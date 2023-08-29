@@ -70,7 +70,7 @@ type
   TWVPermissionKind                       = type COREWEBVIEW2_PERMISSION_KIND;
   /// <summary>
   /// Specifies the process failure type used in the
-  /// ICoreWebView2ProcessFailedEventHandler interface. The values in this enum
+  /// `ICoreWebView2ProcessFailedEventArgs` interface. The values in this enum
   /// make reference to the process kinds in the Chromium architecture. For more
   /// information about what these processes are and what they do, see
   /// [Browser Architecture - Inside look at modern web browser](https://developers.google.com/web/updates/2018/09/inside-browser-part1).

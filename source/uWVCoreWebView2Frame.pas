@@ -120,7 +120,7 @@ type
       /// contains a reference cycle, or otherwise is not able to be encoded into
       /// JSON, then the result is considered to be null, which is encoded
       /// in JSON as the string "null".</para>
-      /// <para>\> [!NOTE]\n\> A function that has no explicit return value returns undefined. If the
+      /// <para>NOTE: A function that has no explicit return value returns undefined. If the
       /// script that was run throws an unhandled exception, then the result is
       /// also "null". This method is applied asynchronously. If the method is
       /// run before `ContentLoading`, the script will not be executed
@@ -137,10 +137,11 @@ type
       /// The frame receives the message by subscribing to the `message` event of
       /// the `window.chrome.webview` of the frame document.</para>
       /// <para>
+      /// <code>
       /// ```cpp
       /// window.chrome.webview.addEventListener('message', handler)
       /// window.chrome.webview.removeEventListener('message', handler)
-      /// ```
+      /// ```</code>
       /// </para>
       /// <para>The event args is an instances of `MessageEvent`. The
       /// `ICoreWebView2Settings::IsWebMessageEnabled` setting must be `TRUE` or

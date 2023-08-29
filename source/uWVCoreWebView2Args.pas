@@ -459,7 +459,7 @@ type
       property NavigationID                      : uint64                                    read GetNavigationID;
       /// <summary>
       /// <para>The HTTP request headers for the navigation.</para>
-      /// <para>\> [!NOTE]\n\> You are not able to modify the HTTP request headers in a
+      /// <para>\>NOTE: You are not able to modify the HTTP request headers in a
       /// `NavigationStarting` event.</para>
       /// </summary>
       /// <remarks>
@@ -657,9 +657,9 @@ type
       /// </remarks>
       property PermissionKind   : TWVPermissionKind                          read GetPermissionKind;
       /// <summary>
-      /// `TRUE` when the permission request was initiated through a user gesture.
-      /// \> [!NOTE]\n\> Being initiated through a user gesture does not mean that user intended
-      /// to access the associated resource.
+      /// <para>`TRUE` when the permission request was initiated through a user gesture.</para>
+      /// <para>NOTE: Being initiated through a user gesture does not mean that user intended
+      /// to access the associated resource.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs#get_isuserinitiated">See the ICoreWebView2PermissionRequestedEventArgs article.</see></para>
@@ -740,23 +740,33 @@ type
       /// </summary>
       property BaseIntf                   : ICoreWebView2ProcessFailedEventArgs  read FBaseIntf;
       /// <summary>
-      /// The kind of process failure that has occurred. `processFailedKind` is
-      /// `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED` if the
-      /// failed process is the main frame's renderer, even if there were subframes
-      /// rendered by such process; all frames are gone when this happens.
+      /// The kind of process failure that has occurred. This is a combination of
+      /// process kind (for example, browser, renderer, gpu) and failure (exit,
+      /// unresponsiveness). Renderer processes are further divided in _main frame_
+      /// renderer (`RenderProcessExited`, `RenderProcessUnresponsive`) and
+      /// _subframe_ renderer (`FrameRenderProcessExited`). To learn about the
+      /// conditions under which each failure kind occurs, see
+      /// `COREWEBVIEW2_PROCESS_FAILED_KIND`.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs#get_processfailedkind">See the ICoreWebView2ProcessFailedEventArgs article.</see></para>
       /// </remarks>
       property ProcessFailedKind          : TWVProcessFailedKind                 read GetProcessFailedKind;
       /// <summary>
-      /// The reason for the process failure. The reason is always
-      /// `COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED` when `ProcessFailedKind`
-      /// is `COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED`, and
-      /// `COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE` when `ProcessFailedKind`
-      /// is `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE`.
-      /// For other process failure kinds, the reason may be any of the reason
-      /// values.
+      /// <para>The reason for the process failure. Some of the reasons are only
+      /// applicable to specific values of
+      /// `ICoreWebView2ProcessFailedEventArgs.ProcessFailedKind`, and the
+      /// following `ProcessFailedKind` values always return the indicated reason
+      /// value:</para>
+      /// <code>
+      /// ProcessFailedKind | Reason
+      /// ---|---
+      /// COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED | COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED
+      /// COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE | COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE
+      /// </code>
+      /// <para>For other `ProcessFailedKind` values, the reason may be any of the reason
+      /// values. To learn about what these values mean, see
+      /// `COREWEBVIEW2_PROCESS_FAILED_REASON`.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2#get_reason">See the ICoreWebView2ProcessFailedEventArgs2 article.</see></para>
@@ -1705,7 +1715,7 @@ type
       property InitiatingOrigin              : wvstring                                          read GetInitiatingOrigin;
       /// <summary>
       /// <para>`TRUE` when the external URI scheme request was initiated through a user gesture.</para>
-      /// <para>\> [!NOTE]\n\> Being initiated through a user gesture does not mean that user intended
+      /// <para>\>NOTE: Being initiated through a user gesture does not mean that user intended
       /// to access the associated resource.</para>
       /// </summary>
       /// <remarks>

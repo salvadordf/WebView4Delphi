@@ -662,7 +662,7 @@ const
 type
   /// <summary>
   /// Specifies the process failure type used in the
-  /// ICoreWebView2ProcessFailedEventHandler interface. The values in this enum
+  /// `ICoreWebView2ProcessFailedEventArgs` interface. The values in this enum
   /// make reference to the process kinds in the Chromium architecture. For more
   /// information about what these processes are and what they do, see
   /// [Browser Architecture - Inside look at modern web browser](https://developers.google.com/web/updates/2018/09/inside-browser-part1).
@@ -682,72 +682,106 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED = $00000000;
   /// <summary>
-  /// Indicates that the main frame's render process ended unexpectedly.  A new
-  /// render process is created automatically and navigated to an error page.
-  /// You can use the Reload method to try to reload the page that failed.
+  /// Indicates that the main frame's render process ended unexpectedly. Any
+  /// subframes in the WebView will be gone too.  A new render process is
+  /// created automatically and navigated to an error page. You can use the
+  /// `Reload` method to try to recover from this failure. Alternatively, you
+  /// can `Close` and recreate the WebView.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED = $00000001;
   /// <summary>
-  /// Indicates that the main frame's render process is unresponsive.
+  /// <para>Indicates that the main frame's render process is unresponsive. Renderer
+  /// process unresponsiveness can happen for the following reasons:</para>
+  /// <para>*   There is a **long-running script** being executed. For example, the
+  /// web content in your WebView might be performing a synchronous XHR, or have
+  /// entered an infinite loop.</para>
+  /// <para>*   The **system is busy**.</para>
+  /// <para>The `ProcessFailed` event will continue to be raised every few seconds
+  /// until the renderer process has become responsive again. The application
+  /// can consider taking action if the event keeps being raised. For example,
+  /// the application might show UI for the user to decide to keep waiting or
+  /// reload the page, or navigate away.</para>
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
-  /// <para>Note that this does not seem to work right now.
-  /// Does not fire for simple long running script case, the only related test
-  /// SitePerProcessBrowserTest::NoCommitTimeoutForInvisibleWebContents is
-  /// disabled.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE = $00000002;
   /// <summary>
   /// Indicates that a frame-only render process ended unexpectedly. The process
   /// exit does not affect the top-level document, only a subset of the
   /// subframes within it. The content in these frames is replaced with an error
-  /// page in the frame.
+  /// page in the frame. Your application can communicate with the main frame to
+  /// recover content in the impacted frames, using
+  /// `ICoreWebView2ProcessFailedEventArgs2.FrameInfosForFailedProcess` to get
+  /// information about the impacted frames.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED = $00000003;
   /// <summary>
-  /// Indicates that a utility process ended unexpectedly.
+  /// Indicates that a utility process ended unexpectedly. The failed process
+  /// is recreated automatically. Your application does **not** need to handle
+  /// recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs`
+  /// and `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure, including `ProcessDescription`.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED = $00000004;
   /// <summary>
-  /// Indicates that a sandbox helper process ended unexpectedly.
+  /// Indicates that a sandbox helper process ended unexpectedly. This failure
+  /// is not fatal. Your application does **not** need to handle recovery for
+  /// this event, but can use `ICoreWebView2ProcessFailedEventArgs` and
+  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED = $00000005;
   /// <summary>
-  /// Indicates that the GPU process ended unexpectedly.
+  /// Indicates that the GPU process ended unexpectedly. The failed process
+  /// is recreated automatically. Your application does **not** need to handle
+  /// recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs`
+  /// and `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED = $00000006;
   /// <summary>
-  /// Indicates that a PPAPI plugin process ended unexpectedly.
+  /// Indicates that a PPAPI plugin process ended unexpectedly. This failure
+  /// is not fatal. Your application does **not** need to handle recovery for
+  /// this event, but can use `ICoreWebView2ProcessFailedEventArgs` and
+  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure, including `ProcessDescription`.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_PLUGIN_PROCESS_EXITED = $00000007;
   /// <summary>
-  /// Indicates that a PPAPI plugin broker process ended unexpectedly.
+  /// Indicates that a PPAPI plugin broker process ended unexpectedly. This failure
+  /// is not fatal. Your application does **not** need to handle recovery for
+  /// this event, but can use `ICoreWebView2ProcessFailedEventArgs` and
+  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED = $00000008;
   /// <summary>
-  /// Indicates that a process of unspecified kind ended unexpectedly.
+  /// Indicates that a process of unspecified kind ended unexpectedly. Your
+  /// application can use `ICoreWebView2ProcessFailedEventArgs` and
+  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
+  /// the failure.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
@@ -2179,7 +2213,8 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_REASON_TERMINATED = $00000002;
   /// <summary>
-  /// The process crashed.
+  /// The process crashed. Most crashes will generate dumps in the location
+  /// indicated by `ICoreWebView2Environment11.get_FailureReportFolderPath`.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_REASON values.</para>
@@ -2193,7 +2228,7 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED = $00000004;
   /// <summary>
-  /// The process died due to running out of memory.
+  /// The process terminated due to running out of memory.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_REASON values.</para>
@@ -3465,15 +3500,31 @@ type
     /// </summary>
     function remove_PermissionRequested(token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Add an event handler for the `ProcessFailed` event.  `ProcessFailed` runs
-    /// when a WebView process ends unexpectedly or becomes unresponsive.
+    /// Add an event handler for the `ProcessFailed` event.
+    /// `ProcessFailed` runs when any of the processes in the
+    /// [WebView2 Process Group](https://learn.microsoft.com/microsoft-edge/webview2/concepts/process-model?tabs=csharp#processes-in-the-webview2-runtime)
+    /// encounters one of the following conditions:
+    ///
+    /// Condition | Details
+    /// ---|---
+    /// Unexpected exit | The process indicated by the event args has exited unexpectedly (usually due to a crash). The failure might or might not be recoverable and some failures are auto-recoverable.
+    /// Unresponsiveness | The process indicated by the event args has become unresponsive to user input. This is only reported for renderer processes, and will run every few seconds until the process becomes responsive again.
+    ///
+    /// \> [!NOTE]\n\> When the failing process is the browser process, a
+    /// `ICoreWebView2Environment5::BrowserProcessExited` event will run too.
+    ///
+    /// Your application can use `ICoreWebView2ProcessFailedEventArgs` and
+    /// `ICoreWebView2ProcessFailedEventArgs2` to identify which condition and
+    /// process the event is for, and to collect diagnostics and handle recovery
+    /// if necessary. For more details about which cases need to be handled by
+    /// your application, see `COREWEBVIEW2_PROCESS_FAILED_KIND`.
     ///
     /// \snippet ProcessComponent.cpp ProcessFailed
     /// </summary>
-    function add_ProcessFailed(const eventHandler: ICoreWebView2ProcessFailedEventHandler; 
+    function add_ProcessFailed(const eventHandler: ICoreWebView2ProcessFailedEventHandler;
                                out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with add_ProcessFailed.
+    /// Remove an event handler previously added with `add_ProcessFailed`.
     /// </summary>
     function remove_ProcessFailed(token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
@@ -3849,6 +3900,9 @@ type
     ///
     /// In the HTML document, use the COM object using
     /// `chrome.webview.hostObjects.sample`.
+    /// Note that `CoreWebView2.AddHostObjectToScript` only applies to the
+    /// top-level document and not to frames. To add host objects to frames use
+    /// `CoreWebView2Frame.AddHostObjectToScript`.
     ///
     /// \snippet assets\ScenarioAddHostObject.html HostObjectUsage
     ///
@@ -4571,10 +4625,13 @@ type
   ICoreWebView2ProcessFailedEventArgs = interface(IUnknown)
     ['{8155A9A4-1474-4A86-8CAE-151B0FA6B8CA}']
     /// <summary>
-    /// The kind of process failure that has occurred. `processFailedKind` is
-    /// `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED` if the
-    /// failed process is the main frame's renderer, even if there were subframes
-    /// rendered by such process; all frames are gone when this happens.
+    /// The kind of process failure that has occurred. This is a combination of
+    /// process kind (for example, browser, renderer, gpu) and failure (exit,
+    /// unresponsiveness). Renderer processes are further divided in _main frame_
+    /// renderer (`RenderProcessExited`, `RenderProcessUnresponsive`) and
+    /// _subframe_ renderer (`FrameRenderProcessExited`). To learn about the
+    /// conditions under which each failure kind occurs, see
+    /// `COREWEBVIEW2_PROCESS_FAILED_KIND`.
     /// </summary>
     function Get_ProcessFailedKind(out ProcessFailedKind: COREWEBVIEW2_PROCESS_FAILED_KIND): HResult; stdcall;
   end;
@@ -10826,13 +10883,20 @@ type
   ICoreWebView2ProcessFailedEventArgs2 = interface(ICoreWebView2ProcessFailedEventArgs)
     ['{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}']
     /// <summary>
-    /// The reason for the process failure. The reason is always
-    /// `COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED` when `ProcessFailedKind`
-    /// is `COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED`, and
-    /// `COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE` when `ProcessFailedKind`
-    /// is `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE`.
-    /// For other process failure kinds, the reason may be any of the reason
-    /// values.
+    /// The reason for the process failure. Some of the reasons are only
+    /// applicable to specific values of
+    /// `ICoreWebView2ProcessFailedEventArgs::ProcessFailedKind`, and the
+    /// following `ProcessFailedKind` values always return the indicated reason
+    /// value:
+    ///
+    /// ProcessFailedKind | Reason
+    /// ---|---
+    /// COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED | COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED
+    /// COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE | COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE
+    ///
+    /// For other `ProcessFailedKind` values, the reason may be any of the reason
+    /// values. To learn about what these values mean, see
+    /// `COREWEBVIEW2_PROCESS_FAILED_REASON`.
     /// </summary>
     function Get_reason(out reason: COREWEBVIEW2_PROCESS_FAILED_REASON): HResult; stdcall;
     /// <summary>
