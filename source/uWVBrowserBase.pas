@@ -813,7 +813,7 @@ type
       /// <summary>
       /// Provides the Pdf data of current web page asynchronously for the TWVBrowserBase.CoreWebView2PrintSettings settings.
       /// Stream will be rewound to the start of the pdf data.
-      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStream event.
+      /// This function is asynchronous and it triggers the TWVBrowserBase.OnPrintToPdfStreamCompleted event.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_16#printtopdfstream">See the ICoreWebView2_16 article.</see></para>
