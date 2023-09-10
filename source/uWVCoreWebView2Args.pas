@@ -668,7 +668,7 @@ type
       /// <summary>
       /// Gets an `ICoreWebView2Deferral` object.  Use the deferral object to make
       /// the permission decision at a later time. The deferral only applies to the
-      /// current request, and does not prevent the `PermissionRequested` event from
+      /// current request, and does not prevent the `OnPermissionRequested` event from
       /// getting raised for new requests. However, for some permission kinds the
       /// WebView will avoid creating a new request if there is a pending request of
       /// the same kind.
@@ -678,7 +678,7 @@ type
       /// </remarks>
       property Deferral         : ICoreWebView2Deferral                      read GetDeferral;
       /// <summary>
-      /// <para>By default, both the `PermissionRequested` event handlers on the
+      /// <para>By default, both the `OnPermissionRequested` event handlers on the
       /// `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the
       /// `CoreWebView2Frame` event handlers invoked first. The host may
       /// set this flag to `TRUE` within the `CoreWebView2Frame` event handlers

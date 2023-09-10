@@ -167,6 +167,7 @@ function ControllerOptionsCreationErrorToString(aErrorCode : HRESULT) : wvstring
 begin
   case aErrorCode of
     E_INVALIDARG : Result := 'Invalid profile name.';
+    E_NOTIMPL    : Result := 'Not implemented.';  // This error code is not documented. It's caused by an outdated WebView2 Runtime installation.
     else           Result := 'Unexpected error result.';
   end;
 end;
