@@ -4711,7 +4711,7 @@ begin
         TempOptionsIntf := nil;
       end
      else
-      if (TempHResult <> E_NOTIMPL) then
+      if (TempHResult = E_NOTIMPL) then
         begin
           FProfileName            := '';
           FIsInPrivateModeEnabled := False;
@@ -4779,7 +4779,7 @@ begin
       TempOptionsIntf := nil;
     end
    else
-    if (TempHResult <> E_NOTIMPL) then
+    if (TempHResult = E_NOTIMPL) then
       begin
         FProfileName            := '';
         FIsInPrivateModeEnabled := False;
