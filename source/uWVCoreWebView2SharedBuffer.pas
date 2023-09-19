@@ -16,10 +16,14 @@ uses
 
 type
   /// <summary>
-  /// The shared buffer object.
+  /// The shared buffer object that is created by CreateSharedBuffer.
+  /// The object is presented to script as ArrayBuffer when posted to script with
+  /// PostSharedBufferToScript.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedbuffer">See the ICoreWebView2SharedBuffer article.</see></para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer">See the CreateSharedBuffer article.</see></para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_17#postsharedbuffertoscript">See the PostSharedBufferToScript article.</see></para>
   /// </remarks>
   TCoreWebView2SharedBuffer = class
     protected

@@ -530,7 +530,10 @@ type
       /// Remote JavaScript objects like callback functions are represented as an
       /// `VT_DISPATCH` `VARIANT` with the object implementing `IDispatch`.  The
       /// JavaScript callback method may be invoked using `DISPID_VALUE` for the
-      /// `DISPID`.  Nested arrays are supported up to a depth of 3.  Arrays of by
+      /// `DISPID`.  Such callback method invocations will return immediately and will
+      /// not wait for the JavaScript function to run and so will not provide the return
+      /// value of the JavaScript function.
+      /// Nested arrays are supported up to a depth of 3.  Arrays of by
       /// reference types are not supported. `VT_EMPTY` and `VT_NULL` are mapped
       /// into JavaScript as `null`.  In JavaScript, `null` and undefined are
       /// mapped to `VT_EMPTY`.

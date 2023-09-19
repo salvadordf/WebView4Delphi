@@ -60,8 +60,10 @@ var
   /// preference, the override is used.  If an override is not specified, then
   /// the parameter value passed to
   /// `GetAvailableCoreWebView2BrowserVersionString` is used.</para>
-  /// The caller must free the returned string with `CoTaskMemFree`.  See
-  /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+  /// <para>Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an
+  /// installed WebView2 runtime or non-stable Microsoft Edge installation.</para>
+  /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+  /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#getavailablecorewebview2browserversionstring">See the Globals article.</see></para>

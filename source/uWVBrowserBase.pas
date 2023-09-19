@@ -2519,6 +2519,11 @@ type
       /// if a deferral is not taken on the event args.  If a deferral is taken,
       /// then the web resource requested is blocked until the deferral is
       /// completed.</para>
+      /// <para>If this event is subscribed in the add_NewWindowRequested handler it should be called
+      /// after the new window is set. For more details see `ICoreWebView2NewWindowRequestedEventArgs.put_NewWindow`.</para>
+      /// <para>This event is by default raised for file, http, and https URI schemes.
+      /// This is also raised for registered custom URI schemes. For more details
+      /// see `ICoreWebView2CustomSchemeRegistration`.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webresourcerequested">See the ICoreWebView2 article.</see></para>

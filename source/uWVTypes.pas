@@ -192,7 +192,7 @@ type
   TWVProcessFailedReason                  = type COREWEBVIEW2_PROCESS_FAILED_REASON;
   /// <summary>
   /// The orientation for printing, used by the Orientation property on
-  /// ICoreWebView2PrintSettings. Currently only printing to PDF is supported.
+  /// ICoreWebView2PrintSettings.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_PRINT_ORIENTATION type.</para>

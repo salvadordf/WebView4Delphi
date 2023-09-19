@@ -1328,7 +1328,7 @@ const
 type
   /// <summary>
   /// The orientation for printing, used by the Orientation property on
-  /// ICoreWebView2PrintSettings. Currently only printing to PDF is supported.
+  /// ICoreWebView2PrintSettings.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_print_orientation">See the Globals article.</see></para>
@@ -1810,6 +1810,20 @@ const
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP = $0000020C;
+  /// <summary>
+  /// Mouse Right Button Down event over a nonclient area, WM_NCRBUTTONDOWN.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN = $00A4;
+  /// <summary>
+  /// Mouse Right Button up event over a nonclient area, WM_NCRBUTTONUP.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP = $00A5;
 
 type
   /// <summary>
@@ -3813,7 +3827,10 @@ type
     /// Remote JavaScript objects like callback functions are represented as an
     /// `VT_DISPATCH` `VARIANT` with the object implementing `IDispatch`.  The
     /// JavaScript callback method may be invoked using `DISPID_VALUE` for the
-    /// `DISPID`.  Nested arrays are supported up to a depth of 3.  Arrays of by
+    /// `DISPID`.  Such callback method invocations will return immediately and will
+    /// not wait for the JavaScript function to run and so will not provide the return
+    /// value of the JavaScript function.
+    /// Nested arrays are supported up to a depth of 3.  Arrays of by
     /// reference types are not supported. `VT_EMPTY` and `VT_NULL` are mapped
     /// into JavaScript as `null`.  In JavaScript, `null` and undefined are
     /// mapped to `VT_EMPTY`.
@@ -3962,12 +3979,14 @@ type
     /// If this event is subscribed in the add_NewWindowRequested handler it should be called
     /// after the new window is set. For more details see `ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow`.
     ///
-    /// Currently this only supports file, http, and https URI schemes.
+    /// This event is by default raised for file, http, and https URI schemes.
+    /// This is also raised for registered custom URI schemes. For more details
+    /// see `ICoreWebView2CustomSchemeRegistration`.
     ///
     /// \snippet SettingsComponent.cpp WebResourceRequested0
     /// \snippet SettingsComponent.cpp WebResourceRequested1
     /// </summary>
-    function add_WebResourceRequested(const eventHandler: ICoreWebView2WebResourceRequestedEventHandler; 
+    function add_WebResourceRequested(const eventHandler: ICoreWebView2WebResourceRequestedEventHandler;
                                       out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
     /// Remove an event handler previously added with `add_WebResourceRequested`.
@@ -5697,6 +5716,9 @@ type
     /// `DestroyWindow`, the creation completed handler will be invoked before
     /// `DestroyWindow` returns, so you can use this to cancel creation and clean
     /// up resources synchronously when quitting a thread.
+    ///
+    /// In rare cases the creation can fail with `E_UNEXPECTED` if runtime does not have
+    /// permissions to the user data folder.
     /// </summary>
     {* var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI ************** *}
     function CreateCoreWebView2Controller(ParentWindow: HWND;
@@ -6688,8 +6710,7 @@ type
   end;
 
   /// <summary>
-  /// Settings used by the PrintToPdf method. Other programmatic printing is not
-  /// currently supported.
+  /// Settings used by the PrintToPdf method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings">See the ICoreWebView2PrintSettings article.</see></para>
@@ -8080,7 +8101,9 @@ type
   end;
 
   /// <summary>
-  /// The shared buffer object.
+  /// The shared buffer object that is created by [CreateSharedBuffer](https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer).
+  /// The object is presented to script as ArrayBuffer when posted to script with
+  /// [PostSharedBufferToScript](/microsoft-edge/webview2/reference/win32/icorewebview2_17#postsharedbuffertoscript).
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedbuffer">See the ICoreWebView2SharedBuffer article.</see></para>
@@ -9519,6 +9542,9 @@ type
     /// `DestroyWindow`, the creation completed handler will be invoked before
     /// `DestroyWindow` returns, so you can use this to cancel creation and clean
     /// up resources synchronously when quitting a thread.
+    ///
+    /// In rare cases the creation can fail with `E_UNEXPECTED` if runtime does not have
+    /// permissions to the user data folder.
     ///
     /// CreateCoreWebView2CompositionController is supported in the following versions of Windows:
     ///
