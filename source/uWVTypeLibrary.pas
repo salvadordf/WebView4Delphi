@@ -209,6 +209,7 @@ const
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
   IID_ICoreWebView2NavigationStartingEventArgs3: TGUID = '{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
+  IID_ICoreWebView2NewWindowRequestedEventArgs3: TGUID = '{842BED3C-6AD6-4DD9-B938-28C96667AD66}';
   IID_ICoreWebView2PermissionRequestedEventArgs3: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';
   IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
@@ -2786,6 +2787,7 @@ type
   ICoreWebView2NavigationStartingEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs3 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
+  ICoreWebView2NewWindowRequestedEventArgs3 = interface;
   ICoreWebView2PermissionRequestedEventArgs3 = interface;
   ICoreWebView2PrintSettings2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
@@ -5181,6 +5183,16 @@ type
     /// background thread to prevent performance impact to the UI thread.  `Null`
     ///  means no content data.  `IStream` semantics apply (return `S_OK` to
     /// `Read` runs until all data is exhausted).
+    /// When providing the response data, you should consider relevant HTTP
+    /// request headers just like an HTTP server would do. For example, if the
+    /// request was for a video resource in a HTML video element, the request may
+    /// contain the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range)
+    /// header to request only a part of the video that is streaming. In this
+    /// case, your response stream should be only the portion of the video
+    /// specified by the range HTTP request headers and you should set the
+    /// appropriate
+    /// [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+    /// header in the response.
     /// </summary>
     function Get_Content(out Content: IStream): HResult; stdcall;
     /// <summary>
@@ -7011,7 +7023,7 @@ type
     /// WebView bounds if the WebView is small enough. Set the margin relative to
     /// the corner with the `DefaultDownloadDialogMargin` property. The corner
     /// alignment and margin should be set during initialization to ensure that
-    /// they are correcly applied when the layout is first computed, otherwise
+    /// they are correctly applied when the layout is first computed, otherwise
     /// they will not take effect until the next time the WebView position or size
     /// is updated.
     ///
@@ -7031,7 +7043,7 @@ type
     /// the chosen WebView corner, and negative values move the dialog away from
     /// it. Use (0, 0) to align the dialog to the WebView corner with no margin.
     /// The corner alignment and margin should be set during initialization to
-    /// ensure that they are correcly applied when the layout is first computed,
+    /// ensure that they are correctly applied when the layout is first computed,
     /// otherwise they will not take effect until the next time the WebView
     /// position or size is updated.
     /// </summary>
@@ -9223,7 +9235,7 @@ type
     /// match, then it will use the OS region. Otherwise, it will use the WebView2
     /// language.
     ///
-    /// | **OS Region** | **WebView2 Language** | **Default WebView2 ScriptLocale** |
+    /// | OS Region | WebView2 Language | Default WebView2 ScriptLocale |
     /// |-----------|-------------------|-------------------------------|
     /// | en-GB     | en-US             | en-GB                         |
     /// | es-MX     | en-US             | en-US                         |
@@ -10463,18 +10475,16 @@ type
   ICoreWebView2FrameInfo = interface(IUnknown)
     ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
     /// <summary>
-    /// The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
-    /// The returned string is empty when the frame has no name attribute.
-    ///
-    /// The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// <para>The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
+    /// The returned string is empty when the frame has no name attribute.</para>
+    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
     /// </summary>
     function Get_name(out name: PWideChar): HResult; stdcall;
     /// <summary>
-    /// The URI of the document in the frame.
-    ///
-    /// The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// <para>The URI of the document in the frame.</para>
+    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
     /// </summary>
     function Get_Source(out Source: PWideChar): HResult; stdcall;
   end;
@@ -10704,6 +10714,23 @@ type
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
     function Get_name(out value: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is a continuation of the ICoreWebView2NewWindowRequestedEventArgs interface.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs3">See the ICoreWebView2NewWindowRequestedEventArgs3 article.</see></para>
+  /// </remarks>
+  ICoreWebView2NewWindowRequestedEventArgs3 = interface(ICoreWebView2NewWindowRequestedEventArgs2)
+    ['{842BED3C-6AD6-4DD9-B938-28C96667AD66}']
+    /// <summary>
+    /// The frame info of the frame where the new window request originated. The
+    /// `OriginalSourceFrameInfo` is a snapshot of frame information at the time when the
+    /// new window was requested. See `ICoreWebView2FrameInfo` for details on frame
+    /// properties.
+    /// </summary>
+    function Get_OriginalSourceFrameInfo(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
   end;
 
   /// <summary>

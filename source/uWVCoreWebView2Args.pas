@@ -494,6 +494,7 @@ type
     protected
       FBaseIntf  : ICoreWebView2NewWindowRequestedEventArgs;
       FBaseIntf2 : ICoreWebView2NewWindowRequestedEventArgs2;
+      FBaseIntf3 : ICoreWebView2NewWindowRequestedEventArgs3;
 
       function  GetInitialized : boolean;
       function  GetURI : wvstring;
@@ -503,6 +504,7 @@ type
       function  GetDeferral : ICoreWebView2Deferral;
       function  GetWindowFeatures : ICoreWebView2WindowFeatures;
       function  GetName : wvstring;
+      function  GetOriginalSourceFrameInfo : ICoreWebView2FrameInfo;
 
       procedure SetNewWindow(const aValue : ICoreWebView2);
       procedure SetHandled(aValue : boolean);
@@ -516,32 +518,32 @@ type
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
-      property Initialized      : boolean                                   read GetInitialized;
+      property Initialized             : boolean                                   read GetInitialized;
       /// <summary>
       /// Returns the interface implemented by this class.
       /// </summary>
-      property BaseIntf         : ICoreWebView2NewWindowRequestedEventArgs  read FBaseIntf;
+      property BaseIntf                : ICoreWebView2NewWindowRequestedEventArgs  read FBaseIntf;
       /// <summary>
       /// The target uri of the new window requested.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_uri">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property URI              : wvstring                                  read GetURI;
+      property URI                     : wvstring                                  read GetURI;
       /// <summary>
       /// Gets the new window.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_newwindow">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property NewWindow        : ICoreWebView2                             read GetNewWindow         write SetNewWindow;
+      property NewWindow               : ICoreWebView2                             read GetNewWindow         write SetNewWindow;
       /// <summary>
       /// Gets whether the `NewWindowRequested` event is handled by host.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_handled">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property Handled          : boolean                                   read GetHandled           write SetHandled;
+      property Handled                 : boolean                                   read GetHandled           write SetHandled;
       /// <summary>
       /// <para>`TRUE` when the new window request was initiated through a user gesture.
       /// Examples of user initiated requests are:</para>
@@ -557,7 +559,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_isuserinitiated">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property IsUserInitiated  : boolean                                   read GetIsUserInitiated;
+      property IsUserInitiated         : boolean                                   read GetIsUserInitiated;
       /// <summary>
       /// Obtain an `ICoreWebView2Deferral` object and put the event into a
       /// deferred state.  Use the `ICoreWebView2Deferral` object to complete the
@@ -568,7 +570,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#getdeferral">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property Deferral         : ICoreWebView2Deferral                     read GetDeferral;
+      property Deferral                : ICoreWebView2Deferral                     read GetDeferral;
       /// <summary>
       /// Window features specified by the `window.open`.  The features should be
       /// considered for positioning and sizing of new webview windows.
@@ -576,7 +578,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_windowfeatures">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
-      property WindowFeatures   : ICoreWebView2WindowFeatures               read GetWindowFeatures;
+      property WindowFeatures          : ICoreWebView2WindowFeatures               read GetWindowFeatures;
       /// <summary>
       /// <para>Gets the name of the new window. This window can be created via `window.open(url, windowName)`,
       /// where the windowName parameter corresponds to `Name` property.</para>
@@ -591,7 +593,17 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs2#get_name">See the ICoreWebView2NewWindowRequestedEventArgs2 article.</see></para>
       /// </remarks>
-      property Name             : wvstring                                  read GetName;
+      property Name                    : wvstring                                  read GetName;
+      /// <summary>
+      /// The frame info of the frame where the new window request originated. The
+      /// `OriginalSourceFrameInfo` is a snapshot of frame information at the time when the
+      /// new window was requested. See `ICoreWebView2FrameInfo` for details on frame
+      /// properties.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs3#get_originalsourceframeinfo">See the ICoreWebView2NewWindowRequestedEventArgs3 article.</see></para>
+      /// </remarks>
+      property OriginalSourceFrameInfo : ICoreWebView2FrameInfo                    read GetOriginalSourceFrameInfo;
   end;
 
   /// <summary>
@@ -2244,8 +2256,9 @@ begin
 
   FBaseIntf := aArgs;
 
-  if Initialized then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2NewWindowRequestedEventArgs2, FBaseIntf2);
+  if Initialized and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2NewWindowRequestedEventArgs2, FBaseIntf2) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2NewWindowRequestedEventArgs3, FBaseIntf3);
 end;
 
 destructor TCoreWebView2NewWindowRequestedEventArgs.Destroy;
@@ -2259,6 +2272,7 @@ procedure TCoreWebView2NewWindowRequestedEventArgs.InitializeFields;
 begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
+  FBaseIntf3 := nil;
 end;
 
 function TCoreWebView2NewWindowRequestedEventArgs.GetInitialized : boolean;
@@ -2353,6 +2367,19 @@ begin
       Result := TempString;
       CoTaskMemFree(TempString);
     end;
+end;
+
+function TCoreWebView2NewWindowRequestedEventArgs.GetOriginalSourceFrameInfo : ICoreWebView2FrameInfo;
+var
+  TempFrameInfo : ICoreWebView2FrameInfo;
+begin
+  Result        := nil;
+  TempFrameInfo := nil;
+
+  if (FBaseIntf3 <> nil) and
+     succeeded(FBaseIntf3.Get_OriginalSourceFrameInfo(TempFrameInfo)) and
+     (TempFrameInfo <> nil) then
+    Result := TempFrameInfo;
 end;
 
 procedure TCoreWebView2NewWindowRequestedEventArgs.SetNewWindow(const aValue : ICoreWebView2);
