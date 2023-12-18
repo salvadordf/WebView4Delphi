@@ -156,6 +156,10 @@
         <DCCReference Include="..\source\uWVCoreWebView2SharedBuffer.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ObjectCollectionView.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2File.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ProcessExtendedInfo.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ProcessExtendedInfoCollection.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2BrowserExtension.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2BrowserExtensionList.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

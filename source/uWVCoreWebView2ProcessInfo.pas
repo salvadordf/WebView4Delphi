@@ -22,6 +22,7 @@ type
 
       function GetInitialized : boolean;
       function GetKind : TWVProcessKind;
+      function GetKindStr : wvstring;
       function GetProcessId : integer;
 
     public
@@ -43,6 +44,13 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfo#get_kind">See the ICoreWebView2ProcessInfo article.</see></para>
       /// </remarks>
       property Kind                                : TWVProcessKind                  read GetKind;
+      /// <summary>
+      /// The kind of the process in string format.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfo#get_kind">See the ICoreWebView2ProcessInfo article.</see></para>
+      /// </remarks>
+      property KindStr                             : wvstring                        read GetKindStr;
       /// <summary>
       /// The process id of the process.
       /// </summary>
@@ -89,6 +97,20 @@ begin
     Result := TempResult
    else
     Result := 0;
+end;
+
+function TCoreWebView2ProcessInfo.GetKindStr : wvstring;
+begin
+  case Kind of
+    COREWEBVIEW2_PROCESS_KIND_BROWSER        : Result := 'browser';
+    COREWEBVIEW2_PROCESS_KIND_RENDERER       : Result := 'render';
+    COREWEBVIEW2_PROCESS_KIND_UTILITY        : Result := 'utility';
+    COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER : Result := 'sandbox helper';
+    COREWEBVIEW2_PROCESS_KIND_GPU            : Result := 'GPU';
+    COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN   : Result := 'PPAPI plugin';
+    COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER   : Result := 'PPAPI plugin broker';
+    else                                       result := 'unknown';
+  end;
 end;
 
 function TCoreWebView2ProcessInfo.GetProcessId : integer;

@@ -61,6 +61,9 @@ type
     ShowprintUI1: TMenuItem;
     PrinttoPDFtostream1: TMenuItem;
     SmartScreen1: TMenuItem;
+    GetBrowserExtensionsMenu: TMenuItem;
+    N3: TMenuItem;
+    Addbrowserextension1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -124,8 +127,14 @@ type
     procedure WVBrowser1GetFaviconCompleted(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream);
     procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
     procedure WVBrowser1PrintToPdfStreamCompleted(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream);
-    procedure WVBrowser1GetNonDefaultPermissionSettingsCompleted(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView);
     procedure SmartScreen1Click(Sender: TObject);
+    procedure GetBrowserExtensionsMenuClick(Sender: TObject);
+    procedure WVBrowser1ProfileGetBrowserExtensionsCompleted(Sender: TObject;
+      aErrorCode: HRESULT;
+      const extensionList: ICoreWebView2BrowserExtensionList);
+    procedure Addbrowserextension1Click(Sender: TObject);
+    procedure WVBrowser1ProfileAddBrowserExtensionCompleted(Sender: TObject;
+      aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -163,7 +172,9 @@ uses
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2HttpResponseHeaders,
   uWVCoreWebView2HttpHeadersCollectionIterator,
   uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo,
-  uWVCoreWebView2Delegates;
+  uWVCoreWebView2Delegates, uWVCoreWebView2ProcessExtendedInfoCollection,
+  uWVCoreWebView2ProcessExtendedInfo, uWVCoreWebView2BrowserExtensionList,
+  uWVCoreWebView2BrowserExtension;
 
 procedure TMiniBrowserFrm.Takesnapshot1Click(Sender: TObject);
 var
@@ -182,6 +193,14 @@ begin
     finally
       TempAdapter := nil;
     end;
+end;
+
+procedure TMiniBrowserFrm.Addbrowserextension1Click(Sender: TObject);
+begin
+  OpenDialog1.Filter := 'Manifest files (*.json)|*.json';
+
+  if OpenDialog1.Execute then
+    WVBrowser1.AddBrowserExtension(ExtractFilePath(OpenDialog1.FileName));
 end;
 
 procedure TMiniBrowserFrm.Availablebrowserversion1Click(Sender: TObject);
@@ -353,6 +372,11 @@ end;
 procedure TMiniBrowserFrm.ForwardBtnClick(Sender: TObject);
 begin
   WVBrowser1.GoForward;
+end;
+
+procedure TMiniBrowserFrm.GetBrowserExtensionsMenuClick(Sender: TObject);
+begin
+  WVBrowser1.GetBrowserExtensions;
 end;
 
 procedure TMiniBrowserFrm.GoBtnClick(Sender: TObject);
@@ -630,13 +654,6 @@ begin
   end;
 end;
 
-procedure TMiniBrowserFrm.WVBrowser1GetNonDefaultPermissionSettingsCompleted(
-  Sender: TObject; aErrorCode: HRESULT;
-  const aCollectionView: ICoreWebView2PermissionSettingCollectionView);
-begin
-  //
-end;
-
 procedure TMiniBrowserFrm.WVBrowser1InitializationError(Sender: TObject;
   aErrorCode: HRESULT; const aErrorMessage: wvstring);
 begin
@@ -739,6 +756,49 @@ begin
     if assigned(TempOLEStream) then
       FreeAndNil(TempOLEStream);
   end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ProfileAddBrowserExtensionCompleted(
+  Sender: TObject; aErrorCode: HRESULT;
+  const extension: ICoreWebView2BrowserExtension);
+var
+  TempExtension : TCoreWebView2BrowserExtension;
+begin
+  if succeeded(aErrorCode) then
+    begin
+      TempExtension := TCoreWebView2BrowserExtension.Create(extension);
+      showmessage('Extension installed successfully : ' + TempExtension.Name);
+      TempExtension.Free;
+    end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ProfileGetBrowserExtensionsCompleted(
+  Sender: TObject; aErrorCode: HRESULT;
+  const extensionList: ICoreWebView2BrowserExtensionList);
+var
+  TempList : TCoreWebView2BrowserExtensionList;
+  TempExtension : TCoreWebView2BrowserExtension;
+  i : cardinal;
+  TempMsg : wvstring;
+begin
+  if succeeded(aErrorCode) then
+    begin
+      TempList := TCoreWebView2BrowserExtensionList.Create(extensionList);
+      TempMsg  := 'Browser extensions :' + CRLF;
+      i        := 0;
+
+      while (i < TempList.Count) do
+        begin
+          TempExtension := TCoreWebView2BrowserExtension.Create(TempList.Items[i]);
+          TempMsg       := TempMsg + quotedstr(TempExtension.Name) + CRLF;
+          TempExtension.Free;
+          inc(i);
+        end;
+
+      TempList.Free;
+
+      showmessage(TempMsg);
+    end;
 end;
 
 procedure TMiniBrowserFrm.SaveAsTextFile(const aFileName : string; const aFileContents : wvstring);
@@ -1014,6 +1074,8 @@ initialization
   // Uncomment these lines to enable the debug log in 'CustomCache\EBWebView\chrome_debug.log'
   //GlobalWebView2Loader.DebugLog       := TWV2DebugLog.dlEnabled;
   //GlobalWebView2Loader.DebugLogLevel  := TWV2DebugLogLevel.dllInfo;
+
+  GlobalWebView2Loader.AreBrowserExtensionsEnabled := True;
 
   GlobalWebView2Loader.StartWebView2;
 

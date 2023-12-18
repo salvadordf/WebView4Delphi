@@ -81,6 +81,8 @@ const
 
   WEBVIEW4DELPHI_PRINT_COPIES_DEFAULT = 1;
 
+  WEBVIEW4DELPHI_INVALID_FRAMEID = 0;
+
 implementation
 
 end.

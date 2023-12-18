@@ -28,6 +28,7 @@ type
       FBaseIntf2                               : ICoreWebView2Frame2;
       FBaseIntf3                               : ICoreWebView2Frame3;
       FBaseIntf4                               : ICoreWebView2Frame4;
+      FBaseIntf5                               : ICoreWebView2Frame5;
       FNameChangedToken                        : EventRegistrationToken;
       FDestroyedToken                          : EventRegistrationToken;
       FFrameNavigationStartingToken            : EventRegistrationToken;
@@ -36,11 +37,12 @@ type
       FFrameDOMContentLoadedToken              : EventRegistrationToken;
       FFrameWebMessageReceivedToken            : EventRegistrationToken;
       FPermissionRequestedToken                : EventRegistrationToken;
-      FFrameID                                 : integer;
+      FFrameIDCopy                             : cardinal;
 
       function GetInitialized : boolean;
       function GetName : wvstring;
       function GetIsDestroyed : boolean;
+      function GetFrameID : cardinal;
 
       procedure InitializeFields;
       procedure InitializeTokens;
@@ -61,7 +63,7 @@ type
       /// </summary>
       /// <param name="aBaseIntf">The ICoreWebView2Frame instance.</param>
       /// <param name="aFrameID">Custom ID used to identify this frame.</param>
-      constructor Create(const aBaseIntf : ICoreWebView2Frame; aFrameID : integer); reintroduce;
+      constructor Create(const aBaseIntf : ICoreWebView2Frame); reintroduce;
       destructor  Destroy; override;
       /// <summary>
       /// Adds all the events of this class to an existing TWVBrowserBase instance.
@@ -212,9 +214,10 @@ type
       /// </summary>
       property BaseIntf            : ICoreWebView2Frame              read FBaseIntf;
       /// <summary>
-      /// Custom ID used to identify this frame.
+      /// The unique identifier of the current frame. It's the same kind of ID as
+      /// with the `FrameId` in `ICoreWebView2` and via `CoreWebView2FrameInfo`.
       /// </summary>
-      property FrameID             : integer                         read FFrameID;
+      property FrameID             : cardinal                        read GetFrameID;
       /// <summary>
       /// The name of the iframe from the iframe html tag declaring it.
       /// You can access this property even if the iframe is destroyed.
@@ -236,21 +239,21 @@ type
 implementation
 
 uses
-  uWVMiscFunctions, uWVBrowserBase, uWVCoreWebView2Delegates;
+  uWVMiscFunctions, uWVBrowserBase, uWVCoreWebView2Delegates, uWVConstants;
 
-constructor TCoreWebView2Frame.Create(const aBaseIntf: ICoreWebView2Frame; aFrameID : integer);
+constructor TCoreWebView2Frame.Create(const aBaseIntf: ICoreWebView2Frame);
 begin
   inherited Create;
 
   InitializeFields;
 
   FBaseIntf := aBaseIntf;
-  FFrameID  := aFrameID;
 
   if Initialized and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame2, FBaseIntf2) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame4, FBaseIntf4);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame4, FBaseIntf4) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame5, FBaseIntf5);
 end;
 
 destructor TCoreWebView2Frame.Destroy;
@@ -265,10 +268,12 @@ end;
 
 procedure TCoreWebView2Frame.InitializeFields;
 begin
-  FBaseIntf   := nil;
-  FBaseIntf2  := nil;
-  FBaseIntf3  := nil;
-  FFrameID    := 0;
+  FBaseIntf    := nil;
+  FBaseIntf2   := nil;
+  FBaseIntf3   := nil;
+  FBaseIntf4   := nil;
+  FBaseIntf5   := nil;
+  FFrameIDCopy := WEBVIEW4DELPHI_INVALID_FRAMEID;
 
   InitializeTokens;
 end;
@@ -341,7 +346,7 @@ begin
 
   if Initialized and (FNameChangedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameNameChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameNameChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf.add_NameChanged(TempHandler, FNameChangedToken));
     finally
       TempHandler := nil;
@@ -356,7 +361,7 @@ begin
 
   if Initialized and (FDestroyedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameDestroyedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameDestroyedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf.add_Destroyed(TempHandler, FDestroyedToken));
     finally
       TempHandler := nil;
@@ -371,7 +376,7 @@ begin
 
   if assigned(FBaseIntf2) and (FFrameNavigationStartingToken.value  = 0) then
     try
-      TempHandler := TCoreWebView2FrameNavigationStartingEventHandler2.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameNavigationStartingEventHandler2.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf2.add_NavigationStarting(TempHandler, FFrameNavigationStartingToken));
     finally
       TempHandler := nil;
@@ -386,7 +391,7 @@ begin
 
   if assigned(FBaseIntf2) and (FFrameNavigationCompletedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameNavigationCompletedEventHandler2.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameNavigationCompletedEventHandler2.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf2.add_NavigationCompleted(TempHandler, FFrameNavigationCompletedToken));
     finally
       TempHandler := nil;
@@ -401,7 +406,7 @@ begin
 
   if assigned(FBaseIntf2) and (FFrameContentLoadingToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameContentLoadingEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameContentLoadingEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf2.add_ContentLoading(TempHandler, FFrameContentLoadingToken));
     finally
       TempHandler := nil;
@@ -416,7 +421,7 @@ begin
 
   if assigned(FBaseIntf2) and (FFrameDOMContentLoadedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameDOMContentLoadedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameDOMContentLoadedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf2.add_DOMContentLoaded(TempHandler, FFrameDOMContentLoadedToken));
     finally
       TempHandler := nil;
@@ -431,7 +436,7 @@ begin
 
   if assigned(FBaseIntf2) and (FFrameWebMessageReceivedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FrameWebMessageReceivedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FrameWebMessageReceivedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf2.add_WebMessageReceived(TempHandler, FFrameWebMessageReceivedToken));
     finally
       TempHandler := nil;
@@ -446,7 +451,7 @@ begin
 
   if assigned(FBaseIntf3) and (FPermissionRequestedToken.value = 0) then
     try
-      TempHandler := TCoreWebView2FramePermissionRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FFrameID);
+      TempHandler := TCoreWebView2FramePermissionRequestedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf3.add_PermissionRequested(TempHandler, FPermissionRequestedToken));
     finally
       TempHandler := nil;
@@ -480,6 +485,20 @@ begin
   Result := Initialized and
             succeeded(FBaseIntf.IsDestroyed(TempResult)) and
             (TempResult <> 0);
+end;
+
+function TCoreWebView2Frame.GetFrameID : cardinal;
+var
+  TempResult : SYSUINT;
+begin
+  if assigned(FBaseIntf5) and
+     succeeded(FBaseIntf5.Get_FrameId(TempResult)) then
+    begin
+      Result       := TempResult;
+      FFrameIDCopy := TempResult;
+    end
+   else
+    Result := FFrameIDCopy;
 end;
 
 function TCoreWebView2Frame.AddHostObjectToScriptWithOrigins(const aName : wvstring; const aObject : OleVariant; aOriginsCount : cardinal; var aOrigins : wvstring) : boolean;

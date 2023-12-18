@@ -32,6 +32,7 @@ const
   LIBID_WebView2: TGUID = '{26D34152-879F-4065-BEA2-3DAA2CFADFB8}';
 
   IID_ICoreWebView2AcceleratorKeyPressedEventArgs: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';
+  IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
   IID_ICoreWebView2AcceleratorKeyPressedEventHandler: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';
   IID_ICoreWebView2Controller: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';
   IID_ICoreWebView2ZoomFactorChangedEventHandler: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';
@@ -152,6 +153,8 @@ const
   IID_ICoreWebView2_18: TGUID = '{7A626017-28BE-49B2-B865-3BA2B3522D90}';
   IID_ICoreWebView2LaunchingExternalUriSchemeEventHandler: TGUID = '{74F712E0-8165-43A9-A13F-0CCE597E75DF}';
   IID_ICoreWebView2LaunchingExternalUriSchemeEventArgs: TGUID = '{07D1A6C3-7175-4BA1-9306-E593CA07E46C}';
+  IID_ICoreWebView2_19: TGUID = '{6921F954-79B0-437F-A997-C85811897C68}';
+  IID_ICoreWebView2_20: TGUID = '{B4BC1926-7305-11EE-B962-0242AC120002}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -184,11 +187,19 @@ const
   IID_ICoreWebView2Environment10: TGUID = '{EE0EB9DF-6F12-46CE-B53F-3F47B9C928E0}';
   IID_ICoreWebView2Environment11: TGUID = '{F0913DC6-A0EC-42EF-9805-91DFF3A2966A}';
   IID_ICoreWebView2Environment12: TGUID = '{F503DB9B-739F-48DD-B151-FDFCF253F54E}';
+  IID_ICoreWebView2Environment13: TGUID = '{AF641F58-72B2-11EE-B962-0242AC120002}';
+  IID_ICoreWebView2GetProcessExtendedInfosCompletedHandler: TGUID = '{F45E55AA-3BC2-11EE-BE56-0242AC120002}';
+  IID_ICoreWebView2ProcessExtendedInfoCollection: TGUID = '{32EFA696-407A-11EE-BE56-0242AC120002}';
+  IID_ICoreWebView2ProcessExtendedInfo: TGUID = '{AF4C4C2E-45DB-11EE-BE56-0242AC120002}';
+  IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
+  IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
+  IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2EnvironmentOptions3: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';
   IID_ICoreWebView2EnvironmentOptions4: TGUID = '{AC52D13F-0D38-475A-9DCA-876580D6793E}';
   IID_ICoreWebView2EnvironmentOptions5: TGUID = '{0AE35D64-C47F-4464-814E-259C345D1501}';
+  IID_ICoreWebView2EnvironmentOptions6: TGUID = '{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -199,9 +210,8 @@ const
   IID_ICoreWebView2FramePermissionRequestedEventHandler: TGUID = '{845D0EDD-8BD8-429B-9915-4821789F23E9}';
   IID_ICoreWebView2PermissionRequestedEventArgs2: TGUID = '{74D7127F-9DE6-4200-8734-42D6FB4FF741}';
   IID_ICoreWebView2Frame4: TGUID = '{188782DC-92AA-4732-AB3C-FCC59F6F68B9}';
-  IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
-  IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
-  IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
+  IID_ICoreWebView2Frame5: TGUID = '{99D199C4-7305-11EE-B962-0242AC120002}';
+  IID_ICoreWebView2FrameInfo2: TGUID = '{56F85CFA-72C4-11EE-B962-0242AC120002}';
   IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';
   IID_ICoreWebView2PermissionSettingCollectionView: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';
   IID_ICoreWebView2PermissionSetting: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';
@@ -219,6 +229,15 @@ const
   IID_ICoreWebView2SetPermissionStateCompletedHandler: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';
   IID_ICoreWebView2Profile5: TGUID = '{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}';
   IID_ICoreWebView2Profile6: TGUID = '{BD82FA6A-1D65-4C33-B2B4-0393020CC61B}';
+  IID_ICoreWebView2Profile7: TGUID = '{7B4C7906-A1AA-4CB4-B723-DB09F813D541}';
+  IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler: TGUID = '{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}';
+  IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
+  IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
+  IID_ICoreWebView2BrowserExtensionEnableCompletedHandler: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';
+  IID_ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler: TGUID = '{FCE16A1C-F107-4601-8B75-FC4940AE25D0}';
+  IID_ICoreWebView2BrowserExtensionList: TGUID = '{2EF3D2DC-BD5F-4F4D-90AF-FD67798F0C2F}';
+  IID_ICoreWebView2Profile8: TGUID = '{FBF70C2F-EB1F-4383-85A0-163E92044011}';
+  IID_ICoreWebView2ProfileDeletedEventHandler: TGUID = '{DF35055D-772E-4DBE-B743-5FBF74A2B258}';
   IID_ICoreWebView2Settings2: TGUID = '{EE9A0F68-F46C-4E32-AC23-EF8CAC224D2A}';
   IID_ICoreWebView2Settings3: TGUID = '{FDB5AB74-AF33-4854-84F0-0A631DEB5EBA}';
   IID_ICoreWebView2Settings4: TGUID = '{CB56846C-4168-4D53-B04F-03B6D6796FF2}';
@@ -226,7 +245,6 @@ const
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
-  IID_ICoreWebView2_19: TGUID = '{6921F954-79B0-437F-A997-C85811897C68}';
   IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
   IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
   IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
@@ -2032,6 +2050,54 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = $00000006;
 
+
+type
+  /// <summary>
+  /// Indicates the frame type used in the `ICoreWebView2FrameInfo` interface.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_frame_kind">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND = TOleEnum;
+const
+  /// <summary>
+  /// Indicates that the frame is an unknown type frame. We may extend this enum
+  /// type to identify more frame kinds in the future.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FRAME_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND_UNKNOWN = $00000000;
+  /// <summary>
+  /// Indicates that the frame is a primary main frame(webview).
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FRAME_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND_MAIN_FRAME = $00000001;
+  /// <summary>
+  /// Indicates that the frame is an iframe.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FRAME_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND_IFRAME = $00000002;
+  /// <summary>
+  /// Indicates that the frame is an embed element.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FRAME_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND_EMBED = $00000003;
+  /// <summary>
+  /// Indicates that the frame is an object element.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FRAME_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FRAME_KIND_OBJECT = $00000004;
+
+
 type
   /// <summary>
   /// Specifies the navigation kind of each navigation.
@@ -2610,6 +2676,7 @@ type
  *********************************************************************
 *}
   ICoreWebView2AcceleratorKeyPressedEventArgs = interface;
+  ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
   ICoreWebView2AcceleratorKeyPressedEventHandler = interface;
   ICoreWebView2Controller = interface;
   ICoreWebView2ZoomFactorChangedEventHandler = interface;
@@ -2730,6 +2797,8 @@ type
   ICoreWebView2_18 = interface;
   ICoreWebView2LaunchingExternalUriSchemeEventHandler = interface;
   ICoreWebView2LaunchingExternalUriSchemeEventArgs = interface;
+  ICoreWebView2_19 = interface;
+  ICoreWebView2_20 = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -2762,11 +2831,19 @@ type
   ICoreWebView2Environment10 = interface;
   ICoreWebView2Environment11 = interface;
   ICoreWebView2Environment12 = interface;
+  ICoreWebView2Environment13 = interface;
+  ICoreWebView2GetProcessExtendedInfosCompletedHandler = interface;
+  ICoreWebView2ProcessExtendedInfoCollection = interface;
+  ICoreWebView2ProcessExtendedInfo = interface;
+  ICoreWebView2FrameInfoCollection = interface;
+  ICoreWebView2FrameInfoCollectionIterator = interface;
+  ICoreWebView2FrameInfo = interface;
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2EnvironmentOptions3 = interface;
   ICoreWebView2EnvironmentOptions4 = interface;
   ICoreWebView2EnvironmentOptions5 = interface;
+  ICoreWebView2EnvironmentOptions6 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -2777,9 +2854,8 @@ type
   ICoreWebView2FramePermissionRequestedEventHandler = interface;
   ICoreWebView2PermissionRequestedEventArgs2 = interface;
   ICoreWebView2Frame4 = interface;
-  ICoreWebView2FrameInfo = interface;
-  ICoreWebView2FrameInfoCollection = interface;
-  ICoreWebView2FrameInfoCollectionIterator = interface;
+  ICoreWebView2Frame5 = interface;
+  ICoreWebView2FrameInfo2 = interface;
   ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = interface;
   ICoreWebView2PermissionSettingCollectionView = interface;
   ICoreWebView2PermissionSetting = interface;
@@ -2797,6 +2873,15 @@ type
   ICoreWebView2SetPermissionStateCompletedHandler = interface;
   ICoreWebView2Profile5 = interface;
   ICoreWebView2Profile6 = interface;
+  ICoreWebView2Profile7 = interface;       // ****
+  ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface;       // ****
+  ICoreWebView2BrowserExtension = interface;       // ****
+  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;       // ****
+  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface;       // ****
+  ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface;       // ****
+  ICoreWebView2BrowserExtensionList = interface;       // ****
+  ICoreWebView2Profile8 = interface;       // ****
+  ICoreWebView2ProfileDeletedEventHandler = interface;       // ****
   ICoreWebView2Settings2 = interface;
   ICoreWebView2Settings3 = interface;
   ICoreWebView2Settings4 = interface;
@@ -2804,7 +2889,6 @@ type
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
-  ICoreWebView2_19 = interface;
   ICoreWebView2File = interface;
   ICoreWebView2ObjectCollectionView = interface;
   ICoreWebView2WebMessageReceivedEventArgs2 = interface;
@@ -2939,6 +3023,73 @@ type
     /// Sets the `Handled` property.
     /// </summary>
     function Set_Handled(Handled: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs2">See the ICoreWebView2AcceleratorKeyPressedEventArgs2 article.</see></para>
+  /// </remarks>
+  ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface(ICoreWebView2AcceleratorKeyPressedEventArgs)
+    ['{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}']
+    /// <summary>
+    /// This property allows developers to enable or disable the browser from handling a specific
+    /// browser accelerator key such as Ctrl+P or F3, etc.
+    ///
+    /// Browser accelerator keys are the keys/key combinations that access features specific to
+    /// a web browser, including but not limited to:
+    ///  - Ctrl-F and F3 for Find on Page
+    ///  - Ctrl-P for Print
+    ///  - Ctrl-R and F5 for Reload
+    ///  - Ctrl-Plus and Ctrl-Minus for zooming
+    ///  - Ctrl-Shift-C and F12 for DevTools
+    ///  - Special keys for browser functions, such as Back, Forward, and Search
+    ///
+    /// This property does not disable accelerator keys related to movement and text editing,
+    /// such as:
+    ///  - Home, End, Page Up, and Page Down
+    ///  - Ctrl-X, Ctrl-C, Ctrl-V
+    ///  - Ctrl-A for Select All
+    ///  - Ctrl-Z for Undo
+    ///
+    /// The `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` API is a convenient setting
+    /// for developers to disable all the browser accelerator keys together, and sets the default
+    /// value for the `IsBrowserAcceleratorKeyEnabled` property.
+    /// By default, `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` is `TRUE` and
+    /// `IsBrowserAcceleratorKeyEnabled` is `TRUE`.
+    /// When developers change `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`,
+    /// this will change default value for `IsBrowserAcceleratorKeyEnabled` to `FALSE`.
+    /// If developers want specific keys to be handled by the browser after changing the
+    /// `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, they need to enable
+    /// these keys by setting `IsBrowserAcceleratorKeyEnabled` to `TRUE`.
+    /// This API will give the event arg higher priority over the
+    /// `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting when we handle the keys.
+    ///
+    /// For browser accelerator keys, when an accelerator key is pressed, the propagation and
+    /// processing order is:
+    /// 1. A CoreWebView2Controller.AcceleratorKeyPressed event is raised
+    /// 2. WebView2 browser feature accelerator key handling
+    /// 3. Web Content Handling: If the key combination isn't reserved for browser actions,
+    /// the key event propagates to the web content, where JavaScript event listeners can
+    /// capture and respond to it.
+    ///
+    /// `ICoreWebView2AcceleratorKeyPressedEventArgs` has a `Handled` property, that developers
+    /// can use to mark a key as handled. When the key is marked as handled anywhere along
+    /// the path, the event propagation stops, and web content will not receive the key.
+    /// With `IsBrowserAcceleratorKeyEnabled` property, if developers mark
+    /// `IsBrowserAcceleratorKeyEnabled` as `FALSE`, the browser will skip the WebView2
+    /// browser feature accelerator key handling process, but the event propagation
+    /// continues, and web content will receive the key combination.
+    ///
+    /// \snippet ScenarioAcceleratorKeyPressed.cpp IsBrowserAcceleratorKeyEnabled
+    /// Gets the `IsBrowserAcceleratorKeyEnabled` property.
+    /// </summary>
+    function Get_IsBrowserAcceleratorKeyEnabled(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Sets the `IsBrowserAcceleratorKeyEnabled` property.
+    /// </summary>
+    function Set_IsBrowserAcceleratorKeyEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8291,6 +8442,76 @@ type
   end;
 
   /// <summary>
+  /// This interface is an extension of ICoreWebView2_18 that manages memory usage
+  /// target level.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_19">See the ICoreWebView2_19 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_19 = interface(ICoreWebView2_18)
+    ['{6921F954-79B0-437F-A997-C85811897C68}']
+    /// <summary>
+    /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
+    /// WebView.
+    /// </summary>
+    function Get_MemoryUsageTargetLevel(out level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
+    /// <summary>
+    /// An app may set `MemoryUsageTargetLevel` to indicate desired memory
+    /// consumption level of WebView. Scripts will not be impacted and continue
+    /// to run. This is useful for inactive apps that still want to run scripts
+    /// and/or keep network connections alive and therefore could not call
+    /// `TrySuspend` and `Resume` to reduce memory consumption. These apps can
+    /// set memory usage target level to `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW`
+    /// when the app becomes inactive, and set back to
+    /// `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL` when the app becomes
+    /// active. It is not necessary to set CoreWebView2Controller's IsVisible
+    /// property to false when setting the property.
+    /// It is a best effort operation to change memory usage level, and the
+    /// API will return before the operation completes.
+    /// Setting the level to `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW`
+    /// could potentially cause memory for some WebView browser processes to be
+    /// swapped out to disk in some circumstances.
+    /// It is a best effort to reduce memory usage as much as possible. If a script
+    /// runs after its related memory has been swapped out, the memory will be swapped
+    /// back in to ensure the script can still run, but performance might be impacted.
+    /// Therefore, the app should set the level back to
+    /// `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL` when the app becomes
+    /// active again. Setting memory usage target level back to normal will not happen
+    /// automatically.
+    /// An app should choose to use either the combination of `TrySuspend` and `Resume`
+    /// or the combination of setting MemoryUsageTargetLevel to low and normal. It is
+    /// not advisable to mix them.
+    /// Trying to set `MemoryUsageTargetLevel` while suspended will be ignored.
+    /// The `TrySuspend` and `Resume` methods will change the `MemoryUsageTargetLevel`.
+    /// `TrySuspend` will automatically set `MemoryUsageTargetLevel` to low while
+    /// `Resume` on suspended WebView will automatically set `MemoryUsageTargetLevel`
+    /// to normal. Calling `Resume` when the WebView is not suspended would not change
+    /// `MemoryUsageTargetLevel`.
+    ///
+    /// \snippet ViewComponent.cpp MemoryUsageTargetLevel
+    /// </summary>
+    function Set_MemoryUsageTargetLevel(level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This interface is an extension of `ICoreWebView2_19` that provides the `FrameId` property.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20">See the ICoreWebView2_20 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_20 = interface(ICoreWebView2_19)
+    ['{B4BC1926-7305-11EE-B962-0242AC120002}']
+    /// <summary>
+    /// The unique identifier of the main frame. It's the same kind of ID as
+    /// with the `FrameId` in `CoreWebView2Frame` and via `CoreWebView2FrameInfo`.
+    /// Note that `FrameId` may not be valid if `CoreWebView2` has not done
+    /// any navigation. It's safe to get this value during or after the first
+    /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
+    /// </summary>
+    function Get_FrameId(out id: SYSUINT): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Event args for the BrowserProcessExited event.
   /// </summary>
   /// <remarks>
@@ -9894,6 +10115,156 @@ type
   end;
 
   /// <summary>
+  /// A continuation of the ICoreWebView2Environment interface for getting process
+  /// with associated information.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment13">See the ICoreWebView2Environment13 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Environment13 = interface(ICoreWebView2Environment12)
+    ['{AF641F58-72B2-11EE-B962-0242AC120002}']
+    /// <summary>
+    /// Gets a snapshot collection of `ProcessExtendedInfo`s corresponding to all
+    /// currently running processes associated with this `CoreWebView2Environment`
+    /// excludes crashpad process.
+    /// This provides the same list of `ProcessInfo`s as what's provided in
+    /// `GetProcessInfos`, but additionally provides a list of associated `FrameInfo`s
+    /// which are actively running (showing or hiding UI elements) in the renderer
+    /// process. See `AssociatedFrameInfos` for more information.
+    ///
+    /// \snippet ProcessComponent.cpp GetProcessExtendedInfos
+    /// </summary>
+    function GetProcessExtendedInfos(const handler: ICoreWebView2GetProcessExtendedInfosCompletedHandler): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives the result of the `GetProcessExtendedInfos` method.
+  /// The result is written to the collection of `ProcessExtendedInfo`s provided
+  /// in the `GetProcessExtendedInfos` method call.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getprocessextendedinfoscompletedhandler">See the ICoreWebView2GetProcessExtendedInfosCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2GetProcessExtendedInfosCompletedHandler = interface(IUnknown)
+    ['{F45E55AA-3BC2-11EE-BE56-0242AC120002}']
+    /// <summary>
+    /// Provides the process extended info list for the `GetProcessExtendedInfos`.
+    /// </summary>
+    function Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// A list containing processInfo and associated extended information.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProcessExtendedInfoCollection = interface(IUnknown)
+    ['{32EFA696-407A-11EE-BE56-0242AC120002}']
+    /// <summary>
+    /// The number of process contained in the `ICoreWebView2ProcessExtendedInfoCollection`.
+    /// </summary>
+    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// Gets the `ICoreWebView2ProcessExtendedInfo` located in the
+    /// `ICoreWebView2ProcessExtendedInfoCollection` at the given index.
+    /// </summary>
+    function GetValueAtIndex(index: SYSUINT; out processInfo: ICoreWebView2ProcessExtendedInfo): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Provides process with associated extended information in the `ICoreWebView2Environment`.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfo">See the ICoreWebView2ProcessExtendedInfo article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProcessExtendedInfo = interface(IUnknown)
+    ['{AF4C4C2E-45DB-11EE-BE56-0242AC120002}']
+    /// <summary>
+    /// The process info of the current process.
+    /// </summary>
+    function Get_processInfo(out processInfo: ICoreWebView2ProcessInfo): HResult; stdcall;
+    /// <summary>
+    /// The collection of associated `FrameInfo`s which are actively running
+    /// (showing or hiding UI elements) in this renderer process. `AssociatedFrameInfos`
+    /// will only be populated when this `CoreWebView2ProcessExtendedInfo`
+    /// corresponds to a renderer process. Non-renderer processes will always
+    /// have an empty `AssociatedFrameInfos`. The `AssociatedFrameInfos` may
+    /// also be empty for renderer processes that have no active frames.
+    ///
+    /// \snippet ProcessComponent.cpp AssociatedFrameInfos
+    /// </summary>
+    function Get_AssociatedFrameInfos(out frames: ICoreWebView2FrameInfoCollection): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Collection of FrameInfos (name and source). Used to list the affected
+  /// frames' info when a frame-only render process failure occurs in the
+  /// ICoreWebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollection">See the ICoreWebView2FrameInfoCollection article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameInfoCollection = interface(IUnknown)
+    ['{8F834154-D38E-4D90-AFFB-6800A7272839}']
+    /// <summary>
+    /// Gets an iterator over the collection of `FrameInfo`s.
+    /// </summary>
+    function GetIterator(out iterator: ICoreWebView2FrameInfoCollectionIterator): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Iterator for a collection of FrameInfos. For more info, see
+  /// ICoreWebView2ProcessFailedEventArgs2 and
+  /// ICoreWebView2FrameInfoCollection.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator">See the ICoreWebView2FrameInfoCollectionIterator article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameInfoCollectionIterator = interface(IUnknown)
+    ['{1BF89E2D-1B2B-4629-B28F-05099B41BB03}']
+    /// <summary>
+    /// `TRUE` when the iterator has not run out of `FrameInfo`s.  If the
+    /// collection over which the iterator is iterating is empty or if the
+    /// iterator has gone past the end of the collection, then this is `FALSE`.
+    /// </summary>
+    function Get_hasCurrent(out hasCurrent: Integer): HResult; stdcall;
+    /// <summary>
+    /// Get the current `ICoreWebView2FrameInfo` of the iterator.
+    /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)` if HasCurrent is
+    /// `FALSE`.
+    /// </summary>
+    function GetCurrent(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
+    /// <summary>
+    /// Move the iterator to the next `FrameInfo` in the collection.
+    /// </summary>
+    function MoveNext(out hasNext: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Provides a set of properties for a frame in the ICoreWebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo">See the ICoreWebView2FrameInfo article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameInfo = interface(IUnknown)
+    ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
+    /// <summary>
+    /// <para>The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
+    /// The returned string is empty when the frame has no name attribute.</para>
+    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+    /// </summary>
+    function Get_name(out name: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// <para>The URI of the document in the frame.</para>
+    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+    /// </summary>
+    function Get_Source(out Source: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Options used to create WebView2 Environment.  A default implementation is
   /// provided in WebView2EnvironmentOptions.h.
   /// </summary>
@@ -10115,6 +10486,30 @@ type
     /// Sets the `EnableTrackingPrevention` property.
     /// </summary>
     function Set_EnableTrackingPrevention(value: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Additional options used to create WebView2 Environment to manage browser extensions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
+  /// </remarks>
+  ICoreWebView2EnvironmentOptions6 = interface(IUnknown)
+    ['{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}']
+    /// <summary>
+    /// When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user
+    /// profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case,
+    /// new extensions can't be installed, and already installed extension won't be
+    /// available to use in user profile.
+    /// If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled`
+    /// property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.
+    /// See `ICoreWebView2BrowserExtension` for Extensions API details.
+    /// </summary>
+    function Get_AreBrowserExtensionsEnabled(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Sets the `AreBrowserExtensionsEnabled` property.
+    /// </summary>
+    function Set_AreBrowserExtensionsEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10467,70 +10862,60 @@ type
   end;
 
   /// <summary>
-  /// Provides a set of properties for a frame in the ICoreWebView2.
+  /// This is an extension of the ICoreWebView2Frame interface that provides the `FrameId` property.
   /// </summary>
   /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo">See the ICoreWebView2FrameInfo article.</see></para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame5">See the ICoreWebView2Frame5 article.</see></para>
   /// </remarks>
-  ICoreWebView2FrameInfo = interface(IUnknown)
-    ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
+  ICoreWebView2Frame5 = interface(ICoreWebView2Frame4)
+    ['{99D199C4-7305-11EE-B962-0242AC120002}']
     /// <summary>
-    /// <para>The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
-    /// The returned string is empty when the frame has no name attribute.</para>
-    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+    /// The unique identifier of the current frame. It's the same kind of ID as
+    /// with the `FrameId` in `CoreWebView2` and via `CoreWebView2FrameInfo`.
     /// </summary>
-    function Get_name(out name: PWideChar): HResult; stdcall;
-    /// <summary>
-    /// <para>The URI of the document in the frame.</para>
-    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
-    /// </summary>
-    function Get_Source(out Source: PWideChar): HResult; stdcall;
+    function Get_FrameId(out id: SYSUINT): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Collection of FrameInfos (name and source). Used to list the affected
-  /// frames' info when a frame-only render process failure occurs in the
-  /// ICoreWebView2.
+  /// A continuation of the ICoreWebView2FrameInfo interface that provides
+  /// `ParentFrameInfo`, `FrameId` and `FrameKind` properties.
   /// </summary>
   /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollection">See the ICoreWebView2FrameInfoCollection article.</see></para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo2">See the ICoreWebView2FrameInfo2 article.</see></para>
   /// </remarks>
-  ICoreWebView2FrameInfoCollection = interface(IUnknown)
-    ['{8F834154-D38E-4D90-AFFB-6800A7272839}']
+  ICoreWebView2FrameInfo2 = interface(ICoreWebView2FrameInfo)
+    ['{56F85CFA-72C4-11EE-B962-0242AC120002}']
     /// <summary>
-    /// Gets an iterator over the collection of `FrameInfo`s.
+    /// This parent frame's `FrameInfo`. `ParentFrameInfo` will only be
+    /// populated when obtained via calling
+    ///`CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
+    /// `CoreWebView2FrameInfo` objects obtained via `CoreWebView2.ProcessFailed` will
+    /// always have a `null` `ParentFrameInfo`. This property is also `null` for the
+    /// main frame in the WebView2 which has no parent frame.
+    /// Note that this `ParentFrameInfo` could be out of date as it's a snapshot.
     /// </summary>
-    function GetIterator(out iterator: ICoreWebView2FrameInfoCollectionIterator): HResult; stdcall;
-  end;
-
-  /// <summary>
-  /// Iterator for a collection of FrameInfos. For more info, see
-  /// ICoreWebView2ProcessFailedEventArgs2 and
-  /// ICoreWebView2FrameInfoCollection.
-  /// </summary>
-  /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator">See the ICoreWebView2FrameInfoCollectionIterator article.</see></para>
-  /// </remarks>
-  ICoreWebView2FrameInfoCollectionIterator = interface(IUnknown)
-    ['{1BF89E2D-1B2B-4629-B28F-05099B41BB03}']
+    function Get_ParentFrameInfo(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
     /// <summary>
-    /// `TRUE` when the iterator has not run out of `FrameInfo`s.  If the
-    /// collection over which the iterator is iterating is empty or if the
-    /// iterator has gone past the end of the collection, then this is `FALSE`.
+    /// The unique identifier of the frame associated with the current `FrameInfo`.
+    /// It's the same kind of ID as with the `FrameId` in `CoreWebView2` and via
+    /// `CoreWebView2Frame`. `FrameId` will only be populated (non-zero) when obtained
+    /// calling `CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
+    /// `CoreWebView2FrameInfo` objects obtained via `CoreWebView2.ProcessFailed` will
+    /// always have an invalid frame Id 0.
+    /// Note that this `FrameId` could be out of date as it's a snapshot.
+    /// If there's WebView2 created or destroyed or `FrameCreated/FrameDestroyed` events
+    /// after the asynchronous call `CoreWebView2Environment.GetProcessExtendedInfos`
+    /// starts, you may want to call asynchronous method again to get the updated `FrameInfo`s.
     /// </summary>
-    function Get_hasCurrent(out hasCurrent: Integer): HResult; stdcall;
+    function Get_FrameId(out id: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Get the current `ICoreWebView2FrameInfo` of the iterator.
-    /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)` if HasCurrent is
-    /// `FALSE`.
+    /// The frame kind of the frame. `FrameKind` will only be populated when
+    /// obtained calling `CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
+    /// `CoreWebView2FrameInfo` objects obtained via `CoreWebView2.ProcessFailed`
+    /// will always have the default value `COREWEBVIEW2_FRAME_KIND_UNKNOWN`.
+    /// Note that this `FrameKind` could be out of date as it's a snapshot.
     /// </summary>
-    function GetCurrent(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
-    /// <summary>
-    /// Move the iterator to the next `FrameInfo` in the collection.
-    /// </summary>
-    function MoveNext(out hasNext: Integer): HResult; stdcall;
+    function Get_FrameKind(out Kind: COREWEBVIEW2_FRAME_KIND): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11222,6 +11607,251 @@ type
   end;
 
   /// <summary>
+  /// Interfaces in profile for managing browser extensions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7">See the ICoreWebView2Profile7 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Profile7 = interface(ICoreWebView2Profile6)
+    ['{7B4C7906-A1AA-4CB4-B723-DB09F813D541}']
+    /// <summary>
+    /// Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+    /// using the extension path for unpacked extensions from the local device. Extension is
+    /// running right after installation.
+    /// The extension folder path is the topmost folder of an unpacked browser extension and
+    /// contains the browser extension manifest file.
+    /// If the `extensionFolderPath` is an invalid path or doesn't contain the extension manifest.json
+    /// file, this function will return `ERROR_FILE_NOT_FOUND` to callers.
+    /// Installed extension will default `IsEnabled` to true.
+    /// When `AreBrowserExtensionsEnabled` is `FALSE`, `AddBrowserExtension` will fail and return
+    /// HRESULT `ERROR_NOT_SUPPORTED`.
+    /// During installation, the content of the extension is not copied to the user data folder.
+    /// Once the extension is installed, changing the content of the extension will cause the
+    /// extension to be removed from the installed profile.
+    /// When an extension is added the extension is persisted in the corresponding profile. The
+    /// extension will still be installed the next time you use this profile.
+    /// When an extension is installed from a folder path, adding the same extension from the same
+    /// folder path means reinstalling this extension. When two extensions with the same Id are
+    /// installed, only the later installed extension will be kept.
+    ///
+    /// Extensions that are designed to include any UI interactions (e.g. icon, badge, pop up, etc.)
+    /// can be loaded and used but will have missing UI entry points due to the lack of browser
+    /// UI elements to host these entry points in WebView2.
+    ///
+    /// The following summarizes the possible error values that can be returned from
+    /// `AddBrowserExtension` and a description of why these errors occur.
+    ///
+    /// Error value                                     | Description
+    /// ----------------------------------------------- | --------------------------
+    /// `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`       | Extensions are disabled.
+    /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`      | Cannot find `manifest.json` file or it is not a valid extension manifest.
+    /// `E_ACCESSDENIED`                                | Cannot load extension with file or directory name starting with \"_\", reserved for use by the system.
+    /// `E_FAIL`                                        | Extension failed to install with other unknown reasons.
+    /// </summary>
+    function AddBrowserExtension(extensionFolderPath: PWideChar;
+                                 const handler: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler): HResult; stdcall;
+    /// <summary>
+    /// Gets a snapshot of the set of extensions installed at the time `GetBrowserExtensions` is
+    /// called. If an extension is installed or uninstalled after `GetBrowserExtensions` completes,
+    /// the list returned by `GetBrowserExtensions` remains the same.
+    /// When `AreBrowserExtensionsEnabled` is `FALSE`, `GetBrowserExtensions` won't return any
+    /// extensions on current user profile.
+    /// </summary>
+    function GetBrowserExtensions(const handler: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result
+  /// of loading an browser Extension.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profileaddbrowserextensioncompletedhandler">See the ICoreWebView2ProfileAddBrowserExtensionCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface(IUnknown)
+    ['{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}']
+    /// <summary>
+    /// Provides the result of the `AddBrowserExtension` operation.
+    /// </summary>
+    function Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Provides a set of properties for managing an Extension, which includes
+  /// an ID, name, and whether it is enabled or not, and the ability to Remove
+  /// the Extension, and enable or disable it.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">See the ICoreWebView2BrowserExtension article.</see></para>
+  /// </remarks>
+  ICoreWebView2BrowserExtension = interface(IUnknown)
+    ['{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}']
+    /// <summary>
+    /// This is the browser extension's ID. This is the same browser extension ID returned by
+    /// the browser extension API [`chrome.runtime.id`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id).
+    /// Please see that documentation for more details on how the ID is generated.
+    /// After an extension is removed, calling `Id` will return the id of the extension that is removed.
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_id(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// This is the browser extension's name. This value is defined in this browser extension's
+    /// manifest.json file. If manifest.json define extension's localized name, this value will
+    /// be the localized version of the name.
+    /// Please see [Manifest.json name](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
+    /// for more details.
+    /// After an extension is removed, calling `Name` will return the name of the extension that is removed.
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_name(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Removes this browser extension from its WebView2 Profile. The browser extension is removed
+    /// immediately including from all currently running HTML documents associated with this
+    /// WebView2 Profile. The removal is persisted and future uses of this profile will not have this
+    /// extension installed. After an extension is removed, calling `Remove` again will cause an exception.
+    /// </summary>
+    function Remove(const handler: ICoreWebView2BrowserExtensionRemoveCompletedHandler): HResult; stdcall;
+    /// <summary>
+    /// If `isEnabled` is true then the Extension is enabled and running in WebView instances.
+    /// If it is false then the Extension is disabled and not running in WebView instances.
+    /// When a Extension is first installed, `IsEnable` are default to be `TRUE`.
+    /// `isEnabled` is persisted per profile.
+    /// After an extension is removed, calling `isEnabled` will return the value at the time it was removed.
+    /// </summary>
+    function Get_IsEnabled(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Sets whether this browser extension is enabled or disabled. This change applies immediately
+    /// to the extension in all HTML documents in all WebView2s associated with this profile.
+    /// After an extension is removed, calling `Enable` will not change the value of `IsEnabled`.
+    /// </summary>
+    function Enable(IsEnabled: Integer;
+                    const handler: ICoreWebView2BrowserExtensionEnableCompletedHandler): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of removing
+  /// the browser Extension from the Profile.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionremovecompletedhandler">See the ICoreWebView2BrowserExtensionRemoveCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface(IUnknown)
+    ['{8E41909A-9B18-4BB1-8CDF-930F467A50BE}']
+    /// <summary>
+    /// Provides the result of the browser extension Remove operation.
+    /// </summary>
+    function Invoke(errorCode: HResult): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of setting the
+  /// browser Extension as enabled or disabled. If enabled, the browser Extension is
+  /// running in WebView instances. If disabled, the browser Extension is not running in WebView instances.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionenablecompletedhandler">See the ICoreWebView2BrowserExtensionEnableCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface(IUnknown)
+    ['{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}']
+    /// <summary>
+    /// Provides the result of the browser extension enable operation.
+    /// </summary>
+    function Invoke(errorCode: HResult): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of
+  /// getting the browser Extensions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profilegetbrowserextensionscompletedhandler">See the ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface(IUnknown)
+    ['{FCE16A1C-F107-4601-8B75-FC4940AE25D0}']
+    /// <summary>
+    /// Provides the browser extension list for the requested user profile.
+    /// </summary>
+    function Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Provides a set of properties for managing browser Extension Lists from user profile. This
+  /// includes the number of browser Extensions in the list, and the ability to get an browser
+  /// Extension from the list at a particular index.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionlist">See the ICoreWebView2BrowserExtensionList article.</see></para>
+  /// </remarks>
+  ICoreWebView2BrowserExtensionList = interface(IUnknown)
+    ['{2EF3D2DC-BD5F-4F4D-90AF-FD67798F0C2F}']
+    /// <summary>
+    /// The number of browser Extensions in the list.
+    /// </summary>
+    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// Gets the browser Extension located in the browser Extension List at the given index.
+    /// </summary>
+    function GetValueAtIndex(index: SYSUINT; out extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the profile interface that manages profile deletion.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile8">See the ICoreWebView2Profile8 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Profile8 = interface(ICoreWebView2Profile7)
+    ['{FBF70C2F-EB1F-4383-85A0-163E92044011}']
+    /// <summary>
+    /// After the API is called, the profile will be marked for deletion. The
+    /// local profile's directory will be deleted at browser process exit. If it
+    /// fails to delete, because something else is holding the files open,
+    /// WebView2 will try to delete the profile at all future browser process
+    /// starts until successful.
+    /// The corresponding CoreWebView2s will be closed and the
+    /// CoreWebView2Profile.Deleted event will be raised. See
+    /// `CoreWebView2Profile.Deleted` for more information.
+    /// If you try to create a new profile with the same name as an existing
+    /// profile that has been marked as deleted but hasn't yet been deleted,
+    /// profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).
+    ///
+    /// \snippet SettingsComponent.cpp DeleteProfile
+    /// </summary>
+    function Delete: HResult; stdcall;
+    /// <summary>
+    /// Add an event handler for the `Deleted` event. The `Deleted` event is
+    /// raised when the profile is marked for deletion. When this event is
+    /// raised, the CoreWebView2Profile and its corresponding CoreWebView2s have
+    /// been closed, and cannot be used anymore.
+    ///
+    /// \snippet AppWindow.cpp ProfileDeleted
+    /// </summary>
+    function add_Deleted(const eventHandler: ICoreWebView2ProfileDeletedEventHandler;
+                         out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_Deleted`.
+    /// </summary>
+    function remove_Deleted(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives the `CoreWebView2Profile.Deleted` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profiledeletedeventhandler">See the ICoreWebView2ProfileDeletedEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProfileDeletedEventHandler = interface(IUnknown)
+    ['{DF35055D-772E-4DBE-B743-5FBF74A2B258}']
+    /// <summary>
+    /// Called to provide the implementer with the event args for the
+    /// profile deleted event. No event args exist and the `args`
+    /// parameter is set to `null`.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// A continuation of the ICoreWebView2Settings interface that manages the user agent.
   /// </summary>
   /// <remarks>
@@ -11491,58 +12121,6 @@ type
     /// Set the `IsReputationCheckingRequired` property.
     /// </summary>
     function Set_IsReputationCheckingRequired(value: Integer): HResult; stdcall;
-  end;
-
-  /// <summary>
-  /// This interface is an extension of ICoreWebView2_18 that manages memory usage
-  /// target level.
-  /// </summary>
-  /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_19">See the ICoreWebView2_19 article.</see></para>
-  /// </remarks>
-  ICoreWebView2_19 = interface(ICoreWebView2_18)
-    ['{6921F954-79B0-437F-A997-C85811897C68}']
-    /// <summary>
-    /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
-    /// WebView.
-    /// </summary>
-    function Get_MemoryUsageTargetLevel(out level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
-    /// <summary>
-    /// An app may set `MemoryUsageTargetLevel` to indicate desired memory
-    /// consumption level of WebView. Scripts will not be impacted and continue
-    /// to run. This is useful for inactive apps that still want to run scripts
-    /// and/or keep network connections alive and therefore could not call
-    /// `TrySuspend` and `Resume` to reduce memory consumption. These apps can
-    /// set memory usage target level to `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW`
-    /// when the app becomes inactive, and set back to
-    /// `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL` when the app becomes
-    /// active. It is not necessary to set CoreWebView2Controller's IsVisible
-    /// property to false when setting the property.
-    /// It is a best effort operation to change memory usage level, and the
-    /// API will return before the operation completes.
-    /// Setting the level to `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW`
-    /// could potentially cause memory for some WebView browser processes to be
-    /// swapped out to disk in some circumstances.
-    /// It is a best effort to reduce memory usage as much as possible. If a script
-    /// runs after its related memory has been swapped out, the memory will be swapped
-    /// back in to ensure the script can still run, but performance might be impacted.
-    /// Therefore, the app should set the level back to
-    /// `COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL` when the app becomes
-    /// active again. Setting memory usage target level back to normal will not happen
-    /// automatically.
-    /// An app should choose to use either the combination of `TrySuspend` and `Resume`
-    /// or the combination of setting MemoryUsageTargetLevel to low and normal. It is
-    /// not advisable to mix them.
-    /// Trying to set `MemoryUsageTargetLevel` while suspended will be ignored.
-    /// The `TrySuspend` and `Resume` methods will change the `MemoryUsageTargetLevel`.
-    /// `TrySuspend` will automatically set `MemoryUsageTargetLevel` to low while
-    /// `Resume` on suspended WebView will automatically set `MemoryUsageTargetLevel`
-    /// to normal. Calling `Resume` when the WebView is not suspended would not change
-    /// `MemoryUsageTargetLevel`.
-    ///
-    /// \snippet ViewComponent.cpp MemoryUsageTargetLevel
-    /// </summary>
-    function Set_MemoryUsageTargetLevel(level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
   end;
 
   /// <summary>

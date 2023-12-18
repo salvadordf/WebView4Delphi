@@ -126,6 +126,12 @@ type
       property OnGetNonDefaultPermissionSettingsCompleted;
       property OnSetPermissionStateCompleted;
       property OnLaunchingExternalUriScheme;
+      property OnGetProcessExtendedInfosCompleted;
+      property OnBrowserExtensionRemoveCompleted;
+      property OnBrowserExtensionEnableCompleted;
+      property OnProfileAddBrowserExtensionCompleted;
+      property OnProfileGetBrowserExtensionsCompleted;
+      property OnProfileDeleted;
   end;
 
 implementation

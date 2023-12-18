@@ -16,8 +16,8 @@
     </CompilerOptions>
     <Description Value="WebView4Delphi is an open source project created by Salvador Díaz Fau to embed Chromium-based browsers in applications made with Delphi or Lazarus/FPC."/>
     <License Value="MIT"/>
-    <Version Major="1" Release="2151" Build="40"/>
-    <Files Count="55">
+    <Version Major="1" Release="2210" Build="55"/>
+    <Files Count="60">
       <Item1>
         <Filename Value="..\source\uWVBrowser.pas"/>
         <HasRegisterProc Value="True"/>
@@ -240,6 +240,26 @@
         <Filename Value="..\source\uWVCoreWebView2ObjectCollectionView.pas"/>
         <UnitName Value="uWVCoreWebView2ObjectCollectionView"/>
       </Item55>
+      <Item56>
+        <Filename Value="..\source\uWVCoreWebView2Profile.pas"/>
+        <UnitName Value="uWVCoreWebView2Profile"/>
+      </Item56>
+      <Item57>
+        <Filename Value="..\source\uWVCoreWebView2BrowserExtensionList.pas"/>
+        <UnitName Value="uWVCoreWebView2BrowserExtensionList"/>
+      </Item57>
+      <Item58>
+        <Filename Value="..\source\uWVCoreWebView2ProcessExtendedInfoCollection.pas"/>
+        <UnitName Value="uWVCoreWebView2ProcessExtendedInfoCollection"/>
+      </Item58>
+      <Item59>
+        <Filename Value="..\source\uWVCoreWebView2BrowserExtension.pas"/>
+        <UnitName Value="uWVCoreWebView2BrowserExtension"/>
+      </Item59>
+      <Item60>
+        <Filename Value="..\source\uWVCoreWebView2ProcessExtendedInfo.pas"/>
+        <UnitName Value="uWVCoreWebView2ProcessExtendedInfo"/>
+      </Item60>
     </Files>
     <CompatibilityMode Value="True"/>
     <RequiredPkgs Count="2">

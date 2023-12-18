@@ -86,7 +86,13 @@ contains
   uWVCoreWebView2CustomSchemeRegistration in '..\source\uWVCoreWebView2CustomSchemeRegistration.pas',
   uWVCoreWebView2PermissionSettingCollectionView in '..\source\uWVCoreWebView2PermissionSettingCollectionView.pas',
   uWVCoreWebView2PermissionSetting in '..\source\uWVCoreWebView2PermissionSetting.pas',
-  uWVCoreWebView2SharedBuffer in '..\source\uWVCoreWebView2SharedBuffer.pas';
+  uWVCoreWebView2SharedBuffer in '..\source\uWVCoreWebView2SharedBuffer.pas',
+  uWVCoreWebView2ObjectCollectionView in '..\source\uWVCoreWebView2ObjectCollectionView.pas',
+  uWVCoreWebView2File in '..\source\uWVCoreWebView2File.pas',
+  uWVCoreWebView2ProcessExtendedInfo in '..\source\uWVCoreWebView2ProcessExtendedInfo.pas',
+  uWVCoreWebView2ProcessExtendedInfoCollection in '..\source\uWVCoreWebView2ProcessExtendedInfoCollection.pas',
+  uWVCoreWebView2BrowserExtension in '..\source\uWVCoreWebView2BrowserExtension.pas',
+  uWVCoreWebView2BrowserExtensionList in '..\source\uWVCoreWebView2BrowserExtensionList.pas';
 
 end.
 

@@ -350,6 +350,13 @@ type
   /// <para>Renamed COREWEBVIEW2_NAVIGATION_KIND type.</para>
   /// </remarks>
   TWVNavigationKind                       = type COREWEBVIEW2_NAVIGATION_KIND;
+  /// <summary>
+  /// Indicates the frame type used in the `ICoreWebView2FrameInfo` interface.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_FRAME_KIND type.</para>
+  /// </remarks>
+  TWVFrameKind                            = type COREWEBVIEW2_FRAME_KIND;
 
   /// <summary>
   /// TWVLoader status values

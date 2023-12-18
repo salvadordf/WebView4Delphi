@@ -799,12 +799,12 @@ type
   TCoreWebView2FrameNameChangedEventHandler = class(TInterfacedObject, ICoreWebView2FrameNameChangedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: IUnknown): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer = 0); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -817,12 +817,12 @@ type
   TCoreWebView2FrameDestroyedEventHandler = class(TInterfacedObject, ICoreWebView2FrameDestroyedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: IUnknown): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer = 0); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -943,12 +943,12 @@ type
   TCoreWebView2FrameNavigationCompletedEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationCompletedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -961,12 +961,12 @@ type
   TCoreWebView2FrameNavigationStartingEventHandler2 = class(TInterfacedObject, ICoreWebView2FrameNavigationStartingEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -979,12 +979,12 @@ type
   TCoreWebView2FrameContentLoadingEventHandler = class(TInterfacedObject, ICoreWebView2FrameContentLoadingEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -997,12 +997,12 @@ type
   TCoreWebView2FrameDOMContentLoadedEventHandler = class(TInterfacedObject, ICoreWebView2FrameDOMContentLoadedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -1015,12 +1015,12 @@ type
   TCoreWebView2FrameWebMessageReceivedEventHandler = class(TInterfacedObject, ICoreWebView2FrameWebMessageReceivedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -1103,12 +1103,12 @@ type
   TCoreWebView2FramePermissionRequestedEventHandler = class(TInterfacedObject, ICoreWebView2FramePermissionRequestedEventHandler)
     protected
       FEvents  : Pointer;
-      FFrameID : integer;
+      FFrameID : cardinal;
 
       function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2): HResult; stdcall;
 
     public
-      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : integer); reintroduce;
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
       destructor  Destroy; override;
   end;
 
@@ -1290,6 +1290,117 @@ type
       FEvents : Pointer;
 
       function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// Receives the result of the `GetProcessExtendedInfos` method.
+  /// The result is written to the collection of `ProcessExtendedInfo`s provided
+  /// in the `GetProcessExtendedInfos` method call.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getprocessextendedinfoscompletedhandler">See the ICoreWebView2GetProcessExtendedInfosCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2GetProcessExtendedInfosCompletedHandler = class(TInterfacedObject, ICoreWebView2GetProcessExtendedInfosCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of removing
+  /// the browser Extension from the Profile.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionremovecompletedhandler">See the ICoreWebView2BrowserExtensionRemoveCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2BrowserExtensionRemoveCompletedHandler = class(TInterfacedObject, ICoreWebView2BrowserExtensionRemoveCompletedHandler)
+    protected
+      FEvents : Pointer;
+      FID     : wvstring;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; const aExtensionID: wvstring); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of setting the
+  /// browser Extension as enabled or disabled. If enabled, the browser Extension is
+  /// running in WebView instances. If disabled, the browser Extension is not running in WebView instances.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionenablecompletedhandler">See the ICoreWebView2BrowserExtensionEnableCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2BrowserExtensionEnableCompletedHandler = class(TInterfacedObject, ICoreWebView2BrowserExtensionEnableCompletedHandler)
+    protected
+      FEvents : Pointer;
+      FID     : wvstring;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; const aExtensionID: wvstring); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result
+  /// of loading an browser Extension.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profileaddbrowserextensioncompletedhandler">See the ICoreWebView2ProfileAddBrowserExtensionCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2ProfileAddBrowserExtensionCompletedHandler = class(TInterfacedObject, ICoreWebView2ProfileAddBrowserExtensionCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// The caller implements this interface to receive the result of
+  /// getting the browser Extensions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profilegetbrowserextensionscompletedhandler">See the ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler = class(TInterfacedObject, ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// Receives the `CoreWebView2Profile.Deleted` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profiledeletedeventhandler">See the ICoreWebView2ProfileDeletedEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2ProfileDeletedEventHandler = class(TInterfacedObject, ICoreWebView2ProfileDeletedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -2418,7 +2529,7 @@ end;
 
 // TCoreWebView2FrameNameChangedEventHandler
 
-constructor TCoreWebView2FrameNameChangedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameNameChangedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2444,7 +2555,7 @@ end;
 
 // TCoreWebView2FrameDestroyedEventHandler
 
-constructor TCoreWebView2FrameDestroyedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameDestroyedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2634,7 +2745,7 @@ end;
 
 // TCoreWebView2FrameNavigationCompletedEventHandler2
 
-constructor TCoreWebView2FrameNavigationCompletedEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameNavigationCompletedEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2661,7 +2772,7 @@ end;
 
 // TCoreWebView2FrameNavigationStartingEventHandler2
 
-constructor TCoreWebView2FrameNavigationStartingEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameNavigationStartingEventHandler2.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2688,7 +2799,7 @@ end;
 
 // TCoreWebView2FrameContentLoadingEventHandler
 
-constructor TCoreWebView2FrameContentLoadingEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameContentLoadingEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2715,7 +2826,7 @@ end;
 
 // TCoreWebView2FrameDOMContentLoadedEventHandler
 
-constructor TCoreWebView2FrameDOMContentLoadedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameDOMContentLoadedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2742,7 +2853,7 @@ end;
 
 // TCoreWebView2FrameWebMessageReceivedEventHandler
 
-constructor TCoreWebView2FrameWebMessageReceivedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FrameWebMessageReceivedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -2872,7 +2983,7 @@ end;
 
 // TCoreWebView2FramePermissionRequestedEventHandler
 
-constructor TCoreWebView2FramePermissionRequestedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : integer);
+constructor TCoreWebView2FramePermissionRequestedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
 begin
   inherited Create;
 
@@ -3148,5 +3259,156 @@ begin
     Result := E_FAIL;
 end;
 
+
+// TCoreWebView2GetProcessExtendedInfosCompletedHandler
+
+constructor TCoreWebView2GetProcessExtendedInfosCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2GetProcessExtendedInfosCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2GetProcessExtendedInfosCompletedHandler.Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).GetProcessExtendedInfosCompletedHandler_Invoke(errorCode, value)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2BrowserExtensionRemoveCompletedHandler
+
+constructor TCoreWebView2BrowserExtensionRemoveCompletedHandler.Create(const aEvents: IWVBrowserEvents; const aExtensionID: wvstring);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+  FID     := aExtensionID;
+end;
+
+destructor TCoreWebView2BrowserExtensionRemoveCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2BrowserExtensionRemoveCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).BrowserExtensionRemoveCompletedHandler_Invoke(errorCode, FID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2BrowserExtensionEnableCompletedHandler
+
+constructor TCoreWebView2BrowserExtensionEnableCompletedHandler.Create(const aEvents: IWVBrowserEvents; const aExtensionID: wvstring);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+  FID     := aExtensionID;
+end;
+
+destructor TCoreWebView2BrowserExtensionEnableCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2BrowserExtensionEnableCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).BrowserExtensionEnableCompletedHandler_Invoke(errorCode, FID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ProfileAddBrowserExtensionCompletedHandler
+
+constructor TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode, extension)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler
+
+constructor TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode, extensionList)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ProfileDeletedEventHandler
+
+constructor TCoreWebView2ProfileDeletedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2ProfileDeletedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ProfileDeletedEventHandler.Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ProfileDeletedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
 
 end.

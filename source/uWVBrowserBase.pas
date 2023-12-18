@@ -19,7 +19,8 @@ uses
   uWVInterfaces, uWVEvents, uWVCoreWebView2, uWVCoreWebView2Settings,
   uWVCoreWebView2Environment, uWVCoreWebView2Controller,
   uWVCoreWebView2PrintSettings, uWVCoreWebView2CompositionController,
-  uWVCoreWebView2CookieManager, uWVCoreWebView2Delegates;
+  uWVCoreWebView2CookieManager, uWVCoreWebView2Delegates,
+  uWVCoreWebView2Profile;
 
 type
   /// <summary>
@@ -34,6 +35,7 @@ type
       FCoreWebView2Controller                          : TCoreWebView2Controller;
       FCoreWebView2CompositionController               : TCoreWebView2CompositionController;
       FCoreWebView2                                    : TCoreWebView2;
+      FCoreWebView2Profile                             : TCoreWebView2Profile;
       FWindowParentHandle                              : THandle;
       FUseDefaultEnvironment                           : boolean;
       FUseCompositionController                        : boolean;
@@ -56,7 +58,10 @@ type
       FClearBrowsingDataCompletedHandler               : ICoreWebView2ClearBrowsingDataCompletedHandler;
       FSetPermissionStateCompletedHandler              : ICoreWebView2SetPermissionStateCompletedHandler;
       FGetNonDefaultPermissionSettingsCompletedHandler : ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler;
+      FProfileAddBrowserExtensionCompletedHandler      : ICoreWebView2ProfileAddBrowserExtensionCompletedHandler;
+      FProfileGetBrowserExtensionsCompletedHandler     : ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler;
       FEnableTrackingPrevention                        : boolean;
+      FAreBrowserExtensionsEnabled                     : boolean;
       FPreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel;
       FScriptLocale                                    : wvstring;
 
@@ -159,6 +164,12 @@ type
       FOnGetNonDefaultPermissionSettingsCompleted     : TOnGetNonDefaultPermissionSettingsCompletedEvent;
       FOnSetPermissionStateCompleted                  : TOnSetPermissionStateCompletedEvent;
       FOnLaunchingExternalUriScheme                   : TOnLaunchingExternalUriSchemeEvent;
+      FOnGetProcessExtendedInfosCompleted             : TOnGetProcessExtendedInfosCompletedEvent;
+      FOnBrowserExtensionRemoveCompleted              : TOnBrowserExtensionRemoveCompletedEvent;
+      FOnBrowserExtensionEnableCompleted              : TOnBrowserExtensionEnableCompletedEvent;
+      FOnProfileAddBrowserExtensionCompleted          : TOnProfileAddBrowserExtensionCompletedEvent;
+      FOnProfileGetBrowserExtensionsCompleted         : TOnProfileGetBrowserExtensionsCompletedEvent;
+      FOnProfileDeleted                               : TOnProfileDeletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -222,6 +233,7 @@ type
       function  GetProfileIsPasswordAutosaveEnabled : boolean;
       function  GetProfileIsGeneralAutofillEnabled : boolean;
       function  GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
+      function  GetFrameID : cardinal;
 
       procedure SetBuiltInErrorPageEnabled(aValue: boolean);
       procedure SetDefaultContextMenusEnabled(aValue: boolean);
@@ -273,6 +285,7 @@ type
       procedure DestroyController;
       procedure DestroyCompositionController;
       procedure DestroyWebView;
+      procedure DestroyProfile;
       procedure DestroySettings;
       procedure DestroyPrintSettings;
       procedure DestroyMenuItemHandler;
@@ -337,24 +350,24 @@ type
       function BytesReceivedChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
       function EstimatedEndTimeChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
       function StateChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
-      function FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HRESULT;
-      function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HRESULT;
+      function FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
+      function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
       function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
       function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
       function IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
-      function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer): HRESULT;
-      function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer): HRESULT;
-      function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer): HRESULT;
-      function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HRESULT;
-      function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HRESULT;
+      function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: cardinal): HRESULT;
+      function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: cardinal): HRESULT;
+      function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: cardinal): HRESULT;
+      function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: cardinal): HRESULT;
+      function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: cardinal): HRESULT;
       function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HRESULT;
       function ContextMenuRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs): HRESULT;
       function CustomItemSelectedEventHandler_Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HRESULT;
       function StatusBarTextChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
-      function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HRESULT;
+      function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: cardinal): HRESULT;
       function ClearBrowsingDataCompletedHandler_Invoke(errorCode: HResult): HRESULT;
       function ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode: HResult): HRESULT;
       function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HRESULT;
@@ -365,6 +378,12 @@ type
       function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HRESULT;
       function SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HRESULT;
       function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HRESULT;
+      function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
+      function BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
+      function BrowserExtensionEnableCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
+      function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HRESULT;
+      function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
+      function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -410,8 +429,8 @@ type
       procedure doOnBytesReceivedChangedEventEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
       procedure doOnEstimatedEndTimeChangedEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
       procedure doOnStateChangedEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
-      procedure doOnFrameNameChangedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer); virtual;
-      procedure doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer); virtual;
+      procedure doOnFrameNameChangedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal); virtual;
+      procedure doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal); virtual;
       procedure doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID : integer); virtual;
       procedure doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aID : wvstring); virtual;
       procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
@@ -427,16 +446,16 @@ type
       procedure doOnIsDocumentPlayingAudioChanged(const sender: ICoreWebView2); virtual;
       procedure doOnIsDefaultDownloadDialogOpenChanged(const sender: ICoreWebView2); virtual;
       procedure doOnProcessInfosChangedEvent(const sender: ICoreWebView2Environment); virtual;
-      procedure doOnFrameNavigationStarting2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID : integer); virtual;
-      procedure doOnFrameNavigationCompleted2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID : integer); virtual;
-      procedure doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer); virtual;
-      procedure doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer); virtual;
-      procedure doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer); virtual;
+      procedure doOnFrameNavigationStarting2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID : cardinal); virtual;
+      procedure doOnFrameNavigationCompleted2(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID : cardinal); virtual;
+      procedure doOnFrameContentLoadingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: cardinal); virtual;
+      procedure doOnFrameDOMContentLoadedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: cardinal); virtual;
+      procedure doOnFrameWebMessageReceivedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: cardinal); virtual;
       procedure doOnBasicAuthenticationRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs); virtual;
       procedure doOnContextMenuRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ContextMenuRequestedEventArgs); virtual;
       procedure doOnCustomItemSelectedEvent(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown); virtual;
       procedure doOnStatusBarTextChangedEvent(const sender: ICoreWebView2; const args: IUnknown); virtual;
-      procedure doOnFramePermissionRequestedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer); virtual;
+      procedure doOnFramePermissionRequestedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: cardinal); virtual;
       procedure doOnClearBrowsingDataCompletedEvent(aErrorCode: HRESULT); virtual;
       procedure doOnServerCertificateErrorActionsCompletedEvent(aErrorCode: HRESULT); virtual;
       procedure doOnServerCertificateErrorDetectedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs); virtual;
@@ -448,6 +467,12 @@ type
       procedure doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView); virtual;
       procedure doOnSetPermissionStateCompleted(errorCode: HResult); virtual;
       procedure doOnLaunchingExternalUriSchemeEvent(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs); virtual;
+      procedure doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection); virtual;
+      procedure doOnBrowserExtensionRemoveCompletedEvent(errorCode: HResult; const aExtensionID: wvstring); virtual;
+      procedure doOnBrowserExtensionEnableCompletedEvent(errorCode: HResult; const aExtensionID: wvstring); virtual;
+      procedure doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const extension: ICoreWebView2BrowserExtension); virtual;
+      procedure doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList); virtual;
+      procedure doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -711,6 +736,73 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>
       /// </remarks>
       function    GetNonDefaultPermissionSettings: boolean;
+      /// <summary>
+      /// <para>Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+      /// using the extension path for unpacked extensions from the local device. Extension is
+      /// running right after installation.</para>
+      /// <para>The extension folder path is the topmost folder of an unpacked browser extension and
+      /// contains the browser extension manifest file.</para>
+      /// <para>If the `extensionFolderPath` is an invalid path or doesn't contain the extension manifest.json
+      /// file, this function will return `ERROR_FILE_NOT_FOUND` to callers.</para>
+      /// <para>Installed extension will default `IsEnabled` to true.</para>
+      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `AddBrowserExtension` will fail and return
+      /// HRESULT `ERROR_NOT_SUPPORTED`.</para>
+      /// <para>During installation, the content of the extension is not copied to the user data folder.
+      /// Once the extension is installed, changing the content of the extension will cause the
+      /// extension to be removed from the installed profile.</para>
+      /// <para>When an extension is added the extension is persisted in the corresponding profile. The
+      /// extension will still be installed the next time you use this profile.</para>
+      /// <para>When an extension is installed from a folder path, adding the same extension from the same
+      /// folder path means reinstalling this extension. When two extensions with the same Id are
+      /// installed, only the later installed extension will be kept.</para>
+      /// <para>Extensions that are designed to include any UI interactions (e.g. icon, badge, pop up, etc.)
+      /// can be loaded and used but will have missing UI entry points due to the lack of browser
+      /// UI elements to host these entry points in WebView2.</para>
+      /// <para>The following summarizes the possible error values that can be returned from
+      /// `AddBrowserExtension` and a description of why these errors occur.</para>
+      /// <code>
+      /// Error value                                     | Description
+      /// ----------------------------------------------- | --------------------------
+      /// `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`       | Extensions are disabled.
+      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`      | Cannot find `manifest.json` file or it is not a valid extension manifest.
+      /// `E_ACCESSDENIED`                                | Cannot load extension with file or directory name starting with \"_\", reserved for use by the system.
+      /// `E_FAIL`                                        | Extension failed to install with other unknown reasons.
+      /// </code>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#addbrowserextension">See the ICoreWebView2Profile7 article.</see></para>
+      /// <para>The TWVBrowserBase.OnProfileAddBrowserExtensionCompleted event is triggered when TWVBrowserBase.AddBrowserExtension finishes executing.</para>
+      /// </remarks>
+      function    AddBrowserExtension(const extensionFolderPath: wvstring): boolean;
+      /// <summary>
+      /// <para>Gets a snapshot of the set of extensions installed at the time `GetBrowserExtensions` is
+      /// called. If an extension is installed or uninstalled after `GetBrowserExtensions` completes,
+      /// the list returned by `GetBrowserExtensions` remains the same.</para>
+      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `GetBrowserExtensions` won't return any
+      /// extensions on current user profile.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#getbrowserextensions">See the ICoreWebView2Profile7 article.</see></para>
+      /// <para>The TWVBrowserBase.OnProfileGetBrowserExtensionsCompleted event is triggered when TWVBrowserBase.GetBrowserExtensions finishes executing.</para>
+      /// </remarks>
+      function    GetBrowserExtensions: boolean;
+      /// <summary>
+      /// <para>After the API is called, the profile will be marked for deletion. The
+      /// local profile's directory will be deleted at browser process exit. If it
+      /// fails to delete, because something else is holding the files open,
+      /// WebView2 will try to delete the profile at all future browser process
+      /// starts until successful.</para>
+      /// <para>The corresponding CoreWebView2s will be closed and the
+      /// CoreWebView2Profile.Deleted event will be raised. See
+      /// `CoreWebView2Profile.Deleted` for more information.</para>
+      /// <para>If you try to create a new profile with the same name as an existing
+      /// profile that has been marked as deleted but hasn't yet been deleted,
+      /// profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile8#delete">See the ICoreWebView2Profile8 article.</see></para>
+      /// </remarks>
+      function    DeleteProfile: boolean;
       /// <summary>
       /// <para>An app may call the `TrySuspend` API to have the WebView2 consume less memory.
       /// This is useful when a Win32 app becomes invisible, or when a Universal Windows
@@ -1374,6 +1466,21 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_17#postsharedbuffertoscript">See the ICoreWebView2_17 article.</see></para>
       /// </remarks>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
+      /// <summary>
+      /// <para>Gets a snapshot collection of `ProcessExtendedInfo`s corresponding to all
+      /// currently running processes associated with this `ICoreWebView2Environment`
+      /// excludes crashpad process.</para>
+      /// <para>This provides the same list of `ProcessInfo`s as what's provided in
+      /// `GetProcessInfos`, but additionally provides a list of associated `FrameInfo`s
+      /// which are actively running (showing or hiding UI elements) in the renderer
+      /// process. See `AssociatedFrameInfos` for more information.</para>
+      /// </summary>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment13#getprocessextendedinfos">See the ICoreWebView2Environment13 article.</see></para>
+      /// <para>This function triggers the TWVBrowserBase.OnGetProcessExtendedInfosCompleted event.</para>
+      /// </remarks>
+      function    GetProcessExtendedInfos : boolean;
 
       // Custom properties
       property Initialized                                     : boolean                                               read GetInitialized;
@@ -1430,6 +1537,16 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property CoreWebView2                                    : TCoreWebView2                                         read FCoreWebView2;
+      /// <summary>
+      /// The associated `ICoreWebView2Profile` object. If this CoreWebView2 was created with a
+      /// CoreWebView2ControllerOptions, the CoreWebView2Profile will match those specified options.
+      /// Otherwise if this CoreWebView2 was created without a CoreWebView2ControllerOptions, then
+      /// this will be the default CoreWebView2Profile for the corresponding CoreWebView2Environment.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_13#get_profile">See the ICoreWebView2_13 article.</see></para>
+      /// </remarks>
+      property Profile                                         : TCoreWebView2Profile                                  read FCoreWebView2Profile;
       /// <summary>
       /// First URL loaded by the browser after its creation.
       /// </summary>
@@ -1574,6 +1691,20 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
       /// </remarks>
       property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;
+      /// <summary>
+      /// <para>When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user
+      /// profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case,
+      /// new extensions can't be installed, and already installed extension won't be
+      /// available to use in user profile.</para>
+      /// <para>If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled`
+      /// property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions6.Get_AreBrowserExtensionsEnabled.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">See the ICoreWebView2BrowserExtension article for Extensions API details.</see></para>
+      /// </remarks>
+      property AreBrowserExtensionsEnabled                     : boolean                                               read FAreBrowserExtensionsEnabled                     write FAreBrowserExtensionsEnabled;
       /// <summary>
       /// The browser version info of the current `ICoreWebView2Environment`,
       /// including channel name if it is not the WebView2 Runtime.  It matches the
@@ -2324,6 +2455,17 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile6#get_isgeneralautofillenabled">See the ICoreWebView2Profile6 article.</see></para>
       /// </remarks>
       property ProfileIsGeneralAutofillEnabled                 : boolean                                               read GetProfileIsGeneralAutofillEnabled               write SetProfileIsGeneralAutofillEnabled;
+      /// <summary>
+      /// The unique identifier of the main frame. It's the same kind of ID as
+      /// with the `FrameId` in `ICoreWebView2Frame` and via `ICoreWebView2FrameInfo`.
+      /// Note that `FrameId` may not be valid if `ICoreWebView2` has not done
+      /// any navigation. It's safe to get this value during or after the first
+      /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid">See the ICoreWebView2_20 article.</see></para>
+      /// </remarks>
+      property FrameId                                        : cardinal                                               read GetFrameID;
 
       /// <summary>
       /// The OnBrowserProcessExited event is triggered when the collection of WebView2
@@ -3136,13 +3278,55 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18#add_launchingexternalurischeme">See the ICoreWebView2_18 article.</see></para>
       /// </remarks>
       property OnLaunchingExternalUriScheme                    : TOnLaunchingExternalUriSchemeEvent                    read FOnLaunchingExternalUriScheme                    write FOnLaunchingExternalUriScheme;
+      /// <summary>
+      /// The TWVBrowserBase.OnGetProcessExtendedInfosCompleted event is triggered when TWVBrowserBase.GetProcessExtendedInfos finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment13#getprocessextendedinfos">See the ICoreWebView2Environment13 article.</see></para>
+      /// </remarks>
+      property OnGetProcessExtendedInfosCompleted              : TOnGetProcessExtendedInfosCompletedEvent              read FOnGetProcessExtendedInfosCompleted              write FOnGetProcessExtendedInfosCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnBrowserExtensionRemoveCompleted event is triggered when TCoreWebView2BrowserExtension.Remove finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension#remove">See the ICoreWebView2BrowserExtension article.</see></para>
+      /// </remarks>
+      property OnBrowserExtensionRemoveCompleted               : TOnBrowserExtensionRemoveCompletedEvent               read FOnBrowserExtensionRemoveCompleted               write FOnBrowserExtensionRemoveCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnBrowserExtensionEnableCompleted event is triggered when TCoreWebView2BrowserExtension.Enable finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension#enable">See the ICoreWebView2BrowserExtension article.</see></para>
+      /// </remarks>
+      property OnBrowserExtensionEnableCompleted               : TOnBrowserExtensionEnableCompletedEvent               read FOnBrowserExtensionEnableCompleted               write FOnBrowserExtensionEnableCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnProfileAddBrowserExtensionCompleted event is triggered when TWVBrowserBase.AddBrowserExtension finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#addbrowserextension">See the ICoreWebView2Profile7 article.</see></para>
+      /// </remarks>
+      property OnProfileAddBrowserExtensionCompleted           : TOnProfileAddBrowserExtensionCompletedEvent           read FOnProfileAddBrowserExtensionCompleted           write FOnProfileAddBrowserExtensionCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnProfileGetBrowserExtensionsCompleted event is triggered when TWVBrowserBase.GetBrowserExtensions finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#getbrowserextensions">See the ICoreWebView2Profile7 article.</see></para>
+      /// </remarks>
+      property OnProfileGetBrowserExtensionsCompleted          : TOnProfileGetBrowserExtensionsCompletedEvent          read FOnProfileGetBrowserExtensionsCompleted          write FOnProfileGetBrowserExtensionsCompleted;
+      /// <summary>
+      /// The TWVBrowserBase.OnProfileDeleted event is triggered when TWVBrowserBase.Delete finishes executing.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile8#delete">See the ICoreWebView2Profile8 article.</see></para>
+      /// </remarks>
+      property OnProfileDeleted                                : TOnProfileDeletedEvent                                read FOnProfileDeleted                                write FOnProfileDeleted;
   end;
 
 implementation
 
 uses
   uWVMiscFunctions, uWVCoreWebView2EnvironmentOptions, uWVCoreWebView2ControllerOptions,
-  uWVCoreWebView2Profile, uWVCoreWebView2CustomSchemeRegistration;
+  uWVCoreWebView2CustomSchemeRegistration;
 
 constructor TWVBrowserBase.Create(AOwner: TComponent);
 begin
@@ -3154,6 +3338,7 @@ begin
   FCoreWebView2Controller                          := nil;
   FCoreWebView2CompositionController               := nil;
   FCoreWebView2                                    := nil;
+  FCoreWebView2Profile                             := nil;
   FDefaultURL                                      := '';
   FAdditionalBrowserArguments                      := '';
   FLanguage                                        := '';
@@ -3164,6 +3349,7 @@ begin
   FExclusiveUserDataFolderAccess                   := False;
   FCustomCrashReportingEnabled                     := False;
   FEnableTrackingPrevention                        := True;
+  FAreBrowserExtensionsEnabled                     := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
   FIsNavigating                                    := False;
@@ -3174,6 +3360,8 @@ begin
   FClearBrowsingDataCompletedHandler               := nil;
   FSetPermissionStateCompletedHandler              := nil;
   FGetNonDefaultPermissionSettingsCompletedHandler := nil;
+  FProfileAddBrowserExtensionCompletedHandler      := nil;
+  FProfileGetBrowserExtensionsCompletedHandler     := nil;
 
   FOldWidget0CompWndPrc                            := nil;
   FOldWidget1CompWndPrc                            := nil;
@@ -3274,12 +3462,19 @@ begin
   FOnGetNonDefaultPermissionSettingsCompleted      := nil;
   FOnSetPermissionStateCompleted                   := nil;
   FOnLaunchingExternalUriScheme                    := nil;
+  FOnGetProcessExtendedInfosCompleted              := nil;
+  FOnBrowserExtensionRemoveCompleted               := nil;
+  FOnBrowserExtensionEnableCompleted               := nil;
+  FOnProfileAddBrowserExtensionCompleted           := nil;
+  FOnProfileGetBrowserExtensionsCompleted          := nil;
+  FOnProfileDeleted                                := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
 begin
   try
     RestoreOldCompWndProc;
+    DestroyProfile;
     DestroyPrintSettings;
     DestroySettings;
     DestroyEnvironment;
@@ -3290,6 +3485,8 @@ begin
     FClearBrowsingDataCompletedHandler               := nil;
     FSetPermissionStateCompletedHandler              := nil;
     FGetNonDefaultPermissionSettingsCompletedHandler := nil;
+    FProfileAddBrowserExtensionCompletedHandler      := nil;
+    FProfileGetBrowserExtensionsCompletedHandler     := nil;
   finally
     inherited Destroy;
   end;
@@ -3317,6 +3514,12 @@ procedure TWVBrowserBase.DestroyWebView;
 begin
   if assigned(FCoreWebView2) then
     FreeAndNil(FCoreWebView2);
+end;
+
+procedure TWVBrowserBase.DestroyProfile;
+begin
+  if assigned(FCoreWebView2Profile) then
+    FreeAndNil(FCoreWebView2Profile);
 end;
 
 procedure TWVBrowserBase.DestroySettings;
@@ -3355,6 +3558,8 @@ begin
   FClearBrowsingDataCompletedHandler               := TCoreWebView2ClearBrowsingDataCompletedHandler.Create(self);
   FSetPermissionStateCompletedHandler              := TCoreWebView2SetPermissionStateCompletedHandler.Create(self);
   FGetNonDefaultPermissionSettingsCompletedHandler := TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Create(self);
+  FProfileAddBrowserExtensionCompletedHandler      := TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Create(self);
+  FProfileGetBrowserExtensionsCompletedHandler     := TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Create(self);
 end;
 
 {$IFNDEF FPC}
@@ -3666,6 +3871,9 @@ begin
 
             if assigned(TempSettings) then
               begin
+                FCoreWebView2Profile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
+                FCoreWebView2Profile.AddAllBrowserEvents(self);
+
                 DestroySettings;
                 FCoreWebView2Settings := TCoreWebView2Settings.Create(TempSettings);
 
@@ -4055,13 +4263,13 @@ begin
   doOnStateChangedEvent(sender, args, aDownloadID);
 end;
 
-function TWVBrowserBase.FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HRESULT;
+function TWVBrowserBase.FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameNameChangedEvent(sender, args, aFrameID);
 end;
 
-function TWVBrowserBase.FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HRESULT;
+function TWVBrowserBase.FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameDestroyedEvent(sender, args, aFrameID);
@@ -4154,7 +4362,7 @@ end;
 
 procedure TWVBrowserBase.doOnFrameNavigationStarting2(const sender   : ICoreWebView2Frame;
                                                       const args     : ICoreWebView2NavigationStartingEventArgs;
-                                                            aFrameID : integer);
+                                                            aFrameID : cardinal);
 begin
   if assigned(FOnFrameNavigationStarting2) then
     FOnFrameNavigationStarting2(self, sender, args, aFrameID);
@@ -4162,7 +4370,7 @@ end;
 
 procedure TWVBrowserBase.doOnFrameNavigationCompleted2(const sender   : ICoreWebView2Frame;
                                                        const args     : ICoreWebView2NavigationCompletedEventArgs;
-                                                             aFrameID : integer);
+                                                             aFrameID : cardinal);
 begin
   if assigned(FOnFrameNavigationCompleted2) then
     FOnFrameNavigationCompleted2(self, sender, args, aFrameID);
@@ -4170,7 +4378,7 @@ end;
 
 procedure TWVBrowserBase.doOnFrameContentLoadingEvent(const sender   : ICoreWebView2Frame;
                                                       const args     : ICoreWebView2ContentLoadingEventArgs;
-                                                            aFrameID : integer);
+                                                            aFrameID : cardinal);
 begin
   if assigned(FOnFrameContentLoading) then
     FOnFrameContentLoading(self, sender, args, aFrameID);
@@ -4178,7 +4386,7 @@ end;
 
 procedure TWVBrowserBase.doOnFrameDOMContentLoadedEvent(const sender   : ICoreWebView2Frame;
                                                         const args     : ICoreWebView2DOMContentLoadedEventArgs;
-                                                              aFrameID : integer);
+                                                              aFrameID : cardinal);
 begin
   if assigned(FOnFrameDOMContentLoaded) then
     FOnFrameDOMContentLoaded(self, sender, args, aFrameID);
@@ -4186,7 +4394,7 @@ end;
 
 procedure TWVBrowserBase.doOnFrameWebMessageReceivedEvent(const sender   : ICoreWebView2Frame;
                                                           const args     : ICoreWebView2WebMessageReceivedEventArgs;
-                                                                aFrameID : integer);
+                                                                aFrameID : cardinal);
 begin
   if assigned(FOnFrameWebMessageReceived) then
     FOnFrameWebMessageReceived(self, sender, args, aFrameID);
@@ -4222,7 +4430,7 @@ end;
 
 procedure TWVBrowserBase.doOnFramePermissionRequestedEvent(const sender   : ICoreWebView2Frame;
                                                            const args     : ICoreWebView2PermissionRequestedEventArgs2;
-                                                                 aFrameID : integer);
+                                                                 aFrameID : cardinal);
 begin
   if assigned(FOnFramePermissionRequested) then
     FOnFramePermissionRequested(self, sender, args, aFrameID);
@@ -4313,6 +4521,42 @@ procedure TWVBrowserBase.doOnLaunchingExternalUriSchemeEvent(const sender: ICore
 begin
   if assigned(FOnLaunchingExternalUriScheme) then
     FOnLaunchingExternalUriScheme(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection);
+begin
+  if assigned(FOnGetProcessExtendedInfosCompleted) then
+    FOnGetProcessExtendedInfosCompleted(self, errorCode, value);
+end;
+
+procedure TWVBrowserBase.doOnBrowserExtensionRemoveCompletedEvent(errorCode: HResult; const aExtensionID: wvstring);
+begin
+  if assigned(FOnBrowserExtensionRemoveCompleted) then
+    FOnBrowserExtensionRemoveCompleted(self, errorCode, aExtensionID);
+end;
+
+procedure TWVBrowserBase.doOnBrowserExtensionEnableCompletedEvent(errorCode: HResult; const aExtensionID: wvstring);
+begin
+  if assigned(FOnBrowserExtensionEnableCompleted) then
+    FOnBrowserExtensionEnableCompleted(self, errorCode, aExtensionID);
+end;
+
+procedure TWVBrowserBase.doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const extension: ICoreWebView2BrowserExtension);
+begin
+  if assigned(FOnProfileAddBrowserExtensionCompleted) then
+    FOnProfileAddBrowserExtensionCompleted(self, errorCode, extension);
+end;
+
+procedure TWVBrowserBase.doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList);
+begin
+  if assigned(FOnProfileGetBrowserExtensionsCompleted) then
+    FOnProfileGetBrowserExtensionsCompleted(self, errorCode, extensionList);
+end;
+
+procedure TWVBrowserBase.doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown);
+begin
+  if assigned(FOnProfileDeleted) then
+    FOnProfileDeleted(self, sender);
 end;
 
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
@@ -4479,7 +4723,7 @@ end;
 
 function TWVBrowserBase.FrameNavigationStartingEventHandler2_Invoke(const sender   : ICoreWebView2Frame;
                                                                     const args     : ICoreWebView2NavigationStartingEventArgs;
-                                                                          aFrameID : integer): HRESULT;
+                                                                          aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameNavigationStarting2(sender, args, aFrameID);
@@ -4487,7 +4731,7 @@ end;
 
 function TWVBrowserBase.FrameNavigationCompletedEventHandler2_Invoke(const sender   : ICoreWebView2Frame;
                                                                      const args     : ICoreWebView2NavigationCompletedEventArgs;
-                                                                           aFrameID : integer): HRESULT;
+                                                                           aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameNavigationCompleted2(sender, args, aFrameID);
@@ -4495,7 +4739,7 @@ end;
 
 function TWVBrowserBase.FrameContentLoadingEventHandler_Invoke(const sender   : ICoreWebView2Frame;
                                                                const args     : ICoreWebView2ContentLoadingEventArgs;
-                                                                     aFrameID : integer): HRESULT;
+                                                                     aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameContentLoadingEvent(sender, args, aFrameID);
@@ -4503,7 +4747,7 @@ end;
 
 function TWVBrowserBase.FrameDOMContentLoadedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
                                                                  const args     : ICoreWebView2DOMContentLoadedEventArgs;
-                                                                       aFrameID : integer): HRESULT;
+                                                                       aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameDOMContentLoadedEvent(sender, args, aFrameID);
@@ -4511,7 +4755,7 @@ end;
 
 function TWVBrowserBase.FrameWebMessageReceivedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
                                                                    const args     : ICoreWebView2WebMessageReceivedEventArgs;
-                                                                         aFrameID : integer): HRESULT;
+                                                                         aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFrameWebMessageReceivedEvent(sender, args, aFrameID);
@@ -4548,7 +4792,7 @@ end;
 
 function TWVBrowserBase.FramePermissionRequestedEventHandler_Invoke(const sender   : ICoreWebView2Frame;
                                                                     const args     : ICoreWebView2PermissionRequestedEventArgs2;
-                                                                          aFrameID : integer): HRESULT;
+                                                                          aFrameID : cardinal): HRESULT;
 begin
   Result := S_OK;
   doOnFramePermissionRequestedEvent(sender, args, aFrameID);
@@ -4613,6 +4857,42 @@ function TWVBrowserBase.LaunchingExternalUriSchemeEventHandler_Invoke(const send
 begin
   Result := S_OK;
   doOnLaunchingExternalUriSchemeEvent(sender, args);
+end;
+
+function TWVBrowserBase.GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
+begin
+  Result := S_OK;
+  doOnGetProcessExtendedInfosCompletedEvent(errorCode, value);
+end;
+
+function TWVBrowserBase.BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
+begin
+  Result := S_OK;
+  doOnBrowserExtensionRemoveCompletedEvent(errorCode, aExtensionID);
+end;
+
+function TWVBrowserBase.BrowserExtensionEnableCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
+begin
+  Result := S_OK;
+  doOnBrowserExtensionEnableCompletedEvent(errorCode, aExtensionID);
+end;
+
+function TWVBrowserBase.ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HRESULT;
+begin
+  Result := S_OK;
+  doOnProfileAddBrowserExtensionCompletedEvent(errorCode, extension);
+end;
+
+function TWVBrowserBase.ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
+begin
+  Result := S_OK;
+  doOnProfileGetBrowserExtensionsCompletedEvent(errorCode, extensionList);
+end;
+
+function TWVBrowserBase.ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnProfileDeletedEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -5214,6 +5494,14 @@ begin
     Result := COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL;
 end;
 
+function TWVBrowserBase.GetFrameID : cardinal;
+begin
+  if Initialized then
+    Result := FCoreWebView2.FrameId
+   else
+    Result := WEBVIEW4DELPHI_INVALID_FRAMEID;
+end;
+
 function TWVBrowserBase.GetScreenScale : single;
 begin
   if (GlobalWebView2Loader <> nil) then
@@ -5271,7 +5559,8 @@ begin
                                                           FExclusiveUserDataFolderAccess,
                                                           FCustomCrashReportingEnabled,
                                                           TempSchemeRegistrations,
-                                                          FEnableTrackingPrevention);
+                                                          FEnableTrackingPrevention,
+                                                          FAreBrowserExtensionsEnabled);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),
@@ -5561,6 +5850,12 @@ function TWVBrowserBase.PostSharedBufferToScript(const aSharedBuffer         : I
 begin
   Result := Initialized and
             FCoreWebView2.PostSharedBufferToScript(aSharedBuffer, aAccess, aAdditionalDataAsJson);
+end;
+
+function TWVBrowserBase.GetProcessExtendedInfos : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2Environment.GetProcessExtendedInfos(self);
 end;
 
 function TWVBrowserBase.TrySuspend : boolean;
@@ -6335,13 +6630,13 @@ begin
     FOnDownloadStateChanged(self, sender, aDownloadID);
 end;
 
-procedure TWVBrowserBase.doOnFrameNameChangedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer);
+procedure TWVBrowserBase.doOnFrameNameChangedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal);
 begin
   if assigned(FOnFrameNameChanged) then
     FOnFrameNameChanged(self, sender, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer);
+procedure TWVBrowserBase.doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal);
 begin
   if assigned(FOnFrameDestroyed) then
     FOnFrameDestroyed(self, sender, aFrameID);
@@ -6587,321 +6882,159 @@ begin
 end;
 
 function TWVBrowserBase.ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.ClearBrowsingData(dataKinds, FClearBrowsingDataCompletedHandler);
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.ClearBrowsingData(dataKinds, FClearBrowsingDataCompletedHandler);
 end;
 
 function TWVBrowserBase.ClearBrowsingDataInTimeRange(dataKinds: TWVBrowsingDataKinds; const startTime, endTime: TDateTime): boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.ClearBrowsingDataInTimeRange(dataKinds, startTime, endTime, FClearBrowsingDataCompletedHandler);
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.ClearBrowsingDataInTimeRange(dataKinds, startTime, endTime, FClearBrowsingDataCompletedHandler);
 end;
 
 function TWVBrowserBase.ClearBrowsingDataAll: boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.ClearBrowsingDataAll(FClearBrowsingDataCompletedHandler);
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.ClearBrowsingDataAll(FClearBrowsingDataCompletedHandler);
 end;
 
 function TWVBrowserBase.SetPermissionState(aPermissionKind: TWVPermissionKind; const aOrigin: wvstring; aState: TWVPermissionState) : boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.SetPermissionState(aPermissionKind, aOrigin, aState, FSetPermissionStateCompletedHandler);
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.SetPermissionState(aPermissionKind, aOrigin, aState, FSetPermissionStateCompletedHandler);
 end;
 
 function TWVBrowserBase.GetNonDefaultPermissionSettings: boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.GetNonDefaultPermissionSettings(FGetNonDefaultPermissionSettingsCompletedHandler);
+end;
 
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.GetNonDefaultPermissionSettings(FGetNonDefaultPermissionSettingsCompletedHandler);
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+function TWVBrowserBase.AddBrowserExtension(const extensionFolderPath: wvstring): boolean;
+begin
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.AddBrowserExtension(extensionFolderPath, FProfileAddBrowserExtensionCompletedHandler);
+end;
+
+function TWVBrowserBase.GetBrowserExtensions: boolean;
+begin
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.GetBrowserExtensions(FProfileGetBrowserExtensionsCompletedHandler);
+end;
+
+function TWVBrowserBase.DeleteProfile: boolean;
+begin
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.Delete;
 end;
 
 function TWVBrowserBase.GetProfileName : wvstring;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := FProfileName;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.ProfileName;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.ProfileName
+   else
+    Result := '';
 end;
 
 function TWVBrowserBase.GetIsInPrivateModeEnabled : boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := FIsInPrivateModeEnabled;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.IsInPrivateModeEnabled;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.IsInPrivateModeEnabled
+   else
+    Result := FIsInPrivateModeEnabled;
 end;
 
 function TWVBrowserBase.GetProfilePath : wvstring;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := '';
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.ProfilePath;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.ProfilePath
+   else
+    Result := '';
 end;
 
 function TWVBrowserBase.GetDefaultDownloadFolderPath : wvstring;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := '';
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.DefaultDownloadFolderPath;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.DefaultDownloadFolderPath
+   else
+    Result := '';
 end;
 
 procedure TWVBrowserBase.SetDefaultDownloadFolderPath(const aValue : wvstring);
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      TempProfile.DefaultDownloadFolderPath := aValue;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    FCoreWebView2Profile.DefaultDownloadFolderPath := aValue;
 end;
 
 function TWVBrowserBase.GetPreferredColorScheme : TWVPreferredColorScheme;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.PreferredColorScheme;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.PreferredColorScheme
+   else
+    Result := COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO;
 end;
 
 procedure TWVBrowserBase.SetPreferredColorScheme(const aValue : TWVPreferredColorScheme);
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      TempProfile.PreferredColorScheme := aValue;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    FCoreWebView2Profile.PreferredColorScheme := aValue;
 end;
 
 function TWVBrowserBase.GetPreferredTrackingPreventionLevel : TWVTrackingPreventionLevel;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.PreferredTrackingPreventionLevel;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.PreferredTrackingPreventionLevel
+   else
+    Result := COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED;
 end;
 
 function TWVBrowserBase.GetProfileCookieManager : ICoreWebView2CookieManager;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := nil;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.CookieManager;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    Result := FCoreWebView2Profile.CookieManager
+   else
+    Result := nil;
 end;
 
 function TWVBrowserBase.GetProfileIsPasswordAutosaveEnabled : boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.IsPasswordAutosaveEnabled;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result :=  Initialized and
+             assigned(FCoreWebView2Profile) and
+             FCoreWebView2Profile.IsPasswordAutosaveEnabled;
 end;
 
 function TWVBrowserBase.GetProfileIsGeneralAutofillEnabled : boolean;
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  Result      := False;
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      Result      := TempProfile.IsGeneralAutofillEnabled;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  Result := Initialized and
+            assigned(FCoreWebView2Profile) and
+            FCoreWebView2Profile.IsGeneralAutofillEnabled;
 end;
 
 procedure TWVBrowserBase.SetPreferredTrackingPreventionLevel(const aValue : TWVTrackingPreventionLevel);
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      TempProfile.PreferredTrackingPreventionLevel := aValue;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    FCoreWebView2Profile.PreferredTrackingPreventionLevel := aValue;
 end;
 
 procedure TWVBrowserBase.SetProfileIsPasswordAutosaveEnabled(aValue : boolean);
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      TempProfile.IsPasswordAutosaveEnabled := aValue;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    FCoreWebView2Profile.IsPasswordAutosaveEnabled := aValue;
 end;
 
 procedure TWVBrowserBase.SetProfileIsGeneralAutofillEnabled(aValue : boolean);
-var
-  TempProfile : TCoreWebView2Profile;
 begin
-  TempProfile := nil;
-
-  if Initialized then
-    try
-      TempProfile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
-      TempProfile.IsGeneralAutofillEnabled := aValue;
-    finally
-      if assigned(TempProfile) then
-        FreeAndNil(TempProfile);
-    end;
+  if Initialized and assigned(FCoreWebView2Profile) then
+    FCoreWebView2Profile.IsGeneralAutofillEnabled := aValue;
 end;
 
 procedure TWVBrowserBase.SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);

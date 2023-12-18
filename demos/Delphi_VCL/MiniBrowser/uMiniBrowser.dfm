@@ -24,7 +24,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
-    ExplicitWidth = 1115
     object NavButtonPnl: TPanel
       Left = 0
       Top = 0
@@ -104,14 +103,12 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Padding.Top = 9
       Padding.Bottom = 8
       TabOrder = 1
-      ExplicitWidth = 909
       object URLCbx: TComboBox
         Left = 0
         Top = 9
         Width = 913
         Height = 23
         Align = alClient
-        ItemIndex = 0
         TabOrder = 0
         Text = 'https://www.bing.com'
         Items.Strings = (
@@ -151,8 +148,8 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'https://badssl.com/'
           'edge://flags/'
           'edge://gpu/'
-          'edge://about/')
-        ExplicitWidth = 909
+          'edge://about/'
+          'edge://extensions-internals/')
       end
     end
     object ConfigPnl: TPanel
@@ -163,7 +160,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 1042
       object ConfigBtn: TButton
         Left = 40
         Top = 8
@@ -214,8 +210,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
       item
         Width = 400
       end>
-    ExplicitTop = 697
-    ExplicitWidth = 1115
   end
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -226,8 +220,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
     TabStop = True
     TabOrder = 2
     Browser = WVBrowser1
-    ExplicitWidth = 1115
-    ExplicitHeight = 656
   end
   object WVBrowser1: TWVBrowser
     DefaultURL = 'about:blank'
@@ -257,7 +249,8 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
     OnGetFaviconCompleted = WVBrowser1GetFaviconCompleted
     OnPrintToPdfStreamCompleted = WVBrowser1PrintToPdfStreamCompleted
-    OnGetNonDefaultPermissionSettingsCompleted = WVBrowser1GetNonDefaultPermissionSettingsCompleted
+    OnProfileAddBrowserExtensionCompleted = WVBrowser1ProfileAddBrowserExtensionCompleted
+    OnProfileGetBrowserExtensionsCompleted = WVBrowser1ProfileGetBrowserExtensionsCompleted
     Left = 48
     Top = 64
   end
@@ -304,6 +297,17 @@ object MiniBrowserFrm: TMiniBrowserFrm
       OnClick = PrinttoPDFtostream1Click
     end
     object N1: TMenuItem
+      Caption = '-'
+    end
+    object GetBrowserExtensionsMenu: TMenuItem
+      Caption = 'Installed browser extensions...'
+      OnClick = GetBrowserExtensionsMenuClick
+    end
+    object Addbrowserextension1: TMenuItem
+      Caption = 'Add unpacked browser extension...'
+      OnClick = Addbrowserextension1Click
+    end
+    object N3: TMenuItem
       Caption = '-'
     end
     object Opentaskmanager1: TMenuItem

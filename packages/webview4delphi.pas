@@ -34,7 +34,11 @@ uses
   uWVCoreWebView2CustomSchemeRegistration, uWVCoreWebView2SharedBuffer, 
   uWVCoreWebView2PermissionSetting, 
   uWVCoreWebView2PermissionSettingCollectionView, uWVCoreWebView2File, 
-  uWVCoreWebView2ObjectCollectionView, LazarusPackageIntf;
+  uWVCoreWebView2ObjectCollectionView, uWVCoreWebView2Profile, 
+  uWVCoreWebView2BrowserExtensionList, 
+  uWVCoreWebView2ProcessExtendedInfoCollection, 
+  uWVCoreWebView2BrowserExtension, uWVCoreWebView2ProcessExtendedInfo, 
+  LazarusPackageIntf;
 
 implementation
 

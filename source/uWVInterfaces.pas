@@ -161,10 +161,10 @@ type
     function StateChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HResult;
 
     // ICoreWebView2FrameNameChangedEventHandler
-    function FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HResult;
+    function FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HResult;
 
     // ICoreWebView2FrameDestroyedEventHandler
-    function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : integer): HResult;
+    function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HResult;
 
     // ICoreWebView2CallDevToolsProtocolMethodCompletedHandler
     function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HResult;
@@ -185,19 +185,19 @@ type
     function ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult;
 
     // ICoreWebView2NavigationStartingEventHandler (Frame navigation)
-    function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer): HResult;
+    function FrameNavigationStartingEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationStartingEventArgs; aFrameID: cardinal): HResult;
 
     // ICoreWebView2NavigationCompletedEventArgs (Frame navigation)
-    function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer): HResult;
+    function FrameNavigationCompletedEventHandler2_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2NavigationCompletedEventArgs; aFrameID: cardinal): HResult;
 
     // ICoreWebView2FrameContentLoadingEventHandler
-    function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer): HResult;
+    function FrameContentLoadingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ContentLoadingEventArgs; aFrameID: cardinal): HResult;
 
     // ICoreWebView2FrameDOMContentLoadedEventHandler
-    function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer): HResult;
+    function FrameDOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: cardinal): HResult;
 
     // ICoreWebView2FrameWebMessageReceivedEventHandler
-    function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer): HResult;
+    function FrameWebMessageReceivedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: cardinal): HResult;
 
     // ICoreWebView2BasicAuthenticationRequestedEventHandler
     function BasicAuthenticationRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult;
@@ -212,7 +212,7 @@ type
     function StatusBarTextChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
 
     // ICoreWebView2FramePermissionRequestedEventHandler
-    function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer): HResult;
+    function FramePermissionRequestedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: cardinal): HResult;
 
     // ICoreWebView2ClearBrowsingDataCompletedHandler
     function ClearBrowsingDataCompletedHandler_Invoke(errorCode: HResult): HResult;
@@ -243,6 +243,24 @@ type
 
     // ICoreWebView2LaunchingExternalUriSchemeEventHandler
     function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult;
+
+    // ICoreWebView2GetProcessExtendedInfosCompletedHandler
+    function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult;
+
+    // ICoreWebView2BrowserExtensionRemoveCompletedHandler
+    function BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HResult;
+
+    // ICoreWebView2BrowserExtensionEnableCompletedHandler
+    function BrowserExtensionEnableCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HResult;
+
+    // ICoreWebView2ProfileAddBrowserExtensionCompletedHandler
+    function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult;
+
+    // ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler
+    function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult;
+
+    // ICoreWebView2ProfileDeletedEventHandler
+    function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult;
   end;
 
 implementation

@@ -7,6 +7,11 @@ unit uWVCoreWebView2Profile;
 interface
 
 uses
+  {$IFDEF DELPHI16_UP}
+  System.Classes,
+  {$ELSE}
+  Classes,
+  {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 
 type
@@ -24,6 +29,10 @@ type
       FBaseIntf4 : ICoreWebView2Profile4;
       FBaseIntf5 : ICoreWebView2Profile5;
       FBaseIntf6 : ICoreWebView2Profile6;
+      FBaseIntf7 : ICoreWebView2Profile7;
+      FBaseIntf8 : ICoreWebView2Profile8;
+
+      FProfileDeletedToken : EventRegistrationToken;
 
       function GetInitialized : boolean;
       function GetProfileName : wvstring;
@@ -43,10 +52,18 @@ type
       procedure SetIsGeneralAutofillEnabled(aValue : boolean);
 
       procedure InitializeFields;
+      procedure InitializeTokens;
+      procedure RemoveAllEvents;
+      function  AddProfileDeletedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2Profile); reintroduce;
       destructor  Destroy; override;
+      /// <summary>
+      /// Adds all the events of this class to an existing TWVBrowserBase instance.
+      /// </summary>
+      /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
+      function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       /// <summary>
       /// <para>Clear browsing data based on a data type. This method takes two parameters,
       /// the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR
@@ -130,6 +147,71 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4#getnondefaultpermissionsettings">See the ICoreWebView2Profile4 article.</see></para>
       /// </remarks>
       function    GetNonDefaultPermissionSettings(const completedHandler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): boolean;
+      /// <summary>
+      /// <para>Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+      /// using the extension path for unpacked extensions from the local device. Extension is
+      /// running right after installation.</para>
+      /// <para>The extension folder path is the topmost folder of an unpacked browser extension and
+      /// contains the browser extension manifest file.</para>
+      /// <para>If the `extensionFolderPath` is an invalid path or doesn't contain the extension manifest.json
+      /// file, this function will return `ERROR_FILE_NOT_FOUND` to callers.</para>
+      /// <para>Installed extension will default `IsEnabled` to true.</para>
+      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `AddBrowserExtension` will fail and return
+      /// HRESULT `ERROR_NOT_SUPPORTED`.</para>
+      /// <para>During installation, the content of the extension is not copied to the user data folder.
+      /// Once the extension is installed, changing the content of the extension will cause the
+      /// extension to be removed from the installed profile.</para>
+      /// <para>When an extension is added the extension is persisted in the corresponding profile. The
+      /// extension will still be installed the next time you use this profile.</para>
+      /// <para>When an extension is installed from a folder path, adding the same extension from the same
+      /// folder path means reinstalling this extension. When two extensions with the same Id are
+      /// installed, only the later installed extension will be kept.</para>
+      /// <para>Extensions that are designed to include any UI interactions (e.g. icon, badge, pop up, etc.)
+      /// can be loaded and used but will have missing UI entry points due to the lack of browser
+      /// UI elements to host these entry points in WebView2.</para>
+      /// <para>The following summarizes the possible error values that can be returned from
+      /// `AddBrowserExtension` and a description of why these errors occur.</para>
+      /// <code>
+      /// Error value                                     | Description
+      /// ----------------------------------------------- | --------------------------
+      /// `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`       | Extensions are disabled.
+      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`      | Cannot find `manifest.json` file or it is not a valid extension manifest.
+      /// `E_ACCESSDENIED`                                | Cannot load extension with file or directory name starting with \"_\", reserved for use by the system.
+      /// `E_FAIL`                                        | Extension failed to install with other unknown reasons.
+      /// </code>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#addbrowserextension">See the ICoreWebView2Profile7 article.</see></para>
+      /// </remarks>
+      function    AddBrowserExtension(const extensionFolderPath: wvstring; const completedHandler: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler): boolean;
+      /// <summary>
+      /// <para>Gets a snapshot of the set of extensions installed at the time `GetBrowserExtensions` is
+      /// called. If an extension is installed or uninstalled after `GetBrowserExtensions` completes,
+      /// the list returned by `GetBrowserExtensions` remains the same.</para>
+      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `GetBrowserExtensions` won't return any
+      /// extensions on current user profile.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7#getbrowserextensions">See the ICoreWebView2Profile7 article.</see></para>
+      /// </remarks>
+      function    GetBrowserExtensions(const completedHandler: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler): boolean;
+      /// <summary>
+      /// <para>After the API is called, the profile will be marked for deletion. The
+      /// local profile's directory will be deleted at browser process exit. If it
+      /// fails to delete, because something else is holding the files open,
+      /// WebView2 will try to delete the profile at all future browser process
+      /// starts until successful.</para>
+      /// <para>The corresponding CoreWebView2s will be closed and the
+      /// ICoreWebView2Profile.Deleted event will be raised. See
+      /// `ICoreWebView2Profile.Deleted` for more information.</para>
+      /// <para>If you try to create a new profile with the same name as an existing
+      /// profile that has been marked as deleted but hasn't yet been deleted,
+      /// profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile8#delete">See the ICoreWebView2Profile8 article.</see></para>
+      /// </remarks>
+      function    Delete: boolean;
 
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
@@ -266,7 +348,7 @@ uses
   {$ELSE}
   DateUtils, ActiveX,
   {$ENDIF}
-  uWVMiscFunctions;
+  uWVMiscFunctions, uWVCoreWebView2Delegates, uWVBrowserBase;
 
 constructor TCoreWebView2Profile.Create(const aBaseIntf: ICoreWebView2Profile);
 begin
@@ -280,15 +362,20 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile2, FBaseIntf2) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile3, FBaseIntf3) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile4, FBaseIntf4) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile5, FBaseIntf5) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile6, FBaseIntf6);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile5, FBaseIntf5) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile6, FBaseIntf6) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile7, FBaseIntf7) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Profile8, FBaseIntf8);
 end;
 
 destructor TCoreWebView2Profile.Destroy;
 begin
-  InitializeFields;
-
-  inherited Destroy;
+  try
+    RemoveAllEvents;
+    InitializeFields;
+  finally
+    inherited Destroy;
+  end;
 end;
 
 procedure TCoreWebView2Profile.InitializeFields;
@@ -299,6 +386,44 @@ begin
   FBaseIntf4 := nil;
   FBaseIntf5 := nil;
   FBaseIntf6 := nil;
+  FBaseIntf7 := nil;
+  FBaseIntf8 := nil;
+end;
+
+procedure TCoreWebView2Profile.InitializeTokens;
+begin
+  FProfileDeletedToken.value := 0;
+end;
+
+procedure TCoreWebView2Profile.RemoveAllEvents;
+begin
+  if Initialized then
+    begin
+      if assigned(FBaseIntf8) and (FProfileDeletedToken.value <> 0) then
+        FBaseIntf8.remove_Deleted(FProfileDeletedToken);
+
+      InitializeTokens;
+    end;
+end;
+
+function TCoreWebView2Profile.AddProfileDeletedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ProfileDeletedEventHandler;
+begin
+  Result := False;
+
+  if Initialized and assigned(FBaseIntf8) and (FProfileDeletedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ProfileDeletedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf8.add_Deleted(TempHandler, FProfileDeletedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Profile.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+begin
+  Result := AddProfileDeletedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2Profile.GetInitialized : boolean;
@@ -495,6 +620,26 @@ begin
   Result := assigned(FBaseIntf4)       and
             assigned(completedHandler) and
             succeeded(FBaseIntf4.GetNonDefaultPermissionSettings(completedHandler));
+end;
+
+function TCoreWebView2Profile.AddBrowserExtension(const extensionFolderPath: wvstring; const completedHandler: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler): boolean;
+begin
+  Result := assigned(FBaseIntf7)       and
+            assigned(completedHandler) and
+            succeeded(FBaseIntf7.AddBrowserExtension(PWideChar(extensionFolderPath), completedHandler));
+end;
+
+function TCoreWebView2Profile.GetBrowserExtensions(const completedHandler: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler): boolean;
+begin
+  Result := assigned(FBaseIntf7)       and
+            assigned(completedHandler) and
+            succeeded(FBaseIntf7.GetBrowserExtensions(completedHandler));
+end;
+
+function TCoreWebView2Profile.Delete: boolean;
+begin
+  Result := assigned(FBaseIntf8) and
+            succeeded(FBaseIntf8.Delete);
 end;
 
 end.

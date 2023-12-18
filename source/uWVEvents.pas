@@ -53,8 +53,8 @@ type
   TOnBytesReceivedChangedEvent                             = procedure(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID: integer) of object;
   TOnEstimatedEndTimeChangedEvent                          = procedure(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID: integer) of object;
   TOnDownloadStateChangedEvent                             = procedure(Sender: TObject; const aDownloadOperation: ICoreWebView2DownloadOperation; aDownloadID: integer) of object;
-  TOnFrameNameChangedEvent                                 = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
-  TOnFrameDestroyedEvent                                   = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: integer) of object;
+  TOnFrameNameChangedEvent                                 = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: cardinal) of object;
+  TOnFrameDestroyedEvent                                   = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: cardinal) of object;
   TOnInitializationErrorEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring) of object;
   TOnPrintCompletedEvent                                   = procedure(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus) of object;
   TOnRefreshIgnoreCacheCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring) of object;
@@ -70,16 +70,16 @@ type
   TOnIsDocumentPlayingAudioChangedEvent                    = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
   TOnIsDefaultDownloadDialogOpenChangedEvent               = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
   TOnProcessInfosChangedEvent                              = procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment) of object;
-  TOnFrameNavigationStartingEvent                          = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationStartingEventArgs; aFrameID: integer) of object;
-  TOnFrameNavigationCompletedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationCompletedEventArgs; aFrameID: integer) of object;
-  TOnFrameContentLoadingEvent                              = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2ContentLoadingEventArgs; aFrameID: integer) of object;
-  TOnFrameDOMContentLoadedEvent                            = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: integer) of object;
-  TOnFrameWebMessageReceivedEvent                          = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: integer) of object;
+  TOnFrameNavigationStartingEvent                          = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationStartingEventArgs; aFrameID: cardinal) of object;
+  TOnFrameNavigationCompletedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2NavigationCompletedEventArgs; aFrameID: cardinal) of object;
+  TOnFrameContentLoadingEvent                              = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2ContentLoadingEventArgs; aFrameID: cardinal) of object;
+  TOnFrameDOMContentLoadedEvent                            = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2DOMContentLoadedEventArgs; aFrameID: cardinal) of object;
+  TOnFrameWebMessageReceivedEvent                          = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2WebMessageReceivedEventArgs; aFrameID: cardinal) of object;
   TOnBasicAuthenticationRequestedEvent                     = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs) of object;
   TOnContextMenuRequestedEvent                             = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ContextMenuRequestedEventArgs) of object;
   TOnCustomItemSelectedEvent                               = procedure(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem) of object;
   TOnStatusBarTextChangedEvent                             = procedure(Sender: TObject; const aWebView: ICoreWebView2) of object;
-  TOnFramePermissionRequestedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: integer) of object;
+  TOnFramePermissionRequestedEvent                         = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2PermissionRequestedEventArgs2; aFrameID: cardinal) of object;
   TOnClearBrowsingDataCompletedEvent                       = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnServerCertificateErrorActionsCompletedEvent           = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnServerCertificateErrorDetectedEvent                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs) of object;
@@ -90,6 +90,12 @@ type
   TOnGetNonDefaultPermissionSettingsCompletedEvent         = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView) of object;
   TOnSetPermissionStateCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnLaunchingExternalUriSchemeEvent                       = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2LaunchingExternalUriSchemeEventArgs) of object;
+  TOnGetProcessExtendedInfosCompletedEvent                 = procedure(Sender: TObject; aErrorCode: HRESULT; const aValue: ICoreWebView2ProcessExtendedInfoCollection) of object;
+  TOnBrowserExtensionRemoveCompletedEvent                  = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: wvstring) of object;
+  TOnBrowserExtensionEnableCompletedEvent                  = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: wvstring) of object;
+  TOnProfileAddBrowserExtensionCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension) of object;
+  TOnProfileGetBrowserExtensionsCompletedEvent             = procedure(Sender: TObject; aErrorCode: HRESULT; const extensionList: ICoreWebView2BrowserExtensionList) of object;
+  TOnProfileDeletedEvent                                   = procedure(Sender: TObject; const aProfile: ICoreWebView2Profile) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

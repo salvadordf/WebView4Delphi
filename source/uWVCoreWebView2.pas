@@ -36,6 +36,7 @@ type
       FBaseIntf17                              : ICoreWebView2_17;
       FBaseIntf18                              : ICoreWebView2_18;
       FBaseIntf19                              : ICoreWebView2_19;
+      FBaseIntf20                              : ICoreWebView2_20;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -66,7 +67,7 @@ type
       FServerCertificateErrorDetectedToken     : EventRegistrationToken;
       FFaviconChangedToken                     : EventRegistrationToken;
       FLaunchingExternalUriSchemeToken         : EventRegistrationToken;
-
+      FFrameIDCopy                             : cardinal;
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
 
@@ -90,6 +91,7 @@ type
       function  GetProfile : ICoreWebView2Profile;
       function  GetFaviconURI : wvstring;
       function  GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
+      function  GetFrameID : cardinal;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
@@ -914,12 +916,23 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_19#get_memoryusagetargetlevel">See the ICoreWebView2_19 article.</see></para>
       /// </remarks>
       property MemoryUsageTargetLevel               : TWVMemoryUsageTargetLevel                 read GetMemoryUsageTargetLevel                write SetMemoryUsageTargetLevel;
+      /// <summary>
+      /// The unique identifier of the main frame. It's the same kind of ID as
+      /// with the `FrameId` in `ICoreWebView2Frame` and via `ICoreWebView2FrameInfo`.
+      /// Note that `FrameId` may not be valid if `ICoreWebView2` has not done
+      /// any navigation. It's safe to get this value during or after the first
+      /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid">See the ICoreWebView2_20 article.</see></para>
+      /// </remarks>
+      property FrameId                              : cardinal                                  read GetFrameID;
   end;
 
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions;
+  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions, uWVConstants;
 
 constructor TCoreWebView2.Create(const aBaseIntf : ICoreWebView2);
 begin
@@ -946,8 +959,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_15, FBaseIntf15) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_17, FBaseIntf17) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_18, FBaseIntf18) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_18, FBaseIntf18) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_20, FBaseIntf20);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -998,8 +1012,10 @@ begin
   FBaseIntf17          := nil;
   FBaseIntf18          := nil;
   FBaseIntf19          := nil;
+  FBaseIntf20          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
+  FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
 
   InitializeTokens;
 end;
@@ -2225,6 +2241,20 @@ begin
     Result := TempResult
    else
     Result := COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL;
+end;
+
+function TCoreWebView2.GetFrameID : cardinal;
+var
+  TempResult : SYSUINT;
+begin
+  if assigned(FBaseIntf20) and
+     succeeded(FBaseIntf20.Get_FrameId(TempResult)) then
+    begin
+      Result       := TempResult;
+      FFrameIDCopy := TempResult;
+    end
+   else
+    Result := FFrameIDCopy;
 end;
 
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);

@@ -39,6 +39,7 @@ type
       FBaseIntf10                           : ICoreWebView2Environment10;
       FBaseIntf11                           : ICoreWebView2Environment11;
       FBaseIntf12                           : ICoreWebView2Environment12;
+      FBaseIntf13                           : ICoreWebView2Environment13;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
       FProcessInfosChangedEventToken        : EventRegistrationToken;
@@ -241,7 +242,21 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer">See the ICoreWebView2Environment12 article.</see></para>
       /// </remarks>
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
-
+      /// <summary>
+      /// Gets a snapshot collection of `ProcessExtendedInfo`s corresponding to all
+      /// currently running processes associated with this `ICoreWebView2Environment`
+      /// excludes crashpad process.
+      /// This provides the same list of `ProcessInfo`s as what's provided in
+      /// `GetProcessInfos`, but additionally provides a list of associated `FrameInfo`s
+      /// which are actively running (showing or hiding UI elements) in the renderer
+      /// process. See `AssociatedFrameInfos` for more information.
+      /// </summary>
+      /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment13#getprocessextendedinfos">See the ICoreWebView2Environment13 article.</see></para>
+      /// </remarks>
+      function    GetProcessExtendedInfos(const aBrowserEvents : IWVBrowserEvents) : boolean;
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
@@ -333,8 +348,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment8,  FBaseIntf8)  and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment9,  FBaseIntf9)  and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment12, FBaseIntf12);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment12, FBaseIntf12) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment13, FBaseIntf13);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -361,6 +377,7 @@ begin
   FBaseIntf10 := nil;
   FBaseIntf11 := nil;
   FBaseIntf12 := nil;
+  FBaseIntf13 := nil;
 
   InitializeTokens;
 end;
@@ -680,6 +697,21 @@ begin
     begin
       aSharedBuffer := TempBuffer;
       Result        := True;
+    end;
+end;
+
+function TCoreWebView2Environment.GetProcessExtendedInfos(const aBrowserEvents : IWVBrowserEvents) : boolean;
+var
+  TempHandler: ICoreWebView2GetProcessExtendedInfosCompletedHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf13) then
+    try
+      TempHandler := TCoreWebView2GetProcessExtendedInfosCompletedHandler.Create(aBrowserEvents);
+      Result      := succeeded(FBaseIntf13.GetProcessExtendedInfos(TempHandler));
+    finally
+      TempHandler := nil;
     end;
 end;
 

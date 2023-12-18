@@ -52,6 +52,7 @@ type
       FExclusiveUserDataFolderAccess          : boolean;
       FCustomCrashReportingEnabled            : boolean;
       FEnableTrackingPrevention               : boolean;
+      FAreBrowserExtensionsEnabled            : boolean;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -334,6 +335,20 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
       /// </remarks>
       property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;
+      /// <summary>
+      /// <para>When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user
+      /// profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case,
+      /// new extensions can't be installed, and already installed extension won't be
+      /// available to use in user profile.</para>
+      /// <para>If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled`
+      /// property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions6.Get_AreBrowserExtensionsEnabled.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">See the ICoreWebView2BrowserExtension article for Extensions API details.</see></para>
+      /// </remarks>
+      property AreBrowserExtensionsEnabled            : boolean                            read FAreBrowserExtensionsEnabled             write FAreBrowserExtensionsEnabled;
       /// <summary>
       /// Enable GPU hardware acceleration.
       /// </summary>
@@ -765,6 +780,7 @@ begin
   FExclusiveUserDataFolderAccess          := False;
   FCustomCrashReportingEnabled            := False;
   FEnableTrackingPrevention               := True;
+  FAreBrowserExtensionsEnabled            := False;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1669,7 +1685,8 @@ begin
                                                               FExclusiveUserDataFolderAccess,
                                                               FCustomCrashReportingEnabled,
                                                               TempSchemeRegistrations,
-                                                              FEnableTrackingPrevention);
+                                                              FEnableTrackingPrevention,
+                                                              FAreBrowserExtensionsEnabled);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),

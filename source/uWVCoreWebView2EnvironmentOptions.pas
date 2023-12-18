@@ -27,7 +27,8 @@ type
                                           ICoreWebView2EnvironmentOptions2,
                                           ICoreWebView2EnvironmentOptions3,
                                           ICoreWebView2EnvironmentOptions4,
-                                          ICoreWebView2EnvironmentOptions5)
+                                          ICoreWebView2EnvironmentOptions5,
+                                          ICoreWebView2EnvironmentOptions6)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
@@ -37,6 +38,7 @@ type
       FCustomCrashReportingEnabled            : boolean;
       FSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
       FEnableTrackingPrevention               : boolean;
+      FAreBrowserExtensionsEnabled            : boolean;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -64,6 +66,10 @@ type
       function Get_EnableTrackingPrevention(out value: Integer): HResult; stdcall;
       function Set_EnableTrackingPrevention(value: Integer): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions6
+      function Get_AreBrowserExtensionsEnabled(out value: Integer): HResult; stdcall;
+      function Set_AreBrowserExtensionsEnabled(value: Integer): HResult; stdcall;
+
       procedure DestroySchemeRegistrations;
 
     public
@@ -78,14 +84,16 @@ type
       /// <param name="aCustomCrashReportingEnabled">Send crash data to Microsoft endpoint or respect OS consent.</param>
       /// <param name="aSchemeRegistrations">Array of custom scheme registrations.</param>
       /// <param name="aEnableTrackingPrevention">Enable tracking prevention.</param>
+      /// <param name="aAreBrowserExtensionsEnabled">If it's set to True, new extensions can be added to user profile and used.</param>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3">See the ICoreWebView2EnvironmentOptions3 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">See the ICoreWebView2EnvironmentOptions4 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
       /// </remarks>
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention: boolean);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean);
       destructor  Destroy; override;
   end;
 
@@ -101,7 +109,8 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                          aExclusiveUserDataFolderAccess          : boolean;
                                                          aCustomCrashReportingEnabled            : boolean;
                                                    const aSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
-                                                         aEnableTrackingPrevention               : boolean);
+                                                         aEnableTrackingPrevention               : boolean;
+                                                         aAreBrowserExtensionsEnabled            : boolean);
 var
   i : integer;
 begin
@@ -115,6 +124,7 @@ begin
   FCustomCrashReportingEnabled            := aCustomCrashReportingEnabled;
   FSchemeRegistrations                    := nil;
   FEnableTrackingPrevention               := aEnableTrackingPrevention;
+  FAreBrowserExtensionsEnabled            := aAreBrowserExtensionsEnabled;
 
   if assigned(aSchemeRegistrations) then
     begin
@@ -313,6 +323,18 @@ function TCoreWebView2EnvironmentOptions.Set_EnableTrackingPrevention(value: Int
 begin
   Result                    := S_OK;
   FEnableTrackingPrevention := (value <> 0);
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_AreBrowserExtensionsEnabled(out value: Integer): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := ord(FAreBrowserExtensionsEnabled);
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_AreBrowserExtensionsEnabled(value: Integer): HResult; stdcall;
+begin
+  Result                       := S_OK;
+  FAreBrowserExtensionsEnabled := (value <> 0);
 end;
 
 end.
