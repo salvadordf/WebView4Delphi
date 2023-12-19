@@ -102,6 +102,9 @@ type
     procedure Downloadfavicon1Click(Sender: TObject);
     procedure ShowprintUI1Click(Sender: TObject);
     procedure PrinttoPDFtostream1Click(Sender: TObject);
+    procedure SmartScreen1Click(Sender: TObject);
+    procedure GetBrowserExtensionsMenuClick(Sender: TObject);
+    procedure Addbrowserextension1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -127,14 +130,9 @@ type
     procedure WVBrowser1GetFaviconCompleted(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream);
     procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
     procedure WVBrowser1PrintToPdfStreamCompleted(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream);
-    procedure SmartScreen1Click(Sender: TObject);
-    procedure GetBrowserExtensionsMenuClick(Sender: TObject);
-    procedure WVBrowser1ProfileGetBrowserExtensionsCompleted(Sender: TObject;
-      aErrorCode: HRESULT;
-      const extensionList: ICoreWebView2BrowserExtensionList);
-    procedure Addbrowserextension1Click(Sender: TObject);
-    procedure WVBrowser1ProfileAddBrowserExtensionCompleted(Sender: TObject;
-      aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension);
+    procedure WVBrowser1ProfileGetBrowserExtensionsCompleted(Sender: TObject; aErrorCode: HRESULT; const extensionList: ICoreWebView2BrowserExtensionList);
+    procedure WVBrowser1ProfileAddBrowserExtensionCompleted(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension);
+    procedure WVBrowser1ContainsFullScreenElementChanged(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -534,6 +532,31 @@ begin
     showmessage('Browser data cleared successfully!')
    else
     showmessage('There was an error clearing the browser data');
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ContainsFullScreenElementChanged(
+  Sender: TObject);
+begin
+  if WVBrowser1.ContainsFullScreenElement then
+    begin
+      NavControlPnl.Visible := False;
+      StatusBar1.Visible    := False;
+
+      if (WindowState = wsMaximized) then WindowState := wsNormal;
+
+      BorderIcons := [];
+      BorderStyle := bsNone;
+      WindowState := wsMaximized;
+    end
+   else
+    begin
+      BorderIcons := [biSystemMenu, biMinimize, biMaximize];
+      BorderStyle := bsSizeable;
+      WindowState := wsNormal;
+
+      NavControlPnl.Visible := True;
+      StatusBar1.Visible    := True;
+    end;
 end;
 
 procedure TMiniBrowserFrm.UpdateDownloadInfo(aDownloadID : integer);
