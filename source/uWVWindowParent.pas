@@ -106,8 +106,17 @@ end;
 procedure TWVWindowParent.WndProc(var aMessage: TMessage);
 begin
   case aMessage.Msg of
+    WM_SETFOCUS:
+      begin
+        if (FBrowser <> nil) then
+          FBrowser.SetFocus;
+
+        inherited WndProc(aMessage);
+      end;
+
     WM_ERASEBKGND:
-      if (ChildWindowHandle = 0) then inherited WndProc(aMessage);
+      if (ChildWindowHandle = 0) then
+        inherited WndProc(aMessage);
 
     else inherited WndProc(aMessage);
   end;

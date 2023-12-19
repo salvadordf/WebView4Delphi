@@ -90,6 +90,7 @@ end;
 procedure TMainForm.WVBrowser1AfterCreated(Sender: TObject);
 begin
   WVWindowParent1.UpdateSize;
+  WVWindowParent1.SetFocus;
   Caption := 'SimpleBrowser';
   AddressPnl.Enabled := True;
 end;
