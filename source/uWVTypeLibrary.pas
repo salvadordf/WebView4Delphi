@@ -2873,15 +2873,15 @@ type
   ICoreWebView2SetPermissionStateCompletedHandler = interface;
   ICoreWebView2Profile5 = interface;
   ICoreWebView2Profile6 = interface;
-  ICoreWebView2Profile7 = interface;       // ****
-  ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface;       // ****
-  ICoreWebView2BrowserExtension = interface;       // ****
-  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;       // ****
-  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface;       // ****
-  ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface;       // ****
-  ICoreWebView2BrowserExtensionList = interface;       // ****
-  ICoreWebView2Profile8 = interface;       // ****
-  ICoreWebView2ProfileDeletedEventHandler = interface;       // ****
+  ICoreWebView2Profile7 = interface;
+  ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface;
+  ICoreWebView2BrowserExtension = interface;
+  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
+  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface;
+  ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface;
+  ICoreWebView2BrowserExtensionList = interface;
+  ICoreWebView2Profile8 = interface;
+  ICoreWebView2ProfileDeletedEventHandler = interface;
   ICoreWebView2Settings2 = interface;
   ICoreWebView2Settings3 = interface;
   ICoreWebView2Settings4 = interface;
@@ -9479,7 +9479,7 @@ type
     /// </summary>
     function Get_ScriptLocale(out locale: PWideChar): HResult; stdcall;
     /// <summary>
-    ///
+    /// Sets the `ScriptLocale` property.
     /// </summary>
     function Set_ScriptLocale(locale: PWideChar): HResult; stdcall;
     end;
