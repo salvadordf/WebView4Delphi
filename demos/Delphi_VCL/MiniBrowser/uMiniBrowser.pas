@@ -786,12 +786,19 @@ procedure TMiniBrowserFrm.WVBrowser1ProfileAddBrowserExtensionCompleted(
   const extension: ICoreWebView2BrowserExtension);
 var
   TempExtension : TCoreWebView2BrowserExtension;
+  TempMesage : string;
 begin
   if succeeded(aErrorCode) then
     begin
       TempExtension := TCoreWebView2BrowserExtension.Create(extension);
-      showmessage('Extension installed successfully : ' + TempExtension.Name);
+      TempMesage := 'Extension installed successfully : ' + TempExtension.Name;
       TempExtension.Free;
+
+      TThread.ForceQueue(nil,
+        procedure
+        begin
+          showmessage(TempMesage);
+        end);
     end;
 end;
 
@@ -820,7 +827,11 @@ begin
 
       TempList.Free;
 
-      showmessage(TempMsg);
+      TThread.ForceQueue(nil,
+        procedure
+        begin
+          showmessage(TempMsg);
+        end);
     end;
 end;
 
