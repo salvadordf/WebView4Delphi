@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Profile7</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Profile7"></span><h1 class="cio">Interface ICoreWebView2Profile7</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Profile7 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile6.html">ICoreWebView2Profile6</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Interfaces in profile for managing browser extensions. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile7</a>&quot;&gt;See the ICoreWebView2Profile7 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile2.html">ICoreWebView2Profile2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile3.html">ICoreWebView2Profile3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile4.html">ICoreWebView2Profile4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile5.html">ICoreWebView2Profile5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile6.html">ICoreWebView2Profile6</a></li>
+<li class="thisitem">ICoreWebView2Profile7</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile7.html#AddBrowserExtension-PWideChar-ICoreWebView2ProfileAddBrowserExtensionCompletedHandler-">AddBrowserExtension</a></strong>(extensionFolderPath: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html">ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile7.html#GetBrowserExtensions-ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler-">GetBrowserExtensions</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html">ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddBrowserExtension-PWideChar-ICoreWebView2ProfileAddBrowserExtensionCompletedHandler-"></span><code>function <strong>AddBrowserExtension</strong>(extensionFolderPath: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html">ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds the [browser extension](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions</a>) using the extension path for unpacked extensions from the local device. Extension is running right after installation. The extension folder path is the topmost folder of an unpacked browser extension and contains the browser extension manifest file. If the `extensionFolderPath` is an invalid path or doesn't contain the extension manifest.json file, this function will return `ERROR_FILE_NOT_FOUND` to callers. Installed extension will default `IsEnabled` to true. When `AreBrowserExtensionsEnabled` is `FALSE`, `AddBrowserExtension` will fail and return HRESULT `ERROR_NOT_SUPPORTED`. During installation, the content of the extension is not copied to the user data folder. Once the extension is installed, changing the content of the extension will cause the extension to be removed from the installed profile. When an extension is added the extension is persisted in the corresponding profile. The extension will still be installed the next time you use this profile. When an extension is installed from a folder path, adding the same extension from the same folder path means reinstalling this extension. When two extensions with the same Id are installed, only the later installed extension will be kept.
+
+<p>Extensions that are designed to include any UI interactions (e.g. icon, badge, pop up, etc.) can be loaded and used but will have missing UI entry points due to the lack of browser UI elements to host these entry points in WebView2.
+
+<p>The following summarizes the possible error values that can be returned from `AddBrowserExtension` and a description of why these errors occur.
+
+<p>Error value | Description &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)` | Extensions are disabled. `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` | Cannot find `manifest.json` file or it is not a valid extension manifest. `E_ACCESSDENIED` | Cannot load extension with file or directory name starting with \&quot;_\&quot;, reserved for use by the system. `E_FAIL` | Extension failed to install with other unknown reasons. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7B4C7906-A1AA-4CB4-B723-DB09F813D541}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetBrowserExtensions-ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler-"></span><code>function <strong>GetBrowserExtensions</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html">ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets a snapshot of the set of extensions installed at the time `GetBrowserExtensions` is called. If an extension is installed or uninstalled after `GetBrowserExtensions` completes, the list returned by `GetBrowserExtensions` remains the same. When `AreBrowserExtensionsEnabled` is `FALSE`, `GetBrowserExtensions` won't return any extensions on current user profile. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

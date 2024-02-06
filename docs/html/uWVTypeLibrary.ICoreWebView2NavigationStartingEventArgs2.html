@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2NavigationStartingEventArgs2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2NavigationStartingEventArgs2"></span><h1 class="cio">Interface ICoreWebView2NavigationStartingEventArgs2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2NavigationStartingEventArgs2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ The AdditionalAllowedFrameAncestors API that enable developers to provide additional allowed frame ancestors. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs2</a>&quot;&gt;See the ICoreWebView2NavigationStartingEventArgs2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a></li>
+<li class="thisitem">ICoreWebView2NavigationStartingEventArgs2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs2.html#Get_AdditionalAllowedFrameAncestors-PWideChar-">Get_AdditionalAllowedFrameAncestors</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs2.html#Set_AdditionalAllowedFrameAncestors-PWideChar-">Set_AdditionalAllowedFrameAncestors</a></strong>(value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_AdditionalAllowedFrameAncestors-PWideChar-"></span><code>function <strong>Get_AdditionalAllowedFrameAncestors</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get additional allowed frame ancestors set by the host app.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{9086BE93-91AA-472D-A7E0-579F2BA006AD}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_AdditionalAllowedFrameAncestors-PWideChar-"></span><code>function <strong>Set_AdditionalAllowedFrameAncestors</strong>(value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The app may set this property to allow a frame to be embedded by additional ancestors besides what is allowed by http header [X-Frame-Options](<a href="https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options</a>) and [Content-Security-Policy frame-ancestors directive](<a href="https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors">https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors</a>). If set, a frame ancestor is allowed if it is allowed by the additional allowed frame ancestors or original http header from the site. Whether an ancestor is allowed by the additional allowed frame ancestors is done the same way as if the site provided it as the source list of the Content-Security-Policy frame-ancestors directive. For example, if `<a href="https://example.com">https://example.com</a>` and `<a href="https://www.example.com">https://www.example.com</a>` are the origins of the top page and intermediate iframes that embed a nested site-embedding iframe, and you fully trust those origins, you should set this property to `<a href="https://example.com">https://example.com</a> <a href="https://www.example.com">https://www.example.com</a>`. This property gives the app the ability to use iframe to embed sites that otherwise could not be embedded in an iframe in trusted app pages. This could potentially subject the embedded sites to [Clickjacking](<a href="https://en.wikipedia.org/wiki/Clickjacking">https://en.wikipedia.org/wiki/Clickjacking</a>) attack from the code running in the embedding web page. Therefore, you should only set this property with origins of fully trusted embedding page and any intermediate iframes. Whenever possible, you should use the list of specific origins of the top and intermediate frames instead of wildcard characters for this property. This API is to provide limited support for app scenarios that used to be supported by `&lt;webview&gt;` element in other solutions like JavaScript UWP apps and Electron. You should limit the usage of this property to trusted pages, and specific navigation target url, by checking the `Source` of the WebView2, and `Uri` of the event args.
+
+<p>This property is ignored for top level document navigation.
+
+<p>\snippet ScriptComponent.cpp AdditionalAllowedFrameAncestors_1
+
+<p>\snippet ScriptComponent.cpp AdditionalAllowedFrameAncestors_2 </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

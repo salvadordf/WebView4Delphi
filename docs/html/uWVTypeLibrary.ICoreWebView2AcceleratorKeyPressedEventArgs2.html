@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2AcceleratorKeyPressedEventArgs2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2AcceleratorKeyPressedEventArgs2"></span><h1 class="cio">Interface ICoreWebView2AcceleratorKeyPressedEventArgs2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html">ICoreWebView2AcceleratorKeyPressedEventArgs</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs2</a>&quot;&gt;See the ICoreWebView2AcceleratorKeyPressedEventArgs2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html">ICoreWebView2AcceleratorKeyPressedEventArgs</a></li>
+<li class="thisitem">ICoreWebView2AcceleratorKeyPressedEventArgs2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs2.html#Get_IsBrowserAcceleratorKeyEnabled-Integer-">Get_IsBrowserAcceleratorKeyEnabled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs2.html#Set_IsBrowserAcceleratorKeyEnabled-Integer-">Set_IsBrowserAcceleratorKeyEnabled</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsBrowserAcceleratorKeyEnabled-Integer-"></span><code>function <strong>Get_IsBrowserAcceleratorKeyEnabled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This property allows developers to enable or disable the browser from handling a specific browser accelerator key such as Ctrl+P or F3, etc.
+
+<p>Browser accelerator keys are the keys/key combinations that access features specific to a web browser, including but not limited to: - Ctrl-F and F3 for Find on Page - Ctrl-P for Print - Ctrl-R and F5 for Reload - Ctrl-Plus and Ctrl-Minus for zooming - Ctrl-Shift-C and F12 for DevTools - Special keys for browser functions, such as Back, Forward, and Search
+
+<p>This property does not disable accelerator keys related to movement and text editing, such as: - Home, End, Page Up, and Page Down - Ctrl-X, Ctrl-C, Ctrl-V - Ctrl-A for Select All - Ctrl-Z for Undo
+
+<p>The `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` API is a convenient setting for developers to disable all the browser accelerator keys together, and sets the default value for the `IsBrowserAcceleratorKeyEnabled` property. By default, `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` is `TRUE` and `IsBrowserAcceleratorKeyEnabled` is `TRUE`. When developers change `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, this will change default value for `IsBrowserAcceleratorKeyEnabled` to `FALSE`. If developers want specific keys to be handled by the browser after changing the `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, they need to enable these keys by setting `IsBrowserAcceleratorKeyEnabled` to `TRUE`. This API will give the event arg higher priority over the `CoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting when we handle the keys.
+
+<p>For browser accelerator keys, when an accelerator key is pressed, the propagation and processing order is: 1. A CoreWebView2Controller.AcceleratorKeyPressed event is raised 2. WebView2 browser feature accelerator key handling 3. Web Content Handling: If the key combination isn't reserved for browser actions, the key event propagates to the web content, where JavaScript event listeners can capture and respond to it.
+
+<p>`ICoreWebView2AcceleratorKeyPressedEventArgs` has a `Handled` property, that developers can use to mark a key as handled. When the key is marked as handled anywhere along the path, the event propagation stops, and web content will not receive the key. With `IsBrowserAcceleratorKeyEnabled` property, if developers mark `IsBrowserAcceleratorKeyEnabled` as `FALSE`, the browser will skip the WebView2 browser feature accelerator key handling process, but the event propagation continues, and web content will receive the key combination.
+
+<p>\snippet ScenarioAcceleratorKeyPressed.cpp IsBrowserAcceleratorKeyEnabled Gets the `IsBrowserAcceleratorKeyEnabled` property. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_IsBrowserAcceleratorKeyEnabled-Integer-"></span><code>function <strong>Set_IsBrowserAcceleratorKeyEnabled</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `IsBrowserAcceleratorKeyEnabled` property. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

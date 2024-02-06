@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2DevToolsProtocolEventReceiver</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2DevToolsProtocolEventReceiver"></span><h1 class="cio">Interface ICoreWebView2DevToolsProtocolEventReceiver</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2DevToolsProtocolEventReceiver = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A Receiver is created for a particular DevTools Protocol event and allows you to subscribe and unsubscribe from that event. Obtained from the WebView object using GetDevToolsProtocolEventReceiver. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceiver">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceiver</a>&quot;&gt;See the ICoreWebView2DevToolsProtocolEventReceiver article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2DevToolsProtocolEventReceiver</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceiver.html#add_DevToolsProtocolEventReceived-ICoreWebView2DevToolsProtocolEventReceivedEventHandler-EventRegistrationToken-">add_DevToolsProtocolEventReceived</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventHandler.html">ICoreWebView2DevToolsProtocolEventReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceiver.html#remove_DevToolsProtocolEventReceived-EventRegistrationToken-">remove_DevToolsProtocolEventReceived</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_DevToolsProtocolEventReceived-ICoreWebView2DevToolsProtocolEventReceivedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_DevToolsProtocolEventReceived</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventHandler.html">ICoreWebView2DevToolsProtocolEventReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Subscribe to a `DevToolsProtocol` event. The `Invoke` method of the `handler` runs whenever the corresponding `DevToolsProtocol` event runs. `Invoke` runs with an event args object containing the parameter object of the DevTools Protocol event as a JSON string.
+
+<p>\snippet ScriptComponent.cpp DevToolsProtocolEventReceived </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{B32CA51A-8371-45E9-9317-AF021D080367}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_DevToolsProtocolEventReceived-EventRegistrationToken-"></span><code>function <strong>remove_DevToolsProtocolEventReceived</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_DevToolsProtocolEventReceived`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -96,6 +96,7 @@ type
   TOnProfileAddBrowserExtensionCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension) of object;
   TOnProfileGetBrowserExtensionsCompletedEvent             = procedure(Sender: TObject; aErrorCode: HRESULT; const extensionList: ICoreWebView2BrowserExtensionList) of object;
   TOnProfileDeletedEvent                                   = procedure(Sender: TObject; const aProfile: ICoreWebView2Profile) of object;
+  TOnExecuteScriptWithResultCompletedEvent                 = procedure(Sender: TObject; errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

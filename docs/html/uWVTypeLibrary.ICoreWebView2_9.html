@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_9"></span><h1 class="cio">Interface ICoreWebView2_9</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_9 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_8 that default download dialog positioning and anchoring. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_9</a>&quot;&gt;See the ICoreWebView2_9 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="thisitem">ICoreWebView2_9</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#add_IsDefaultDownloadDialogOpenChanged-ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler-EventRegistrationToken-">add_IsDefaultDownloadDialogOpenChanged</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html">ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#remove_IsDefaultDownloadDialogOpenChanged-EventRegistrationToken-">remove_IsDefaultDownloadDialogOpenChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#Get_IsDefaultDownloadDialogOpen-Integer-">Get_IsDefaultDownloadDialogOpen</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#OpenDefaultDownloadDialog">OpenDefaultDownloadDialog</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#CloseDefaultDownloadDialog">CloseDefaultDownloadDialog</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#Get_DefaultDownloadDialogCornerAlignment-COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT-">Get_DefaultDownloadDialogCornerAlignment</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT">COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#Set_DefaultDownloadDialogCornerAlignment-COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT-">Set_DefaultDownloadDialogCornerAlignment</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT">COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#Get_DefaultDownloadDialogMargin-tagPOINT-">Get_DefaultDownloadDialogMargin</a></strong>(out value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_9.html#Set_DefaultDownloadDialogMargin-tagPOINT-">Set_DefaultDownloadDialogMargin</a></strong>(value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_IsDefaultDownloadDialogOpenChanged-ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_IsDefaultDownloadDialogOpenChanged</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html">ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Raised when the `IsDefaultDownloadDialogOpen` property changes. This event comes after the `DownloadStarting` event. Setting the `Handled` property on the `DownloadStartingEventArgs` disables the default download dialog and ensures that this event is never raised. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{4D7B2EAB-9FDC-468D-B998-A9260B5ED651}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_IsDefaultDownloadDialogOpenChanged-EventRegistrationToken-"></span><code>function <strong>remove_IsDefaultDownloadDialogOpenChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_IsDefaultDownloadDialogOpenChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsDefaultDownloadDialogOpen-Integer-"></span><code>function <strong>Get_IsDefaultDownloadDialogOpen</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `TRUE` if the default download dialog is currently open. The value of this property changes only when the default download dialog is explicitly opened or closed. Hiding the WebView implicitly hides the dialog, but does not change the value of this property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OpenDefaultDownloadDialog"></span><code>function <strong>OpenDefaultDownloadDialog</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Open the default download dialog. If the dialog is opened before there are recent downloads, the dialog shows all past downloads for the current profile. Otherwise, the dialog shows only the recent downloads with a &quot;See more&quot; button for past downloads. Calling this method raises the `IsDefaultDownloadDialogOpenChanged` event if the dialog was closed. No effect if the dialog is already open.
+
+<p>\snippet ViewComponent.cpp ToggleDefaultDownloadDialog </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CloseDefaultDownloadDialog"></span><code>function <strong>CloseDefaultDownloadDialog</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Close the default download dialog. Calling this method raises the `IsDefaultDownloadDialogOpenChanged` event if the dialog was open. No effect if the dialog is already closed. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DefaultDownloadDialogCornerAlignment-COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT-"></span><code>function <strong>Get_DefaultDownloadDialogCornerAlignment</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT">COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the default download dialog corner alignment. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_DefaultDownloadDialogCornerAlignment-COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT-"></span><code>function <strong>Set_DefaultDownloadDialogCornerAlignment</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT">COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the default download dialog corner alignment. The dialog can be aligned to any of the WebView corners (see COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT). When the WebView or dialog changes size, the dialog keeps its position relative to the corner. The dialog may become partially or completely outside of the WebView bounds if the WebView is small enough. Set the margin relative to the corner with the `DefaultDownloadDialogMargin` property. The corner alignment and margin should be set during initialization to ensure that they are correctly applied when the layout is first computed, otherwise they will not take effect until the next time the WebView position or size is updated.
+
+<p>\snippet ViewComponent.cpp SetDefaultDownloadDialogPosition </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DefaultDownloadDialogMargin-tagPOINT-"></span><code>function <strong>Get_DefaultDownloadDialogMargin</strong>(out value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the default download dialog margin. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_DefaultDownloadDialogMargin-tagPOINT-"></span><code>function <strong>Set_DefaultDownloadDialogMargin</strong>(value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the default download dialog margin relative to the WebView corner specified by `DefaultDownloadDialogCornerAlignment`. The margin is a point that describes the vertical and horizontal distances between the chosen WebView corner and the default download dialog corner nearest to it. Positive values move the dialog towards the center of the WebView from the chosen WebView corner, and negative values move the dialog away from it. Use (0, 0) to align the dialog to the WebView corner with no margin. The corner alignment and margin should be set during initialization to ensure that they are correctly applied when the layout is first computed, otherwise they will not take effect until the next time the WebView position or size is updated. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

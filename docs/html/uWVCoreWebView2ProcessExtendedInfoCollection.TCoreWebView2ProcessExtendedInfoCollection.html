@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2ProcessExtendedInfoCollection: Class TCoreWebView2ProcessExtendedInfoCollection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2ProcessExtendedInfoCollection"></span><h1 class="cio">Class TCoreWebView2ProcessExtendedInfoCollection</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2ProcessExtendedInfoCollection.html">uWVCoreWebView2ProcessExtendedInfoCollection</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ProcessExtendedInfoCollection = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A list containing processInfo and associated extended information. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection</a>&quot;&gt;See the ICoreWebView2ProcessExtendedInfoCollection article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ProcessExtendedInfoCollection</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetCount">GetCount</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetValueAtIndex-cardinal-">GetValueAtIndex</a></strong>(index : cardinal) : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html">ICoreWebView2ProcessExtendedInfo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#Create-ICoreWebView2ProcessExtendedInfoCollection-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#Initialized">Initialized</a></strong>           : boolean                                      read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#BaseIntf">BaseIntf</a></strong>              : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>   read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#Count">Count</a></strong>                 : cardinal                                     read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetCount">GetCount</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#Items">Items</a></strong>[idx: cardinal]: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html">ICoreWebView2ProcessExtendedInfo</a>             read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetValueAtIndex-cardinal-">GetValueAtIndex</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCount"></span><code>function <strong>GetCount</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetValueAtIndex-cardinal-"></span><code>function <strong>GetValueAtIndex</strong>(index : cardinal) : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html">ICoreWebView2ProcessExtendedInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ProcessExtendedInfoCollection-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>           : boolean                                      read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>              : <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>   read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Count"></span><code>property <strong>Count</strong>                 : cardinal                                     read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetCount">GetCount</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The number of process contained in the `ICoreWebView2ProcessExtendedInfoCollection`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#get_count">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#get_count</a>&quot;&gt;See the ICoreWebView2ProcessExtendedInfoCollection article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>[idx: cardinal]: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html">ICoreWebView2ProcessExtendedInfo</a>             read <a href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html#GetValueAtIndex-cardinal-">GetValueAtIndex</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `ICoreWebView2ProcessExtendedInfo` located in the `ICoreWebView2ProcessExtendedInfoCollection` at the given index. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#getvalueatindex">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#getvalueatindex</a>&quot;&gt;See the ICoreWebView2ProcessExtendedInfoCollection article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

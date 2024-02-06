@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ProcessFailedEventArgs2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ProcessFailedEventArgs2"></span><h1 class="cio">Interface ICoreWebView2ProcessFailedEventArgs2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ProcessFailedEventArgs2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs.html">ICoreWebView2ProcessFailedEventArgs</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2ProcessFailedEventArgs interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2</a>&quot;&gt;See the ICoreWebView2ProcessFailedEventArgs2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs.html">ICoreWebView2ProcessFailedEventArgs</a></li>
+<li class="thisitem">ICoreWebView2ProcessFailedEventArgs2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html#Get_reason-COREWEBVIEW2_PROCESS_FAILED_REASON-">Get_reason</a></strong>(out reason: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON">COREWEBVIEW2_PROCESS_FAILED_REASON</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html#Get_ExitCode-SYSINT-">Get_ExitCode</a></strong>(out ExitCode: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html#Get_ProcessDescription-PWideChar-">Get_ProcessDescription</a></strong>(out ProcessDescription: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html#Get_FrameInfosForFailedProcess-ICoreWebView2FrameInfoCollection-">Get_FrameInfosForFailedProcess</a></strong>(out frames: <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollection.html">ICoreWebView2FrameInfoCollection</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_reason-COREWEBVIEW2_PROCESS_FAILED_REASON-"></span><code>function <strong>Get_reason</strong>(out reason: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON">COREWEBVIEW2_PROCESS_FAILED_REASON</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The reason for the process failure. Some of the reasons are only applicable to specific values of `ICoreWebView2ProcessFailedEventArgs::ProcessFailedKind`, and the following `ProcessFailedKind` values always return the indicated reason value:
+
+<p>ProcessFailedKind | Reason &mdash;|&mdash; COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED | COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE | COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE
+
+<p>For other `ProcessFailedKind` values, the reason may be any of the reason values. To learn about what these values mean, see `COREWEBVIEW2_PROCESS_FAILED_REASON`. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ExitCode-SYSINT-"></span><code>function <strong>Get_ExitCode</strong>(out ExitCode: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The exit code of the failing process, for telemetry purposes. The exit code is always `STILL_ACTIVE` (`259`) when `ProcessFailedKind` is `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ProcessDescription-PWideChar-"></span><code>function <strong>Get_ProcessDescription</strong>(out ProcessDescription: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Description of the process assigned by the WebView2 Runtime. This is a technical English term appropriate for logging or development purposes, and not localized for the end user. It applies to utility processes (for example, &quot;Audio Service&quot;, &quot;Video Capture&quot;) and plugin processes (for example, &quot;Flash&quot;). The returned `processDescription` is empty if the WebView2 Runtime did not assign a description to the process.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_FrameInfosForFailedProcess-ICoreWebView2FrameInfoCollection-"></span><code>function <strong>Get_FrameInfosForFailedProcess</strong>(out frames: <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollection.html">ICoreWebView2FrameInfoCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The collection of `FrameInfo`s for frames in the `ICoreWebView2` that were being rendered by the failed process. The content in these frames is replaced with an error page. This is only available when `ProcessFailedKind` is `COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED`; `frames` is `null` for all other process failure kinds, including the case in which the failed process was the renderer for the main frame and subframes within it, for which the failure kind is `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_14</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_14"></span><h1 class="cio">Interface ICoreWebView2_14</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_14 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_13 that adds ServerCertificate support. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14</a>&quot;&gt;See the ICoreWebView2_14 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></li>
+<li class="thisitem">ICoreWebView2_14</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_14.html#add_ServerCertificateErrorDetected-ICoreWebView2ServerCertificateErrorDetectedEventHandler-EventRegistrationToken-">add_ServerCertificateErrorDetected</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventHandler.html">ICoreWebView2ServerCertificateErrorDetectedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_14.html#remove_ServerCertificateErrorDetected-EventRegistrationToken-">remove_ServerCertificateErrorDetected</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_14.html#ClearServerCertificateErrorActions-ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler-">ClearServerCertificateErrorActions</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler.html">ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ServerCertificateErrorDetected-ICoreWebView2ServerCertificateErrorDetectedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ServerCertificateErrorDetected</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventHandler.html">ICoreWebView2ServerCertificateErrorDetectedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the ServerCertificateErrorDetected event. The ServerCertificateErrorDetected event is raised when the WebView2 cannot verify server's digital certificate while loading a web page.
+
+<p>This event will raise for all web resources and follows the `WebResourceRequested` event.
+
+<p>If you don't handle the event, WebView2 will show the default TLS interstitial error page to the user for navigations, and for non-navigations the web request is cancelled.
+
+<p>Note that WebView2 before raising `ServerCertificateErrorDetected` raises a `NavigationCompleted` event with `IsSuccess` as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.
+
+<p>- COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_COMMON_NAME_IS_INCORRECT - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_EXPIRED - COREWEBVIEW2_WEB_ERROR_STATUS_CLIENT_CERTIFICATE_CONTAINS_ERRORS - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_REVOKED - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_IS_INVALID
+
+<p>For more details see `ICoreWebView2NavigationCompletedEventArgs::get_IsSuccess` and handle ServerCertificateErrorDetected event or show the default TLS interstitial error page to the user according to the app needs.
+
+<p>WebView2 caches the response when action is `COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW` for the RequestUri's host and the server certificate in the session and the `ServerCertificateErrorDetected` event won't be raised again.
+
+<p>To raise the event again you must clear the cache using `ClearServerCertificateErrorActions`.
+
+<p>\snippet SettingsComponent.cpp ServerCertificateErrorDetected1 </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{6DAA4F10-4A90-4753-8898-77C5DF534165}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ServerCertificateErrorDetected-EventRegistrationToken-"></span><code>function <strong>remove_ServerCertificateErrorDetected</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_ServerCertificateErrorDetected. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearServerCertificateErrorActions-ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler-"></span><code>function <strong>ClearServerCertificateErrorActions</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler.html">ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Clears all cached decisions to proceed with TLS certificate errors from the ServerCertificateErrorDetected event for all WebView2's sharing the same session. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

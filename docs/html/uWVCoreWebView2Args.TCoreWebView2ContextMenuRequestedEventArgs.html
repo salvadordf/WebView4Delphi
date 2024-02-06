@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Args: Class TCoreWebView2ContextMenuRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2ContextMenuRequestedEventArgs"></span><h1 class="cio">Class TCoreWebView2ContextMenuRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ContextMenuRequestedEventArgs = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the ContextMenuRequested event. Will contain the selection information and a collection of all of the default context menu items that the WebView would show. Allows the app to draw its own context menu or add/remove from the default context menu. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ContextMenuRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetMenuItems">GetMenuItems</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetContextMenuTarget">GetContextMenuTarget</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetLocation">GetLocation</a></strong>: TPoint;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetSelectedCommandId">GetSelectedCommandId</a></strong>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetDeferral">GetDeferral</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetHandled">GetHandled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetSelectedCommandId-Integer-">SetSelectedCommandId</a></strong>(aValue: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a></strong>(aValue : boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Create-ICoreWebView2ContextMenuRequestedEventArgs-">Create</a></strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Initialized">Initialized</a></strong>                   : boolean                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#BaseIntf">BaseIntf</a></strong>                      : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>          read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#MenuItems">MenuItems</a></strong>                     : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>              read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetMenuItems">GetMenuItems</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#ContextMenuTarget">ContextMenuTarget</a></strong>             : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>                      read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetContextMenuTarget">GetContextMenuTarget</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Location">Location</a></strong>                      : TPoint                                              read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetLocation">GetLocation</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SelectedCommandId">SelectedCommandId</a></strong>             : integer                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetSelectedCommandId">GetSelectedCommandId</a>    write <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetSelectedCommandId-Integer-">SetSelectedCommandId</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Handled">Handled</a></strong>                       : boolean                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetHandled">GetHandled</a>              write <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#Deferral">Deferral</a></strong>                      : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                               read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetMenuItems"></span><code>function <strong>GetMenuItems</strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetContextMenuTarget"></span><code>function <strong>GetContextMenuTarget</strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetLocation"></span><code>function <strong>GetLocation</strong>: TPoint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSelectedCommandId"></span><code>function <strong>GetSelectedCommandId</strong>: Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDeferral"></span><code>function <strong>GetDeferral</strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHandled"></span><code>function <strong>GetHandled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetSelectedCommandId-Integer-"></span><code>procedure <strong>SetSelectedCommandId</strong>(aValue: Integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHandled-boolean-"></span><code>procedure <strong>SetHandled</strong>(aValue : boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ContextMenuRequestedEventArgs-"></span><code>constructor <strong>Create</strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                   : boolean                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                      : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>          read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MenuItems"></span><code>property <strong>MenuItems</strong>                     : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>              read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetMenuItems">GetMenuItems</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the collection of `ContextMenuItem` objects. See `ICoreWebView2ContextMenuItemCollection` for more details. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_menuitems">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_menuitems</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ContextMenuTarget"></span><code>property <strong>ContextMenuTarget</strong>             : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>                      read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetContextMenuTarget">GetContextMenuTarget</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the target information associated with the requested context menu. See `ICoreWebView2ContextMenuTarget` for more details. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_contextmenutarget">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_contextmenutarget</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Location"></span><code>property <strong>Location</strong>                      : TPoint                                              read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetLocation">GetLocation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the coordinates where the context menu request occurred in relation to the upper left corner of the WebView bounds. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_location">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_location</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SelectedCommandId"></span><code>property <strong>SelectedCommandId</strong>             : integer                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetSelectedCommandId">GetSelectedCommandId</a>    write <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetSelectedCommandId-Integer-">SetSelectedCommandId</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the selected CommandId. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_selectedcommandid">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_selectedcommandid</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Handled"></span><code>property <strong>Handled</strong>                       : boolean                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetHandled">GetHandled</a>              write <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets whether the `ContextMenuRequested` event is handled by host. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_handled">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_handled</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Deferral"></span><code>property <strong>Deferral</strong>                      : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                               read <a href="uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the event when the custom context menu is closed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#getdeferral">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#getdeferral</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

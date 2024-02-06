@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CookieManager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2CookieManager"></span><h1 class="cio">Interface ICoreWebView2CookieManager</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CookieManager = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Creates, adds or updates, gets, or or view the cookies. The changes would apply to the context of the user profile. That is, other WebViews under the same user profile could be affected. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookiemanager</a>&quot;&gt;See the ICoreWebView2CookieManager article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2CookieManager</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#CreateCookie-PWideChar-PWideChar-PWideChar-PWideChar-ICoreWebView2Cookie-">CreateCookie</a></strong>(name: PWideChar; value: PWideChar; Domain: PWideChar; Path: PWideChar; out cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#CopyCookie-ICoreWebView2Cookie-ICoreWebView2Cookie-">CopyCookie</a></strong>(const cookieParam: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>; out cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#GetCookies-PWideChar-ICoreWebView2GetCookiesCompletedHandler-">GetCookies</a></strong>(uri: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html">ICoreWebView2GetCookiesCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#AddOrUpdateCookie-ICoreWebView2Cookie-">AddOrUpdateCookie</a></strong>(const cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#DeleteCookie-ICoreWebView2Cookie-">DeleteCookie</a></strong>(const cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#DeleteCookies-PWideChar-PWideChar-">DeleteCookies</a></strong>(name: PWideChar; uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#DeleteCookiesWithDomainAndPath-PWideChar-PWideChar-PWideChar-">DeleteCookiesWithDomainAndPath</a></strong>(name: PWideChar; Domain: PWideChar; Path: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CookieManager.html#DeleteAllCookies">DeleteAllCookies</a></strong>: HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateCookie-PWideChar-PWideChar-PWideChar-PWideChar-ICoreWebView2Cookie-"></span><code>function <strong>CreateCookie</strong>(name: PWideChar; value: PWideChar; Domain: PWideChar; Path: PWideChar; out cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create a cookie object with a specified name, value, domain, and path. One can set other optional properties after cookie creation. This only creates a cookie object and it is not added to the cookie manager until you call AddOrUpdateCookie. Leading or trailing whitespace(s), empty string, and special characters are not allowed for name. See ICoreWebView2Cookie for more details. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{177CD9E7-B6F5-451A-94A0-5D7A3A4C4141}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyCookie-ICoreWebView2Cookie-ICoreWebView2Cookie-"></span><code>function <strong>CopyCookie</strong>(const cookieParam: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>; out cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Creates a cookie whose params matches those of the specified cookie. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCookies-PWideChar-ICoreWebView2GetCookiesCompletedHandler-"></span><code>function <strong>GetCookies</strong>(uri: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html">ICoreWebView2GetCookiesCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets a list of cookies matching the specific URI. If uri is empty string or null, all cookies under the same profile are returned. You can modify the cookie objects by calling ICoreWebView2CookieManager::AddOrUpdateCookie, and the changes will be applied to the webview. \snippet ScenarioCookieManagement.cpp GetCookies </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddOrUpdateCookie-ICoreWebView2Cookie-"></span><code>function <strong>AddOrUpdateCookie</strong>(const cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds or updates a cookie with the given cookie data; may overwrite cookies with matching name, domain, and path if they exist. This method will fail if the domain of the given cookie is not specified. \snippet ScenarioCookieManagement.cpp AddOrUpdateCookie </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteCookie-ICoreWebView2Cookie-"></span><code>function <strong>DeleteCookie</strong>(const cookie: <a href="uWVTypeLibrary.ICoreWebView2Cookie.html">ICoreWebView2Cookie</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Deletes a cookie whose name and domain/path pair match those of the specified cookie. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteCookies-PWideChar-PWideChar-"></span><code>function <strong>DeleteCookies</strong>(name: PWideChar; uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Deletes cookies with matching name and uri. Cookie name is required. All cookies with the given name where domain and path match provided URI are deleted. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteCookiesWithDomainAndPath-PWideChar-PWideChar-PWideChar-"></span><code>function <strong>DeleteCookiesWithDomainAndPath</strong>(name: PWideChar; Domain: PWideChar; Path: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Deletes cookies with matching name and domain/path pair. Cookie name is required. If domain is specified, deletes only cookies with the exact domain. If path is specified, deletes only cookies with the exact path. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteAllCookies"></span><code>function <strong>DeleteAllCookies</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Deletes all cookies under the same profile. This could affect other WebViews under the same user profile. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2NewWindowRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2NewWindowRequestedEventArgs"></span><h1 class="cio">Interface ICoreWebView2NewWindowRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2NewWindowRequestedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the NewWindowRequested event. The event is run when content inside webview requested to a open a new window (through window.open() and so on). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2NewWindowRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Get_uri-PWideChar-">Get_uri</a></strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Set_NewWindow-ICoreWebView2-">Set_NewWindow</a></strong>(const NewWindow: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Get_NewWindow-ICoreWebView2-">Get_NewWindow</a></strong>(out NewWindow: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Set_Handled-Integer-">Set_Handled</a></strong>(Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Get_Handled-Integer-">Get_Handled</a></strong>(out Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Get_IsUserInitiated-Integer-">Get_IsUserInitiated</a></strong>(out IsUserInitiated: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html#Get_WindowFeatures-ICoreWebView2WindowFeatures-">Get_WindowFeatures</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_uri-PWideChar-"></span><code>function <strong>Get_uri</strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The target uri of the new window requested.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{34ACB11C-FC37-4418-9132-F9C21D1EAFB9}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_NewWindow-ICoreWebView2-"></span><code>function <strong>Set_NewWindow</strong>(const NewWindow: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets a CoreWebView2 as a result of the NewWindowRequested event. Provides a WebView as the target for a `window.open()` from inside the requesting WebView. If this is set, the top-level window of this WebView is returned as the opened [WindowProxy](<a href="https://developer.mozilla.org/en-US/docs/glossary/windowproxy">https://developer.mozilla.org/en-US/docs/glossary/windowproxy</a>) to the opener script. If this is not set, then `Handled` is checked to determine behavior for NewWindowRequested event. CoreWebView2 provided in the `NewWindow` property must be on the same Environment as the opener WebView and should not have been navigated previously. Don't use methods that cause navigation or interact with the DOM on this CoreWebView2 until the target content has loaded. Setting event handlers, changing Settings properties, or other methods are fine to call. Changes to settings should be made before `put_NewWindow` is called to ensure that those settings take effect for the newly setup WebView. Once the NewWindow is set the underlying web contents of this CoreWebView2 will be replaced and navigated as appropriate for the new window. After setting new window it cannot be changed and error will be return otherwise.
+
+<p>The methods which should affect the new web contents like AddScriptToExecuteOnDocumentCreated has to be called and completed before setting NewWindow. Other methods which should affect the new web contents like add_WebResourceRequested have to be called after setting NewWindow. It is best not to use RemoveScriptToExecuteOnDocumentCreated before setting NewWindow, otherwise it may not work for later added scripts.
+
+<p>The new WebView must have the same profile as the opener WebView. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_NewWindow-ICoreWebView2-"></span><code>function <strong>Get_NewWindow</strong>(out NewWindow: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the new window. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Handled-Integer-"></span><code>function <strong>Set_Handled</strong>(Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets whether the `NewWindowRequested` event is handled by host. If this is `FALSE` and no `NewWindow` is set, the WebView opens a popup window and it returns as opened `WindowProxy`. If set to `TRUE` and no `NewWindow` is set for `window.open`, the opened `WindowProxy` is for an testing window object and no window loads. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Handled-Integer-"></span><code>function <strong>Get_Handled</strong>(out Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets whether the `NewWindowRequested` event is handled by host. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsUserInitiated-Integer-"></span><code>function <strong>Get_IsUserInitiated</strong>(out IsUserInitiated: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `TRUE` when the new window request was initiated through a user gesture. Examples of user initiated requests are:
+
+<p>- Selecting an anchor tag with target - Programmatic window open from a script that directly run as a result of user interaction such as via onclick handlers.
+
+<p>Non-user initiated requests are programmatic window opens from a script that are not directly triggered by user interaction, such as those that run while loading a new page or via timers. The Microsoft Edge popup blocker is disabled for WebView so the app is able to use this flag to block non-user initiated popups. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Obtain an `ICoreWebView2Deferral` object and put the event into a deferred state. Use the `ICoreWebView2Deferral` object to complete the window open request at a later time. While this event is deferred the opener window returns a `WindowProxy` to an un-navigated window, which navigates when the deferral is complete. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_WindowFeatures-ICoreWebView2WindowFeatures-"></span><code>function <strong>Get_WindowFeatures</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Window features specified by the `window.open`. The features should be considered for positioning and sizing of new webview windows. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

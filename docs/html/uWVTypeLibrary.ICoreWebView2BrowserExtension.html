@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2BrowserExtension</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2BrowserExtension"></span><h1 class="cio">Interface ICoreWebView2BrowserExtension</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2BrowserExtension = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Provides a set of properties for managing an Extension, which includes an ID, name, and whether it is enabled or not, and the ability to Remove the Extension, and enable or disable it. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension</a>&quot;&gt;See the ICoreWebView2BrowserExtension article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2BrowserExtension</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html#Get_id-PWideChar-">Get_id</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html#Get_name-PWideChar-">Get_name</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html#Remove-ICoreWebView2BrowserExtensionRemoveCompletedHandler-">Remove</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionRemoveCompletedHandler.html">ICoreWebView2BrowserExtensionRemoveCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html#Get_IsEnabled-Integer-">Get_IsEnabled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html#Enable-Integer-ICoreWebView2BrowserExtensionEnableCompletedHandler-">Enable</a></strong>(IsEnabled: Integer; const handler: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionEnableCompletedHandler.html">ICoreWebView2BrowserExtensionEnableCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_id-PWideChar-"></span><code>function <strong>Get_id</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This is the browser extension's ID. This is the same browser extension ID returned by the browser extension API [`chrome.runtime.id`](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id</a>). Please see that documentation for more details on how the ID is generated. After an extension is removed, calling `Id` will return the id of the extension that is removed. The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_name-PWideChar-"></span><code>function <strong>Get_name</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This is the browser extension's name. This value is defined in this browser extension's manifest.json file. If manifest.json define extension's localized name, this value will be the localized version of the name. Please see [Manifest.json name](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name</a>) for more details. After an extension is removed, calling `Name` will return the name of the extension that is removed. The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Remove-ICoreWebView2BrowserExtensionRemoveCompletedHandler-"></span><code>function <strong>Remove</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionRemoveCompletedHandler.html">ICoreWebView2BrowserExtensionRemoveCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes this browser extension from its WebView2 Profile. The browser extension is removed immediately including from all currently running HTML documents associated with this WebView2 Profile. The removal is persisted and future uses of this profile will not have this extension installed. After an extension is removed, calling `Remove` again will cause an exception. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsEnabled-Integer-"></span><code>function <strong>Get_IsEnabled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If `isEnabled` is true then the Extension is enabled and running in WebView instances. If it is false then the Extension is disabled and not running in WebView instances. When a Extension is first installed, `IsEnable` are default to be `TRUE`. `isEnabled` is persisted per profile. After an extension is removed, calling `isEnabled` will return the value at the time it was removed. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Enable-Integer-ICoreWebView2BrowserExtensionEnableCompletedHandler-"></span><code>function <strong>Enable</strong>(IsEnabled: Integer; const handler: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionEnableCompletedHandler.html">ICoreWebView2BrowserExtensionEnableCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets whether this browser extension is enabled or disabled. This change applies immediately to the extension in all HTML documents in all WebView2s associated with this profile. After an extension is removed, calling `Enable` will not change the value of `IsEnabled`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

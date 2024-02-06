@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2WebMessageReceivedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2WebMessageReceivedEventArgs"></span><h1 class="cio">Interface ICoreWebView2WebMessageReceivedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2WebMessageReceivedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the WebMessageReceived event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webmessagereceivedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webmessagereceivedeventargs</a>&quot;&gt;See the ICoreWebView2WebMessageReceivedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2WebMessageReceivedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html#Get_Source-PWideChar-">Get_Source</a></strong>(out Source: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html#Get_webMessageAsJson-PWideChar-">Get_webMessageAsJson</a></strong>(out webMessageAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html#TryGetWebMessageAsString-PWideChar-">TryGetWebMessageAsString</a></strong>(out webMessageAsString: PWideChar): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Source-PWideChar-"></span><code>function <strong>Get_Source</strong>(out Source: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The URI of the document that sent this web message.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{0F99A40C-E962-4207-9E92-E3D542EFF849}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_webMessageAsJson-PWideChar-"></span><code>function <strong>Get_webMessageAsJson</strong>(out webMessageAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The message posted from the WebView content to the host converted to a JSON string. Run this operation to communicate using JavaScript objects.
+
+<p>For example, the following `postMessage` runs result in the following `WebMessageAsJson` values.
+
+<p>```json postMessage({'a': 'b'}) L&quot;{\&quot;a\&quot;: \&quot;b\&quot;}&quot; postMessage(1.2) L&quot;1.2&quot; postMessage('example') L&quot;\&quot;example\&quot;&quot; ```
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TryGetWebMessageAsString-PWideChar-"></span><code>function <strong>TryGetWebMessageAsString</strong>(out webMessageAsString: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If the message posted from the WebView content to the host is a string type, this method returns the value of that string. If the message posted is some other kind of JavaScript type this method fails with the following error.
+
+<p>```text E_INVALIDARG ```
+
+<p>Run this operation to communicate using simple strings.
+
+<p>For example, the following `postMessage` runs result in the following `WebMessageAsString` values.
+
+<p>```json postMessage({'a': 'b'}) E_INVALIDARG postMessage(1.2) E_INVALIDARG postMessage('example') L&quot;example&quot; ```
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

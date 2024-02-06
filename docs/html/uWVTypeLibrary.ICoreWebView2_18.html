@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_18</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_18"></span><h1 class="cio">Interface ICoreWebView2_18</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_18 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_17.html">ICoreWebView2_17</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_17 that manages navigation requests to URI schemes registered with the OS. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18</a>&quot;&gt;See the ICoreWebView2_18 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_14.html">ICoreWebView2_14</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_15.html">ICoreWebView2_15</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_17.html">ICoreWebView2_17</a></li>
+<li class="thisitem">ICoreWebView2_18</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_18.html#add_LaunchingExternalUriScheme-ICoreWebView2LaunchingExternalUriSchemeEventHandler-EventRegistrationToken-">add_LaunchingExternalUriScheme</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventHandler.html">ICoreWebView2LaunchingExternalUriSchemeEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_18.html#remove_LaunchingExternalUriScheme-EventRegistrationToken-">remove_LaunchingExternalUriScheme</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_LaunchingExternalUriScheme-ICoreWebView2LaunchingExternalUriSchemeEventHandler-EventRegistrationToken-"></span><code>function <strong>add_LaunchingExternalUriScheme</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventHandler.html">ICoreWebView2LaunchingExternalUriSchemeEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `LaunchingExternalUriScheme` event. The `LaunchingExternalUriScheme` event is raised when a navigation request is made to a URI scheme that is registered with the OS. The `LaunchingExternalUriScheme` event handler may suppress the default dialog or replace the default dialog with a custom dialog.
+
+<p>If a deferral is not taken on the event args, the external URI scheme launch is blocked until the event handler returns. If a deferral is taken, the external URI scheme launch is blocked until the deferral is completed. The host also has the option to cancel the URI scheme launch.
+
+<p>The `NavigationStarting` and `NavigationCompleted` events will be raised, regardless of whether the `Cancel` property is set to `TRUE` or `FALSE`. The `NavigationCompleted` event will be raised with the `IsSuccess` property set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of whether the host sets the `Cancel` property on the `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `SourceChanged`, `ContentLoading`, and `HistoryChanged` events will not be raised for this navigation to the external URI scheme regardless of the `Cancel` property. The `LaunchingExternalUriScheme` event will be raised after the `NavigationStarting` event and before the `NavigationCompleted` event. The default `CoreWebView2Settings` will also be updated upon navigation to an external URI scheme. If a setting on the `CoreWebView2Settings` interface has been changed, navigating to an external URI scheme will trigger the `CoreWebView2Settings` to update.
+
+<p>The WebView2 may not display the default dialog based on user settings, browser settings, and whether the origin is determined as a [trustworthy origin](<a href="https://w3c.github.io/webappsec-secure-contexts#">https://w3c.github.io/webappsec-secure-contexts#</a> potentially-trustworthy-origin); however, the event will still be raised.
+
+<p>If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `LaunchingExternalUriScheme` event will not be raised. \snippet SettingsComponent.cpp ToggleLaunchingExternalUriScheme </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7A626017-28BE-49B2-B865-3BA2B3522D90}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_LaunchingExternalUriScheme-EventRegistrationToken-"></span><code>function <strong>remove_LaunchingExternalUriScheme</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_LaunchingExternalUriScheme`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

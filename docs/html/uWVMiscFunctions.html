@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVMiscFunctions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<h1 class="unit">Unit uWVMiscFunctions</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section">Classes, Interfaces, Objects and Records</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p class="nodescription">This item has no description.</p><span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#AllocCoTaskMemStr-wvstring-">AllocCoTaskMemStr</a></strong>(const aString : <a href="uWVTypes.html#wvstring">wvstring</a>): PWideChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#LowestChromiumVersion">LowestChromiumVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#LowestLoaderDLLVersion">LowestLoaderDLLVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#EnvironmentCreationErrorToString-HRESULT-">EnvironmentCreationErrorToString</a></strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#ControllerCreationErrorToString-HRESULT-">ControllerCreationErrorToString</a></strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#ControllerOptionsCreationErrorToString-HRESULT-">ControllerOptionsCreationErrorToString</a></strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CompositionControllerCreationErrorToString-HRESULT-">CompositionControllerCreationErrorToString</a></strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#GetScreenDPI">GetScreenDPI</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#GetDeviceScaleFactor">GetDeviceScaleFactor</a></strong>: single;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#EditingCommandToString-TWV2EditingCommand-">EditingCommandToString</a></strong>(aEditingCommand : <a href="uWVTypes.html#TWV2EditingCommand">TWV2EditingCommand</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#DeleteDirContents-string-TStringList-">DeleteDirContents</a></strong>(const aDirectory : string; const aExcludeFiles : TStringList = nil) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#SystemCursorIDToDelphiCursor-cardinal-">SystemCursorIDToDelphiCursor</a></strong>(aSystemCursorID : cardinal) : TCursor;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#LoggedQueryInterface-IInterface-TGUID-const-">LoggedQueryInterface</a></strong>(const aBaseIntf: IInterface; const aGUID: TGUID; out Obj): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="uWVMiscFunctions.html#OutputDebugMessage-string-">OutputDebugMessage</a></strong>(const aMessage : string);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomExceptionHandler-string-exception-">CustomExceptionHandler</a></strong>(const aFunctionName : string; const aException : exception) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="uWVMiscFunctions.html#LogMouseEvent-TWVMouseEventKind-TWVMouseEventVirtualKeys-cardinal-TPoint-">LogMouseEvent</a></strong>(aEventKind : <a href="uWVTypes.html#TWVMouseEventKind">TWVMouseEventKind</a>; aVirtualKeys : <a href="uWVTypes.html#TWVMouseEventVirtualKeys">TWVMouseEventVirtualKeys</a>; aMouseData : cardinal; aPoint : TPoint);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CoreWebViewColorToDelphiColor-COREWEBVIEW2_COLOR-">CoreWebViewColorToDelphiColor</a></strong>(const aColor : <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>) : TColor;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#DelphiColorToCoreWebViewColor-TColor-">DelphiColorToCoreWebViewColor</a></strong>(const aColor : TColor) : <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#TryIso8601BasicToDate-string-TDateTime-">TryIso8601BasicToDate</a></strong>(const Str: string; out Date: TDateTime): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#JSONUnescape-wvstring-">JSONUnescape</a></strong>(const Source: <a href="uWVTypes.html#wvstring">wvstring</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#JSONEscape-wvstring-">JSONEscape</a></strong>(const Source: <a href="uWVTypes.html#wvstring">wvstring</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomURLDecode-wvstring-">CustomURLDecode</a></strong>(const aEncodedStr : <a href="uWVTypes.html#wvstring">wvstring</a>) : AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomPathIsRelative-wvstring-">CustomPathIsRelative</a></strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomPathCanonicalize-wvstring-wvstring-">CustomPathCanonicalize</a></strong>(const aOriginalPath : <a href="uWVTypes.html#wvstring">wvstring</a>; var aCanonicalPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomAbsolutePath-wvstring-boolean-">CustomAbsolutePath</a></strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>; aMustExist : boolean = False) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomPathIsURL-wvstring-">CustomPathIsURL</a></strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#CustomPathIsUNC-wvstring-">CustomPathIsUNC</a></strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#GetModulePath">GetModulePath</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#EscapeCommandLineParameter-wvstring-">EscapeCommandLineParameter</a></strong>(const aParameter : <a href="uWVTypes.html#wvstring">wvstring</a>) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsRelativeAnsi-LPCSTR-">PathIsRelativeAnsi</a></strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsRelativeA';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsRelativeUnicode-LPCWSTR-">PathIsRelativeUnicode</a></strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsRelativeW';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathCanonicalizeAnsi-LPSTR-LPCSTR-">PathCanonicalizeAnsi</a></strong>(pszBuf: LPSTR; pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathCanonicalizeA';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathCanonicalizeUnicode-LPWSTR-LPCWSTR-">PathCanonicalizeUnicode</a></strong>(pszBuf: LPWSTR; pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathCanonicalizeW';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsUNCAnsi-LPCSTR-">PathIsUNCAnsi</a></strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsUNCA';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsUNCUnicode-LPCWSTR-">PathIsUNCUnicode</a></strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsUNCW';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsURLAnsi-LPCSTR-">PathIsURLAnsi</a></strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsURLA';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#PathIsURLUnicode-LPCWSTR-">PathIsURLUnicode</a></strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsURLW';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="uWVMiscFunctions.html#SetWindowLongPtr-HWND-Integer-LongInt-">SetWindowLongPtr</a></strong>(hWnd: HWND; nIndex: Integer; dwNewLong: LongInt): LongInt; stdcall; external user32 name 'SetWindowLongW';</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a></strong>  = 'shlwapi.dll';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVMiscFunctions.html#GWLP_WNDPROC">GWLP_WNDPROC</a></strong>    = GWL_WNDPROC;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVMiscFunctions.html#GWLP_HWNDPARENT">GWLP_HWNDPARENT</a></strong> = GWL_HWNDPARENT;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="AllocCoTaskMemStr-wvstring-"></span><code>function <strong>AllocCoTaskMemStr</strong>(const aString : <a href="uWVTypes.html#wvstring">wvstring</a>): PWideChar;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LowestChromiumVersion"></span><code>function <strong>LowestChromiumVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LowestLoaderDLLVersion"></span><code>function <strong>LowestLoaderDLLVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EnvironmentCreationErrorToString-HRESULT-"></span><code>function <strong>EnvironmentCreationErrorToString</strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ControllerCreationErrorToString-HRESULT-"></span><code>function <strong>ControllerCreationErrorToString</strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ControllerOptionsCreationErrorToString-HRESULT-"></span><code>function <strong>ControllerOptionsCreationErrorToString</strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CompositionControllerCreationErrorToString-HRESULT-"></span><code>function <strong>CompositionControllerCreationErrorToString</strong>(aErrorCode : HRESULT) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetScreenDPI"></span><code>function <strong>GetScreenDPI</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetDeviceScaleFactor"></span><code>function <strong>GetDeviceScaleFactor</strong>: single;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EditingCommandToString-TWV2EditingCommand-"></span><code>function <strong>EditingCommandToString</strong>(aEditingCommand : <a href="uWVTypes.html#TWV2EditingCommand">TWV2EditingCommand</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DeleteDirContents-string-TStringList-"></span><code>function <strong>DeleteDirContents</strong>(const aDirectory : string; const aExcludeFiles : TStringList = nil) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SystemCursorIDToDelphiCursor-cardinal-"></span><code>function <strong>SystemCursorIDToDelphiCursor</strong>(aSystemCursorID : cardinal) : TCursor;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LoggedQueryInterface-IInterface-TGUID-const-"></span><code>function <strong>LoggedQueryInterface</strong>(const aBaseIntf: IInterface; const aGUID: TGUID; out Obj): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OutputDebugMessage-string-"></span><code>procedure <strong>OutputDebugMessage</strong>(const aMessage : string);</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomExceptionHandler-string-exception-"></span><code>function <strong>CustomExceptionHandler</strong>(const aFunctionName : string; const aException : exception) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LogMouseEvent-TWVMouseEventKind-TWVMouseEventVirtualKeys-cardinal-TPoint-"></span><code>procedure <strong>LogMouseEvent</strong>(aEventKind : <a href="uWVTypes.html#TWVMouseEventKind">TWVMouseEventKind</a>; aVirtualKeys : <a href="uWVTypes.html#TWVMouseEventVirtualKeys">TWVMouseEventVirtualKeys</a>; aMouseData : cardinal; aPoint : TPoint);</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CoreWebViewColorToDelphiColor-COREWEBVIEW2_COLOR-"></span><code>function <strong>CoreWebViewColorToDelphiColor</strong>(const aColor : <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>) : TColor;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DelphiColorToCoreWebViewColor-TColor-"></span><code>function <strong>DelphiColorToCoreWebViewColor</strong>(const aColor : TColor) : <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TryIso8601BasicToDate-string-TDateTime-"></span><code>function <strong>TryIso8601BasicToDate</strong>(const Str: string; out Date: TDateTime): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="JSONUnescape-wvstring-"></span><code>function <strong>JSONUnescape</strong>(const Source: <a href="uWVTypes.html#wvstring">wvstring</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="JSONEscape-wvstring-"></span><code>function <strong>JSONEscape</strong>(const Source: <a href="uWVTypes.html#wvstring">wvstring</a>): <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomURLDecode-wvstring-"></span><code>function <strong>CustomURLDecode</strong>(const aEncodedStr : <a href="uWVTypes.html#wvstring">wvstring</a>) : AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomPathIsRelative-wvstring-"></span><code>function <strong>CustomPathIsRelative</strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomPathCanonicalize-wvstring-wvstring-"></span><code>function <strong>CustomPathCanonicalize</strong>(const aOriginalPath : <a href="uWVTypes.html#wvstring">wvstring</a>; var aCanonicalPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomAbsolutePath-wvstring-boolean-"></span><code>function <strong>CustomAbsolutePath</strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>; aMustExist : boolean = False) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomPathIsURL-wvstring-"></span><code>function <strong>CustomPathIsURL</strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomPathIsUNC-wvstring-"></span><code>function <strong>CustomPathIsUNC</strong>(const aPath : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetModulePath"></span><code>function <strong>GetModulePath</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EscapeCommandLineParameter-wvstring-"></span><code>function <strong>EscapeCommandLineParameter</strong>(const aParameter : <a href="uWVTypes.html#wvstring">wvstring</a>) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsRelativeAnsi-LPCSTR-"></span><code>function <strong>PathIsRelativeAnsi</strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsRelativeA';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsRelativeUnicode-LPCWSTR-"></span><code>function <strong>PathIsRelativeUnicode</strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsRelativeW';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathCanonicalizeAnsi-LPSTR-LPCSTR-"></span><code>function <strong>PathCanonicalizeAnsi</strong>(pszBuf: LPSTR; pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathCanonicalizeA';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathCanonicalizeUnicode-LPWSTR-LPCWSTR-"></span><code>function <strong>PathCanonicalizeUnicode</strong>(pszBuf: LPWSTR; pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathCanonicalizeW';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsUNCAnsi-LPCSTR-"></span><code>function <strong>PathIsUNCAnsi</strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsUNCA';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsUNCUnicode-LPCWSTR-"></span><code>function <strong>PathIsUNCUnicode</strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsUNCW';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsURLAnsi-LPCSTR-"></span><code>function <strong>PathIsURLAnsi</strong>(pszPath: LPCSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsURLA';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PathIsURLUnicode-LPCWSTR-"></span><code>function <strong>PathIsURLUnicode</strong>(pszPath: LPCWSTR): BOOL; stdcall; external <a href="uWVMiscFunctions.html#SHLWAPIDLL">SHLWAPIDLL</a> name 'PathIsURLW';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SetWindowLongPtr-HWND-Integer-LongInt-"></span><code>function <strong>SetWindowLongPtr</strong>(hWnd: HWND; nIndex: Integer; dwNewLong: LongInt): LongInt; stdcall; external user32 name 'SetWindowLongW';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SHLWAPIDLL"></span><code><strong>SHLWAPIDLL</strong>  = 'shlwapi.dll';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GWLP_WNDPROC"></span><code><strong>GWLP_WNDPROC</strong>    = GWL_WNDPROC;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GWLP_HWNDPARENT"></span><code><strong>GWLP_HWNDPARENT</strong> = GWL_HWNDPARENT;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

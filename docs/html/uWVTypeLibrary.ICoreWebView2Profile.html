@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Profile"></span><h1 class="cio">Interface ICoreWebView2Profile</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Profile = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Provides a set of properties to configure a Profile object. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile</a>&quot;&gt;See the ICoreWebView2Profile article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2Profile</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Get_ProfileName-PWideChar-">Get_ProfileName</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Get_IsInPrivateModeEnabled-Integer-">Get_IsInPrivateModeEnabled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Get_ProfilePath-PWideChar-">Get_ProfilePath</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Get_DefaultDownloadFolderPath-PWideChar-">Get_DefaultDownloadFolderPath</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Set_DefaultDownloadFolderPath-PWideChar-">Set_DefaultDownloadFolderPath</a></strong>(value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Get_PreferredColorScheme-COREWEBVIEW2_PREFERRED_COLOR_SCHEME-">Get_PreferredColorScheme</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PREFERRED_COLOR_SCHEME">COREWEBVIEW2_PREFERRED_COLOR_SCHEME</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile.html#Set_PreferredColorScheme-COREWEBVIEW2_PREFERRED_COLOR_SCHEME-">Set_PreferredColorScheme</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PREFERRED_COLOR_SCHEME">COREWEBVIEW2_PREFERRED_COLOR_SCHEME</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ProfileName-PWideChar-"></span><code>function <strong>Get_ProfileName</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Name of the profile.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{79110AD3-CD5D-4373-8BC3-C60658F17A5F}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsInPrivateModeEnabled-Integer-"></span><code>function <strong>Get_IsInPrivateModeEnabled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ InPrivate mode is enabled or not. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ProfilePath-PWideChar-"></span><code>function <strong>Get_ProfilePath</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Full path of the profile directory.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DefaultDownloadFolderPath-PWideChar-"></span><code>function <strong>Get_DefaultDownloadFolderPath</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `DefaultDownloadFolderPath` property. The default value is the system default download folder path for the user.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_DefaultDownloadFolderPath-PWideChar-"></span><code>function <strong>Set_DefaultDownloadFolderPath</strong>(value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `DefaultDownloadFolderPath` property. The default download folder path is persisted in the user data folder across sessions. The value should be an absolute path to a folder that the user and application can write to. Returns `E_INVALIDARG` if the value is invalid, and the default download folder path is not changed. Otherwise the path is changed immediately. If the directory does not yet exist, it is created at the time of the next download. If the host application does not have permission to create the directory, then the user is prompted to provide a new path through the Save As dialog. The user can override the default download folder path for a given download by choosing a different path in the Save As dialog. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PreferredColorScheme-COREWEBVIEW2_PREFERRED_COLOR_SCHEME-"></span><code>function <strong>Get_PreferredColorScheme</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PREFERRED_COLOR_SCHEME">COREWEBVIEW2_PREFERRED_COLOR_SCHEME</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The PreferredColorScheme property sets the overall color scheme of the WebView2s associated with this profile. This sets the color scheme for WebView2 UI like dialogs, prompts, and context menus by setting the media feature `prefers-color-scheme` for websites to respond to.
+
+<p>The default value for this is COREWEBVIEW2_PREFERRED_COLOR_AUTO, which will follow whatever theme the OS is currently set to.
+
+<p>\snippet ViewComponent.cpp SetPreferredColorScheme Returns the value of the `PreferredColorScheme` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PreferredColorScheme-COREWEBVIEW2_PREFERRED_COLOR_SCHEME-"></span><code>function <strong>Set_PreferredColorScheme</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PREFERRED_COLOR_SCHEME">COREWEBVIEW2_PREFERRED_COLOR_SCHEME</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `PreferredColorScheme` property. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

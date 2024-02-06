@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Environment8</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Environment8"></span><h1 class="cio">Interface ICoreWebView2Environment8</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Environment8 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment7.html">ICoreWebView2Environment7</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Environment7 interface that supports the ProcessInfosChanged event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8</a>&quot;&gt;See the ICoreWebView2Environment8 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment2.html">ICoreWebView2Environment2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment3.html">ICoreWebView2Environment3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment4.html">ICoreWebView2Environment4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment5.html">ICoreWebView2Environment5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment6.html">ICoreWebView2Environment6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment7.html">ICoreWebView2Environment7</a></li>
+<li class="thisitem">ICoreWebView2Environment8</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment8.html#add_ProcessInfosChanged-ICoreWebView2ProcessInfosChangedEventHandler-EventRegistrationToken-">add_ProcessInfosChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfosChangedEventHandler.html">ICoreWebView2ProcessInfosChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment8.html#remove_ProcessInfosChanged-EventRegistrationToken-">remove_ProcessInfosChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment8.html#GetProcessInfos-ICoreWebView2ProcessInfoCollection-">GetProcessInfos</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ProcessInfosChanged-ICoreWebView2ProcessInfosChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ProcessInfosChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfosChangedEventHandler.html">ICoreWebView2ProcessInfosChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds an event handler for the `ProcessInfosChanged` event.
+
+<p>\snippet ProcessComponent.cpp ProcessInfosChanged \snippet ProcessComponent.cpp ProcessInfosChanged1 </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{D6EB91DD-C3D2-45E5-BD29-6DC2BC4DE9CF}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ProcessInfosChanged-EventRegistrationToken-"></span><code>function <strong>remove_ProcessInfosChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_ProcessInfosChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetProcessInfos-ICoreWebView2ProcessInfoCollection-"></span><code>function <strong>GetProcessInfos</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the `ICoreWebView2ProcessInfoCollection` Provide a list of all process using same user data folder except for crashpad process. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

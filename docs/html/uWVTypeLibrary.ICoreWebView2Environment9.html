@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Environment9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Environment9"></span><h1 class="cio">Interface ICoreWebView2Environment9</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Environment9 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment8.html">ICoreWebView2Environment8</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Environment interface for creating CoreWebView2 ContextMenuItem objects. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment9">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment9</a>&quot;&gt;See the ICoreWebView2Environment9 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment2.html">ICoreWebView2Environment2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment3.html">ICoreWebView2Environment3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment4.html">ICoreWebView2Environment4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment5.html">ICoreWebView2Environment5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment6.html">ICoreWebView2Environment6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment7.html">ICoreWebView2Environment7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment8.html">ICoreWebView2Environment8</a></li>
+<li class="thisitem">ICoreWebView2Environment9</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment9.html#CreateContextMenuItem-PWideChar-IStream-COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND-ICoreWebView2ContextMenuItem-">CreateContextMenuItem</a></strong>(Label_: PWideChar; const iconStream: IStream; Kind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND">COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND</a>; out item: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateContextMenuItem-PWideChar-IStream-COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND-ICoreWebView2ContextMenuItem-"></span><code>function <strong>CreateContextMenuItem</strong>(Label_: PWideChar; const iconStream: IStream; Kind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND">COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND</a>; out item: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create a custom `ContextMenuItem` object to insert into the WebView context menu. CoreWebView2 will rewind the icon stream before decoding. There is a limit of 1000 active custom context menu items at a given time. Attempting to create more before deleting existing ones will fail with ERROR_NOT_ENOUGH_QUOTA. It is recommended to reuse ContextMenuItems across ContextMenuRequested events for performance. The returned ContextMenuItem object's `IsEnabled` property will default to `TRUE` and `IsChecked` property will default to `FALSE`. A `CommandId` will be assigned to the ContextMenuItem object that's unique across active custom context menu items, but command ID values of deleted ContextMenuItems can be reassigned. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

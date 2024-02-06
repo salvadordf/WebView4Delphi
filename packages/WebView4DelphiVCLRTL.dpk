@@ -93,6 +93,8 @@ contains
   uWVCoreWebView2ProcessExtendedInfo in '..\source\uWVCoreWebView2ProcessExtendedInfo.pas',
   uWVCoreWebView2ProcessExtendedInfoCollection in '..\source\uWVCoreWebView2ProcessExtendedInfoCollection.pas',
   uWVCoreWebView2BrowserExtension in '..\source\uWVCoreWebView2BrowserExtension.pas',
-  uWVCoreWebView2BrowserExtensionList in '..\source\uWVCoreWebView2BrowserExtensionList.pas';
+  uWVCoreWebView2BrowserExtensionList in '..\source\uWVCoreWebView2BrowserExtensionList.pas',
+  uWVCoreWebView2ScriptException in '..\source\uWVCoreWebView2ScriptException.pas',
+  uWVCoreWebView2ExecuteScriptResult in '..\source\uWVCoreWebView2ExecuteScriptResult.pas';
 
 end.

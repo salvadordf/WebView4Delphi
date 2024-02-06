@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_21</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_21"></span><h1 class="cio">Interface ICoreWebView2_21</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_21 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_20.html">ICoreWebView2_20</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is the interface for getting string and exception with ExecuteScriptWithResult. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21</a>&quot;&gt;See the ICoreWebView2_21 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_14.html">ICoreWebView2_14</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_15.html">ICoreWebView2_15</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_17.html">ICoreWebView2_17</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_18.html">ICoreWebView2_18</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_19.html">ICoreWebView2_19</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_20.html">ICoreWebView2_20</a></li>
+<li class="thisitem">ICoreWebView2_21</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_21.html#ExecuteScriptWithResult-PWideChar-ICoreWebView2ExecuteScriptWithResultCompletedHandler-">ExecuteScriptWithResult</a></strong>(javaScript: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptWithResultCompletedHandler.html">ICoreWebView2ExecuteScriptWithResultCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExecuteScriptWithResult-PWideChar-ICoreWebView2ExecuteScriptWithResultCompletedHandler-"></span><code>function <strong>ExecuteScriptWithResult</strong>(javaScript: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptWithResultCompletedHandler.html">ICoreWebView2ExecuteScriptWithResultCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Run JavaScript code from the JavaScript parameter in the current top-level document rendered in the WebView. The result of the execution is returned asynchronously in the CoreWebView2ExecuteScriptResult object which has methods and properties to obtain the successful result of script execution as well as any unhandled JavaScript exceptions. If this method is run after the NavigationStarting event during a navigation, the script runs in the new document when loading it, around the time ContentLoading is run. This operation executes the script even if ICoreWebView2Settings::IsScriptEnabled is set to FALSE.
+
+<p>\snippet ScriptComponent.cpp ExecuteScriptWithResult </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{C4980DEA-587B-43B9-8143-3EF3BF552D95}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2CustomSchemeRegistration: Class TCoreWebView2CustomSchemeRegistration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2CustomSchemeRegistration"></span><h1 class="cio">Class TCoreWebView2CustomSchemeRegistration</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2CustomSchemeRegistration.html">uWVCoreWebView2CustomSchemeRegistration</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2CustomSchemeRegistration = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html">ICoreWebView2CustomSchemeRegistration</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+
+
+<p>Represents the registration of a custom scheme with the CoreWebView2Environment.
+
+<p>This allows the WebView2 app to be able to handle WebResourceRequested event for requests with the specified scheme and be able to navigate the WebView2 to the custom scheme.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration</a>&quot;&gt;See the ICoreWebView2CustomSchemeRegistration article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="thisitem">TCoreWebView2CustomSchemeRegistration</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#FCustomSchemeInfo">FCustomSchemeInfo</a></strong>: <a href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Get_SchemeName-PWideChar-">Get_SchemeName</a></strong>(out SchemeName: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Get_TreatAsSecure-Integer-">Get_TreatAsSecure</a></strong>(out TreatAsSecure: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Set_TreatAsSecure-Integer-">Set_TreatAsSecure</a></strong>(TreatAsSecure: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#GetAllowedOrigins-SYSUINT-PPWideChar-">GetAllowedOrigins</a></strong>(out allowedOriginsCount: SYSUINT; out allowedOrigins: PPWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#SetAllowedOrigins-SYSUINT-PPWideChar-">SetAllowedOrigins</a></strong>(allowedOriginsCount: SYSUINT; allowedOrigins: PPWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Get_HasAuthorityComponent-Integer-">Get_HasAuthorityComponent</a></strong>(out HasAuthorityComponent: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Set_HasAuthorityComponent-Integer-">Set_HasAuthorityComponent</a></strong>(HasAuthorityComponent: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Create-TWVCustomSchemeInfo-">Create</a></strong>(const aCustomSchemeInfo : <a href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a>); reintroduce; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Create-wvstring-wvstring-boolean-boolean-">Create</a></strong>(const aSchemeName, aAllowedDomains : <a href="uWVTypes.html#wvstring">wvstring</a>; aTreatAsSecure, aHasAuthorityComponent : boolean); reintroduce; overload;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCustomSchemeInfo"></span><code><strong>FCustomSchemeInfo</strong>: <a href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_SchemeName-PWideChar-"></span><code>function <strong>Get_SchemeName</strong>(out SchemeName: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CustomSchemeRegistration</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_TreatAsSecure-Integer-"></span><code>function <strong>Get_TreatAsSecure</strong>(out TreatAsSecure: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#Get_TreatAsSecure-Integer-">ICoreWebView2CustomSchemeRegistration.Get_TreatAsSecure</a>.</p><p>
+ Whether the sites with this scheme will be treated as a [Secure Context](<a href="https://developer.mozilla.org/docs/Web/Security/Secure_Contexts">https://developer.mozilla.org/docs/Web/Security/Secure_Contexts</a>) like an HTTPS site. This flag is only effective when HasAuthorityComponent is also set to `true`. `false` by default. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_TreatAsSecure-Integer-"></span><code>function <strong>Set_TreatAsSecure</strong>(TreatAsSecure: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#Set_TreatAsSecure-Integer-">ICoreWebView2CustomSchemeRegistration.Set_TreatAsSecure</a>.</p><p>
+ Set if the scheme will be treated as a Secure Context. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAllowedOrigins-SYSUINT-PPWideChar-"></span><code>function <strong>GetAllowedOrigins</strong>(out allowedOriginsCount: SYSUINT; out allowedOrigins: PPWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#GetAllowedOrigins-SYSUINT-PPWideChar-">ICoreWebView2CustomSchemeRegistration.GetAllowedOrigins</a>.</p><p>
+* out allowedOrigins: PPWideChar1 &ndash;&gt; out allowedOrigins: PPWideChar ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetAllowedOrigins-SYSUINT-PPWideChar-"></span><code>function <strong>SetAllowedOrigins</strong>(allowedOriginsCount: SYSUINT; allowedOrigins: PPWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#SetAllowedOrigins-SYSUINT-PPWideChar-">ICoreWebView2CustomSchemeRegistration.SetAllowedOrigins</a>.</p><p>
+* var allowedOrigins: PWideChar &ndash;&gt; allowedOrigins: PPWideChar ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_HasAuthorityComponent-Integer-"></span><code>function <strong>Get_HasAuthorityComponent</strong>(out HasAuthorityComponent: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#Get_HasAuthorityComponent-Integer-">ICoreWebView2CustomSchemeRegistration.Get_HasAuthorityComponent</a>.</p><p>
+ Set this property to `true` if the URIs with this custom scheme will have an authority component (a host for custom schemes). Specifically, if you have a URI of the following form you should set the `HasAuthorityComponent` value as listed.
+
+<p>| URI | Recommended HasAuthorityComponent value | | &ndash; | &ndash; | | `custom-scheme-with-<a href="authority://host/path">authority://host/path</a>` | `true` | | `custom-scheme-without-authority:path` | `false` |
+
+<p>When this property is set to `true`, the URIs with this scheme will be interpreted as having a [scheme and host](<a href="https://html.spec.whatwg.org/multipage/origin.html#concept-origin-tuple">https://html.spec.whatwg.org/multipage/origin.html#concept-origin-tuple</a>) origin similar to an http URI. Note that the port and user information are never included in the computation of origins for custom schemes. If this property is set to `false`, URIs with this scheme will have an [opaque origin](<a href="https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque">https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque</a>) similar to a data URI. This property is `false` by default.
+
+<p>Note: For custom schemes registered as having authority component, navigations to URIs without authority of such custom schemes will fail. However, if the content inside WebView2 references a subresource with a URI that does not have an authority component, but of a custom scheme that is registered as having authority component, the URI will be interpreted as a relative path as specified in [RFC3986](<a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>). For example, `custom-scheme-with-authority:path` will be interpreted as `custom-scheme-with-<a href="authority://host/path">authority://host/path</a>`. However, this behavior cannot be guaranteed to remain in future releases so it is recommended not to rely on this behavior. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_HasAuthorityComponent-Integer-"></span><code>function <strong>Set_HasAuthorityComponent</strong>(HasAuthorityComponent: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html#Set_HasAuthorityComponent-Integer-">ICoreWebView2CustomSchemeRegistration.Set_HasAuthorityComponent</a>.</p><p>
+ Get has authority component. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-TWVCustomSchemeInfo-"></span><code>constructor <strong>Create</strong>(const aCustomSchemeInfo : <a href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a>); reintroduce; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Constructor of the ICoreWebView2CustomSchemeRegistration wrapper. </p>
+<p>
+ 
+
+<p>UNKNOWN
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration</a>&quot;&gt;See the ICoreWebView2CustomSchemeRegistration article.)</p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aCustomSchemeInfo</dt>
+<dd>Record with all the information to register a custom scheme.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-wvstring-wvstring-boolean-boolean-"></span><code>constructor <strong>Create</strong>(const aSchemeName, aAllowedDomains : <a href="uWVTypes.html#wvstring">wvstring</a>; aTreatAsSecure, aHasAuthorityComponent : boolean); reintroduce; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Constructor of the ICoreWebView2CustomSchemeRegistration wrapper. </p>
+<p>
+ 
+
+<p>
+
+<p>
+
+<p>
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration</a>&quot;&gt;See the ICoreWebView2CustomSchemeRegistration article.)</p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aSchemeName</dt>
+<dd>The name of the custom scheme to register.</dd>
+<dt>aAllowedDomains</dt>
+<dd>Comma separated list of origins that are allowed to issue requests with the custom scheme, such as XHRs and subresource requests that have an Origin header.</dd>
+<dt>aTreatAsSecure</dt>
+<dd>Whether the sites with this scheme will be treated as a Secure Context like an HTTPS site.</dd>
+<dt>aHasAuthorityComponent</dt>
+<dd>Set this property to true if the URIs with this custom scheme will have an authority component (a host for custom schemes)</dd>
+</dl>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

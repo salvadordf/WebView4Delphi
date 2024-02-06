@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2SharedBuffer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2SharedBuffer"></span><h1 class="cio">Interface ICoreWebView2SharedBuffer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2SharedBuffer = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ The shared buffer object that is created by [CreateSharedBuffer](<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment12#createsharedbuffer</a>). The object is presented to script as ArrayBuffer when posted to script with [PostSharedBufferToScript](/microsoft-edge/webview2/reference/win32/icorewebview2_17#postsharedbuffertoscript). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedbuffer">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedbuffer</a>&quot;&gt;See the ICoreWebView2SharedBuffer article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2SharedBuffer</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html#Get_Size-Largeuint-">Get_Size</a></strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html#Get_Buffer-PByte-">Get_Buffer</a></strong>(out value: PByte): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html#OpenStream-IStream-">OpenStream</a></strong>(out value: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html#Get_FileMappingHandle-HANDLE-">Get_FileMappingHandle</a></strong>(out value: HANDLE): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html#Close">Close</a></strong>: HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Size-Largeuint-"></span><code>function <strong>Get_Size</strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The size of the shared buffer in bytes. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{B747A495-0C6F-449E-97B8-2F81E9D6AB43}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Buffer-PByte-"></span><code>function <strong>Get_Buffer</strong>(out value: PByte): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+* out value: PByte1 &ndash;&gt; out value: PByte ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OpenStream-IStream-"></span><code>function <strong>OpenStream</strong>(out value: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get an IStream object that can be used to access the shared buffer. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_FileMappingHandle-HANDLE-"></span><code>function <strong>Get_FileMappingHandle</strong>(out value: HANDLE): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+* out value: Pointer &ndash;&gt; out value: HANDLE ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Close"></span><code>function <strong>Close</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Release the backing shared memory. The application should call this API when no access to the buffer is needed any more, to ensure that the underlying resources are released timely even if the shared buffer object itself is not released due to some leaked reference. After the shared buffer is closed, the buffer address and file mapping handle previously obtained becomes invalid and cannot be used anymore. Accessing properties of the object will fail with `RO_E_CLOSED`. Operations like Read or Write on the IStream objects returned from `OpenStream` will fail with `RO_E_CLOSED`. `PostSharedBufferToScript` will also fail with `RO_E_CLOSED`.
+
+<p>The script code should call `chrome.webview.releaseBuffer` with the shared buffer as the parameter to release underlying resources as soon as it does not need access the shared buffer any more. When script tries to access the buffer after calling `chrome.webview.releaseBuffer`, JavaScript `TypeError` exception will be raised complaining about accessing a detached ArrayBuffer, the same exception when trying to access a transferred ArrayBuffer.
+
+<p>Closing the buffer object on native side doesn't impact access from Script and releasing the buffer from script doesn't impact access to the buffer from native side. The underlying shared memory will be released by the OS when both native and script side release the buffer. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

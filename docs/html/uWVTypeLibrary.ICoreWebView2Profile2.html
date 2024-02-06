@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Profile2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Profile2"></span><h1 class="cio">Interface ICoreWebView2Profile2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Profile2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Profile2 interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile2</a>&quot;&gt;See the ICoreWebView2Profile2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a></li>
+<li class="thisitem">ICoreWebView2Profile2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile2.html#ClearBrowsingData-COREWEBVIEW2_BROWSING_DATA_KINDS-ICoreWebView2ClearBrowsingDataCompletedHandler-">ClearBrowsingData</a></strong>(dataKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS">COREWEBVIEW2_BROWSING_DATA_KINDS</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile2.html#ClearBrowsingDataInTimeRange-COREWEBVIEW2_BROWSING_DATA_KINDS-Double-Double-ICoreWebView2ClearBrowsingDataCompletedHandler-">ClearBrowsingDataInTimeRange</a></strong>(dataKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS">COREWEBVIEW2_BROWSING_DATA_KINDS</a>; startTime: Double; endTime: Double; const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile2.html#ClearBrowsingDataAll-ICoreWebView2ClearBrowsingDataCompletedHandler-">ClearBrowsingDataAll</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearBrowsingData-COREWEBVIEW2_BROWSING_DATA_KINDS-ICoreWebView2ClearBrowsingDataCompletedHandler-"></span><code>function <strong>ClearBrowsingData</strong>(dataKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS">COREWEBVIEW2_BROWSING_DATA_KINDS</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Clear browsing data based on a data type. This method takes two parameters, the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR operation(s) can be applied to multiple `COREWEBVIEW2_BROWSING_DATA_KINDS` to create a mask representing those data types. The browsing data kinds that are supported are listed below. These data kinds follow a hierarchical structure in which nested bullet points are included in their parent bullet point's data kind. Ex: All DOM storage is encompassed in all site data which is encompassed in all profile data. * All Profile * All Site Data * All DOM Storage: File Systems, Indexed DB, Local Storage, Web SQL, Cache Storage * Cookies * Disk Cache * Download History * General Autofill * Password Autosave * Browsing History * Settings The completed handler will be invoked when the browsing data has been cleared and will indicate if the specified data was properly cleared. In the case in which the operation is interrupted and the corresponding data is not fully cleared the handler will return `E_ABORT` and otherwise will return `S_OK`. Because this is an asynchronous operation, code that is dependent on the cleared data must be placed in the callback of this operation. If the WebView object is closed before the clear browsing data operation has completed, the handler will be released, but not invoked. In this case the clear browsing data operation may or may not be completed. ClearBrowsingData clears the `dataKinds` regardless of timestamp. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{FA740D4B-5EAE-4344-A8AD-74BE31925397}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearBrowsingDataInTimeRange-COREWEBVIEW2_BROWSING_DATA_KINDS-Double-Double-ICoreWebView2ClearBrowsingDataCompletedHandler-"></span><code>function <strong>ClearBrowsingDataInTimeRange</strong>(dataKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS">COREWEBVIEW2_BROWSING_DATA_KINDS</a>; startTime: Double; endTime: Double; const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it takes in two additional parameters for the start and end time for which it should clear the data between. The `startTime` and `endTime` parameters correspond to the number of seconds since the UNIX epoch. `startTime` is inclusive while `endTime` is exclusive, therefore the data will be cleared between [startTime, endTime</p>
+<p>
+. )</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearBrowsingDataAll-ICoreWebView2ClearBrowsingDataCompletedHandler-"></span><code>function <strong>ClearBrowsingDataAll</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ ClearBrowsingDataAll behaves like ClearBrowsingData except that it clears the entirety of the data associated with the profile it is called on. It clears the data regardless of timestamp.
+
+<p>\snippet AppWindow.cpp ClearBrowsingData </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

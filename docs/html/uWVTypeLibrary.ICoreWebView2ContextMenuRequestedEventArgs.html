@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ContextMenuRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ContextMenuRequestedEventArgs"></span><h1 class="cio">Interface ICoreWebView2ContextMenuRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ContextMenuRequestedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the ContextMenuRequested event. Will contain the selection information and a collection of all of the default context menu items that the WebView would show. Allows the app to draw its own context menu or add/remove from the default context menu. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs</a>&quot;&gt;See the ICoreWebView2ContextMenuRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2ContextMenuRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Get_MenuItems-ICoreWebView2ContextMenuItemCollection-">Get_MenuItems</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Get_ContextMenuTarget-ICoreWebView2ContextMenuTarget-">Get_ContextMenuTarget</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Get_Location-tagPOINT-">Get_Location</a></strong>(out value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Set_SelectedCommandId-SYSINT-">Set_SelectedCommandId</a></strong>(value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Get_SelectedCommandId-SYSINT-">Get_SelectedCommandId</a></strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Set_Handled-Integer-">Set_Handled</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#Get_Handled-Integer-">Get_Handled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_MenuItems-ICoreWebView2ContextMenuItemCollection-"></span><code>function <strong>Get_MenuItems</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the collection of `ContextMenuItem` objects. See `ICoreWebView2ContextMenuItemCollection` for more details. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{A1D309EE-C03F-11EB-8529-0242AC130003}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ContextMenuTarget-ICoreWebView2ContextMenuTarget-"></span><code>function <strong>Get_ContextMenuTarget</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the target information associated with the requested context menu. See `ICoreWebView2ContextMenuTarget` for more details. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Location-tagPOINT-"></span><code>function <strong>Get_Location</strong>(out value: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the coordinates where the context menu request occurred in relation to the upper left corner of the WebView bounds. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_SelectedCommandId-SYSINT-"></span><code>function <strong>Set_SelectedCommandId</strong>(value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the selected context menu item's command ID. When this is set, WebView will execute the selected command. This value should always be obtained via the selected `ContextMenuItem`'s `CommandId` property. The default value is -1 which means that no selection occurred. The app can also report the selected command ID for a custom context menu item, which will cause the `CustomItemSelected` event to be fired for the custom item, however while command IDs for each custom context menu item is unique during a ContextMenuRequested event, CoreWebView2 may reassign command ID values of deleted custom ContextMenuItems to new objects and the command ID assigned to the same custom item can be different between each app runtime. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_SelectedCommandId-SYSINT-"></span><code>function <strong>Get_SelectedCommandId</strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the selected CommandId. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Handled-Integer-"></span><code>function <strong>Set_Handled</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets whether the `ContextMenuRequested` event is handled by host after the event handler completes or if there is a deferral then after the deferral is completed. If `Handled` is set to TRUE then WebView will not display a context menu and will instead use the `SelectedCommandId` property to indicate which, if any, context menu item command to invoke. If after the event handler or deferral completes `Handled` is set to FALSE then WebView will display a context menu based on the contents of the `MenuItems` property. The default value is FALSE. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Handled-Integer-"></span><code>function <strong>Get_Handled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets whether the `ContextMenuRequested` event is handled by host. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the event when the custom context menu is closed. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

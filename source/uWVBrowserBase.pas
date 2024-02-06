@@ -170,6 +170,7 @@ type
       FOnProfileAddBrowserExtensionCompleted          : TOnProfileAddBrowserExtensionCompletedEvent;
       FOnProfileGetBrowserExtensionsCompleted         : TOnProfileGetBrowserExtensionsCompletedEvent;
       FOnProfileDeleted                               : TOnProfileDeletedEvent;
+      FOnExecuteScriptWithResultCompleted             : TOnExecuteScriptWithResultCompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -384,6 +385,7 @@ type
       function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HRESULT;
       function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
       function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
+      function ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -473,6 +475,7 @@ type
       procedure doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const extension: ICoreWebView2BrowserExtension); virtual;
       procedure doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList); virtual;
       procedure doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown); virtual;
+      procedure doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -658,6 +661,25 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#movefocus">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       function    FocusPrevious : boolean;
+      /// <summary>
+      /// <para>Run JavaScript code from the JavaScript parameter in the current
+      /// top-level document rendered in the WebView.</para>
+      /// <para>The TWVBrowserBase.OnExecuteScriptWithResultCompleted event is triggered
+      /// when it finishes executing.</para>
+      /// <para>The result of the execution is returned asynchronously in the ICoreWebView2ExecuteScriptResult object
+      /// which has methods and properties to obtain the successful result of script execution as well as any
+      /// unhandled JavaScript exceptions.</para>
+      /// <para>If this method is run after the NavigationStarting event during a navigation, the script
+      /// runs in the new document when loading it, around the time
+      /// ContentLoading is run. This operation executes the script even if
+      /// ICoreWebView2Settings.IsScriptEnabled is set to FALSE.</para>
+      /// </summary>
+      /// <param name="aJavaScript">The JavaScript code.</param>
+      /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21#executescriptwithresult">See the icorewebview2_21 article.</see></para>
+      /// </remarks>
+      function ExecuteScriptWithResult(const aJavaScript: wvstring; aExecutionID : integer = 0): boolean;
       /// <summary>
       /// <para>Run JavaScript code from the aJavaScript parameter in the current
       /// top-level document rendered in the WebView.</para>
@@ -3320,6 +3342,13 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile8#delete">See the ICoreWebView2Profile8 article.</see></para>
       /// </remarks>
       property OnProfileDeleted                                : TOnProfileDeletedEvent                                read FOnProfileDeleted                                write FOnProfileDeleted;
+      /// <summary>
+      /// Provides the result of ExecuteScriptWithResult.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21#executescriptwithresult">See the ICoreWebView2_21 article.</see></para>
+      /// </remarks>
+      property OnExecuteScriptWithResultCompleted              : TOnExecuteScriptWithResultCompletedEvent              read FOnExecuteScriptWithResultCompleted              write FOnExecuteScriptWithResultCompleted;
   end;
 
 implementation
@@ -3468,6 +3497,7 @@ begin
   FOnProfileAddBrowserExtensionCompleted           := nil;
   FOnProfileGetBrowserExtensionsCompleted          := nil;
   FOnProfileDeleted                                := nil;
+  FOnExecuteScriptWithResultCompleted              := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -4559,6 +4589,12 @@ begin
     FOnProfileDeleted(self, sender);
 end;
 
+procedure TWVBrowserBase.doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer);
+begin
+  if assigned(FOnExecuteScriptWithResultCompleted) then
+    FOnExecuteScriptWithResultCompleted(self, errorCode, result_, aExecutionID);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -4895,6 +4931,12 @@ begin
   doOnProfileDeletedEvent(sender, args);
 end;
 
+function TWVBrowserBase.ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HRESULT;
+begin
+  Result := S_OK;
+  doOnExecuteScriptWithResultCompletedEvent(errorCode, result_, aExecutionID);
+end;
+
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
@@ -5129,6 +5171,12 @@ begin
     end
    else
     Result := CreateEnvironment;
+end;
+
+function TWVBrowserBase.ExecuteScriptWithResult(const aJavaScript: wvstring; aExecutionID : integer): boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.ExecuteScriptWithResult(aJavaScript, aExecutionID, self);
 end;
 
 function TWVBrowserBase.ExecuteScript(const aJavaScript : wvstring; aExecutionID : integer) : boolean;

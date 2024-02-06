@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2HttpResponseHeaders: Class TCoreWebView2HttpResponseHeaders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2HttpResponseHeaders"></span><h1 class="cio">Class TCoreWebView2HttpResponseHeaders</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2HttpResponseHeaders.html">uWVCoreWebView2HttpResponseHeaders</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2HttpResponseHeaders = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ HTTP response headers. Used to construct a WebResourceResponse for the WebResourceRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2HttpResponseHeaders</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetIterator">GetIterator</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#Create-ICoreWebView2HttpResponseHeaders-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetHeader-wvstring-">GetHeader</a></strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetHeaders-wvstring-ICoreWebView2HttpHeadersCollectionIterator-">GetHeaders</a></strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>; var aIterator: <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a>): boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#Contains-wvstring-">Contains</a></strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#AppendHeader-wvstring-wvstring-">AppendHeader</a></strong>(const aName, aValue : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#Initialized">Initialized</a></strong> : boolean                                    read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#BaseIntf">BaseIntf</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>           read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#Iterator">Iterator</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a> read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetIterator">GetIterator</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIterator"></span><code>function <strong>GetIterator</strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2HttpResponseHeaders-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetHeader-wvstring-"></span><code>function <strong>GetHeader</strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>) : <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the first header value in the collection matching the name. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheader">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheader</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetHeaders-wvstring-ICoreWebView2HttpHeadersCollectionIterator-"></span><code>function <strong>GetHeaders</strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>; var aIterator: <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a>): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the header values matching the name. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheaders">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getheaders</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Contains-wvstring-"></span><code>function <strong>Contains</strong>(const aName: <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Verifies that the headers contain entries that match the header name. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#contains">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#contains</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AppendHeader-wvstring-wvstring-"></span><code>function <strong>AppendHeader</strong>(const aName, aValue : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Appends header line with name and value. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#appendheader">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#appendheader</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong> : boolean                                    read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>    : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>           read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Iterator"></span><code>property <strong>Iterator</strong>    : <a href="uWVTypeLibrary.ICoreWebView2HttpHeadersCollectionIterator.html">ICoreWebView2HttpHeadersCollectionIterator</a> read <a href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html#GetIterator">GetIterator</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets an iterator over the collection of entire response headers. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getiterator">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpresponseheaders#getiterator</a>&quot;&gt;See the ICoreWebView2HttpResponseHeaders article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

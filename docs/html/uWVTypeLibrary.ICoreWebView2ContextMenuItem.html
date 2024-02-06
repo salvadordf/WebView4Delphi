@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ContextMenuItem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ContextMenuItem"></span><h1 class="cio">Interface ICoreWebView2ContextMenuItem</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ContextMenuItem = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Represents a context menu item of a context menu displayed by WebView. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem</a>&quot;&gt;See the ICoreWebView2ContextMenuItem article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2ContextMenuItem</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_name-PWideChar-">Get_name</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_Label_-PWideChar-">Get_Label_</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_CommandId-SYSINT-">Get_CommandId</a></strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_ShortcutKeyDescription-PWideChar-">Get_ShortcutKeyDescription</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_Icon-IStream-">Get_Icon</a></strong>(out value: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_Kind-COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND-">Get_Kind</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND">COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Set_IsEnabled-Integer-">Set_IsEnabled</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_IsEnabled-Integer-">Get_IsEnabled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Set_IsChecked-Integer-">Set_IsChecked</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_IsChecked-Integer-">Get_IsChecked</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#Get_Children-ICoreWebView2ContextMenuItemCollection-">Get_Children</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#add_CustomItemSelected-ICoreWebView2CustomItemSelectedEventHandler-EventRegistrationToken-">add_CustomItemSelected</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2CustomItemSelectedEventHandler.html">ICoreWebView2CustomItemSelectedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html#remove_CustomItemSelected-EventRegistrationToken-">remove_CustomItemSelected</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_name-PWideChar-"></span><code>function <strong>Get_name</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the unlocalized name for the `ContextMenuItem`. Use this to distinguish between context menu item types. This will be the English label of the menu item in lower camel case. For example, the &quot;Save as&quot; menu item will be &quot;saveAs&quot;. Extension menu items will be &quot;extension&quot;, custom menu items will be &quot;custom&quot; and spellcheck items will be &quot;spellCheck&quot;. Some example context menu item names are: - &quot;saveAs&quot; - &quot;copyImage&quot; - &quot;openLinkInNewWindow&quot; - &quot;cut&quot; - &quot;copy&quot; - &quot;paste&quot;
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7AED49E3-A93F-497A-811C-749C6B6B6C65}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Label_-PWideChar-"></span><code>function <strong>Get_Label_</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the localized label for the `ContextMenuItem`. Will contain an ampersand for characters to be used as keyboard accelerator.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_CommandId-SYSINT-"></span><code>function <strong>Get_CommandId</strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the Command ID for the `ContextMenuItem`. Use this to report the `SelectedCommandId` in `ContextMenuRequested` event. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ShortcutKeyDescription-PWideChar-"></span><code>function <strong>Get_ShortcutKeyDescription</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the localized keyboard shortcut for this ContextMenuItem. It will be the empty string if there is no keyboard shortcut. This is text intended to be displayed to the end user to show the keyboard shortcut. For example this property is Ctrl+Shift+I for the &quot;Inspect&quot; `ContextMenuItem`.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Icon-IStream-"></span><code>function <strong>Get_Icon</strong>(out value: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the Icon for the `ContextMenuItem` in PNG, Bitmap or SVG formats in the form of an IStream. Stream will be rewound to the start of the image data. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Kind-COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND-"></span><code>function <strong>Get_Kind</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND">COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `ContextMenuItem` kind. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_IsEnabled-Integer-"></span><code>function <strong>Set_IsEnabled</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the enabled property of the `ContextMenuItem`. Must only be used in the case of a custom context menu item. The default value for this is `TRUE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsEnabled-Integer-"></span><code>function <strong>Get_IsEnabled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the enabled property of the `ContextMenuItem`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_IsChecked-Integer-"></span><code>function <strong>Set_IsChecked</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the checked property of the `ContextMenuItem`. Must only be used for custom context menu items that are of kind Check box or Radio. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsChecked-Integer-"></span><code>function <strong>Get_IsChecked</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the checked property of the `ContextMenuItem`, used if the kind is Check box or Radio. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Children-ICoreWebView2ContextMenuItemCollection-"></span><code>function <strong>Get_Children</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItemCollection.html">ICoreWebView2ContextMenuItemCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the list of children menu items through a `ContextMenuItemCollection` if the kind is Submenu. If the kind is not submenu, will return null. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_CustomItemSelected-ICoreWebView2CustomItemSelectedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_CustomItemSelected</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2CustomItemSelectedEventHandler.html">ICoreWebView2CustomItemSelectedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `CustomItemSelected` event. `CustomItemSelected` event is raised when the user selects this `ContextMenuItem`. Will only be raised for end developer created context menu items </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_CustomItemSelected-EventRegistrationToken-"></span><code>function <strong>remove_CustomItemSelected</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_CustomItemSelected`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

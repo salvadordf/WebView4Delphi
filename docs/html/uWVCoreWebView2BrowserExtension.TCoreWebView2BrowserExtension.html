@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2BrowserExtension: Class TCoreWebView2BrowserExtension</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2BrowserExtension"></span><h1 class="cio">Class TCoreWebView2BrowserExtension</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2BrowserExtension.html">uWVCoreWebView2BrowserExtension</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2BrowserExtension = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Provides a set of properties for managing an Extension, which includes an ID, name, and whether it is enabled or not, and the ability to Remove the Extension, and enable or disable it. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension</a>&quot;&gt;See the ICoreWebView2BrowserExtension article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2BrowserExtension</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetID">GetID</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetName">GetName</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetIsEnabled">GetIsEnabled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Create-ICoreWebView2BrowserExtension-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Remove-TComponent-">Remove</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Enable-boolean-TComponent-">Enable</a></strong>(aIsEnabled : boolean; const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Initialized">Initialized</a></strong>    : boolean                               read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#BaseIntf">BaseIntf</a></strong>       : <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>         read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#FBaseIntf">FBaseIntf</a>           write <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#ID">ID</a></strong>             : <a href="uWVTypes.html#wvstring">wvstring</a>                              read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetID">GetID</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#Name">Name</a></strong>           : <a href="uWVTypes.html#wvstring">wvstring</a>                              read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetName">GetName</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#IsEnabled">IsEnabled</a></strong>      : boolean                               read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetIsEnabled">GetIsEnabled</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetID"></span><code>function <strong>GetID</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetName"></span><code>function <strong>GetName</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsEnabled"></span><code>function <strong>GetIsEnabled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2BrowserExtension-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Remove-TComponent-"></span><code>function <strong>Remove</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes this browser extension from its WebView2 Profile. The browser extension is removed immediately including from all currently running HTML documents associated with this WebView2 Profile. The removal is persisted and future uses of this profile will not have this extension installed. After an extension is removed, calling `Remove` again will cause an exception. </p>
+<p>
+
+
+<p>The TWVBrowserBase.OnBrowserExtensionRemoveCompleted event is triggered when this function finishes.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Enable-boolean-TComponent-"></span><code>function <strong>Enable</strong>(aIsEnabled : boolean; const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets whether this browser extension is enabled or disabled. This change applies immediately to the extension in all HTML documents in all WebView2s associated with this profile. After an extension is removed, calling `Enable` will not change the value of `IsEnabled`. </p>
+<p>
+
+
+<p>The TWVBrowserBase.OnBrowserExtensionEnableCompleted event is triggered when this function finishes.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>    : boolean                               read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>       : <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>         read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#FBaseIntf">FBaseIntf</a>           write <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ID"></span><code>property <strong>ID</strong>             : <a href="uWVTypes.html#wvstring">wvstring</a>                              read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetID">GetID</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This is the browser extension's ID. This is the same browser extension ID returned by the browser extension API [`chrome.runtime.id`](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id</a>). Please see that documentation for more details on how the ID is generated. After an extension is removed, calling `Id` will return the id of the extension that is removed. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>           : <a href="uWVTypes.html#wvstring">wvstring</a>                              read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetName">GetName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This is the browser extension's name. This value is defined in this browser extension's manifest.json file. If manifest.json define extension's localized name, this value will be the localized version of the name. Please see [Manifest.json name](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name</a>) for more details. After an extension is removed, calling `Name` will return the name of the extension that is removed. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsEnabled"></span><code>property <strong>IsEnabled</strong>      : boolean                               read <a href="uWVCoreWebView2BrowserExtension.TCoreWebView2BrowserExtension.html#GetIsEnabled">GetIsEnabled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If `isEnabled` is true then the Extension is enabled and running in WebView instances. If it is false then the Extension is disabled and not running in WebView instances. When a Extension is first installed, `IsEnable` are default to be `TRUE`. `isEnabled` is persisted per profile. After an extension is removed, calling `isEnabled` will return the value at the time it was removed. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

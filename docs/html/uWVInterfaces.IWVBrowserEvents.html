@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVInterfaces: Interface IWVBrowserEvents</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="IWVBrowserEvents"></span><h1 class="cio">Interface IWVBrowserEvents</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVInterfaces.html">uWVInterfaces</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type IWVBrowserEvents = interface(IInterface)</code></p>
+<h2 class="description">Description</h2>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{4E06D91F-1213-46C1-ABB8-D41D8CC19E81}']</dt>
+  <dd></dd>
+</dl>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IInterface</li>
+<li class="thisitem">IWVBrowserEvents</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#EnvironmentCompletedHandler_Invoke-HResult-ICoreWebView2Environment-">EnvironmentCompletedHandler_Invoke</a></strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ControllerCompletedHandler_Invoke-HResult-ICoreWebView2Controller-">ControllerCompletedHandler_Invoke</a></strong>(errorCode: HResult; const createdController: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ExecuteScriptCompletedHandler_Invoke-HResult-PWideChar-integer-">ExecuteScriptCompletedHandler_Invoke</a></strong>(errorCode: HResult; resultObjectAsJson: PWideChar; aExecutionID : integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#CapturePreviewCompletedHandler_Invoke-HResult-">CapturePreviewCompletedHandler_Invoke</a></strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NavigationStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-">NavigationStartingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NavigationCompletedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-">NavigationCompletedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#SourceChangedEventHandler_Invoke-ICoreWebView2-ICoreWebView2SourceChangedEventArgs-">SourceChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SourceChangedEventArgs.html">ICoreWebView2SourceChangedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#HistoryChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">HistoryChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ContentLoadingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ContentLoadingEventArgs-">ContentLoadingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#DocumentTitleChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">DocumentTitleChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NewWindowRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">NewWindowRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameNavigationStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-">FrameNavigationStartingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameNavigationCompletedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-">FrameNavigationCompletedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#WebResourceRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebResourceRequestedEventArgs-">WebResourceRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html">ICoreWebView2WebResourceRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ScriptDialogOpeningEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScriptDialogOpeningEventArgs-">ScriptDialogOpeningEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScriptDialogOpeningEventArgs.html">ICoreWebView2ScriptDialogOpeningEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#PermissionRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2PermissionRequestedEventArgs-">PermissionRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs.html">ICoreWebView2PermissionRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ProcessFailedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ProcessFailedEventArgs-">ProcessFailedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs.html">ICoreWebView2ProcessFailedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#WebMessageReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebMessageReceivedEventArgs-">WebMessageReceivedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ContainsFullScreenElementChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">ContainsFullScreenElementChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#WindowCloseRequestedEventHandler_Invoke-ICoreWebView2-IUnknown-">WindowCloseRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ZoomFactorChangedEventHandler_Invoke-ICoreWebView2Controller-IUnknown-">ZoomFactorChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#MoveFocusRequestedEventHandler_Invoke-ICoreWebView2Controller-ICoreWebView2MoveFocusRequestedEventArgs-">MoveFocusRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventArgs.html">ICoreWebView2MoveFocusRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#AcceleratorKeyPressedEventHandler_Invoke-ICoreWebView2Controller-ICoreWebView2AcceleratorKeyPressedEventArgs-">AcceleratorKeyPressedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html">ICoreWebView2AcceleratorKeyPressedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#GotFocusEventHandler_Invoke-ICoreWebView2Controller-IUnknown-">GotFocusEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#LostFocusEventHandler_Invoke-ICoreWebView2Controller-IUnknown-">LostFocusEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#DevToolsProtocolEventReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2DevToolsProtocolEventReceivedEventArgs-wvstring-integer-">DevToolsProtocolEventReceivedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventArgs.html">ICoreWebView2DevToolsProtocolEventReceivedEventArgs</a>; const aEventName : <a href="uWVTypes.html#wvstring">wvstring</a>; aEventID : integer): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#CreateCoreWebView2CompositionControllerCompletedHandler_Invoke-HResult-ICoreWebView2CompositionController-">CreateCoreWebView2CompositionControllerCompletedHandler_Invoke</a></strong>(errorCode: HResult; const webView: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#CursorChangedEventHandler_Invoke-ICoreWebView2CompositionController-IUnknown-">CursorChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">BrowserProcessExitedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#RasterizationScaleChangedEventHandler_Invoke-ICoreWebView2Controller-IUnknown-">RasterizationScaleChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#WebResourceResponseReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebResourceResponseReceivedEventArgs-">WebResourceResponseReceivedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#DOMContentLoadedEventHandler_Invoke-ICoreWebView2-ICoreWebView2DOMContentLoadedEventArgs-">DOMContentLoadedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#WebResourceResponseViewGetContentCompletedHandler_Invoke-HResult-IStream-integer-">WebResourceResponseViewGetContentCompletedHandler_Invoke</a></strong>(errorCode: HResult; const Content: IStream; aResourceID : integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#GetCookiesCompletedHandler_Invoke-HResult-ICoreWebView2CookieList-">GetCookiesCompletedHandler_Invoke</a></strong>(aResult : HResult; const aCookieList : <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#TrySuspendCompletedHandler_Invoke-HResult-Integer-">TrySuspendCompletedHandler_Invoke</a></strong>(errorCode: HResult; isSuccessful: Integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameCreatedEventHandler_Invoke-ICoreWebView2-ICoreWebView2FrameCreatedEventArgs-">FrameCreatedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#DownloadStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2DownloadStartingEventArgs-">DownloadStartingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventArgs.html">ICoreWebView2DownloadStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ClientCertificateRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ClientCertificateRequestedEventArgs-">ClientCertificateRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html">ICoreWebView2ClientCertificateRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#PrintToPdfCompletedHandler_Invoke-HResult-Integer-">PrintToPdfCompletedHandler_Invoke</a></strong>(errorCode: HResult; isSuccessful: Integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#BytesReceivedChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-">BytesReceivedChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#EstimatedEndTimeChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-">EstimatedEndTimeChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#StateChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-">StateChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameNameChangedEventHandler_Invoke-ICoreWebView2Frame-IUnknown-cardinal-">FrameNameChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameDestroyedEventHandler_Invoke-ICoreWebView2Frame-IUnknown-cardinal-">FrameDestroyedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#CallDevToolsProtocolMethodCompletedHandler_Invoke-HResult-PWideChar-integer-">CallDevToolsProtocolMethodCompletedHandler_Invoke</a></strong>(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke-HResult-PWideChar-">AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke</a></strong>(errorCode: HResult; id: PWideChar): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#IsMutedChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">IsMutedChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#IsDocumentPlayingAudioChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">IsDocumentPlayingAudioChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#IsDefaultDownloadDialogOpenChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">IsDefaultDownloadDialogOpenChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ProcessInfosChangedEventHandler_Invoke-ICoreWebView2Environment-IUnknown-">ProcessInfosChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameNavigationStartingEventHandler2_Invoke-ICoreWebView2Frame-ICoreWebView2NavigationStartingEventArgs-cardinal-">FrameNavigationStartingEventHandler2_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameNavigationCompletedEventHandler2_Invoke-ICoreWebView2Frame-ICoreWebView2NavigationCompletedEventArgs-cardinal-">FrameNavigationCompletedEventHandler2_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameContentLoadingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ContentLoadingEventArgs-cardinal-">FrameContentLoadingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameDOMContentLoadedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2DOMContentLoadedEventArgs-cardinal-">FrameDOMContentLoadedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FrameWebMessageReceivedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-">FrameWebMessageReceivedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#BasicAuthenticationRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2BasicAuthenticationRequestedEventArgs-">BasicAuthenticationRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventArgs.html">ICoreWebView2BasicAuthenticationRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ContextMenuRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ContextMenuRequestedEventArgs-">ContextMenuRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#CustomItemSelectedEventHandler_Invoke-ICoreWebView2ContextMenuItem-IUnknown-">CustomItemSelectedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#StatusBarTextChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">StatusBarTextChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FramePermissionRequestedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">FramePermissionRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs2.html">ICoreWebView2PermissionRequestedEventArgs2</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ClearBrowsingDataCompletedHandler_Invoke-HResult-">ClearBrowsingDataCompletedHandler_Invoke</a></strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ClearServerCertificateErrorActionsCompletedHandler_Invoke-HResult-">ClearServerCertificateErrorActionsCompletedHandler_Invoke</a></strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ServerCertificateErrorDetectedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ServerCertificateErrorDetectedEventArgs-">ServerCertificateErrorDetectedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#FaviconChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">FaviconChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#GetFaviconCompletedHandler_Invoke-HResult-IStream-">GetFaviconCompletedHandler_Invoke</a></strong>(errorCode: HResult; const faviconStream: IStream): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#PrintCompletedHandler_Invoke-HResult-COREWEBVIEW2_PRINT_STATUS-">PrintCompletedHandler_Invoke</a></strong>(errorCode: HResult; printStatus: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PRINT_STATUS">COREWEBVIEW2_PRINT_STATUS</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#PrintToPdfStreamCompletedHandler_Invoke-HResult-IStream-">PrintToPdfStreamCompletedHandler_Invoke</a></strong>(errorCode: HResult; const pdfStream: IStream): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#GetNonDefaultPermissionSettingsCompletedHandler_Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-">GetNonDefaultPermissionSettingsCompletedHandler_Invoke</a></strong>(errorCode: HResult; const collectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#SetPermissionStateCompletedHandler_Invoke-HResult-">SetPermissionStateCompletedHandler_Invoke</a></strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#LaunchingExternalUriSchemeEventHandler_Invoke-ICoreWebView2-ICoreWebView2LaunchingExternalUriSchemeEventArgs-">LaunchingExternalUriSchemeEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html">ICoreWebView2LaunchingExternalUriSchemeEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#GetProcessExtendedInfosCompletedHandler_Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-">GetProcessExtendedInfosCompletedHandler_Invoke</a></strong>(errorCode: HResult; const value: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#BrowserExtensionRemoveCompletedHandler_Invoke-HResult-wvstring-">BrowserExtensionRemoveCompletedHandler_Invoke</a></strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#BrowserExtensionEnableCompletedHandler_Invoke-HResult-wvstring-">BrowserExtensionEnableCompletedHandler_Invoke</a></strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ProfileAddBrowserExtensionCompletedHandler_Invoke-HResult-ICoreWebView2BrowserExtension-">ProfileAddBrowserExtensionCompletedHandler_Invoke</a></strong>(errorCode: HResult; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ProfileGetBrowserExtensionsCompletedHandler_Invoke-HResult-ICoreWebView2BrowserExtensionList-">ProfileGetBrowserExtensionsCompletedHandler_Invoke</a></strong>(errorCode: HResult; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ProfileDeletedEventHandler_Invoke-ICoreWebView2Profile-IUnknown-">ProfileDeletedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ExecuteScriptWithResultCompletedHandler_Invoke-HResult-ICoreWebView2ExecuteScriptResult-integer-">ExecuteScriptWithResultCompletedHandler_Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer): HResult;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnvironmentCompletedHandler_Invoke-HResult-ICoreWebView2Environment-"></span><code>function <strong>EnvironmentCompletedHandler_Invoke</strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ControllerCompletedHandler_Invoke-HResult-ICoreWebView2Controller-"></span><code>function <strong>ControllerCompletedHandler_Invoke</strong>(errorCode: HResult; const createdController: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CreateCoreWebView2ControllerCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExecuteScriptCompletedHandler_Invoke-HResult-PWideChar-integer-"></span><code>function <strong>ExecuteScriptCompletedHandler_Invoke</strong>(errorCode: HResult; resultObjectAsJson: PWideChar; aExecutionID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ExecuteScriptCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CapturePreviewCompletedHandler_Invoke-HResult-"></span><code>function <strong>CapturePreviewCompletedHandler_Invoke</strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CapturePreviewCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NavigationStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-"></span><code>function <strong>NavigationStartingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationStartingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NavigationCompletedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-"></span><code>function <strong>NavigationCompletedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationCompletedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SourceChangedEventHandler_Invoke-ICoreWebView2-ICoreWebView2SourceChangedEventArgs-"></span><code>function <strong>SourceChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SourceChangedEventArgs.html">ICoreWebView2SourceChangedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2SourceChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HistoryChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>HistoryChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2HistoryChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ContentLoadingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ContentLoadingEventArgs-"></span><code>function <strong>ContentLoadingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ContentLoadingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DocumentTitleChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>DocumentTitleChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2DocumentTitleChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NewWindowRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-"></span><code>function <strong>NewWindowRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NewWindowRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameNavigationStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-"></span><code>function <strong>FrameNavigationStartingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationStartingEventHandler (Frame navigation)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameNavigationCompletedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-"></span><code>function <strong>FrameNavigationCompletedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationCompletedEventArgs (Frame navigation)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WebResourceRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebResourceRequestedEventArgs-"></span><code>function <strong>WebResourceRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html">ICoreWebView2WebResourceRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2WebResourceRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ScriptDialogOpeningEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScriptDialogOpeningEventArgs-"></span><code>function <strong>ScriptDialogOpeningEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScriptDialogOpeningEventArgs.html">ICoreWebView2ScriptDialogOpeningEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ScriptDialogOpeningEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PermissionRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2PermissionRequestedEventArgs-"></span><code>function <strong>PermissionRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs.html">ICoreWebView2PermissionRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2PermissionRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProcessFailedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ProcessFailedEventArgs-"></span><code>function <strong>ProcessFailedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs.html">ICoreWebView2ProcessFailedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ProcessFailedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WebMessageReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebMessageReceivedEventArgs-"></span><code>function <strong>WebMessageReceivedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2WebMessageReceivedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ContainsFullScreenElementChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>ContainsFullScreenElementChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ContainsFullScreenElementChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WindowCloseRequestedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>WindowCloseRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2WindowCloseRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ZoomFactorChangedEventHandler_Invoke-ICoreWebView2Controller-IUnknown-"></span><code>function <strong>ZoomFactorChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ZoomFactorChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MoveFocusRequestedEventHandler_Invoke-ICoreWebView2Controller-ICoreWebView2MoveFocusRequestedEventArgs-"></span><code>function <strong>MoveFocusRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventArgs.html">ICoreWebView2MoveFocusRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2MoveFocusRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AcceleratorKeyPressedEventHandler_Invoke-ICoreWebView2Controller-ICoreWebView2AcceleratorKeyPressedEventArgs-"></span><code>function <strong>AcceleratorKeyPressedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html">ICoreWebView2AcceleratorKeyPressedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2AcceleratorKeyPressedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GotFocusEventHandler_Invoke-ICoreWebView2Controller-IUnknown-"></span><code>function <strong>GotFocusEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FocusChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LostFocusEventHandler_Invoke-ICoreWebView2Controller-IUnknown-"></span><code>function <strong>LostFocusEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FocusChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DevToolsProtocolEventReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2DevToolsProtocolEventReceivedEventArgs-wvstring-integer-"></span><code>function <strong>DevToolsProtocolEventReceivedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventArgs.html">ICoreWebView2DevToolsProtocolEventReceivedEventArgs</a>; const aEventName : <a href="uWVTypes.html#wvstring">wvstring</a>; aEventID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2DevToolsProtocolEventReceivedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateCoreWebView2CompositionControllerCompletedHandler_Invoke-HResult-ICoreWebView2CompositionController-"></span><code>function <strong>CreateCoreWebView2CompositionControllerCompletedHandler_Invoke</strong>(errorCode: HResult; const webView: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CursorChangedEventHandler_Invoke-ICoreWebView2CompositionController-IUnknown-"></span><code>function <strong>CursorChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CursorChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-"></span><code>function <strong>BrowserProcessExitedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2BrowserProcessExitedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RasterizationScaleChangedEventHandler_Invoke-ICoreWebView2Controller-IUnknown-"></span><code>function <strong>RasterizationScaleChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2RasterizationScaleChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WebResourceResponseReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2WebResourceResponseReceivedEventArgs-"></span><code>function <strong>WebResourceResponseReceivedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2WebResourceResponseReceivedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DOMContentLoadedEventHandler_Invoke-ICoreWebView2-ICoreWebView2DOMContentLoadedEventArgs-"></span><code>function <strong>DOMContentLoadedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2DOMContentLoadedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WebResourceResponseViewGetContentCompletedHandler_Invoke-HResult-IStream-integer-"></span><code>function <strong>WebResourceResponseViewGetContentCompletedHandler_Invoke</strong>(errorCode: HResult; const Content: IStream; aResourceID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2WebResourceResponseViewGetContentCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCookiesCompletedHandler_Invoke-HResult-ICoreWebView2CookieList-"></span><code>function <strong>GetCookiesCompletedHandler_Invoke</strong>(aResult : HResult; const aCookieList : <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2GetCookiesCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TrySuspendCompletedHandler_Invoke-HResult-Integer-"></span><code>function <strong>TrySuspendCompletedHandler_Invoke</strong>(errorCode: HResult; isSuccessful: Integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2TrySuspendCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameCreatedEventHandler_Invoke-ICoreWebView2-ICoreWebView2FrameCreatedEventArgs-"></span><code>function <strong>FrameCreatedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameCreatedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DownloadStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2DownloadStartingEventArgs-"></span><code>function <strong>DownloadStartingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventArgs.html">ICoreWebView2DownloadStartingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2DownloadStartingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientCertificateRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ClientCertificateRequestedEventArgs-"></span><code>function <strong>ClientCertificateRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html">ICoreWebView2ClientCertificateRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ClientCertificateRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrintToPdfCompletedHandler_Invoke-HResult-Integer-"></span><code>function <strong>PrintToPdfCompletedHandler_Invoke</strong>(errorCode: HResult; isSuccessful: Integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2PrintToPdfCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BytesReceivedChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-"></span><code>function <strong>BytesReceivedChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2BytesReceivedChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EstimatedEndTimeChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-"></span><code>function <strong>EstimatedEndTimeChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2EstimatedEndTimeChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StateChangedEventHandler_Invoke-ICoreWebView2DownloadOperation-IUnknown-integer-"></span><code>function <strong>StateChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2StateChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameNameChangedEventHandler_Invoke-ICoreWebView2Frame-IUnknown-cardinal-"></span><code>function <strong>FrameNameChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameNameChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameDestroyedEventHandler_Invoke-ICoreWebView2Frame-IUnknown-cardinal-"></span><code>function <strong>FrameDestroyedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameDestroyedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CallDevToolsProtocolMethodCompletedHandler_Invoke-HResult-PWideChar-integer-"></span><code>function <strong>CallDevToolsProtocolMethodCompletedHandler_Invoke</strong>(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CallDevToolsProtocolMethodCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke-HResult-PWideChar-"></span><code>function <strong>AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke</strong>(errorCode: HResult; id: PWideChar): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsMutedChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>IsMutedChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2IsMutedChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsDocumentPlayingAudioChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>IsDocumentPlayingAudioChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2IsDocumentPlayingAudioChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsDefaultDownloadDialogOpenChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>IsDefaultDownloadDialogOpenChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProcessInfosChangedEventHandler_Invoke-ICoreWebView2Environment-IUnknown-"></span><code>function <strong>ProcessInfosChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ProcessInfosChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameNavigationStartingEventHandler2_Invoke-ICoreWebView2Frame-ICoreWebView2NavigationStartingEventArgs-cardinal-"></span><code>function <strong>FrameNavigationStartingEventHandler2_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationStartingEventHandler (Frame navigation)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameNavigationCompletedEventHandler2_Invoke-ICoreWebView2Frame-ICoreWebView2NavigationCompletedEventArgs-cardinal-"></span><code>function <strong>FrameNavigationCompletedEventHandler2_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NavigationCompletedEventArgs (Frame navigation)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameContentLoadingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ContentLoadingEventArgs-cardinal-"></span><code>function <strong>FrameContentLoadingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameContentLoadingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameDOMContentLoadedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2DOMContentLoadedEventArgs-cardinal-"></span><code>function <strong>FrameDOMContentLoadedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameDOMContentLoadedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameWebMessageReceivedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-"></span><code>function <strong>FrameWebMessageReceivedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FrameWebMessageReceivedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BasicAuthenticationRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2BasicAuthenticationRequestedEventArgs-"></span><code>function <strong>BasicAuthenticationRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventArgs.html">ICoreWebView2BasicAuthenticationRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2BasicAuthenticationRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ContextMenuRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ContextMenuRequestedEventArgs-"></span><code>function <strong>ContextMenuRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ContextMenuRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CustomItemSelectedEventHandler_Invoke-ICoreWebView2ContextMenuItem-IUnknown-"></span><code>function <strong>CustomItemSelectedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2CustomItemSelectedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StatusBarTextChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>StatusBarTextChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2StatusBarTextChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FramePermissionRequestedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-"></span><code>function <strong>FramePermissionRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs2.html">ICoreWebView2PermissionRequestedEventArgs2</a>; aFrameID: cardinal): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FramePermissionRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearBrowsingDataCompletedHandler_Invoke-HResult-"></span><code>function <strong>ClearBrowsingDataCompletedHandler_Invoke</strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ClearBrowsingDataCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearServerCertificateErrorActionsCompletedHandler_Invoke-HResult-"></span><code>function <strong>ClearServerCertificateErrorActionsCompletedHandler_Invoke</strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ServerCertificateErrorDetectedEventHandler_Invoke-ICoreWebView2-ICoreWebView2ServerCertificateErrorDetectedEventArgs-"></span><code>function <strong>ServerCertificateErrorDetectedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ServerCertificateErrorDetectedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FaviconChangedEventHandler_Invoke-ICoreWebView2-IUnknown-"></span><code>function <strong>FaviconChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2FaviconChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFaviconCompletedHandler_Invoke-HResult-IStream-"></span><code>function <strong>GetFaviconCompletedHandler_Invoke</strong>(errorCode: HResult; const faviconStream: IStream): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2GetFaviconCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrintCompletedHandler_Invoke-HResult-COREWEBVIEW2_PRINT_STATUS-"></span><code>function <strong>PrintCompletedHandler_Invoke</strong>(errorCode: HResult; printStatus: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PRINT_STATUS">COREWEBVIEW2_PRINT_STATUS</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2PrintCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrintToPdfStreamCompletedHandler_Invoke-HResult-IStream-"></span><code>function <strong>PrintToPdfStreamCompletedHandler_Invoke</strong>(errorCode: HResult; const pdfStream: IStream): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2PrintToPdfStreamCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNonDefaultPermissionSettingsCompletedHandler_Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-"></span><code>function <strong>GetNonDefaultPermissionSettingsCompletedHandler_Invoke</strong>(errorCode: HResult; const collectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetPermissionStateCompletedHandler_Invoke-HResult-"></span><code>function <strong>SetPermissionStateCompletedHandler_Invoke</strong>(errorCode: HResult): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2SetPermissionStateCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LaunchingExternalUriSchemeEventHandler_Invoke-ICoreWebView2-ICoreWebView2LaunchingExternalUriSchemeEventArgs-"></span><code>function <strong>LaunchingExternalUriSchemeEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html">ICoreWebView2LaunchingExternalUriSchemeEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2LaunchingExternalUriSchemeEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetProcessExtendedInfosCompletedHandler_Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-"></span><code>function <strong>GetProcessExtendedInfosCompletedHandler_Invoke</strong>(errorCode: HResult; const value: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2GetProcessExtendedInfosCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BrowserExtensionRemoveCompletedHandler_Invoke-HResult-wvstring-"></span><code>function <strong>BrowserExtensionRemoveCompletedHandler_Invoke</strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2BrowserExtensionRemoveCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BrowserExtensionEnableCompletedHandler_Invoke-HResult-wvstring-"></span><code>function <strong>BrowserExtensionEnableCompletedHandler_Invoke</strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2BrowserExtensionEnableCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProfileAddBrowserExtensionCompletedHandler_Invoke-HResult-ICoreWebView2BrowserExtension-"></span><code>function <strong>ProfileAddBrowserExtensionCompletedHandler_Invoke</strong>(errorCode: HResult; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProfileGetBrowserExtensionsCompletedHandler_Invoke-HResult-ICoreWebView2BrowserExtensionList-"></span><code>function <strong>ProfileGetBrowserExtensionsCompletedHandler_Invoke</strong>(errorCode: HResult; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProfileDeletedEventHandler_Invoke-ICoreWebView2Profile-IUnknown-"></span><code>function <strong>ProfileDeletedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ProfileDeletedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExecuteScriptWithResultCompletedHandler_Invoke-HResult-ICoreWebView2ExecuteScriptResult-integer-"></span><code>function <strong>ExecuteScriptWithResultCompletedHandler_Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ExecuteScriptWithResultCompletedHandler</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

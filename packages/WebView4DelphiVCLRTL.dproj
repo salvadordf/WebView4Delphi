@@ -160,6 +160,8 @@
         <DCCReference Include="..\source\uWVCoreWebView2ProcessExtendedInfoCollection.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2BrowserExtension.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2BrowserExtensionList.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ScriptException.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ExecuteScriptResult.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

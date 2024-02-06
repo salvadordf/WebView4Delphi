@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2EnvironmentOptions2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2EnvironmentOptions2"></span><h1 class="cio">Interface ICoreWebView2EnvironmentOptions2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2EnvironmentOptions2 = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Additional options used to create WebView2 Environment. A default implementation is provided in WebView2EnvironmentOptions.h. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions2 article.)
+
+<p>ICoreWebView2EnvironmentOptions* interfaces derive from IUnknown to make moving the API from experimental to public smoothier. These interfaces are mostly internal to WebView's own code. Normal apps just use the objects we provided and never interact with the interfaces. Advanced apps might implement their own options object. In that case, it is also easier for them to implement the interface if it is derived from IUnknown.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2EnvironmentOptions2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html#Get_ExclusiveUserDataFolderAccess-Integer-">Get_ExclusiveUserDataFolderAccess</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html#Set_ExclusiveUserDataFolderAccess-Integer-">Set_ExclusiveUserDataFolderAccess</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ExclusiveUserDataFolderAccess-Integer-"></span><code>function <strong>Get_ExclusiveUserDataFolderAccess</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Whether other processes can create WebView2 from WebView2Environment created with the same user data folder and therefore sharing the same WebView browser process instance. Default is FALSE. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_ExclusiveUserDataFolderAccess-Integer-"></span><code>function <strong>Set_ExclusiveUserDataFolderAccess</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `ExclusiveUserDataFolderAccess` property. The `ExclusiveUserDataFolderAccess` property specifies that the WebView environment obtains exclusive access to the user data folder. If the user data folder is already being used by another WebView environment with a different value for `ExclusiveUserDataFolderAccess` property, the creation of a WebView2Controller using the environment object will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. When set as TRUE, no other WebView can be created from other processes using WebView2Environment objects with the same UserDataFolder. This prevents other processes from creating WebViews which share the same browser process instance, since sharing is performed among WebViews that have the same UserDataFolder. When another process tries to create a WebView2Controller from an WebView2Environment object created with the same user data folder, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

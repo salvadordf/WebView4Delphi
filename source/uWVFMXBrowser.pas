@@ -132,6 +132,7 @@ type
       property OnProfileAddBrowserExtensionCompleted;
       property OnProfileGetBrowserExtensionsCompleted;
       property OnProfileDeleted;
+      property OnExecuteScriptWithResultCompleted;
   end;
 
 implementation

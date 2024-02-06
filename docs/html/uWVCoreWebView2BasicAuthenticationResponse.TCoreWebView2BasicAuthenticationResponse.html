@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2BasicAuthenticationResponse: Class TCoreWebView2BasicAuthenticationResponse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2BasicAuthenticationResponse"></span><h1 class="cio">Class TCoreWebView2BasicAuthenticationResponse</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2BasicAuthenticationResponse.html">uWVCoreWebView2BasicAuthenticationResponse</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2BasicAuthenticationResponse = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Represents a Basic HTTP authentication response that contains a user name and a password as according to RFC7617 (<a href="https://tools.ietf.org/html/rfc7617">https://tools.ietf.org/html/rfc7617</a>) </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse</a>&quot;&gt;See the ICoreWebView2BasicAuthenticationResponse article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2BasicAuthenticationResponse</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetUserName">GetUserName</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetPassword">GetPassword</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetUserName-wvstring-">SetUserName</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetPassword-wvstring-">SetPassword</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#Create-ICoreWebView2BasicAuthenticationResponse-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#Initialized">Initialized</a></strong>                         : boolean                                   read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#BaseIntf">BaseIntf</a></strong>                            : <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#UserName">UserName</a></strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetUserName">GetUserName</a>                          write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetUserName-wvstring-">SetUserName</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#Password">Password</a></strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetPassword">GetPassword</a>                          write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetPassword-wvstring-">SetPassword</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetUserName"></span><code>function <strong>GetUserName</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPassword"></span><code>function <strong>GetPassword</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetUserName-wvstring-"></span><code>procedure <strong>SetUserName</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPassword-wvstring-"></span><code>procedure <strong>SetPassword</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2BasicAuthenticationResponse-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                         : boolean                                   read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                            : <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a>  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UserName"></span><code>property <strong>UserName</strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetUserName">GetUserName</a>                          write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetUserName-wvstring-">SetUserName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ User name provided for authentication. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse#get_username">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse#get_username</a>&quot;&gt;See the ICoreWebView2BasicAuthenticationResponse article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Password"></span><code>property <strong>Password</strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#GetPassword">GetPassword</a>                          write <a href="uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html#SetPassword-wvstring-">SetPassword</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Password provided for authentication. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse#get_password">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationresponse#get_password</a>&quot;&gt;See the ICoreWebView2BasicAuthenticationResponse article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

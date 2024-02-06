@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2WebResourceRequest: Class TCoreWebView2WebResourceRequestOwn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2WebResourceRequestOwn"></span><h1 class="cio">Class TCoreWebView2WebResourceRequestOwn</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2WebResourceRequest.html">uWVCoreWebView2WebResourceRequest</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2WebResourceRequestOwn = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ An HTTP request used with the WebResourceRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest</a>&quot;&gt;See the ICoreWebView2WebResourceRequest article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="thisitem">TCoreWebView2WebResourceRequestOwn</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#FURI">FURI</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#FMethod">FMethod</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#FContent">FContent</a></strong>: IStream;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#FHeaders">FHeaders</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Get_uri-PWideChar-">Get_uri</a></strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Set_uri-PWideChar-">Set_uri</a></strong>(uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Get_Method-PWideChar-">Get_Method</a></strong>(out Method: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Set_Method-PWideChar-">Set_Method</a></strong>(Method: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Get_Content-IStream-">Get_Content</a></strong>(out Content: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Set_Content-IStream-">Set_Content</a></strong>(const Content: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Get_Headers-ICoreWebView2HttpRequestHeaders-">Get_Headers</a></strong>(out Headers: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Create-wvstring-wvstring-IStream-ICoreWebView2HttpRequestHeaders-">Create</a></strong>(const aURI, aMethod : <a href="uWVTypes.html#wvstring">wvstring</a>; const aContent : IStream; const aHeaders : <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FURI"></span><code><strong>FURI</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FMethod"></span><code><strong>FMethod</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FContent"></span><code><strong>FContent</strong>: IStream;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FHeaders"></span><code><strong>FHeaders</strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_uri-PWideChar-"></span><code>function <strong>Get_uri</strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Get_uri-PWideChar-">ICoreWebView2WebResourceRequest.Get_uri</a>.</p><p>
+ The request URI.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_uri-PWideChar-"></span><code>function <strong>Set_uri</strong>(uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Set_uri-PWideChar-">ICoreWebView2WebResourceRequest.Set_uri</a>.</p><p>
+ Sets the `Uri` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_Method-PWideChar-"></span><code>function <strong>Get_Method</strong>(out Method: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Get_Method-PWideChar-">ICoreWebView2WebResourceRequest.Get_Method</a>.</p><p>
+ The HTTP request method.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Method-PWideChar-"></span><code>function <strong>Set_Method</strong>(Method: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Set_Method-PWideChar-">ICoreWebView2WebResourceRequest.Set_Method</a>.</p><p>
+ Sets the `Method` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_Content-IStream-"></span><code>function <strong>Get_Content</strong>(out Content: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Get_Content-IStream-">ICoreWebView2WebResourceRequest.Get_Content</a>.</p><p>
+ The HTTP request message body as stream. POST data should be here. If a stream is set, which overrides the message body, the stream must have all the content data available by the time the `WebResourceRequested` event deferral of this response is completed. Stream should be agile or be created from a background STA to prevent performance impact to the UI thread. `Null` means no content data. `IStream` semantics apply (return `S_OK` to `Read` runs until all data is exhausted). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Content-IStream-"></span><code>function <strong>Set_Content</strong>(const Content: IStream): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Set_Content-IStream-">ICoreWebView2WebResourceRequest.Set_Content</a>.</p><p>
+ Sets the `Content` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_Headers-ICoreWebView2HttpRequestHeaders-"></span><code>function <strong>Get_Headers</strong>(out Headers: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html#Get_Headers-ICoreWebView2HttpRequestHeaders-">ICoreWebView2WebResourceRequest.Get_Headers</a>.</p><p>
+ The mutable HTTP request headers </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-wvstring-wvstring-IStream-ICoreWebView2HttpRequestHeaders-"></span><code>constructor <strong>Create</strong>(const aURI, aMethod : <a href="uWVTypes.html#wvstring">wvstring</a>; const aContent : IStream; const aHeaders : <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

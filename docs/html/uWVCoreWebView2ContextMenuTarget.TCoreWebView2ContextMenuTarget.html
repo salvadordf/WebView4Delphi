@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2ContextMenuTarget: Class TCoreWebView2ContextMenuTarget</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2ContextMenuTarget"></span><h1 class="cio">Class TCoreWebView2ContextMenuTarget</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2ContextMenuTarget.html">uWVCoreWebView2ContextMenuTarget</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ContextMenuTarget = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Represents the information regarding the context menu target. Includes the context selected and the appropriate data used for the actions of a context menu. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget</a>&quot;&gt;See the ICoreWebView2ContextMenuTarget article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ContextMenuTarget</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetKind">GetKind</a></strong>: <a href="uWVTypes.html#TWVMenuTargetKind">TWVMenuTargetKind</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsEditable">GetIsEditable</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsRequestedForMainFrame">GetIsRequestedForMainFrame</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetPageUri">GetPageUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetFrameUri">GetFrameUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkUri">GetHasLinkUri</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkUri">GetLinkUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkText">GetHasLinkText</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkText">GetLinkText</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSourceUri">GetHasSourceUri</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSourceUri">GetSourceUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSelection">GetHasSelection</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSelectionText">GetSelectionText</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#Create-ICoreWebView2ContextMenuTarget-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#Initialized">Initialized</a></strong>              : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#BaseIntf">BaseIntf</a></strong>                 : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>         read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#Kind">Kind</a></strong>                     : <a href="uWVTypes.html#TWVMenuTargetKind">TWVMenuTargetKind</a>                      read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetKind">GetKind</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#IsEditable">IsEditable</a></strong>               : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsEditable">GetIsEditable</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#IsRequestedForMainFrame">IsRequestedForMainFrame</a></strong>  : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsRequestedForMainFrame">GetIsRequestedForMainFrame</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#PageUri">PageUri</a></strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetPageUri">GetPageUri</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#FrameUri">FrameUri</a></strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetFrameUri">GetFrameUri</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#HasLinkUri">HasLinkUri</a></strong>               : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkUri">GetHasLinkUri</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#LinkUri">LinkUri</a></strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkUri">GetLinkUri</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#HasLinkText">HasLinkText</a></strong>              : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkText">GetHasLinkText</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#LinkText">LinkText</a></strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkText">GetLinkText</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#HasSourceUri">HasSourceUri</a></strong>             : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSourceUri">GetHasSourceUri</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#SourceUri">SourceUri</a></strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSourceUri">GetSourceUri</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#HasSelection">HasSelection</a></strong>             : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSelection">GetHasSelection</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#SelectionText">SelectionText</a></strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSelectionText">GetSelectionText</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetKind"></span><code>function <strong>GetKind</strong>: <a href="uWVTypes.html#TWVMenuTargetKind">TWVMenuTargetKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsEditable"></span><code>function <strong>GetIsEditable</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsRequestedForMainFrame"></span><code>function <strong>GetIsRequestedForMainFrame</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPageUri"></span><code>function <strong>GetPageUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetFrameUri"></span><code>function <strong>GetFrameUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasLinkUri"></span><code>function <strong>GetHasLinkUri</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetLinkUri"></span><code>function <strong>GetLinkUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasLinkText"></span><code>function <strong>GetHasLinkText</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetLinkText"></span><code>function <strong>GetLinkText</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasSourceUri"></span><code>function <strong>GetHasSourceUri</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSourceUri"></span><code>function <strong>GetSourceUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasSelection"></span><code>function <strong>GetHasSelection</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSelectionText"></span><code>function <strong>GetSelectionText</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ContextMenuTarget-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>              : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                 : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html">ICoreWebView2ContextMenuTarget</a>         read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Kind"></span><code>property <strong>Kind</strong>                     : <a href="uWVTypes.html#TWVMenuTargetKind">TWVMenuTargetKind</a>                      read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetKind">GetKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsEditable"></span><code>property <strong>IsEditable</strong>               : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsEditable">GetIsEditable</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsRequestedForMainFrame"></span><code>property <strong>IsRequestedForMainFrame</strong>  : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetIsRequestedForMainFrame">GetIsRequestedForMainFrame</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PageUri"></span><code>property <strong>PageUri</strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetPageUri">GetPageUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameUri"></span><code>property <strong>FrameUri</strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetFrameUri">GetFrameUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasLinkUri"></span><code>property <strong>HasLinkUri</strong>               : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkUri">GetHasLinkUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LinkUri"></span><code>property <strong>LinkUri</strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkUri">GetLinkUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasLinkText"></span><code>property <strong>HasLinkText</strong>              : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasLinkText">GetHasLinkText</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LinkText"></span><code>property <strong>LinkText</strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetLinkText">GetLinkText</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasSourceUri"></span><code>property <strong>HasSourceUri</strong>             : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSourceUri">GetHasSourceUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SourceUri"></span><code>property <strong>SourceUri</strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSourceUri">GetSourceUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasSelection"></span><code>property <strong>HasSelection</strong>             : boolean                                read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetHasSelection">GetHasSelection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SelectionText"></span><code>property <strong>SelectionText</strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                               read <a href="uWVCoreWebView2ContextMenuTarget.TCoreWebView2ContextMenuTarget.html#GetSelectionText">GetSelectionText</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

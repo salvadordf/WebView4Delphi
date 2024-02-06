@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Delegates</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<h1 class="unit">Unit uWVCoreWebView2Delegates</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section">Types</div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p class="nodescription">This item has no description.</p><span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2AcceleratorKeyPressedEventHandler.html"><code>TCoreWebView2AcceleratorKeyPressedEventHandler</code></a></td>
+<td class="itemdesc"> Receives AcceleratorKeyPressed events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CapturePreviewCompletedHandler.html"><code>TCoreWebView2CapturePreviewCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the CapturePreview method. The result is written to the stream provided in the CapturePreview method. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ContainsFullScreenElementChangedEventHandler.html"><code>TCoreWebView2ContainsFullScreenElementChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives ContainsFullScreenElementChanged events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ContentLoadingEventHandler.html"><code>TCoreWebView2ContentLoadingEventHandler</code></a></td>
+<td class="itemdesc"> Receives `ContentLoading` events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CreateCoreWebView2ControllerCompletedHandler.html"><code>TCoreWebView2CreateCoreWebView2ControllerCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the CoreWebView2Controller created using CreateCoreWebView2Controller. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DevToolsProtocolEventReceivedEventHandler.html"><code>TCoreWebView2DevToolsProtocolEventReceivedEventHandler</code></a></td>
+<td class="itemdesc"> Receives DevToolsProtocolEventReceived events from the WebView. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DocumentTitleChangedEventHandler.html"><code>TCoreWebView2DocumentTitleChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives DocumentTitleChanged events. Use the DocumentTitle property to get the modified title. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html"><code>TCoreWebView2EnvironmentCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the WebView2Environment created using CreateCoreWebView2Environment. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ExecuteScriptCompletedHandler.html"><code>TCoreWebView2ExecuteScriptCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the ExecuteScript method. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationCompletedEventHandler.html"><code>TCoreWebView2FrameNavigationCompletedEventHandler</code></a></td>
+<td class="itemdesc"> Receives NavigationCompleted events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationStartingEventHandler.html"><code>TCoreWebView2FrameNavigationStartingEventHandler</code></a></td>
+<td class="itemdesc"> Receives NavigationStarting events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GotFocusEventHandler.html"><code>TCoreWebView2GotFocusEventHandler</code></a></td>
+<td class="itemdesc"> Receives GotFocus and LostFocus events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2HistoryChangedEventHandler.html"><code>TCoreWebView2HistoryChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives HistoryChanged events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2LostFocusEventHandler.html"><code>TCoreWebView2LostFocusEventHandler</code></a></td>
+<td class="itemdesc"> Receives GotFocus and LostFocus events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2MoveFocusRequestedEventHandler.html"><code>TCoreWebView2MoveFocusRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives MoveFocusRequested events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NavigationCompletedEventHandler.html"><code>TCoreWebView2NavigationCompletedEventHandler</code></a></td>
+<td class="itemdesc"> Receives NavigationCompleted events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NavigationStartingEventHandler.html"><code>TCoreWebView2NavigationStartingEventHandler</code></a></td>
+<td class="itemdesc"> Receives NavigationStarting events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NewBrowserVersionAvailableEventHandler.html"><code>TCoreWebView2NewBrowserVersionAvailableEventHandler</code></a></td>
+<td class="itemdesc"> Receives NewBrowserVersionAvailable events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NewWindowRequestedEventHandler.html"><code>TCoreWebView2NewWindowRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives NewWindowRequested events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PermissionRequestedEventHandler.html"><code>TCoreWebView2PermissionRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives PermissionRequested events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProcessFailedEventHandler.html"><code>TCoreWebView2ProcessFailedEventHandler</code></a></td>
+<td class="itemdesc"> Receives ProcessFailed events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ScriptDialogOpeningEventHandler.html"><code>TCoreWebView2ScriptDialogOpeningEventHandler</code></a></td>
+<td class="itemdesc"> Receives ScriptDialogOpening events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SourceChangedEventHandler.html"><code>TCoreWebView2SourceChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives SourceChanged events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebMessageReceivedEventHandler.html"><code>TCoreWebView2WebMessageReceivedEventHandler</code></a></td>
+<td class="itemdesc"> Receives WebMessageReceived events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceRequestedEventHandler.html"><code>TCoreWebView2WebResourceRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Runs when a URL request (through network, file, and so on) is made in the webview for a Web resource matching resource context filter and URL specified in AddWebResourceRequestedFilter. The host views and modifies the request or provide a response in a similar pattern to HTTP, in which case the request immediately completed. This may not contain any request headers that are added by the network stack, such as an Authorization header. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WindowCloseRequestedEventHandler.html"><code>TCoreWebView2WindowCloseRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives WindowCloseRequested events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ZoomFactorChangedEventHandler.html"><code>TCoreWebView2ZoomFactorChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive ZoomFactorChanged events. Use the ICoreWebView2Controller.ZoomFactor property to get the modified zoom factor. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html"><code>TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the CoreWebView2Controller created via CreateCoreWebView2CompositionController. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CursorChangedEventHandler.html"><code>TCoreWebView2CursorChangedEventHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive CursorChanged events. Use the Cursor property to get the new cursor. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html"><code>TCoreWebView2BrowserProcessExitedEventHandler</code></a></td>
+<td class="itemdesc"> Receives BrowserProcessExited events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2RasterizationScaleChangedEventHandler.html"><code>TCoreWebView2RasterizationScaleChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives RasterizationScaleChanged events. Use the RasterizationScale property to get the modified scale. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceResponseReceivedEventHandler.html"><code>TCoreWebView2WebResourceResponseReceivedEventHandler</code></a></td>
+<td class="itemdesc"> Receives WebResourceResponseReceived events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DOMContentLoadedEventHandler.html"><code>TCoreWebView2DOMContentLoadedEventHandler</code></a></td>
+<td class="itemdesc"> Receives DOMContentLoaded events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.html"><code>TCoreWebView2WebResourceResponseViewGetContentCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetCookiesCompletedHandler.html"><code>TCoreWebView2GetCookiesCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the GetCookies method. The result is written to the cookie list provided in the GetCookies method call. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2TrySuspendCompletedHandler.html"><code>TCoreWebView2TrySuspendCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the TrySuspend result. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameCreatedEventHandler.html"><code>TCoreWebView2FrameCreatedEventHandler</code></a></td>
+<td class="itemdesc"> Receives FrameCreated event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DownloadStartingEventHandler.html"><code>TCoreWebView2DownloadStartingEventHandler</code></a></td>
+<td class="itemdesc"> Add an event handler for the DownloadStarting event. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ClientCertificateRequestedEventHandler.html"><code>TCoreWebView2ClientCertificateRequestedEventHandler</code></a></td>
+<td class="itemdesc"> An event handler for the ClientCertificateRequested event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintToPdfCompletedHandler.html"><code>TCoreWebView2PrintToPdfCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the PrintToPdf method. If the print to PDF operation succeeds, isSuccessful is true. Otherwise, if the operation failed, isSuccessful is set to false. An invalid path returns E_INVALIDARG. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2BytesReceivedChangedEventHandler.html"><code>TCoreWebView2BytesReceivedChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive BytesReceivedChanged event. Use the ICoreWebView2DownloadOperation.BytesReceived property to get the received bytes count. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2EstimatedEndTimeChangedEventHandler.html"><code>TCoreWebView2EstimatedEndTimeChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive EstimatedEndTimeChanged event. Use the ICoreWebView2DownloadOperation.EstimatedEndTime property to get the new estimated end time. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2StateChangedEventHandler.html"><code>TCoreWebView2StateChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive StateChanged event. Use the ICoreWebView2DownloadOperation.State property to get the current state, which can be in progress, interrupted, or completed. Use the ICoreWebView2DownloadOperation.InterruptReason property to get the interrupt reason if the download is interrupted. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNameChangedEventHandler.html"><code>TCoreWebView2FrameNameChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives FrameNameChanged event. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDestroyedEventHandler.html"><code>TCoreWebView2FrameDestroyedEventHandler</code></a></td>
+<td class="itemdesc"> Receives FrameDestroyed event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.html"><code>TCoreWebView2CallDevToolsProtocolMethodCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives CallDevToolsProtocolMethod completion results. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler.html"><code>TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the AddScriptToExecuteOnDocumentCreated method. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsMutedChangedEventHandler.html"><code>TCoreWebView2IsMutedChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive IsMutedChanged events. Use the IsMuted property to get the mute state. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.html"><code>TCoreWebView2IsDocumentPlayingAudioChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive IsDocumentPlayingAudioChanged events. Use the IsDocumentPlayingAudio property to get the audio playing state. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html"><code>TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</code></a></td>
+<td class="itemdesc"> Implements the interface to receive IsDefaultDownloadDialogOpenChanged events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html"><code>TCoreWebView2ProcessInfosChangedEventHandler</code></a></td>
+<td class="itemdesc"> An event handler for the ProcessInfosChanged event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationCompletedEventHandler2.html"><code>TCoreWebView2FrameNavigationCompletedEventHandler2</code></a></td>
+<td class="itemdesc"> Receives NavigationCompleted events for iframe. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationStartingEventHandler2.html"><code>TCoreWebView2FrameNavigationStartingEventHandler2</code></a></td>
+<td class="itemdesc"> Receives NavigationStarting events for iframe. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameContentLoadingEventHandler.html"><code>TCoreWebView2FrameContentLoadingEventHandler</code></a></td>
+<td class="itemdesc"> Receives ContentLoading events for iframe. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDOMContentLoadedEventHandler.html"><code>TCoreWebView2FrameDOMContentLoadedEventHandler</code></a></td>
+<td class="itemdesc"> Receives DOMContentLoaded events for iframe. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameWebMessageReceivedEventHandler.html"><code>TCoreWebView2FrameWebMessageReceivedEventHandler</code></a></td>
+<td class="itemdesc"> Receives WebMessageReceived events for iframe. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2BasicAuthenticationRequestedEventHandler.html"><code>TCoreWebView2BasicAuthenticationRequestedEventHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to handle the BasicAuthenticationRequested event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ContextMenuRequestedEventHandler.html"><code>TCoreWebView2ContextMenuRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives ContextMenuRequested events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2CustomItemSelectedEventHandler.html"><code>TCoreWebView2CustomItemSelectedEventHandler</code></a></td>
+<td class="itemdesc"> Raised to notify the host that the end user selected a custom ContextMenuItem. CustomItemSelected event is raised on the specific ContextMenuItem that the end user selected. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2StatusBarTextChangedEventHandler.html"><code>TCoreWebView2StatusBarTextChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives StatusBarTextChanged events. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FramePermissionRequestedEventHandler.html"><code>TCoreWebView2FramePermissionRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives PermissionRequested events for iframes. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ClearBrowsingDataCompletedHandler.html"><code>TCoreWebView2ClearBrowsingDataCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the ClearBrowsingData result. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler.html"><code>TCoreWebView2ClearServerCertificateErrorActionsCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the ClearServerCertificateErrorActions method. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServerCertificateErrorDetectedEventHandler.html"><code>TCoreWebView2ServerCertificateErrorDetectedEventHandler</code></a></td>
+<td class="itemdesc"> An event handler for the ServerCertificateErrorDetected event. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FaviconChangedEventHandler.html"><code>TCoreWebView2FaviconChangedEventHandler</code></a></td>
+<td class="itemdesc"> This interface is a handler for when the Favicon is changed. The sender is the ICoreWebView2 object the top-level document of which has changed favicon and the eventArgs is nullptr. Use the FaviconUri property and GetFavicon method to obtain the favicon data. The second argument is always null. For more information see add_FaviconChanged. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetFaviconCompletedHandler.html"><code>TCoreWebView2GetFaviconCompletedHandler</code></a></td>
+<td class="itemdesc"> This interface is a handler for when the Favicon is changed. The sender is the ICoreWebView2 object the top-level document of which has changed favicon and the eventArgs is nullptr. Use the FaviconUri property and GetFavicon method to obtain the favicon data. The second argument is always null. For more information see add_FaviconChanged. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintCompletedHandler.html"><code>TCoreWebView2PrintCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the Print method. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintToPdfStreamCompletedHandler.html"><code>TCoreWebView2PrintToPdfStreamCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the PrintToPdfStream method. errorCode returns S_OK if the PrintToPdfStream operation succeeded. The printable pdf data is returned in the pdfStream object. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html"><code>TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to handle the result of GetNonDefaultPermissionSettings. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SetPermissionStateCompletedHandler.html"><code>TCoreWebView2SetPermissionStateCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to handle the result of SetPermissionState. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2LaunchingExternalUriSchemeEventHandler.html"><code>TCoreWebView2LaunchingExternalUriSchemeEventHandler</code></a></td>
+<td class="itemdesc"> Event handler for the LaunchingExternalUriScheme event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetProcessExtendedInfosCompletedHandler.html"><code>TCoreWebView2GetProcessExtendedInfosCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `GetProcessExtendedInfos` method. The result is written to the collection of `ProcessExtendedInfo`s provided in the `GetProcessExtendedInfos` method call. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2BrowserExtensionRemoveCompletedHandler.html"><code>TCoreWebView2BrowserExtensionRemoveCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the result of removing the browser Extension from the Profile. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2BrowserExtensionEnableCompletedHandler.html"><code>TCoreWebView2BrowserExtensionEnableCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the result of setting the browser Extension as enabled or disabled. If enabled, the browser Extension is running in WebView instances. If disabled, the browser Extension is not running in WebView instances. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.html"><code>TCoreWebView2ProfileAddBrowserExtensionCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the result of loading an browser Extension. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html"><code>TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler</code></a></td>
+<td class="itemdesc"> The caller implements this interface to receive the result of getting the browser Extensions. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileDeletedEventHandler.html"><code>TCoreWebView2ProfileDeletedEventHandler</code></a></td>
+<td class="itemdesc"> Receives the `CoreWebView2Profile.Deleted` event. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ExecuteScriptWithResultCompletedHandler.html"><code>TCoreWebView2ExecuteScriptWithResultCompletedHandler</code></a></td>
+<td class="itemdesc"> This is the callback for ExecuteScriptWithResult </td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

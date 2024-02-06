@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Frame2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Frame2"></span><h1 class="cio">Interface ICoreWebView2Frame2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Frame2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Frame interface with navigation events, executing script and posting web messages. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2</a>&quot;&gt;See the ICoreWebView2Frame2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a></li>
+<li class="thisitem">ICoreWebView2Frame2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#add_NavigationStarting-ICoreWebView2FrameNavigationStartingEventHandler-EventRegistrationToken-">add_NavigationStarting</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameNavigationStartingEventHandler.html">ICoreWebView2FrameNavigationStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#remove_NavigationStarting-EventRegistrationToken-">remove_NavigationStarting</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#add_ContentLoading-ICoreWebView2FrameContentLoadingEventHandler-EventRegistrationToken-">add_ContentLoading</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">ICoreWebView2FrameContentLoadingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#remove_ContentLoading-EventRegistrationToken-">remove_ContentLoading</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#add_NavigationCompleted-ICoreWebView2FrameNavigationCompletedEventHandler-EventRegistrationToken-">add_NavigationCompleted</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameNavigationCompletedEventHandler.html">ICoreWebView2FrameNavigationCompletedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#remove_NavigationCompleted-EventRegistrationToken-">remove_NavigationCompleted</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#add_DOMContentLoaded-ICoreWebView2FrameDOMContentLoadedEventHandler-EventRegistrationToken-">add_DOMContentLoaded</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameDOMContentLoadedEventHandler.html">ICoreWebView2FrameDOMContentLoadedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#remove_DOMContentLoaded-EventRegistrationToken-">remove_DOMContentLoaded</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#ExecuteScript-PWideChar-ICoreWebView2ExecuteScriptCompletedHandler-">ExecuteScript</a></strong>(javaScript: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptCompletedHandler.html">ICoreWebView2ExecuteScriptCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#PostWebMessageAsJson-PWideChar-">PostWebMessageAsJson</a></strong>(webMessageAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#PostWebMessageAsString-PWideChar-">PostWebMessageAsString</a></strong>(webMessageAsString: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#add_WebMessageReceived-ICoreWebView2FrameWebMessageReceivedEventHandler-EventRegistrationToken-">add_WebMessageReceived</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2FrameWebMessageReceivedEventHandler.html">ICoreWebView2FrameWebMessageReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Frame2.html#remove_WebMessageReceived-EventRegistrationToken-">remove_WebMessageReceived</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_NavigationStarting-ICoreWebView2FrameNavigationStartingEventHandler-EventRegistrationToken-"></span><code>function <strong>add_NavigationStarting</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameNavigationStartingEventHandler.html">ICoreWebView2FrameNavigationStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `NavigationStarting` event. A frame navigation will raise a `NavigationStarting` event and a `CoreWebView2.FrameNavigationStarting` event. All of the `FrameNavigationStarting` event handlers for the current frame will be run before the `NavigationStarting` event handlers. All of the event handlers share a common `NavigationStartingEventArgs` object. Whichever event handler is last to change the `NavigationStartingEventArgs.Cancel` property will decide if the frame navigation will be cancelled. Redirects raise this event as well, and the navigation id is the same as the original one.
+
+<p>Navigations will be blocked until all `NavigationStarting` and `CoreWebView2.FrameNavigationStarting` event handlers return. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_NavigationStarting-EventRegistrationToken-"></span><code>function <strong>remove_NavigationStarting</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_NavigationStarting`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ContentLoading-ICoreWebView2FrameContentLoadingEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ContentLoading</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">ICoreWebView2FrameContentLoadingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `ContentLoading` event. `ContentLoading` triggers before any content is loaded, including scripts added with `AddScriptToExecuteOnDocumentCreated`. `ContentLoading` does not trigger if a same page navigation occurs (such as through `fragment` navigations or `history.pushState` navigations). This operation follows the `NavigationStarting` and precedes `NavigationCompleted` events. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ContentLoading-EventRegistrationToken-"></span><code>function <strong>remove_ContentLoading</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_ContentLoading`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_NavigationCompleted-ICoreWebView2FrameNavigationCompletedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_NavigationCompleted</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameNavigationCompletedEventHandler.html">ICoreWebView2FrameNavigationCompletedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `NavigationCompleted` event. `NavigationCompleted` runs when the CoreWebView2Frame has completely loaded (concurrently when `body.onload` runs) or loading stopped with error. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_NavigationCompleted-EventRegistrationToken-"></span><code>function <strong>remove_NavigationCompleted</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_NavigationCompleted`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_DOMContentLoaded-ICoreWebView2FrameDOMContentLoadedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_DOMContentLoaded</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameDOMContentLoadedEventHandler.html">ICoreWebView2FrameDOMContentLoadedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the DOMContentLoaded event. DOMContentLoaded is raised when the iframe html document has been parsed. This aligns with the document's DOMContentLoaded event in html. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_DOMContentLoaded-EventRegistrationToken-"></span><code>function <strong>remove_DOMContentLoaded</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_DOMContentLoaded. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExecuteScript-PWideChar-ICoreWebView2ExecuteScriptCompletedHandler-"></span><code>function <strong>ExecuteScript</strong>(javaScript: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptCompletedHandler.html">ICoreWebView2ExecuteScriptCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Run JavaScript code from the javascript parameter in the current frame. The result of evaluating the provided JavaScript is passed to the completion handler. The result value is a JSON encoded string. If the result is undefined, contains a reference cycle, or otherwise is not able to be encoded into JSON, then the result is considered to be null, which is encoded in JSON as the string &quot;null&quot;.
+
+<p>\&gt; [!NOTE]\n\&gt; A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before `ContentLoading`, the script will not be executed and the string &quot;null&quot; will be returned. This operation executes the script even if `ICoreWebView2Settings::IsScriptEnabled` is set to `FALSE`.
+
+<p>\snippet ScenarioDOMContentLoaded.cpp ExecuteScriptFrame </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PostWebMessageAsJson-PWideChar-"></span><code>function <strong>PostWebMessageAsJson</strong>(webMessageAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Posts the specified webMessage to the frame. The frame receives the message by subscribing to the `message` event of the `window.chrome.webview` of the frame document.
+
+<p>```cpp window.chrome.webview.addEventListener('message', handler) window.chrome.webview.removeEventListener('message', handler) ```
+
+<p>The event args is an instances of `MessageEvent`. The `ICoreWebView2Settings::IsWebMessageEnabled` setting must be `TRUE` or the message will not be sent. The `data` property of the event args is the `webMessage` string parameter parsed as a JSON string into a JavaScript object. The `source` property of the event args is a reference to the `window.chrome.webview` object. For information about sending messages from the HTML document in the WebView to the host, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). The message is delivered asynchronously. If a navigation occurs before the message is posted to the page, the message is discarded. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PostWebMessageAsString-PWideChar-"></span><code>function <strong>PostWebMessageAsString</strong>(webMessageAsString: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves in exactly the same manner as `PostWebMessageAsJson`, but the `data` property of the event args of the `window.chrome.webview` message is a string with the same value as `webMessageAsString`. Use this instead of `PostWebMessageAsJson` if you want to communicate using simple strings rather than JSON objects. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_WebMessageReceived-ICoreWebView2FrameWebMessageReceivedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_WebMessageReceived</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2FrameWebMessageReceivedEventHandler.html">ICoreWebView2FrameWebMessageReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `WebMessageReceived` event. `WebMessageReceived` runs when the `ICoreWebView2Settings::IsWebMessageEnabled` setting is set and the frame document runs `window.chrome.webview.postMessage`. The `postMessage` function is `void postMessage(object)` where object is any object supported by JSON conversion.
+
+<p>\snippet assets\ScenarioWebMessage.html chromeWebView
+
+<p>When the frame calls `postMessage`, the object parameter is converted to a JSON string and is posted asynchronously to the host process. This will result in the handlers `Invoke` method being called with the JSON string as its parameter.
+
+<p>\snippet ScenarioWebMessage.cpp WebMessageReceivedIFrame </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_WebMessageReceived-EventRegistrationToken-"></span><code>function <strong>remove_WebMessageReceived</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_WebMessageReceived`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

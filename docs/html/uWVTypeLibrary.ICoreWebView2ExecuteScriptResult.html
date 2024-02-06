@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ExecuteScriptResult</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ExecuteScriptResult"></span><h1 class="cio">Interface ICoreWebView2ExecuteScriptResult</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ExecuteScriptResult = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is the result for ExecuteScriptWithResult. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptresult">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptresult</a>&quot;&gt;See the ICoreWebView2ExecuteScriptResult article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2ExecuteScriptResult</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html#Get_Succeeded-Integer-">Get_Succeeded</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html#Get_ResultAsJson-PWideChar-">Get_ResultAsJson</a></strong>(out jsonResult: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html#TryGetResultAsString-PWideChar-Integer-">TryGetResultAsString</a></strong>(out stringResult: PWideChar; out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html#Get_Exception-ICoreWebView2ScriptException-">Get_Exception</a></strong>(out Exception: <a href="uWVTypeLibrary.ICoreWebView2ScriptException.html">ICoreWebView2ScriptException</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Succeeded-Integer-"></span><code>function <strong>Get_Succeeded</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This property is true if ExecuteScriptWithResult successfully executed script with no unhandled exceptions and the result is available in the ResultAsJson property or via the TryGetResultAsString method. If it is false then the script execution had an unhandled exception which you can get via the Exception property. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ResultAsJson-PWideChar-"></span><code>function <strong>Get_ResultAsJson</strong>(out jsonResult: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before `ContentLoading`, the script will not be executed and the string &quot;null&quot; will be returned. The return value description is as follows 1. S_OK: Execution succeeds. 2. E_POINTER: When the `jsonResult` is nullptr. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TryGetResultAsString-PWideChar-Integer-"></span><code>function <strong>TryGetResultAsString</strong>(out stringResult: PWideChar; out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If Succeeded is true and the result of script execution is a string, this method provides the value of the string result, and we will get the `FALSE` var value when the js result is not string type. The return value description is as follows 1. S_OK: Execution succeeds. 2. E_POINTER: When the `stringResult` or `value` is nullptr. NOTE: If the `value` returns `FALSE`, the `stringResult` will be set to a empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Exception-ICoreWebView2ScriptException-"></span><code>function <strong>Get_Exception</strong>(out Exception: <a href="uWVTypeLibrary.ICoreWebView2ScriptException.html">ICoreWebView2ScriptException</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If Succeeded is false, you can use this property to get the unhandled exception thrown by script execution Note that due to the compatibility of the WinRT/.NET interface, S_OK will be returned even if the acquisition fails. We can determine whether the acquisition is successful by judging whether the `exception` is nullptr. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

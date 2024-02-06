@@ -499,10 +499,11 @@ type
       /// navigation is not longer present and the content of the current page is
       /// intact.  For performance reasons, `GET` HTTP requests may happen, while
       /// the host is responding.  You may set cookies and use part of a request
-      /// for the navigation.  Cancellation for navigation to `about:blank` or
-      /// frame navigation to `srcdoc` is not supported.  Such attempts are
-      /// ignored.  A cancelled navigation will fire a `NavigationCompleted` event
-      /// with a `WebErrorStatus` of
+      /// for the navigation.  Navigations to about schemes are cancellable, unless
+      /// `msWebView2CancellableAboutNavigations` feature flag is disabled.
+      /// Cancellation of frame navigation to `srcdoc` is not supported and
+      /// wil be ignored.  A cancelled navigation will fire a `NavigationCompleted`
+      /// event with a `WebErrorStatus` of
       /// `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`.
       /// </summary>
       /// <remarks>

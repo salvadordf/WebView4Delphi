@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_5"></span><h1 class="cio">Interface ICoreWebView2_5</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_5 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2_4 interface to support ClientCertificateRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_5">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_5</a>&quot;&gt;See the ICoreWebView2_5 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="thisitem">ICoreWebView2_5</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_5.html#add_ClientCertificateRequested-ICoreWebView2ClientCertificateRequestedEventHandler-EventRegistrationToken-">add_ClientCertificateRequested</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventHandler.html">ICoreWebView2ClientCertificateRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_5.html#remove_ClientCertificateRequested-EventRegistrationToken-">remove_ClientCertificateRequested</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ClientCertificateRequested-ICoreWebView2ClientCertificateRequestedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ClientCertificateRequested</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventHandler.html">ICoreWebView2ClientCertificateRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the ClientCertificateRequested event. The ClientCertificateRequested event is raised when the WebView2 is making a request to an HTTP server that needs a client certificate for HTTP authentication. Read more about HTTP client certificates at [RFC 8446 The Transport Layer Security (TLS) Protocol Version 1.3](<a href="https://tools.ietf.org/html/rfc8446">https://tools.ietf.org/html/rfc8446</a>).
+
+<p>With this event you have several options for responding to client certificate requests:
+
+<p>Scenario | Handled | Cancel | SelectedCertificate &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;- | &mdash;&mdash; | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- Respond to server with a certificate | True | False | MutuallyTrustedCertificate value Respond to server without certificate | True | False | null Display default client certificate selection dialog prompt | False | False | n/a Cancel the request | n/a | True | n/a
+
+<p>If you don't handle the event, WebView2 will show the default client certificate selection dialog prompt to user.
+
+<p>\snippet SettingsComponent.cpp ClientCertificateRequested1 \snippet ScenarioClientCertificateRequested.cpp ClientCertificateRequested2 </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{BEDB11B8-D63C-11EB-B8BC-0242AC130003}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ClientCertificateRequested-EventRegistrationToken-"></span><code>function <strong>remove_ClientCertificateRequested</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_ClientCertificateRequested. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

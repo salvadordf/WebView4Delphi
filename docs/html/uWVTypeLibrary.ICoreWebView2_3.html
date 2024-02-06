@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_3"></span><h1 class="cio">Interface ICoreWebView2_3</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_3 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2_2 interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_3</a>&quot;&gt;See the ICoreWebView2_3 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="thisitem">ICoreWebView2_3</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_3.html#TrySuspend-ICoreWebView2TrySuspendCompletedHandler-">TrySuspend</a></strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html">ICoreWebView2TrySuspendCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_3.html#Resume">Resume</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_3.html#Get_IsSuspended-Integer-">Get_IsSuspended</a></strong>(out IsSuspended: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_3.html#SetVirtualHostNameToFolderMapping-PWideChar-PWideChar-COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND-">SetVirtualHostNameToFolderMapping</a></strong>(hostName: PWideChar; folderPath: PWideChar; accessKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND">COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_3.html#ClearVirtualHostNameToFolderMapping-PWideChar-">ClearVirtualHostNameToFolderMapping</a></strong>(hostName: PWideChar): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TrySuspend-ICoreWebView2TrySuspendCompletedHandler-"></span><code>function <strong>TrySuspend</strong>(const handler: <a href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html">ICoreWebView2TrySuspendCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ An app may call the `TrySuspend` API to have the WebView2 consume less memory. This is useful when a Win32 app becomes invisible, or when a Universal Windows Platform app is being suspended, during the suspended event handler before completing the suspended event. The CoreWebView2Controller's IsVisible property must be false when the API is called. Otherwise, the API fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses WebView script timers and animations, minimizes CPU usage for the associated browser renderer process and allows the operating system to reuse the memory that was used by the renderer process for other processes. Note that Suspend is best effort and considered completed successfully once the request is sent to browser renderer process. If there is a running script, the script will continue to run and the renderer process will be suspended after that script is done. See [Sleeping Tabs FAQ](<a href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434</a>) for conditions that might prevent WebView from being suspended. In those situations, the completed handler will be invoked with isSuccessful as false and errorCode as S_OK. The WebView will be automatically resumed when it becomes visible. Therefore, the app normally does not have to call `Resume` explicitly. The app can call `Resume` and then `TrySuspend` periodically for an invisible WebView so that the invisible WebView can sync up with latest data and the page ready to show fresh content when it becomes visible. All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property before calling APIs that might change WebView state.
+
+<p>\snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
+
+<p>\snippet ViewComponent.cpp Suspend </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{A0D6DF20-3B92-416D-AA0C-437A9C727857}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Resume"></span><code>function <strong>Resume</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Resumes the WebView so that it resumes activities on the web page. This API can be called while the WebView2 controller is invisible. The app can interact with the WebView immediately after `Resume`. WebView will be automatically resumed when it becomes visible.
+
+<p>\snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
+
+<p>\snippet ViewComponent.cpp Resume </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsSuspended-Integer-"></span><code>function <strong>Get_IsSuspended</strong>(out IsSuspended: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Whether WebView is suspended. `TRUE` when WebView is suspended, from the time when TrySuspend has completed successfully until WebView is resumed. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetVirtualHostNameToFolderMapping-PWideChar-PWideChar-COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND-"></span><code>function <strong>SetVirtualHostNameToFolderMapping</strong>(hostName: PWideChar; folderPath: PWideChar; accessKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND">COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets a mapping between a virtual host name and a folder path to make available to web sites via that host name.
+
+<p>After setting the mapping, documents loaded in the WebView can use HTTP or HTTPS URLs at the specified host name specified by hostName to access files in the local folder specified by folderPath.
+
+<p>This mapping applies to both top-level document and iframe navigations as well as subresource references from a document. This also applies to web workers including dedicated/shared worker and service worker, for loading either worker scripts or subresources (importScripts(), fetch(), XHR, etc.) issued from within a worker. For virtual host mapping to work with service worker, please keep the virtual host name mappings consistent among all WebViews sharing the same browser instance. As service worker works independently of WebViews, we merge mappings from all WebViews when resolving virtual host name, inconsistent mappings between WebViews would lead unexpected behavior.
+
+<p>Due to a current implementation limitation, media files accessed using virtual host name can be very slow to load. As the resource loaders for the current page might have already been created and running, changes to the mapping might not be applied to the current page and a reload of the page is needed to apply the new mapping.
+
+<p>Both absolute and relative paths are supported for folderPath. Relative paths are interpreted as relative to the folder where the exe of the app is in.
+
+<p>Note that the folderPath length must not exceed the Windows MAX_PATH limit.
+
+<p>accessKind specifies the level of access to resources under the virtual host from other sites.
+
+<p>For example, after calling ```cpp SetVirtualHostNameToFolderMapping( L&quot;appassets.example&quot;, L&quot;assets&quot;, COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY); ``` navigating to `<a href="https://appassets.example/my-local-file.html">https://appassets.example/my-local-file.html</a>` will show the content from my-local-file.html in the assets subfolder located on disk under the same path as the app's executable file.
+
+<p>DOM elements that want to reference local files will have their host reference virtual host in the source. If there are multiple folders being used, define one unique virtual host per folder. For example, you can embed a local image like this ```cpp WCHAR c_navString[] = L&quot;&lt;img src=\&quot;<a href="http://appassets.example/wv2.png">http://appassets.example/wv2.png</a>\&quot;/&gt;&quot;; m_webView-&gt;NavigateToString(c_navString); ``` The example above shows the image wv2.png by resolving the folder mapping above.
+
+<p>You should typically choose virtual host names that are never used by real sites. If you own a domain such as example.com, another option is to use a subdomain reserved for the app (like my-app.example.com).
+
+<p>[RFC 6761](<a href="https://tools.ietf.org/html/rfc6761">https://tools.ietf.org/html/rfc6761</a>) has reserved several special-use domain names that are guaranteed to not be used by real sites (for example, .example, .test, and .invalid.)
+
+<p>Note that using `.local` as the top-level domain name will work but can cause a delay during navigations. You should avoid using `.local` if you can.
+
+<p>Apps should use distinct domain names when mapping folder from different sources that should be isolated from each other. For instance, the app might use app-file.example for files that ship as part of the app, and book1.example might be used for files containing books from a less trusted source that were previously downloaded and saved to the disk by the app.
+
+<p>The host name used in the APIs is canonicalized using Chromium's host name parsing logic before being used internally. For more information see [HTML5 2.6 URLs](<a href="https://dev.w3.org/html5/spec-LC/urls.html">https://dev.w3.org/html5/spec-LC/urls.html</a>).
+
+<p>All host names that are canonicalized to the same string are considered identical. For example, `EXAMPLE.COM` and `example.com` are treated as the same host name. An international host name and its Punycode-encoded host name are considered the same host name. There is no DNS resolution for host name and the trailing '.' is not normalized as part of canonicalization.
+
+<p>Therefore `example.com` and `example.com.` are treated as different host names. Similarly, `virtual-host-name` and `virtual-host-name.example.com` are treated as different host names even if the machine has a DNS suffix of `example.com`.
+
+<p>Specify the minimal cross-origin access necessary to run the app. If there is not a need to access local resources from other origins, use COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY.
+
+<p>\snippet AppWindow.cpp AddVirtualHostNameToFolderMapping
+
+<p>\snippet AppWindow.cpp LocalUrlUsage </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearVirtualHostNameToFolderMapping-PWideChar-"></span><code>function <strong>ClearVirtualHostNameToFolderMapping</strong>(hostName: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

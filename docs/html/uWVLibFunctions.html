@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVLibFunctions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<h1 class="unit">Unit uWVLibFunctions</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section">Classes, Interfaces, Objects and Records</div><div class="one_section">Functions and Procedures</div><div class="one_section">Types</div><div class="one_section">Constants</div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variables</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p class="nodescription">This item has no description.</p><span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVLibFunctions.html#CompareBrowserVersions">CompareBrowserVersions</a></strong>: function(version1, version2: LPCWSTR; result: PInteger): HRESULT; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVLibFunctions.html#CreateCoreWebView2Environment">CreateCoreWebView2Environment</a></strong>: function(const environmentCreatedHandler: <a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html">ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a>): HRESULT; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVLibFunctions.html#CreateCoreWebView2EnvironmentWithOptions">CreateCoreWebView2EnvironmentWithOptions</a></strong>: function(browserExecutableFolder, userDataFolder: LPCWSTR; const environmentOptions: <a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>; const environmentCreatedHandler: <a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html">ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a>): HRESULT; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVLibFunctions.html#GetAvailableCoreWebView2BrowserVersionString">GetAvailableCoreWebView2BrowserVersionString</a></strong>: function(browserExecutableFolder: LPCWSTR; versionInfo: PLPWSTR): HRESULT; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CompareBrowserVersions"></span><code><strong>CompareBrowserVersions</strong>: function(version1, version2: LPCWSTR; result: PInteger): HRESULT; stdcall;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+
+
+<p>This method is for anyone want to compare version correctly to determine which version is newer, older or same. Use it to determine whether to use webview2 or certain feature based upon version.
+
+<p>Sets the value of result to `-1`, `0` or `1` if `version1` is less than, equal or greater than `version2` respectively. Returns `E_INVALIDARG` if it fails to parse any of the version strings or any input parameter is `null`.
+
+<p>Directly use the `versionInfo` obtained from `GetAvailableCoreWebView2BrowserVersionString` with input, channel information is ignored.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#comparebrowserversions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#comparebrowserversions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CreateCoreWebView2Environment"></span><code><strong>CreateCoreWebView2Environment</strong>: function(const environmentCreatedHandler: <a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html">ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a>): HRESULT; stdcall;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+
+
+<p>Creates an evergreen WebView2 Environment using the installed WebView2 Runtime version. This is equivalent to running `CreateCoreWebView2EnvironmentWithOptions` with `nullptr` for `browserExecutableFolder`, `userDataFolder`, `additionalBrowserArguments`.
+
+<p>For more information, navigate to `CreateCoreWebView2EnvironmentWithOptions`.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environment">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environment</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CreateCoreWebView2EnvironmentWithOptions"></span><code><strong>CreateCoreWebView2EnvironmentWithOptions</strong>: function(browserExecutableFolder, userDataFolder: LPCWSTR; const environmentOptions: <a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>; const environmentCreatedHandler: <a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html">ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a>): HRESULT; stdcall;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ DLL export to create a WebView2 environment with a custom version of WebView2 Runtime, user data folder, and with or without additional options. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetAvailableCoreWebView2BrowserVersionString"></span><code><strong>GetAvailableCoreWebView2BrowserVersionString</strong>: function(browserExecutableFolder: LPCWSTR; versionInfo: PLPWSTR): HRESULT; stdcall;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+
+
+<p>Get the browser version info including channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary.
+
+<p>If an override exists for the `browserExecutableFolder` or the channel preference, the override is used. If an override is not specified, then the parameter value passed to `GetAvailableCoreWebView2BrowserVersionString` is used.
+
+<p>Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an installed WebView2 runtime or non-stable Microsoft Edge installation.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#getavailablecorewebview2browserversionstring">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#getavailablecorewebview2browserversionstring</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

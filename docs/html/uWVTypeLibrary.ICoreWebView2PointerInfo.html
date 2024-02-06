@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2PointerInfo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2PointerInfo"></span><h1 class="cio">Interface ICoreWebView2PointerInfo</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2PointerInfo = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+
+
+<p>This mostly represents a combined win32 POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO object. It takes fields from all three and excludes some win32 specific data types like HWND and HANDLE. Note, sourceDevice is taken out but we expect the PointerDeviceRect and DisplayRect to cover the existing use cases of sourceDevice. Another big difference is that any of the point or rect locations are expected to be in WebView physical coordinates. That is, coordinates relative to the WebView and no DPI scaling applied.
+
+<p>The PointerId, PointerFlags, ButtonChangeKind, PenFlags, PenMask, TouchFlags, and TouchMask are all #defined flags or enums in the POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO structure. We define those properties here as UINT32 or INT32 and expect the developer to know how to populate those values based on the Windows definitions.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2PointerInfo</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PointerKind-LongWord-">Get_PointerKind</a></strong>(out PointerKind: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PointerKind-LongWord-">Set_PointerKind</a></strong>(PointerKind: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PointerId-SYSUINT-">Get_PointerId</a></strong>(out PointerId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PointerId-SYSUINT-">Set_PointerId</a></strong>(PointerId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_FrameId-SYSUINT-">Get_FrameId</a></strong>(out FrameId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_FrameId-SYSUINT-">Set_FrameId</a></strong>(FrameId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PointerFlags-SYSUINT-">Get_PointerFlags</a></strong>(out PointerFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PointerFlags-SYSUINT-">Set_PointerFlags</a></strong>(PointerFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PointerDeviceRect-tagRECT-">Get_PointerDeviceRect</a></strong>(out PointerDeviceRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PointerDeviceRect-tagRECT-">Set_PointerDeviceRect</a></strong>(PointerDeviceRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_DisplayRect-tagRECT-">Get_DisplayRect</a></strong>(out DisplayRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_DisplayRect-tagRECT-">Set_DisplayRect</a></strong>(DisplayRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PixelLocation-tagPOINT-">Get_PixelLocation</a></strong>(out PixelLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PixelLocation-tagPOINT-">Set_PixelLocation</a></strong>(PixelLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_HimetricLocation-tagPOINT-">Get_HimetricLocation</a></strong>(out HimetricLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_HimetricLocation-tagPOINT-">Set_HimetricLocation</a></strong>(HimetricLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PixelLocationRaw-tagPOINT-">Get_PixelLocationRaw</a></strong>(out PixelLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PixelLocationRaw-tagPOINT-">Set_PixelLocationRaw</a></strong>(PixelLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_HimetricLocationRaw-tagPOINT-">Get_HimetricLocationRaw</a></strong>(out HimetricLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_HimetricLocationRaw-tagPOINT-">Set_HimetricLocationRaw</a></strong>(HimetricLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_Time-LongWord-">Get_Time</a></strong>(out Time: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_Time-LongWord-">Set_Time</a></strong>(Time: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_HistoryCount-SYSUINT-">Get_HistoryCount</a></strong>(out HistoryCount: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_HistoryCount-SYSUINT-">Set_HistoryCount</a></strong>(HistoryCount: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_InputData-SYSINT-">Get_InputData</a></strong>(out InputData: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_InputData-SYSINT-">Set_InputData</a></strong>(InputData: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_KeyStates-LongWord-">Get_KeyStates</a></strong>(out KeyStates: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_KeyStates-LongWord-">Set_KeyStates</a></strong>(KeyStates: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PerformanceCount-Largeuint-">Get_PerformanceCount</a></strong>(out PerformanceCount: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PerformanceCount-Largeuint-">Set_PerformanceCount</a></strong>(PerformanceCount: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_ButtonChangeKind-SYSINT-">Get_ButtonChangeKind</a></strong>(out ButtonChangeKind: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_ButtonChangeKind-SYSINT-">Set_ButtonChangeKind</a></strong>(ButtonChangeKind: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenFlags-SYSUINT-">Get_PenFlags</a></strong>(out PenFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenFlags-SYSUINT-">Set_PenFlags</a></strong>(PenFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenMask-SYSUINT-">Get_PenMask</a></strong>(out PenMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenMask-SYSUINT-">Set_PenMask</a></strong>(PenMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenPressure-SYSUINT-">Get_PenPressure</a></strong>(out PenPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenPressure-SYSUINT-">Set_PenPressure</a></strong>(PenPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenRotation-SYSUINT-">Get_PenRotation</a></strong>(out PenRotation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenRotation-SYSUINT-">Set_PenRotation</a></strong>(PenRotation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenTiltX-SYSINT-">Get_PenTiltX</a></strong>(out PenTiltX: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenTiltX-SYSINT-">Set_PenTiltX</a></strong>(PenTiltX: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_PenTiltY-SYSINT-">Get_PenTiltY</a></strong>(out PenTiltY: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_PenTiltY-SYSINT-">Set_PenTiltY</a></strong>(PenTiltY: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchFlags-SYSUINT-">Get_TouchFlags</a></strong>(out TouchFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchFlags-SYSUINT-">Set_TouchFlags</a></strong>(TouchFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchMask-SYSUINT-">Get_TouchMask</a></strong>(out TouchMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchMask-SYSUINT-">Set_TouchMask</a></strong>(TouchMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchContact-tagRECT-">Get_TouchContact</a></strong>(out TouchContact: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchContact-tagRECT-">Set_TouchContact</a></strong>(TouchContact: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchContactRaw-tagRECT-">Get_TouchContactRaw</a></strong>(out TouchContactRaw: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchContactRaw-tagRECT-">Set_TouchContactRaw</a></strong>(TouchContactRaw: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchOrientation-SYSUINT-">Get_TouchOrientation</a></strong>(out TouchOrientation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchOrientation-SYSUINT-">Set_TouchOrientation</a></strong>(TouchOrientation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Get_TouchPressure-SYSUINT-">Get_TouchPressure</a></strong>(out TouchPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html#Set_TouchPressure-SYSUINT-">Set_TouchPressure</a></strong>(TouchPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PointerKind-LongWord-"></span><code>function <strong>Get_PointerKind</strong>(out PointerKind: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerKind of the pointer event. This corresponds to the pointerKind property of the POINTER_INFO struct. The values are defined by the POINTER_INPUT_KIND enum in the Windows SDK (winuser.h). Supports PT_PEN and PT_TOUCH. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{E6995887-D10D-4F5D-9359-4CE46E4F96B9}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PointerKind-LongWord-"></span><code>function <strong>Set_PointerKind</strong>(PointerKind: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PointerKind of the pointer event. This corresponds to the pointerKind property of the POINTER_INFO struct. The values are defined by the POINTER_INPUT_KIND enum in the Windows SDK (winuser.h). Supports PT_PEN and PT_TOUCH. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PointerId-SYSUINT-"></span><code>function <strong>Get_PointerId</strong>(out PointerId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerId of the pointer event. This corresponds to the pointerId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PointerId-SYSUINT-"></span><code>function <strong>Set_PointerId</strong>(PointerId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PointerId of the pointer event. This corresponds to the pointerId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_FrameId-SYSUINT-"></span><code>function <strong>Get_FrameId</strong>(out FrameId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the FrameID of the pointer event. This corresponds to the frameId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_FrameId-SYSUINT-"></span><code>function <strong>Set_FrameId</strong>(FrameId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the FrameID of the pointer event. This corresponds to the frameId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PointerFlags-SYSUINT-"></span><code>function <strong>Get_PointerFlags</strong>(out PointerFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerFlags of the pointer event. This corresponds to the pointerFlags property of the POINTER_INFO struct. The values are defined by the POINTER_FLAGS constants in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PointerFlags-SYSUINT-"></span><code>function <strong>Set_PointerFlags</strong>(PointerFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PointerFlags of the pointer event. This corresponds to the pointerFlags property of the POINTER_INFO struct. The values are defined by the POINTER_FLAGS constants in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PointerDeviceRect-tagRECT-"></span><code>function <strong>Get_PointerDeviceRect</strong>(out PointerDeviceRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerDeviceRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PointerDeviceRect-tagRECT-"></span><code>function <strong>Set_PointerDeviceRect</strong>(PointerDeviceRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PointerDeviceRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DisplayRect-tagRECT-"></span><code>function <strong>Get_DisplayRect</strong>(out DisplayRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the DisplayRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_DisplayRect-tagRECT-"></span><code>function <strong>Set_DisplayRect</strong>(DisplayRect: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the DisplayRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PixelLocation-tagPOINT-"></span><code>function <strong>Get_PixelLocation</strong>(out PixelLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PixelLocation of the pointer event. This corresponds to the ptPixelLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PixelLocation-tagPOINT-"></span><code>function <strong>Set_PixelLocation</strong>(PixelLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PixelLocation of the pointer event. This corresponds to the ptPixelLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_HimetricLocation-tagPOINT-"></span><code>function <strong>Get_HimetricLocation</strong>(out HimetricLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HimetricLocation of the pointer event. This corresponds to the ptHimetricLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_HimetricLocation-tagPOINT-"></span><code>function <strong>Set_HimetricLocation</strong>(HimetricLocation: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the HimetricLocation of the pointer event. This corresponds to the ptHimetricLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PixelLocationRaw-tagPOINT-"></span><code>function <strong>Get_PixelLocationRaw</strong>(out PixelLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PixelLocationRaw of the pointer event. This corresponds to the ptPixelLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PixelLocationRaw-tagPOINT-"></span><code>function <strong>Set_PixelLocationRaw</strong>(PixelLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PixelLocationRaw of the pointer event. This corresponds to the ptPixelLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_HimetricLocationRaw-tagPOINT-"></span><code>function <strong>Get_HimetricLocationRaw</strong>(out HimetricLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HimetricLocationRaw of the pointer event. This corresponds to the ptHimetricLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_HimetricLocationRaw-tagPOINT-"></span><code>function <strong>Set_HimetricLocationRaw</strong>(HimetricLocationRaw: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the HimetricLocationRaw of the pointer event. This corresponds to the ptHimetricLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Time-LongWord-"></span><code>function <strong>Get_Time</strong>(out Time: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the Time of the pointer event. This corresponds to the dwTime property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Time-LongWord-"></span><code>function <strong>Set_Time</strong>(Time: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the Time of the pointer event. This corresponds to the dwTime property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_HistoryCount-SYSUINT-"></span><code>function <strong>Get_HistoryCount</strong>(out HistoryCount: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HistoryCount of the pointer event. This corresponds to the historyCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_HistoryCount-SYSUINT-"></span><code>function <strong>Set_HistoryCount</strong>(HistoryCount: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the HistoryCount of the pointer event. This corresponds to the historyCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_InputData-SYSINT-"></span><code>function <strong>Get_InputData</strong>(out InputData: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the InputData of the pointer event. This corresponds to the InputData property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_InputData-SYSINT-"></span><code>function <strong>Set_InputData</strong>(InputData: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the InputData of the pointer event. This corresponds to the InputData property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_KeyStates-LongWord-"></span><code>function <strong>Get_KeyStates</strong>(out KeyStates: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the KeyStates of the pointer event. This corresponds to the dwKeyStates property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_KeyStates-LongWord-"></span><code>function <strong>Set_KeyStates</strong>(KeyStates: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the KeyStates of the pointer event. This corresponds to the dwKeyStates property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PerformanceCount-Largeuint-"></span><code>function <strong>Get_PerformanceCount</strong>(out PerformanceCount: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PerformanceCount of the pointer event. This corresponds to the PerformanceCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PerformanceCount-Largeuint-"></span><code>function <strong>Set_PerformanceCount</strong>(PerformanceCount: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PerformanceCount of the pointer event. This corresponds to the PerformanceCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ButtonChangeKind-SYSINT-"></span><code>function <strong>Get_ButtonChangeKind</strong>(out ButtonChangeKind: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the ButtonChangeKind of the pointer event. This corresponds to the ButtonChangeKind property of the POINTER_INFO struct. The values are defined by the POINTER_BUTTON_CHANGE_KIND enum in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_ButtonChangeKind-SYSINT-"></span><code>function <strong>Set_ButtonChangeKind</strong>(ButtonChangeKind: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the ButtonChangeKind of the pointer event. This corresponds to the ButtonChangeKind property of the POINTER_INFO struct. The values are defined by the POINTER_BUTTON_CHANGE_KIND enum in the Windows SDK (winuser.h). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenFlags-SYSUINT-"></span><code>function <strong>Get_PenFlags</strong>(out PenFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenFlags of the pointer event. This corresponds to the penFlags property of the POINTER_PEN_INFO struct. The values are defined by the PEN_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenFlags-SYSUINT-"></span><code>function <strong>Set_PenFlags</strong>(PenFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenFlags of the pointer event. This corresponds to the penFlags property of the POINTER_PEN_INFO struct. The values are defined by the PEN_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenMask-SYSUINT-"></span><code>function <strong>Get_PenMask</strong>(out PenMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenMask of the pointer event. This corresponds to the penMask property of the POINTER_PEN_INFO struct. The values are defined by the PEN_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenMask-SYSUINT-"></span><code>function <strong>Set_PenMask</strong>(PenMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenMask of the pointer event. This corresponds to the penMask property of the POINTER_PEN_INFO struct. The values are defined by the PEN_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenPressure-SYSUINT-"></span><code>function <strong>Get_PenPressure</strong>(out PenPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenPressure of the pointer event. This corresponds to the pressure property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenPressure-SYSUINT-"></span><code>function <strong>Set_PenPressure</strong>(PenPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenPressure of the pointer event. This corresponds to the pressure property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenRotation-SYSUINT-"></span><code>function <strong>Get_PenRotation</strong>(out PenRotation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenRotation of the pointer event. This corresponds to the rotation property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenRotation-SYSUINT-"></span><code>function <strong>Set_PenRotation</strong>(PenRotation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenRotation of the pointer event. This corresponds to the rotation property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenTiltX-SYSINT-"></span><code>function <strong>Get_PenTiltX</strong>(out PenTiltX: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenTiltX of the pointer event. This corresponds to the tiltX property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenTiltX-SYSINT-"></span><code>function <strong>Set_PenTiltX</strong>(PenTiltX: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenTiltX of the pointer event. This corresponds to the tiltX property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PenTiltY-SYSINT-"></span><code>function <strong>Get_PenTiltY</strong>(out PenTiltY: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenTiltY of the pointer event. This corresponds to the tiltY property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_PenTiltY-SYSINT-"></span><code>function <strong>Set_PenTiltY</strong>(PenTiltY: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the PenTiltY of the pointer event. This corresponds to the tiltY property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchFlags-SYSUINT-"></span><code>function <strong>Get_TouchFlags</strong>(out TouchFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchFlags of the pointer event. This corresponds to the touchFlags property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchFlags-SYSUINT-"></span><code>function <strong>Set_TouchFlags</strong>(TouchFlags: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchFlags of the pointer event. This corresponds to the touchFlags property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchMask-SYSUINT-"></span><code>function <strong>Get_TouchMask</strong>(out TouchMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchMask of the pointer event. This corresponds to the touchMask property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchMask-SYSUINT-"></span><code>function <strong>Set_TouchMask</strong>(TouchMask: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchMask of the pointer event. This corresponds to the touchMask property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchContact-tagRECT-"></span><code>function <strong>Get_TouchContact</strong>(out TouchContact: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchContact of the pointer event. This corresponds to the rcContact property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchContact-tagRECT-"></span><code>function <strong>Set_TouchContact</strong>(TouchContact: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchContact of the pointer event. This corresponds to the rcContact property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchContactRaw-tagRECT-"></span><code>function <strong>Get_TouchContactRaw</strong>(out TouchContactRaw: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchContactRaw of the pointer event. This corresponds to the rcContactRaw property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchContactRaw-tagRECT-"></span><code>function <strong>Set_TouchContactRaw</strong>(TouchContactRaw: <a href="uWVTypeLibrary.html#tagRECT">tagRECT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchContactRaw of the pointer event. This corresponds to the rcContactRaw property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchOrientation-SYSUINT-"></span><code>function <strong>Get_TouchOrientation</strong>(out TouchOrientation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchOrientation of the pointer event. This corresponds to the orientation property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchOrientation-SYSUINT-"></span><code>function <strong>Set_TouchOrientation</strong>(TouchOrientation: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchOrientation of the pointer event. This corresponds to the orientation property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TouchPressure-SYSUINT-"></span><code>function <strong>Get_TouchPressure</strong>(out TouchPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchPressure of the pointer event. This corresponds to the pressure property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_TouchPressure-SYSUINT-"></span><code>function <strong>Set_TouchPressure</strong>(TouchPressure: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the TouchPressure of the pointer event. This corresponds to the pressure property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

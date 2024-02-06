@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVLoader: Class TWVLoader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TWVLoader"></span><h1 class="cio">Class TWVLoader</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVLoader.html">uWVLoader</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TWVLoader = class(TComponent, <a class="normal" href="uWVInterfaces.IWVLoaderEvents.html">IWVLoaderEvents</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Class used to simplify the WebView2 initialization and destruction. </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TWVLoader</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FCoreWebView2Environment">FCoreWebView2Environment</a></strong>: <a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html">TCoreWebView2Environment</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnEnvironmentCreated">FOnEnvironmentCreated</a></strong>: TLoaderNotifyEvent;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnNewBrowserVersionAvailable">FOnNewBrowserVersionAvailable</a></strong>: TLoaderNewBrowserVersionAvailableEvent;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnInitializationError">FOnInitializationError</a></strong>: TLoaderNotifyEvent;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnBrowserProcessExited">FOnBrowserProcessExited</a></strong>: TLoaderBrowserProcessExitedEvent;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">FOnProcessInfosChanged</a></strong>: TLoaderProcessInfosChangedEvent;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FOnGetCustomSchemes">FOnGetCustomSchemes</a></strong>: TLoaderGetCustomSchemesEvent;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FLibHandle">FLibHandle</a></strong>: THandle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FErrorLog">FErrorLog</a></strong>: TStringList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FError">FError</a></strong>: int64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FBrowserExecPath">FBrowserExecPath</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FUserDataFolder">FUserDataFolder</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FStatus">FStatus</a></strong>: <a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FSetCurrentDir">FSetCurrentDir</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FCheckFiles">FCheckFiles</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FShowMessageDlg">FShowMessageDlg</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FInitCOMLibrary">FInitCOMLibrary</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDeviceScaleFactor">FDeviceScaleFactor</a></strong>: single;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FForcedDeviceScaleFactor">FForcedDeviceScaleFactor</a></strong>: single;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FReRaiseExceptions">FReRaiseExceptions</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FLoaderDllPath">FLoaderDllPath</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FUseInternalLoader">FUseInternalLoader</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">FAdditionalBrowserArguments</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FLanguage">FLanguage</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FTargetCompatibleBrowserVersion">FTargetCompatibleBrowserVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAllowSingleSignOnUsingOSPrimaryAccount">FAllowSingleSignOnUsingOSPrimaryAccount</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FExclusiveUserDataFolderAccess">FExclusiveUserDataFolderAccess</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FCustomCrashReportingEnabled">FCustomCrashReportingEnabled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FEnableTrackingPrevention">FEnableTrackingPrevention</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FEnableGPU">FEnableGPU</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FEnableFeatures">FEnableFeatures</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDisableFeatures">FDisableFeatures</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FEnableBlinkFeatures">FEnableBlinkFeatures</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDisableBlinkFeatures">FDisableBlinkFeatures</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FBlinkSettings">FBlinkSettings</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FForceFieldTrials">FForceFieldTrials</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FForceFieldTrialParams">FForceFieldTrialParams</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FSmartScreenProtectionEnabled">FSmartScreenProtectionEnabled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">FAllowInsecureLocalhost</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDisableWebSecurity">FDisableWebSecurity</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FTouchEvents">FTouchEvents</a></strong>: <a href="uWVTypes.html#TWVState">TWVState</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FHyperlinkAuditing">FHyperlinkAuditing</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAutoplayPolicy">FAutoplayPolicy</a></strong>: <a href="uWVTypes.html#TWVAutoplayPolicy">TWVAutoplayPolicy</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FMuteAudio">FMuteAudio</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDefaultEncoding">FDefaultEncoding</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FKioskPrinting">FKioskPrinting</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FProxySettings">FProxySettings</a></strong>: <a href="uWVLoader.TWVProxySettings.html">TWVProxySettings</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAllowFileAccessFromFiles">FAllowFileAccessFromFiles</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">FAllowRunningInsecureContent</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDisableBackgroundNetworking">FDisableBackgroundNetworking</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FRemoteDebuggingPort">FRemoteDebuggingPort</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">FRemoteAllowOrigins</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDebugLog">FDebugLog</a></strong>: <a href="uWVTypes.html#TWV2DebugLog">TWV2DebugLog</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDebugLogLevel">FDebugLogLevel</a></strong>: <a href="uWVTypes.html#TWV2DebugLogLevel">TWV2DebugLogLevel</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FJavaScriptFlags">FJavaScriptFlags</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FDisableEdgePitchNotification">FDisableEdgePitchNotification</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">FTreatInsecureOriginAsSecure</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">FAutoAcceptCamAndMicCapture</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">GetAvailableBrowserVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetInitializationError">GetInitializationError</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetEnvironmentIsInitialized">GetEnvironmentIsInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetDefaultUserDataPath">GetDefaultUserDataPath</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetEnvironment">GetEnvironment</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetProcessInfos">GetProcessInfos</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetSupportsCompositionController">GetSupportsCompositionController</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetSupportsControllerOptions">GetSupportsControllerOptions</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetCustomCommandLineSwitches">GetCustomCommandLineSwitches</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetInstalledRuntimeVersion">GetInstalledRuntimeVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetErrorMessage">GetErrorMessage</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetFailureReportFolderPath">GetFailureReportFolderPath</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CreateEnvironment">CreateEnvironment</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#DestroyEnvironment">DestroyEnvironment</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetFileVersion-wvstring-TFileVersionInfo-">GetFileVersion</a></strong>(const aFile : <a href="uWVTypes.html#wvstring">wvstring</a>; var aVersionInfo : <a href="uWVTypes.TFileVersionInfo.html">TFileVersionInfo</a>) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetExtendedFileVersion-wvstring-">GetExtendedFileVersion</a></strong>(const aFileName : <a href="uWVTypes.html#wvstring">wvstring</a>) : uint64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#LoadLibProcedures">LoadLibProcedures</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#LoadWebView2Library">LoadWebView2Library</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#UnLoadWebView2Library">UnLoadWebView2Library</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckWV2Library">CheckWV2Library</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckBrowserExecPath">CheckBrowserExecPath</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckWebViewRuntimeVersion">CheckWebViewRuntimeVersion</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckWV2DLL">CheckWV2DLL</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckFileVersion-wvstring-word-word-word-word-">CheckFileVersion</a></strong>(const aFile : <a href="uWVTypes.html#wvstring">wvstring</a>; aMajor, aMinor, aRelease, aBuild : word) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#GetDLLHeaderMachine-string-integer-">GetDLLHeaderMachine</a></strong>(const aDLLFile : string; var aMachine : integer) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#Is32BitProcess">Is32BitProcess</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CheckInstalledRuntimeRegEntry-boolean-string-wvstring-">CheckInstalledRuntimeRegEntry</a></strong>(aLocalMachine : boolean; const aPath : string; var aVersion : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#ShowErrorMessageDlg-wvstring-">ShowErrorMessageDlg</a></strong>(const aError : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#SearchInstalledProgram-string-string-">SearchInstalledProgram</a></strong>(const aDisplayName, aPublisher : string) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#SearchInstalledProgramInPath-string-string-string-boolean-">SearchInstalledProgramInPath</a></strong>(const aRegPath, aDisplayName, aPublisher : string; aLocalMachine : boolean) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doOnInitializationError">doOnInitializationError</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doOnEnvironmentCreated">doOnEnvironmentCreated</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doOnNewBrowserVersionAvailable-ICoreWebView2Environment-">doOnNewBrowserVersionAvailable</a></strong>(const aEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doOnBrowserProcessExitedEvent-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">doOnBrowserProcessExitedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doProcessInfosChangedEvent-ICoreWebView2Environment-">doProcessInfosChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#doOnGetCustomSchemes-TWVCustomSchemeRegistrationArray-">doOnGetCustomSchemes</a></strong>(var aSchemeRegistrations : <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#EnvironmentCompletedHandler_Invoke-HResult-ICoreWebView2Environment-">EnvironmentCompletedHandler_Invoke</a></strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HRESULT;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#NewBrowserVersionAvailableEventHandler_Invoke-ICoreWebView2Environment-IUnknown-">NewBrowserVersionAvailableEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">BrowserProcessExitedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>): HRESULT;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#ProcessInfosChangedEventHandler_Invoke-ICoreWebView2Environment-IUnknown-">ProcessInfosChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVLoader.TWVLoader.html#Create-TComponent-">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVLoader.TWVLoader.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#AfterConstruction">AfterConstruction</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#StartWebView2">StartWebView2</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVLoader.TWVLoader.html#CompareVersions-wvstring-wvstring-integer-">CompareVersions</a></strong>(const aVersion1, aVersion2 : <a href="uWVTypes.html#wvstring">wvstring</a>; var aCompRslt : integer): boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#UpdateDeviceScaleFactor">UpdateDeviceScaleFactor</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVLoader.TWVLoader.html#AppendErrorLog-wvstring-">AppendErrorLog</a></strong>(const aText : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DefaultUserDataPath">DefaultUserDataPath</a></strong>       : string              read <a href="uWVLoader.TWVLoader.html#GetDefaultUserDataPath">GetDefaultUserDataPath</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#EnvironmentIsInitialized">EnvironmentIsInitialized</a></strong>  : boolean             read <a href="uWVLoader.TWVLoader.html#GetEnvironmentIsInitialized">GetEnvironmentIsInitialized</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#Environment">Environment</a></strong>                            : <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>           read <a href="uWVLoader.TWVLoader.html#GetEnvironment">GetEnvironment</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#Status">Status</a></strong>                                 : <a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a>                   read <a href="uWVLoader.TWVLoader.html#FStatus">FStatus</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AvailableBrowserVersion">AvailableBrowserVersion</a></strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">GetAvailableBrowserVersion</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ErrorMessage">ErrorMessage</a></strong>                           : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetErrorMessage">GetErrorMessage</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ErrorCode">ErrorCode</a></strong>                              : int64                              read <a href="uWVLoader.TWVLoader.html#FError">FError</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#SetCurrentDir">SetCurrentDir</a></strong>                          : boolean                            read <a href="uWVLoader.TWVLoader.html#FSetCurrentDir">FSetCurrentDir</a>                           write <a href="uWVLoader.TWVLoader.html#FSetCurrentDir">FSetCurrentDir</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#Initialized">Initialized</a></strong>                            : boolean                            read <a href="uWVLoader.TWVLoader.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#InitializationError">InitializationError</a></strong>                    : boolean                            read <a href="uWVLoader.TWVLoader.html#GetInitializationError">GetInitializationError</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#CheckFiles">CheckFiles</a></strong>                             : boolean                            read <a href="uWVLoader.TWVLoader.html#FCheckFiles">FCheckFiles</a>                              write <a href="uWVLoader.TWVLoader.html#FCheckFiles">FCheckFiles</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ShowMessageDlg">ShowMessageDlg</a></strong>                         : boolean                            read <a href="uWVLoader.TWVLoader.html#FShowMessageDlg">FShowMessageDlg</a>                          write <a href="uWVLoader.TWVLoader.html#FShowMessageDlg">FShowMessageDlg</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#InitCOMLibrary">InitCOMLibrary</a></strong>                         : boolean                            read <a href="uWVLoader.TWVLoader.html#FInitCOMLibrary">FInitCOMLibrary</a>                          write <a href="uWVLoader.TWVLoader.html#FInitCOMLibrary">FInitCOMLibrary</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#CustomCommandLineSwitches">CustomCommandLineSwitches</a></strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetCustomCommandLineSwitches">GetCustomCommandLineSwitches</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DeviceScaleFactor">DeviceScaleFactor</a></strong>                      : single                             read <a href="uWVLoader.TWVLoader.html#FDeviceScaleFactor">FDeviceScaleFactor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ReRaiseExceptions">ReRaiseExceptions</a></strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FReRaiseExceptions">FReRaiseExceptions</a>                       write <a href="uWVLoader.TWVLoader.html#FReRaiseExceptions">FReRaiseExceptions</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#InstalledRuntimeVersion">InstalledRuntimeVersion</a></strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetInstalledRuntimeVersion">GetInstalledRuntimeVersion</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#LoaderDllPath">LoaderDllPath</a></strong>                          : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FLoaderDllPath">FLoaderDllPath</a>                           write <a href="uWVLoader.TWVLoader.html#FLoaderDllPath">FLoaderDllPath</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#UseInternalLoader">UseInternalLoader</a></strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FUseInternalLoader">FUseInternalLoader</a>                       write <a href="uWVLoader.TWVLoader.html#FUseInternalLoader">FUseInternalLoader</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#BrowserExecPath">BrowserExecPath</a></strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FBrowserExecPath">FBrowserExecPath</a>                         write <a href="uWVLoader.TWVLoader.html#FBrowserExecPath">FBrowserExecPath</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#UserDataFolder">UserDataFolder</a></strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FUserDataFolder">FUserDataFolder</a>                          write <a href="uWVLoader.TWVLoader.html#FUserDataFolder">FUserDataFolder</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AdditionalBrowserArguments">AdditionalBrowserArguments</a></strong>             : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">FAdditionalBrowserArguments</a>              write <a href="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">FAdditionalBrowserArguments</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#Language">Language</a></strong>                               : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FLanguage">FLanguage</a>                                write <a href="uWVLoader.TWVLoader.html#FLanguage">FLanguage</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#TargetCompatibleBrowserVersion">TargetCompatibleBrowserVersion</a></strong>         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FTargetCompatibleBrowserVersion">FTargetCompatibleBrowserVersion</a>          write <a href="uWVLoader.TWVLoader.html#FTargetCompatibleBrowserVersion">FTargetCompatibleBrowserVersion</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AllowSingleSignOnUsingOSPrimaryAccount">AllowSingleSignOnUsingOSPrimaryAccount</a></strong> : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowSingleSignOnUsingOSPrimaryAccount">FAllowSingleSignOnUsingOSPrimaryAccount</a>  write <a href="uWVLoader.TWVLoader.html#FAllowSingleSignOnUsingOSPrimaryAccount">FAllowSingleSignOnUsingOSPrimaryAccount</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ExclusiveUserDataFolderAccess">ExclusiveUserDataFolderAccess</a></strong>          : boolean                            read <a href="uWVLoader.TWVLoader.html#FExclusiveUserDataFolderAccess">FExclusiveUserDataFolderAccess</a>           write <a href="uWVLoader.TWVLoader.html#FExclusiveUserDataFolderAccess">FExclusiveUserDataFolderAccess</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#CustomCrashReportingEnabled">CustomCrashReportingEnabled</a></strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FCustomCrashReportingEnabled">FCustomCrashReportingEnabled</a>             write <a href="uWVLoader.TWVLoader.html#FCustomCrashReportingEnabled">FCustomCrashReportingEnabled</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#EnableTrackingPrevention">EnableTrackingPrevention</a></strong>               : boolean                            read <a href="uWVLoader.TWVLoader.html#FEnableTrackingPrevention">FEnableTrackingPrevention</a>                write <a href="uWVLoader.TWVLoader.html#FEnableTrackingPrevention">FEnableTrackingPrevention</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AreBrowserExtensionsEnabled">AreBrowserExtensionsEnabled</a></strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a>             write <a href="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#EnableGPU">EnableGPU</a></strong>                              : boolean                            read <a href="uWVLoader.TWVLoader.html#FEnableGPU">FEnableGPU</a>                               write <a href="uWVLoader.TWVLoader.html#FEnableGPU">FEnableGPU</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#EnableFeatures">EnableFeatures</a></strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FEnableFeatures">FEnableFeatures</a>                          write <a href="uWVLoader.TWVLoader.html#FEnableFeatures">FEnableFeatures</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DisableFeatures">DisableFeatures</a></strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDisableFeatures">FDisableFeatures</a>                         write <a href="uWVLoader.TWVLoader.html#FDisableFeatures">FDisableFeatures</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#EnableBlinkFeatures">EnableBlinkFeatures</a></strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FEnableBlinkFeatures">FEnableBlinkFeatures</a>                     write <a href="uWVLoader.TWVLoader.html#FEnableBlinkFeatures">FEnableBlinkFeatures</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DisableBlinkFeatures">DisableBlinkFeatures</a></strong>                   : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDisableBlinkFeatures">FDisableBlinkFeatures</a>                    write <a href="uWVLoader.TWVLoader.html#FDisableBlinkFeatures">FDisableBlinkFeatures</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#BlinkSettings">BlinkSettings</a></strong>                          : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FBlinkSettings">FBlinkSettings</a>                           write <a href="uWVLoader.TWVLoader.html#FBlinkSettings">FBlinkSettings</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ForceFieldTrials">ForceFieldTrials</a></strong>                       : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FForceFieldTrials">FForceFieldTrials</a>                        write <a href="uWVLoader.TWVLoader.html#FForceFieldTrials">FForceFieldTrials</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ForceFieldTrialParams">ForceFieldTrialParams</a></strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FForceFieldTrialParams">FForceFieldTrialParams</a>                   write <a href="uWVLoader.TWVLoader.html#FForceFieldTrialParams">FForceFieldTrialParams</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#SmartScreenProtectionEnabled">SmartScreenProtectionEnabled</a></strong>           : boolean                            read <a href="uWVLoader.TWVLoader.html#FSmartScreenProtectionEnabled">FSmartScreenProtectionEnabled</a>            write <a href="uWVLoader.TWVLoader.html#FSmartScreenProtectionEnabled">FSmartScreenProtectionEnabled</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AllowInsecureLocalhost">AllowInsecureLocalhost</a></strong>                 : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">FAllowInsecureLocalhost</a>                  write <a href="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">FAllowInsecureLocalhost</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DisableWebSecurity">DisableWebSecurity</a></strong>                     : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableWebSecurity">FDisableWebSecurity</a>                      write <a href="uWVLoader.TWVLoader.html#FDisableWebSecurity">FDisableWebSecurity</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#TouchEvents">TouchEvents</a></strong>                            : <a href="uWVTypes.html#TWVState">TWVState</a>                           read <a href="uWVLoader.TWVLoader.html#FTouchEvents">FTouchEvents</a>                             write <a href="uWVLoader.TWVLoader.html#FTouchEvents">FTouchEvents</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#HyperlinkAuditing">HyperlinkAuditing</a></strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FHyperlinkAuditing">FHyperlinkAuditing</a>                       write <a href="uWVLoader.TWVLoader.html#FHyperlinkAuditing">FHyperlinkAuditing</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AutoplayPolicy">AutoplayPolicy</a></strong>                         : <a href="uWVTypes.html#TWVAutoplayPolicy">TWVAutoplayPolicy</a>                  read <a href="uWVLoader.TWVLoader.html#FAutoplayPolicy">FAutoplayPolicy</a>                          write <a href="uWVLoader.TWVLoader.html#FAutoplayPolicy">FAutoplayPolicy</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#MuteAudio">MuteAudio</a></strong>                              : boolean                            read <a href="uWVLoader.TWVLoader.html#FMuteAudio">FMuteAudio</a>                               write <a href="uWVLoader.TWVLoader.html#FMuteAudio">FMuteAudio</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DefaultEncoding">DefaultEncoding</a></strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDefaultEncoding">FDefaultEncoding</a>                         write <a href="uWVLoader.TWVLoader.html#FDefaultEncoding">FDefaultEncoding</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#KioskPrinting">KioskPrinting</a></strong>                          : boolean                            read <a href="uWVLoader.TWVLoader.html#FKioskPrinting">FKioskPrinting</a>                           write <a href="uWVLoader.TWVLoader.html#FKioskPrinting">FKioskPrinting</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ProxySettings">ProxySettings</a></strong>                          : <a href="uWVLoader.TWVProxySettings.html">TWVProxySettings</a>                   read <a href="uWVLoader.TWVLoader.html#FProxySettings">FProxySettings</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AllowFileAccessFromFiles">AllowFileAccessFromFiles</a></strong>               : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowFileAccessFromFiles">FAllowFileAccessFromFiles</a>                write <a href="uWVLoader.TWVLoader.html#FAllowFileAccessFromFiles">FAllowFileAccessFromFiles</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AllowRunningInsecureContent">AllowRunningInsecureContent</a></strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">FAllowRunningInsecureContent</a>             write <a href="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">FAllowRunningInsecureContent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DisableBackgroundNetworking">DisableBackgroundNetworking</a></strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableBackgroundNetworking">FDisableBackgroundNetworking</a>             write <a href="uWVLoader.TWVLoader.html#FDisableBackgroundNetworking">FDisableBackgroundNetworking</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ForcedDeviceScaleFactor">ForcedDeviceScaleFactor</a></strong>                : single                             read <a href="uWVLoader.TWVLoader.html#FForcedDeviceScaleFactor">FForcedDeviceScaleFactor</a>                 write <a href="uWVLoader.TWVLoader.html#FForcedDeviceScaleFactor">FForcedDeviceScaleFactor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#RemoteDebuggingPort">RemoteDebuggingPort</a></strong>                    : integer                            read <a href="uWVLoader.TWVLoader.html#FRemoteDebuggingPort">FRemoteDebuggingPort</a>                     write <a href="uWVLoader.TWVLoader.html#FRemoteDebuggingPort">FRemoteDebuggingPort</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#RemoteAllowOrigins">RemoteAllowOrigins</a></strong>                     : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">FRemoteAllowOrigins</a>                      write <a href="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">FRemoteAllowOrigins</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DebugLog">DebugLog</a></strong>                               : <a href="uWVTypes.html#TWV2DebugLog">TWV2DebugLog</a>                       read <a href="uWVLoader.TWVLoader.html#FDebugLog">FDebugLog</a>                                write <a href="uWVLoader.TWVLoader.html#FDebugLog">FDebugLog</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DebugLogLevel">DebugLogLevel</a></strong>                          : <a href="uWVTypes.html#TWV2DebugLogLevel">TWV2DebugLogLevel</a>                  read <a href="uWVLoader.TWVLoader.html#FDebugLogLevel">FDebugLogLevel</a>                           write <a href="uWVLoader.TWVLoader.html#FDebugLogLevel">FDebugLogLevel</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#JavaScriptFlags">JavaScriptFlags</a></strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FJavaScriptFlags">FJavaScriptFlags</a>                         write <a href="uWVLoader.TWVLoader.html#FJavaScriptFlags">FJavaScriptFlags</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#DisableEdgePitchNotification">DisableEdgePitchNotification</a></strong>           : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableEdgePitchNotification">FDisableEdgePitchNotification</a>            write <a href="uWVLoader.TWVLoader.html#FDisableEdgePitchNotification">FDisableEdgePitchNotification</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#TreatInsecureOriginAsSecure">TreatInsecureOriginAsSecure</a></strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">FTreatInsecureOriginAsSecure</a>             write <a href="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">FTreatInsecureOriginAsSecure</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#AutoAcceptCamAndMicCapture">AutoAcceptCamAndMicCapture</a></strong>             : boolean                            read <a href="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">FAutoAcceptCamAndMicCapture</a>              write <a href="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">FAutoAcceptCamAndMicCapture</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#SupportsCompositionController">SupportsCompositionController</a></strong>          : boolean                            read <a href="uWVLoader.TWVLoader.html#GetSupportsCompositionController">GetSupportsCompositionController</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#ProcessInfos">ProcessInfos</a></strong>                           : <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a> read <a href="uWVLoader.TWVLoader.html#GetProcessInfos">GetProcessInfos</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#SupportsControllerOptions">SupportsControllerOptions</a></strong>              : boolean                            read <a href="uWVLoader.TWVLoader.html#GetSupportsControllerOptions">GetSupportsControllerOptions</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#FailureReportFolderPath">FailureReportFolderPath</a></strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetFailureReportFolderPath">GetFailureReportFolderPath</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnEnvironmentCreated">OnEnvironmentCreated</a></strong>                   : TLoaderNotifyEvent                      read <a href="uWVLoader.TWVLoader.html#FOnEnvironmentCreated">FOnEnvironmentCreated</a>                    write <a href="uWVLoader.TWVLoader.html#FOnEnvironmentCreated">FOnEnvironmentCreated</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnInitializationError">OnInitializationError</a></strong>                  : TLoaderNotifyEvent                      read <a href="uWVLoader.TWVLoader.html#FOnInitializationError">FOnInitializationError</a>                   write <a href="uWVLoader.TWVLoader.html#FOnInitializationError">FOnInitializationError</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnGetCustomSchemes">OnGetCustomSchemes</a></strong>                     : TLoaderGetCustomSchemesEvent            read <a href="uWVLoader.TWVLoader.html#FOnGetCustomSchemes">FOnGetCustomSchemes</a>                      write <a href="uWVLoader.TWVLoader.html#FOnGetCustomSchemes">FOnGetCustomSchemes</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnNewBrowserVersionAvailable">OnNewBrowserVersionAvailable</a></strong>           : TLoaderNewBrowserVersionAvailableEvent  read <a href="uWVLoader.TWVLoader.html#FOnNewBrowserVersionAvailable">FOnNewBrowserVersionAvailable</a>            write <a href="uWVLoader.TWVLoader.html#FOnNewBrowserVersionAvailable">FOnNewBrowserVersionAvailable</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnBrowserProcessExited">OnBrowserProcessExited</a></strong>                 : TLoaderBrowserProcessExitedEvent        read <a href="uWVLoader.TWVLoader.html#FOnBrowserProcessExited">FOnBrowserProcessExited</a>                  write <a href="uWVLoader.TWVLoader.html#FOnBrowserProcessExited">FOnBrowserProcessExited</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVLoader.TWVLoader.html#OnProcessInfosChanged">OnProcessInfosChanged</a></strong>                  : TLoaderProcessInfosChangedEvent         read <a href="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">FOnProcessInfosChanged</a>                   write <a href="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">FOnProcessInfosChanged</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCoreWebView2Environment"></span><code><strong>FCoreWebView2Environment</strong>: <a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html">TCoreWebView2Environment</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnEnvironmentCreated"></span><code><strong>FOnEnvironmentCreated</strong>: TLoaderNotifyEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnNewBrowserVersionAvailable"></span><code><strong>FOnNewBrowserVersionAvailable</strong>: TLoaderNewBrowserVersionAvailableEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnInitializationError"></span><code><strong>FOnInitializationError</strong>: TLoaderNotifyEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnBrowserProcessExited"></span><code><strong>FOnBrowserProcessExited</strong>: TLoaderBrowserProcessExitedEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnProcessInfosChanged"></span><code><strong>FOnProcessInfosChanged</strong>: TLoaderProcessInfosChangedEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnGetCustomSchemes"></span><code><strong>FOnGetCustomSchemes</strong>: TLoaderGetCustomSchemesEvent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLibHandle"></span><code><strong>FLibHandle</strong>: THandle;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FErrorLog"></span><code><strong>FErrorLog</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FError"></span><code><strong>FError</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBrowserExecPath"></span><code><strong>FBrowserExecPath</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUserDataFolder"></span><code><strong>FUserDataFolder</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FStatus"></span><code><strong>FStatus</strong>: <a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSetCurrentDir"></span><code><strong>FSetCurrentDir</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCheckFiles"></span><code><strong>FCheckFiles</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FShowMessageDlg"></span><code><strong>FShowMessageDlg</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FInitCOMLibrary"></span><code><strong>FInitCOMLibrary</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDeviceScaleFactor"></span><code><strong>FDeviceScaleFactor</strong>: single;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FForcedDeviceScaleFactor"></span><code><strong>FForcedDeviceScaleFactor</strong>: single;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReRaiseExceptions"></span><code><strong>FReRaiseExceptions</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLoaderDllPath"></span><code><strong>FLoaderDllPath</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUseInternalLoader"></span><code><strong>FUseInternalLoader</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAdditionalBrowserArguments"></span><code><strong>FAdditionalBrowserArguments</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Fields used to create the environment</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLanguage"></span><code><strong>FLanguage</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTargetCompatibleBrowserVersion"></span><code><strong>FTargetCompatibleBrowserVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAllowSingleSignOnUsingOSPrimaryAccount"></span><code><strong>FAllowSingleSignOnUsingOSPrimaryAccount</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FExclusiveUserDataFolderAccess"></span><code><strong>FExclusiveUserDataFolderAccess</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCustomCrashReportingEnabled"></span><code><strong>FCustomCrashReportingEnabled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEnableTrackingPrevention"></span><code><strong>FEnableTrackingPrevention</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAreBrowserExtensionsEnabled"></span><code><strong>FAreBrowserExtensionsEnabled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEnableGPU"></span><code><strong>FEnableGPU</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Fields used to set command line switches</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEnableFeatures"></span><code><strong>FEnableFeatures</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDisableFeatures"></span><code><strong>FDisableFeatures</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEnableBlinkFeatures"></span><code><strong>FEnableBlinkFeatures</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDisableBlinkFeatures"></span><code><strong>FDisableBlinkFeatures</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBlinkSettings"></span><code><strong>FBlinkSettings</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FForceFieldTrials"></span><code><strong>FForceFieldTrials</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FForceFieldTrialParams"></span><code><strong>FForceFieldTrialParams</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSmartScreenProtectionEnabled"></span><code><strong>FSmartScreenProtectionEnabled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAllowInsecureLocalhost"></span><code><strong>FAllowInsecureLocalhost</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDisableWebSecurity"></span><code><strong>FDisableWebSecurity</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTouchEvents"></span><code><strong>FTouchEvents</strong>: <a href="uWVTypes.html#TWVState">TWVState</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FHyperlinkAuditing"></span><code><strong>FHyperlinkAuditing</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAutoplayPolicy"></span><code><strong>FAutoplayPolicy</strong>: <a href="uWVTypes.html#TWVAutoplayPolicy">TWVAutoplayPolicy</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FMuteAudio"></span><code><strong>FMuteAudio</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDefaultEncoding"></span><code><strong>FDefaultEncoding</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FKioskPrinting"></span><code><strong>FKioskPrinting</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProxySettings"></span><code><strong>FProxySettings</strong>: <a href="uWVLoader.TWVProxySettings.html">TWVProxySettings</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAllowFileAccessFromFiles"></span><code><strong>FAllowFileAccessFromFiles</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAllowRunningInsecureContent"></span><code><strong>FAllowRunningInsecureContent</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDisableBackgroundNetworking"></span><code><strong>FDisableBackgroundNetworking</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRemoteDebuggingPort"></span><code><strong>FRemoteDebuggingPort</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRemoteAllowOrigins"></span><code><strong>FRemoteAllowOrigins</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDebugLog"></span><code><strong>FDebugLog</strong>: <a href="uWVTypes.html#TWV2DebugLog">TWV2DebugLog</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDebugLogLevel"></span><code><strong>FDebugLogLevel</strong>: <a href="uWVTypes.html#TWV2DebugLogLevel">TWV2DebugLogLevel</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FJavaScriptFlags"></span><code><strong>FJavaScriptFlags</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDisableEdgePitchNotification"></span><code><strong>FDisableEdgePitchNotification</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTreatInsecureOriginAsSecure"></span><code><strong>FTreatInsecureOriginAsSecure</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAutoAcceptCamAndMicCapture"></span><code><strong>FAutoAcceptCamAndMicCapture</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAvailableBrowserVersion"></span><code>function <strong>GetAvailableBrowserVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitializationError"></span><code>function <strong>GetInitializationError</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetEnvironmentIsInitialized"></span><code>function <strong>GetEnvironmentIsInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDefaultUserDataPath"></span><code>function <strong>GetDefaultUserDataPath</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetEnvironment"></span><code>function <strong>GetEnvironment</strong>: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetProcessInfos"></span><code>function <strong>GetProcessInfos</strong>: <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSupportsCompositionController"></span><code>function <strong>GetSupportsCompositionController</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSupportsControllerOptions"></span><code>function <strong>GetSupportsControllerOptions</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCustomCommandLineSwitches"></span><code>function <strong>GetCustomCommandLineSwitches</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInstalledRuntimeVersion"></span><code>function <strong>GetInstalledRuntimeVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetErrorMessage"></span><code>function <strong>GetErrorMessage</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetFailureReportFolderPath"></span><code>function <strong>GetFailureReportFolderPath</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateEnvironment"></span><code>function <strong>CreateEnvironment</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DestroyEnvironment"></span><code>procedure <strong>DestroyEnvironment</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetFileVersion-wvstring-TFileVersionInfo-"></span><code>function <strong>GetFileVersion</strong>(const aFile : <a href="uWVTypes.html#wvstring">wvstring</a>; var aVersionInfo : <a href="uWVTypes.TFileVersionInfo.html">TFileVersionInfo</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetExtendedFileVersion-wvstring-"></span><code>function <strong>GetExtendedFileVersion</strong>(const aFileName : <a href="uWVTypes.html#wvstring">wvstring</a>) : uint64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LoadLibProcedures"></span><code>function <strong>LoadLibProcedures</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LoadWebView2Library"></span><code>function <strong>LoadWebView2Library</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UnLoadWebView2Library"></span><code>procedure <strong>UnLoadWebView2Library</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckWV2Library"></span><code>function <strong>CheckWV2Library</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckBrowserExecPath"></span><code>function <strong>CheckBrowserExecPath</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckWebViewRuntimeVersion"></span><code>function <strong>CheckWebViewRuntimeVersion</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckWV2DLL"></span><code>function <strong>CheckWV2DLL</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckFileVersion-wvstring-word-word-word-word-"></span><code>function <strong>CheckFileVersion</strong>(const aFile : <a href="uWVTypes.html#wvstring">wvstring</a>; aMajor, aMinor, aRelease, aBuild : word) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDLLHeaderMachine-string-integer-"></span><code>function <strong>GetDLLHeaderMachine</strong>(const aDLLFile : string; var aMachine : integer) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Is32BitProcess"></span><code>function <strong>Is32BitProcess</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckInstalledRuntimeRegEntry-boolean-string-wvstring-"></span><code>function <strong>CheckInstalledRuntimeRegEntry</strong>(aLocalMachine : boolean; const aPath : string; var aVersion : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ShowErrorMessageDlg-wvstring-"></span><code>procedure <strong>ShowErrorMessageDlg</strong>(const aError : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SearchInstalledProgram-string-string-"></span><code>function <strong>SearchInstalledProgram</strong>(const aDisplayName, aPublisher : string) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SearchInstalledProgramInPath-string-string-string-boolean-"></span><code>function <strong>SearchInstalledProgramInPath</strong>(const aRegPath, aDisplayName, aPublisher : string; aLocalMachine : boolean) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnInitializationError"></span><code>procedure <strong>doOnInitializationError</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnEnvironmentCreated"></span><code>procedure <strong>doOnEnvironmentCreated</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnNewBrowserVersionAvailable-ICoreWebView2Environment-"></span><code>procedure <strong>doOnNewBrowserVersionAvailable</strong>(const aEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnBrowserProcessExitedEvent-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-"></span><code>procedure <strong>doOnBrowserProcessExitedEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doProcessInfosChangedEvent-ICoreWebView2Environment-"></span><code>procedure <strong>doProcessInfosChangedEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnGetCustomSchemes-TWVCustomSchemeRegistrationArray-"></span><code>procedure <strong>doOnGetCustomSchemes</strong>(var aSchemeRegistrations : <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EnvironmentCompletedHandler_Invoke-HResult-ICoreWebView2Environment-"></span><code>function <strong>EnvironmentCompletedHandler_Invoke</strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVLoaderEvents.html#EnvironmentCompletedHandler_Invoke-HResult-ICoreWebView2Environment-">IWVLoaderEvents.EnvironmentCompletedHandler_Invoke</a>.</p><p>
+ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="NewBrowserVersionAvailableEventHandler_Invoke-ICoreWebView2Environment-IUnknown-"></span><code>function <strong>NewBrowserVersionAvailableEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVLoaderEvents.html#NewBrowserVersionAvailableEventHandler_Invoke-ICoreWebView2Environment-IUnknown-">IWVLoaderEvents.NewBrowserVersionAvailableEventHandler_Invoke</a>.</p><p>
+ICoreWebView2NewBrowserVersionAvailableEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-"></span><code>function <strong>BrowserProcessExitedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVLoaderEvents.html#BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">IWVLoaderEvents.BrowserProcessExitedEventHandler_Invoke</a>.</p><p>
+ICoreWebView2BrowserProcessExitedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ProcessInfosChangedEventHandler_Invoke-ICoreWebView2Environment-IUnknown-"></span><code>function <strong>ProcessInfosChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVLoaderEvents.html#ProcessInfosChangedEventHandler_Invoke-ICoreWebView2Environment-IUnknown-">IWVLoaderEvents.ProcessInfosChangedEventHandler_Invoke</a>.</p><p>
+ICoreWebView2ProcessInfosChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-TComponent-"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AfterConstruction"></span><code>procedure <strong>AfterConstruction</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartWebView2"></span><code>function <strong>StartWebView2</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This function is used to initialize WebView2. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CompareVersions-wvstring-wvstring-integer-"></span><code>function <strong>CompareVersions</strong>(const aVersion1, aVersion2 : <a href="uWVTypes.html#wvstring">wvstring</a>; var aCompRslt : integer): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This method is for anyone want to compare version correctly to determine which version is newer, older or same.Use it to determine whether to use webview2 or certain feature based upon version. Sets the value of aCompRslt to -1, 0 or 1 if aVersion1 is less than, equal or greater than aVersion2 respectively. Returns false if it fails to parse any of the version strings. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#comparebrowserversions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#comparebrowserversions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateDeviceScaleFactor"></span><code>procedure <strong>UpdateDeviceScaleFactor</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Update the DeviceScaleFactor property value with the current scale or the ForcedDeviceScaleFactor value. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AppendErrorLog-wvstring-"></span><code>procedure <strong>AppendErrorLog</strong>(const aText : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Append aText to the ErrorMessage property. </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DefaultUserDataPath"></span><code>property <strong>DefaultUserDataPath</strong>       : string              read <a href="uWVLoader.TWVLoader.html#GetDefaultUserDataPath">GetDefaultUserDataPath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Default value of the user data path. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EnvironmentIsInitialized"></span><code>property <strong>EnvironmentIsInitialized</strong>  : boolean             read <a href="uWVLoader.TWVLoader.html#GetEnvironmentIsInitialized">GetEnvironmentIsInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the environment is initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Environment"></span><code>property <strong>Environment</strong>                            : <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>           read <a href="uWVLoader.TWVLoader.html#GetEnvironment">GetEnvironment</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Represents the global WebView2 Environment. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Status"></span><code>property <strong>Status</strong>                                 : <a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a>                   read <a href="uWVLoader.TWVLoader.html#FStatus">FStatus</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the TWVLoader initialization status. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AvailableBrowserVersion"></span><code>property <strong>AvailableBrowserVersion</strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">GetAvailableBrowserVersion</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the browser version info including channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>property <strong>ErrorMessage</strong>                           : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetErrorMessage">GetErrorMessage</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns all the text appended to the error log with AppendErrorLog. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorCode"></span><code>property <strong>ErrorCode</strong>                              : int64                              read <a href="uWVLoader.TWVLoader.html#FError">FError</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the last initialization error code. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetCurrentDir"></span><code>property <strong>SetCurrentDir</strong>                          : boolean                            read <a href="uWVLoader.TWVLoader.html#FSetCurrentDir">FSetCurrentDir</a>                           write <a href="uWVLoader.TWVLoader.html#FSetCurrentDir">FSetCurrentDir</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used to set the current directory when the WebView2 library is loaded. This is required if the application is launched from a different application. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                            : boolean                            read <a href="uWVLoader.TWVLoader.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the Status is wvlsInitialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InitializationError"></span><code>property <strong>InitializationError</strong>                    : boolean                            read <a href="uWVLoader.TWVLoader.html#GetInitializationError">GetInitializationError</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the Status is wvlsError. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CheckFiles"></span><code>property <strong>CheckFiles</strong>                             : boolean                            read <a href="uWVLoader.TWVLoader.html#FCheckFiles">FCheckFiles</a>                              write <a href="uWVLoader.TWVLoader.html#FCheckFiles">FCheckFiles</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Checks if the WebView2 library is present and the DLL version. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShowMessageDlg"></span><code>property <strong>ShowMessageDlg</strong>                         : boolean                            read <a href="uWVLoader.TWVLoader.html#FShowMessageDlg">FShowMessageDlg</a>                          write <a href="uWVLoader.TWVLoader.html#FShowMessageDlg">FShowMessageDlg</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set to true when you need to use a showmessage dialog to show the error messages. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InitCOMLibrary"></span><code>property <strong>InitCOMLibrary</strong>                         : boolean                            read <a href="uWVLoader.TWVLoader.html#FInitCOMLibrary">FInitCOMLibrary</a>                          write <a href="uWVLoader.TWVLoader.html#FInitCOMLibrary">FInitCOMLibrary</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set to true to call CoInitializeEx and CoUnInitialize in TWVLoader.Create and TWVLoader.Destroy. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CustomCommandLineSwitches"></span><code>property <strong>CustomCommandLineSwitches</strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetCustomCommandLineSwitches">GetCustomCommandLineSwitches</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Custom command line switches used by TCoreWebView2EnvironmentOptions.Create to initialize WebView2. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeviceScaleFactor"></span><code>property <strong>DeviceScaleFactor</strong>                      : single                             read <a href="uWVLoader.TWVLoader.html#FDeviceScaleFactor">FDeviceScaleFactor</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the device scale factor. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReRaiseExceptions"></span><code>property <strong>ReRaiseExceptions</strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FReRaiseExceptions">FReRaiseExceptions</a>                       write <a href="uWVLoader.TWVLoader.html#FReRaiseExceptions">FReRaiseExceptions</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set to true to raise all exceptions. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InstalledRuntimeVersion"></span><code>property <strong>InstalledRuntimeVersion</strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetInstalledRuntimeVersion">GetInstalledRuntimeVersion</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the installed WebView2 runtime version. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LoaderDllPath"></span><code>property <strong>LoaderDllPath</strong>                          : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FLoaderDllPath">FLoaderDllPath</a>                           write <a href="uWVLoader.TWVLoader.html#FLoaderDllPath">FLoaderDllPath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Full path to WebView2Loader.dll. Leave empty to load WebView2Loader.dll from the current directory. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UseInternalLoader"></span><code>property <strong>UseInternalLoader</strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FUseInternalLoader">FUseInternalLoader</a>                       write <a href="uWVLoader.TWVLoader.html#FUseInternalLoader">FUseInternalLoader</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Use a WebView2Loader.dll replacement based on the OpenWebView2Loader project. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://github.com/jchv/OpenWebView2Loader">https://github.com/jchv/OpenWebView2Loader</a>&quot;&gt;See the OpenWebView2Loader project repository at GitHub.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BrowserExecPath"></span><code>property <strong>BrowserExecPath</strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FBrowserExecPath">FBrowserExecPath</a>                         write <a href="uWVLoader.TWVLoader.html#FBrowserExecPath">FBrowserExecPath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Use BrowserExecPath to specify whether WebView2 controls use a fixed or installed version of the WebView2 Runtime that exists on a user machine. To use a fixed version of the WebView2 Runtime, pass the folder path that contains the fixed version of the WebView2 Runtime to BrowserExecPath.
+
+<p>BrowserExecPath supports both relative (to the application's executable) and absolute files paths. To create WebView2 controls that use the installed version of the WebView2 Runtime that exists on user machines, pass an empty string to BrowserExecPath.
+
+<p></p>
+<p>
+
+
+<p>Property used to create the environment. Used as the browserExecutableFolder parameter of CreateCoreWebView2EnvironmentWithOptions.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UserDataFolder"></span><code>property <strong>UserDataFolder</strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FUserDataFolder">FUserDataFolder</a>                          write <a href="uWVLoader.TWVLoader.html#FUserDataFolder">FUserDataFolder</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ You may specify the userDataFolder to change the default user data folder location for WebView2. The path is either an absolute file path or a relative file path that is interpreted as relative to the compiled code for the current process. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as the userDataFolder parameter of CreateCoreWebView2EnvironmentWithOptions.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#createcorewebview2environmentwithoptions</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AdditionalBrowserArguments"></span><code>property <strong>AdditionalBrowserArguments</strong>             : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">FAdditionalBrowserArguments</a>              write <a href="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">FAdditionalBrowserArguments</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Additional command line switches. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AdditionalBrowserArguments.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Language"></span><code>property <strong>Language</strong>                               : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FLanguage">FLanguage</a>                                write <a href="uWVLoader.TWVLoader.html#FLanguage">FLanguage</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The default display language for WebView. It applies to browser UI such as context menu and dialogs. It also applies to the `accept-languages` HTTP header that WebView sends to websites. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_Language.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TargetCompatibleBrowserVersion"></span><code>property <strong>TargetCompatibleBrowserVersion</strong>         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FTargetCompatibleBrowserVersion">FTargetCompatibleBrowserVersion</a>          write <a href="uWVLoader.TWVLoader.html#FTargetCompatibleBrowserVersion">FTargetCompatibleBrowserVersion</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the version of the WebView2 Runtime binaries required to be compatible with your app. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_TargetCompatibleBrowserVersion.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowSingleSignOnUsingOSPrimaryAccount"></span><code>property <strong>AllowSingleSignOnUsingOSPrimaryAccount</strong> : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowSingleSignOnUsingOSPrimaryAccount">FAllowSingleSignOnUsingOSPrimaryAccount</a>  write <a href="uWVLoader.TWVLoader.html#FAllowSingleSignOnUsingOSPrimaryAccount">FAllowSingleSignOnUsingOSPrimaryAccount</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft Account (MSA) resources inside WebView. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions.get_AllowSingleSignOnUsingOSPrimaryAccount.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExclusiveUserDataFolderAccess"></span><code>property <strong>ExclusiveUserDataFolderAccess</strong>          : boolean                            read <a href="uWVLoader.TWVLoader.html#FExclusiveUserDataFolderAccess">FExclusiveUserDataFolderAccess</a>           write <a href="uWVLoader.TWVLoader.html#FExclusiveUserDataFolderAccess">FExclusiveUserDataFolderAccess</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Whether other processes can create WebView2 from WebView2Environment created with the same user data folder and therefore sharing the same WebView browser process instance. Default is FALSE. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions2.Get_ExclusiveUserDataFolderAccess.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions2 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CustomCrashReportingEnabled"></span><code>property <strong>CustomCrashReportingEnabled</strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FCustomCrashReportingEnabled">FCustomCrashReportingEnabled</a>             write <a href="uWVLoader.TWVLoader.html#FCustomCrashReportingEnabled">FCustomCrashReportingEnabled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ When `CustomCrashReportingEnabled` is set to `TRUE`, Windows won't send crash data to Microsoft endpoint. `CustomCrashReportingEnabled` is default to be `FALSE`, in this case, WebView will respect OS consent. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions3</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableTrackingPrevention"></span><code>property <strong>EnableTrackingPrevention</strong>               : boolean                            read <a href="uWVLoader.TWVLoader.html#FEnableTrackingPrevention">FEnableTrackingPrevention</a>                write <a href="uWVLoader.TWVLoader.html#FEnableTrackingPrevention">FEnableTrackingPrevention</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The `EnableTrackingPrevention` property is used to enable/disable tracking prevention feature in WebView2. This property enable/disable tracking prevention for all the WebView2's created in the same environment. </p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions5.Get_EnableTrackingPrevention.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions5 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AreBrowserExtensionsEnabled"></span><code>property <strong>AreBrowserExtensionsEnabled</strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a>             write <a href="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case, new extensions can't be installed, and already installed extension won't be available to use in user profile.
+
+<p>If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled` property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.
+
+<p></p>
+<p>
+
+
+<p>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions6.Get_AreBrowserExtensionsEnabled.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions6 article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension</a>&quot;&gt;See the ICoreWebView2BrowserExtension article for Extensions API details.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableGPU"></span><code>property <strong>EnableGPU</strong>                              : boolean                            read <a href="uWVLoader.TWVLoader.html#FEnableGPU">FEnableGPU</a>                               write <a href="uWVLoader.TWVLoader.html#FEnableGPU">FEnableGPU</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enable GPU hardware acceleration. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-gpu)
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-gpu-compositing)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableFeatures"></span><code>property <strong>EnableFeatures</strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FEnableFeatures">FEnableFeatures</a>                          write <a href="uWVLoader.TWVLoader.html#FEnableFeatures">FEnableFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ List of feature names to enable. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;enable-features)
+
+<p>The list of features you can enable is here:
+
+<p><a href="https://chromium.googlesource.com/chromium/src/">https://chromium.googlesource.com/chromium/src/</a>+/master/chrome/common/chrome_features.cc
+
+<p><a href="https://source.chromium.org/chromium/chromium/src/">https://source.chromium.org/chromium/chromium/src/</a>+/main:content/public/common/content_features.cc
+
+<p><a href="https://source.chromium.org/search?q=base::Feature">https://source.chromium.org/search?q=base::Feature</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableFeatures"></span><code>property <strong>DisableFeatures</strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDisableFeatures">FDisableFeatures</a>                         write <a href="uWVLoader.TWVLoader.html#FDisableFeatures">FDisableFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ List of feature names to disable. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-features)
+
+<p>The list of features you can disable is here:
+
+<p><a href="https://chromium.googlesource.com/chromium/src/">https://chromium.googlesource.com/chromium/src/</a>+/master/chrome/common/chrome_features.cc
+
+<p><a href="https://source.chromium.org/chromium/chromium/src/">https://source.chromium.org/chromium/chromium/src/</a>+/main:content/public/common/content_features.cc
+
+<p><a href="https://source.chromium.org/search?q=base::Feature">https://source.chromium.org/search?q=base::Feature</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableBlinkFeatures"></span><code>property <strong>EnableBlinkFeatures</strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FEnableBlinkFeatures">FEnableBlinkFeatures</a>                     write <a href="uWVLoader.TWVLoader.html#FEnableBlinkFeatures">FEnableBlinkFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enable one or more Blink runtime-enabled features. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;enable-blink-features)
+
+<p>The list of Blink features you can enable is here:
+
+<p><a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5">https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableBlinkFeatures"></span><code>property <strong>DisableBlinkFeatures</strong>                   : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDisableBlinkFeatures">FDisableBlinkFeatures</a>                    write <a href="uWVLoader.TWVLoader.html#FDisableBlinkFeatures">FDisableBlinkFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Disable one or more Blink runtime-enabled features. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-blink-features)
+
+<p>The list of Blink features you can disable is here:
+
+<p><a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5">https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BlinkSettings"></span><code>property <strong>BlinkSettings</strong>                          : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FBlinkSettings">FBlinkSettings</a>                           write <a href="uWVLoader.TWVLoader.html#FBlinkSettings">FBlinkSettings</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set blink settings. Format is &lt;name&gt;[=&lt;value],&lt;name&gt;[=&lt;value&gt;],... The names are declared in Settings.json5. For boolean type, use &quot;true&quot;, &quot;false&quot;, or omit '=&lt;value&gt;' part to set to true. For enum type, use the int value of the enum value. Applied after other command line flags and prefs. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;blink-settings)
+
+<p>The list of Blink settings you can disable is here:
+
+<p><a href="https://source.chromium.org/chromium/chromium/src/">https://source.chromium.org/chromium/chromium/src/</a>+/master:third_party/blink/renderer/core/frame/settings.json5</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForceFieldTrials"></span><code>property <strong>ForceFieldTrials</strong>                       : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FForceFieldTrials">FForceFieldTrials</a>                        write <a href="uWVLoader.TWVLoader.html#FForceFieldTrials">FForceFieldTrials</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>This option can be used to force field trials when testing changes locally.
+
+<p>The argument is a list of name and value pairs, separated by slashes.
+
+<p>If a trial name is prefixed with an asterisk, that trial will start activated.
+
+<p>For example, the following argument defines two trials, with the second one activated: &quot;GoogleNow/Enable/*MaterialDesignNTP/Default/&quot; This option can also be used by the browser process to send the list of trials to a non-browser process, using the same format. See FieldTrialList::CreateTrialsFromString() in field_trial.h for details.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;force-fieldtrials)
+
+<p><a href="https://source.chromium.org/chromium/chromium/src/">https://source.chromium.org/chromium/chromium/src/</a>+/master:base/base_switches.cc</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForceFieldTrialParams"></span><code>property <strong>ForceFieldTrialParams</strong>                  : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FForceFieldTrialParams">FForceFieldTrialParams</a>                   write <a href="uWVLoader.TWVLoader.html#FForceFieldTrialParams">FForceFieldTrialParams</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>This option can be used to force parameters of field trials when testing changes locally. The argument is a param list of (key, value) pairs prefixed by an associated (trial, group) pair. You specify the param list for multiple (trial, group) pairs with a comma separator.
+
+<p>Example: &quot;Trial1.Group1:k1/v1/k2/v2,Trial2.Group2:k3/v3/k4/v4&quot;
+
+<p>Trial names, groups names, parameter names, and value should all be URL escaped for all non-alphanumeric characters.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;force-fieldtrial-params)
+
+<p><a href="https://source.chromium.org/chromium/chromium/src/">https://source.chromium.org/chromium/chromium/src/</a>+/master:components/variations/variations_switches.cc</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SmartScreenProtectionEnabled"></span><code>property <strong>SmartScreenProtectionEnabled</strong>           : boolean                            read <a href="uWVLoader.TWVLoader.html#FSmartScreenProtectionEnabled">FSmartScreenProtectionEnabled</a>            write <a href="uWVLoader.TWVLoader.html#FSmartScreenProtectionEnabled">FSmartScreenProtectionEnabled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Workaround given my Microsoft to disable the SmartScreen protection. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowInsecureLocalhost"></span><code>property <strong>AllowInsecureLocalhost</strong>                 : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">FAllowInsecureLocalhost</a>                  write <a href="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">FAllowInsecureLocalhost</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enables TLS/SSL errors on localhost to be ignored (no interstitial, no blocking of requests). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;allow-insecure-localhost)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableWebSecurity"></span><code>property <strong>DisableWebSecurity</strong>                     : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableWebSecurity">FDisableWebSecurity</a>                      write <a href="uWVLoader.TWVLoader.html#FDisableWebSecurity">FDisableWebSecurity</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Don't enforce the same-origin policy. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-web-security)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchEvents"></span><code>property <strong>TouchEvents</strong>                            : <a href="uWVTypes.html#TWVState">TWVState</a>                           read <a href="uWVLoader.TWVLoader.html#FTouchEvents">FTouchEvents</a>                             write <a href="uWVLoader.TWVLoader.html#FTouchEvents">FTouchEvents</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enable support for touch event feature detection. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;touch-events)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HyperlinkAuditing"></span><code>property <strong>HyperlinkAuditing</strong>                      : boolean                            read <a href="uWVLoader.TWVLoader.html#FHyperlinkAuditing">FHyperlinkAuditing</a>                       write <a href="uWVLoader.TWVLoader.html#FHyperlinkAuditing">FHyperlinkAuditing</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Don't send hyperlink auditing pings. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;no-pings)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AutoplayPolicy"></span><code>property <strong>AutoplayPolicy</strong>                         : <a href="uWVTypes.html#TWVAutoplayPolicy">TWVAutoplayPolicy</a>                  read <a href="uWVLoader.TWVLoader.html#FAutoplayPolicy">FAutoplayPolicy</a>                          write <a href="uWVLoader.TWVLoader.html#FAutoplayPolicy">FAutoplayPolicy</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Autoplay policy. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;autoplay-policy)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MuteAudio"></span><code>property <strong>MuteAudio</strong>                              : boolean                            read <a href="uWVLoader.TWVLoader.html#FMuteAudio">FMuteAudio</a>                               write <a href="uWVLoader.TWVLoader.html#FMuteAudio">FMuteAudio</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Mutes audio sent to the audio device so it is not audible during automated testing. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;mute-audio)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultEncoding"></span><code>property <strong>DefaultEncoding</strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FDefaultEncoding">FDefaultEncoding</a>                         write <a href="uWVLoader.TWVLoader.html#FDefaultEncoding">FDefaultEncoding</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Default encoding. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://bitbucket.org/chromiumembedded/cef/src/master/libcef/common/cef_switches.cc">https://bitbucket.org/chromiumembedded/cef/src/master/libcef/common/cef_switches.cc</a>&quot;&gt;Uses the following command line switch: &ndash;default-encoding)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="KioskPrinting"></span><code>property <strong>KioskPrinting</strong>                          : boolean                            read <a href="uWVLoader.TWVLoader.html#FKioskPrinting">FKioskPrinting</a>                           write <a href="uWVLoader.TWVLoader.html#FKioskPrinting">FKioskPrinting</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enable automatically pressing the print button in print preview. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;kiosk-printing)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProxySettings"></span><code>property <strong>ProxySettings</strong>                          : <a href="uWVLoader.TWVProxySettings.html">TWVProxySettings</a>                   read <a href="uWVLoader.TWVLoader.html#FProxySettings">FProxySettings</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Configure the browser to use a proxy server. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;no-proxy-server)
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;proxy-auto-detect)
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;proxy-bypass-list)
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;proxy-pac-url)
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;proxy-server)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowFileAccessFromFiles"></span><code>property <strong>AllowFileAccessFromFiles</strong>               : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowFileAccessFromFiles">FAllowFileAccessFromFiles</a>                write <a href="uWVLoader.TWVLoader.html#FAllowFileAccessFromFiles">FAllowFileAccessFromFiles</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ By default, <a href="file://">file://</a> URIs cannot read other <a href="file://">file://</a> URIs. This is an override for developers who need the old behavior for testing. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;allow-file-access-from-files)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowRunningInsecureContent"></span><code>property <strong>AllowRunningInsecureContent</strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">FAllowRunningInsecureContent</a>             write <a href="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">FAllowRunningInsecureContent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ By default, an https page cannot run JavaScript, CSS or plugins from http URLs. This provides an override to get the old insecure behavior. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;allow-running-insecure-content)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableBackgroundNetworking"></span><code>property <strong>DisableBackgroundNetworking</strong>            : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableBackgroundNetworking">FDisableBackgroundNetworking</a>             write <a href="uWVLoader.TWVLoader.html#FDisableBackgroundNetworking">FDisableBackgroundNetworking</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Disable several subsystems which run network requests in the background. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;disable-background-networking)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForcedDeviceScaleFactor"></span><code>property <strong>ForcedDeviceScaleFactor</strong>                : single                             read <a href="uWVLoader.TWVLoader.html#FForcedDeviceScaleFactor">FForcedDeviceScaleFactor</a>                 write <a href="uWVLoader.TWVLoader.html#FForcedDeviceScaleFactor">FForcedDeviceScaleFactor</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Overrides the device scale factor for the browser UI and the contents. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;force-device-scale-factor)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RemoteDebuggingPort"></span><code>property <strong>RemoteDebuggingPort</strong>                    : integer                            read <a href="uWVLoader.TWVLoader.html#FRemoteDebuggingPort">FRemoteDebuggingPort</a>                     write <a href="uWVLoader.TWVLoader.html#FRemoteDebuggingPort">FRemoteDebuggingPort</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set to a value between 1024 and 65535 to enable remote debugging on the specified port. Also configurable using the &quot;remote-debugging-port&quot; command-line switch. Remote debugging can be accessed by loading the <a href="chrome://inspect">chrome://inspect</a> page in Google Chrome. Port numbers 9222 and 9229 are discoverable by default. Other port numbers may need to be configured via &quot;Discover network targets&quot; on the Devices tab. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;remote-debugging-port)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RemoteAllowOrigins"></span><code>property <strong>RemoteAllowOrigins</strong>                     : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">FRemoteAllowOrigins</a>                      write <a href="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">FRemoteAllowOrigins</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Enables web socket connections from the specified origins only. '*' allows any origin. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;remote-allow-origins)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DebugLog"></span><code>property <strong>DebugLog</strong>                               : <a href="uWVTypes.html#TWV2DebugLog">TWV2DebugLog</a>                       read <a href="uWVLoader.TWVLoader.html#FDebugLog">FDebugLog</a>                                write <a href="uWVLoader.TWVLoader.html#FDebugLog">FDebugLog</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Force logging to be enabled. Logging is disabled by default in release builds. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;enable-logging)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DebugLogLevel"></span><code>property <strong>DebugLogLevel</strong>                          : <a href="uWVTypes.html#TWV2DebugLogLevel">TWV2DebugLogLevel</a>                  read <a href="uWVLoader.TWVLoader.html#FDebugLogLevel">FDebugLogLevel</a>                           write <a href="uWVLoader.TWVLoader.html#FDebugLogLevel">FDebugLogLevel</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the minimum log level. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;log-level)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="JavaScriptFlags"></span><code>property <strong>JavaScriptFlags</strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FJavaScriptFlags">FJavaScriptFlags</a>                         write <a href="uWVLoader.TWVLoader.html#FJavaScriptFlags">FJavaScriptFlags</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the flags passed to JS engine. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;js-flags)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableEdgePitchNotification"></span><code>property <strong>DisableEdgePitchNotification</strong>           : boolean                            read <a href="uWVLoader.TWVLoader.html#FDisableEdgePitchNotification">FDisableEdgePitchNotification</a>            write <a href="uWVLoader.TWVLoader.html#FDisableEdgePitchNotification">FDisableEdgePitchNotification</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Workaround given my Microsoft to disable the &quot;Download Edge&quot; notifications. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreatInsecureOriginAsSecure"></span><code>property <strong>TreatInsecureOriginAsSecure</strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">FTreatInsecureOriginAsSecure</a>             write <a href="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">FTreatInsecureOriginAsSecure</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Treat given (insecure) origins as secure origins. Multiple origins can be supplied as a comma-separated list. For the definition of secure contexts, see <a href="https://w3c.github.io/webappsec-secure-contexts/">https://w3c.github.io/webappsec-secure-contexts/</a> and <a href="https://www.w3.org/TR/powerful-features/#is-origin-trustworthy">https://www.w3.org/TR/powerful-features/#is-origin-trustworthy</a> Example: &ndash;unsafely-treat-insecure-origin-as-secure=<a href="http://a.test,http://b.test">http://a.test,http://b.test</a> </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;unsafely-treat-insecure-origin-as-secure)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AutoAcceptCamAndMicCapture"></span><code>property <strong>AutoAcceptCamAndMicCapture</strong>             : boolean                            read <a href="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">FAutoAcceptCamAndMicCapture</a>              write <a href="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">FAutoAcceptCamAndMicCapture</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Bypasses the dialog prompting the user for permission to capture cameras and microphones. Useful in automatic tests of video-conferencing Web applications. This is nearly identical to kUseFakeUIForMediaStream, with the exception being that this flag does NOT affect screen-capture. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://peter.sh/experiments/chromium-command-line-switches/">https://peter.sh/experiments/chromium-command-line-switches/</a>&quot;&gt;Uses the following command line switch: &ndash;auto-accept-camera-and-microphone-capture)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SupportsCompositionController"></span><code>property <strong>SupportsCompositionController</strong>          : boolean                            read <a href="uWVLoader.TWVLoader.html#GetSupportsCompositionController">GetSupportsCompositionController</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the current WebView2 runtime version supports Composition Controllers. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment3</a>&quot;&gt;See the ICoreWebView2Environment3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProcessInfos"></span><code>property <strong>ProcessInfos</strong>                           : <a href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html">ICoreWebView2ProcessInfoCollection</a> read <a href="uWVLoader.TWVLoader.html#GetProcessInfos">GetProcessInfos</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the `ICoreWebView2ProcessInfoCollection` Provide a list of all process using same user data folder except for crashpad process. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8</a>&quot;&gt;See the ICoreWebView2Environment8 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SupportsControllerOptions"></span><code>property <strong>SupportsControllerOptions</strong>              : boolean                            read <a href="uWVLoader.TWVLoader.html#GetSupportsControllerOptions">GetSupportsControllerOptions</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the current WebView2 runtime version supports Controller Options. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment10</a>&quot;&gt;See the ICoreWebView2Environment10 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FailureReportFolderPath"></span><code>property <strong>FailureReportFolderPath</strong>                : <a href="uWVTypes.html#wvstring">wvstring</a>                           read <a href="uWVLoader.TWVLoader.html#GetFailureReportFolderPath">GetFailureReportFolderPath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>`FailureReportFolderPath` returns the path of the folder where minidump files are written. Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder. The crash dump format is minidump files.
+
+<p>Please see [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.
+
+<p>Normally when a single child process fails, a minidump will be generated and written to disk, then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated at all, despite whether `ProcessFailed` event is raised. If there are multiple process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath` could contain old minidump files that are not associated with a specific `ProcessFailed` event.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath</a>&quot;&gt;See the ICoreWebView2Environment11 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnEnvironmentCreated"></span><code>property <strong>OnEnvironmentCreated</strong>                   : TLoaderNotifyEvent                      read <a href="uWVLoader.TWVLoader.html#FOnEnvironmentCreated">FOnEnvironmentCreated</a>                    write <a href="uWVLoader.TWVLoader.html#FOnEnvironmentCreated">FOnEnvironmentCreated</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ OnEnvironmentCreated is triggered when the Environment is successfully created and Status is wvlsInitialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnInitializationError"></span><code>property <strong>OnInitializationError</strong>                  : TLoaderNotifyEvent                      read <a href="uWVLoader.TWVLoader.html#FOnInitializationError">FOnInitializationError</a>                   write <a href="uWVLoader.TWVLoader.html#FOnInitializationError">FOnInitializationError</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ OnInitializationError is triggered when there was a problem creating the Environment ans Status is wvlsError. ErrorCode and ErrorMessage have more details about this error. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGetCustomSchemes"></span><code>property <strong>OnGetCustomSchemes</strong>                     : TLoaderGetCustomSchemesEvent            read <a href="uWVLoader.TWVLoader.html#FOnGetCustomSchemes">FOnGetCustomSchemes</a>                      write <a href="uWVLoader.TWVLoader.html#FOnGetCustomSchemes">FOnGetCustomSchemes</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>OnGetCustomSchemes is triggered automatically before creaing the environment to register custom schemes.
+
+<p>Fill the aCustomSchemes event parameter with all the information to create one or more ICoreWebView2CustomSchemeRegistration instances that will be used during the creation of the Environment.
+
+<p></p>
+<p>
+
+
+<p>UNKNOWN
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customschemeregistration</a>&quot;&gt;See the ICoreWebView2CustomSchemeRegistration article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions4 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnNewBrowserVersionAvailable"></span><code>property <strong>OnNewBrowserVersionAvailable</strong>           : TLoaderNewBrowserVersionAvailableEvent  read <a href="uWVLoader.TWVLoader.html#FOnNewBrowserVersionAvailable">FOnNewBrowserVersionAvailable</a>            write <a href="uWVLoader.TWVLoader.html#FOnNewBrowserVersionAvailable">FOnNewBrowserVersionAvailable</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ OnNewBrowserVersionAvailable runs when a newer version of the WebView2 Runtime is installed and available using WebView2. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#add_newbrowserversionavailable">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#add_newbrowserversionavailable</a>&quot;&gt;See the ICoreWebView2Environment article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnBrowserProcessExited"></span><code>property <strong>OnBrowserProcessExited</strong>                 : TLoaderBrowserProcessExitedEvent        read <a href="uWVLoader.TWVLoader.html#FOnBrowserProcessExited">FOnBrowserProcessExited</a>                  write <a href="uWVLoader.TWVLoader.html#FOnBrowserProcessExited">FOnBrowserProcessExited</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The OnBrowserProcessExited event is triggered when the collection of WebView2 Runtime processes for the browser process of this environment terminate due to browser process failure or normal shutdown (for example, when all associated WebViews are closed), after all resources have been released (including the user data folder). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5#add_browserprocessexited">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5#add_browserprocessexited</a>&quot;&gt;See the ICoreWebView2Environment5 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnProcessInfosChanged"></span><code>property <strong>OnProcessInfosChanged</strong>                  : TLoaderProcessInfosChangedEvent         read <a href="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">FOnProcessInfosChanged</a>                   write <a href="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">FOnProcessInfosChanged</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ OnProcessInfosChanged is triggered when the ProcessInfos property has changed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#add_processinfoschanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment8#add_processinfoschanged</a>&quot;&gt;See the ICoreWebView2Environment8 article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

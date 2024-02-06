@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2WindowFeatures: Class TCoreWebView2WindowFeatures</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2WindowFeatures"></span><h1 class="cio">Class TCoreWebView2WindowFeatures</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2WindowFeatures.html">uWVCoreWebView2WindowFeatures</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2WindowFeatures = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+
+
+<p>The window features for a WebView popup window. The fields match the windowFeatures passed to window.open as specified in [Window features](<a href="https://developer.mozilla.org/docs/Web/API/Window/open#Window_features">https://developer.mozilla.org/docs/Web/API/Window/open#Window_features</a>) on MDN.
+
+<p>There is no requirement for you to respect the values. If your app does not have corresponding UI features (for example, no toolbar) or if all instance of WebView are opened in tabs and do not have distinct size or positions, then your app does not respect the values. You may want to respect values, but perhaps only some apply to the UI of you app. Accordingly, you may respect all, some, or none of the properties as appropriate for your app. For all numeric properties, if the value that is passed to window.open is outside the range of an unsigned 32bit int, the resulting value is the absolute value of the maximum for unsigned 32bit integer. If you are not able to parse the value an integer, it is considered 0. If the value is a floating point value, it is rounded down to an integer.
+
+<p>In runtime versions 98 or later, the values of ShouldDisplayMenuBar, ShouldDisplayStatus, ShouldDisplayToolbar, and ShouldDisplayScrollBars will not directly depend on the equivalent fields in the windowFeatures string. Instead, they will all be false if the window is expected to be a popup, and true if it is not.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2WindowFeatures</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasPosition">GetHasPosition</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasSize">GetHasSize</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetLeft">GetLeft</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetTop">GetTop</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetWidth">GetWidth</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHeight">GetHeight</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayMenuBar">GetShouldDisplayMenuBar</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayStatus">GetShouldDisplayStatus</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayToolbar">GetShouldDisplayToolbar</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayScrollBars">GetShouldDisplayScrollBars</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Create-ICoreWebView2WindowFeatures-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#CopyToRecord-TWVWindowFeatures-">CopyToRecord</a></strong>(var aWindowFeatures : <a href="uWVTypes.TWVWindowFeatures.html">TWVWindowFeatures</a>);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Initialized">Initialized</a></strong>             : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#BaseIntf">BaseIntf</a></strong>                : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>     read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#HasPosition">HasPosition</a></strong>             : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasPosition">GetHasPosition</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#HasSize">HasSize</a></strong>                 : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasSize">GetHasSize</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Left">Left</a></strong>                    : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetLeft">GetLeft</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Top">Top</a></strong>                     : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetTop">GetTop</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Width">Width</a></strong>                   : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetWidth">GetWidth</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#Height">Height</a></strong>                  : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHeight">GetHeight</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#ShouldDisplayMenuBar">ShouldDisplayMenuBar</a></strong>    : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayMenuBar">GetShouldDisplayMenuBar</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#ShouldDisplayStatus">ShouldDisplayStatus</a></strong>     : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayStatus">GetShouldDisplayStatus</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#ShouldDisplayToolbar">ShouldDisplayToolbar</a></strong>    : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayToolbar">GetShouldDisplayToolbar</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#ShouldDisplayScrollBars">ShouldDisplayScrollBars</a></strong> : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayScrollBars">GetShouldDisplayScrollBars</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasPosition"></span><code>function <strong>GetHasPosition</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasSize"></span><code>function <strong>GetHasSize</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetLeft"></span><code>function <strong>GetLeft</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTop"></span><code>function <strong>GetTop</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetWidth"></span><code>function <strong>GetWidth</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHeight"></span><code>function <strong>GetHeight</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldDisplayMenuBar"></span><code>function <strong>GetShouldDisplayMenuBar</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldDisplayStatus"></span><code>function <strong>GetShouldDisplayStatus</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldDisplayToolbar"></span><code>function <strong>GetShouldDisplayToolbar</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldDisplayScrollBars"></span><code>function <strong>GetShouldDisplayScrollBars</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2WindowFeatures-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyToRecord-TWVWindowFeatures-"></span><code>procedure <strong>CopyToRecord</strong>(var aWindowFeatures : <a href="uWVTypes.TWVWindowFeatures.html">TWVWindowFeatures</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>             : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>     read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasPosition"></span><code>property <strong>HasPosition</strong>             : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasPosition">GetHasPosition</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies left and top values. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hasposition">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hasposition</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasSize"></span><code>property <strong>HasSize</strong>                 : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHasSize">GetHasSize</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies height and width values. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hassize">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_hassize</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Left"></span><code>property <strong>Left</strong>                    : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetLeft">GetLeft</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the left position of the window. If `HasPosition` is set to `FALSE`, this field is ignored. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_left">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_left</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Top"></span><code>property <strong>Top</strong>                     : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetTop">GetTop</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the top position of the window. If `HasPosition` is set to `FALSE`, this field is ignored. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_top">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_top</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Width"></span><code>property <strong>Width</strong>                   : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetWidth">GetWidth</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the width of the window. Minimum value is `100`. If `HasSize` is set to `FALSE`, this field is ignored. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_width">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_width</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Height"></span><code>property <strong>Height</strong>                  : cardinal                        read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetHeight">GetHeight</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Specifies the height of the window. Minimum value is `100`. If `HasSize` is set to `FALSE`, this field is ignored. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_height">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_height</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldDisplayMenuBar"></span><code>property <strong>ShouldDisplayMenuBar</strong>    : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayMenuBar">GetShouldDisplayMenuBar</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates that the menu bar is displayed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaymenubar">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaymenubar</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldDisplayStatus"></span><code>property <strong>ShouldDisplayStatus</strong>     : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayStatus">GetShouldDisplayStatus</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates that the status bar is displayed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaystatus">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaystatus</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldDisplayToolbar"></span><code>property <strong>ShouldDisplayToolbar</strong>    : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayToolbar">GetShouldDisplayToolbar</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates that the browser toolbar is displayed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaytoolbar">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplaytoolbar</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldDisplayScrollBars"></span><code>property <strong>ShouldDisplayScrollBars</strong> : boolean                         read <a href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html#GetShouldDisplayScrollBars">GetShouldDisplayScrollBars</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates that the scroll bars are displayed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplayscrollbars">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_shoulddisplayscrollbars</a>&quot;&gt;See the ICoreWebView2WindowFeatures article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

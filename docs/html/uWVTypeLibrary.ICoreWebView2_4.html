@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_4"></span><h1 class="cio">Interface ICoreWebView2_4</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_4 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2_3 interface to support FrameCreated and DownloadStarting events. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_4">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_4</a>&quot;&gt;See the ICoreWebView2_4 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="thisitem">ICoreWebView2_4</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_4.html#add_FrameCreated-ICoreWebView2FrameCreatedEventHandler-EventRegistrationToken-">add_FrameCreated</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventHandler.html">ICoreWebView2FrameCreatedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_4.html#remove_FrameCreated-EventRegistrationToken-">remove_FrameCreated</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_4.html#add_DownloadStarting-ICoreWebView2DownloadStartingEventHandler-EventRegistrationToken-">add_DownloadStarting</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventHandler.html">ICoreWebView2DownloadStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_4.html#remove_DownloadStarting-EventRegistrationToken-">remove_DownloadStarting</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_FrameCreated-ICoreWebView2FrameCreatedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_FrameCreated</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventHandler.html">ICoreWebView2FrameCreatedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Raised when a new iframe is created. Handle this event to get access to ICoreWebView2Frame objects. Use ICoreWebView2Frame.add_Destroyed to listen for when this iframe goes away. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{20D02D59-6DF2-42DC-BD06-F98A694B1302}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_FrameCreated-EventRegistrationToken-"></span><code>function <strong>remove_FrameCreated</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_FrameCreated. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_DownloadStarting-ICoreWebView2DownloadStartingEventHandler-EventRegistrationToken-"></span><code>function <strong>add_DownloadStarting</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventHandler.html">ICoreWebView2DownloadStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `DownloadStarting` event. This event is raised when a download has begun, blocking the default download dialog, but not blocking the progress of the download.
+
+<p>The host can choose to cancel a download, change the result file path, and hide the default download dialog. If the host chooses to cancel the download, the download is not saved, no dialog is shown, and the state is changed to COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED with interrupt reason COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED. Otherwise, the download is saved to the default path after the event completes, and default download dialog is shown if the host did not choose to hide it. The host can change the visibility of the download dialog using the `Handled` property. If the event is not handled, downloads complete normally with the default dialog shown.
+
+<p>\snippet ScenarioCustomDownloadExperience.cpp DownloadStarting </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_DownloadStarting-EventRegistrationToken-"></span><code>function <strong>remove_DownloadStarting</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_DownloadStarting`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

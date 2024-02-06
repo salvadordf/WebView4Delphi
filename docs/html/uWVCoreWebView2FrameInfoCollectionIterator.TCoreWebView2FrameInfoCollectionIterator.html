@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2FrameInfoCollectionIterator: Class TCoreWebView2FrameInfoCollectionIterator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2FrameInfoCollectionIterator"></span><h1 class="cio">Class TCoreWebView2FrameInfoCollectionIterator</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2FrameInfoCollectionIterator.html">uWVCoreWebView2FrameInfoCollectionIterator</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2FrameInfoCollectionIterator = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Iterator for a collection of FrameInfos. For more info, see ICoreWebView2ProcessFailedEventArgs2 and ICoreWebView2FrameInfoCollection. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator</a>&quot;&gt;See the ICoreWebView2FrameInfoCollectionIterator article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2FrameInfoCollectionIterator</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetHasCurrent">GetHasCurrent</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetCurrent">GetCurrent</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#Create-ICoreWebView2FrameInfoCollectionIterator-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#MoveNext">MoveNext</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#Initialized">Initialized</a></strong> : boolean                                    read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#BaseIntf">BaseIntf</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>   read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#HasCurrent">HasCurrent</a></strong>  : boolean                                    read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetHasCurrent">GetHasCurrent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#Current">Current</a></strong>     : <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>                     read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetCurrent">GetCurrent</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHasCurrent"></span><code>function <strong>GetHasCurrent</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCurrent"></span><code>function <strong>GetCurrent</strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2FrameInfoCollectionIterator-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MoveNext"></span><code>function <strong>MoveNext</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Move the iterator to the next `FrameInfo` in the collection. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#movenext">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#movenext</a>&quot;&gt;See the ICoreWebView2FrameInfoCollectionIterator article.)</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong> : boolean                                    read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>    : <a href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html">ICoreWebView2FrameInfoCollectionIterator</a>   read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasCurrent"></span><code>property <strong>HasCurrent</strong>  : boolean                                    read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetHasCurrent">GetHasCurrent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `TRUE` when the iterator has not run out of `FrameInfo`s. If the collection over which the iterator is iterating is empty or if the iterator has gone past the end of the collection, then this is `FALSE`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#get_hascurrent">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#get_hascurrent</a>&quot;&gt;See the ICoreWebView2FrameInfoCollectionIterator article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Current"></span><code>property <strong>Current</strong>     : <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>                     read <a href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html#GetCurrent">GetCurrent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the current `ICoreWebView2FrameInfo` of the iterator. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)` if HasCurrent is `FALSE`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#getcurrent">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#getcurrent</a>&quot;&gt;See the ICoreWebView2FrameInfoCollectionIterator article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

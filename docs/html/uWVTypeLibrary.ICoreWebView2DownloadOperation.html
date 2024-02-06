@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2DownloadOperation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2DownloadOperation"></span><h1 class="cio">Interface ICoreWebView2DownloadOperation</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2DownloadOperation = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Represents a download operation. Gives access to the download's metadata and supports a user canceling, pausing, or resuming the download. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2DownloadOperation</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#add_BytesReceivedChanged-ICoreWebView2BytesReceivedChangedEventHandler-EventRegistrationToken-">add_BytesReceivedChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2BytesReceivedChangedEventHandler.html">ICoreWebView2BytesReceivedChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#remove_BytesReceivedChanged-EventRegistrationToken-">remove_BytesReceivedChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#add_EstimatedEndTimeChanged-ICoreWebView2EstimatedEndTimeChangedEventHandler-EventRegistrationToken-">add_EstimatedEndTimeChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2EstimatedEndTimeChangedEventHandler.html">ICoreWebView2EstimatedEndTimeChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#remove_EstimatedEndTimeChanged-EventRegistrationToken-">remove_EstimatedEndTimeChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#add_StateChanged-ICoreWebView2StateChangedEventHandler-EventRegistrationToken-">add_StateChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2StateChangedEventHandler.html">ICoreWebView2StateChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#remove_StateChanged-EventRegistrationToken-">remove_StateChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_uri-PWideChar-">Get_uri</a></strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_ContentDisposition-PWideChar-">Get_ContentDisposition</a></strong>(out ContentDisposition: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_MimeType-PWideChar-">Get_MimeType</a></strong>(out MimeType: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_TotalBytesToReceive-Int64-">Get_TotalBytesToReceive</a></strong>(out TotalBytesToReceive: Int64): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_BytesReceived-Int64-">Get_BytesReceived</a></strong>(out BytesReceived: Int64): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_EstimatedEndTime-PWideChar-">Get_EstimatedEndTime</a></strong>(out EstimatedEndTime: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_ResultFilePath-PWideChar-">Get_ResultFilePath</a></strong>(out ResultFilePath: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_State-COREWEBVIEW2_DOWNLOAD_STATE-">Get_State</a></strong>(out downloadState: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DOWNLOAD_STATE">COREWEBVIEW2_DOWNLOAD_STATE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_InterruptReason-COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON-">Get_InterruptReason</a></strong>(out InterruptReason: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON">COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Cancel">Cancel</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Pause">Pause</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Resume">Resume</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html#Get_CanResume-Integer-">Get_CanResume</a></strong>(out CanResume: Integer): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_BytesReceivedChanged-ICoreWebView2BytesReceivedChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_BytesReceivedChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2BytesReceivedChangedEventHandler.html">ICoreWebView2BytesReceivedChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `BytesReceivedChanged` event.
+
+<p>\snippet ScenarioCustomDownloadExperience.cpp BytesReceivedChanged </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{3D6B6CF2-AFE1-44C7-A995-C65117714336}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_BytesReceivedChanged-EventRegistrationToken-"></span><code>function <strong>remove_BytesReceivedChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_BytesReceivedChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_EstimatedEndTimeChanged-ICoreWebView2EstimatedEndTimeChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_EstimatedEndTimeChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2EstimatedEndTimeChangedEventHandler.html">ICoreWebView2EstimatedEndTimeChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `EstimatedEndTimeChanged` event. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_EstimatedEndTimeChanged-EventRegistrationToken-"></span><code>function <strong>remove_EstimatedEndTimeChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_EstimatedEndTimeChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_StateChanged-ICoreWebView2StateChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_StateChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2StateChangedEventHandler.html">ICoreWebView2StateChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `StateChanged` event.
+
+<p>\snippet ScenarioCustomDownloadExperience.cpp StateChanged </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_StateChanged-EventRegistrationToken-"></span><code>function <strong>remove_StateChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_StateChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_uri-PWideChar-"></span><code>function <strong>Get_uri</strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The URI of the download.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ContentDisposition-PWideChar-"></span><code>function <strong>Get_ContentDisposition</strong>(out ContentDisposition: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The Content-Disposition header value from the download's HTTP response.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_MimeType-PWideChar-"></span><code>function <strong>Get_MimeType</strong>(out MimeType: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ MIME type of the downloaded content.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_TotalBytesToReceive-Int64-"></span><code>function <strong>Get_TotalBytesToReceive</strong>(out TotalBytesToReceive: Int64): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The expected size of the download in total number of bytes based on the HTTP Content-Length header. Returns -1 if the size is unknown. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_BytesReceived-Int64-"></span><code>function <strong>Get_BytesReceived</strong>(out BytesReceived: Int64): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The number of bytes that have been written to the download file. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_EstimatedEndTime-PWideChar-"></span><code>function <strong>Get_EstimatedEndTime</strong>(out EstimatedEndTime: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The estimated end time in [ISO 8601 Date and Time Format](<a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a>).
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ResultFilePath-PWideChar-"></span><code>function <strong>Get_ResultFilePath</strong>(out ResultFilePath: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The absolute path to the download file, including file name. Host can change this from `ICoreWebView2DownloadStartingEventArgs`.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_State-COREWEBVIEW2_DOWNLOAD_STATE-"></span><code>function <strong>Get_State</strong>(out downloadState: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DOWNLOAD_STATE">COREWEBVIEW2_DOWNLOAD_STATE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The state of the download. A download can be in progress, interrupted, or completed. See `COREWEBVIEW2_DOWNLOAD_STATE` for descriptions of states. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_InterruptReason-COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON-"></span><code>function <strong>Get_InterruptReason</strong>(out InterruptReason: <a href="uWVTypeLibrary.html#COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON">COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The reason why connection with file host was broken. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Cancel"></span><code>function <strong>Cancel</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Cancels the download. If canceled, the default download dialog shows that the download was canceled. Host should set the `Cancel` property from `ICoreWebView2SDownloadStartingEventArgs` if the download should be canceled without displaying the default download dialog. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Pause"></span><code>function <strong>Pause</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Pauses the download. If paused, the default download dialog shows that the download is paused. No effect if download is already paused. Pausing a download changes the state to `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` with `InterruptReason` set to `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Resume"></span><code>function <strong>Resume</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Resumes a paused download. May also resume a download that was interrupted for another reason, if `CanResume` returns true. Resuming a download changes the state from `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` to `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_CanResume-Integer-"></span><code>function <strong>Get_CanResume</strong>(out CanResume: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if an interrupted download can be resumed. Downloads with the following interrupt reasons may automatically resume without you calling any methods: `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE`, `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH`, `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT`. In these cases download progress may be restarted with `BytesReceived` reset to 0. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -22,6 +22,7 @@ type
   TMiniBrowserFrm = class(TForm)
     MenuItem1: TMenuItem;
     Cleatallstorage1: TMenuItem;
+    MenuItem2: TMenuItem;
     SmartScreen1: TMenuItem;
     MenuItem4: TMenuItem;
     Muted1: TMenuItem;
@@ -99,12 +100,14 @@ type
     procedure MenuItem3Click(Sender: TObject);
     procedure Muted1Click(Sender: TObject);      
     procedure Cleatallstorage1Click(Sender: TObject);  
-    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);     
+    procedure MenuItem2Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1BasicAuthenticationRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2BasicAuthenticationRequestedEventArgs);
     procedure WVBrowser1ClearBrowsingDataCompleted(Sender: TObject; aErrorCode: HRESULT);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
+    procedure WVBrowser1ExecuteScriptWithResultCompleted(Sender: TObject; errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: integer);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1PrintCompleted(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus);
     procedure WVBrowser1PrintToPdfCompleted(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: Boolean);
@@ -157,8 +160,9 @@ implementation
 uses
   fpjson, jsonparser, uTextViewerForm,
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2HttpResponseHeaders,
-  uWVCoreWebView2HttpHeadersCollectionIterator,
-  uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo;
+  uWVCoreWebView2HttpHeadersCollectionIterator, uWVConstants,
+  uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo,
+  uWVCoreWebView2ExecuteScriptResult, uWVCoreWebView2ScriptException;
 
 procedure TMiniBrowserFrm.akesnapshot1Click(Sender: TObject);
 var
@@ -237,6 +241,16 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.MenuItem2Click(Sender: TObject);
+var
+  TempJavaScript : string;
+begin
+  TempJavaScript := InputBox('Execute JavaScript', 'Code:', 'document.title;');
+
+  if (TempJavaScript <> '') then
+    WVBrowser1.ExecuteScriptWithResult(TempJavaScript);
 end;
 
 procedure TMiniBrowserFrm.SmartScreen1Click(Sender: TObject);
@@ -571,6 +585,48 @@ procedure TMiniBrowserFrm.WVBrowser1DocumentTitleChanged(
   Sender: TObject);
 begin
   Caption := 'MiniBrowser - ' + UTF8Encode(WVBrowser1.DocumentTitle);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ExecuteScriptWithResultCompleted(
+  Sender: TObject; errorCode: HResult;
+  const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: integer);
+var
+  TempResult    : TCoreWebView2ExecuteScriptResult;
+  TempException : TCoreWebView2ScriptException;
+  TempMsg       : string;
+  TempJSResult  : wvstring;
+  TempJSValue   : boolean;
+begin
+  if succeeded(errorCode) then
+    TempMsg := 'errorCode: succeeded' + CRLF
+   else
+    TempMsg := 'errorCode: error ($' + inttohex(errorCode, 8) + ')' + CRLF;
+
+  TempResult := TCoreWebView2ExecuteScriptResult.Create(result_);
+
+  if TempResult.Initialized then
+    begin
+      if TempResult.Succeeded_ then
+        begin
+          if TempResult.TryGetResultAsString(TempJSResult, TempJSValue) then
+            TempMsg := TempMsg + 'String result: ' + TempJSResult
+           else
+            TempMsg := TempMsg + 'JSON result: ' + TempResult.ResultAsJson;
+        end
+       else
+        begin
+          TempException := TCoreWebView2ScriptException.Create(TempResult.Exception);
+
+          if TempException.Initialized then
+            TempMsg := TempMsg + 'Exception: ' + TempException.ToJson;
+
+          TempException.Free;
+        end;
+    end;
+
+  TempResult.Free;
+
+  showmessage(TempMsg);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1InitializationError(Sender: TObject;

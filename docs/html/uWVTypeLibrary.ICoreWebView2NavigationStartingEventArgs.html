@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2NavigationStartingEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2NavigationStartingEventArgs"></span><h1 class="cio">Interface ICoreWebView2NavigationStartingEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2NavigationStartingEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the NavigationStarting event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs</a>&quot;&gt;See the ICoreWebView2NavigationStartingEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2NavigationStartingEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_uri-PWideChar-">Get_uri</a></strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_IsUserInitiated-Integer-">Get_IsUserInitiated</a></strong>(out IsUserInitiated: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_IsRedirected-Integer-">Get_IsRedirected</a></strong>(out IsRedirected: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_RequestHeaders-ICoreWebView2HttpRequestHeaders-">Get_RequestHeaders</a></strong>(out RequestHeaders: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_Cancel-Integer-">Get_Cancel</a></strong>(out Cancel: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Set_Cancel-Integer-">Set_Cancel</a></strong>(Cancel: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html#Get_NavigationId-Largeuint-">Get_NavigationId</a></strong>(out NavigationId: Largeuint): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_uri-PWideChar-"></span><code>function <strong>Get_uri</strong>(out uri: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The uri of the requested navigation.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{5B495469-E119-438A-9B18-7604F25F2E49}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsUserInitiated-Integer-"></span><code>function <strong>Get_IsUserInitiated</strong>(out IsUserInitiated: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `TRUE` when the navigation was initiated through a user gesture as opposed to programmatic navigation by page script. Navigations initiated via WebView2 APIs are considered as user initiated. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsRedirected-Integer-"></span><code>function <strong>Get_IsRedirected</strong>(out IsRedirected: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `TRUE` when the navigation is redirected. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_RequestHeaders-ICoreWebView2HttpRequestHeaders-"></span><code>function <strong>Get_RequestHeaders</strong>(out RequestHeaders: <a href="uWVTypeLibrary.ICoreWebView2HttpRequestHeaders.html">ICoreWebView2HttpRequestHeaders</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The HTTP request headers for the navigation.
+
+<p>\&gt; [!NOTE]\n\&gt; You are not able to modify the HTTP request headers in a `NavigationStarting` event. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Cancel-Integer-"></span><code>function <strong>Get_Cancel</strong>(out Cancel: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may set this flag to cancel the navigation. If set, the navigation is not longer present and the content of the current page is intact. For performance reasons, `GET` HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless `msWebView2CancellableAboutNavigations` feature flag is disabled. Cancellation of frame navigation to `srcdoc` is not supported and wil be ignored. A cancelled navigation will fire a `NavigationCompleted` event with a `WebErrorStatus` of `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Cancel-Integer-"></span><code>function <strong>Set_Cancel</strong>(Cancel: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Cancel` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_NavigationId-Largeuint-"></span><code>function <strong>Get_NavigationId</strong>(out NavigationId: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The ID of the navigation. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_11</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_11"></span><h1 class="cio">Interface ICoreWebView2_11</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_11 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_10 that supports sessionId for CDP method calls and ContextMenuRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_11">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_11</a>&quot;&gt;See the ICoreWebView2_11 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="thisitem">ICoreWebView2_11</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_11.html#CallDevToolsProtocolMethodForSession-PWideChar-PWideChar-PWideChar-ICoreWebView2CallDevToolsProtocolMethodCompletedHandler-">CallDevToolsProtocolMethodForSession</a></strong>(sessionId: PWideChar; methodName: PWideChar; parametersAsJson: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html">ICoreWebView2CallDevToolsProtocolMethodCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_11.html#add_ContextMenuRequested-ICoreWebView2ContextMenuRequestedEventHandler-EventRegistrationToken-">add_ContextMenuRequested</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventHandler.html">ICoreWebView2ContextMenuRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_11.html#remove_ContextMenuRequested-EventRegistrationToken-">remove_ContextMenuRequested</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CallDevToolsProtocolMethodForSession-PWideChar-PWideChar-PWideChar-ICoreWebView2CallDevToolsProtocolMethodCompletedHandler-"></span><code>function <strong>CallDevToolsProtocolMethodForSession</strong>(sessionId: PWideChar; methodName: PWideChar; parametersAsJson: PWideChar; const handler: <a href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html">ICoreWebView2CallDevToolsProtocolMethodCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Runs an asynchronous `DevToolsProtocol` method for a specific session of an attached target. There could be multiple `DevToolsProtocol` targets in a WebView. Besides the top level page, iframes from different origin and web workers are also separate targets. Attaching to these targets allows interaction with them. When the DevToolsProtocol is attached to a target, the connection is identified by a sessionId. To use this API, you must set the `flatten` parameter to true when calling `Target.attachToTarget` or `Target.setAutoAttach` `DevToolsProtocol` method. Using `Target.setAutoAttach` is recommended as that would allow you to attach to dedicated worker targets, which are not discoverable via other APIs like `Target.getTargets`. For more information about targets and sessions, navigate to [DevTools Protocol Viewer](<a href="https://chromedevtools.github.io/devtools-protocol/tot/Target">https://chromedevtools.github.io/devtools-protocol/tot/Target</a>). For more information about available methods, navigate to [DevTools Protocol Viewer](<a href="https://chromedevtools.github.io/devtools-protocol/tot">https://chromedevtools.github.io/devtools-protocol/tot</a>) The `sessionId` parameter is the sessionId for an attached target. nullptr or empty string is treated as the session for the default target for the top page. The `methodName` parameter is the full name of the method in the `{domain}.{method}` format. The `parametersAsJson` parameter is a JSON formatted string containing the parameters for the corresponding method. The `Invoke` method of the `handler` is run when the method asynchronously completes. `Invoke` is run with the return object of the method as a JSON string. This function returns E_INVALIDARG if the `methodName` is unknown or the `parametersAsJson` has an error. In the case of such an error, the `returnObjectAsJson` parameter of the handler will include information about the error.
+
+<p>\snippet ScriptComponent.cpp DevToolsProtocolMethodMultiSession
+
+<p>\snippet ScriptComponent.cpp CallDevToolsProtocolMethodForSession </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{0BE78E56-C193-4051-B943-23B460C08BDB}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ContextMenuRequested-ICoreWebView2ContextMenuRequestedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ContextMenuRequested</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventHandler.html">ICoreWebView2ContextMenuRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `ContextMenuRequested` event. `ContextMenuRequested` event is raised when a context menu is requested by the user and the content inside WebView hasn't disabled context menus. The host has the option to create their own context menu with the information provided in the event or can add items to or remove items from WebView context menu. If the host doesn't handle the event, WebView will display the default context menu.
+
+<p>\snippet SettingsComponent.cpp EnableCustomMenu </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ContextMenuRequested-EventRegistrationToken-"></span><code>function <strong>remove_ContextMenuRequested</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_ContextMenuRequested`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

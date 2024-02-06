@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2WebResourceResponse: Class TCoreWebView2WebResourceResponse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2WebResourceResponse"></span><h1 class="cio">Class TCoreWebView2WebResourceResponse</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2WebResourceResponse.html">uWVCoreWebView2WebResourceResponse</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2WebResourceResponse = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ An HTTP response used with the WebResourceRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse</a>&quot;&gt;See the ICoreWebView2WebResourceResponse article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2WebResourceResponse</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetContent">GetContent</a></strong>: IStream;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetHeaders">GetHeaders</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetStatusCode">GetStatusCode</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetReasonPhrase">GetReasonPhrase</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetContent-IStream-">SetContent</a></strong>(const aContent: IStream);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetStatusCode-integer-">SetStatusCode</a></strong>(aStatusCode: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetReasonPhrase-wvstring-">SetReasonPhrase</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#Create-ICoreWebView2WebResourceResponse-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#Initialized">Initialized</a></strong>  : boolean                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#BaseIntf">BaseIntf</a></strong>     : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>  read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#StatusCode">StatusCode</a></strong>   : integer                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetStatusCode">GetStatusCode</a>    write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetStatusCode-integer-">SetStatusCode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#ReasonPhrase">ReasonPhrase</a></strong> : <a href="uWVTypes.html#wvstring">wvstring</a>                          read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetReasonPhrase">GetReasonPhrase</a>  write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetReasonPhrase-wvstring-">SetReasonPhrase</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#Content">Content</a></strong>      : IStream                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetContent">GetContent</a>       write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetContent-IStream-">SetContent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#Headers">Headers</a></strong>      : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>  read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetHeaders">GetHeaders</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetContent"></span><code>function <strong>GetContent</strong>: IStream;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHeaders"></span><code>function <strong>GetHeaders</strong>: <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetStatusCode"></span><code>function <strong>GetStatusCode</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetReasonPhrase"></span><code>function <strong>GetReasonPhrase</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetContent-IStream-"></span><code>procedure <strong>SetContent</strong>(const aContent: IStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetStatusCode-integer-"></span><code>procedure <strong>SetStatusCode</strong>(aStatusCode: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetReasonPhrase-wvstring-"></span><code>procedure <strong>SetReasonPhrase</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2WebResourceResponse-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>  : boolean                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>     : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>  read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StatusCode"></span><code>property <strong>StatusCode</strong>   : integer                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetStatusCode">GetStatusCode</a>    write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetStatusCode-integer-">SetStatusCode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The HTTP response status code. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_statuscode">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_statuscode</a>&quot;&gt;See the ICoreWebView2WebResourceResponse article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReasonPhrase"></span><code>property <strong>ReasonPhrase</strong> : <a href="uWVTypes.html#wvstring">wvstring</a>                          read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetReasonPhrase">GetReasonPhrase</a>  write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetReasonPhrase-wvstring-">SetReasonPhrase</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The HTTP response reason phrase. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_reasonphrase">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_reasonphrase</a>&quot;&gt;See the ICoreWebView2WebResourceResponse article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Content"></span><code>property <strong>Content</strong>      : IStream                           read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetContent">GetContent</a>       write <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#SetContent-IStream-">SetContent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>HTTP response content as stream. Stream must have all the content data available by the time the `WebResourceRequested` event deferral of this response is completed. Stream should be agile or be created from a background thread to prevent performance impact to the UI thread. `Null` means no content data. `IStream` semantics apply (return `S_OK` to `Read` runs until all data is exhausted).
+
+<p>When providing the response data, you should consider relevant HTTP request headers just like an HTTP server would do. For example, if the request was for a video resource in a HTML video element, the request may contain the [Range](<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range</a>) header to request only a part of the video that is streaming. In this case, your response stream should be only the portion of the video specified by the range HTTP request headers and you should set the appropriate [Content-Range](<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range</a>) header in the response.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_content">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_content</a>&quot;&gt;See the ICoreWebView2WebResourceResponse article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Headers"></span><code>property <strong>Headers</strong>      : <a href="uWVTypeLibrary.ICoreWebView2HttpResponseHeaders.html">ICoreWebView2HttpResponseHeaders</a>  read <a href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html#GetHeaders">GetHeaders</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Overridden HTTP response headers. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_headers">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse#get_headers</a>&quot;&gt;See the ICoreWebView2WebResourceResponse article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

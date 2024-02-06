@@ -64,6 +64,7 @@ type
     GetBrowserExtensionsMenu: TMenuItem;
     N3: TMenuItem;
     Addbrowserextension1: TMenuItem;
+    ExecuteJavaScript1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -105,6 +106,7 @@ type
     procedure SmartScreen1Click(Sender: TObject);
     procedure GetBrowserExtensionsMenuClick(Sender: TObject);
     procedure Addbrowserextension1Click(Sender: TObject);
+    procedure ExecuteJavaScript1Click(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -133,6 +135,7 @@ type
     procedure WVBrowser1ProfileGetBrowserExtensionsCompleted(Sender: TObject; aErrorCode: HRESULT; const extensionList: ICoreWebView2BrowserExtensionList);
     procedure WVBrowser1ProfileAddBrowserExtensionCompleted(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension);
     procedure WVBrowser1ContainsFullScreenElementChanged(Sender: TObject);
+    procedure WVBrowser1ExecuteScriptWithResultCompleted(Sender: TObject; errorCode: HRESULT; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: Integer);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -172,7 +175,8 @@ uses
   uWVCoreWebView2ProcessInfoCollection, uWVCoreWebView2ProcessInfo,
   uWVCoreWebView2Delegates, uWVCoreWebView2ProcessExtendedInfoCollection,
   uWVCoreWebView2ProcessExtendedInfo, uWVCoreWebView2BrowserExtensionList,
-  uWVCoreWebView2BrowserExtension;
+  uWVCoreWebView2BrowserExtension, uWVCoreWebView2ExecuteScriptResult,
+  uWVCoreWebView2ScriptException;
 
 procedure TMiniBrowserFrm.Takesnapshot1Click(Sender: TObject);
 var
@@ -333,6 +337,16 @@ end;
 procedure TMiniBrowserFrm.Downloadfavicon1Click(Sender: TObject);
 begin
   WVBrowser1.GetFavicon;
+end;
+
+procedure TMiniBrowserFrm.ExecuteJavaScript1Click(Sender: TObject);
+var
+  TempJavaScript : string;
+begin
+  TempJavaScript := InputBox('Execute JavaScript', 'Code:', 'document.title;');
+
+  if (TempJavaScript <> '') then
+    WVBrowser1.ExecuteScriptWithResult(TempJavaScript);
 end;
 
 procedure TMiniBrowserFrm.FormCreate(Sender: TObject);
@@ -635,6 +649,48 @@ begin
           end;
       end;
     end;
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ExecuteScriptWithResultCompleted(
+  Sender: TObject; errorCode: HRESULT;
+  const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: Integer);
+var
+  TempResult    : TCoreWebView2ExecuteScriptResult;
+  TempException : TCoreWebView2ScriptException;
+  TempMsg       : string;
+  TempJSResult  : wvstring;
+  TempJSValue   : boolean;
+begin
+  if succeeded(errorCode) then
+    TempMsg := 'errorCode: succeeded' + CRLF
+   else
+    TempMsg := 'errorCode: error ($' + inttohex(errorCode, 8) + ')' + CRLF;
+
+  TempResult := TCoreWebView2ExecuteScriptResult.Create(result_);
+
+  if TempResult.Initialized then
+    begin
+      if TempResult.Succeeded_ then
+        begin
+          if TempResult.TryGetResultAsString(TempJSResult, TempJSValue) then
+            TempMsg := TempMsg + 'String result: ' + TempJSResult
+           else
+            TempMsg := TempMsg + 'JSON result: ' + TempResult.ResultAsJson;
+        end
+       else
+        begin
+          TempException := TCoreWebView2ScriptException.Create(TempResult.Exception);
+
+          if TempException.Initialized then
+            TempMsg := TempMsg + 'Exception: ' + TempException.ToJson;
+
+          TempException.Free;
+        end;
+    end;
+
+  TempResult.Free;
+
+  showmessage(TempMsg);
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1GetFaviconCompleted(Sender: TObject;

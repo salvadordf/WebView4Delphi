@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Controller3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Controller3"></span><h1 class="cio">Interface ICoreWebView2Controller3</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Controller3 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Controller2.html">ICoreWebView2Controller2</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Controller2 interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3</a>&quot;&gt;See the ICoreWebView2Controller3 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Controller2.html">ICoreWebView2Controller2</a></li>
+<li class="thisitem">ICoreWebView2Controller3</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Get_RasterizationScale-Double-">Get_RasterizationScale</a></strong>(out scale: Double): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Set_RasterizationScale-Double-">Set_RasterizationScale</a></strong>(scale: Double): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Get_ShouldDetectMonitorScaleChanges-Integer-">Get_ShouldDetectMonitorScaleChanges</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Set_ShouldDetectMonitorScaleChanges-Integer-">Set_ShouldDetectMonitorScaleChanges</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#add_RasterizationScaleChanged-ICoreWebView2RasterizationScaleChangedEventHandler-EventRegistrationToken-">add_RasterizationScaleChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html">ICoreWebView2RasterizationScaleChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#remove_RasterizationScaleChanged-EventRegistrationToken-">remove_RasterizationScaleChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Get_BoundsMode-COREWEBVIEW2_BOUNDS_MODE-">Get_BoundsMode</a></strong>(out BoundsMode: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BOUNDS_MODE">COREWEBVIEW2_BOUNDS_MODE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller3.html#Set_BoundsMode-COREWEBVIEW2_BOUNDS_MODE-">Set_BoundsMode</a></strong>(BoundsMode: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BOUNDS_MODE">COREWEBVIEW2_BOUNDS_MODE</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_RasterizationScale-Double-"></span><code>function <strong>Get_RasterizationScale</strong>(out scale: Double): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The rasterization scale for the WebView. The rasterization scale is the combination of the monitor DPI scale and text scaling set by the user. This value should be updated when the DPI scale of the app's top level window changes (i.e. monitor DPI scale changes or window changes monitor) or when the text scale factor of the system changes.
+
+<p>\snippet AppWindow.cpp DPIChanged
+
+<p>\snippet AppWindow.cpp TextScaleChanged1
+
+<p>\snippet AppWindow.cpp TextScaleChanged2
+
+<p>Rasterization scale applies to the WebView content, as well as popups, context menus, scroll bars, and so on. Normal app scaling scenarios should use the ZoomFactor property or SetBoundsAndZoomFactor API which only scale the rendered HTML content and not popups, context menus, scroll bars, and so on.
+
+<p>\snippet ViewComponent.cpp RasterizationScale </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{F9614724-5D2B-41DC-AEF7-73D62B51543B}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_RasterizationScale-Double-"></span><code>function <strong>Set_RasterizationScale</strong>(scale: Double): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the rasterization scale property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ShouldDetectMonitorScaleChanges-Integer-"></span><code>function <strong>Get_ShouldDetectMonitorScaleChanges</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ ShouldDetectMonitorScaleChanges property determines whether the WebView attempts to track monitor DPI scale changes. When true, the WebView will track monitor DPI scale changes, update the RasterizationScale property, and raises RasterizationScaleChanged event. When false, the WebView will not track monitor DPI scale changes, and the app must update the RasterizationScale property itself. RasterizationScaleChanged event will never raise when ShouldDetectMonitorScaleChanges is false. Apps that want to set their own rasterization scale should set this property to false to avoid the WebView2 updating the RasterizationScale property to match the monitor DPI scale. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_ShouldDetectMonitorScaleChanges-Integer-"></span><code>function <strong>Set_ShouldDetectMonitorScaleChanges</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the ShouldDetectMonitorScaleChanges property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_RasterizationScaleChanged-ICoreWebView2RasterizationScaleChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_RasterizationScaleChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html">ICoreWebView2RasterizationScaleChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the RasterizationScaleChanged event. The event is raised when the WebView detects that the monitor DPI scale has changed, ShouldDetectMonitorScaleChanges is true, and the WebView has changed the RasterizationScale property.
+
+<p>\snippet ViewComponent.cpp RasterizationScaleChanged </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_RasterizationScaleChanged-EventRegistrationToken-"></span><code>function <strong>remove_RasterizationScaleChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_RasterizationScaleChanged. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_BoundsMode-COREWEBVIEW2_BOUNDS_MODE-"></span><code>function <strong>Get_BoundsMode</strong>(out BoundsMode: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BOUNDS_MODE">COREWEBVIEW2_BOUNDS_MODE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ BoundsMode affects how setting the Bounds and RasterizationScale properties work. Bounds mode can either be in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS mode or COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE mode.
+
+<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, setting the bounds property will set the size of the WebView in raw screen pixels. Changing the rasterization scale in this mode won't change the raw pixel size of the WebView and will only change the rasterization scale.
+
+<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the bounds property will change the logical size of the WebView which can be described by the following equation: ```text Logical size * rasterization scale = Raw Pixel size ``` In this case, changing the rasterization scale will keep the logical size the same and change the raw pixel size.
+
+<p>\snippet ViewComponent.cpp BoundsMode </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_BoundsMode-COREWEBVIEW2_BOUNDS_MODE-"></span><code>function <strong>Set_BoundsMode</strong>(BoundsMode: <a href="uWVTypeLibrary.html#COREWEBVIEW2_BOUNDS_MODE">COREWEBVIEW2_BOUNDS_MODE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the BoundsMode property. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

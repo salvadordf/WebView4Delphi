@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2DownloadOperation: Class TCoreWebView2DownloadOperation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2DownloadOperation"></span><h1 class="cio">Class TCoreWebView2DownloadOperation</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2DownloadOperation.html">uWVCoreWebView2DownloadOperation</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2DownloadOperation = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Represents a download operation. Gives access to the download's metadata and supports a user canceling, pausing, or resuming the download. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2DownloadOperation</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FBytesReceivedChangedToken">FBytesReceivedChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FEstimatedEndTimeChangedToken">FEstimatedEndTimeChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FStateChangedToken">FStateChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FDownloadID">FDownloadID</a></strong>: integer;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetURI">GetURI</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetContentDisposition">GetContentDisposition</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetMimeType">GetMimeType</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetTotalBytesToReceive">GetTotalBytesToReceive</a></strong>: int64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetBytesReceived">GetBytesReceived</a></strong>: int64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetEstimatedEndTime">GetEstimatedEndTime</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetResultFilePath">GetResultFilePath</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetState">GetState</a></strong>: <a href="uWVTypes.html#TWVDownloadState">TWVDownloadState</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInterruptReason">GetInterruptReason</a></strong>: <a href="uWVTypes.html#TWVDownloadInterruptReason">TWVDownloadInterruptReason</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetCanResume">GetCanResume</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#AddBytesReceivedChangedEvent-TComponent-">AddBytesReceivedChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#AddEstimatedEndTimeChangedEvent-TComponent-">AddEstimatedEndTimeChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#AddStateChangedEvent-TComponent-">AddStateChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Create-ICoreWebView2DownloadOperation-integer-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; aDownloadID : integer); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Cancel">Cancel</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Pause">Pause</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Resume">Resume</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#Initialized">Initialized</a></strong>         : boolean                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#BaseIntf">BaseIntf</a></strong>            : <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>  read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#DownloadID">DownloadID</a></strong>          : integer                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FDownloadID">FDownloadID</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#URI">URI</a></strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetURI">GetURI</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#ContentDisposition">ContentDisposition</a></strong>  : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetContentDisposition">GetContentDisposition</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#MimeType">MimeType</a></strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetMimeType">GetMimeType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#TotalBytesToReceive">TotalBytesToReceive</a></strong> : int64                           read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetTotalBytesToReceive">GetTotalBytesToReceive</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#BytesReceived">BytesReceived</a></strong>       : int64                           read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetBytesReceived">GetBytesReceived</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#EstimatedEndTime">EstimatedEndTime</a></strong>    : TDateTime                       read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetEstimatedEndTime">GetEstimatedEndTime</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#ResultFilePath">ResultFilePath</a></strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetResultFilePath">GetResultFilePath</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#State">State</a></strong>               : <a href="uWVTypes.html#TWVDownloadState">TWVDownloadState</a>                read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetState">GetState</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#InterruptReason">InterruptReason</a></strong>     : <a href="uWVTypes.html#TWVDownloadInterruptReason">TWVDownloadInterruptReason</a>      read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInterruptReason">GetInterruptReason</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#CanResume">CanResume</a></strong>           : boolean                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetCanResume">GetCanResume</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBytesReceivedChangedToken"></span><code><strong>FBytesReceivedChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEstimatedEndTimeChangedToken"></span><code><strong>FEstimatedEndTimeChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FStateChangedToken"></span><code><strong>FStateChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDownloadID"></span><code><strong>FDownloadID</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetURI"></span><code>function <strong>GetURI</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetContentDisposition"></span><code>function <strong>GetContentDisposition</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetMimeType"></span><code>function <strong>GetMimeType</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTotalBytesToReceive"></span><code>function <strong>GetTotalBytesToReceive</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBytesReceived"></span><code>function <strong>GetBytesReceived</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetEstimatedEndTime"></span><code>function <strong>GetEstimatedEndTime</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetResultFilePath"></span><code>function <strong>GetResultFilePath</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetState"></span><code>function <strong>GetState</strong>: <a href="uWVTypes.html#TWVDownloadState">TWVDownloadState</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInterruptReason"></span><code>function <strong>GetInterruptReason</strong>: <a href="uWVTypes.html#TWVDownloadInterruptReason">TWVDownloadInterruptReason</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCanResume"></span><code>function <strong>GetCanResume</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddBytesReceivedChangedEvent-TComponent-"></span><code>function <strong>AddBytesReceivedChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddEstimatedEndTimeChangedEvent-TComponent-"></span><code>function <strong>AddEstimatedEndTimeChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddStateChangedEvent-TComponent-"></span><code>function <strong>AddStateChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2DownloadOperation-integer-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; aDownloadID : integer); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Constructor of the ICoreWebView2DownloadOperation wrapper. </p>
+<p>
+ 
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBaseIntf</dt>
+<dd>The ICoreWebView2DownloadOperation instance.</dd>
+<dt>aDownloadID</dt>
+<dd>Custom ID used to identify this download operation.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBrowserComponent</dt>
+<dd>The TWVBrowserBase instance.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Cancel"></span><code>function <strong>Cancel</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Cancels the download. If canceled, the default download dialog shows that the download was canceled. Host should set the `Cancel` property from `ICoreWebView2SDownloadStartingEventArgs` if the download should be canceled without displaying the default download dialog. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#cancel">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#cancel</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Pause"></span><code>function <strong>Pause</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Pauses the download. If paused, the default download dialog shows that the download is paused. No effect if download is already paused. Pausing a download changes the state to `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` with `InterruptReason` set to `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#pause">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#pause</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Resume"></span><code>function <strong>Resume</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Resumes a paused download. May also resume a download that was interrupted for another reason, if `CanResume` returns true. Resuming a download changes the state from `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` to `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#resume">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#resume</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>         : boolean                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>            : <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>  read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DownloadID"></span><code>property <strong>DownloadID</strong>          : integer                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#FDownloadID">FDownloadID</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Custom ID used to identify this download operation. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="URI"></span><code>property <strong>URI</strong>                 : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetURI">GetURI</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The URI of the download. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_uri">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_uri</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ContentDisposition"></span><code>property <strong>ContentDisposition</strong>  : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetContentDisposition">GetContentDisposition</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The Content-Disposition header value from the download's HTTP response. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_contentdisposition">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_contentdisposition</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MimeType"></span><code>property <strong>MimeType</strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetMimeType">GetMimeType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ MIME type of the downloaded content. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_mimetype">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_mimetype</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TotalBytesToReceive"></span><code>property <strong>TotalBytesToReceive</strong> : int64                           read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetTotalBytesToReceive">GetTotalBytesToReceive</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The expected size of the download in total number of bytes based on the HTTP Content-Length header. Returns -1 if the size is unknown. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_totalbytestoreceive">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_totalbytestoreceive</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BytesReceived"></span><code>property <strong>BytesReceived</strong>       : int64                           read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetBytesReceived">GetBytesReceived</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The number of bytes that have been written to the download file. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_bytesreceived">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_bytesreceived</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EstimatedEndTime"></span><code>property <strong>EstimatedEndTime</strong>    : TDateTime                       read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetEstimatedEndTime">GetEstimatedEndTime</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The estimated end time in [ISO 8601 Date and Time Format](<a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a>). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_estimatedendtime">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_estimatedendtime</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ResultFilePath"></span><code>property <strong>ResultFilePath</strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetResultFilePath">GetResultFilePath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The absolute path to the download file, including file name. Host can change this from `ICoreWebView2DownloadStartingEventArgs`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_resultfilepath">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_resultfilepath</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="State"></span><code>property <strong>State</strong>               : <a href="uWVTypes.html#TWVDownloadState">TWVDownloadState</a>                read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetState">GetState</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The state of the download. A download can be in progress, interrupted, or completed. See `COREWEBVIEW2_DOWNLOAD_STATE` for descriptions of states. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_state">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_state</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InterruptReason"></span><code>property <strong>InterruptReason</strong>     : <a href="uWVTypes.html#TWVDownloadInterruptReason">TWVDownloadInterruptReason</a>      read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetInterruptReason">GetInterruptReason</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The reason why connection with file host was broken. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_interruptreason">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_interruptreason</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CanResume"></span><code>property <strong>CanResume</strong>           : boolean                         read <a href="uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html#GetCanResume">GetCanResume</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if an interrupted download can be resumed. Downloads with the following interrupt reasons may automatically resume without you calling any methods: `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE`, `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH`, `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT`. In these cases download progress may be restarted with `BytesReceived` reset to 0. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_canresume">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_canresume</a>&quot;&gt;See the ICoreWebView2DownloadOperation article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

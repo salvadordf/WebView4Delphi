@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_2"></span><h1 class="cio">Interface ICoreWebView2_2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2 interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2</a>&quot;&gt;See the ICoreWebView2_2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="thisitem">ICoreWebView2_2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#add_WebResourceResponseReceived-ICoreWebView2WebResourceResponseReceivedEventHandler-EventRegistrationToken-">add_WebResourceResponseReceived</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventHandler.html">ICoreWebView2WebResourceResponseReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#remove_WebResourceResponseReceived-EventRegistrationToken-">remove_WebResourceResponseReceived</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#NavigateWithWebResourceRequest-ICoreWebView2WebResourceRequest-">NavigateWithWebResourceRequest</a></strong>(const Request: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#add_DOMContentLoaded-ICoreWebView2DOMContentLoadedEventHandler-EventRegistrationToken-">add_DOMContentLoaded</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventHandler.html">ICoreWebView2DOMContentLoadedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#remove_DOMContentLoaded-EventRegistrationToken-">remove_DOMContentLoaded</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#Get_CookieManager-ICoreWebView2CookieManager-">Get_CookieManager</a></strong>(out CookieManager: <a href="uWVTypeLibrary.ICoreWebView2CookieManager.html">ICoreWebView2CookieManager</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_2.html#Get_Environment-ICoreWebView2Environment-">Get_Environment</a></strong>(out Environment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_WebResourceResponseReceived-ICoreWebView2WebResourceResponseReceivedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_WebResourceResponseReceived</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventHandler.html">ICoreWebView2WebResourceResponseReceivedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the WebResourceResponseReceived event. WebResourceResponseReceived is raised when the WebView receives the response for a request for a web resource (any URI resolution performed by the WebView; such as HTTP/HTTPS, file and data requests from redirects, navigations, declarations in HTML, implicit favicon lookups, and fetch API usage in the document). The host app can use this event to view the actual request and response for a web resource. There is no guarantee about the order in which the WebView processes the response and the host app's handler runs. The app's handler will not block the WebView from processing the response. \snippet ScenarioAuthentication.cpp WebResourceResponseReceived </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{9E8F0CF8-E670-4B5E-B2BC-73E061E3184C}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_WebResourceResponseReceived-EventRegistrationToken-"></span><code>function <strong>remove_WebResourceResponseReceived</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_WebResourceResponseReceived. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NavigateWithWebResourceRequest-ICoreWebView2WebResourceRequest-"></span><code>function <strong>NavigateWithWebResourceRequest</strong>(const Request: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Navigates using a constructed WebResourceRequest object. This lets you provide post data or additional request headers during navigation. The headers in the WebResourceRequest override headers added by WebView2 runtime except for Cookie headers. Method can only be either &quot;GET&quot; or &quot;POST&quot;. Provided post data will only be sent only if the method is &quot;POST&quot; and the uri scheme is HTTP(S). \snippet ScenarioNavigateWithWebResourceRequest.cpp NavigateWithWebResourceRequest </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_DOMContentLoaded-ICoreWebView2DOMContentLoadedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_DOMContentLoaded</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventHandler.html">ICoreWebView2DOMContentLoadedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the DOMContentLoaded event. DOMContentLoaded is raised when the initial html document has been parsed. This aligns with the document's DOMContentLoaded event in html.
+
+<p>\snippet ScenarioDOMContentLoaded.cpp DOMContentLoaded </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_DOMContentLoaded-EventRegistrationToken-"></span><code>function <strong>remove_DOMContentLoaded</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_DOMContentLoaded. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_CookieManager-ICoreWebView2CookieManager-"></span><code>function <strong>Get_CookieManager</strong>(out CookieManager: <a href="uWVTypeLibrary.ICoreWebView2CookieManager.html">ICoreWebView2CookieManager</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the cookie manager object associated with this ICoreWebView2. See ICoreWebView2CookieManager.
+
+<p>\snippet ScenarioCookieManagement.cpp CookieManager </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Environment-ICoreWebView2Environment-"></span><code>function <strong>Get_Environment</strong>(out Environment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Exposes the CoreWebView2Environment used to create this CoreWebView2. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

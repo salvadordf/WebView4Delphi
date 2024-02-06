@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVFMXWindowParent: Class TWVFMXWindowParent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TWVFMXWindowParent"></span><h1 class="cio">Class TWVFMXWindowParent</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVFMXWindowParent.html">uWVFMXWindowParent</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TWVFMXWindowParent = class(TCommonCustomForm)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Parent control used by FMX applications to show the web contents. </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TCommonCustomForm</li>
+<li class="thisitem">TWVFMXWindowParent</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#FBrowser">FBrowser</a></strong>: <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetBrowser">GetBrowser</a></strong>: <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetChildWindowHandle">GetChildWindowHandle</a></strong>: HWND;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#SetBrowser-TWVBrowserBase-">SetBrowser</a></strong>(const aValue : <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Notification-TComponent-TOperation-">Notification</a></strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#SetActive-Boolean-">SetActive</a></strong>(const Value: Boolean); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#CreateNew-TComponent-Integer-">CreateNew</a></strong>(AOwner: TComponent; Dummy: Integer = 0); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Reparent-TFmxHandle-">Reparent</a></strong>(const aNewParentHandle : TFmxHandle);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#UpdateSize">UpdateSize</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#SetBounds-Integer-Integer-Integer-Integer-">SetBounds</a></strong>(ALeft, ATop, AWidth, AHeight: Integer); override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#ChildWindowHandle">ChildWindowHandle</a></strong> : HWND             read <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetChildWindowHandle">GetChildWindowHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Browser">Browser</a></strong>           : <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>   read <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetBrowser">GetBrowser</a>            write <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#SetBrowser-TWVBrowserBase-">SetBrowser</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Visible">Visible</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Height">Height</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXWindowParent.TWVFMXWindowParent.html#Width">Width</a></strong>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBrowser"></span><code><strong>FBrowser</strong>: <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBrowser"></span><code>function <strong>GetBrowser</strong>: <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetChildWindowHandle"></span><code>function <strong>GetChildWindowHandle</strong>: HWND;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetBrowser-TWVBrowserBase-"></span><code>procedure <strong>SetBrowser</strong>(const aValue : <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Notification-TComponent-TOperation-"></span><code>procedure <strong>Notification</strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetActive-Boolean-"></span><code>procedure <strong>SetActive</strong>(const Value: Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateNew-TComponent-Integer-"></span><code>constructor <strong>CreateNew</strong>(AOwner: TComponent; Dummy: Integer = 0); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Reparent-TFmxHandle-"></span><code>procedure <strong>Reparent</strong>(const aNewParentHandle : TFmxHandle);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets another control as the parent this control. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateSize"></span><code>procedure <strong>UpdateSize</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Updates the size of the child controls created by the browser. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetBounds-Integer-Integer-Integer-Integer-"></span><code>procedure <strong>SetBounds</strong>(ALeft, ATop, AWidth, AHeight: Integer); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ChildWindowHandle"></span><code>property <strong>ChildWindowHandle</strong> : HWND             read <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetChildWindowHandle">GetChildWindowHandle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Handle of the first child control created by the browser. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Browser"></span><code>property <strong>Browser</strong>           : <a href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a>   read <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#GetBrowser">GetBrowser</a>            write <a href="uWVFMXWindowParent.TWVFMXWindowParent.html#SetBrowser-TWVBrowserBase-">SetBrowser</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Browser associated to this control to show web contents. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Visible"></span><code>property <strong>Visible</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Height"></span><code>property <strong>Height</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Width"></span><code>property <strong>Width</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ServerCertificateErrorDetectedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ServerCertificateErrorDetectedEventArgs"></span><h1 class="cio">Interface ICoreWebView2ServerCertificateErrorDetectedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ServerCertificateErrorDetectedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the ServerCertificateErrorDetected event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2ServerCertificateErrorDetectedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#Get_ErrorStatus-COREWEBVIEW2_WEB_ERROR_STATUS-">Get_ErrorStatus</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_ERROR_STATUS">COREWEBVIEW2_WEB_ERROR_STATUS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#Get_RequestUri-PWideChar-">Get_RequestUri</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#Get_ServerCertificate-ICoreWebView2Certificate-">Get_ServerCertificate</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#Get_Action-COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION-">Get_Action</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#Set_Action-COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION-">Set_Action</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ErrorStatus-COREWEBVIEW2_WEB_ERROR_STATUS-"></span><code>function <strong>Get_ErrorStatus</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_ERROR_STATUS">COREWEBVIEW2_WEB_ERROR_STATUS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The TLS error code for the invalid certificate. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{012193ED-7C13-48FF-969D-A84C1F432A14}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_RequestUri-PWideChar-"></span><code>function <strong>Get_RequestUri</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ URI associated with the request for the invalid certificate.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ServerCertificate-ICoreWebView2Certificate-"></span><code>function <strong>Get_ServerCertificate</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the server certificate. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Action-COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION-"></span><code>function <strong>Get_Action</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The action of the server certificate error detection. The default value is `COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Action-COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION-"></span><code>function <strong>Set_Action</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Action` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the event at a later time. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

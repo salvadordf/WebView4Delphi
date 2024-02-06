@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Controller2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Controller2"></span><h1 class="cio">Interface ICoreWebView2Controller2</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Controller2 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Controller interface. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2</a>&quot;&gt;See the ICoreWebView2Controller2 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a></li>
+<li class="thisitem">ICoreWebView2Controller2</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller2.html#Get_DefaultBackgroundColor-COREWEBVIEW2_COLOR-">Get_DefaultBackgroundColor</a></strong>(out backgroundColor: <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Controller2.html#Set_DefaultBackgroundColor-COREWEBVIEW2_COLOR-">Set_DefaultBackgroundColor</a></strong>(backgroundColor: <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DefaultBackgroundColor-COREWEBVIEW2_COLOR-"></span><code>function <strong>Get_DefaultBackgroundColor</strong>(out backgroundColor: <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The `DefaultBackgroundColor` property is the color WebView renders underneath all web content. This means WebView renders this color when there is no web content loaded such as before the initial navigation or between navigations. This also means web pages with undefined css background properties or background properties containing transparent pixels will render their contents over this color. Web pages with defined and opaque background properties that span the page will obscure the `DefaultBackgroundColor` and display normally. The default value for this property is white to resemble the native browser experience.
+
+<p>The Color is specified by the COREWEBVIEW2_COLOR that represents an RGBA value. The `A` represents an Alpha value, meaning `DefaultBackgroundColor` can be transparent. In the case of a transparent `DefaultBackgroundColor` WebView will render hosting app content as the background. This Alpha value is not supported on Windows 7. Any `A` value other than 255 will result in E_INVALIDARG on Windows 7. It is supported on all other WebView compatible platforms.
+
+<p>Semi-transparent colors are not currently supported by this API and setting `DefaultBackgroundColor` to a semi-transparent color will fail with E_INVALIDARG. The only supported alpha values are 0 and 255, all other values will result in E_INVALIDARG. `DefaultBackgroundColor` can only be an opaque color or transparent.
+
+<p>This value may also be set by using the `WEBVIEW2_DEFAULT_BACKGROUND_COLOR` environment variable. There is a known issue with background color where setting the color by API can still leave the app with a white flicker before the `DefaultBackgroundColor` takes effect. Setting the color via environment variable solves this issue. The value must be a hex value that can optionally prepend a 0x. The value must account for the alpha value which is represented by the first 2 digits. So any hex value fewer than 8 digits will assume a prepended 00 to the hex value and result in a transparent color. `get_DefaultBackgroundColor` will return the result of this environment variable if used. This environment variable can only set the `DefaultBackgroundColor` once. Subsequent updates to background color must be done through API call.
+
+<p>\snippet ViewComponent.cpp DefaultBackgroundColor </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{C979903E-D4CA-4228-92EB-47EE3FA96EAB}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_DefaultBackgroundColor-COREWEBVIEW2_COLOR-"></span><code>function <strong>Set_DefaultBackgroundColor</strong>(backgroundColor: <a href="uWVTypeLibrary.COREWEBVIEW2_COLOR.html">COREWEBVIEW2_COLOR</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `DefaultBackgroundColor` property. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

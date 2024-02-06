@@ -1407,6 +1407,24 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// This is the callback for ExecuteScriptWithResult
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptwithresultcompletedhandler">See the ICoreWebView2ExecuteScriptWithResultCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2ExecuteScriptWithResultCompletedHandler = class(TInterfacedObject, ICoreWebView2ExecuteScriptWithResultCompletedHandler)
+    protected
+      FEvents : Pointer;
+      FID     : integer;
+
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aExecutionID : integer); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -3407,6 +3425,32 @@ function TCoreWebView2ProfileDeletedEventHandler.Invoke(const sender: ICoreWebVi
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).ProfileDeletedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2ExecuteScriptWithResultCompletedHandler
+
+constructor TCoreWebView2ExecuteScriptWithResultCompletedHandler.Create(const aEvents: IWVBrowserEvents; aExecutionID : integer);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+  FID     := aExecutionID;
+end;
+
+destructor TCoreWebView2ExecuteScriptWithResultCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ExecuteScriptWithResultCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).ExecuteScriptWithResultCompletedHandler_Invoke(errorCode, result_, FID)
    else
     Result := E_FAIL;
 end;

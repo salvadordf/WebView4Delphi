@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2ClientCertificate: Class TCoreWebView2ClientCertificate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2ClientCertificate"></span><h1 class="cio">Class TCoreWebView2ClientCertificate</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2ClientCertificate.html">uWVCoreWebView2ClientCertificate</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ClientCertificate = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Provides access to the client certificate metadata. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ClientCertificate</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetSubject">GetSubject</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetIssuer">GetIssuer</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidFrom">GetValidFrom</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidTo">GetValidTo</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDerEncodedSerialNumber">GetDerEncodedSerialNumber</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDisplayName">GetDisplayName</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetPemEncodedIssuerCertificateChain">GetPemEncodedIssuerCertificateChain</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetKind">GetKind</a></strong>: <a href="uWVTypes.html#TWVClientCertificateKind">TWVClientCertificateKind</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Create-ICoreWebView2ClientCertificate-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#ToPemEncoding">ToPemEncoding</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Initialized">Initialized</a></strong>                         : boolean                         read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#BaseIntf">BaseIntf</a></strong>                            : <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>  read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Subject">Subject</a></strong>                             : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetSubject">GetSubject</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Issuer">Issuer</a></strong>                              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetIssuer">GetIssuer</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#ValidFrom">ValidFrom</a></strong>                           : TDateTime                       read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidFrom">GetValidFrom</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#ValidTo">ValidTo</a></strong>                             : TDateTime                       read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidTo">GetValidTo</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#DerEncodedSerialNumber">DerEncodedSerialNumber</a></strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDerEncodedSerialNumber">GetDerEncodedSerialNumber</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#DisplayName">DisplayName</a></strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDisplayName">GetDisplayName</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#PemEncodedIssuerCertificateChain">PemEncodedIssuerCertificateChain</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>   read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetPemEncodedIssuerCertificateChain">GetPemEncodedIssuerCertificateChain</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#Kind">Kind</a></strong>                                : <a href="uWVTypes.html#TWVClientCertificateKind">TWVClientCertificateKind</a>        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetKind">GetKind</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetSubject"></span><code>function <strong>GetSubject</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIssuer"></span><code>function <strong>GetIssuer</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetValidFrom"></span><code>function <strong>GetValidFrom</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetValidTo"></span><code>function <strong>GetValidTo</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDerEncodedSerialNumber"></span><code>function <strong>GetDerEncodedSerialNumber</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDisplayName"></span><code>function <strong>GetDisplayName</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPemEncodedIssuerCertificateChain"></span><code>function <strong>GetPemEncodedIssuerCertificateChain</strong>: <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetKind"></span><code>function <strong>GetKind</strong>: <a href="uWVTypes.html#TWVClientCertificateKind">TWVClientCertificateKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ClientCertificate-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ToPemEncoding"></span><code>function <strong>ToPemEncoding</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ PEM encoded data for the certificate. Returns Base64 encoding of DER encoded certificate. Read more about PEM at [RFC 1421 Privacy Enhanced Mail] (<a href="https://tools.ietf.org/html/rfc1421">https://tools.ietf.org/html/rfc1421</a>). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#topemencoding">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#topemencoding</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                         : boolean                         read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                            : <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>  read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Subject"></span><code>property <strong>Subject</strong>                             : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetSubject">GetSubject</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Subject of the certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_subject">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_subject</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Issuer"></span><code>property <strong>Issuer</strong>                              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetIssuer">GetIssuer</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Name of the certificate authority that issued the certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_issuer">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_issuer</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ValidFrom"></span><code>property <strong>ValidFrom</strong>                           : TDateTime                       read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidFrom">GetValidFrom</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The valid start date and time for the certificate as the number of seconds since the UNIX epoch. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validfrom">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validfrom</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ValidTo"></span><code>property <strong>ValidTo</strong>                             : TDateTime                       read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetValidTo">GetValidTo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The valid expiration date and time for the certificate as the number of seconds since the UNIX epoch. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validto">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_validto</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DerEncodedSerialNumber"></span><code>property <strong>DerEncodedSerialNumber</strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDerEncodedSerialNumber">GetDerEncodedSerialNumber</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Base64 encoding of DER encoded serial number of the certificate. Read more about DER at [RFC 7468 DER] (<a href="https://tools.ietf.org/html/rfc7468#appendix-B">https://tools.ietf.org/html/rfc7468#appendix-B</a>). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_derencodedserialnumber">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_derencodedserialnumber</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisplayName"></span><code>property <strong>DisplayName</strong>                         : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetDisplayName">GetDisplayName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Display name for a certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_displayname">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_displayname</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PemEncodedIssuerCertificateChain"></span><code>property <strong>PemEncodedIssuerCertificateChain</strong>    : <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>   read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetPemEncodedIssuerCertificateChain">GetPemEncodedIssuerCertificateChain</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Collection of PEM encoded client certificate issuer chain. In this collection first element is the current certificate followed by intermediate1, intermediate2...intermediateN-1. Root certificate is the last element in collection. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_pemencodedissuercertificatechain">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_pemencodedissuercertificatechain</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Kind"></span><code>property <strong>Kind</strong>                                : <a href="uWVTypes.html#TWVClientCertificateKind">TWVClientCertificateKind</a>        read <a href="uWVCoreWebView2ClientCertificate.TCoreWebView2ClientCertificate.html#GetKind">GetKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Kind of a certificate (eg., smart card, pin, other). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_kind">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificate#get_kind</a>&quot;&gt;See the ICoreWebView2ClientCertificate article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

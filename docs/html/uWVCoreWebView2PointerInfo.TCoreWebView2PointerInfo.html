@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2PointerInfo: Class TCoreWebView2PointerInfo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2PointerInfo"></span><h1 class="cio">Class TCoreWebView2PointerInfo</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2PointerInfo.html">uWVCoreWebView2PointerInfo</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2PointerInfo = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+
+
+<p>This mostly represents a combined win32 POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO object. It takes fields from all three and excludes some win32 specific data types like HWND and HANDLE. Note, sourceDevice is taken out but we expect the PointerDeviceRect and DisplayRect to cover the existing use cases of sourceDevice. Another big difference is that any of the point or rect locations are expected to be in WebView physical coordinates. That is, coordinates relative to the WebView and no DPI scaling applied.
+
+<p>The PointerId, PointerFlags, ButtonChangeKind, PenFlags, PenMask, TouchFlags, and TouchMask are all #defined flags or enums in the POINTER_INFO/POINTER_TOUCH_INFO/POINTER_PEN_INFO structure. We define those properties here as UINT32 or INT32 and expect the developer to know how to populate those values based on the Windows definitions.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2PointerInfo</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerKind">GetPointerKind</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerId">GetPointerId</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetFrameId">GetFrameId</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerFlags">GetPointerFlags</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerDeviceRect">GetPointerDeviceRect</a></strong>: TRect;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetDisplayRect">GetDisplayRect</a></strong>: TRect;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocation">GetPixelLocation</a></strong>: TPoint;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocation">GetHimetricLocation</a></strong>: TPoint;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocationRaw">GetPixelLocationRaw</a></strong>: TPoint;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocationRaw">GetHimetricLocationRaw</a></strong>: TPoint;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTime">GetTime</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHistoryCount">GetHistoryCount</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInputData">GetInputData</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetKeyStates">GetKeyStates</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPerformanceCount">GetPerformanceCount</a></strong>: uint64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetButtonChangeKind">GetButtonChangeKind</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenFlags">GetPenFlags</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenMask">GetPenMask</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenPressure">GetPenPressure</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenRotation">GetPenRotation</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltX">GetPenTiltX</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltY">GetPenTiltY</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchFlags">GetTouchFlags</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchMask">GetTouchMask</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContact">GetTouchContact</a></strong>: TRect;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContactRaw">GetTouchContactRaw</a></strong>: TRect;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchOrientation">GetTouchOrientation</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchPressure">GetTouchPressure</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerKind-cardinal-">SetPointerKind</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerId-cardinal-">SetPointerId</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetFrameId-cardinal-">SetFrameId</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerFlags-cardinal-">SetPointerFlags</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerDeviceRect-TRect-">SetPointerDeviceRect</a></strong>(aValue : TRect);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetDisplayRect-TRect-">SetDisplayRect</a></strong>(aValue : TRect);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocation-TPoint-">SetPixelLocation</a></strong>(aValue : TPoint);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocation-TPoint-">SetHimetricLocation</a></strong>(aValue : TPoint);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocationRaw-TPoint-">SetPixelLocationRaw</a></strong>(aValue : TPoint);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocationRaw-TPoint-">SetHimetricLocationRaw</a></strong>(aValue : TPoint);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTime-cardinal-">SetTime</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHistoryCount-cardinal-">SetHistoryCount</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetInputData-integer-">SetInputData</a></strong>(aValue : integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetKeyStates-cardinal-">SetKeyStates</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPerformanceCount-uint64-">SetPerformanceCount</a></strong>(aValue : uint64);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetButtonChangeKind-integer-">SetButtonChangeKind</a></strong>(aValue : integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenFlags-cardinal-">SetPenFlags</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenMask-cardinal-">SetPenMask</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenPressure-cardinal-">SetPenPressure</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenRotation-cardinal-">SetPenRotation</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltX-integer-">SetPenTiltX</a></strong>(aValue : integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltY-integer-">SetPenTiltY</a></strong>(aValue : integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchFlags-cardinal-">SetTouchFlags</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchMask-cardinal-">SetTouchMask</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContact-TRect-">SetTouchContact</a></strong>(aValue : TRect);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContactRaw-TRect-">SetTouchContactRaw</a></strong>(aValue : TRect);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchOrientation-cardinal-">SetTouchOrientation</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchPressure-cardinal-">SetTouchPressure</a></strong>(aValue : cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#Create-ICoreWebView2PointerInfo-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#Initialized">Initialized</a></strong>          : boolean                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#BaseIntf">BaseIntf</a></strong>             : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PointerKind">PointerKind</a></strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerKind">GetPointerKind</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerKind-cardinal-">SetPointerKind</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PointerId">PointerId</a></strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerId">GetPointerId</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerId-cardinal-">SetPointerId</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#FrameId">FrameId</a></strong>              : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetFrameId">GetFrameId</a>               write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetFrameId-cardinal-">SetFrameId</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PointerFlags">PointerFlags</a></strong>         : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerFlags">GetPointerFlags</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerFlags-cardinal-">SetPointerFlags</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PointerDeviceRect">PointerDeviceRect</a></strong>    : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerDeviceRect">GetPointerDeviceRect</a>     write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerDeviceRect-TRect-">SetPointerDeviceRect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#DisplayRect">DisplayRect</a></strong>          : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetDisplayRect">GetDisplayRect</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetDisplayRect-TRect-">SetDisplayRect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PixelLocation">PixelLocation</a></strong>        : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocation">GetPixelLocation</a>         write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocation-TPoint-">SetPixelLocation</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#HimetricLocation">HimetricLocation</a></strong>     : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocation">GetHimetricLocation</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocation-TPoint-">SetHimetricLocation</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PixelLocationRaw">PixelLocationRaw</a></strong>     : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocationRaw">GetPixelLocationRaw</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocationRaw-TPoint-">SetPixelLocationRaw</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#HimetricLocationRaw">HimetricLocationRaw</a></strong>  : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocationRaw">GetHimetricLocationRaw</a>   write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocationRaw-TPoint-">SetHimetricLocationRaw</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#Time">Time</a></strong>                 : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTime">GetTime</a>                  write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTime-cardinal-">SetTime</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#HistoryCount">HistoryCount</a></strong>         : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHistoryCount">GetHistoryCount</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHistoryCount-cardinal-">SetHistoryCount</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#InputData">InputData</a></strong>            : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInputData">GetInputData</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetInputData-integer-">SetInputData</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#KeyStates">KeyStates</a></strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetKeyStates">GetKeyStates</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetKeyStates-cardinal-">SetKeyStates</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PerformanceCount">PerformanceCount</a></strong>     : uint64                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPerformanceCount">GetPerformanceCount</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPerformanceCount-uint64-">SetPerformanceCount</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#ButtonChangeKind">ButtonChangeKind</a></strong>     : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetButtonChangeKind">GetButtonChangeKind</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetButtonChangeKind-integer-">SetButtonChangeKind</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenFlags">PenFlags</a></strong>             : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenFlags">GetPenFlags</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenFlags-cardinal-">SetPenFlags</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenMask">PenMask</a></strong>              : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenMask">GetPenMask</a>               write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenMask-cardinal-">SetPenMask</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenPressure">PenPressure</a></strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenPressure">GetPenPressure</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenPressure-cardinal-">SetPenPressure</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenRotation">PenRotation</a></strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenRotation">GetPenRotation</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenRotation-cardinal-">SetPenRotation</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenTiltX">PenTiltX</a></strong>             : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltX">GetPenTiltX</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltX-integer-">SetPenTiltX</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#PenTiltY">PenTiltY</a></strong>             : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltY">GetPenTiltY</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltY-integer-">SetPenTiltY</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchFlags">TouchFlags</a></strong>           : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchFlags">GetTouchFlags</a>            write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchFlags-cardinal-">SetTouchFlags</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchMask">TouchMask</a></strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchMask">GetTouchMask</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchMask-cardinal-">SetTouchMask</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchContact">TouchContact</a></strong>         : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContact">GetTouchContact</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContact-TRect-">SetTouchContact</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchContactRaw">TouchContactRaw</a></strong>      : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContactRaw">GetTouchContactRaw</a>       write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContactRaw-TRect-">SetTouchContactRaw</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchOrientation">TouchOrientation</a></strong>     : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchOrientation">GetTouchOrientation</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchOrientation-cardinal-">SetTouchOrientation</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#TouchPressure">TouchPressure</a></strong>        : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchPressure">GetTouchPressure</a>         write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchPressure-cardinal-">SetTouchPressure</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPointerKind"></span><code>function <strong>GetPointerKind</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPointerId"></span><code>function <strong>GetPointerId</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetFrameId"></span><code>function <strong>GetFrameId</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPointerFlags"></span><code>function <strong>GetPointerFlags</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPointerDeviceRect"></span><code>function <strong>GetPointerDeviceRect</strong>: TRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDisplayRect"></span><code>function <strong>GetDisplayRect</strong>: TRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPixelLocation"></span><code>function <strong>GetPixelLocation</strong>: TPoint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHimetricLocation"></span><code>function <strong>GetHimetricLocation</strong>: TPoint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPixelLocationRaw"></span><code>function <strong>GetPixelLocationRaw</strong>: TPoint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHimetricLocationRaw"></span><code>function <strong>GetHimetricLocationRaw</strong>: TPoint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTime"></span><code>function <strong>GetTime</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHistoryCount"></span><code>function <strong>GetHistoryCount</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInputData"></span><code>function <strong>GetInputData</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetKeyStates"></span><code>function <strong>GetKeyStates</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPerformanceCount"></span><code>function <strong>GetPerformanceCount</strong>: uint64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetButtonChangeKind"></span><code>function <strong>GetButtonChangeKind</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenFlags"></span><code>function <strong>GetPenFlags</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenMask"></span><code>function <strong>GetPenMask</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenPressure"></span><code>function <strong>GetPenPressure</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenRotation"></span><code>function <strong>GetPenRotation</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenTiltX"></span><code>function <strong>GetPenTiltX</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetPenTiltY"></span><code>function <strong>GetPenTiltY</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchFlags"></span><code>function <strong>GetTouchFlags</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchMask"></span><code>function <strong>GetTouchMask</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchContact"></span><code>function <strong>GetTouchContact</strong>: TRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchContactRaw"></span><code>function <strong>GetTouchContactRaw</strong>: TRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchOrientation"></span><code>function <strong>GetTouchOrientation</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTouchPressure"></span><code>function <strong>GetTouchPressure</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPointerKind-cardinal-"></span><code>procedure <strong>SetPointerKind</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPointerId-cardinal-"></span><code>procedure <strong>SetPointerId</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetFrameId-cardinal-"></span><code>procedure <strong>SetFrameId</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPointerFlags-cardinal-"></span><code>procedure <strong>SetPointerFlags</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPointerDeviceRect-TRect-"></span><code>procedure <strong>SetPointerDeviceRect</strong>(aValue : TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetDisplayRect-TRect-"></span><code>procedure <strong>SetDisplayRect</strong>(aValue : TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPixelLocation-TPoint-"></span><code>procedure <strong>SetPixelLocation</strong>(aValue : TPoint);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHimetricLocation-TPoint-"></span><code>procedure <strong>SetHimetricLocation</strong>(aValue : TPoint);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPixelLocationRaw-TPoint-"></span><code>procedure <strong>SetPixelLocationRaw</strong>(aValue : TPoint);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHimetricLocationRaw-TPoint-"></span><code>procedure <strong>SetHimetricLocationRaw</strong>(aValue : TPoint);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTime-cardinal-"></span><code>procedure <strong>SetTime</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHistoryCount-cardinal-"></span><code>procedure <strong>SetHistoryCount</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetInputData-integer-"></span><code>procedure <strong>SetInputData</strong>(aValue : integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetKeyStates-cardinal-"></span><code>procedure <strong>SetKeyStates</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPerformanceCount-uint64-"></span><code>procedure <strong>SetPerformanceCount</strong>(aValue : uint64);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetButtonChangeKind-integer-"></span><code>procedure <strong>SetButtonChangeKind</strong>(aValue : integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenFlags-cardinal-"></span><code>procedure <strong>SetPenFlags</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenMask-cardinal-"></span><code>procedure <strong>SetPenMask</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenPressure-cardinal-"></span><code>procedure <strong>SetPenPressure</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenRotation-cardinal-"></span><code>procedure <strong>SetPenRotation</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenTiltX-integer-"></span><code>procedure <strong>SetPenTiltX</strong>(aValue : integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetPenTiltY-integer-"></span><code>procedure <strong>SetPenTiltY</strong>(aValue : integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchFlags-cardinal-"></span><code>procedure <strong>SetTouchFlags</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchMask-cardinal-"></span><code>procedure <strong>SetTouchMask</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchContact-TRect-"></span><code>procedure <strong>SetTouchContact</strong>(aValue : TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchContactRaw-TRect-"></span><code>procedure <strong>SetTouchContactRaw</strong>(aValue : TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchOrientation-cardinal-"></span><code>procedure <strong>SetTouchOrientation</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetTouchPressure-cardinal-"></span><code>procedure <strong>SetTouchPressure</strong>(aValue : cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2PointerInfo-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>          : boolean                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>             : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PointerKind"></span><code>property <strong>PointerKind</strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerKind">GetPointerKind</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerKind-cardinal-">SetPointerKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerKind of the pointer event. This corresponds to the pointerKind property of the POINTER_INFO struct. The values are defined by the POINTER_INPUT_KIND enum in the Windows SDK (winuser.h). Supports PT_PEN and PT_TOUCH. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerkind">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerkind</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PointerId"></span><code>property <strong>PointerId</strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerId">GetPointerId</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerId-cardinal-">SetPointerId</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerId of the pointer event. This corresponds to the pointerId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerid">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerid</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FrameId"></span><code>property <strong>FrameId</strong>              : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetFrameId">GetFrameId</a>               write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetFrameId-cardinal-">SetFrameId</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the FrameID of the pointer event. This corresponds to the frameId property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_frameid">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_frameid</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PointerFlags"></span><code>property <strong>PointerFlags</strong>         : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerFlags">GetPointerFlags</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerFlags-cardinal-">SetPointerFlags</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerFlags of the pointer event. This corresponds to the pointerFlags property of the POINTER_INFO struct. The values are defined by the POINTER_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerflags">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerflags</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PointerDeviceRect"></span><code>property <strong>PointerDeviceRect</strong>    : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPointerDeviceRect">GetPointerDeviceRect</a>     write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPointerDeviceRect-TRect-">SetPointerDeviceRect</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PointerDeviceRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerdevicerect">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pointerdevicerect</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisplayRect"></span><code>property <strong>DisplayRect</strong>          : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetDisplayRect">GetDisplayRect</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetDisplayRect-TRect-">SetDisplayRect</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the DisplayRect of the sourceDevice property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_displayrect">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_displayrect</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PixelLocation"></span><code>property <strong>PixelLocation</strong>        : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocation">GetPixelLocation</a>         write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocation-TPoint-">SetPixelLocation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PixelLocation of the pointer event. This corresponds to the ptPixelLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pixellocation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pixellocation</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HimetricLocation"></span><code>property <strong>HimetricLocation</strong>     : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocation">GetHimetricLocation</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocation-TPoint-">SetHimetricLocation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HimetricLocation of the pointer event. This corresponds to the ptHimetricLocation property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_himetriclocation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_himetriclocation</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PixelLocationRaw"></span><code>property <strong>PixelLocationRaw</strong>     : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPixelLocationRaw">GetPixelLocationRaw</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPixelLocationRaw-TPoint-">SetPixelLocationRaw</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PixelLocationRaw of the pointer event. This corresponds to the ptPixelLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pixellocationraw">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pixellocationraw</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HimetricLocationRaw"></span><code>property <strong>HimetricLocationRaw</strong>  : TPoint                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHimetricLocationRaw">GetHimetricLocationRaw</a>   write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHimetricLocationRaw-TPoint-">SetHimetricLocationRaw</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HimetricLocationRaw of the pointer event. This corresponds to the ptHimetricLocationRaw property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_himetriclocationraw">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_himetriclocationraw</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Time"></span><code>property <strong>Time</strong>                 : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTime">GetTime</a>                  write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTime-cardinal-">SetTime</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the Time of the pointer event. This corresponds to the dwTime property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_time">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_time</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HistoryCount"></span><code>property <strong>HistoryCount</strong>         : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetHistoryCount">GetHistoryCount</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetHistoryCount-cardinal-">SetHistoryCount</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the HistoryCount of the pointer event. This corresponds to the historyCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_historycount">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_historycount</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputData"></span><code>property <strong>InputData</strong>            : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetInputData">GetInputData</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetInputData-integer-">SetInputData</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the InputData of the pointer event. This corresponds to the InputData property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_inputdata">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_inputdata</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="KeyStates"></span><code>property <strong>KeyStates</strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetKeyStates">GetKeyStates</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetKeyStates-cardinal-">SetKeyStates</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the KeyStates of the pointer event. This corresponds to the dwKeyStates property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_keystates">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_keystates</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PerformanceCount"></span><code>property <strong>PerformanceCount</strong>     : uint64                     read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPerformanceCount">GetPerformanceCount</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPerformanceCount-uint64-">SetPerformanceCount</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PerformanceCount of the pointer event. This corresponds to the PerformanceCount property of the POINTER_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_performancecount">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_performancecount</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ButtonChangeKind"></span><code>property <strong>ButtonChangeKind</strong>     : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetButtonChangeKind">GetButtonChangeKind</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetButtonChangeKind-integer-">SetButtonChangeKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the ButtonChangeKind of the pointer event. This corresponds to the ButtonChangeKind property of the POINTER_INFO struct. The values are defined by the POINTER_BUTTON_CHANGE_KIND enum in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_buttonchangekind">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_buttonchangekind</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenFlags"></span><code>property <strong>PenFlags</strong>             : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenFlags">GetPenFlags</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenFlags-cardinal-">SetPenFlags</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenFlags of the pointer event. This corresponds to the penFlags property of the POINTER_PEN_INFO struct. The values are defined by the PEN_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penflags">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penflags</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenMask"></span><code>property <strong>PenMask</strong>              : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenMask">GetPenMask</a>               write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenMask-cardinal-">SetPenMask</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenMask of the pointer event. This corresponds to the penMask property of the POINTER_PEN_INFO struct. The values are defined by the PEN_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penmask">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penmask</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenPressure"></span><code>property <strong>PenPressure</strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenPressure">GetPenPressure</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenPressure-cardinal-">SetPenPressure</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenPressure of the pointer event. This corresponds to the pressure property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penpressure">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penpressure</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenRotation"></span><code>property <strong>PenRotation</strong>          : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenRotation">GetPenRotation</a>           write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenRotation-cardinal-">SetPenRotation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenRotation of the pointer event. This corresponds to the rotation property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penrotation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_penrotation</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenTiltX"></span><code>property <strong>PenTiltX</strong>             : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltX">GetPenTiltX</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltX-integer-">SetPenTiltX</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenTiltX of the pointer event. This corresponds to the tiltX property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pentiltx">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pentiltx</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PenTiltY"></span><code>property <strong>PenTiltY</strong>             : integer                    read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetPenTiltY">GetPenTiltY</a>              write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetPenTiltY-integer-">SetPenTiltY</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the PenTiltY of the pointer event. This corresponds to the tiltY property of the POINTER_PEN_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Pen specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pentilty">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_pentilty</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchFlags"></span><code>property <strong>TouchFlags</strong>           : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchFlags">GetTouchFlags</a>            write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchFlags-cardinal-">SetTouchFlags</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchFlags of the pointer event. This corresponds to the touchFlags property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_FLAGS constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchflags">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchflags</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchMask"></span><code>property <strong>TouchMask</strong>            : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchMask">GetTouchMask</a>             write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchMask-cardinal-">SetTouchMask</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchMask of the pointer event. This corresponds to the touchMask property of the POINTER_TOUCH_INFO struct. The values are defined by the TOUCH_MASK constants in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchmask">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchmask</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchContact"></span><code>property <strong>TouchContact</strong>         : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContact">GetTouchContact</a>          write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContact-TRect-">SetTouchContact</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchContact of the pointer event. This corresponds to the rcContact property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchcontact">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchcontact</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchContactRaw"></span><code>property <strong>TouchContactRaw</strong>      : TRect                      read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchContactRaw">GetTouchContactRaw</a>       write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchContactRaw-TRect-">SetTouchContactRaw</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchContactRaw of the pointer event. This corresponds to the rcContactRaw property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchcontactraw">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchcontactraw</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchOrientation"></span><code>property <strong>TouchOrientation</strong>     : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchOrientation">GetTouchOrientation</a>      write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchOrientation-cardinal-">SetTouchOrientation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchOrientation of the pointer event. This corresponds to the orientation property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchorientation">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchorientation</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TouchPressure"></span><code>property <strong>TouchPressure</strong>        : cardinal                   read <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#GetTouchPressure">GetTouchPressure</a>         write <a href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html#SetTouchPressure-cardinal-">SetTouchPressure</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the TouchPressure of the pointer event. This corresponds to the pressure property of the POINTER_TOUCH_INFO struct as defined in the Windows SDK (winuser.h). </p>
+<p>
+
+
+<p>This is a Touch specific attribute.
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchpressure">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2pointerinfo#get_touchpressure</a>&quot;&gt;See the ICoreWebView2PointerInfo article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

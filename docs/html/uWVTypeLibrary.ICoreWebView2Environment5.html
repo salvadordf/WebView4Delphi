@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Environment5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Environment5"></span><h1 class="cio">Interface ICoreWebView2Environment5</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Environment5 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment4.html">ICoreWebView2Environment4</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2Environment4 interface that supports the BrowserProcessExited event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment5</a>&quot;&gt;See the ICoreWebView2Environment5 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment2.html">ICoreWebView2Environment2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment3.html">ICoreWebView2Environment3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment4.html">ICoreWebView2Environment4</a></li>
+<li class="thisitem">ICoreWebView2Environment5</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment5.html#add_BrowserProcessExited-ICoreWebView2BrowserProcessExitedEventHandler-EventRegistrationToken-">add_BrowserProcessExited</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventHandler.html">ICoreWebView2BrowserProcessExitedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment5.html#remove_BrowserProcessExited-EventRegistrationToken-">remove_BrowserProcessExited</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_BrowserProcessExited-ICoreWebView2BrowserProcessExitedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_BrowserProcessExited</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventHandler.html">ICoreWebView2BrowserProcessExitedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `BrowserProcessExited` event. The `BrowserProcessExited` event is raised when the collection of WebView2 Runtime processes for the browser process of this environment terminate due to browser process failure or normal shutdown (for example, when all associated WebViews are closed), after all resources have been released (including the user data folder). To learn about what these processes are, go to [Process model](/microsoft-edge/webview2/concepts/process-model).
+
+<p>A handler added with this method is called until removed with `remove_BrowserProcessExited`, even if a new browser process is bound to this environment after earlier `BrowserProcessExited` events are raised.
+
+<p>Multiple app processes can share a browser process by creating their webviews from a `ICoreWebView2Environment` with the same user data folder. When the entire collection of WebView2Runtime processes for the browser process exit, all associated `ICoreWebView2Environment` objects receive the `BrowserProcessExited` event. Multiple processes sharing the same browser process need to coordinate their use of the shared user data folder to avoid race conditions and unnecessary waits. For example, one process should not clear the user data folder at the same time that another process recovers from a crash by recreating its WebView controls; one process should not block waiting for the event if other app processes are using the same browser process (the browser process will not exit until those other processes have closed their webviews too).
+
+<p>Note this is an event from the `ICoreWebView2Environment3` interface, not the `ICoreWebView2` one. The difference between `BrowserProcessExited` and `ICoreWebView2`'s `ProcessFailed` is that `BrowserProcessExited` is raised for any **browser process** exit (expected or unexpected, after all associated processes have exited too), while `ProcessFailed` is raised for **unexpected** process exits of any kind (browser, render, GPU, and all other types), or for main frame **render process** unresponsiveness. To learn more about the WebView2 Process Model, go to [Process model](/microsoft-edge/webview2/concepts/process-model).
+
+<p>In the case the browser process crashes, both `BrowserProcessExited` and `ProcessFailed` events are raised, but the order is not guaranteed. These events are intended for different scenarios. It is up to the app to coordinate the handlers so they do not try to perform reliability recovery while also trying to move to a new WebView2 Runtime version or remove the user data folder.
+
+<p>\snippet AppWindow.cpp Close </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{319E423D-E0D7-4B8D-9254-AE9475DE9B17}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_BrowserProcessExited-EventRegistrationToken-"></span><code>function <strong>remove_BrowserProcessExited</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_BrowserProcessExited`. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

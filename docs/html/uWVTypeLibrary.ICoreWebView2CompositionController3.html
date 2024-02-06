@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CompositionController3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2CompositionController3"></span><h1 class="cio">Interface ICoreWebView2CompositionController3</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CompositionController3 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController2.html">ICoreWebView2CompositionController2</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is the continuation of the ICoreWebView2CompositionController2 interface to manage drag and drop. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller3</a>&quot;&gt;See the ICoreWebView2CompositionController3 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController2.html">ICoreWebView2CompositionController2</a></li>
+<li class="thisitem">ICoreWebView2CompositionController3</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController3.html#DragEnter-IDataObject-LongWord-tagPOINT-LongWord-">DragEnter</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController3.html#DragLeave">DragLeave</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController3.html#DragOver-LongWord-tagPOINT-LongWord-">DragOver</a></strong>(keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController3.html#Drop-IDataObject-LongWord-tagPOINT-LongWord-">Drop</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DragEnter-IDataObject-LongWord-tagPOINT-LongWord-"></span><code>function <strong>DragEnter</strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This function corresponds to [IDropTarget::DragEnter](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragenter).
+
+<p>This function has a dependency on AllowExternalDrop property of CoreWebView2Controller and return E_FAIL to callers to indicate this operation is not allowed if AllowExternalDrop property is set to false.
+
+<p>The hosting application must register as an IDropTarget and implement and forward DragEnter calls to this function.
+
+<p>point parameter must be modified to include the WebView's offset and be in the WebView's client coordinates (Similar to how SendMouseInput works).
+
+<p>\snippet DropTarget.cpp DragEnter </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{9570570E-4D76-4361-9EE1-F04D0DBDFB1E}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DragLeave"></span><code>function <strong>DragLeave</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This function corresponds to [IDropTarget::DragLeave](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragleave).
+
+<p>This function has a dependency on AllowExternalDrop property of CoreWebView2Controller and return E_FAIL to callers to indicate this operation is not allowed if AllowExternalDrop property is set to false.
+
+<p>The hosting application must register as an IDropTarget and implement and forward DragLeave calls to this function.
+
+<p>\snippet DropTarget.cpp DragLeave </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DragOver-LongWord-tagPOINT-LongWord-"></span><code>function <strong>DragOver</strong>(keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This function corresponds to [IDropTarget::DragOver](/windows/win32/api/oleidl/nf-oleidl-idroptarget-dragover).
+
+<p>This function has a dependency on AllowExternalDrop property of CoreWebView2Controller and return E_FAIL to callers to indicate this operation is not allowed if AllowExternalDrop property is set to false.
+
+<p>The hosting application must register as an IDropTarget and implement and forward DragOver calls to this function.
+
+<p>point parameter must be modified to include the WebView's offset and be in the WebView's client coordinates (Similar to how SendMouseInput works).
+
+<p>\snippet DropTarget.cpp DragOver </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Drop-IDataObject-LongWord-tagPOINT-LongWord-"></span><code>function <strong>Drop</strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This function corresponds to [IDropTarget::Drop](/windows/win32/api/oleidl/nf-oleidl-idroptarget-drop).
+
+<p>This function has a dependency on AllowExternalDrop property of CoreWebView2Controller and return E_FAIL to callers to indicate this operation is not allowed if AllowExternalDrop property is set to false.
+
+<p>The hosting application must register as an IDropTarget and implement and forward Drop calls to this function.
+
+<p>point parameter must be modified to include the WebView's offset and be in the WebView's client coordinates (Similar to how SendMouseInput works).
+
+<p>\snippet DropTarget.cpp Drop </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

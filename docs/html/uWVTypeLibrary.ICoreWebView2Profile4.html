@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Profile4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Profile4"></span><h1 class="cio">Interface ICoreWebView2Profile4</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Profile4 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile3.html">ICoreWebView2Profile3</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is the ICoreWebView2Profile interface for the permission management APIs. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile4</a>&quot;&gt;See the ICoreWebView2Profile4 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile2.html">ICoreWebView2Profile2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Profile3.html">ICoreWebView2Profile3</a></li>
+<li class="thisitem">ICoreWebView2Profile4</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile4.html#SetPermissionState-COREWEBVIEW2_PERMISSION_KIND-PWideChar-COREWEBVIEW2_PERMISSION_STATE-ICoreWebView2SetPermissionStateCompletedHandler-">SetPermissionState</a></strong>(PermissionKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PERMISSION_KIND">COREWEBVIEW2_PERMISSION_KIND</a>; origin: PWideChar; State: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PERMISSION_STATE">COREWEBVIEW2_PERMISSION_STATE</a>; const completedHandler: <a href="uWVTypeLibrary.ICoreWebView2SetPermissionStateCompletedHandler.html">ICoreWebView2SetPermissionStateCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Profile4.html#GetNonDefaultPermissionSettings-ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler-">GetNonDefaultPermissionSettings</a></strong>(const completedHandler: <a href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html">ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetPermissionState-COREWEBVIEW2_PERMISSION_KIND-PWideChar-COREWEBVIEW2_PERMISSION_STATE-ICoreWebView2SetPermissionStateCompletedHandler-"></span><code>function <strong>SetPermissionState</strong>(PermissionKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PERMISSION_KIND">COREWEBVIEW2_PERMISSION_KIND</a>; origin: PWideChar; State: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PERMISSION_STATE">COREWEBVIEW2_PERMISSION_STATE</a>; const completedHandler: <a href="uWVTypeLibrary.ICoreWebView2SetPermissionStateCompletedHandler.html">ICoreWebView2SetPermissionStateCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets permission state for the given permission kind and origin asynchronously. The change persists across sessions until it is changed by another call to `SetPermissionState`, or by setting the `State` property in `PermissionRequestedEventArgs`. Setting the state to `COREWEBVIEW2_PERMISSION_STATE_DEFAULT` will erase any state saved in the profile and restore the default behavior. The origin should have a valid scheme and host (e.g. &quot;<a href="https://www.example.com">https://www.example.com</a>&quot;), otherwise the method fails with `E_INVALIDARG`. Additional URI parts like path and fragment are ignored. For example, &quot;<a href="https://wwww.example.com/app1/index.html/">https://wwww.example.com/app1/index.html/</a>&quot; is treated the same as &quot;<a href="https://wwww.example.com">https://wwww.example.com</a>&quot;. See the [MDN origin definition](<a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">https://developer.mozilla.org/en-US/docs/Glossary/Origin</a>) for more details.
+
+<p>\snippet ScenarioPermissionManagement.cpp SetPermissionState </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{8F4AE680-192E-4EC8-833A-21CFADAEF628}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNonDefaultPermissionSettings-ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler-"></span><code>function <strong>GetNonDefaultPermissionSettings</strong>(const completedHandler: <a href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html">ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Invokes the handler with a collection of all nondefault permission settings. Use this method to get the permission state set in the current and previous sessions.
+
+<p>\snippet ScenarioPermissionManagement.cpp GetNonDefaultPermissionSettings </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

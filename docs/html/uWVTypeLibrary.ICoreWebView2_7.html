@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_7</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_7"></span><h1 class="cio">Interface ICoreWebView2_7</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_7 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_5 that manages opening the browser task manager window. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_7</a>&quot;&gt;See the ICoreWebView2_7 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="thisitem">ICoreWebView2_7</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_7.html#PrintToPdf-PWideChar-ICoreWebView2PrintSettings-ICoreWebView2PrintToPdfCompletedHandler-">PrintToPdf</a></strong>(ResultFilePath: PWideChar; const printSettings: <a href="uWVTypeLibrary.ICoreWebView2PrintSettings.html">ICoreWebView2PrintSettings</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2PrintToPdfCompletedHandler.html">ICoreWebView2PrintToPdfCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrintToPdf-PWideChar-ICoreWebView2PrintSettings-ICoreWebView2PrintToPdfCompletedHandler-"></span><code>function <strong>PrintToPdf</strong>(ResultFilePath: PWideChar; const printSettings: <a href="uWVTypeLibrary.ICoreWebView2PrintSettings.html">ICoreWebView2PrintSettings</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2PrintToPdfCompletedHandler.html">ICoreWebView2PrintToPdfCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Print the current page to PDF asynchronously with the provided settings. See `ICoreWebView2PrintSettings` for description of settings. Passing nullptr for `printSettings` results in default print settings used.
+
+<p>Use `resultFilePath` to specify the path to the PDF file. The host should provide an absolute path, including file name. If the path points to an existing file, the file will be overwritten. If the path is not valid, the method fails with `E_INVALIDARG`.
+
+<p>The async `PrintToPdf` operation completes when the data has been written to the PDF file. At this time the `ICoreWebView2PrintToPdfCompletedHandler` is invoked. If the application exits before printing is complete, the file is not saved. Only one `Printing` operation can be in progress at a time. If `PrintToPdf` is called while a `PrintToPdf` or `PrintToPdfStream` or `Print` or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `isSuccessful` set to FALSE.
+
+<p>\snippet FileComponent.cpp PrintToPdf </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{79C24D83-09A3-45AE-9418-487F32A58740}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

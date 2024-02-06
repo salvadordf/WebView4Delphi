@@ -155,6 +155,10 @@ const
   IID_ICoreWebView2LaunchingExternalUriSchemeEventArgs: TGUID = '{07D1A6C3-7175-4BA1-9306-E593CA07E46C}';
   IID_ICoreWebView2_19: TGUID = '{6921F954-79B0-437F-A997-C85811897C68}';
   IID_ICoreWebView2_20: TGUID = '{B4BC1926-7305-11EE-B962-0242AC120002}';
+  IID_ICoreWebView2_21: TGUID = '{C4980DEA-587B-43B9-8143-3EF3BF552D95}';
+  IID_ICoreWebView2ExecuteScriptWithResultCompletedHandler: TGUID = '{1BB5317B-8238-4C67-A7FF-BAF6558F289D}';
+  IID_ICoreWebView2ExecuteScriptResult: TGUID = '{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}';
+  IID_ICoreWebView2ScriptException: TGUID = '{054DAE00-84A3-49FF-BC17-4012A90BC9FD}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -2799,6 +2803,10 @@ type
   ICoreWebView2LaunchingExternalUriSchemeEventArgs = interface;
   ICoreWebView2_19 = interface;
   ICoreWebView2_20 = interface;
+  ICoreWebView2_21 = interface;
+  ICoreWebView2ExecuteScriptWithResultCompletedHandler = interface;
+  ICoreWebView2ExecuteScriptResult = interface;
+  ICoreWebView2ScriptException = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -4400,10 +4408,11 @@ type
     /// navigation is not longer present and the content of the current page is
     /// intact.  For performance reasons, `GET` HTTP requests may happen, while
     /// the host is responding.  You may set cookies and use part of a request
-    /// for the navigation.  Cancellation for navigation to `about:blank` or
-    /// frame navigation to `srcdoc` is not supported.  Such attempts are
-    /// ignored.  A cancelled navigation will fire a `NavigationCompleted` event
-    /// with a `WebErrorStatus` of
+    /// for the navigation.  Navigations to about schemes are cancellable, unless
+    /// `msWebView2CancellableAboutNavigations` feature flag is disabled.
+    /// Cancellation of frame navigation to `srcdoc` is not supported and
+    /// wil be ignored.  A cancelled navigation will fire a `NavigationCompleted`
+    /// event with a `WebErrorStatus` of
     /// `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`.
     /// </summary>
     function Get_Cancel(out Cancel: Integer): HResult; stdcall;
@@ -8509,6 +8518,135 @@ type
     /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
     /// </summary>
     function Get_FrameId(out id: SYSUINT): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the interface for getting string and exception with ExecuteScriptWithResult.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21">See the ICoreWebView2_21 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_21 = interface(ICoreWebView2_20)
+    ['{C4980DEA-587B-43B9-8143-3EF3BF552D95}']
+    /// <summary>
+    /// Run JavaScript code from the JavaScript parameter in the current
+    /// top-level document rendered in the WebView.
+    /// The result of the execution is returned asynchronously in the CoreWebView2ExecuteScriptResult object
+    /// which has methods and properties to obtain the successful result of script execution as well as any
+    /// unhandled JavaScript exceptions.
+    /// If this method is
+    /// run after the NavigationStarting event during a navigation, the script
+    /// runs in the new document when loading it, around the time
+    /// ContentLoading is run. This operation executes the script even if
+    /// ICoreWebView2Settings::IsScriptEnabled is set to FALSE.
+    ///
+    /// \snippet ScriptComponent.cpp ExecuteScriptWithResult
+    /// </summary>
+    function ExecuteScriptWithResult(javaScript: PWideChar;
+                                     const handler: ICoreWebView2ExecuteScriptWithResultCompletedHandler): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the callback for ExecuteScriptWithResult
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptwithresultcompletedhandler">See the ICoreWebView2ExecuteScriptWithResultCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ExecuteScriptWithResultCompletedHandler = interface(IUnknown)
+    ['{1BB5317B-8238-4C67-A7FF-BAF6558F289D}']
+    /// <summary>
+    /// Provides the result of ExecuteScriptWithResult
+    /// </summary>
+    function Invoke(errorCode: HResult; const result: ICoreWebView2ExecuteScriptResult): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the result for ExecuteScriptWithResult.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptresult">See the ICoreWebView2ExecuteScriptResult article.</see></para>
+  /// </remarks>
+  ICoreWebView2ExecuteScriptResult = interface(IUnknown)
+    ['{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}']
+    /// <summary>
+    /// This property is true if ExecuteScriptWithResult successfully executed script with
+    /// no unhandled exceptions and the result is available in the ResultAsJson property
+    /// or via the TryGetResultAsString method.
+    /// If it is false then the script execution had an unhandled exception which you
+    /// can get via the Exception property.
+    /// </summary>
+    function Get_Succeeded(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// A function that has no explicit return value returns undefined. If the
+    /// script that was run throws an unhandled exception, then the result is
+    /// also "null". This method is applied asynchronously. If the method is
+    /// run before `ContentLoading`, the script will not be executed
+    /// and the string "null" will be returned.
+    /// The return value description is as follows
+    /// 1. S_OK: Execution succeeds.
+    /// 2. E_POINTER: When the `jsonResult` is nullptr.
+    /// </summary>
+    function Get_ResultAsJson(out jsonResult: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// If Succeeded is true and the result of script execution is a string, this method provides the value of the string result,
+    /// and we will get the `FALSE` var value when the js result is not string type.
+    /// The return value description is as follows
+    /// 1. S_OK: Execution succeeds.
+    /// 2. E_POINTER: When the `stringResult` or `value` is nullptr.
+    /// NOTE: If the `value` returns `FALSE`, the `stringResult` will be set to a empty string.
+    /// </summary>
+    function TryGetResultAsString(out stringResult: PWideChar; out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// If Succeeded is false, you can use this property to get the unhandled exception thrown by script execution
+    /// Note that due to the compatibility of the WinRT/.NET interface,
+    /// S_OK will be returned even if the acquisition fails.
+    /// We can determine whether the acquisition is successful by judging whether the `exception` is nullptr.
+    /// </summary>
+    function Get_Exception(out Exception: ICoreWebView2ScriptException): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This interface represents a JavaScript exception.
+  /// If the CoreWebView2.ExecuteScriptWithResult result has Succeeded as false,
+  /// you can use the result's Exception property to get the script exception.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptexception">See the ICoreWebView2ScriptException article.</see></para>
+  /// </remarks>
+  ICoreWebView2ScriptException = interface(IUnknown)
+    ['{054DAE00-84A3-49FF-BC17-4012A90BC9FD}']
+    /// <summary>
+    /// The line number of the source where the exception occurred.
+    /// In the JSON it is `exceptionDetail.lineNumber`.
+    /// Note that this position starts at 0.
+    /// </summary>
+    function Get_LineNumber(out value: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// The column number of the source where the exception occurred.
+    /// In the JSON it is `exceptionDetail.columnNumber`.
+    /// Note that this position starts at 0.
+    /// </summary>
+    function Get_ColumnNumber(out value: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// The Name is the exception's class name.
+    /// In the JSON it is `exceptionDetail.exception.className`.
+    /// This is the empty string if the exception doesn't have a class name.
+    /// This can happen if the script throws a non-Error object such as `throw "abc";`
+    /// </summary>
+    function Get_name(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// The Message is the exception's message and potentially stack.
+    /// In the JSON it is exceptionDetail.exception.description.
+    /// This is the empty string if the exception doesn't have a description.
+    /// This can happen if the script throws a non-Error object such as throw "abc";.
+    /// </summary>
+    function Get_Message(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// This will return all details of the exception as a JSON string.
+    /// In the case that script has thrown a non-Error object such as `throw "abc";`
+    /// or any other non-Error object, you can get object specific properties.
+    /// </summary>
+    function Get_ToJson(out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>

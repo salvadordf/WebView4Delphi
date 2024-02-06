@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Args: Class TCoreWebView2NewWindowRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2NewWindowRequestedEventArgs"></span><h1 class="cio">Class TCoreWebView2NewWindowRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2NewWindowRequestedEventArgs = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the NewWindowRequested event. The event is run when content inside webview requested to a open a new window (through window.open() and so on). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2NewWindowRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#FBaseIntf2">FBaseIntf2</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs2.html">ICoreWebView2NewWindowRequestedEventArgs2</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#FBaseIntf3">FBaseIntf3</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs3.html">ICoreWebView2NewWindowRequestedEventArgs3</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetURI">GetURI</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetNewWindow">GetNewWindow</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetHandled">GetHandled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetIsUserInitiated">GetIsUserInitiated</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetDeferral">GetDeferral</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetWindowFeatures">GetWindowFeatures</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetName">GetName</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetOriginalSourceFrameInfo">GetOriginalSourceFrameInfo</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetNewWindow-ICoreWebView2-">SetNewWindow</a></strong>(const aValue : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a></strong>(aValue : boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Create-ICoreWebView2NewWindowRequestedEventArgs-">Create</a></strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Initialized">Initialized</a></strong>             : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#BaseIntf">BaseIntf</a></strong>                : <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#URI">URI</a></strong>                     : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetURI">GetURI</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#NewWindow">NewWindow</a></strong>               : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>                             read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetNewWindow">GetNewWindow</a>         write <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetNewWindow-ICoreWebView2-">SetNewWindow</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Handled">Handled</a></strong>                 : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetHandled">GetHandled</a>           write <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#IsUserInitiated">IsUserInitiated</a></strong>         : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetIsUserInitiated">GetIsUserInitiated</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Deferral">Deferral</a></strong>                : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                     read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#WindowFeatures">WindowFeatures</a></strong>          : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>               read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetWindowFeatures">GetWindowFeatures</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#Name">Name</a></strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetName">GetName</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#OriginalSourceFrameInfo">OriginalSourceFrameInfo</a></strong> : <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>                    read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetOriginalSourceFrameInfo">GetOriginalSourceFrameInfo</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf2"></span><code><strong>FBaseIntf2</strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs2.html">ICoreWebView2NewWindowRequestedEventArgs2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf3"></span><code><strong>FBaseIntf3</strong>: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs3.html">ICoreWebView2NewWindowRequestedEventArgs3</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetURI"></span><code>function <strong>GetURI</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetNewWindow"></span><code>function <strong>GetNewWindow</strong>: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHandled"></span><code>function <strong>GetHandled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsUserInitiated"></span><code>function <strong>GetIsUserInitiated</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDeferral"></span><code>function <strong>GetDeferral</strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetWindowFeatures"></span><code>function <strong>GetWindowFeatures</strong>: <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetName"></span><code>function <strong>GetName</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetOriginalSourceFrameInfo"></span><code>function <strong>GetOriginalSourceFrameInfo</strong>: <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetNewWindow-ICoreWebView2-"></span><code>procedure <strong>SetNewWindow</strong>(const aValue : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHandled-boolean-"></span><code>procedure <strong>SetHandled</strong>(aValue : boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2NewWindowRequestedEventArgs-"></span><code>constructor <strong>Create</strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>             : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                : <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="URI"></span><code>property <strong>URI</strong>                     : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetURI">GetURI</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The target uri of the new window requested. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_uri">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_uri</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NewWindow"></span><code>property <strong>NewWindow</strong>               : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>                             read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetNewWindow">GetNewWindow</a>         write <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetNewWindow-ICoreWebView2-">SetNewWindow</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the new window. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_newwindow">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_newwindow</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Handled"></span><code>property <strong>Handled</strong>                 : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetHandled">GetHandled</a>           write <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#SetHandled-boolean-">SetHandled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets whether the `NewWindowRequested` event is handled by host. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_handled">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_handled</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsUserInitiated"></span><code>property <strong>IsUserInitiated</strong>         : boolean                                   read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetIsUserInitiated">GetIsUserInitiated</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>`TRUE` when the new window request was initiated through a user gesture. Examples of user initiated requests are:
+
+<p>- Selecting an anchor tag with target
+
+<p>- Programmatic window open from a script that directly run as a result of user interaction such as via onclick handlers.
+
+<p>Non-user initiated requests are programmatic window opens from a script that are not directly triggered by user interaction, such as those that run while loading a new page or via timers.
+
+<p>The Microsoft Edge popup blocker is disabled for WebView so the app is able to use this flag to block non-user initiated popups.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_isuserinitiated">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_isuserinitiated</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Deferral"></span><code>property <strong>Deferral</strong>                : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                     read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Obtain an `ICoreWebView2Deferral` object and put the event into a deferred state. Use the `ICoreWebView2Deferral` object to complete the window open request at a later time. While this event is deferred the opener window returns a `WindowProxy` to an un-navigated window, which navigates when the deferral is complete. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#getdeferral">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#getdeferral</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WindowFeatures"></span><code>property <strong>WindowFeatures</strong>          : <a href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a>               read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetWindowFeatures">GetWindowFeatures</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Window features specified by the `window.open`. The features should be considered for positioning and sizing of new webview windows. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_windowfeatures">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_windowfeatures</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                                  read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetName">GetName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Gets the name of the new window. This window can be created via `window.open(url, windowName)`, where the windowName parameter corresponds to `Name` property.
+
+<p>If no windowName is passed to `window.open`, then the `Name` property will be set to an empty string. Additionally, if window is opened through other means, such as `&lt;a target=&quot;windowName&quot;&gt;...&lt;/a&gt;` or `&lt;iframe name=&quot;windowName&quot;&gt;...&lt;/iframe&gt;`, then the `Name` property will be set accordingly. In the case of target=_blank, the `Name` property will be an empty string.
+
+<p>Opening a window via ctrl+clicking a link would result in the `Name` property being set to an empty string.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs2#get_name">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs2#get_name</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs2 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OriginalSourceFrameInfo"></span><code>property <strong>OriginalSourceFrameInfo</strong> : <a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a>                    read <a href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html#GetOriginalSourceFrameInfo">GetOriginalSourceFrameInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The frame info of the frame where the new window request originated. The `OriginalSourceFrameInfo` is a snapshot of frame information at the time when the new window was requested. See `ICoreWebView2FrameInfo` for details on frame properties. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs3#get_originalsourceframeinfo">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs3#get_originalsourceframeinfo</a>&quot;&gt;See the ICoreWebView2NewWindowRequestedEventArgs3 article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

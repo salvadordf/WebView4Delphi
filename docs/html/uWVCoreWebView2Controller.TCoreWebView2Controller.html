@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Controller: Class TCoreWebView2Controller</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2Controller"></span><h1 class="cio">Class TCoreWebView2Controller</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Controller.html">uWVCoreWebView2Controller</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2Controller = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ The owner of the `CoreWebView2` object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The `CoreWebView2Controller` owns the `CoreWebView2`, and if all references to the `CoreWebView2Controller` go away, the WebView is closed. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2Controller</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf2">FBaseIntf2</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller2.html">ICoreWebView2Controller2</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf3">FBaseIntf3</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller3.html">ICoreWebView2Controller3</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf4">FBaseIntf4</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller4.html">ICoreWebView2Controller4</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FAcceleratorKeyPressedToken">FAcceleratorKeyPressedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FGotFocusToken">FGotFocusToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FLostFocusToken">FLostFocusToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FMoveFocusRequestedToken">FMoveFocusRequestedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FZoomFactorChangedToken">FZoomFactorChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FRasterizationScaleChangedToken">FRasterizationScaleChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetZoomFactor">GetZoomFactor</a></strong>: double;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetIsVisible">GetIsVisible</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBounds">GetBounds</a></strong>: TRect;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetParentWindow">GetParentWindow</a></strong>: THandle;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a></strong>: TColor;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetRasterizationScale">GetRasterizationScale</a></strong>: double;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetShouldDetectMonitorScaleChanges">GetShouldDetectMonitorScaleChanges</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBoundsMode">GetBoundsMode</a></strong>: <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetCoreWebView2">GetCoreWebView2</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetAllowExternalDrop">GetAllowExternalDrop</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetZoomFactor-double-">SetZoomFactor</a></strong>(const aValue : double);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetIsVisible-boolean-">SetIsVisible</a></strong>(const aValue : boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBounds-TRect-">SetBounds</a></strong>(aValue : TRect);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetParentWindow-THandle-">SetParentWindow</a></strong>(aValue : THandle);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a></strong>(const aValue : TColor);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetRasterizationScale-double-">SetRasterizationScale</a></strong>(const aValue : double);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetShouldDetectMonitorScaleChanges-boolean-">SetShouldDetectMonitorScaleChanges</a></strong>(aValue : boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBoundsMode-TWVBoundsMode-">SetBoundsMode</a></strong>(aValue : <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetAllowExternalDrop-boolean-">SetAllowExternalDrop</a></strong>(aValue : boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddAcceleratorKeyPressedEvent-TComponent-">AddAcceleratorKeyPressedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddGotFocusEvent-TComponent-">AddGotFocusEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddLostFocusEvent-TComponent-">AddLostFocusEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddMoveFocusRequestedEvent-TComponent-">AddMoveFocusRequestedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddZoomFactorChangedEvent-TComponent-">AddZoomFactorChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddRasterizationScaleChangedEvent-TComponent-">AddRasterizationScaleChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#Create-ICoreWebView2Controller-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#MoveFocus-TWVMoveFocusReason-">MoveFocus</a></strong>(aReason : <a href="uWVTypes.html#TWVMoveFocusReason">TWVMoveFocusReason</a>) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#Close">Close</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBoundsAndZoomFactor-TRect-double-">SetBoundsAndZoomFactor</a></strong>(aBounds: TRect; const aZoomFactor: double) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#NotifyParentWindowPositionChanged">NotifyParentWindowPositionChanged</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#Initialized">Initialized</a></strong>                     : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#BaseIntf">BaseIntf</a></strong>                        : <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#ZoomFactor">ZoomFactor</a></strong>                      : double                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetZoomFactor">GetZoomFactor</a>                       write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetZoomFactor-double-">SetZoomFactor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#IsVisible">IsVisible</a></strong>                       : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetIsVisible">GetIsVisible</a>                        write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetIsVisible-boolean-">SetIsVisible</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#Bounds">Bounds</a></strong>                          : TRect                    read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBounds">GetBounds</a>                           write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBounds-TRect-">SetBounds</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#ParentWindow">ParentWindow</a></strong>                    : THandle                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetParentWindow">GetParentWindow</a>                     write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetParentWindow-THandle-">SetParentWindow</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#DefaultBackgroundColor">DefaultBackgroundColor</a></strong>          : TColor                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>           write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#RasterizationScale">RasterizationScale</a></strong>              : double                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetRasterizationScale">GetRasterizationScale</a>               write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetRasterizationScale-double-">SetRasterizationScale</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#ShouldDetectMonitorScaleChanges">ShouldDetectMonitorScaleChanges</a></strong> : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetShouldDetectMonitorScaleChanges">GetShouldDetectMonitorScaleChanges</a>  write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetShouldDetectMonitorScaleChanges-boolean-">SetShouldDetectMonitorScaleChanges</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#BoundsMode">BoundsMode</a></strong>                      : <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>            read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBoundsMode">GetBoundsMode</a>                       write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBoundsMode-TWVBoundsMode-">SetBoundsMode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#CoreWebView2">CoreWebView2</a></strong>                    : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>            read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetCoreWebView2">GetCoreWebView2</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#AllowExternalDrop">AllowExternalDrop</a></strong>               : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetAllowExternalDrop">GetAllowExternalDrop</a>                write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetAllowExternalDrop-boolean-">SetAllowExternalDrop</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf2"></span><code><strong>FBaseIntf2</strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller2.html">ICoreWebView2Controller2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf3"></span><code><strong>FBaseIntf3</strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller3.html">ICoreWebView2Controller3</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf4"></span><code><strong>FBaseIntf4</strong>: <a href="uWVTypeLibrary.ICoreWebView2Controller4.html">ICoreWebView2Controller4</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAcceleratorKeyPressedToken"></span><code><strong>FAcceleratorKeyPressedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FGotFocusToken"></span><code><strong>FGotFocusToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLostFocusToken"></span><code><strong>FLostFocusToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FMoveFocusRequestedToken"></span><code><strong>FMoveFocusRequestedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FZoomFactorChangedToken"></span><code><strong>FZoomFactorChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRasterizationScaleChangedToken"></span><code><strong>FRasterizationScaleChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetZoomFactor"></span><code>function <strong>GetZoomFactor</strong>: double;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsVisible"></span><code>function <strong>GetIsVisible</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBounds"></span><code>function <strong>GetBounds</strong>: TRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetParentWindow"></span><code>function <strong>GetParentWindow</strong>: THandle;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDefaultBackgroundColor"></span><code>function <strong>GetDefaultBackgroundColor</strong>: TColor;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetRasterizationScale"></span><code>function <strong>GetRasterizationScale</strong>: double;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldDetectMonitorScaleChanges"></span><code>function <strong>GetShouldDetectMonitorScaleChanges</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBoundsMode"></span><code>function <strong>GetBoundsMode</strong>: <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCoreWebView2"></span><code>function <strong>GetCoreWebView2</strong>: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAllowExternalDrop"></span><code>function <strong>GetAllowExternalDrop</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetZoomFactor-double-"></span><code>procedure <strong>SetZoomFactor</strong>(const aValue : double);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetIsVisible-boolean-"></span><code>procedure <strong>SetIsVisible</strong>(const aValue : boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetBounds-TRect-"></span><code>procedure <strong>SetBounds</strong>(aValue : TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetParentWindow-THandle-"></span><code>procedure <strong>SetParentWindow</strong>(aValue : THandle);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetDefaultBackgroundColor-TColor-"></span><code>procedure <strong>SetDefaultBackgroundColor</strong>(const aValue : TColor);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetRasterizationScale-double-"></span><code>procedure <strong>SetRasterizationScale</strong>(const aValue : double);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetShouldDetectMonitorScaleChanges-boolean-"></span><code>procedure <strong>SetShouldDetectMonitorScaleChanges</strong>(aValue : boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetBoundsMode-TWVBoundsMode-"></span><code>procedure <strong>SetBoundsMode</strong>(aValue : <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetAllowExternalDrop-boolean-"></span><code>procedure <strong>SetAllowExternalDrop</strong>(aValue : boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddAcceleratorKeyPressedEvent-TComponent-"></span><code>function <strong>AddAcceleratorKeyPressedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddGotFocusEvent-TComponent-"></span><code>function <strong>AddGotFocusEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddLostFocusEvent-TComponent-"></span><code>function <strong>AddLostFocusEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddMoveFocusRequestedEvent-TComponent-"></span><code>function <strong>AddMoveFocusRequestedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddZoomFactorChangedEvent-TComponent-"></span><code>function <strong>AddZoomFactorChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddRasterizationScaleChangedEvent-TComponent-"></span><code>function <strong>AddRasterizationScaleChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2Controller-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBrowserComponent</dt>
+<dd>The TWVBrowserBase instance.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MoveFocus-TWVMoveFocusReason-"></span><code>function <strong>MoveFocus</strong>(aReason : <a href="uWVTypes.html#TWVMoveFocusReason">TWVMoveFocusReason</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Moves focus into WebView. WebView gets focus and focus is set to correspondent element in the page hosted in the WebView. For Programmatic reason, focus is set to previously focused element or the default element if no previously focused element exists. For `Next` reason, focus is set to the first element. For `Previous` reason, focus is set to the last element. WebView changes focus through user interaction including selecting into a WebView or Tab into it. For tabbing, the app runs MoveFocus with Next or Previous to align with Tab and Shift+Tab respectively when it decides the WebView is the next element that may exist in a tab. Or, the app runs `IsDialogMessage` as part of the associated message loop to allow the platform to auto handle tabbing. The platform rotates through all windows with `WS_TABSTOP`. When the WebView gets focus from `IsDialogMessage`, it is internally put the focus on the first or last element for tab and Shift+Tab respectively. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Close"></span><code>function <strong>Close</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Closes the WebView and cleans up the underlying browser instance. Cleaning up the browser instance releases the resources powering the WebView. The browser instance is shut down if no other WebViews are using it.
+
+<p>After running `Close`, most methods will fail and event handlers stop running. Specifically, the WebView releases the associated references to any associated event handlers when `Close` is run.
+
+<p>`Close` is implicitly run when the `CoreWebView2Controller` loses the final reference and is destructed. But it is best practice to explicitly run `Close` to avoid any accidental cycle of references between the WebView and the app code. Specifically, if you capture a reference to the WebView in an event handler you create a reference cycle between the WebView and the event handler. Run `Close` to break the cycle by releasing all event handlers. But to avoid the situation, it is best to both explicitly run `Close` on the WebView and to not capture a reference to the WebView to ensure the WebView is cleaned up correctly. `Close` is synchronous and won't trigger the `beforeunload` event. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetBoundsAndZoomFactor-TRect-double-"></span><code>function <strong>SetBoundsAndZoomFactor</strong>(aBounds: TRect; const aZoomFactor: double) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Updates `aBounds` and `aZoomFactor` properties at the same time. This operation is atomic from the perspective of the host. After returning from this function, the `aBounds` and `aZoomFactor` properties are both updated if the function is successful, or neither is updated if the function fails. If `aBounds` and `aZoomFactor` are both updated by the same scale (for example, `aBounds` and `aZoomFactor` are both doubled), then the page does not display a change in `window.innerWidth` or `window.innerHeight` and the WebView renders the content at the new size and zoom without intermediate renderings. This function also updates just one of `aZoomFactor` or `aBounds` by passing in the new value for one and the current value for the other. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NotifyParentWindowPositionChanged"></span><code>function <strong>NotifyParentWindowPositionChanged</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This is a notification separate from `Bounds` that tells WebView that the main WebView parent (or any ancestor) `HWND` moved. This is needed for accessibility and certain dialogs in WebView to work correctly. </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                     : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                        : <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ZoomFactor"></span><code>property <strong>ZoomFactor</strong>                      : double                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetZoomFactor">GetZoomFactor</a>                       write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetZoomFactor-double-">SetZoomFactor</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The zoom factor for the WebView. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_zoomfactor</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsVisible"></span><code>property <strong>IsVisible</strong>                       : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetIsVisible">GetIsVisible</a>                        write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetIsVisible-boolean-">SetIsVisible</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The `IsVisible` property determines whether to show or hide the WebView2.
+
+<p>If `IsVisible` is set to `FALSE`, the WebView2 is transparent and is not rendered. However, this does not affect the window containing the WebView2 (the `HWND` parameter that was passed to `CreateCoreWebView2Controller`). If you want that window to disappear too, run `ShowWindow` on it directly in addition to modifying the `IsVisible` property. WebView2 as a child window does not get window messages when the top window is minimized or restored. For performance reasons, developers should set the `IsVisible` property of the WebView to `FALSE` when the app window is minimized and back to `TRUE` when the app window is restored. The app window does this by handling `SIZE_MINIMIZED and SIZE_RESTORED` command upon receiving `WM_SIZE` message.
+
+<p>There are CPU and memory benefits when the page is hidden. For instance, Chromium has code that throttles activities on the page like animations and some tasks are run less frequently. Similarly, WebView2 will purge some caches to reduce memory usage.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_isvisible">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_isvisible</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Bounds"></span><code>property <strong>Bounds</strong>                          : TRect                    read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBounds">GetBounds</a>                           write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBounds-TRect-">SetBounds</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The WebView bounds. Bounds are relative to the parent `HWND`. The app has two ways to position a WebView.
+
+<p>* Create a child `HWND` that is the WebView parent `HWND`. Position the window where the WebView should be. Use `(0, 0)` for the top-left corner (the offset) of the `Bounds` of the WebView.
+
+<p>* Use the top-most window of the app as the WebView parent HWND. For example, to position WebView correctly in the app, set the top-left corner of the Bound of the WebView.
+
+<p>The values of `Bounds` are limited by the coordinate space of the host.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_bounds">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_bounds</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParentWindow"></span><code>property <strong>ParentWindow</strong>                    : THandle                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetParentWindow">GetParentWindow</a>                     write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetParentWindow-THandle-">SetParentWindow</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The parent window provided by the app that this WebView is using to render content. This API initially returns the window passed into `CreateCoreWebView2Controller`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultBackgroundColor"></span><code>property <strong>DefaultBackgroundColor</strong>          : TColor                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>           write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The `DefaultBackgroundColor` property is the color WebView renders underneath all web content. This means WebView renders this color when there is no web content loaded such as before the initial navigation or between navigations. This also means web pages with undefined css background properties or background properties containing transparent pixels will render their contents over this color. Web pages with defined and opaque background properties that span the page will obscure the `DefaultBackgroundColor` and display normally. The default value for this property is white to resemble the native browser experience.
+
+<p>The Color is specified by the COREWEBVIEW2_COLOR that represents an RGBA value. The `A` represents an Alpha value, meaning `DefaultBackgroundColor` can be transparent. In the case of a transparent `DefaultBackgroundColor` WebView will render hosting app content as the background. This Alpha value is not supported on Windows 7. Any `A` value other than 255 will result in E_INVALIDARG on Windows 7. It is supported on all other WebView compatible platforms.
+
+<p>Semi-transparent colors are not currently supported by this API and setting `DefaultBackgroundColor` to a semi-transparent color will fail with E_INVALIDARG. The only supported alpha values are 0 and 255, all other values will result in E_INVALIDARG. `DefaultBackgroundColor` can only be an opaque color or transparent.
+
+<p>This value may also be set by using the `WEBVIEW2_DEFAULT_BACKGROUND_COLOR` environment variable. There is a known issue with background color where setting the color by API can still leave the app with a white flicker before the `DefaultBackgroundColor` takes effect. Setting the color via environment variable solves this issue. The value must be a hex value that can optionally prepend a 0x. The value must account for the alpha value which is represented by the first 2 digits. So any hex value fewer than 8 digits will assume a prepended 00 to the hex value and result in a transparent color.
+
+<p>`get_DefaultBackgroundColor` will return the result of this environment variable if used. This environment variable can only set the `DefaultBackgroundColor` once. Subsequent updates to background color must be done through API call.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2#get_defaultbackgroundcolor">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2#get_defaultbackgroundcolor</a>&quot;&gt;See the ICoreWebView2Controller2 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RasterizationScale"></span><code>property <strong>RasterizationScale</strong>              : double                   read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetRasterizationScale">GetRasterizationScale</a>               write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetRasterizationScale-double-">SetRasterizationScale</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The rasterization scale for the WebView. The rasterization scale is the combination of the monitor DPI scale and text scaling set by the user. This value should be updated when the DPI scale of the app's top level window changes (i.e. monitor DPI scale changes or window changes monitor) or when the text scale factor of the system changes.
+
+<p>Rasterization scale applies to the WebView content, as well as popups, context menus, scroll bars, and so on. Normal app scaling scenarios should use the ZoomFactor property or SetBoundsAndZoomFactor API which only scale the rendered HTML content and not popups, context menus, scroll bars, and so on.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_rasterizationscale">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_rasterizationscale</a>&quot;&gt;See the ICoreWebView2Controller3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldDetectMonitorScaleChanges"></span><code>property <strong>ShouldDetectMonitorScaleChanges</strong> : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetShouldDetectMonitorScaleChanges">GetShouldDetectMonitorScaleChanges</a>  write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetShouldDetectMonitorScaleChanges-boolean-">SetShouldDetectMonitorScaleChanges</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ ShouldDetectMonitorScaleChanges property determines whether the WebView attempts to track monitor DPI scale changes. When true, the WebView will track monitor DPI scale changes, update the RasterizationScale property, and raises RasterizationScaleChanged event. When false, the WebView will not track monitor DPI scale changes, and the app must update the RasterizationScale property itself. RasterizationScaleChanged event will never raise when ShouldDetectMonitorScaleChanges is false. Apps that want to set their own rasterization scale should set this property to false to avoid the WebView2 updating the RasterizationScale property to match the monitor DPI scale. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_shoulddetectmonitorscalechanges">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_shoulddetectmonitorscalechanges</a>&quot;&gt;See the ICoreWebView2Controller3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BoundsMode"></span><code>property <strong>BoundsMode</strong>                      : <a href="uWVTypes.html#TWVBoundsMode">TWVBoundsMode</a>            read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetBoundsMode">GetBoundsMode</a>                       write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetBoundsMode-TWVBoundsMode-">SetBoundsMode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>BoundsMode affects how setting the Bounds and RasterizationScale properties work. Bounds mode can either be in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS mode or COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE mode.
+
+<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, setting the bounds property will set the size of the WebView in raw screen pixels. Changing the rasterization scale in this mode won't change the raw pixel size of the WebView and will only change the rasterization scale.
+
+<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the bounds property will change the logical size of the WebView which can be described by the following equation: Logical size * rasterization scale = Raw Pixel size
+
+<p>In this case, changing the rasterization scale will keep the logical size the same and change the raw pixel size.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_boundsmode">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller3#get_boundsmode</a>&quot;&gt;See the ICoreWebView2Controller3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CoreWebView2"></span><code>property <strong>CoreWebView2</strong>                    : <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>            read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetCoreWebView2">GetCoreWebView2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `CoreWebView2` associated with this `CoreWebView2Controller`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_corewebview2">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_corewebview2</a>&quot;&gt;See the ICoreWebView2Controller article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowExternalDrop"></span><code>property <strong>AllowExternalDrop</strong>               : boolean                  read <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#GetAllowExternalDrop">GetAllowExternalDrop</a>                write <a href="uWVCoreWebView2Controller.TCoreWebView2Controller.html#SetAllowExternalDrop-boolean-">SetAllowExternalDrop</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `AllowExternalDrop` property which is used to configure the capability that dragging objects from outside the bounds of webview2 and dropping into webview2 is allowed or disallowed. The default value is TRUE. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller4#get_allowexternaldrop">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller4#get_allowexternaldrop</a>&quot;&gt;See the ICoreWebView2Controller4 article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

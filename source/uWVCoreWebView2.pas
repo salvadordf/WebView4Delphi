@@ -37,6 +37,7 @@ type
       FBaseIntf18                              : ICoreWebView2_18;
       FBaseIntf19                              : ICoreWebView2_19;
       FBaseIntf20                              : ICoreWebView2_20;
+      FBaseIntf21                              : ICoreWebView2_21;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -750,6 +751,21 @@ type
       /// released. The underlying shared memory will be released when all the views are released.</para>
       /// </summary>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
+      /// <summary>
+      /// Run JavaScript code from the JavaScript parameter in the current
+      /// top-level document rendered in the WebView.
+      /// The result of the execution is returned asynchronously in the CoreWebView2ExecuteScriptResult object
+      /// which has methods and properties to obtain the successful result of script execution as well as any
+      /// unhandled JavaScript exceptions.
+      /// If this method is
+      /// run after the NavigationStarting event during a navigation, the script
+      /// runs in the new document when loading it, around the time
+      /// ContentLoading is run. This operation executes the script even if
+      /// ICoreWebView2Settings::IsScriptEnabled is set to FALSE.
+      ///
+      /// \snippet ScriptComponent.cpp ExecuteScriptWithResult
+      /// </summary>
+      function ExecuteScriptWithResult(const JavaScript: wvstring; aExecutionID : integer; const aBrowserComponent : TComponent): boolean;
 
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
@@ -960,8 +976,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_16, FBaseIntf16) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_17, FBaseIntf17) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_18, FBaseIntf18) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_20, FBaseIntf20);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_20, FBaseIntf20) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_21, FBaseIntf21);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -1013,6 +1030,7 @@ begin
   FBaseIntf18          := nil;
   FBaseIntf19          := nil;
   FBaseIntf20          := nil;
+  FBaseIntf21          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
   FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
@@ -2023,6 +2041,21 @@ function TCoreWebView2.PostSharedBufferToScript(const aSharedBuffer         : IC
 begin
   Result := assigned(FBaseIntf17) and
             succeeded(FBaseIntf17.PostSharedBufferToScript(aSharedBuffer, aAccess, PWideChar(aAdditionalDataAsJson)));
+end;
+
+function TCoreWebView2.ExecuteScriptWithResult(const JavaScript: wvstring; aExecutionID : integer; const aBrowserComponent : TComponent): boolean;
+var
+  TempHandler : ICoreWebView2ExecuteScriptWithResultCompletedHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf21) then
+    try
+      TempHandler := TCoreWebView2ExecuteScriptWithResultCompletedHandler.Create(TWVBrowserBase(aBrowserComponent), aExecutionID);
+      Result      := succeeded(FBaseIntf21.ExecuteScriptWithResult(PWideChar(JavaScript), TempHandler));
+    finally
+      TempHandler := nil;
+    end;
 end;
 
 function TCoreWebView2.GetBrowserProcessID : cardinal;

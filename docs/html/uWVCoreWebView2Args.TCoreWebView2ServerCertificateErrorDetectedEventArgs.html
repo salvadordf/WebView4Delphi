@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Args: Class TCoreWebView2ServerCertificateErrorDetectedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2ServerCertificateErrorDetectedEventArgs"></span><h1 class="cio">Class TCoreWebView2ServerCertificateErrorDetectedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ServerCertificateErrorDetectedEventArgs = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the ServerCertificateErrorDetected event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ServerCertificateErrorDetectedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetErrorStatus">GetErrorStatus</a></strong>: <a href="uWVTypes.html#TWVWebErrorStatus">TWVWebErrorStatus</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetRequestUri">GetRequestUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetServerCertificate">GetServerCertificate</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetAction">GetAction</a></strong>: <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetDeferral">GetDeferral</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#SetAction-TWVServerCertificateErrorAction-">SetAction</a></strong>(aValue: <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#Create-ICoreWebView2ServerCertificateErrorDetectedEventArgs-">Create</a></strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#Initialized">Initialized</a></strong>                   : boolean                                              read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#BaseIntf">BaseIntf</a></strong>                      : <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a> read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#ErrorStatus">ErrorStatus</a></strong>                   : <a href="uWVTypes.html#TWVWebErrorStatus">TWVWebErrorStatus</a>                                    read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetErrorStatus">GetErrorStatus</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#RequestUri">RequestUri</a></strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetRequestUri">GetRequestUri</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#ServerCertificate">ServerCertificate</a></strong>             : <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>                             read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetServerCertificate">GetServerCertificate</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#Action">Action</a></strong>                        : <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>                      read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetAction">GetAction</a>              write <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#SetAction-TWVServerCertificateErrorAction-">SetAction</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#Deferral">Deferral</a></strong>                      : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                                read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetErrorStatus"></span><code>function <strong>GetErrorStatus</strong>: <a href="uWVTypes.html#TWVWebErrorStatus">TWVWebErrorStatus</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetRequestUri"></span><code>function <strong>GetRequestUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetServerCertificate"></span><code>function <strong>GetServerCertificate</strong>: <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAction"></span><code>function <strong>GetAction</strong>: <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDeferral"></span><code>function <strong>GetDeferral</strong>: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetAction-TWVServerCertificateErrorAction-"></span><code>procedure <strong>SetAction</strong>(aValue: <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ServerCertificateErrorDetectedEventArgs-"></span><code>constructor <strong>Create</strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                   : boolean                                              read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                      : <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a> read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorStatus"></span><code>property <strong>ErrorStatus</strong>                   : <a href="uWVTypes.html#TWVWebErrorStatus">TWVWebErrorStatus</a>                                    read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetErrorStatus">GetErrorStatus</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The TLS error code for the invalid certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_errorstatus">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_errorstatus</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RequestUri"></span><code>property <strong>RequestUri</strong>                    : <a href="uWVTypes.html#wvstring">wvstring</a>                                             read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetRequestUri">GetRequestUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ URI associated with the request for the invalid certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_requesturi">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_requesturi</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ServerCertificate"></span><code>property <strong>ServerCertificate</strong>             : <a href="uWVTypeLibrary.ICoreWebView2Certificate.html">ICoreWebView2Certificate</a>                             read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetServerCertificate">GetServerCertificate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the server certificate. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_servercertificate">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_servercertificate</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Action"></span><code>property <strong>Action</strong>                        : <a href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a>                      read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetAction">GetAction</a>              write <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#SetAction-TWVServerCertificateErrorAction-">SetAction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The action of the server certificate error detection. The default value is `COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_action">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_action</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Deferral"></span><code>property <strong>Deferral</strong>                      : <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>                                read <a href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html#GetDeferral">GetDeferral</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the event at a later time. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#getdeferral">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#getdeferral</a>&quot;&gt;See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

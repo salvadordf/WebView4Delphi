@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2WebResourceRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2WebResourceRequestedEventArgs"></span><h1 class="cio">Interface ICoreWebView2WebResourceRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2WebResourceRequestedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the WebResourceRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs</a>&quot;&gt;See the ICoreWebView2WebResourceRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2WebResourceRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html#Get_Request-ICoreWebView2WebResourceRequest-">Get_Request</a></strong>(out Request: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html#Get_Response-ICoreWebView2WebResourceResponse-">Get_Response</a></strong>(out Response: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html#Set_Response-ICoreWebView2WebResourceResponse-">Set_Response</a></strong>(const Response: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html#Get_ResourceContext-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-">Get_ResourceContext</a></strong>(out context: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Request-ICoreWebView2WebResourceRequest-"></span><code>function <strong>Get_Request</strong>(out Request: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The Web resource request. The request object may be missing some headers that are added by network stack at a later time. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{453E667F-12C7-49D4-BE6D-DDBE7956F57A}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Response-ICoreWebView2WebResourceResponse-"></span><code>function <strong>Get_Response</strong>(out Response: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A placeholder for the web resource response object. If this object is set, the web resource request is completed with the specified response. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Response-ICoreWebView2WebResourceResponse-"></span><code>function <strong>Set_Response</strong>(const Response: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Response` property. Create an empty web resource response object with `CreateWebResourceResponse` and then modify it to construct the response. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Obtain an `ICoreWebView2Deferral` object and put the event into a deferred state. Use the `ICoreWebView2Deferral` object to complete the request at a later time. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ResourceContext-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-"></span><code>function <strong>Get_ResourceContext</strong>(out context: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The web resource request context. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

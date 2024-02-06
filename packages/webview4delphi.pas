@@ -38,6 +38,7 @@ uses
   uWVCoreWebView2BrowserExtensionList, 
   uWVCoreWebView2ProcessExtendedInfoCollection, 
   uWVCoreWebView2BrowserExtension, uWVCoreWebView2ProcessExtendedInfo, 
+  uWVCoreWebView2ExecuteScriptResult, uWVCoreWebView2ScriptException, 
   LazarusPackageIntf;
 
 implementation

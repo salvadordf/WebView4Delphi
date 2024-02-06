@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Args: Class TCoreWebView2WebResourceResponseReceivedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2WebResourceResponseReceivedEventArgs"></span><h1 class="cio">Class TCoreWebView2WebResourceResponseReceivedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2WebResourceResponseReceivedEventArgs = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the WebResourceResponseReceived event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs</a>&quot;&gt;See the ICoreWebView2WebResourceResponseReceivedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2WebResourceResponseReceivedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetRequest">GetRequest</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetResponse">GetResponse</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseView.html">ICoreWebView2WebResourceResponseView</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#Create-ICoreWebView2WebResourceResponseReceivedEventArgs-">Create</a></strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#Initialized">Initialized</a></strong> : boolean                                            read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#BaseIntf">BaseIntf</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>  read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#Request">Request</a></strong>     : <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>                    read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetRequest">GetRequest</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#Response">Response</a></strong>    : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseView.html">ICoreWebView2WebResourceResponseView</a>               read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetResponse">GetResponse</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetRequest"></span><code>function <strong>GetRequest</strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetResponse"></span><code>function <strong>GetResponse</strong>: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseView.html">ICoreWebView2WebResourceResponseView</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2WebResourceResponseReceivedEventArgs-"></span><code>constructor <strong>Create</strong>(const aArgs: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong> : boolean                                            read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>    : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>  read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Request"></span><code>property <strong>Request</strong>     : <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequest.html">ICoreWebView2WebResourceRequest</a>                    read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetRequest">GetRequest</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The request object for the web resource, as committed. This includes headers added by the network stack that were not be included during the associated WebResourceRequested event, such as Authentication headers. Modifications to this object have no effect on how the request is processed as it has already been sent. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs#get_request">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs#get_request</a>&quot;&gt;See the ICoreWebView2WebResourceResponseReceivedEventArgs article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Response"></span><code>property <strong>Response</strong>    : <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseView.html">ICoreWebView2WebResourceResponseView</a>               read <a href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html#GetResponse">GetResponse</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ View of the response object received for the web resource. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs#get_response">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponsereceivedeventargs#get_response</a>&quot;&gt;See the ICoreWebView2WebResourceResponseReceivedEventArgs article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

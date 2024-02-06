@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CompositionController</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2CompositionController"></span><h1 class="cio">Interface ICoreWebView2CompositionController</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CompositionController = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of the ICoreWebView2Controller interface to support visual hosting. An object implementing the ICoreWebView2CompositionController interface will also implement ICoreWebView2Controller. Callers are expected to use ICoreWebView2Controller for resizing, visibility, focus, and so on, and then use ICoreWebView2CompositionController to connect to a composition tree and provide input meant for the WebView. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller</a>&quot;&gt;See the ICoreWebView2CompositionController article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2CompositionController</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#Get_RootVisualTarget-IUnknown-">Get_RootVisualTarget</a></strong>(out target: IUnknown): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#Set_RootVisualTarget-IUnknown-">Set_RootVisualTarget</a></strong>(const target: IUnknown): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#SendMouseInput-COREWEBVIEW2_MOUSE_EVENT_KIND-COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS-SYSUINT-tagPOINT-">SendMouseInput</a></strong>(eventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND">COREWEBVIEW2_MOUSE_EVENT_KIND</a>; virtualKeys: <a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS">COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS</a>; mouseData: SYSUINT; point: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#SendPointerInput-COREWEBVIEW2_POINTER_EVENT_KIND-ICoreWebView2PointerInfo-">SendPointerInput</a></strong>(eventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_POINTER_EVENT_KIND">COREWEBVIEW2_POINTER_EVENT_KIND</a>; const pointerInfo: <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#Get_Cursor-HCURSOR-">Get_Cursor</a></strong>(out Cursor: HCURSOR): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#Get_SystemCursorId-SYSUINT-">Get_SystemCursorId</a></strong>(out SystemCursorId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#add_CursorChanged-ICoreWebView2CursorChangedEventHandler-EventRegistrationToken-">add_CursorChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2CursorChangedEventHandler.html">ICoreWebView2CursorChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController.html#remove_CursorChanged-EventRegistrationToken-">remove_CursorChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_RootVisualTarget-IUnknown-"></span><code>function <strong>Get_RootVisualTarget</strong>(out target: IUnknown): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The RootVisualTarget is a visual in the hosting app's visual tree. This visual is where the WebView will connect its visual tree. The app uses this visual to position the WebView within the app. The app still needs to use the Bounds property to size the WebView. The RootVisualTarget property can be an IDCompositionVisual or a Windows::UI::Composition::ContainerVisual. WebView will connect its visual tree to the provided visual before returning from the property setter. The app needs to commit on its device setting the RootVisualTarget property. The RootVisualTarget property supports being set to nullptr to disconnect the WebView from the app's visual tree. \snippet ViewComponent.cpp SetRootVisualTarget \snippet ViewComponent.cpp BuildDCompTree </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_RootVisualTarget-IUnknown-"></span><code>function <strong>Set_RootVisualTarget</strong>(const target: IUnknown): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set the RootVisualTarget property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendMouseInput-COREWEBVIEW2_MOUSE_EVENT_KIND-COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS-SYSUINT-tagPOINT-"></span><code>function <strong>SendMouseInput</strong>(eventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND">COREWEBVIEW2_MOUSE_EVENT_KIND</a>; virtualKeys: <a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS">COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS</a>; mouseData: SYSUINT; point: tagPOINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL or COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL, then mouseData specifies the amount of wheel movement. A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user. One wheel click is defined as WHEEL_DELTA, which is 120. If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN, or COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP, then mouseData specifies which X buttons were pressed or released. This value should be 1 if the first X button is pressed/released and 2 if the second X button is pressed/released. If eventKind is COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE, then virtualKeys, mouseData, and point should all be zero. If eventKind is any other value, then mouseData should be zero. Point is expected to be in the client coordinate space of the WebView. To track mouse events that start in the WebView and can potentially move outside of the WebView and host application, calling SetCapture and ReleaseCapture is recommended. To dismiss hover popups, it is also recommended to send COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE messages. \snippet ViewComponent.cpp SendMouseInput </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendPointerInput-COREWEBVIEW2_POINTER_EVENT_KIND-ICoreWebView2PointerInfo-"></span><code>function <strong>SendPointerInput</strong>(eventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_POINTER_EVENT_KIND">COREWEBVIEW2_POINTER_EVENT_KIND</a>; const pointerInfo: <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ SendPointerInput accepts touch or pen pointer input of types defined in COREWEBVIEW2_POINTER_EVENT_KIND. Any pointer input from the system must be converted into an ICoreWebView2PointerInfo first. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Cursor-HCURSOR-"></span><code>function <strong>Get_Cursor</strong>(out Cursor: HCURSOR): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+* function Get_Cursor(out Cursor: wireHICON): HResult; stdcall; wireHICON -&gt; HCURSOR ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_SystemCursorId-SYSUINT-"></span><code>function <strong>Get_SystemCursorId</strong>(out SystemCursorId: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The current system cursor ID reported by the underlying rendering engine for WebView. For example, most of the time, when the cursor is over text, this will return the int value for IDC_IBEAM. The systemCursorId is only valid if the rendering engine reports a default Windows cursor resource value. Navigate to [LoadCursorW](/windows/win32/api/winuser/nf-winuser-loadcursorw) for more details. Otherwise, if custom CSS cursors are being used, this will return 0. To actually use systemCursorId in LoadCursor or LoadImage, MAKEINTRESOURCE must be called on it first.
+
+<p>\snippet ViewComponent.cpp SystemCursorId </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_CursorChanged-ICoreWebView2CursorChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_CursorChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2CursorChangedEventHandler.html">ICoreWebView2CursorChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the CursorChanged event. The event is raised when WebView thinks the cursor should be changed. For example, when the mouse cursor is currently the default cursor but is then moved over text, it may try to change to the IBeam cursor.
+
+<p>It is expected for the developer to send COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE messages (in addition to COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE messages) through the SendMouseInput API. This is to ensure that the mouse is actually within the WebView that sends out CursorChanged events.
+
+<p>\snippet ViewComponent.cpp CursorChanged </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_CursorChanged-EventRegistrationToken-"></span><code>function <strong>remove_CursorChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with add_CursorChanged. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

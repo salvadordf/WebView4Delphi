@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_17</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_17"></span><h1 class="cio">Interface ICoreWebView2_17</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_17 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of ICoreWebView2_16 that supports shared buffer based on file mapping. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_17">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_17</a>&quot;&gt;See the ICoreWebView2_17 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_14.html">ICoreWebView2_14</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_15.html">ICoreWebView2_15</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a></li>
+<li class="thisitem">ICoreWebView2_17</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_17.html#PostSharedBufferToScript-ICoreWebView2SharedBuffer-COREWEBVIEW2_SHARED_BUFFER_ACCESS-PWideChar-">PostSharedBufferToScript</a></strong>(const sharedBuffer: <a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html">ICoreWebView2SharedBuffer</a>; access: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SHARED_BUFFER_ACCESS">COREWEBVIEW2_SHARED_BUFFER_ACCESS</a>; additionalDataAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PostSharedBufferToScript-ICoreWebView2SharedBuffer-COREWEBVIEW2_SHARED_BUFFER_ACCESS-PWideChar-"></span><code>function <strong>PostSharedBufferToScript</strong>(const sharedBuffer: <a href="uWVTypeLibrary.ICoreWebView2SharedBuffer.html">ICoreWebView2SharedBuffer</a>; access: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SHARED_BUFFER_ACCESS">COREWEBVIEW2_SHARED_BUFFER_ACCESS</a>; additionalDataAsJson: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Share a shared buffer object with script of the main frame in the WebView. The script will receive a `sharedbufferreceived` event from chrome.webview. The event arg for that event will have the following methods and properties: `getBuffer()`: return an ArrayBuffer object with the backing content from the shared buffer. `additionalData`: an object as the result of parsing `additionalDataAsJson` as JSON string. This property will be `undefined` if `additionalDataAsJson` is nullptr or empty string. `source`: with a value set as `chrome.webview` object. If a string is provided as `additionalDataAsJson` but it is not a valid JSON string, the API will fail with `E_INVALIDARG`. If `access` is COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY, the script will only have read access to the buffer. If the script tries to modify the content in a read only buffer, it will cause an access violation in WebView renderer process and crash the renderer process. If the shared buffer is already closed, the API will fail with `RO_E_CLOSED`.
+
+<p>The script code should call `chrome.webview.releaseBuffer` with the shared buffer as the parameter to release underlying resources as soon as it does not need access to the shared buffer any more.
+
+<p>The application can post the same shared buffer object to multiple web pages or iframes, or post to the same web page or iframe multiple times. Each `PostSharedBufferToScript` will create a separate ArrayBuffer object with its own view of the memory and is separately released. The underlying shared memory will be released when all the views are released.
+
+<p>For example, if we want to send data to script for one time read only consumption.
+
+<p>\snippet ScenarioSharedBuffer.cpp OneTimeShareBuffer
+
+<p>In the HTML document,
+
+<p>\snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_1
+
+<p>\snippet assets\ScenarioSharedBuffer.html ShareBufferScriptCode_2
+
+<p>Sharing a buffer to script has security risk. You should only share buffer with trusted site. If a buffer is shared to a untrusted site, possible sensitive information could be leaked. If a buffer is shared as modifiable by the script and the script modifies it in an unexpected way, it could result in corrupted data that might even crash the application. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{702E75D4-FD44-434D-9D70-1A68A6B1192A}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

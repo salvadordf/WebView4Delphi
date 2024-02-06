@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2ClientCertificateRequestedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2ClientCertificateRequestedEventArgs"></span><h1 class="cio">Interface ICoreWebView2ClientCertificateRequestedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2ClientCertificateRequestedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the ClientCertificateRequested event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventargs</a>&quot;&gt;See the ICoreWebView2ClientCertificateRequestedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2ClientCertificateRequestedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_Host-PWideChar-">Get_Host</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_Port-SYSINT-">Get_Port</a></strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_IsProxy-Integer-">Get_IsProxy</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_AllowedCertificateAuthorities-ICoreWebView2StringCollection-">Get_AllowedCertificateAuthorities</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_MutuallyTrustedCertificates-ICoreWebView2ClientCertificateCollection-">Get_MutuallyTrustedCertificates</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateCollection.html">ICoreWebView2ClientCertificateCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_SelectedCertificate-ICoreWebView2ClientCertificate-">Get_SelectedCertificate</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Set_SelectedCertificate-ICoreWebView2ClientCertificate-">Set_SelectedCertificate</a></strong>(const value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_Cancel-Integer-">Get_Cancel</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Set_Cancel-Integer-">Set_Cancel</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Get_Handled-Integer-">Get_Handled</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#Set_Handled-Integer-">Set_Handled</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Host-PWideChar-"></span><code>function <strong>Get_Host</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Host name of the server that requested client certificate authentication. Normalization rules applied to the hostname are: * Convert to lowercase characters for ascii characters. * Punycode is used for representing non ascii characters. * Strip square brackets for IPV6 address.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{BC59DB28-BCC3-11EB-8529-0242AC130003}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Port-SYSINT-"></span><code>function <strong>Get_Port</strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Port of the server that requested client certificate authentication. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsProxy-Integer-"></span><code>function <strong>Get_IsProxy</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true if the server that issued this request is an http proxy. Returns false if the server is the origin server. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_AllowedCertificateAuthorities-ICoreWebView2StringCollection-"></span><code>function <strong>Get_AllowedCertificateAuthorities</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2StringCollection.html">ICoreWebView2StringCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the `ICoreWebView2StringCollection`. The collection contains Base64 encoding of DER encoded distinguished names of certificate authorities allowed by the server. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_MutuallyTrustedCertificates-ICoreWebView2ClientCertificateCollection-"></span><code>function <strong>Get_MutuallyTrustedCertificates</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateCollection.html">ICoreWebView2ClientCertificateCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the `ICoreWebView2ClientCertificateCollection` when client certificate authentication is requested. The collection contains mutually trusted CA certificates. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_SelectedCertificate-ICoreWebView2ClientCertificate-"></span><code>function <strong>Get_SelectedCertificate</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the selected certificate. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_SelectedCertificate-ICoreWebView2ClientCertificate-"></span><code>function <strong>Set_SelectedCertificate</strong>(const value: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html">ICoreWebView2ClientCertificate</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the certificate to respond to the server. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Cancel-Integer-"></span><code>function <strong>Get_Cancel</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ You may set this flag to cancel the certificate selection. If canceled, the request is aborted regardless of the `Handled` property. By default the value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Cancel-Integer-"></span><code>function <strong>Set_Cancel</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Cancel` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Handled-Integer-"></span><code>function <strong>Get_Handled</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ You may set this flag to `TRUE` to respond to the server with or without a certificate. If this flag is `TRUE` with a `SelectedCertificate` it responds to the server with the selected certificate otherwise respond to the server without a certificate. By default the value of `Handled` and `Cancel` are `FALSE` and display default client certificate selection dialog prompt to allow the user to choose a certificate. The `SelectedCertificate` is ignored unless `Handled` is set `TRUE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Handled-Integer-"></span><code>function <strong>Set_Handled</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Handled` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out deferral: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the event at a later time. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

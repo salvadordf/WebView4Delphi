@@ -24,7 +24,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
-    ExplicitWidth = 1115
     object NavButtonPnl: TPanel
       Left = 0
       Top = 0
@@ -104,7 +103,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Padding.Top = 9
       Padding.Bottom = 8
       TabOrder = 1
-      ExplicitWidth = 909
       object URLCbx: TComboBox
         Left = 0
         Top = 9
@@ -152,7 +150,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'edge://gpu/'
           'edge://about/'
           'edge://extensions-internals/')
-        ExplicitWidth = 909
       end
     end
     object ConfigPnl: TPanel
@@ -163,7 +160,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 1042
       object ConfigBtn: TButton
         Left = 40
         Top = 8
@@ -214,8 +210,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
       item
         Width = 400
       end>
-    ExplicitTop = 697
-    ExplicitWidth = 1115
   end
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -226,8 +220,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
     TabStop = True
     TabOrder = 2
     Browser = WVBrowser1
-    ExplicitWidth = 1115
-    ExplicitHeight = 656
   end
   object WVBrowser1: TWVBrowser
     DefaultURL = 'about:blank'
@@ -260,6 +252,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnPrintToPdfStreamCompleted = WVBrowser1PrintToPdfStreamCompleted
     OnProfileAddBrowserExtensionCompleted = WVBrowser1ProfileAddBrowserExtensionCompleted
     OnProfileGetBrowserExtensionsCompleted = WVBrowser1ProfileGetBrowserExtensionsCompleted
+    OnExecuteScriptWithResultCompleted = WVBrowser1ExecuteScriptWithResultCompleted
     Left = 48
     Top = 64
   end
@@ -394,6 +387,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'SmartScreen'
       Checked = True
       OnClick = SmartScreen1Click
+    end
+    object ExecuteJavaScript1: TMenuItem
+      Caption = 'Execute JavaScript...'
+      OnClick = ExecuteJavaScript1Click
     end
   end
   object OpenDialog1: TOpenDialog

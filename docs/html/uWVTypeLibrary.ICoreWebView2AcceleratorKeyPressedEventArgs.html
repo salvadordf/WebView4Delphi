@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2AcceleratorKeyPressedEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2AcceleratorKeyPressedEventArgs"></span><h1 class="cio">Interface ICoreWebView2AcceleratorKeyPressedEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2AcceleratorKeyPressedEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Event args for the AcceleratorKeyPressed event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs</a>&quot;&gt;See the ICoreWebView2AcceleratorKeyPressedEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2AcceleratorKeyPressedEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Get_KeyEventKind-COREWEBVIEW2_KEY_EVENT_KIND-">Get_KeyEventKind</a></strong>(out KeyEventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_KEY_EVENT_KIND">COREWEBVIEW2_KEY_EVENT_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Get_VirtualKey-SYSUINT-">Get_VirtualKey</a></strong>(out VirtualKey: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Get_KeyEventLParam-SYSINT-">Get_KeyEventLParam</a></strong>(out lParam: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Get_PhysicalKeyStatus-COREWEBVIEW2_PHYSICAL_KEY_STATUS-">Get_PhysicalKeyStatus</a></strong>(out PhysicalKeyStatus: <a href="uWVTypeLibrary.COREWEBVIEW2_PHYSICAL_KEY_STATUS.html">COREWEBVIEW2_PHYSICAL_KEY_STATUS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Get_Handled-Integer-">Get_Handled</a></strong>(out Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html#Set_Handled-Integer-">Set_Handled</a></strong>(Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_KeyEventKind-COREWEBVIEW2_KEY_EVENT_KIND-"></span><code>function <strong>Get_KeyEventKind</strong>(out KeyEventKind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_KEY_EVENT_KIND">COREWEBVIEW2_KEY_EVENT_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The key event type that caused the event to run. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{9F760F8A-FB79-42BE-9990-7B56900FA9C7}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_VirtualKey-SYSUINT-"></span><code>function <strong>Get_VirtualKey</strong>(out VirtualKey: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The Win32 virtual key code of the key that was pressed or released. It is one of the Win32 virtual key constants such as `VK_RETURN` or an (uppercase) ASCII value such as `A`. Verify whether Ctrl or Alt are pressed by running `GetKeyState(VK_CONTROL)` or `GetKeyState(VK_MENU)`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_KeyEventLParam-SYSINT-"></span><code>function <strong>Get_KeyEventLParam</strong>(out lParam: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The `LPARAM` value that accompanied the window message. For more information, navigate to [WM_KEYDOWN](/windows/win32/inputdev/wm-keydown) and [WM_KEYUP](/windows/win32/inputdev/wm-keyup). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_PhysicalKeyStatus-COREWEBVIEW2_PHYSICAL_KEY_STATUS-"></span><code>function <strong>Get_PhysicalKeyStatus</strong>(out PhysicalKeyStatus: <a href="uWVTypeLibrary.COREWEBVIEW2_PHYSICAL_KEY_STATUS.html">COREWEBVIEW2_PHYSICAL_KEY_STATUS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A structure representing the information passed in the `LPARAM` of the window message. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Handled-Integer-"></span><code>function <strong>Get_Handled</strong>(out Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ During `AcceleratorKeyPressedEvent` handler invocation the WebView is blocked waiting for the decision of if the accelerator is handled by the host (or not). If the `Handled` property is set to `TRUE` then this prevents the WebView from performing the default action for this accelerator key. Otherwise the WebView performs the default action for the accelerator key. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Handled-Integer-"></span><code>function <strong>Set_Handled</strong>(Handled: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sets the `Handled` property. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>
