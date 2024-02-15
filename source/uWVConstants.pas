@@ -83,6 +83,10 @@ const
 
   WEBVIEW4DELPHI_INVALID_FRAMEID = 0;
 
+{$IFDEF FPC}
+  HWND_MESSAGE = System.THandle(-3);
+{$ENDIF}
+
 implementation
 
 end.

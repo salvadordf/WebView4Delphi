@@ -512,6 +512,22 @@ type
       /// <param name="aEnvironment">Custom environment to be used by this browser.</param>
       function    CreateWindowlessBrowser(aHandle : THandle; const aEnvironment : ICoreWebView2Environment) : boolean; overload;
       /// <summary>
+      /// Used to create an invisible browser using the global environment by default.
+      /// You are not able to reparent the window after you have created the browser.
+      /// The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated
+      /// event is triggered.
+      /// </summary>
+      /// <param name="aUseDefaultEnvironment">Use the global environment or create a new one for this browser.</param>
+      function    CreateInvisibleBrowser(aUseDefaultEnvironment : boolean = True) : boolean; overload;
+      /// <summary>
+      /// Used to create an invisible browser using a custom environment.
+      /// You are not able to reparent the window after you have created the browser.
+      /// The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated
+      /// event is triggered.
+      /// </summary>
+      /// <param name="aEnvironment">Custom environment to be used by this browser.</param>
+      function    CreateInvisibleBrowser(const aEnvironment : ICoreWebView2Environment) : boolean; overload;
+      /// <summary>
       /// Navigates the WebView to the previous page in the navigation history.
       /// </summary>
       /// <remarks>
@@ -4997,6 +5013,16 @@ begin
     end
    else
     Result := CreateEnvironment;
+end;
+
+function TWVBrowserBase.CreateInvisibleBrowser(aUseDefaultEnvironment : boolean) : boolean;
+begin
+  Result := CreateBrowser(HWND_MESSAGE, aUseDefaultEnvironment);
+end;
+
+function TWVBrowserBase.CreateInvisibleBrowser(const aEnvironment : ICoreWebView2Environment) : boolean;
+begin
+  Result := CreateBrowser(HWND_MESSAGE, aEnvironment);
 end;
 
 function TWVBrowserBase.CreateWindowlessBrowser(aHandle : THandle; aUseDefaultEnvironment : boolean) : boolean;

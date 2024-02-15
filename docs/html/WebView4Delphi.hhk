@@ -1373,6 +1373,10 @@
 <param name="Local" value="uWVMiscFunctions.html#GWLP_WNDPROC">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="HWND_MESSAGE">
+<param name="Local" value="uWVConstants.html#HWND_MESSAGE">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2.html">
 </object>
@@ -8842,16 +8846,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -13598,16 +13602,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -16437,6 +16441,20 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateEnvironment">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="CreateInvisibleBrowser">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
+</object>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="CreateSharedBuffer">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateSharedBuffer-Largeuint-ICoreWebView2SharedBuffer-">
 </object>
@@ -16446,16 +16464,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">

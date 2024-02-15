@@ -1804,6 +1804,14 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">CreateInvisibleBrowser</a></strong>(aUseDefaultEnvironment : boolean = True) : boolean; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">CreateInvisibleBrowser</a></strong>(const aEnvironment : <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>) : boolean; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#GoBack">GoBack</a></strong>: boolean;</code></td>
 </tr>
 <tr class="list">
@@ -6622,6 +6630,40 @@ ICoreWebView2ExecuteScriptWithResultCompletedHandler</p>
 <dl class="parameters">
 <dt>aHandle</dt>
 <dd>The TWVDirectCompositionHost handle.</dd>
+<dt>aEnvironment</dt>
+<dd>Custom environment to be used by this browser.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateInvisibleBrowser-boolean-"></span><code>function <strong>CreateInvisibleBrowser</strong>(aUseDefaultEnvironment : boolean = True) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used to create an invisible browser using the global environment by default. You are not able to reparent the window after you have created the browser. The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aUseDefaultEnvironment</dt>
+<dd>Use the global environment or create a new one for this browser.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateInvisibleBrowser-ICoreWebView2Environment-"></span><code>function <strong>CreateInvisibleBrowser</strong>(const aEnvironment : <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used to create an invisible browser using a custom environment. You are not able to reparent the window after you have created the browser. The browser will be fully initialized when the TWVBrowserBase.OnAfterCreated event is triggered. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
 <dt>aEnvironment</dt>
 <dd>Custom environment to be used by this browser.</dd>
 </dl>
