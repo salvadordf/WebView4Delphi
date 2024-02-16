@@ -167,7 +167,7 @@ end;
 
 function ControllerOptionsCreationErrorToString(aErrorCode : HRESULT) : wvstring;
 const
-  UI_E_WRONG_THREAD = $802A000C;
+  UI_E_WRONG_THREAD = HRESULT($802A000C);
 begin
   case aErrorCode of
     E_INVALIDARG      : Result := 'Invalid profile name.';
