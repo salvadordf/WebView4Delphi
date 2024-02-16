@@ -166,11 +166,14 @@ begin
 end;
 
 function ControllerOptionsCreationErrorToString(aErrorCode : HRESULT) : wvstring;
+const
+  UI_E_WRONG_THREAD = $802A000C;
 begin
   case aErrorCode of
-    E_INVALIDARG : Result := 'Invalid profile name.';
-    E_NOTIMPL    : Result := 'Not implemented.';  // This error code is not documented. It's caused by an outdated WebView2 Runtime installation.
-    else           Result := 'Unexpected error result.';
+    E_INVALIDARG      : Result := 'Invalid profile name.';
+    E_NOTIMPL         : Result := 'Not implemented.';  // This error code is not documented. It's caused by an outdated WebView2 Runtime installation.
+    UI_E_WRONG_THREAD : Result := 'This method can only be called from the thread that created the object.';
+    else                Result := 'Unexpected error result.';
   end;
 end;
 
