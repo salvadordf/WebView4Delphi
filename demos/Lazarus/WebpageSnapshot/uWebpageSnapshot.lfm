@@ -1,0 +1,96 @@
+object WebpageSnapshotFrm: TWebpageSnapshotFrm
+  Left = 331
+  Height = 736
+  Top = 132
+  Width = 1028
+  Caption = 'Web page snapshot'
+  ClientHeight = 736
+  ClientWidth = 1028
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '3.0.0.3'
+  object Image1: TImage
+    Left = 0
+    Height = 536
+    Top = 25
+    Width = 1028
+    Align = alClient
+    AutoSize = True
+    Center = True
+    Proportional = True
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 3
+    Top = 561
+    Width = 1028
+    Align = alBottom
+    ResizeAnchor = akBottom
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 713
+    Width = 1028
+    Panels = <    
+      item
+        Width = 1000
+      end>
+  end
+  object NavigationPnl: TPanel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 1028
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 1028
+    ParentBackground = False
+    TabOrder = 1
+    object GoBtn: TButton
+      Left = 953
+      Height = 25
+      Top = 0
+      Width = 75
+      Align = alRight
+      Caption = 'Go'
+      TabOrder = 0
+      OnClick = GoBtnClick
+    end
+    object AddressEdt: TEdit
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 953
+      Align = alClient
+      TabOrder = 1
+      Text = 'https://www.bing.com'
+    end
+  end
+  object Memo1: TMemo
+    Left = 0
+    Height = 149
+    Top = 564
+    Width = 1028
+    Align = alBottom
+    ReadOnly = True
+    ScrollBars = ssBoth
+    TabOrder = 2
+  end
+  object WVBrowser1: TWVBrowser
+    TargetCompatibleBrowserVersion = '121.0.2277.86'
+    AllowSingleSignOnUsingOSPrimaryAccount = False
+    OnCapturePreviewCompleted = WVBrowser1CapturePreviewCompleted
+    OnNavigationCompleted = WVBrowser1NavigationCompleted
+    OnRetrieveHTMLCompleted = WVBrowser1RetrieveHTMLCompleted
+    Left = 70
+    Top = 85
+  end
+end

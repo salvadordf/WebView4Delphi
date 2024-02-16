@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="WebpageSnapshot.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos Y="3"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="WebpageSnapshotFrm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="23"/>
+        <CursorPos X="15" Y="50"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uWebpageSnapshot.lfm"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="10">
+      <Position>
+        <Filename Value="uWebpageSnapshot.lfm"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="44" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="46" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="10" Column="23"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="7" Column="42"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="47" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="3" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="124" Column="70" TopLine="113"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="76" Column="23" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="78" Column="47" TopLine="65"/>
+      </Position>
+      <Position>
+        <Filename Value="uWebpageSnapshot.pas"/>
+        <Caret Line="49" Column="23" TopLine="34"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
