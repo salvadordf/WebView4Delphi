@@ -43,6 +43,7 @@ type
       FReRaiseExceptions                      : boolean;
       FLoaderDllPath                          : wvstring;
       FUseInternalLoader                      : boolean;
+      FAllowOldRuntime                        : boolean;
 
       // Fields used to create the environment
       FAdditionalBrowserArguments             : wvstring;
@@ -244,6 +245,10 @@ type
       /// <para><see href="https://github.com/jchv/OpenWebView2Loader">See the OpenWebView2Loader project repository at GitHub.</see></para>
       /// </remarks>
       property UseInternalLoader                      : boolean                            read FUseInternalLoader                       write FUseInternalLoader;
+      /// <summary>
+      /// Allow using old WebView2 Runtime versions.
+      /// </summary>
+      property AllowOldRuntime                        : boolean                            read FAllowOldRuntime                         write FAllowOldRuntime;
       /// <summary>
       /// <para>Use BrowserExecPath to specify whether WebView2 controls use a fixed or
       /// installed version of the WebView2 Runtime that exists on a user machine.
@@ -767,6 +772,7 @@ begin
   FReRaiseExceptions                      := False;
   FLoaderDllPath                          := '';
   FUseInternalLoader                      := False;
+  FAllowOldRuntime                        := True;
   FRemoteDebuggingPort                    := 0;
   FRemoteAllowOrigins                     := '';
 
@@ -1170,7 +1176,14 @@ begin
       Result := True;
 
   if not(Result) then
-    AppendErrorLog('The WebView Runtime version is older than expected! Some WebView4Delphi features won'+ #39 + 't work.');
+    begin
+      AppendErrorLog('The WebView Runtime version is older than expected! Some WebView4Delphi features won' + #39 + 't work.');
+
+      if FAllowOldRuntime then
+        Result  := True
+       else
+        FStatus := wvlsError;
+    end;
 end;
 
 function TWVLoader.Is32BitProcess : boolean;
@@ -1381,7 +1394,7 @@ begin
       GetAvailableCoreWebView2BrowserVersionString := Internal_GetAvailableCoreWebView2BrowserVersionString;
       CompareBrowserVersions                       := Internal_CompareBrowserVersions;
       FStatus := wvlsImported;
-      Result := True;
+      Result  := True;
     end
    else
     if (FLibHandle <> 0) then
@@ -1412,9 +1425,6 @@ begin
         on e : exception do
           if CustomExceptionHandler('TWVLoader.LoadLibProcedures', e) then raise;
       end;
-
-  if Result then
-    CheckWebViewRuntimeVersion;
 end;
 
 function TWVLoader.GetCustomCommandLineSwitches : wvstring;
@@ -1823,9 +1833,10 @@ begin
   if FInitCOMLibrary then
     CoInitializeEx(nil, COINIT_APARTMENTTHREADED);
 
-  Result := CheckWV2Library     and
-            LoadWebView2Library and
-            LoadLibProcedures   and
+  Result := CheckWV2Library            and
+            LoadWebView2Library        and
+            LoadLibProcedures          and
+            CheckWebViewRuntimeVersion and
             CreateEnvironment;
 end;
 

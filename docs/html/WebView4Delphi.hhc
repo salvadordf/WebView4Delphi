@@ -16694,6 +16694,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FUseInternalLoader">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FAllowOldRuntime">
+<param name="Local" value="uWVLoader.TWVLoader.html#FAllowOldRuntime">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAdditionalBrowserArguments">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAdditionalBrowserArguments">
 </object>
@@ -16922,6 +16926,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="UseInternalLoader">
 <param name="Local" value="uWVLoader.TWVLoader.html#UseInternalLoader">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowOldRuntime">
+<param name="Local" value="uWVLoader.TWVLoader.html#AllowOldRuntime">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="BrowserExecPath">
@@ -47478,6 +47486,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FAllowInsecureLocalhost">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FAllowOldRuntime">
+<param name="Local" value="uWVLoader.TWVLoader.html#FAllowOldRuntime">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAllowRunningInsecureContent">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAllowRunningInsecureContent">
 </object>
@@ -47718,6 +47730,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AllowInsecureLocalhost">
 <param name="Local" value="uWVLoader.TWVLoader.html#AllowInsecureLocalhost">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowOldRuntime">
+<param name="Local" value="uWVLoader.TWVLoader.html#AllowOldRuntime">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AllowRunningInsecureContent">
