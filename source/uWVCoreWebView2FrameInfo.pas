@@ -48,8 +48,10 @@ type
       /// </summary>
       property BaseIntf          : ICoreWebView2FrameInfo  read FBaseIntf       write FBaseIntf;
       /// <summary>
-      /// The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
-      /// The returned string is empty when the frame has no name attribute.
+      /// The value of iframe's window.name property. The default value equals to
+      /// iframe html tag declaring it, as in `<iframe name="frame-name" ...>`.
+      /// The returned string is empty when the frame has no name attribute and
+      /// no assigned value for window.name.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo#get_name">See the ICoreWebView2FrameInfo article.</see></para>

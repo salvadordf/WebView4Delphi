@@ -159,6 +159,7 @@ const
   IID_ICoreWebView2ExecuteScriptWithResultCompletedHandler: TGUID = '{1BB5317B-8238-4C67-A7FF-BAF6558F289D}';
   IID_ICoreWebView2ExecuteScriptResult: TGUID = '{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}';
   IID_ICoreWebView2ScriptException: TGUID = '{054DAE00-84A3-49FF-BC17-4012A90BC9FD}';
+  IID_ICoreWebView2_22: TGUID = '{DB75DFC7-A857-4632-A398-6969DDE26C0A}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
   IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
@@ -249,6 +250,7 @@ const
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
+  IID_ICoreWebView2WebResourceRequestedEventArgs2: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';
   IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
   IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
   IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
@@ -2674,6 +2676,52 @@ const
   COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW = $00000001;
 
 type
+  /// <summary>
+  /// Specifies the source of `WebResourceRequested` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_web_resource_request_source_kinds">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = TOleEnum;
+const
+  /// <summary>
+  /// Indicates that no web resource is requested.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE = $00000000;
+  /// <summary>
+  /// Indicates that web resource is requested from main page including dedicated workers and iframes.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT = $00000001;
+  /// <summary>
+  /// Indicates that web resource is requested from shared worker.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER = $00000002;
+  /// <summary>
+  /// Indicates that web resource is requested from service worker.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER = $00000004;
+  /// <summary>
+  /// Indicates that web resource is requested from any supported source.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL = $FFFFFFFF;
+
+
+type
 {*
  *********************************************************************
  Forward declaration of types defined in TypeLibrary
@@ -2807,6 +2855,7 @@ type
   ICoreWebView2ExecuteScriptWithResultCompletedHandler = interface;
   ICoreWebView2ExecuteScriptResult = interface;
   ICoreWebView2ScriptException = interface;
+  ICoreWebView2_22 = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
   ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
@@ -2897,6 +2946,7 @@ type
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
+  ICoreWebView2WebResourceRequestedEventArgs2 = interface;
   ICoreWebView2File = interface;
   ICoreWebView2ObjectCollectionView = interface;
   ICoreWebView2WebMessageReceivedEventArgs2 = interface;
@@ -5892,7 +5942,6 @@ type
     /// In rare cases the creation can fail with `E_UNEXPECTED` if runtime does not have
     /// permissions to the user data folder.
     /// </summary>
-    {* var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI ************** *}
     function CreateCoreWebView2Controller(ParentWindow: HWND;
                                           const handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler): HResult; stdcall;
     /// <summary>
@@ -6228,8 +6277,9 @@ type
   ICoreWebView2Frame = interface(IUnknown)
     ['{F1131A5E-9BA9-11EB-A8B3-0242AC130003}']
     /// <summary>
-    /// The name of the iframe from the iframe html tag declaring it.
-    /// You can access this property even if the iframe is destroyed.
+    /// The value of iframe's window.name property. The default value equals to
+    /// iframe html tag declaring it. You can access this property even if the
+    /// iframe is destroyed.
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
@@ -8650,6 +8700,93 @@ type
   end;
 
   /// <summary>
+  /// This interface is an extension of `ICoreWebView2` that allows to
+  /// set filters in order to receive WebResourceRequested events for
+  /// service workers, shared workers and different origin iframes.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_22">See the ICoreWebView2_22 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_22 = interface(ICoreWebView2_21)
+    ['{DB75DFC7-A857-4632-A398-6969DDE26C0A}']
+    /// <summary>
+    /// A web resource request with a resource context that matches this
+    /// filter's resource context and a URI that matches this filter's URI
+    /// wildcard string for corresponding request sources will be raised via
+    /// the `WebResourceRequested` event. To receive all raised events filters
+    /// have to be added before main page navigation.
+    ///
+    /// The `uri` parameter value is a wildcard string matched against the URI
+    /// of the web resource request. This is a glob style
+    /// wildcard string in which a `*` matches zero or more characters and a `?`
+    /// matches exactly one character.
+    /// These wildcard characters can be escaped using a backslash just before
+    /// the wildcard character in order to represent the literal `*` or `?`.
+    ///
+    /// The matching occurs over the URI as a whole string and not limiting
+    /// wildcard matches to particular parts of the URI.
+    /// The wildcard filter is compared to the URI after the URI has been
+    /// normalized, any URI fragment has been removed, and non-ASCII hostnames
+    /// have been converted to punycode.
+    ///
+    /// Specifying a `nullptr` for the uri is equivalent to an empty string which
+    /// matches no URIs.
+    ///
+    /// For more information about resource context filters, navigate to
+    /// [COREWEBVIEW2_WEB_RESOURCE_CONTEXT](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_context).
+    ///
+    /// The `requestSourceKinds` is a mask of one or more
+    /// `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS`. OR operation(s) can be
+    /// applied to multiple `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS` to
+    /// create a mask representing those data types. API returns `E_INVALIDARG` if
+    /// `requestSourceKinds` equals to zero. For more information about request
+    /// source kinds, navigate to
+    /// [COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_request_source_kinds).
+    ///
+    /// Because service workers and shared workers run separately from any one
+    /// HTML document their WebResourceRequested will be raised for all
+    /// CoreWebView2s that have appropriate filters added in the corresponding
+    /// CoreWebView2Environment. You should only add a WebResourceRequested filter
+    /// for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or
+    /// COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER on
+    /// one CoreWebView2 to avoid handling the same WebResourceRequested
+    /// event multiple times.
+    ///
+    /// | URI Filter String | Request URI | Match | Notes |
+    /// | ---- | ---- | ---- | ---- |
+    /// | `*` | `https://contoso.com/a/b/c` | Yes | A single * will match all URIs |
+    /// | `*://contoso.com/*` | `https://contoso.com/a/b/c` | Yes | Matches everything in contoso.com across all schemes |
+    /// | `*://contoso.com/*` | `https://example.com/?https://contoso.com/` | Yes | But also matches a URI with just the same text anywhere in the URI |
+    /// | `example` | `https://contoso.com/example` | No | The filter does not perform partial matches |
+    /// | `*example` | `https://contoso.com/example` | Yes | The filter matches across URI parts |
+    /// | `*example` | `https://contoso.com/path/?example` | Yes | The filter matches across URI parts |
+    /// | `*example` | `https://contoso.com/path/?query#example` | No | The filter is matched against the URI with no fragment |
+    /// | `*example` | `https://example` | No | The URI is normalized before filter matching so the actual URI used for comparison is `https://example/` |
+    /// | `*example/` | `https://example` | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
+    /// | `https://xn--qei.example/` | `https://&#x2764;.example/` | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+    /// | `https://&#x2764;.example/` | `https://xn--qei.example/` | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+    ///
+    /// \snippet ScenarioSharedWorkerWRR.cpp WebResourceRequested2
+    /// </summary>
+    function AddWebResourceRequestedFilterWithRequestSourceKinds(uri: PWideChar;
+                                                                 ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT;
+                                                                 requestSourceKinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
+    /// <summary>
+    /// Removes a matching WebResource filter that was previously added for the
+    /// `WebResourceRequested` event.  If the same filter was added multiple
+    /// times, then it must be removed as many times as it was added for the
+    /// removal to be effective. Returns `E_INVALIDARG` for a filter that was
+    /// not added or is already removed.
+    /// If the filter was added for multiple requestSourceKinds and removed just for one of them
+    /// the filter remains for the non-removed requestSourceKinds.
+    /// </summary>
+    function RemoveWebResourceRequestedFilterWithRequestSourceKinds(uri: PWideChar;
+                                                                    ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT;
+                                                                    requestSourceKinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
+  end;
+
+
+  /// <summary>
   /// Event args for the BrowserProcessExited event.
   /// </summary>
   /// <remarks>
@@ -9924,7 +10061,6 @@ type
     /// - Windows Server 2019
     /// - Windows Server 2016
     /// </summary>
-    {* var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI ************** *}
     function CreateCoreWebView2CompositionController(ParentWindow: HWND;
                                                      const handler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler): HResult; stdcall;
     /// <summary>
@@ -9950,7 +10086,6 @@ type
     /// called, the app can pass the HWND to GetAutomationProviderForWindow to
     /// find the matching WebView Automation Provider.
     /// </summary>
-    {* function GetAutomationProviderForWindow(var hwnd: _RemotableHandle; out provider: IUnknown): HResult; stdcall;  var hwnd: _RemotableHandle -> aHWND: HWND    ************** WEBVIEW4DELPHI ************** *}
     function GetAutomationProviderForWindow(aHWND: HWND; out provider: IUnknown): HResult; stdcall;
   end;
 
@@ -10193,14 +10328,12 @@ type
     /// <summary>
     /// Create a new WebView with options.
     /// </summary>
-    {* var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI ************** *}
     function CreateCoreWebView2ControllerWithOptions(ParentWindow: HWND;
                                                      const options: ICoreWebView2ControllerOptions;
                                                      const handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler): HResult; stdcall;
     /// <summary>
     /// Create a new WebView in visual hosting mode with options.
     /// </summary>
-    {* var ParentWindow: _RemotableHandle --> ParentWindow: HWND    ************** WEBVIEW4DELPHI ************** *}
     function CreateCoreWebView2CompositionControllerWithOptions(ParentWindow: HWND;
                                                                 const options: ICoreWebView2ControllerOptions; 
                                                                 const handler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler): HResult; stdcall;
@@ -10388,10 +10521,13 @@ type
   ICoreWebView2FrameInfo = interface(IUnknown)
     ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
     /// <summary>
-    /// <para>The name attribute of the frame, as in `<iframe name="frame-name" ...>`.
-    /// The returned string is empty when the frame has no name attribute.</para>
-    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+    /// The value of iframe's window.name property. The default value equals to
+    /// iframe html tag declaring it, as in `<iframe name="frame-name" ...>`.
+    /// The returned string is empty when the frame has no name attribute and
+    /// no assigned value for window.name.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
     function Get_name(out name: PWideChar): HResult; stdcall;
     /// <summary>
@@ -12259,6 +12395,20 @@ type
     /// Set the `IsReputationCheckingRequired` property.
     /// </summary>
     function Set_IsReputationCheckingRequired(value: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Event args for the `WebResourceRequested` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs2">See the ICoreWebView2WebResourceRequestedEventArgs2 article.</see></para>
+  /// </remarks>
+  ICoreWebView2WebResourceRequestedEventArgs2 = interface(ICoreWebView2WebResourceRequestedEventArgs)
+    ['{9C562C24-B219-4D7F-92F6-B187FBBADD56}']
+    /// <summary>
+    /// The web resource requested source.
+    /// </summary>
+    function Get_RequestedSourceKind(out RequestedSourceKind: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
   end;
 
   /// <summary>

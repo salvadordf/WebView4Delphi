@@ -47,13 +47,9 @@
 </tr>
 <tr><td colspan="2">
 <p>
+ The value of iframe's window.name property. The default value equals to iframe html tag declaring it, as in `&lt;iframe name=&quot;frame-name&quot; ...&gt;`. The returned string is empty when the frame has no name attribute and no assigned value for window.name.
 
-
-<p>The name attribute of the frame, as in `&lt;iframe name=&quot;frame-name&quot; ...&gt;`. The returned string is empty when the frame has no name attribute.
-
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
-
-<p></p>
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']</dt>

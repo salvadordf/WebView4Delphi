@@ -1092,15 +1092,19 @@ type
   /// </remarks>
   TCoreWebView2WebResourceRequestedEventArgs = class
     protected
-      FBaseIntf : ICoreWebView2WebResourceRequestedEventArgs;
+      FBaseIntf  : ICoreWebView2WebResourceRequestedEventArgs;
+      FBaseIntf2 : ICoreWebView2WebResourceRequestedEventArgs2;
 
       function  GetInitialized : boolean;
       function  GetRequest : ICoreWebView2WebResourceRequest;
       function  GetResponse : ICoreWebView2WebResourceResponse;
       function  GetDeferral : ICoreWebView2Deferral;
       function  GetResourceContext : TWVWebResourceContext;
+      function  GetRequestedSourceKind : TWVWebResourceRequestSourceKind;
 
       procedure SetResponse(const aValue : ICoreWebView2WebResourceResponse);
+
+      procedure InitializeFields;
 
     public
       constructor Create(const aArgs: ICoreWebView2WebResourceRequestedEventArgs); reintroduce;
@@ -1109,11 +1113,11 @@ type
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
-      property Initialized     : boolean                                     read GetInitialized;
+      property Initialized         : boolean                                     read GetInitialized;
       /// <summary>
       /// Returns the interface implemented by this class.
       /// </summary>
-      property BaseIntf        : ICoreWebView2WebResourceRequestedEventArgs  read FBaseIntf;
+      property BaseIntf            : ICoreWebView2WebResourceRequestedEventArgs  read FBaseIntf;
       /// <summary>
       /// The Web resource request.  The request object may be missing some headers
       /// that are added by network stack at a later time.
@@ -1121,7 +1125,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs#get_request">See the ICoreWebView2WebResourceRequestedEventArgs article.</see></para>
       /// </remarks>
-      property Request         : ICoreWebView2WebResourceRequest             read GetRequest;
+      property Request             : ICoreWebView2WebResourceRequest             read GetRequest;
       /// <summary>
       /// A placeholder for the web resource response object.  If this object is
       /// set, the web resource request is completed with the specified response.
@@ -1129,7 +1133,7 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs#get_response">See the ICoreWebView2WebResourceRequestedEventArgs article.</see></para>
       /// </remarks>
-      property Response        : ICoreWebView2WebResourceResponse            read GetResponse         write SetResponse;
+      property Response            : ICoreWebView2WebResourceResponse            read GetResponse         write SetResponse;
       /// <summary>
       /// Obtain an `ICoreWebView2Deferral` object and put the event into a
       /// deferred state.  Use the `ICoreWebView2Deferral` object to complete the
@@ -1138,14 +1142,21 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs#getdeferral">See the ICoreWebView2WebResourceRequestedEventArgs article.</see></para>
       /// </remarks>
-      property Deferral        : ICoreWebView2Deferral                       read GetDeferral;
+      property Deferral            : ICoreWebView2Deferral                       read GetDeferral;
       /// <summary>
       /// The web resource request context.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs#get_resourcecontext">See the ICoreWebView2WebResourceRequestedEventArgs article.</see></para>
       /// </remarks>
-      property ResourceContext : TWVWebResourceContext                       read GetResourceContext;
+      property ResourceContext     : TWVWebResourceContext                       read GetResourceContext;
+      /// <summary>
+      /// The web resource requested source.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventargs2#get_requestedsourcekind">See the ICoreWebView2WebResourceRequestedEventArgs2 article.</see></para>
+      /// </remarks>
+      property RequestedSourceKind : TWVWebResourceRequestSourceKind             read GetRequestedSourceKind;
   end;
 
   /// <summary>
@@ -2972,14 +2983,25 @@ constructor TCoreWebView2WebResourceRequestedEventArgs.Create(const aArgs: ICore
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aArgs;
+
+  if Initialized then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2WebResourceRequestedEventArgs2, FBaseIntf2);
 end;
 
 destructor TCoreWebView2WebResourceRequestedEventArgs.Destroy;
 begin
-  FBaseIntf := nil;
+  InitializeFields;
 
   inherited Destroy;
+end;
+
+procedure TCoreWebView2WebResourceRequestedEventArgs.InitializeFields;
+begin
+  FBaseIntf  := nil;
+  FBaseIntf2 := nil;
 end;
 
 function TCoreWebView2WebResourceRequestedEventArgs.GetInitialized : boolean;
@@ -3034,7 +3056,18 @@ begin
      succeeded(FBaseIntf.Get_ResourceContext(TempContext)) then
     Result := TempContext
    else
-    Result := 0;
+    Result := COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL;
+end;
+
+function TCoreWebView2WebResourceRequestedEventArgs.GetRequestedSourceKind : TWVWebResourceRequestSourceKind;
+var
+  TempResult : COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS;
+begin
+  if assigned(FBaseIntf2) and
+     succeeded(FBaseIntf2.Get_RequestedSourceKind(TempResult)) then
+    Result := TempResult
+   else
+    Result := COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE;
 end;
 
 procedure TCoreWebView2WebResourceRequestedEventArgs.SetResponse(const aValue : ICoreWebView2WebResourceResponse);

@@ -362,6 +362,7 @@ uWVTypeLibrary.ICoreWebView2_21.html
 uWVTypeLibrary.ICoreWebView2ExecuteScriptWithResultCompletedHandler.html
 uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html
 uWVTypeLibrary.ICoreWebView2ScriptException.html
+uWVTypeLibrary.ICoreWebView2_22.html
 uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html
 uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventHandler.html
 uWVTypeLibrary.ICoreWebView2CompositionController.html
@@ -452,6 +453,7 @@ uWVTypeLibrary.ICoreWebView2Settings5.html
 uWVTypeLibrary.ICoreWebView2Settings6.html
 uWVTypeLibrary.ICoreWebView2Settings7.html
 uWVTypeLibrary.ICoreWebView2Settings8.html
+uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html
 uWVTypeLibrary.ICoreWebView2File.html
 uWVTypeLibrary.ICoreWebView2ObjectCollectionView.html
 uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs2.html
@@ -472,12 +474,12 @@ published.gif
 automated.gif
 pasdoc.css
 
-Compile time: 0 minutes, 8 seconds
-7,814	Topics
-58,959	Local links
+Compile time: 0 minutes, 7 seconds
+7,846	Topics
+59,252	Local links
 5	Internet links
 5	Graphics
 
 
-Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,838,628 bytes
-Compression decreased file by 11,979,832 bytes.
+Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,860,058 bytes
+Compression decreased file by 12,046,599 bytes.

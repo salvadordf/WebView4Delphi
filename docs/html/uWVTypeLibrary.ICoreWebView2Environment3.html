@@ -49,7 +49,29 @@
 </tr>
 <tr><td colspan="2">
 <p>
-* var ParentWindow: _RemotableHandle &ndash;&gt; ParentWindow: HWND ************** WEBVIEW4DELPHI ************** *</p>
+ Asynchronously create a new WebView for use with visual hosting.
+
+<p>parentWindow is the HWND in which the app will connect the visual tree of the WebView. This will be the HWND that the app will receive pointer/ mouse input meant for the WebView (and will need to use SendMouseInput/ SendPointerInput to forward). If the app moves the WebView visual tree to underneath a different window, then it needs to call put_ParentWindow to update the new parent HWND of the visual tree.
+
+<p>HWND_MESSAGE is not a valid parameter for `parentWindow` for visual hosting. The underlying implementation of supporting HWND_MESSAGE would break accessibility for visual hosting. This is supported in windowed WebViews - see CreateCoreWebView2Controller.
+
+<p>Use put_RootVisualTarget on the created CoreWebView2CompositionController to provide a visual to host the browser's visual tree.
+
+<p>It is recommended that the application set Application User Model ID for the process or the application window. If none is set, during WebView creation a generated Application User Model ID is set to root window of parentWindow. \snippet AppWindow.cpp CreateCoreWebView2Controller
+
+<p>It is recommended that the application handles restart manager messages so that it can be restarted gracefully in the case when the app is using Edge for WebView from a certain installation and that installation is being uninstalled. For example, if a user installs Edge from Dev channel and opts to use Edge from that channel for testing the app, and then uninstalls Edge from that channel without closing the app, the app will be restarted to allow uninstallation of the dev channel to succeed. \snippet AppWindow.cpp RestartManager
+
+<p>The app should retry `CreateCoreWebView2CompositionController` upon failure, unless the error code is `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. When the app retries `CreateCoreWebView2CompositionController` upon failure, it is recommended that the app restarts from creating a new WebView2 Environment. If a WebView2 Runtime update happens, the version associated with a WebView2 Environment may have been removed and causing the object to no longer work. Creating a new WebView2 Environment works since it uses the latest version.
+
+<p>WebView creation fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if a running instance using the same user data folder exists, and the Environment objects have different `EnvironmentOptions`. For example, if a WebView was created with one language, an attempt to create a WebView with a different language using the same user data folder will fail.
+
+<p>The creation will fail with `E_ABORT` if `parentWindow` is destroyed before the creation is finished. If this is caused by a call to `DestroyWindow`, the creation completed handler will be invoked before `DestroyWindow` returns, so you can use this to cancel creation and clean up resources synchronously when quitting a thread.
+
+<p>In rare cases the creation can fail with `E_UNEXPECTED` if runtime does not have permissions to the user data folder.
+
+<p>CreateCoreWebView2CompositionController is supported in the following versions of Windows:
+
+<p>- Windows 11 - Windows 10 - Windows Server 2019 - Windows Server 2016 </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{80A22AE3-BE7C-4CE2-AFE1-5A50056CDEEB}']</dt>

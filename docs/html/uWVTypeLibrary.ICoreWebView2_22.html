@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2_22</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2_22"></span><h1 class="cio">Interface ICoreWebView2_22</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2_22 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2_21.html">ICoreWebView2_21</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This interface is an extension of `ICoreWebView2` that allows to set filters in order to receive WebResourceRequested events for service workers, shared workers and different origin iframes. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_22">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_22</a>&quot;&gt;See the ICoreWebView2_22 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_4.html">ICoreWebView2_4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_5.html">ICoreWebView2_5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_8.html">ICoreWebView2_8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_9.html">ICoreWebView2_9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_14.html">ICoreWebView2_14</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_15.html">ICoreWebView2_15</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_17.html">ICoreWebView2_17</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_18.html">ICoreWebView2_18</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_19.html">ICoreWebView2_19</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_20.html">ICoreWebView2_20</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2_21.html">ICoreWebView2_21</a></li>
+<li class="thisitem">ICoreWebView2_22</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_22.html#AddWebResourceRequestedFilterWithRequestSourceKinds-PWideChar-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS-">AddWebResourceRequestedFilterWithRequestSourceKinds</a></strong>(uri: PWideChar; ResourceContext: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>; requestSourceKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2_22.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds-PWideChar-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS-">RemoveWebResourceRequestedFilterWithRequestSourceKinds</a></strong>(uri: PWideChar; ResourceContext: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>; requestSourceKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddWebResourceRequestedFilterWithRequestSourceKinds-PWideChar-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS-"></span><code>function <strong>AddWebResourceRequestedFilterWithRequestSourceKinds</strong>(uri: PWideChar; ResourceContext: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>; requestSourceKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A web resource request with a resource context that matches this filter's resource context and a URI that matches this filter's URI wildcard string for corresponding request sources will be raised via the `WebResourceRequested` event. To receive all raised events filters have to be added before main page navigation.
+
+<p>The `uri` parameter value is a wildcard string matched against the URI of the web resource request. This is a glob style wildcard string in which a `*` matches zero or more characters and a `?` matches exactly one character. These wildcard characters can be escaped using a backslash just before the wildcard character in order to represent the literal `*` or `?`.
+
+<p>The matching occurs over the URI as a whole string and not limiting wildcard matches to particular parts of the URI. The wildcard filter is compared to the URI after the URI has been normalized, any URI fragment has been removed, and non-ASCII hostnames have been converted to punycode.
+
+<p>Specifying a `nullptr` for the uri is equivalent to an empty string which matches no URIs.
+
+<p>For more information about resource context filters, navigate to [COREWEBVIEW2_WEB_RESOURCE_CONTEXT](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_context).
+
+<p>The `requestSourceKinds` is a mask of one or more `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS`. OR operation(s) can be applied to multiple `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS` to create a mask representing those data types. API returns `E_INVALIDARG` if `requestSourceKinds` equals to zero. For more information about request source kinds, navigate to [COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_request_source_kinds).
+
+<p>Because service workers and shared workers run separately from any one HTML document their WebResourceRequested will be raised for all CoreWebView2s that have appropriate filters added in the corresponding CoreWebView2Environment. You should only add a WebResourceRequested filter for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER on one CoreWebView2 to avoid handling the same WebResourceRequested event multiple times.
+
+<p>| URI Filter String | Request URI | Match | Notes | | &mdash;- | &mdash;- | &mdash;- | &mdash;- | | `*` | `<a href="https://contoso.com/a/b/c">https://contoso.com/a/b/c</a>` | Yes | A single * will match all URIs | | `*<a href="://contoso.com/">://contoso.com/</a>*` | `<a href="https://contoso.com/a/b/c">https://contoso.com/a/b/c</a>` | Yes | Matches everything in contoso.com across all schemes | | `*<a href="://contoso.com/">://contoso.com/</a>*` | `<a href="https://example.com/?https://contoso.com/">https://example.com/?https://contoso.com/</a>` | Yes | But also matches a URI with just the same text anywhere in the URI | | `example` | `<a href="https://contoso.com/example">https://contoso.com/example</a>` | No | The filter does not perform partial matches | | `*example` | `<a href="https://contoso.com/example">https://contoso.com/example</a>` | Yes | The filter matches across URI parts | | `*example` | `<a href="https://contoso.com/path/?example">https://contoso.com/path/?example</a>` | Yes | The filter matches across URI parts | | `*example` | `<a href="https://contoso.com/path/?query#example">https://contoso.com/path/?query#example</a>` | No | The filter is matched against the URI with no fragment | | `*example` | `<a href="https://example">https://example</a>` | No | The URI is normalized before filter matching so the actual URI used for comparison is `<a href="https://example/">https://example/</a>` | | `*example/` | `<a href="https://example">https://example</a>` | Yes | Just like above, but this time the filter ends with a / just like the normalized URI | | `<a href="https://xn--qei.example/">https://xn--qei.example/</a>` | `<a href="https://&amp;#x2764;.example/">https://&amp;#x2764;.example/</a>` | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison | | `<a href="https://&amp;#x2764;.example/">https://&amp;#x2764;.example/</a>` | `<a href="https://xn--qei.example/">https://xn--qei.example/</a>` | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+
+<p>\snippet ScenarioSharedWorkerWRR.cpp WebResourceRequested2 </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{DB75DFC7-A857-4632-A398-6969DDE26C0A}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RemoveWebResourceRequestedFilterWithRequestSourceKinds-PWideChar-COREWEBVIEW2_WEB_RESOURCE_CONTEXT-COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS-"></span><code>function <strong>RemoveWebResourceRequestedFilterWithRequestSourceKinds</strong>(uri: PWideChar; ResourceContext: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_CONTEXT">COREWEBVIEW2_WEB_RESOURCE_CONTEXT</a>; requestSourceKinds: <a href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes a matching WebResource filter that was previously added for the `WebResourceRequested` event. If the same filter was added multiple times, then it must be removed as many times as it was added for the removal to be effective. Returns `E_INVALIDARG` for a filter that was not added or is already removed. If the filter was added for multiple requestSourceKinds and removed just for one of them the filter remains for the non-removed requestSourceKinds. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

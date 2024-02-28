@@ -1574,6 +1574,36 @@
 <td class="itemdesc"><p> Specifies an XML HTTP request, Fetch and EventSource API communication. </p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Specifies the source of `WebResourceRequested` event. </p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Indicates that web resource is requested from any supported source. </p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Indicates that web resource is requested from main page including dedicated workers and iframes. </p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Indicates that no web resource is requested. </p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Indicates that web resource is requested from service worker. </p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Indicates that web resource is requested from shared worker. </p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVMiscFunctions.html#CoreWebViewColorToDelphiColor-COREWEBVIEW2_COLOR-">CoreWebViewColorToDelphiColor</a></td>
 <td class="itemunit"><a class="bold" href="uWVMiscFunctions.html">uWVMiscFunctions</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
@@ -2688,41 +2718,46 @@
 <td class="itemdesc"><p> Event args for the WebResourceRequested event. </p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html">ICoreWebView2WebResourceRequestedEventArgs2</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Event args for the `WebResourceRequested` event. </p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventHandler.html">ICoreWebView2WebResourceRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Runs when a URL request (through network, file, and so on) is made in the webview for a Web resource matching resource context filter and URL specified in AddWebResourceRequestedFilter. The host views and modifies the request or provide a response in a similar pattern to HTTP, in which case the request immediately completed. This may not contain any request headers that are added by the network stack, such as an Authorization header. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> An HTTP response used with the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Event args for the WebResourceResponseReceived event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventHandler.html">ICoreWebView2WebResourceResponseReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Receives WebResourceResponseReceived events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseView.html">ICoreWebView2WebResourceResponseView</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> View of the HTTP representation for a web resource response. The properties of this object are not mutable. This response view is used with the WebResourceResponseReceived event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseViewGetContentCompletedHandler.html">ICoreWebView2WebResourceResponseViewGetContentCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WindowCloseRequestedEventHandler.html">ICoreWebView2WindowCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Receives WindowCloseRequested events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WindowFeatures.html">ICoreWebView2WindowFeatures</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>
@@ -2735,75 +2770,80 @@
 
 <p></p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ZoomFactorChangedEventHandler.html">ICoreWebView2ZoomFactorChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Implements the interface to receive ZoomFactorChanged events. Use the ICoreWebView2Controller.ZoomFactor property to get the modified zoom factor. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_9 that supports BasicAuthenticationRequested event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_11.html">ICoreWebView2_11</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_10 that supports sessionId for CDP method calls and ContextMenuRequested event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_12.html">ICoreWebView2_12</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_11 that supports StatusBarTextChanged event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_13.html">ICoreWebView2_13</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_12 that supports Profile API. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_14.html">ICoreWebView2_14</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_13 that adds ServerCertificate support. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_15.html">ICoreWebView2_15</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_14 that supports status Favicons. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_16.html">ICoreWebView2_16</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> A continuation of the ICoreWebView2 interface to support printing. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_17.html">ICoreWebView2_17</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_16 that supports shared buffer based on file mapping. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_18.html">ICoreWebView2_18</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_17 that manages navigation requests to URI schemes registered with the OS. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_19.html">ICoreWebView2_19</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of ICoreWebView2_18 that manages memory usage target level. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_2.html">ICoreWebView2_2</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> A continuation of the ICoreWebView2 interface. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_20.html">ICoreWebView2_20</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This interface is an extension of `ICoreWebView2_19` that provides the `FrameId` property. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_21.html">ICoreWebView2_21</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> This is the interface for getting string and exception with ExecuteScriptWithResult. </p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_22.html">ICoreWebView2_22</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> This interface is an extension of `ICoreWebView2` that allows to set filters in order to receive WebResourceRequested events for service workers, shared workers and different origin iframes. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_3.html">ICoreWebView2_3</a></td>
@@ -3801,112 +3841,122 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">IID_ICoreWebView2WebResourceRequestedEventArgs2</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventHandler">IID_ICoreWebView2WebResourceRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceResponse">IID_ICoreWebView2WebResourceResponse</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceResponseReceivedEventArgs">IID_ICoreWebView2WebResourceResponseReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceResponseReceivedEventHandler">IID_ICoreWebView2WebResourceResponseReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceResponseView">IID_ICoreWebView2WebResourceResponseView</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceResponseViewGetContentCompletedHandler">IID_ICoreWebView2WebResourceResponseViewGetContentCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WindowCloseRequestedEventHandler">IID_ICoreWebView2WindowCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2WindowFeatures">IID_ICoreWebView2WindowFeatures</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2ZoomFactorChangedEventHandler">IID_ICoreWebView2ZoomFactorChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_10">IID_ICoreWebView2_10</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_11">IID_ICoreWebView2_11</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_12">IID_ICoreWebView2_12</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_13">IID_ICoreWebView2_13</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_14">IID_ICoreWebView2_14</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_15">IID_ICoreWebView2_15</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_16">IID_ICoreWebView2_16</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_17">IID_ICoreWebView2_17</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_18">IID_ICoreWebView2_18</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_19">IID_ICoreWebView2_19</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_2">IID_ICoreWebView2_2</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_20">IID_ICoreWebView2_20</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_21">IID_ICoreWebView2_21</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.html#IID_ICoreWebView2_22">IID_ICoreWebView2_22</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
@@ -5574,296 +5624,301 @@
 <td class="itemdesc"><p> Specifies the web resource request contexts. </p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypes.html#TWVWebResourceRequestSourceKind">TWVWebResourceRequestSourceKind</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
+<td class="itemdesc"><p> Specifies the source of `WebResourceRequested` event. </p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVWinControl.TWVWinControl.html">TWVWinControl</a></td>
 <td class="itemunit"><a class="bold" href="uWVWinControl.html">uWVWinControl</a></td>
 <td class="itemdesc"><p> Parent control that will be used by TWVWindowParent in VCL and LCL applications to show the web contents. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.TWVWindowFeatures.html">TWVWindowFeatures</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p> Record used by TCoreWebView2WindowFeatures.CopyToRecord to copy the windows featres </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVWindowParent.TWVWindowParent.html">TWVWindowParent</a></td>
 <td class="itemunit"><a class="bold" href="uWVWindowParent.html">uWVWindowParent</a></td>
 <td class="itemdesc"><p> Parent control used by VCL and LCL applications to show the web contents. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#URI_ABOUTBLANK">URI_ABOUTBLANK</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#USER_DEFAULT_SCREEN_DPI">USER_DEFAULT_SCREEN_DPI</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW2LOADERLIB_VERSION_BUILD">WEBVIEW2LOADERLIB_VERSION_BUILD</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW2LOADERLIB_VERSION_MAJOR">WEBVIEW2LOADERLIB_VERSION_MAJOR</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW2LOADERLIB_VERSION_MINOR">WEBVIEW2LOADERLIB_VERSION_MINOR</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW2LOADERLIB_VERSION_RELEASE">WEBVIEW2LOADERLIB_VERSION_RELEASE</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#WebView2MajorVersion">WebView2MajorVersion</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> TypeLibrary major version </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#WebView2MinorVersion">WebView2MinorVersion</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> TypeLibrary minor version </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID">WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_CLEARDATAFORORIGIN_ID">WEBVIEW4DELPHI_DEVTOOLS_CLEARDATAFORORIGIN_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_EMULATENETWORKCONDITIONS_ID">WEBVIEW4DELPHI_DEVTOOLS_EMULATENETWORKCONDITIONS_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID">WEBVIEW4DELPHI_DEVTOOLS_FIRST_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>* Reserved IDs used in some DevTools functions *</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_LAST_ID">WEBVIEW4DELPHI_DEVTOOLS_LAST_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID">WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID">WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID">WEBVIEW4DELPHI_DEVTOOLS_SETIGNORECERTIFICATEERRORS_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID">WEBVIEW4DELPHI_DEVTOOLS_SIMULATEKEYEVENT_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_INVALID_FRAMEID">WEBVIEW4DELPHI_INVALID_FRAMEID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_JS_FIRST_ID">WEBVIEW4DELPHI_JS_FIRST_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>* Reserved IDs used in some JavaScript functions *</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_JS_LAST_ID">WEBVIEW4DELPHI_JS_LAST_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID">WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID">WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_COPIES_DEFAULT">WEBVIEW4DELPHI_PRINT_COPIES_DEFAULT</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_1">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_1</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_16">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_16</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_2">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_2</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_4">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_4</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_6">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_6</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_9">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_9</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_DEFAULT">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_DEFAULT</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_VALID">WEBVIEW4DELPHI_PRINT_PAGESPERSIDE_VALID</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WV2_IMAGE_FILE_MACHINE_AMD64">WV2_IMAGE_FILE_MACHINE_AMD64</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#WV2_IMAGE_FILE_MACHINE_I386">WV2_IMAGE_FILE_MACHINE_I386</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>* These constants are declared in the &quot;Windows&quot; unit but some old Delphi versions don't have them. We have to add &quot;WV2_&quot; to be compatible with C++ Builder. *</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#wvstring">wvstring</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZoomStepValues">ZoomStepValues</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_PCT_DELTA">ZOOM_PCT_DELTA</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_100">ZOOM_STEP_100</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_110">ZOOM_STEP_110</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_125">ZOOM_STEP_125</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_150">ZOOM_STEP_150</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_175">ZOOM_STEP_175</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_200">ZOOM_STEP_200</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_25">ZOOM_STEP_25</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_250">ZOOM_STEP_250</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_300">ZOOM_STEP_300</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_33">ZOOM_STEP_33</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_400">ZOOM_STEP_400</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_50">ZOOM_STEP_50</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_500">ZOOM_STEP_500</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_67">ZOOM_STEP_67</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_75">ZOOM_STEP_75</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_90">ZOOM_STEP_90</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_DEF">ZOOM_STEP_DEF</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_MAX">ZOOM_STEP_MAX</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_MIN">ZOOM_STEP_MIN</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVConstants.html#ZOOM_STEP_UNK">ZOOM_STEP_UNK</a></td>
 <td class="itemunit"><a class="bold" href="uWVConstants.html">uWVConstants</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>

@@ -3178,6 +3178,14 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveWebResourceRequestedFilter">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AddHostObjectToScript">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AddHostObjectToScript">
 </object>
@@ -3718,6 +3726,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf21">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf21">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf22">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf22">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FContainsFullScreenElementChangedToken">
@@ -4346,6 +4358,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ExecuteScriptWithResult">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#ExecuteScriptWithResult">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 </object>
 </ul>
 </ul>
@@ -5559,6 +5579,10 @@
 <param name="Name" value="FBaseIntf">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#FBaseIntf">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf2">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#FBaseIntf2">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -5589,6 +5613,10 @@
 <param name="Name" value="ResourceContext">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#ResourceContext">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="RequestedSourceKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#RequestedSourceKind">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -5616,8 +5644,16 @@
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetResourceContext">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetRequestedSourceKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetRequestedSourceKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="SetResponse">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#SetResponse">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#InitializeFields">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
@@ -21356,6 +21392,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_22">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2BrowserProcessExitedEventArgs">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">
 </object>
@@ -23488,6 +23544,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2WebResourceRequestedEventArgs2">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_RequestedSourceKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html#Get_RequestedSourceKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2File">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2File.html">
 </object>
@@ -23708,6 +23780,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="PPCoreWebView2CustomSchemeRegistration">
@@ -24248,6 +24324,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ScriptException">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2_22">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_22">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2BrowserProcessExitedEventArgs">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventArgs">
 </object>
@@ -24606,6 +24686,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Settings8">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings8">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2WebResourceRequestedEventArgs2">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2File">
@@ -25635,6 +25719,26 @@
 <param name="Name" value="COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL">
+</object>
 </ul>
 </ul>
 <li><object type="text/sitemap">
@@ -25932,6 +26036,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVFrameKind">
 <param name="Local" value="uWVTypes.html#TWVFrameKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVWebResourceRequestSourceKind">
+<param name="Local" value="uWVTypes.html#TWVWebResourceRequestSourceKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWV2LoaderStatus">
@@ -31398,6 +31506,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2WebResourceRequestedEventArgs2">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_RequestedSourceKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html#Get_RequestedSourceKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2WebResourceRequestedEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventHandler.html">
 </object>
@@ -31902,6 +32026,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ExecuteScriptWithResult">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2_21.html#ExecuteScriptWithResult">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_22">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_22.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 </object>
 </ul>
 </ul>
@@ -32520,6 +32664,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf21">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf22">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf22">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf3">
 </object>
@@ -32804,6 +32952,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddWebResourceRequestedFilter">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="CallDevToolsProtocolMethod">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#CallDevToolsProtocolMethod">
 </object>
@@ -32910,6 +33062,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveWebResourceRequestedFilter">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#RemoveWebResourceRequestedFilter">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Resume">
@@ -42771,6 +42927,10 @@
 <param name="Name" value="FBaseIntf">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#FBaseIntf">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf2">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#FBaseIntf2">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -42792,6 +42952,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Request">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#Request">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RequestedSourceKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#RequestedSourceKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ResourceContext">
@@ -42828,12 +42992,20 @@
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetRequest">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetRequestedSourceKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetRequestedSourceKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetResourceContext">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetResourceContext">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetResponse">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#GetResponse">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html#InitializeFields">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetResponse">
@@ -45364,6 +45536,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AddWebResourceRequestedFilter">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AddWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="CallDevToolsProtocolMethod">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CallDevToolsProtocolMethod">
 </object>
@@ -45602,6 +45778,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveWebResourceRequestedFilter">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveWebResourceRequestedFilter">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Resume">

@@ -219,8 +219,9 @@ type
       /// </summary>
       property FrameID             : cardinal                        read GetFrameID;
       /// <summary>
-      /// The name of the iframe from the iframe html tag declaring it.
-      /// You can access this property even if the iframe is destroyed.
+      /// The value of iframe's window.name property. The default value equals to
+      /// iframe html tag declaring it. You can access this property even if the
+      /// iframe is destroyed.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame#get_name">See the ICoreWebView2Frame article.</see></para>

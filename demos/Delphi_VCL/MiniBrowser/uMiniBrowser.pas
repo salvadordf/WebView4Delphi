@@ -509,8 +509,8 @@ begin
   NavControlPnl.Enabled := True;
 
   // We need to a filter to enable the TWVBrowser.OnWebResourceRequested event
-  WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE);
-  WVBrowser1.AddWebResourceRequestedFilter('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA);
+  WVBrowser1.AddWebResourceRequestedFilterWithRequestSourceKinds('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE, COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL);
+  WVBrowser1.AddWebResourceRequestedFilterWithRequestSourceKinds('*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA, COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL);
 
   WVBrowser1.CoreWebView2PrintSettings.HeaderTitle := 'Tituloooooo';
   WVBrowser1.CoreWebView2PrintSettings.ShouldPrintHeaderAndFooter := True;

@@ -357,6 +357,13 @@ type
   /// <para>Renamed COREWEBVIEW2_FRAME_KIND type.</para>
   /// </remarks>
   TWVFrameKind                            = type COREWEBVIEW2_FRAME_KIND;
+  /// <summary>
+  /// Specifies the source of `WebResourceRequested` event.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS type.</para>
+  /// </remarks>
+  TWVWebResourceRequestSourceKind         = type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS;
 
   /// <summary>
   /// TWVLoader status values

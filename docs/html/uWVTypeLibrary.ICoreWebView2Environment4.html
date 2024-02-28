@@ -46,7 +46,7 @@
 </tr>
 <tr><td colspan="2">
 <p>
-* function GetAutomationProviderForWindow(var hwnd: _RemotableHandle; out provider: IUnknown): HResult; stdcall; var hwnd: _RemotableHandle -&gt; aHWND: HWND ************** WEBVIEW4DELPHI ************** *</p>
+ Returns the Automation Provider for the WebView that matches the provided window. Host apps are expected to implement IRawElementProviderHwndOverride. When GetOverrideProviderForHwnd is called, the app can pass the HWND to GetAutomationProviderForWindow to find the matching WebView Automation Provider. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}']</dt>
