@@ -3,16 +3,16 @@
         <ProjectGuid>{696F4758-E194-4904-B998-905115C3CB94}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="WebView4DelphiVCL_designtime.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="WebView4DelphiFMX_designtime.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="WebView4DelphiVCLRTL.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="WebView4DelphiFMXRTL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebView4DelphiVCL_designtime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebView4DelphiFMX_designtime.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -23,24 +23,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="WebView4DelphiVCL_designtime">
-        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj"/>
-    </Target>
-    <Target Name="WebView4DelphiVCL_designtime:Clean">
-        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="WebView4DelphiVCL_designtime:Make">
-        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="WebView4DelphiFMX_designtime">
-        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj"/>
-    </Target>
-    <Target Name="WebView4DelphiFMX_designtime:Clean">
-        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="WebView4DelphiFMX_designtime:Make">
-        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj" Targets="Make"/>
-    </Target>
     <Target Name="WebView4DelphiVCLRTL">
         <MSBuild Projects="WebView4DelphiVCLRTL.dproj"/>
     </Target>
@@ -59,14 +41,32 @@
     <Target Name="WebView4DelphiFMXRTL:Make">
         <MSBuild Projects="WebView4DelphiFMXRTL.dproj" Targets="Make"/>
     </Target>
+    <Target Name="WebView4DelphiVCL_designtime">
+        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj"/>
+    </Target>
+    <Target Name="WebView4DelphiVCL_designtime:Clean">
+        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebView4DelphiVCL_designtime:Make">
+        <MSBuild Projects="WebView4DelphiVCL_designtime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebView4DelphiFMX_designtime">
+        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj"/>
+    </Target>
+    <Target Name="WebView4DelphiFMX_designtime:Clean">
+        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebView4DelphiFMX_designtime:Make">
+        <MSBuild Projects="WebView4DelphiFMX_designtime.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="WebView4DelphiVCL_designtime;WebView4DelphiFMX_designtime;WebView4DelphiVCLRTL;WebView4DelphiFMXRTL"/>
+        <CallTarget Targets="WebView4DelphiVCLRTL;WebView4DelphiFMXRTL;WebView4DelphiVCL_designtime;WebView4DelphiFMX_designtime"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="WebView4DelphiVCL_designtime:Clean;WebView4DelphiFMX_designtime:Clean;WebView4DelphiVCLRTL:Clean;WebView4DelphiFMXRTL:Clean"/>
+        <CallTarget Targets="WebView4DelphiVCLRTL:Clean;WebView4DelphiFMXRTL:Clean;WebView4DelphiVCL_designtime:Clean;WebView4DelphiFMX_designtime:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="WebView4DelphiVCL_designtime:Make;WebView4DelphiFMX_designtime:Make;WebView4DelphiVCLRTL:Make;WebView4DelphiFMXRTL:Make"/>
+        <CallTarget Targets="WebView4DelphiVCLRTL:Make;WebView4DelphiFMXRTL:Make;WebView4DelphiVCL_designtime:Make;WebView4DelphiFMX_designtime:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
