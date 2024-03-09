@@ -6,8 +6,10 @@ interface
 
 uses
   LCLIntf, LCLType, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, ExtCtrls, ComCtrls, StdCtrls,
-  uWVBrowser, uWVWindowParent, uWVTypeLibrary, uWVLoader, uWVBrowserBase, uWVTypes, uWVEvents;
+  Controls, Forms, Dialogs, ExtCtrls, ComCtrls, StdCtrls, uWVCoreWebView2Args,
+  uWVBrowser, uWVWindowParent, uWVTypeLibrary, uWVLoader, uWVBrowserBase, uWVTypes, uWVEvents,
+  uWVCoreWebView2CookieList, uWVCoreWebView2Cookie,
+  uWVCoreWebView2ContextMenuItemCollection, uWVCoreWebView2ContextMenuItem;
 
 type
 
@@ -26,23 +28,33 @@ type
     DeleteCookiesBtn: TButton;
     AddCustomCookieBtn: TButton;
 
-    procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
+    procedure Timer1Timer(Sender: TObject);
+
     procedure GoBtnClick(Sender: TObject);  
     procedure Button1Click(Sender: TObject);                    
     procedure DeleteCookiesBtnClick(Sender: TObject);
     procedure AddCustomCookieBtnClick(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
+    procedure WVBrowser1ContextMenuRequested(Sender: TObject;
+      const aWebView: ICoreWebView2;
+      const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+    procedure WVBrowser1CustomItemSelected(Sender: TObject;
+      const aMenuItem: ICoreWebView2ContextMenuItem);
     procedure WVBrowser1GetCookiesCompleted(Sender: TObject; aResult: HRESULT; const aCookieList: ICoreWebView2CookieList);
-    procedure WVBrowser1InitializationError(Sender: TObject;
-      aErrorCode: HRESULT; const aErrorMessage: wvstring);
+    procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
 
   protected
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
     procedure WMMoving(var aMessage : TMessage); message WM_MOVING;
+
   public
-    { Public declarations }
+    FExitCommandID : integer;
+    FExitMenuItem  : TCoreWebView2ContextMenuItem;
   end;
 
 var
@@ -53,9 +65,6 @@ implementation
 {$R *.lfm}
 
 // This demo shows how to read, add or delete browser cookies.
-
-uses
-  uWVCoreWebView2CookieList, uWVCoreWebView2Cookie;
 
 procedure TMainForm.AddCustomCookieBtnClick(Sender: TObject);
 var
@@ -93,6 +102,18 @@ begin
       Timer1.Enabled := True;
 end;
 
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  FExitCommandID := 0;
+  FExitMenuItem  := nil;
+end;
+
+procedure TMainForm.FormDestroy(Sender: TObject);
+begin
+  if assigned(FExitMenuItem) then
+    FreeAndNil(FExitMenuItem);
+end;
+
 procedure TMainForm.GoBtnClick(Sender: TObject);
 begin
   WVBrowser1.Navigate(UTF8Decode(AddressCb.Text));
@@ -105,13 +126,58 @@ begin
   AddressPnl.Enabled := True;
 end;
 
+procedure TMainForm.WVBrowser1ContextMenuRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+var
+  TempArgs        : TCoreWebView2ContextMenuRequestedEventArgs;
+  TempCollection  : TCoreWebView2ContextMenuItemCollection;
+  TempMenuItemItf : ICoreWebView2ContextMenuItem;
+begin
+  TempArgs        := TCoreWebView2ContextMenuRequestedEventArgs.Create(aArgs);
+  TempCollection  := TCoreWebView2ContextMenuItemCollection.Create(TempArgs.MenuItems);
+  TempMenuItemItf := nil;
+
+  try
+    TempCollection.RemoveAllMenuItems;
+
+    if not(assigned(FExitMenuItem)) then
+      begin
+        if WVBrowser1.CoreWebView2Environment.CreateContextMenuItem('Exit', nil, COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND, TempMenuItemItf) then
+          try
+            FExitMenuItem   := TCoreWebView2ContextMenuItem.Create(TempMenuItemItf);
+            FExitCommandID  := FExitMenuItem.CommandId;
+            FExitMenuItem.AddAllBrowserEvents(WVBrowser1);
+          finally
+            TempMenuItemItf := nil;
+          end;
+      end;
+
+    if assigned(FExitMenuItem) and FExitMenuItem.Initialized then
+      TempCollection.InsertValueAtIndex(0, FExitMenuItem.BaseIntf);
+  finally
+    FreeAndNil(TempCollection);
+    FreeAndNil(TempArgs);
+  end;
+end;
+
+procedure TMainForm.WVBrowser1CustomItemSelected(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem);
+var
+  TempMenuItem : TCoreWebView2ContextMenuItem;
+begin
+  TempMenuItem := TCoreWebView2ContextMenuItem.Create(aMenuItem);
+
+  if (TempMenuItem.CommandId = FExitCommandID) then
+    PostMessage(Handle, WM_CLOSE, 0, 0);
+
+  FreeAndNil(TempMenuItem);
+end;
+
 procedure TMainForm.WVBrowser1GetCookiesCompleted(Sender: TObject;
   aResult: HRESULT; const aCookieList: ICoreWebView2CookieList);
 var
   TempCookieList : TCoreWebView2CookieList;
-  TempCookie : TCoreWebView2Cookie;
-  i : cardinal;
-  TempInfo : string;
+  TempCookie     : TCoreWebView2Cookie;
+  i              : cardinal;
+  TempInfo       : string;
 begin
   TempCookieList := nil;
   TempCookie     := nil;

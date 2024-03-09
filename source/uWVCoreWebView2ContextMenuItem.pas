@@ -23,7 +23,8 @@ type
   /// </remarks>
   TCoreWebView2ContextMenuItem = class
     protected
-      FBaseIntf : ICoreWebView2ContextMenuItem;
+      FBaseIntf                : ICoreWebView2ContextMenuItem;
+      FCustomItemSelectedToken : EventRegistrationToken;
 
       function  GetInitialized : boolean;
       function  GetName : wvstring;
@@ -39,19 +40,20 @@ type
       procedure SetIsEnabled(aValue : boolean);
       procedure SetIsChecked(aValue : boolean);
 
+      procedure InitializeFields;
+      procedure InitializeTokens;
+      procedure RemoveAllEvents;
+
+      function  AddCustomItemSelectedEvent(const aBrowserComponent : TComponent) : boolean;
+
     public
       constructor Create(const aBaseIntf : ICoreWebView2ContextMenuItem); reintroduce;
       destructor  Destroy; override;
       /// <summary>
       /// Adds all the events of this class to an existing TWVBrowserBase instance.
-      /// Will only be raised for end developer created context menu items.
       /// </summary>
       /// <param name="aBrowserComponent">The TWVBrowserBase instance.</param>
-      /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#add_customitemselected">See the ICoreWebView2ContextMenuItem article.</see></para>
-      /// </remarks>
-      function    AddCustomItemSelectedEvent(const aBrowserComponent : TComponent) : boolean;
-
+      function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
@@ -146,19 +148,47 @@ constructor TCoreWebView2ContextMenuItem.Create(const aBaseIntf: ICoreWebView2Co
 begin
   inherited Create;
 
+  InitializeFields;
+
   FBaseIntf := aBaseIntf;
 end;
 
 destructor TCoreWebView2ContextMenuItem.Destroy;
 begin
-  FBaseIntf := nil;
-
-  inherited Destroy;
+  try
+    RemoveAllEvents;
+    InitializeFields;
+  finally
+    inherited Destroy;
+  end;
 end;
 
 function TCoreWebView2ContextMenuItem.GetInitialized : boolean;
 begin
   Result := assigned(FBaseIntf);
+end;
+
+procedure TCoreWebView2ContextMenuItem.InitializeFields;
+begin
+  FBaseIntf := nil;
+
+  InitializeTokens;
+end;
+
+procedure TCoreWebView2ContextMenuItem.InitializeTokens;
+begin
+  FCustomItemSelectedToken.value := 0;
+end;
+
+procedure TCoreWebView2ContextMenuItem.RemoveAllEvents;
+begin
+  if Initialized then
+    begin
+      if (FCustomItemSelectedToken.value <> 0) then
+        FBaseIntf.remove_CustomItemSelected(FCustomItemSelectedToken);
+
+      InitializeTokens;
+    end;
 end;
 
 function TCoreWebView2ContextMenuItem.GetName : wvstring;
@@ -289,17 +319,23 @@ end;
 
 function TCoreWebView2ContextMenuItem.AddCustomItemSelectedEvent(const aBrowserComponent : TComponent) : boolean;
 var
-  TempToken : EventRegistrationToken;
+  TempHandler : ICoreWebView2CustomItemSelectedEventHandler;
 begin
   Result := False;
 
-  if Initialized then
-    begin
-      TempToken.value := 0;
-      Result          := succeeded(FBaseIntf.add_CustomItemSelected(TWVBrowserBase(aBrowserComponent).CustomItemSelectedEventHandler, TempToken));
+  if Initialized and (FCustomItemSelectedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2CustomItemSelectedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf.add_CustomItemSelected(TempHandler, FCustomItemSelectedToken));
+    finally
+      TempHandler := nil;
     end;
 end;
 
+function TCoreWebView2ContextMenuItem.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
+begin
+  Result := AddCustomItemSelectedEvent(aBrowserComponent);
+end;
 
 end.
 

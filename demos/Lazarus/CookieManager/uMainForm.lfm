@@ -10,9 +10,11 @@ object MainForm: TMainForm
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.2.0.0'
   object WVWindowParent1: TWVWindowParent
     Left = 0
     Height = 677
@@ -32,6 +34,7 @@ object MainForm: TMainForm
     ClientHeight = 24
     ClientWidth = 1122
     Enabled = False
+    ParentBackground = False
     TabOrder = 0
     object AddressCb: TComboBox
       Left = 0
@@ -73,8 +76,8 @@ object MainForm: TMainForm
       Width = 49
       Align = alRight
       Caption = 'Go'
-      OnClick = GoBtnClick
       TabOrder = 1
+      OnClick = GoBtnClick
     end
   end
   object Panel1: TPanel
@@ -86,6 +89,7 @@ object MainForm: TMainForm
     BevelOuter = bvNone
     ClientHeight = 677
     ClientWidth = 242
+    ParentBackground = False
     TabOrder = 2
     object Button1: TButton
       Left = 0
@@ -94,8 +98,8 @@ object MainForm: TMainForm
       Width = 242
       Align = alTop
       Caption = 'Get cookies'
-      OnClick = Button1Click
       TabOrder = 0
+      OnClick = Button1Click
     end
     object CookiesLb: TListBox
       Left = 0
@@ -112,8 +116,8 @@ object MainForm: TMainForm
       Top = 459
       Width = 222
       Caption = 'Delete all cookies'
-      OnClick = DeleteCookiesBtnClick
       TabOrder = 2
+      OnClick = DeleteCookiesBtnClick
     end
     object AddCustomCookieBtn: TButton
       Left = 10
@@ -121,8 +125,8 @@ object MainForm: TMainForm
       Top = 506
       Width = 222
       Caption = 'Add custom cookie'
-      OnClick = AddCustomCookieBtnClick
       TabOrder = 3
+      OnClick = AddCustomCookieBtnClick
     end
   end
   object Timer1: TTimer
@@ -139,6 +143,8 @@ object MainForm: TMainForm
     OnInitializationError = WVBrowser1InitializationError
     OnAfterCreated = WVBrowser1AfterCreated
     OnGetCookiesCompleted = WVBrowser1GetCookiesCompleted
+    OnContextMenuRequested = WVBrowser1ContextMenuRequested
+    OnCustomItemSelected = WVBrowser1CustomItemSelected
     Left = 200
     Top = 160
   end

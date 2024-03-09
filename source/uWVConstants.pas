@@ -87,6 +87,11 @@ const
   HWND_MESSAGE = System.THandle(-3);
   {$IFEND}
 
+  WV_URLS_URL       = 'edge://edge-urls';
+  WV_FLAGS_URL      = 'edge://flags';
+  WV_DOWNLOADS_URL  = 'edge://downloads';
+  WV_EXTENSIONS_URL = 'edge://extensions';
+
 implementation
 
 end.

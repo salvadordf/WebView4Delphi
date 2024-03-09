@@ -13,6 +13,7 @@ object MainForm: TMainForm
   Font.Style = []
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent

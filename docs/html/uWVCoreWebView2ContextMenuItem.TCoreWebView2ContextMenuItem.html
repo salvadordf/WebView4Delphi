@@ -33,6 +33,10 @@
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#FCustomItemSelectedToken">FCustomItemSelectedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
@@ -85,6 +89,22 @@
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#SetIsChecked-boolean-">SetIsChecked</a></strong>(aValue : boolean);</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#AddCustomItemSelectedEvent-TComponent-">AddCustomItemSelectedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#Create-ICoreWebView2ContextMenuItem-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>); reintroduce;</code></td>
 </tr>
@@ -94,7 +114,7 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#AddCustomItemSelectedEvent-TComponent-">AddCustomItemSelectedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
@@ -150,6 +170,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCustomItemSelectedToken"></span><code><strong>FCustomItemSelectedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -253,6 +281,38 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddCustomItemSelectedEvent-TComponent-"></span><code>function <strong>AddCustomItemSelectedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Create-ICoreWebView2ContextMenuItem-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>); reintroduce;</code></td>
 </tr>
@@ -270,15 +330,13 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddCustomItemSelectedEvent-TComponent-"></span><code>function <strong>AddCustomItemSelectedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Adds all the events of this class to an existing TWVBrowserBase instance. Will only be raised for end developer created context menu items. </p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
 <p>
- 
-
-<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#add_customitemselected">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#add_customitemselected</a>&quot;&gt;See the ICoreWebView2ContextMenuItem article.)</p>
+ </p>
 <h6 class="description_section">Parameters</h6>
 <dl class="parameters">
 <dt>aBrowserComponent</dt>

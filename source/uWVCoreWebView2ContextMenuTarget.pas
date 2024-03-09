@@ -39,7 +39,6 @@ type
     public
       constructor Create(const aBaseIntf : ICoreWebView2ContextMenuTarget); reintroduce;
       destructor  Destroy; override;
-
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
@@ -48,18 +47,97 @@ type
       /// Returns the interface implemented by this class.
       /// </summary>
       property BaseIntf                 : ICoreWebView2ContextMenuTarget         read FBaseIntf;
+      /// <summary>
+      /// Gets the kind of context that the user selected.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_kind">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property Kind                     : TWVMenuTargetKind                      read GetKind;
+      /// <summary>
+      /// Returns TRUE if the context menu is requested on an editable component.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_iseditable">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property IsEditable               : boolean                                read GetIsEditable;
+      /// <summary>
+      /// Returns TRUE if the context menu was requested on the main frame and
+      /// FALSE if invoked on another frame.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_isrequestedformainframe">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property IsRequestedForMainFrame  : boolean                                read GetIsRequestedForMainFrame;
+      /// <summary>
+      /// Gets the uri of the page.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_pageuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property PageUri                  : wvstring                               read GetPageUri;
+      /// <summary>
+      /// Gets the uri of the frame. Will match the PageUri if `IsRequestedForMainFrame` is TRUE.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_frameuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property FrameUri                 : wvstring                               read GetFrameUri;
+      /// <summary>
+      /// Returns TRUE if the context menu is requested on HTML containing an anchor tag.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_haslinkuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property HasLinkUri               : boolean                                read GetHasLinkUri;
+      /// <summary>
+      /// Gets the uri of the link (if `HasLinkUri` is TRUE, null otherwise).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_linkuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property LinkUri                  : wvstring                               read GetLinkUri;
+      /// <summary>
+      /// Returns TRUE if the context menu is requested on text element that contains an anchor tag.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_haslinktext">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property HasLinkText              : boolean                                read GetHasLinkText;
+      /// <summary>
+      /// Gets the text of the link (if `HasLinkText` is TRUE, null otherwise).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_linktext">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property LinkText                 : wvstring                               read GetLinkText;
+      /// <summary>
+      /// Returns TRUE if the context menu is requested on HTML containing a source uri.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_hassourceuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property HasSourceUri             : boolean                                read GetHasSourceUri;
+      /// <summary>
+      /// Gets the active source uri of element (if `HasSourceUri` is TRUE, null otherwise).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_sourceuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property SourceUri                : wvstring                               read GetSourceUri;
+      /// <summary>
+      /// Returns TRUE if the context menu is requested on a selection.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_hasselection">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property HasSelection             : boolean                                read GetHasSelection;
+      /// <summary>
+      /// Gets the selected text (if `HasSelection` is TRUE, null otherwise).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_selectiontext">See the ICoreWebView2ContextMenuTarget article.</see></para>
+      /// </remarks>
       property SelectionText            : wvstring                               read GetSelectionText;
   end;
 

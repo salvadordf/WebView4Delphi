@@ -3,11 +3,13 @@ unit uKioskBrowser;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.StdCtrls,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Touch.Keyboard,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args,
-  uWVBrowserBase, Vcl.Menus, Vcl.Touch.Keyboard;
+  uWVBrowserBase, uWVCoreWebView2ContextMenuItemCollection,
+  uWVCoreWebView2ContextMenuItem;
 
 type
   TMainForm = class(TForm)
@@ -18,6 +20,8 @@ type
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+
     procedure Timer1Timer(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
@@ -30,6 +34,7 @@ type
 
   protected
     FExitCommandID : integer;
+    FExitMenuItem  : TCoreWebView2ContextMenuItem;
 
     // It's necessary to handle these messages to call NotifyParentWindowPositionChanged or some page elements will be misaligned.
     procedure WMMove(var aMessage : TWMMove); message WM_MOVE;
@@ -68,12 +73,17 @@ implementation
 // uWVLoader.pas. All browsers should be already destroyed before GlobalWebView2Loader
 // is destroyed.
 
-uses
-  uWVCoreWebView2ContextMenuItemCollection, uWVCoreWebView2ContextMenuItem;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   FExitCommandID := 0;
+  FExitMenuItem  := nil;
+end;
+
+procedure TMainForm.FormDestroy(Sender: TObject);
+begin
+  if assigned(FExitMenuItem) then
+    FreeAndNil(FExitMenuItem);
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -120,24 +130,27 @@ var
   TempArgs        : TCoreWebView2ContextMenuRequestedEventArgs;
   TempCollection  : TCoreWebView2ContextMenuItemCollection;
   TempMenuItemItf : ICoreWebView2ContextMenuItem;
-  TempMenuItem    : TCoreWebView2ContextMenuItem;
 begin
   TempArgs       := TCoreWebView2ContextMenuRequestedEventArgs.Create(aArgs);
   TempCollection := TCoreWebView2ContextMenuItemCollection.Create(TempArgs.MenuItems);
-  TempMenuItem   := nil;
 
   try
     TempCollection.RemoveAllMenuItems;
 
-    if WVBrowser1.CoreWebView2Environment.CreateContextMenuItem('Exit', nil, COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND, TempMenuItemItf) then
-      try
-        TempMenuItem   := TCoreWebView2ContextMenuItem.Create(TempMenuItemItf);
-        FExitCommandID := TempMenuItem.CommandId;
-        TempMenuItem.AddCustomItemSelectedEvent(WVBrowser1);
-        TempCollection.InsertValueAtIndex(0, TempMenuItemItf);
-      finally
-        FreeAndNil(TempMenuItem);
+    if not(Assigned(FExitMenuItem)) then
+      begin
+        if WVBrowser1.CoreWebView2Environment.CreateContextMenuItem('Exit', nil, COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND, TempMenuItemItf) then
+          try
+            FExitMenuItem   := TCoreWebView2ContextMenuItem.Create(TempMenuItemItf);
+            FExitCommandID  := FExitMenuItem.CommandId;
+            FExitMenuItem.AddAllBrowserEvents(WVBrowser1);
+          finally
+            TempMenuItemItf := nil;
+          end;
       end;
+
+    if assigned(FExitMenuItem) and FExitMenuItem.Initialized then
+      TempCollection.InsertValueAtIndex(0, FExitMenuItem.BaseIntf);
   finally
     FreeAndNil(TempCollection);
     FreeAndNil(TempArgs);

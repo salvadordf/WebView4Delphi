@@ -19,8 +19,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="59"/>
-        <CursorPos X="62" Y="88"/>
+        <TopLine Value="60"/>
+        <CursorPos X="5" Y="172"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -153,7 +153,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit14>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="7" HistoryIndex="6">
       <Position1>
         <Filename Value="uMainForm.pas"/>
         <Caret Line="35" Column="5" TopLine="35"/>
@@ -166,6 +166,22 @@
         <Filename Value="uMainForm.pas"/>
         <Caret Line="85" Column="50" TopLine="75"/>
       </Position3>
+      <Position4>
+        <Filename Value="uMainForm.pas"/>
+        <Caret Line="35" Column="5" TopLine="26"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uMainForm.pas"/>
+        <Caret Line="100" Column="3" TopLine="97"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uMainForm.pas"/>
+        <Caret Line="113" Column="5" TopLine="82"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uMainForm.pas"/>
+        <Caret Line="133" Column="3" TopLine="129"/>
+      </Position7>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
