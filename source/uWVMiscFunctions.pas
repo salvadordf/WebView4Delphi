@@ -71,6 +71,10 @@ const
   {$ENDIF}
 {$ENDIF}
 
+{$IFNDEF FPC}{$IFNDEF DELPHI7_UP}
+function PosEx(const SubStr, S: string; Offset: Cardinal = 1): Integer;
+{$ENDIF}{$ENDIF}
+
 implementation
 
 uses
@@ -707,5 +711,21 @@ begin
           inc(i);
         end;
 end;
+
+{$IFNDEF FPC}{$IFNDEF DELPHI7_UP}
+function PosEx(const SubStr, S: string; Offset: Cardinal = 1): Integer;
+var
+  TempString : string;
+begin
+  if Offset <= 1 then
+    Result := Pos(SubStr, S)
+   else
+    begin
+      TempString := copy(S, Offset, length(S));
+      Result     := Pos(SubStr, TempString);
+      if (Result > 0) then inc(Result, Offset - 1);
+    end;
+end;
+{$ENDIF}{$ENDIF}
 
 end.
