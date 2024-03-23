@@ -1430,7 +1430,11 @@ end;
 function TWVLoader.GetCustomCommandLineSwitches : wvstring;
 var
   TempFeatures : wvstring;
+  {$IFDEF VER140}
+  TempDecimalSeparator : char;  // Only for Delphi 6
+  {$ELSE}
   TempFormatSettings : TFormatSettings;
+  {$ENDIF}
 begin
   if not(FEnableGPU) then
     Result := '--disable-gpu --disable-gpu-compositing ';
@@ -1554,13 +1558,16 @@ begin
 
   if (FForcedDeviceScaleFactor <> 0) then
     begin
-      TempFormatSettings.DecimalSeparator := '.';
-      Result := Result + '--force-device-scale-factor=' +
-        {$IFDEF FPC}
-        UTF8Decode(FloatToStr(FForcedDeviceScaleFactor, TempFormatSettings)) + ' ';
-        {$ELSE}
-        FloatToStr(FForcedDeviceScaleFactor, TempFormatSettings) + ' ';
-        {$ENDIF}
+      {$IFDEF VER140}         // Only for Delphi 6
+        TempDecimalSeparator := DecimalSeparator;
+        DecimalSeparator     := '.';
+        Result := Result + '--force-device-scale-factor=' + FloatToStr(FForcedDeviceScaleFactor) + ' ';
+        DecimalSeparator     := TempDecimalSeparator;
+      {$ELSE}
+        TempFormatSettings.DecimalSeparator := '.';
+        Result := Result + '--force-device-scale-factor=' +
+          {$IFDEF FPC}UTF8Decode({$ENDIF}FloatToStr(FForcedDeviceScaleFactor, TempFormatSettings){$IFDEF FPC}){$ENDIF} + ' ';
+      {$ENDIF}
     end;
 
   if (FRemoteDebuggingPort > 0) then

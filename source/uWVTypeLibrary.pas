@@ -7,7 +7,7 @@ unit uWVTypeLibrary;
 {$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
-{$VARPROPSETTER ON}
+{$VARPROPSETTER ON} // If you use Delphi 6 you'll need to download and install the second D6 patch in order for this to compile.
 {$ALIGN 4}
 
 interface

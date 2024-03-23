@@ -12,7 +12,7 @@ uses
   {$ELSE}
   Types, ActiveX,
   {$ENDIF}
-  uWVTypeLibrary;
+  uWVTypeLibrary, uWVTypes;
 
 type
   /// <summary>

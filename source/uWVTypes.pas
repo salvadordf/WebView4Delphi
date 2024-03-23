@@ -16,14 +16,20 @@ uses
 
 type
   {$IFDEF DELPHI12_UP}
-  wvstring = type string;
+    wvstring = type string;
   {$ELSE}
     {$IFDEF FPC}
-    wvstring = type UnicodeString;
+      wvstring = type UnicodeString;
     {$ELSE}
-    wvstring = type WideString;
+      wvstring = type WideString;
+      {$IFNDEF DELPHI7_UP}
+        uint64     = type int64;
+        PPAnsiChar = array of PChar;
+        NativeInt  = integer;
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
+
   /// <summary>
   /// Specifies the key event type that triggered an AcceleratorKeyPressed
   /// event.
