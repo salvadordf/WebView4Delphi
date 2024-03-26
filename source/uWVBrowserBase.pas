@@ -170,6 +170,7 @@ type
       FOnProfileGetBrowserExtensionsCompleted         : TOnProfileGetBrowserExtensionsCompletedEvent;
       FOnProfileDeleted                               : TOnProfileDeletedEvent;
       FOnExecuteScriptWithResultCompleted             : TOnExecuteScriptWithResultCompletedEvent;
+      FOnNonClientRegionChanged                       : TOnNonClientRegionChangedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -220,6 +221,7 @@ type
       function  GetAllowExternalDrop : boolean;
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
       function  GetIsReputationCheckingRequired : boolean;
+      function  GetIsNonClientRegionSupportEnabled : boolean;
       function  GetFaviconURI : wvstring;
       function  GetScreenScale : single; virtual;
       function  GetProfileName : wvstring;
@@ -268,6 +270,7 @@ type
       procedure SetAllowExternalDrop(aValue : boolean);
       procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
       procedure SetIsReputationCheckingRequired(aValue : boolean);
+      procedure SetIsNonClientRegionSupportEnabled(aValue : boolean);
       procedure SetProfileName(const aValue : wvstring);
       procedure SetDefaultDownloadFolderPath(const aValue : wvstring);
       procedure SetPreferredColorScheme(const aValue : TWVPreferredColorScheme);
@@ -383,6 +386,7 @@ type
       function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
       function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
       function ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HRESULT;
+      function NonClientRegionChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -473,6 +477,7 @@ type
       procedure doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList); virtual;
       procedure doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown); virtual;
       procedure doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer); virtual;
+      procedure doOnNonClientRegionChangedEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -1500,6 +1505,38 @@ type
       /// </remarks>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
       /// <summary>
+      /// <para>If you are hosting a WebView2 using CoreWebView2CompositionController, you can call
+      /// this method in your Win32 WndProc to determine if the mouse is moving over or
+      /// clicking on WebView2 web content that should be considered part of a non-client region.</para>
+      /// <para>The point parameter is expected to be in the client coordinate space of WebView2.
+      /// The method sets the out parameter value as follows:</para>
+      /// <code>
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
+      ///         a region (HTML element) within the WebView2 with
+      ///         `-webkit-app-region: drag` CSS style set.
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
+      ///         a region (HTML element) within the WebView2 without
+      ///         `-webkit-app-region: drag` CSS style set.
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+      /// </code>
+      /// <para>NOTE: in order for WebView2 to properly handle the title bar system menu,
+      /// the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#getnonclientregionatpoint">See the ICoreWebView2CompositionController4 article.</see></para>
+      /// </remarks>
+      function    GetNonClientRegionAtPoint(point: TPoint) : TWVNonClientRegionKind;
+      /// <summary>
+      /// This method is used to get the collection of rects that correspond
+      /// to a particular TWVNonClientRegionKind. This is to be used in
+      /// the callback of add_NonClientRegionChanged whose event args object contains
+      /// a region property of type TWVNonClientRegionKind.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#querynonclientregion">See the ICoreWebView2CompositionController4 article.</see></para>
+      /// </remarks>
+      function    QueryNonClientRegion(Kind: TWVNonClientRegionKind): ICoreWebView2RegionRectCollectionView;
+      /// <summary>
       /// Clears the browser cache. This function is asynchronous and it triggers the TWVBrowserBase.OnClearCacheCompleted event when it finishes executing.
       /// </summary>
       /// <remarks>
@@ -2219,8 +2256,13 @@ type
       /// </remarks>
       property ZoomControlEnabled                              : boolean                                               read GetZoomControlEnabled                            write SetZoomControlEnabled;
       /// <summary>
-      /// Returns the User Agent. The default value is the default User Agent of the
-      /// Microsoft Edge browser.
+      /// <para>Returns the User Agent. The default value is the default User Agent of the
+      /// Microsoft Edge browser.</para>
+      /// <para>This property may be overridden if the User-Agent header is set in a request.
+      /// If the parameter is empty the User Agent will not be updated and the current
+      /// User Agent will remain.</para>
+      /// <para>Setting this property will cause the other user agent client hints
+      /// Sec-CH-UA-* headers to be overridden and dropped.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>
@@ -2363,6 +2405,25 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings8#get_isreputationcheckingrequired">See the ICoreWebView2Settings8 article.</see></para>
       /// </remarks>
       property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;
+      /// <summary>
+      /// <para>The `IsNonClientRegionSupportEnabled` property enables web pages to use the
+      /// `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled`
+      /// takes effect after the next navigation. Defaults to `FALSE`.</para>
+      /// <para>When this property is `TRUE`, then all the non-client region features
+      /// will be enabled:</para>
+      /// <para>Draggable Regions will be enabled, they are regions on a webpage that
+      /// are marked with the CSS attribute `app-region: drag/no-drag`. When set to
+      /// `drag`, these regions will be treated like the window's title bar, supporting
+      /// dragging of the entire WebView and its host app window; the system menu shows
+      /// upon right click, and a double click will trigger maximizing/restoration of the
+      /// window size.</para>
+      /// <para>When set to `FALSE`, all non-client region support will be disabled.
+      /// The `app-region` CSS style will be ignored on web pages.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings9#get_isnonclientregionsupportenabled">See the ICoreWebView2Settings9 article.</see></para>
+      /// </remarks>
+      property IsNonClientRegionSupportEnabled                 : boolean                                               read GetIsNonClientRegionSupportEnabled               write SetIsNonClientRegionSupportEnabled;
       /// <summary>
       /// The current cursor that WebView thinks it should be. The cursor should be
       /// set in WM_SETCURSOR through \::SetCursor or set on the corresponding
@@ -3387,7 +3448,14 @@ type
       /// potentially-trustworthy-origin); however, the event will still be raised.</para>
       /// <para>If the request is initiated by a cross-origin frame without a user gesture,
       /// the request will be blocked and the `OnLaunchingExternalUriScheme` event will not
-      /// be raised.</para>
+      /// be raised. A URI scheme may be blocked for safety reasons. In this case the
+      /// `LaunchingExternalUriScheme` event will not be raised. The default dialog may show
+      /// an "always allow" checkbox which allows the user to opt-in to relaxed security
+      /// (i.e. skipping future default dialogs) for the combination of the URI scheme and the
+      /// origin of the page initiating this external URI scheme launch. The checkbox is offered
+      /// so long as the group policy to show the checkbox is not explicitly disabled and there
+      /// is a trustworthy initiating origin. If the user has checked this box, future attempts
+      /// to launch this URI scheme will still raise the event.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18#add_launchingexternalurischeme">See the ICoreWebView2_18 article.</see></para>
@@ -3442,6 +3510,15 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21#executescriptwithresult">See the ICoreWebView2_21 article.</see></para>
       /// </remarks>
       property OnExecuteScriptWithResultCompleted              : TOnExecuteScriptWithResultCompletedEvent              read FOnExecuteScriptWithResultCompleted              write FOnExecuteScriptWithResultCompleted;
+      /// <summary>
+      /// This event is fired when regions which are marked as non-client in the
+      /// app html have changed. So either when new regions have been marked,
+      /// or unmarked, or the region(s) have been changed to a different kind.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#add_nonclientregionchanged">See the ICoreWebView2CompositionController4 article.</see></para>
+      /// </remarks>
+      property OnNonClientRegionChanged                        : TOnNonClientRegionChangedEvent                        read FOnNonClientRegionChanged                        write FOnNonClientRegionChanged;
   end;
 
 implementation
@@ -3590,6 +3667,7 @@ begin
   FOnProfileGetBrowserExtensionsCompleted          := nil;
   FOnProfileDeleted                                := nil;
   FOnExecuteScriptWithResultCompleted              := nil;
+  FOnNonClientRegionChanged                        := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -4686,6 +4764,12 @@ begin
     FOnExecuteScriptWithResultCompleted(self, errorCode, result_, aExecutionID);
 end;
 
+procedure TWVBrowserBase.doOnNonClientRegionChangedEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs);
+begin
+  if assigned(FOnNonClientRegionChanged) then
+    FOnNonClientRegionChanged(self, sender, args);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -5025,6 +5109,12 @@ function TWVBrowserBase.ExecuteScriptWithResultCompletedHandler_Invoke(errorCode
 begin
   Result := S_OK;
   doOnExecuteScriptWithResultCompletedEvent(errorCode, result_, aExecutionID);
+end;
+
+function TWVBrowserBase.NonClientRegionChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnNonClientRegionChangedEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
@@ -5618,6 +5708,12 @@ begin
     Result := True;
 end;
 
+function TWVBrowserBase.GetIsNonClientRegionSupportEnabled : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2Settings.IsNonClientRegionSupportEnabled;
+end;
+
 function TWVBrowserBase.GetFaviconURI : wvstring;
 begin
   if Initialized then
@@ -5861,6 +5957,12 @@ procedure TWVBrowserBase.SetIsReputationCheckingRequired(aValue : boolean);
 begin
   if Initialized then
     FCoreWebView2Settings.IsReputationCheckingRequired := aValue;
+end;
+
+procedure TWVBrowserBase.SetIsNonClientRegionSupportEnabled(aValue : boolean);
+begin
+  if Initialized then
+    FCoreWebView2Settings.IsNonClientRegionSupportEnabled := aValue;
 end;
 
 procedure TWVBrowserBase.SetProfileName(const aValue : wvstring);
@@ -7014,11 +7116,28 @@ begin
   Result := S_OK;
   effect := DROPEFFECT_NONE;
 
-  TempPoint.x := point.X;
-  TempPoint.y := point.Y;
-
   if FUseCompositionController and Initialized then
-    Result := FCoreWebView2CompositionController.Drop(dataObject, keyState, TempPoint, effect);
+    begin
+      TempPoint.x := point.X;
+      TempPoint.y := point.Y;
+      Result      := FCoreWebView2CompositionController.Drop(dataObject, keyState, TempPoint, effect);
+    end;
+end;
+
+function TWVBrowserBase.GetNonClientRegionAtPoint(point: TPoint) : TWVNonClientRegionKind;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.GetNonClientRegionAtPoint(point)
+   else
+    Result := COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE;
+end;
+
+function TWVBrowserBase.QueryNonClientRegion(Kind: TWVNonClientRegionKind): ICoreWebView2RegionRectCollectionView;
+begin
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.QueryNonClientRegion(Kind)
+   else
+    Result := nil;
 end;
 
 function TWVBrowserBase.ClearBrowsingData(dataKinds: TWVBrowsingDataKinds): boolean;

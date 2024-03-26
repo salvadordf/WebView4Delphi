@@ -42,6 +42,7 @@ uWVCoreWebView2Args.TCoreWebView2BasicAuthenticationRequestedEventArgs.html
 uWVCoreWebView2Args.TCoreWebView2ContextMenuRequestedEventArgs.html
 uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html
 uWVCoreWebView2Args.TCoreWebView2LaunchingExternalUriSchemeEventArgs.html
+uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html
 uWVCoreWebView2BasicAuthenticationResponse.html
 uWVCoreWebView2BasicAuthenticationResponse.TCoreWebView2BasicAuthenticationResponse.html
 uWVCoreWebView2BrowserExtension.html
@@ -155,6 +156,7 @@ uWVCoreWebView2Delegates.TCoreWebView2ProfileAddBrowserExtensionCompletedHandler
 uWVCoreWebView2Delegates.TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html
 uWVCoreWebView2Delegates.TCoreWebView2ProfileDeletedEventHandler.html
 uWVCoreWebView2Delegates.TCoreWebView2ExecuteScriptWithResultCompletedHandler.html
+uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html
 uWVCoreWebView2DownloadOperation.html
 uWVCoreWebView2DownloadOperation.TCoreWebView2DownloadOperation.html
 uWVCoreWebView2Environment.html
@@ -431,6 +433,7 @@ uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs3.html
 uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs3.html
 uWVTypeLibrary.ICoreWebView2PrintSettings2.html
 uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html
+uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html
 uWVTypeLibrary.ICoreWebView2Profile2.html
 uWVTypeLibrary.ICoreWebView2Profile3.html
 uWVTypeLibrary.ICoreWebView2Profile4.html
@@ -453,7 +456,12 @@ uWVTypeLibrary.ICoreWebView2Settings5.html
 uWVTypeLibrary.ICoreWebView2Settings6.html
 uWVTypeLibrary.ICoreWebView2Settings7.html
 uWVTypeLibrary.ICoreWebView2Settings8.html
+uWVTypeLibrary.ICoreWebView2Settings9.html
 uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html
+uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html
+uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html
+uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html
+uWVTypeLibrary.ICoreWebView2CompositionController4.html
 uWVTypeLibrary.ICoreWebView2File.html
 uWVTypeLibrary.ICoreWebView2ObjectCollectionView.html
 uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs2.html
@@ -474,12 +482,12 @@ published.gif
 automated.gif
 pasdoc.css
 
-Compile time: 0 minutes, 8 seconds
-7,852	Topics
-59,291	Local links
+Compile time: 0 minutes, 7 seconds
+7,953	Topics
+60,069	Local links
 5	Internet links
 5	Graphics
 
 
-Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,861,868 bytes
-Compression decreased file by 12,058,284 bytes.
+Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,895,278 bytes
+Compression decreased file by 12,222,924 bytes.

@@ -43,7 +43,15 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">FBaseIntf4</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html">ICoreWebView2CompositionController4</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">FCursorChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">FNonClientRegionChanged</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -89,40 +97,52 @@
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddCursorChangedEvent-TComponent-">AddCursorChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent-TComponent-">AddNonClientRegionChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Create-ICoreWebView2CompositionController-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>); reintroduce;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#SendMouseInput-TWVMouseEventKind-TWVMouseEventVirtualKeys-cardinal-TPoint-">SendMouseInput</a></strong>(aEventKind : <a href="uWVTypes.html#TWVMouseEventKind">TWVMouseEventKind</a>; aVirtualKeys : <a href="uWVTypes.html#TWVMouseEventVirtualKeys">TWVMouseEventVirtualKeys</a>; aMouseData : cardinal; aPoint : TPoint) : boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#SendPointerInput-TWVPointerEventKind-ICoreWebView2PointerInfo-">SendPointerInput</a></strong>(aEventKind : <a href="uWVTypes.html#TWVPointerEventKind">TWVPointerEventKind</a>; const aPointerInfo : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>) : boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragEnter-IDataObject-LongWord-tagPOINT-LongWord-">DragEnter</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragLeave">DragLeave</a></strong>: HResult;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragOver-LongWord-tagPOINT-LongWord-">DragOver</a></strong>(keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Drop-IDataObject-LongWord-tagPOINT-LongWord-">Drop</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetNonClientRegionAtPoint-TPoint-">GetNonClientRegionAtPoint</a></strong>(point: TPoint) : <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#QueryNonClientRegion-TWVNonClientRegionKind-">QueryNonClientRegion</a></strong>(Kind: <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>): <a href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
@@ -181,7 +201,23 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf4"></span><code><strong>FBaseIntf4</strong>: <a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html">ICoreWebView2CompositionController4</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FCursorChangedToken"></span><code><strong>FCursorChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FNonClientRegionChanged"></span><code><strong>FNonClientRegionChanged</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -263,6 +299,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="AddCursorChangedEvent-TComponent-"></span><code>function <strong>AddCursorChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddNonClientRegionChangedEvent-TComponent-"></span><code>function <strong>AddNonClientRegionChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -380,6 +424,32 @@
 <p>The hosting application must register as an IDropTarget and implement and forward Drop calls to this function.
 
 <p>point parameter must be modified to include the WebView's offset and be in the WebView's client coordinates (Similar to how SendMouseInput works). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNonClientRegionAtPoint-TPoint-"></span><code>function <strong>GetNonClientRegionAtPoint</strong>(point: TPoint) : <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If you are hosting a WebView2 using CoreWebView2CompositionController, you can call this method in your Win32 WndProc to determine if the mouse is moving over or clicking on WebView2 web content that should be considered part of a non-client region. The point parameter is expected to be in the client coordinate space of WebView2. The method sets the out parameter value as follows: - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to a region (HTML element) within the WebView2 with `-webkit-app-region: drag` CSS style set. - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to a region (HTML element) within the WebView2 without `-webkit-app-region: drag` CSS style set. - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+
+<p>NOTE: in order for WebView2 to properly handle the title bar system menu, the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput. See sample code below. \snippet ViewComponent.cpp DraggableRegions2
+
+<p>\snippet ViewComponent.cpp DraggableRegions1 </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="QueryNonClientRegion-TWVNonClientRegionKind-"></span><code>function <strong>QueryNonClientRegion</strong>(Kind: <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>): <a href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This method is used to get the collection of rects that correspond to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in the callback of add_NonClientRegionChanged whose event args object contains a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
+
+<p>\snippet ScenarioNonClientRegionSupport.cpp AddChangeListener </p>
 </td></tr>
 </table>
 <h3 class="detail">Properties</h3>

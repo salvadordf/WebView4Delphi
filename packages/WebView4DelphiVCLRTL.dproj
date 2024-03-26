@@ -162,6 +162,7 @@
         <DCCReference Include="..\source\uWVCoreWebView2BrowserExtensionList.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ScriptException.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ExecuteScriptResult.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2RegionRectCollectionView.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -192,7 +193,7 @@
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule"/>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule"/>
                 <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\22.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\22.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\23.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>WebView4DelphiVCLRTL.bpl</RemoteName>
                         <Overwrite>true</Overwrite>

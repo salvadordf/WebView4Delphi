@@ -72,7 +72,7 @@
 
 <p>The WebView2 may not display the default dialog based on user settings, browser settings, and whether the origin is determined as a [trustworthy origin](<a href="https://w3c.github.io/webappsec-secure-contexts#">https://w3c.github.io/webappsec-secure-contexts#</a> potentially-trustworthy-origin); however, the event will still be raised.
 
-<p>If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `LaunchingExternalUriScheme` event will not be raised. \snippet SettingsComponent.cpp ToggleLaunchingExternalUriScheme </p>
+<p>If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `LaunchingExternalUriScheme` event will not be raised. A URI scheme may be blocked for safety reasons. In this case the `LaunchingExternalUriScheme` event will not be raised. The default dialog may show an &quot;always allow&quot; checkbox which allows the user to opt-in to relaxed security (i.e. skipping future default dialogs) for the combination of the URI scheme and the origin of the page initiating this external URI scheme launch. The checkbox is offered so long as the group policy to show the checkbox is not explicitly disabled and there is a trustworthy initiating origin. If the user has checked this box, future attempts to launch this URI scheme will still raise the event. \snippet SettingsComponent.cpp ToggleLaunchingExternalUriScheme </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{7A626017-28BE-49B2-B865-3BA2B3522D90}']</dt>

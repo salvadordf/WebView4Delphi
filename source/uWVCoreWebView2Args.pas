@@ -789,6 +789,7 @@ type
     protected
       FBaseIntf  : ICoreWebView2ProcessFailedEventArgs;
       FBaseIntf2 : ICoreWebView2ProcessFailedEventArgs2;
+      FBaseIntf3 : ICoreWebView2ProcessFailedEventArgs3;
 
       function GetInitialized : boolean;
       function GetProcessFailedKind : TWVProcessFailedKind;
@@ -796,6 +797,7 @@ type
       function GetExtiCode : integer;
       function GetProcessDescription : wvstring;
       function GetFrameInfosForFailedProcess : ICoreWebView2FrameInfoCollection;
+      function GetFailureSourceModulePath : wvstring;
 
       procedure InitializeFields;
 
@@ -880,6 +882,32 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2#get_frameinfosforfailedprocess">See the ICoreWebView2ProcessFailedEventArgs2 article.</see></para>
       /// </remarks>
       property FrameInfosForFailedProcess : ICoreWebView2FrameInfoCollection     read GetFrameInfosForFailedProcess;
+      /// <summary>
+      /// <para>This property is the full path of the module that caused the
+      /// crash in cases of Windows Code Integrity failures.</para>
+      /// <para>[Windows Code Integrity](/mem/intune/user-help/you-need-to-enable-code-integrity)
+      /// is a feature that verifies the integrity and
+      /// authenticity of dynamic-link libraries (DLLs)
+      /// on Windows systems. It ensures that only trusted
+      /// code can run on the system and prevents unauthorized or
+      /// malicious modifications.</para>
+      /// <para>When ProcessFailed occurred due to a failed Code Integrity check,
+      /// this property returns the full path of the file that was prevented from
+      /// loading on the system.</para>
+      /// <para>The webview2 process which tried to load the DLL will fail with
+      /// exit code STATUS_INVALID_IMAGE_HASH(-1073740760).</para>
+      /// <para>A file can fail integrity check for various
+      /// reasons, such as:</para>
+      /// <code>
+      /// - It has an invalid or missing signature that does
+      /// not match the publisher or signer of the file.
+      /// - It has been tampered with or corrupted by malware or other software.
+      /// - It has been blocked by an administrator or a security policy.
+      /// </code>
+      /// <para>This property always will be the empty string if failure is not caused by
+      /// STATUS_INVALID_IMAGE_HASH.</para>
+      /// </summary>
+      property FailureSourceModulePath    : wvstring                             read GetFailureSourceModulePath;
   end;
 
   /// <summary>
@@ -1826,6 +1854,43 @@ type
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
   end;
 
+  /// <summary>
+  /// This is the Interface for non-client region change event args.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventargs">See the ICoreWebView2NonClientRegionChangedEventArgs article.</see></para>
+  /// </remarks>
+  TCoreWebView2NonClientRegionChangedEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2NonClientRegionChangedEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetRegionKind : TWVNonClientRegionKind;
+
+    public
+      constructor Create(const aArgs: ICoreWebView2NonClientRegionChangedEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
+      property Initialized                   : boolean                                           read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
+      property BaseIntf                      : ICoreWebView2NonClientRegionChangedEventArgs      read FBaseIntf;
+      /// <summary>
+      /// This property represents the COREWEBVIEW2_NON_CLIENT_REGION_KIND which the
+      /// region changed event corresponds to. With this property an app can query
+      /// for a collection of rects which have that region kind by using
+      /// QueryNonClientRegion on the composition controller.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventargs#get_regionkind">See the ICoreWebView2NonClientRegionChangedEventArgs article.</see></para>
+      /// </remarks>
+      property RegionKind                    : TWVNonClientRegionKind                            read GetRegionKind;
+  end;
+
 implementation
 
 uses
@@ -2646,8 +2711,9 @@ begin
 
   FBaseIntf := aArgs;
 
-  if Initialized then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs2, FBaseIntf2);
+  if Initialized and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs2, FBaseIntf2) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs3, FBaseIntf3);
 end;
 
 destructor TCoreWebView2ProcessFailedEventArgs.Destroy;
@@ -2661,6 +2727,7 @@ procedure TCoreWebView2ProcessFailedEventArgs.InitializeFields;
 begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
+  FBaseIntf3 := nil;
 end;
 
 function TCoreWebView2ProcessFailedEventArgs.GetInitialized : boolean;
@@ -2730,6 +2797,22 @@ begin
      succeeded(FBaseIntf2.Get_FrameInfosForFailedProcess(TempResult)) and
      (TempResult <> nil) then
     Result := TempResult;
+end;
+
+function TCoreWebView2ProcessFailedEventArgs.GetFailureSourceModulePath : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if assigned(FBaseIntf3) and
+     succeeded(FBaseIntf3.Get_FailureSourceModulePath(TempString)) and
+     (TempString <> nil) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
 end;
 
 
@@ -3858,6 +3941,39 @@ procedure TCoreWebView2LaunchingExternalUriSchemeEventArgs.SetCancel(aValue: boo
 begin
   if Initialized then
     FBaseIntf.Set_Cancel(ord(aValue));
+end;
+
+
+// TCoreWebView2NonClientRegionChangedEventArgs
+
+constructor TCoreWebView2NonClientRegionChangedEventArgs.Create(const aArgs: ICoreWebView2NonClientRegionChangedEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2NonClientRegionChangedEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2NonClientRegionChangedEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2NonClientRegionChangedEventArgs.GetRegionKind : TWVNonClientRegionKind;
+var
+  TempResult : COREWEBVIEW2_NON_CLIENT_REGION_KIND;
+begin
+  Result := COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_RegionKind(TempResult)) then
+    Result := TempResult;
 end;
 
 end.

@@ -228,6 +228,7 @@ const
   IID_ICoreWebView2PermissionRequestedEventArgs3: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';
   IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
+  IID_ICoreWebView2ProcessFailedEventArgs3: TGUID = '{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}';
   IID_ICoreWebView2Profile2: TGUID = '{FA740D4B-5EAE-4344-A8AD-74BE31925397}';
   IID_ICoreWebView2Profile3: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';
   IID_ICoreWebView2Profile4: TGUID = '{8F4AE680-192E-4EC8-833A-21CFADAEF628}';
@@ -250,7 +251,12 @@ const
   IID_ICoreWebView2Settings6: TGUID = '{11CB3ACD-9BC8-43B8-83BF-F40753714F87}';
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
+  IID_ICoreWebView2Settings9: TGUID = '{0528A73B-E92D-49F4-927A-E547DDDAA37D}';
   IID_ICoreWebView2WebResourceRequestedEventArgs2: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';
+  IID_ICoreWebView2NonClientRegionChangedEventHandler: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';
+  IID_ICoreWebView2NonClientRegionChangedEventArgs: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';
+  IID_ICoreWebView2RegionRectCollectionView: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';
+  IID_ICoreWebView2CompositionController4: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';
   IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
   IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
   IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
@@ -2650,6 +2656,46 @@ const
   /// </remarks>
   COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS = $00001000;
 
+  /// <summary>
+  /// This enum contains values representing possible regions a given
+  /// point lies within.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_non_client_region_kind">See the Globals article.</see></para>
+  /// </remarks>
+type
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND = TOleEnum;
+const
+  /// <summary>
+  /// A hit test region out of bounds of the WebView2.
+  /// This has the same value as the Win32 HTNOWHERE
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE = $00000000;
+  /// <summary>
+  /// A hit test region in the WebView2 which does not have the CSS style
+  /// `-webkit-app-region: drag` set. This is normal web content that should not be
+  /// considered part of the app window's title bar. This has the same value
+  /// as the Win32 HTCLIENT constant.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT = $00000001;
+  /// <summary>
+  /// A hit test region in the WebView2 which has the CSS style
+  /// `-webkit-app-region: drag` set. Web content should use this CSS
+  /// style to identify regions that should be treated like the app
+  /// window's title bar. This has the same value as the Win32 HTCAPTION
+  /// constant.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION = $00000002;
+
 type
   /// <summary>
   /// Specifies memory usage target level of WebView.
@@ -2924,6 +2970,7 @@ type
   ICoreWebView2PermissionRequestedEventArgs3 = interface;
   ICoreWebView2PrintSettings2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
+  ICoreWebView2ProcessFailedEventArgs3 = interface;
   ICoreWebView2Profile2 = interface;
   ICoreWebView2Profile3 = interface;
   ICoreWebView2Profile4 = interface;
@@ -2946,7 +2993,12 @@ type
   ICoreWebView2Settings6 = interface;
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
+  ICoreWebView2Settings9 = interface;
   ICoreWebView2WebResourceRequestedEventArgs2 = interface;
+  ICoreWebView2NonClientRegionChangedEventHandler = interface;
+  ICoreWebView2NonClientRegionChangedEventArgs = interface;
+  ICoreWebView2RegionRectCollectionView = interface;
+  ICoreWebView2CompositionController4 = interface;
   ICoreWebView2File = interface;
   ICoreWebView2ObjectCollectionView = interface;
   ICoreWebView2WebMessageReceivedEventArgs2 = interface;
@@ -8425,7 +8477,14 @@ type
     ///
     /// If the request is initiated by a cross-origin frame without a user gesture,
     /// the request will be blocked and the `LaunchingExternalUriScheme` event will not
-    /// be raised.
+    /// be raised. A URI scheme may be blocked for safety reasons. In this case the
+    /// `LaunchingExternalUriScheme` event will not be raised. The default dialog may show
+    /// an "always allow" checkbox which allows the user to opt-in to relaxed security
+    /// (i.e. skipping future default dialogs) for the combination of the URI scheme and the
+    /// origin of the page initiating this external URI scheme launch. The checkbox is offered
+    /// so long as the group policy to show the checkbox is not explicitly disabled and there
+    /// is a trustworthy initiating origin. If the user has checked this box, future attempts
+    /// to launch this URI scheme will still raise the event.
     /// \snippet SettingsComponent.cpp ToggleLaunchingExternalUriScheme
     /// </summary>
     function add_LaunchingExternalUriScheme(const eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler; 
@@ -11644,6 +11703,45 @@ type
   end;
 
   /// <summary>
+  /// A continuation of the ICoreWebView2ProcessFailedEventArgs2 interface
+  /// for getting blocked file for code integrity process failures.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs3">See the icorewebview2processfailedeventargs3 article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProcessFailedEventArgs3 = interface(ICoreWebView2ProcessFailedEventArgs2)
+    ['{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}']
+    /// <summary>
+    /// This property is the full path of the module that caused the
+    /// crash in cases of Windows Code Integrity failures.
+    /// [Windows Code Integrity](/mem/intune/user-help/you-need-to-enable-code-integrity)
+    /// is a feature that verifies the integrity and
+    /// authenticity of dynamic-link libraries (DLLs)
+    /// on Windows systems. It ensures that only trusted
+    /// code can run on the system and prevents unauthorized or
+    /// malicious modifications.
+    /// When ProcessFailed occurred due to a failed Code Integrity check,
+    /// this property returns the full path of the file that was prevented from
+    /// loading on the system.
+    /// The webview2 process which tried to load the DLL will fail with
+    /// exit code STATUS_INVALID_IMAGE_HASH(-1073740760).
+    /// A file can fail integrity check for various
+    /// reasons, such as:
+    /// - It has an invalid or missing signature that does
+    /// not match the publisher or signer of the file.
+    /// - It has been tampered with or corrupted by malware or other software.
+    /// - It has been blocked by an administrator or a security policy.
+    /// This property always will be the empty string if failure is not caused by
+    /// STATUS_INVALID_IMAGE_HASH.
+    ///
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FailureSourceModulePath(out value: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Profile2 interface.
   /// </summary>
   /// <remarks>
@@ -12147,6 +12245,8 @@ type
     /// Sets the `UserAgent` property. This property may be overridden if
     /// the User-Agent header is set in a request. If the parameter is empty
     /// the User Agent will not be updated and the current User Agent will remain.
+    /// Setting this property will cause the other user agent client hints
+    /// Sec-CH-UA-* headers to be overridden and dropped.
     /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if the owning WebView is
     /// closed.
     /// </summary>
@@ -12398,6 +12498,40 @@ type
   end;
 
   /// <summary>
+  /// A continuation of the ICoreWebView2Settings interface to manage non-client
+  /// regions.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings9">See the ICoreWebView2Settings9 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Settings9 = interface(ICoreWebView2Settings8)
+    ['{0528A73B-E92D-49F4-927A-E547DDDAA37D}']
+    /// <summary>
+    /// The `IsNonClientRegionSupportEnabled` property enables web pages to use the
+    /// `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled`
+    /// takes effect after the next navigation. Defaults to `FALSE`.
+    ///
+    /// When this property is `TRUE`, then all the non-client region features
+    /// will be enabled:
+    /// Draggable Regions will be enabled, they are regions on a webpage that
+    /// are marked with the CSS attribute `app-region: drag/no-drag`. When set to
+    /// `drag`, these regions will be treated like the window's title bar, supporting
+    /// dragging of the entire WebView and its host app window; the system menu shows
+    /// upon right click, and a double click will trigger maximizing/restoration of the
+    /// window size.
+    ///
+    /// When set to `FALSE`, all non-client region support will be disabled.
+    /// The `app-region` CSS style will be ignored on web pages.
+    /// \snippet SettingsComponent.cpp ToggleNonClientRegionSupportEnabled
+    /// </summary>
+    function Get_IsNonClientRegionSupportEnabled(out enabled: Integer): HResult; stdcall;
+    /// <summary>
+    /// Set the IsNonClientRegionSupportEnabled property
+    /// </summary>
+    function Set_IsNonClientRegionSupportEnabled(enabled: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Event args for the `WebResourceRequested` event.
   /// </summary>
   /// <remarks>
@@ -12409,6 +12543,117 @@ type
     /// The web resource requested source.
     /// </summary>
     function Get_RequestedSourceKind(out RequestedSourceKind: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the Interface of the event handler for the non-client region changed
+  /// event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventhandler">See the ICoreWebView2NonClientRegionChangedEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2NonClientRegionChangedEventHandler = interface(IUnknown)
+    ['{4A794E66-AA6C-46BD-93A3-382196837680}']
+    /// <summary>
+    /// This is the event handler for add_NonClientRegionChanged when executed,
+    /// it recieves the event args.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2CompositionController;
+                    const args: ICoreWebView2NonClientRegionChangedEventArgs): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the Interface for non-client region change event args.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventargs">See the ICoreWebView2NonClientRegionChangedEventArgs article.</see></para>
+  /// </remarks>
+  ICoreWebView2NonClientRegionChangedEventArgs = interface(IUnknown)
+    ['{AB71D500-0820-4A52-809C-48DB04FF93BF}']
+    /// <summary>
+    /// This property represents the COREWEBVIEW2_NON_CLIENT_REGION_KIND which the
+    /// region changed event corresponds to. With this property an app can query
+    /// for a collection of rects which have that region kind by using
+    /// QueryNonClientRegion on the composition controller.
+    /// </summary>
+    function Get_RegionKind(out value: COREWEBVIEW2_NON_CLIENT_REGION_KIND): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This Interface Represents a Collection of Region Rects.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2regionrectcollectionview">See the ICoreWebView2RegionRectCollectionView article.</see></para>
+  /// </remarks>
+  ICoreWebView2RegionRectCollectionView = interface(IUnknown)
+    ['{333353B8-48BF-4449-8FCC-22697FAF5753}']
+    /// <summary>
+    /// This method gets the number of Rects contained in the collection.
+    /// </summary>
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// This method gets the Rect at the specified index.
+    /// </summary>
+    function GetValueAtIndex(index: SYSUINT; out value: tagRECT): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This Interface includes an API which enables non-client hit-testing support for WebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4">See the ICoreWebView2CompositionController4 article.</see></para>
+  /// </remarks>
+  ICoreWebView2CompositionController4 = interface(ICoreWebView2CompositionController3)
+    ['{7C367B9B-3D2B-450F-9E58-D61A20F486AA}']
+    /// <summary>
+    /// If you are hosting a WebView2 using CoreWebView2CompositionController, you can call
+    /// this method in your Win32 WndProc to determine if the mouse is moving over or
+    /// clicking on WebView2 web content that should be considered part of a non-client region.
+
+    /// The point parameter is expected to be in the client coordinate space of WebView2.
+    /// The method sets the out parameter value as follows:
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
+    ///         a region (HTML element) within the WebView2 with
+    ///         `-webkit-app-region: drag` CSS style set.
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
+    ///         a region (HTML element) within the WebView2 without
+    ///         `-webkit-app-region: drag` CSS style set.
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+    ///
+    /// NOTE: in order for WebView2 to properly handle the title bar system menu,
+    /// the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput.
+    /// See sample code below.
+    /// \snippet ViewComponent.cpp DraggableRegions2
+    ///
+    /// \snippet ViewComponent.cpp DraggableRegions1
+    /// </summary>
+    function GetNonClientRegionAtPoint(point: tagPOINT;
+                                       out value: COREWEBVIEW2_NON_CLIENT_REGION_KIND): HResult; stdcall;
+    /// <summary>
+    /// This method is used to get the collection of rects that correspond
+    /// to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in
+    /// the callback of add_NonClientRegionChanged whose event args object contains
+    /// a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
+    ///
+    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
+    /// </summary>
+    function QueryNonClientRegion(Kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND;
+                                  out rects: ICoreWebView2RegionRectCollectionView): HResult; stdcall;
+    /// <summary>
+    /// This method is used to add a listener for NonClientRegionChanged.
+    /// The event is fired when regions which are marked as non-client in the
+    /// app html have changed. So either when new regions have been marked,
+    /// or unmarked, or the region(s) have been changed to a different kind.
+    ///
+    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
+    /// </summary>
+    function add_NonClientRegionChanged(const eventHandler: ICoreWebView2NonClientRegionChangedEventHandler;
+                                        out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// This method is used to remove an event handler previously added with
+    /// add_NonClientRegionChanged
+    /// </summary>
+    function remove_NonClientRegionChanged(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CompositionController4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2CompositionController4"></span><h1 class="cio">Interface ICoreWebView2CompositionController4</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CompositionController4 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController3.html">ICoreWebView2CompositionController3</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This Interface includes an API which enables non-client hit-testing support for WebView2. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4</a>&quot;&gt;See the ICoreWebView2CompositionController4 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController2.html">ICoreWebView2CompositionController2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController3.html">ICoreWebView2CompositionController3</a></li>
+<li class="thisitem">ICoreWebView2CompositionController4</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint-tagPOINT-COREWEBVIEW2_NON_CLIENT_REGION_KIND-">GetNonClientRegionAtPoint</a></strong>(point: tagPOINT; out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">COREWEBVIEW2_NON_CLIENT_REGION_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion-COREWEBVIEW2_NON_CLIENT_REGION_KIND-ICoreWebView2RegionRectCollectionView-">QueryNonClientRegion</a></strong>(Kind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">COREWEBVIEW2_NON_CLIENT_REGION_KIND</a>; out rects: <a href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged-ICoreWebView2NonClientRegionChangedEventHandler-EventRegistrationToken-">add_NonClientRegionChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">ICoreWebView2NonClientRegionChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged-EventRegistrationToken-">remove_NonClientRegionChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNonClientRegionAtPoint-tagPOINT-COREWEBVIEW2_NON_CLIENT_REGION_KIND-"></span><code>function <strong>GetNonClientRegionAtPoint</strong>(point: tagPOINT; out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">COREWEBVIEW2_NON_CLIENT_REGION_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ If you are hosting a WebView2 using CoreWebView2CompositionController, you can call this method in your Win32 WndProc to determine if the mouse is moving over or clicking on WebView2 web content that should be considered part of a non-client region. The point parameter is expected to be in the client coordinate space of WebView2. The method sets the out parameter value as follows: - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to a region (HTML element) within the WebView2 with `-webkit-app-region: drag` CSS style set. - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to a region (HTML element) within the WebView2 without `-webkit-app-region: drag` CSS style set. - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+
+<p>NOTE: in order for WebView2 to properly handle the title bar system menu, the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput. See sample code below. \snippet ViewComponent.cpp DraggableRegions2
+
+<p>\snippet ViewComponent.cpp DraggableRegions1 </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{7C367B9B-3D2B-450F-9E58-D61A20F486AA}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="QueryNonClientRegion-COREWEBVIEW2_NON_CLIENT_REGION_KIND-ICoreWebView2RegionRectCollectionView-"></span><code>function <strong>QueryNonClientRegion</strong>(Kind: <a href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">COREWEBVIEW2_NON_CLIENT_REGION_KIND</a>; out rects: <a href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This method is used to get the collection of rects that correspond to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in the callback of add_NonClientRegionChanged whose event args object contains a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
+
+<p>\snippet ScenarioNonClientRegionSupport.cpp AddChangeListener </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_NonClientRegionChanged-ICoreWebView2NonClientRegionChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_NonClientRegionChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">ICoreWebView2NonClientRegionChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This method is used to add a listener for NonClientRegionChanged. The event is fired when regions which are marked as non-client in the app html have changed. So either when new regions have been marked, or unmarked, or the region(s) have been changed to a different kind.
+
+<p>\snippet ScenarioNonClientRegionSupport.cpp AddChangeListener </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_NonClientRegionChanged-EventRegistrationToken-"></span><code>function <strong>remove_NonClientRegionChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This method is used to remove an event handler previously added with add_NonClientRegionChanged </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

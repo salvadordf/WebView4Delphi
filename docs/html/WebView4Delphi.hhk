@@ -633,6 +633,22 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NAVIGATION_KIND_RELOAD">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_PDF_TOOLBAR_ITEMS">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PDF_TOOLBAR_ITEMS">
 </object>
@@ -2071,6 +2087,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Drop">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController3.html#Drop-IDataObject-LongWord-tagPOINT-LongWord-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged-ICoreWebView2NonClientRegionChangedEventHandler-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint-tagPOINT-COREWEBVIEW2_NON_CLIENT_REGION_KIND-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion-COREWEBVIEW2_NON_CLIENT_REGION_KIND-ICoreWebView2RegionRectCollectionView-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged-EventRegistrationToken-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ContainsFullScreenElementChangedEventHandler">
@@ -3749,6 +3785,22 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_RegionKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html#Get_RegionKind-COREWEBVIEW2_NON_CLIENT_REGION_KIND-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#Invoke-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ObjectCollectionView">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollectionView.html">
 </object>
@@ -4329,6 +4381,14 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html#Get_reason-COREWEBVIEW2_PROCESS_FAILED_REASON-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ProcessFailedEventArgs3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FailureSourceModulePath">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#Get_FailureSourceModulePath-PWideChar-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ProcessFailedEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventHandler.html">
 </object>
@@ -4527,6 +4587,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html#Invoke-ICoreWebView2Controller-IUnknown-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#GetValueAtIndex-SYSUINT-tagRECT-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Count">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#Get_Count-SYSUINT-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ScriptDialogOpeningEventArgs">
@@ -4807,6 +4879,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_IsReputationCheckingRequired">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings8.html#Set_IsReputationCheckingRequired-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Settings9">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Get_IsNonClientRegionSupportEnabled-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Set_IsNonClientRegionSupportEnabled-Integer-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2SharedBuffer">
@@ -5577,6 +5661,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ContainsFullScreenElementChangedEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ContainsFullScreenElementChangedEventHandler">
 </object>
@@ -6001,6 +6089,14 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NewWindowRequestedEventHandler">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ObjectCollectionView">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollectionView">
 </object>
@@ -6069,6 +6165,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs2">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ProcessFailedEventArgs3">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs3">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ProcessFailedEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventHandler">
 </object>
@@ -6133,6 +6233,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2RasterizationScaleChangedEventHandler">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ScriptDialogOpeningEventArgs">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ScriptDialogOpeningEventArgs">
 </object>
@@ -6187,6 +6291,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Settings8">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings8">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Settings9">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings9">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2SharedBuffer">
@@ -6595,6 +6703,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="NewWindowRequestedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#NewWindowRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#NonClientRegionChangedEventHandler_Invoke-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="PermissionRequestedEventHandler_Invoke">
@@ -8549,6 +8661,10 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddCursorChangedEvent-TComponent-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddNonClientRegionChangedEvent">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent-TComponent-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AutomationProvider">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AutomationProvider">
 </object>
@@ -8597,8 +8713,16 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCursorChangedToken">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FNonClientRegionChanged">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetAutomationProvider">
@@ -8611,6 +8735,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetInitialized">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetNonClientRegionAtPoint-TPoint-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetRootVisualTarget">
@@ -8631,6 +8759,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeTokens">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#QueryNonClientRegion-TWVNonClientRegionKind-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveAllEvents">
@@ -8930,16 +9062,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -10554,16 +10686,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -12407,6 +12539,62 @@
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NewWindowRequestedEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Create-ICoreWebView2NonClientRegionChangedEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetRegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetRegionKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#RegionKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Create-IWVBrowserEvents-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#FEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Invoke-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ObjectCollectionView">
 <param name="Local" value="uWVCoreWebView2ObjectCollectionView.TCoreWebView2ObjectCollectionView.html">
 </object>
@@ -13509,6 +13697,10 @@
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#ExtiCode">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FailureSourceModulePath">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf">
 </object>
@@ -13517,12 +13709,20 @@
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf2">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf3">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FrameInfosForFailedProcess">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FrameInfosForFailedProcess">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetExtiCode">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetExtiCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetFailureSourceModulePath">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetFrameInfosForFailedProcess">
@@ -14347,6 +14547,10 @@
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf8">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf9">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf9">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetAreBrowserAcceleratorKeysEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetAreBrowserAcceleratorKeysEnabled">
 </object>
@@ -14381,6 +14585,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetIsGeneralAutofillEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsGeneralAutofillEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetIsPasswordAutosaveEnabled">
@@ -14437,6 +14645,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IsGeneralAutofillEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsGeneralAutofillEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IsPasswordAutosaveEnabled">
@@ -14501,6 +14713,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsGeneralAutofillEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsGeneralAutofillEnabled-boolean-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsNonClientRegionSupportEnabled-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsPasswordAutosaveEnabled">
@@ -15699,6 +15915,10 @@
 <param name="Local" value="uWVEvents.html#TOnNewWindowRequestedEvent-TObject-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnNonClientRegionChangedEvent">
+<param name="Local" value="uWVEvents.html#TOnNonClientRegionChangedEvent-TObject-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnOfflineCompletedEvent">
 <param name="Local" value="uWVEvents.html#TOnOfflineCompletedEvent-TObject-boolean-">
 </object>
@@ -16512,16 +16732,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -16568,16 +16788,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -16943,6 +17163,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnNewWindowRequested">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnNewWindowRequested-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnNonClientRegionChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnNonClientRegionChangedEvent-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="doOnOfflineCompleted">
@@ -17497,6 +17721,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnNewWindowRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnNonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnOfflineCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnOfflineCompleted">
 </object>
@@ -17893,6 +18121,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsMuted">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetIsPasswordAutosaveEnabled">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsPasswordAutosaveEnabled">
 </object>
@@ -17919,6 +18151,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetMemoryUsageTargetLevel">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetMemoryUsageTargetLevel">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetNonClientRegionAtPoint-TPoint-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetNonDefaultPermissionSettings">
@@ -18105,6 +18341,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsNavigating">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IsPasswordAutosaveEnabled">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsPasswordAutosaveEnabled">
 </object>
@@ -18187,6 +18427,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="NewWindowRequestedEventHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#NewWindowRequestedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#NonClientRegionChangedEventHandler_Invoke-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="NotifyParentWindowPositionChanged">
@@ -18441,6 +18685,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnNewWindowRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="OnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnNonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="OnOfflineCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnOfflineCompleted">
 </object>
@@ -18681,6 +18929,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ProfilePath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#QueryNonClientRegion-TWVNonClientRegionKind-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="RasterizationScale">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RasterizationScale">
 </object>
@@ -18875,6 +19127,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsMuted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsMuted-boolean-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsNonClientRegionSupportEnabled-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsPasswordAutosaveEnabled">
@@ -20459,6 +20715,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVNavigationKind">
 <param name="Local" value="uWVTypes.html#TWVNavigationKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVNonClientRegionKind">
+<param name="Local" value="uWVTypes.html#TWVNonClientRegionKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVPDFToolbarItems">

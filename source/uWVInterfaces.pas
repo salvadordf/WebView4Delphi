@@ -264,6 +264,9 @@ type
 
     // ICoreWebView2ExecuteScriptWithResultCompletedHandler
     function ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HResult;
+
+    // ICoreWebView2NonClientRegionChangedEventHandler
+    function NonClientRegionChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs): HResult;
   end;
 
 implementation

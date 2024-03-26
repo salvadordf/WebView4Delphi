@@ -1053,6 +1053,10 @@
 <param name="Name" value="FOnExecuteScriptWithResultCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnExecuteScriptWithResultCompleted">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnNonClientRegionChanged">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -1346,6 +1350,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IsReputationCheckingRequired">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsReputationCheckingRequired">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Cursor">
@@ -1783,6 +1791,10 @@
 <param name="Name" value="OnExecuteScriptWithResultCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnExecuteScriptWithResultCompleted">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnNonClientRegionChanged">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -1986,6 +1998,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsReputationCheckingRequired">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetFaviconURI">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetFaviconURI">
 </object>
@@ -2172,6 +2188,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsReputationCheckingRequired">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsReputationCheckingRequired">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetProfileName">
@@ -2610,6 +2630,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ExecuteScriptWithResultCompletedHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#NonClientRegionChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="doOnInitializationError">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError">
 </object>
@@ -2966,6 +2990,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnExecuteScriptWithResultCompletedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="doOnNonClientRegionChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnNonClientRegionChangedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Create">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#Create">
 </object>
@@ -3308,6 +3336,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Drop">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#Drop">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#QueryNonClientRegion">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ClearCache">
@@ -5239,6 +5275,10 @@
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf2">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf3">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -5273,6 +5313,10 @@
 <param name="Name" value="FrameInfosForFailedProcess">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FrameInfosForFailedProcess">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FailureSourceModulePath">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -5302,6 +5346,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetFrameInfosForFailedProcess">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetFrameInfosForFailedProcess">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetFailureSourceModulePath">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeFields">
@@ -6517,6 +6565,62 @@
 </object>
 </ul>
 </ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#RegionKind">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetRegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetRegionKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Destroy">
+</object>
+</ul>
+</ul>
 </ul>
 </ul>
 <li><object type="text/sitemap">
@@ -7128,8 +7232,16 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCursorChangedToken">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FNonClientRegionChanged">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -7208,6 +7320,10 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddCursorChangedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddNonClientRegionChangedEvent">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Create">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Create">
 </object>
@@ -7242,6 +7358,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Drop">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Drop">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#QueryNonClientRegion">
 </object>
 </ul>
 </ul>
@@ -11299,6 +11423,40 @@
 </object>
 </ul>
 </ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Destroy">
+</object>
+</ul>
+</ul>
 </ul>
 </ul>
 <li><object type="text/sitemap">
@@ -14439,6 +14597,10 @@
 <param name="Name" value="FBaseIntf8">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf8">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf9">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf9">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -14521,6 +14683,10 @@
 <param name="Name" value="IsReputationCheckingRequired">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsReputationCheckingRequired">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsNonClientRegionSupportEnabled">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -14600,6 +14766,10 @@
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsReputationCheckingRequired">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="SetIsBuiltInErrorPageEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsBuiltInErrorPageEnabled">
 </object>
@@ -14666,6 +14836,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsReputationCheckingRequired">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsReputationCheckingRequired">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeFields">
@@ -15702,6 +15876,10 @@
 <param name="Local" value="uWVEvents.html#TOnExecuteScriptWithResultCompletedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnNonClientRegionChangedEvent">
+<param name="Local" value="uWVEvents.html#TOnNonClientRegionChangedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnCompMsgEvent">
 <param name="Local" value="uWVEvents.html#TOnCompMsgEvent">
 </object>
@@ -16624,6 +16802,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ExecuteScriptWithResultCompletedHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#ExecuteScriptWithResultCompletedHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#NonClientRegionChangedEventHandler_Invoke">
 </object>
 </ul>
 </ul>
@@ -23116,6 +23298,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ProcessFailedEventArgs3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FailureSourceModulePath">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#Get_FailureSourceModulePath">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Profile2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Profile2.html">
 </object>
@@ -23564,6 +23762,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Settings9">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Get_IsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Set_IsNonClientRegionSupportEnabled">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2WebResourceRequestedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html">
 </object>
@@ -23576,6 +23794,86 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_RequestedSourceKind">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html#Get_RequestedSourceKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_RegionKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html#Get_RegionKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Count">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#Get_Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#GetValueAtIndex">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged">
 </object>
 </ul>
 </ul>
@@ -23796,6 +24094,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_PDF_TOOLBAR_ITEMS">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PDF_TOOLBAR_ITEMS">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL">
@@ -24620,6 +24922,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs2">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ProcessFailedEventArgs3">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs3">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Profile2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Profile2">
 </object>
@@ -24708,8 +25014,28 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings8">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Settings9">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings9">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2WebResourceRequestedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2File">
@@ -25732,6 +26058,18 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL">
 </object>
@@ -26060,6 +26398,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVWebResourceRequestSourceKind">
 <param name="Local" value="uWVTypes.html#TWVWebResourceRequestSourceKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVNonClientRegionKind">
+<param name="Local" value="uWVTypes.html#TWVNonClientRegionKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWV2LoaderStatus">
@@ -27302,6 +27644,34 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Drop">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController3.html#Drop">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="add_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged">
 </object>
 </ul>
 </ul>
@@ -29830,6 +30200,38 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_RegionKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html#Get_RegionKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ObjectCollectionView">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollectionView.html">
 </object>
@@ -30546,6 +30948,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ProcessFailedEventArgs3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FailureSourceModulePath">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#Get_FailureSourceModulePath">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ProcessFailedEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventHandler.html">
 </object>
@@ -30870,6 +31288,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#GetValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Count">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#Get_Count">
 </object>
 </ul>
 </ul>
@@ -31262,6 +31700,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_IsReputationCheckingRequired">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings8.html#Set_IsReputationCheckingRequired">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Settings9">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Get_IsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Settings9.html#Set_IsNonClientRegionSupportEnabled">
 </object>
 </ul>
 </ul>
@@ -32494,6 +32952,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="NewWindowRequestedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#NewWindowRequestedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#NonClientRegionChangedEventHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="PermissionRequestedEventHandler_Invoke">
@@ -34752,8 +35214,16 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCursorChangedToken">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FNonClientRegionChanged">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -34820,6 +35290,14 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Drop">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#QueryNonClientRegion">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="SendMouseInput">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#SendMouseInput">
 </object>
@@ -34830,6 +35308,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AddCursorChangedEvent">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddCursorChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddNonClientRegionChangedEvent">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetAutomationProvider">
@@ -39858,6 +40340,96 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#RegionKind">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetRegionKind">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html#GetRegionKind">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ObjectCollectionView">
 <param name="Local" value="uWVCoreWebView2ObjectCollectionView.TCoreWebView2ObjectCollectionView.html">
 </object>
@@ -41167,6 +41739,10 @@
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf2">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf3">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -41180,6 +41756,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ExtiCode">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#ExtiCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FailureSourceModulePath">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameInfosForFailedProcess">
@@ -41218,6 +41798,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetExtiCode">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetExtiCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFailureSourceModulePath">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetFailureSourceModulePath">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetFrameInfosForFailedProcess">
@@ -42241,6 +42825,10 @@
 <param name="Name" value="FBaseIntf8">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf8">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf9">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#FBaseIntf9">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -42286,6 +42874,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IsGeneralAutofillEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsGeneralAutofillEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#IsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IsPasswordAutosaveEnabled">
@@ -42374,6 +42966,10 @@
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsGeneralAutofillEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetIsPasswordAutosaveEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#GetIsPasswordAutosaveEnabled">
 </object>
@@ -42444,6 +43040,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsGeneralAutofillEnabled">
 <param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsGeneralAutofillEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVCoreWebView2Settings.TCoreWebView2Settings.html#SetIsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsPasswordAutosaveEnabled">
@@ -44604,6 +45204,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnNewWindowRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnNonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnOfflineCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnOfflineCompleted">
 </object>
@@ -45002,6 +45606,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsNavigating">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IsPasswordAutosaveEnabled">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#IsPasswordAutosaveEnabled">
 </object>
@@ -45280,6 +45888,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnNewWindowRequested">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnNewWindowRequested">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnNonClientRegionChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnNonClientRegionChanged">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnOfflineCompleted">
@@ -45716,6 +46328,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetFavicon">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetNonDefaultPermissionSettings">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetNonDefaultPermissionSettings">
 </object>
@@ -45790,6 +46406,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="PrintToPdfStream">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#PrintToPdfStream">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#QueryNonClientRegion">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Refresh">
@@ -46188,6 +46808,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsMuted">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsNonClientRegionSupportEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetIsPasswordAutosaveEnabled">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#GetIsPasswordAutosaveEnabled">
 </object>
@@ -46366,6 +46990,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="NewWindowRequestedEventHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#NewWindowRequestedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="NonClientRegionChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#NonClientRegionChangedEventHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="PermissionRequestedEventHandler_Invoke">
@@ -46780,6 +47408,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnNewWindowRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="doOnNonClientRegionChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnNonClientRegionChangedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="doOnOfflineCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnOfflineCompleted">
 </object>
@@ -46986,6 +47618,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsMuted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsMuted">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsNonClientRegionSupportEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SetIsNonClientRegionSupportEnabled">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsPasswordAutosaveEnabled">

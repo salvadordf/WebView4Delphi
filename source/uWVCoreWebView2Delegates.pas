@@ -1425,6 +1425,25 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// This is the Interface of the event handler for the non-client region changed
+  /// event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventhandler">See the ICoreWebView2NonClientRegionChangedEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2NonClientRegionChangedEventHandler = class(TInterfacedObject, ICoreWebView2NonClientRegionChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2CompositionController;
+                      const args: ICoreWebView2NonClientRegionChangedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -3454,5 +3473,32 @@ begin
    else
     Result := E_FAIL;
 end;
+
+
+// TCoreWebView2NonClientRegionChangedEventHandler
+
+constructor TCoreWebView2NonClientRegionChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2NonClientRegionChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2NonClientRegionChangedEventHandler.Invoke(const sender : ICoreWebView2CompositionController;
+                                                                const args   : ICoreWebView2NonClientRegionChangedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).NonClientRegionChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
 
 end.

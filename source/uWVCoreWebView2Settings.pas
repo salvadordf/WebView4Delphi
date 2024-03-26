@@ -29,6 +29,7 @@ type
       FBaseIntf6 : ICoreWebView2Settings6;
       FBaseIntf7 : ICoreWebView2Settings7;
       FBaseIntf8 : ICoreWebView2Settings8;
+      FBaseIntf9 : ICoreWebView2Settings9;
 
       function  GetInitialized : boolean;
       function  GetIsBuiltInErrorPageEnabled : boolean;
@@ -48,6 +49,7 @@ type
       function  GetIsSwipeNavigationEnabled : boolean;
       function  GetHiddenPdfToolbarItems : TWVPDFToolbarItems;
       function  GetIsReputationCheckingRequired : boolean;
+      function  GetIsNonClientRegionSupportEnabled : boolean;
 
       procedure SetIsBuiltInErrorPageEnabled(aValue : boolean);
       procedure SetAreDefaultContextMenusEnabled(aValue : boolean);
@@ -66,6 +68,7 @@ type
       procedure SetIsSwipeNavigationEnabled(aValue : boolean);
       procedure SetHiddenPdfToolbarItems(aValue : TWVPDFToolbarItems);
       procedure SetIsReputationCheckingRequired(aValue : boolean);
+      procedure SetIsNonClientRegionSupportEnabled(aValue : boolean);
 
       procedure InitializeFields;
 
@@ -184,6 +187,11 @@ type
       /// <summary>
       /// Returns the User Agent. The default value is the default User Agent of the
       /// Microsoft Edge browser.
+      /// This property may be overridden if the User-Agent header is set in a request.
+      /// If the parameter is empty the User Agent will not be updated and the current
+      /// User Agent will remain.
+      /// Setting this property will cause the other user agent client hints
+      /// Sec-CH-UA-* headers to be overridden and dropped.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>
@@ -352,6 +360,28 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings8#get_isreputationcheckingrequired">See the ICoreWebView2Settings8 article.</see></para>
       /// </remarks>
       property    IsReputationCheckingRequired     : boolean                read GetIsReputationCheckingRequired      write SetIsReputationCheckingRequired;
+      /// <summary>
+      /// The `IsNonClientRegionSupportEnabled` property enables web pages to use the
+      /// `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled`
+      /// takes effect after the next navigation. Defaults to `FALSE`.
+      ///
+      /// When this property is `TRUE`, then all the non-client region features
+      /// will be enabled:
+      /// Draggable Regions will be enabled, they are regions on a webpage that
+      /// are marked with the CSS attribute `app-region: drag/no-drag`. When set to
+      /// `drag`, these regions will be treated like the window's title bar, supporting
+      /// dragging of the entire WebView and its host app window; the system menu shows
+      /// upon right click, and a double click will trigger maximizing/restoration of the
+      /// window size.
+      ///
+      /// When set to `FALSE`, all non-client region support will be disabled.
+      /// The `app-region` CSS style will be ignored on web pages.
+      /// \snippet SettingsComponent.cpp ToggleNonClientRegionSupportEnabled
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings9#get_isnonclientregionsupportenabled">See the ICoreWebView2Settings9 article.</see></para>
+      /// </remarks>
+      property    IsNonClientRegionSupportEnabled  : boolean                read GetIsNonClientRegionSupportEnabled   write SetIsNonClientRegionSupportEnabled;
   end;
 
 implementation
@@ -379,8 +409,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings4, FBaseIntf4) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings5, FBaseIntf5) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings6, FBaseIntf6) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings7, FBaseIntf7) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings8, FBaseIntf8);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings7, FBaseIntf7) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings8, FBaseIntf8) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Settings9, FBaseIntf9);
 end;
 
 destructor TCoreWebView2Settings.Destroy;
@@ -400,6 +431,7 @@ begin
   FBaseIntf6 := nil;
   FBaseIntf7 := nil;
   FBaseIntf8 := nil;
+  FBaseIntf9 := nil;
 end;
 
 function TCoreWebView2Settings.GetInitialized : boolean;
@@ -570,6 +602,15 @@ begin
             (TempResult <> 0);
 end;
 
+function TCoreWebView2Settings.GetIsNonClientRegionSupportEnabled : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf9) and
+            succeeded(FBaseIntf9.Get_IsNonClientRegionSupportEnabled(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2Settings.SetIsBuiltInErrorPageEnabled(aValue : boolean);
 begin
   if Initialized then
@@ -671,5 +712,12 @@ begin
   if assigned(FBaseIntf8) then
     FBaseIntf8.Set_IsReputationCheckingRequired(ord(aValue));
 end;
+
+procedure TCoreWebView2Settings.SetIsNonClientRegionSupportEnabled(aValue : boolean);
+begin
+  if assigned(FBaseIntf9) then
+    FBaseIntf9.Set_IsNonClientRegionSupportEnabled(ord(aValue));
+end;
+
 
 end.

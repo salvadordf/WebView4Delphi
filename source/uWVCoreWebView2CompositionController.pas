@@ -32,7 +32,10 @@ type
       FBaseIntf           : ICoreWebView2CompositionController;
       FBaseIntf2          : ICoreWebView2CompositionController2;
       FBaseIntf3          : ICoreWebView2CompositionController3;
-      FCursorChangedToken : EventRegistrationToken;
+      FBaseIntf4          : ICoreWebView2CompositionController4;
+
+      FCursorChangedToken     : EventRegistrationToken;
+      FNonClientRegionChanged : EventRegistrationToken;
 
       function  GetInitialized : boolean;
       function  GetRootVisualTarget : IUnknown;
@@ -47,6 +50,7 @@ type
       procedure RemoveAllEvents;
 
       function  AddCursorChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddNonClientRegionChangedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2CompositionController); reintroduce;
@@ -139,6 +143,38 @@ type
       /// the WebView's client coordinates (Similar to how SendMouseInput works).
       /// </summary>
       function    Drop(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;
+      /// <summary>
+      /// If you are hosting a WebView2 using CoreWebView2CompositionController, you can call
+      /// this method in your Win32 WndProc to determine if the mouse is moving over or
+      /// clicking on WebView2 web content that should be considered part of a non-client region.
+
+      /// The point parameter is expected to be in the client coordinate space of WebView2.
+      /// The method sets the out parameter value as follows:
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
+      ///         a region (HTML element) within the WebView2 with
+      ///         `-webkit-app-region: drag` CSS style set.
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
+      ///         a region (HTML element) within the WebView2 without
+      ///         `-webkit-app-region: drag` CSS style set.
+      ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+      ///
+      /// NOTE: in order for WebView2 to properly handle the title bar system menu,
+      /// the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput.
+      /// See sample code below.
+      /// \snippet ViewComponent.cpp DraggableRegions2
+      ///
+      /// \snippet ViewComponent.cpp DraggableRegions1
+      /// </summary>
+      function    GetNonClientRegionAtPoint(point: TPoint) : TWVNonClientRegionKind;
+      /// <summary>
+      /// This method is used to get the collection of rects that correspond
+      /// to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in
+      /// the callback of add_NonClientRegionChanged whose event args object contains
+      /// a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
+      ///
+      /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
+      /// </summary>
+      function    QueryNonClientRegion(Kind: TWVNonClientRegionKind): ICoreWebView2RegionRectCollectionView;
 
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
@@ -214,8 +250,9 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController2, FBaseIntf2) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController3, FBaseIntf3);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController2, FBaseIntf2) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController3, FBaseIntf3) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController4, FBaseIntf4);
 end;
 
 destructor TCoreWebView2CompositionController.Destroy;
@@ -232,13 +269,16 @@ procedure TCoreWebView2CompositionController.InitializeFields;
 begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
+  FBaseIntf3 := nil;
+  FBaseIntf4 := nil;
 
   InitializeTokens;
 end;
 
 procedure TCoreWebView2CompositionController.InitializeTokens;
 begin
-  FCursorChangedToken.value := 0;
+  FCursorChangedToken.value     := 0;
+  FNonClientRegionChanged.value := 0;
 end;
 
 function TCoreWebView2CompositionController.GetInitialized : boolean;
@@ -307,13 +347,17 @@ begin
       if (FCursorChangedToken.value <> 0) then
         FBaseIntf.remove_CursorChanged(FCursorChangedToken);
 
+      if (FNonClientRegionChanged.value <> 0) then
+        FBaseIntf4.remove_NonClientRegionChanged(FNonClientRegionChanged);
+
       InitializeTokens;
     end;
 end;
 
 function TCoreWebView2CompositionController.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
-  Result := AddCursorChangedEvent(aBrowserComponent);
+  Result := AddCursorChangedEvent(aBrowserComponent) and
+            AddNonClientRegionChangedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2CompositionController.AddCursorChangedEvent(const aBrowserComponent : TComponent) : boolean;
@@ -326,6 +370,21 @@ begin
     try
       TempHandler := TCoreWebView2CursorChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
       Result      := succeeded(FBaseIntf.add_CursorChanged(TempHandler, FCursorChangedToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2CompositionController.AddNonClientRegionChangedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2NonClientRegionChangedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf4) and (FNonClientRegionChanged.value = 0) then
+    try
+      TempHandler := TCoreWebView2NonClientRegionChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf4.add_NonClientRegionChanged(TempHandler, FNonClientRegionChanged));
     finally
       TempHandler := nil;
     end;
@@ -388,6 +447,31 @@ begin
 
   if assigned(FBaseIntf3) then
     Result := FBaseIntf3.Drop(dataObject, keyState, point, effect);
+end;
+
+function TCoreWebView2CompositionController.GetNonClientRegionAtPoint(point: TPoint) : TWVNonClientRegionKind;
+var
+  TempResult : COREWEBVIEW2_NON_CLIENT_REGION_KIND;
+begin
+  Result := COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE;
+
+  if assigned(FBaseIntf4) and
+     succeeded(FBaseIntf4.GetNonClientRegionAtPoint(point, TempResult)) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2CompositionController.QueryNonClientRegion(Kind: TWVNonClientRegionKind): ICoreWebView2RegionRectCollectionView;
+var
+  TempResult : ICoreWebView2RegionRectCollectionView;
+begin
+  TempResult := nil;
+
+  if assigned(FBaseIntf4) and
+     succeeded(FBaseIntf4.QueryNonClientRegion(Kind, TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult
+   else
+    Result := nil;
 end;
 
 end.

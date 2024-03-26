@@ -370,6 +370,14 @@ type
   /// <para>Renamed COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS type.</para>
   /// </remarks>
   TWVWebResourceRequestSourceKind         = type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS;
+  /// <summary>
+  /// This enum contains values representing possible regions a given
+  /// point lies within.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_NON_CLIENT_REGION_KIND type.</para>
+  /// </remarks>
+  TWVNonClientRegionKind                  = type COREWEBVIEW2_NON_CLIENT_REGION_KIND;
 
   /// <summary>
   /// TWVLoader status values
