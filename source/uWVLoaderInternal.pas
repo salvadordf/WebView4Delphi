@@ -20,6 +20,7 @@ uses
 function Internal_CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder, userDataFolder: LPCWSTR; const environmentOptions: ICoreWebView2EnvironmentOptions; const environment_created_handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler): HRESULT; stdcall;
 function Internal_CreateCoreWebView2Environment(const environment_created_handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler): HRESULT; stdcall;
 function Internal_GetAvailableCoreWebView2BrowserVersionString(browserExecutableFolder: LPCWSTR; pVersionInfo: PLPWSTR): HRESULT; stdcall;
+function Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: LPCWSTR; const environmentOptions: ICoreWebView2EnvironmentOptions; pVersionInfo: PLPWSTR): HRESULT; stdcall;
 function Internal_CompareBrowserVersions(version1, version2: LPCWSTR; pRet: PInteger): HRESULT; stdcall;
 
 implementation
@@ -880,6 +881,12 @@ begin
     end
    else
     Result := E_FAIL;
+end;
+
+function Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: LPCWSTR; const environmentOptions: ICoreWebView2EnvironmentOptions; pVersionInfo: PLPWSTR): HRESULT; stdcall;
+begin
+  // TO-DO: Implement GetAvailableCoreWebView2BrowserVersionStringWithOptions
+  Result := E_NOTIMPL;
 end;
 
 function Internal_CompareBrowserVersions(version1, version2: LPCWSTR; pRet: PInteger): HRESULT; stdcall;

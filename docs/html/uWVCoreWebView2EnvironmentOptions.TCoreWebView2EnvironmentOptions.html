@@ -16,7 +16,7 @@
 <a href="uWVCoreWebView2EnvironmentOptions.html">uWVCoreWebView2EnvironmentOptions</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TCoreWebView2EnvironmentOptions = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html">ICoreWebView2EnvironmentOptions2</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html">ICoreWebView2EnvironmentOptions3</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions4.html">ICoreWebView2EnvironmentOptions4</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html">ICoreWebView2EnvironmentOptions5</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html">ICoreWebView2EnvironmentOptions6</a>)</code></p>
+<code>type TCoreWebView2EnvironmentOptions = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html">ICoreWebView2EnvironmentOptions2</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html">ICoreWebView2EnvironmentOptions3</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions4.html">ICoreWebView2EnvironmentOptions4</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html">ICoreWebView2EnvironmentOptions5</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html">ICoreWebView2EnvironmentOptions6</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">ICoreWebView2EnvironmentOptions7</a>)</code></p>
 <h2 class="description">Description</h2>
 <p>
  Options used to create WebView2 Environment. A default implementation is provided in WebView2EnvironmentOptions.h. </p>
@@ -64,6 +64,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FAreBrowserExtensionsEnabled">FAreBrowserExtensionsEnabled</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FChannelSearchKind">FChannelSearchKind</a></strong>: <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FReleaseChannels">FReleaseChannels</a></strong>: <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -142,11 +150,27 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">Get_ChannelSearchKind</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">Set_ChannelSearchKind</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">Get_ReleaseChannels</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">Set_ReleaseChannels</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#DestroySchemeRegistrations">DestroySchemeRegistrations</a></strong>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-">Create</a></strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean);</code></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-">Create</a></strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -223,6 +247,22 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FAreBrowserExtensionsEnabled"></span><code><strong>FAreBrowserExtensionsEnabled</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FChannelSearchKind"></span><code><strong>FChannelSearchKind</strong>: <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReleaseChannels"></span><code><strong>FReleaseChannels</strong>: <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -417,6 +457,72 @@ ICoreWebView2EnvironmentOptions6</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-"></span><code>function <strong>Get_ChannelSearchKind</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2EnvironmentOptions7</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-"></span><code>function <strong>Set_ChannelSearchKind</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">ICoreWebView2EnvironmentOptions7.Set_ChannelSearchKind</a>.</p><p>
+
+
+<p>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE` by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so that environment creation searches for a channel from least to most stable. If `ReleaseChannels` has been provided, the loader will only search for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details on channels.
+
+<p>This property can be overridden by the corresponding registry key `ChannelSearchKind` or the environment variable `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-"></span><code>function <strong>Get_ReleaseChannels</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels</a>.</p><p>
+ Gets the `ReleaseChannels` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-"></span><code>function <strong>Set_ReleaseChannels</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">ICoreWebView2EnvironmentOptions7.Set_ReleaseChannels</a>.</p><p>
+
+
+<p>Sets the `ReleaseChannels`, which is a mask of one or more indicating which channels environment creation should search for.
+
+<p>OR operation(s) can be applied to multiple to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When is provided, environment creation will only search for the channels specified in the set. Set to to reverse the search order so that the loader searches for the least stable build first. See for descriptions of each channel. Environment creation fails if it is unable to find any channel from the installed on the device.
+
+<p>Use to verify which channel is used. If both a and are provided, the takes precedence. The can be overridden by the corresponding registry override or the environment variable . Set the value to a comma-separated string of integers, which map to the values: Stable (0), Beta (1), Dev (2), and Canary (3).
+
+<p>For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that the loader should only search for Dev channel and the WebView2 Runtime, using the order indicated by . Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
+
+<p></p>
+
+<pre class="preformatted">
+|   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
+| --- | --- | --- |
+|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -&gt; Beta | Beta -&gt; WebView2 Runtime|
+|CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary | Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime |
+|CoreWebView2ReleaseChannels.Canary| Canary | Canary |
+|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |</pre>
+
+<p> </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="DestroySchemeRegistrations"></span><code>procedure <strong>DestroySchemeRegistrations</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -425,13 +531,17 @@ ICoreWebView2EnvironmentOptions6</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-"></span><code>constructor <strong>Create</strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean);</code></td>
+<td class="itemcode"><span id="Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-"></span><code>constructor <strong>Create</strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
  Constructor of the ICoreWebView2EnvironmentOptions wrapper. </p>
 <p>
  
+
+<p>
+
+<p>
 
 <p>
 
@@ -459,7 +569,9 @@ ICoreWebView2EnvironmentOptions6</p>
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions5 article.)
 
-<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions6 article.)</p>
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions6 article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions7 article.)</p>
 <h6 class="description_section">Parameters</h6>
 <dl class="parameters">
 <dt>aAdditionalBrowserArguments</dt>
@@ -480,6 +592,10 @@ ICoreWebView2EnvironmentOptions6</p>
 <dd>Enable tracking prevention.</dd>
 <dt>aAreBrowserExtensionsEnabled</dt>
 <dd>If it's set to True, new extensions can be added to user profile and used.</dd>
+<dt>aChannelSearchKind</dt>
+<dd>WebView2 Runtime channel search order.</dd>
+<dt>aReleaseChannels</dt>
+<dd>Indicates which channels environment creation should search for.</dd>
 </dl>
 </td></tr>
 </table>

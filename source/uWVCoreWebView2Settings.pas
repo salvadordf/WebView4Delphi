@@ -185,13 +185,14 @@ type
       /// </remarks>
       property    AreHostObjectsAllowed            : boolean                read GetAreHostObjectsAllowed             write SetAreHostObjectsAllowed;
       /// <summary>
-      /// Returns the User Agent. The default value is the default User Agent of the
-      /// Microsoft Edge browser.
-      /// This property may be overridden if the User-Agent header is set in a request.
-      /// If the parameter is empty the User Agent will not be updated and the current
-      /// User Agent will remain.
-      /// Setting this property will cause the other user agent client hints
-      /// Sec-CH-UA-* headers to be overridden and dropped.
+      /// <para>Returns the User Agent. The default value is the default User Agent of the
+      /// Microsoft Edge browser.</para>
+      /// <para>This property may be overridden if
+      /// the User-Agent header is set in a request. If the parameter is empty
+      /// the User Agent will not be updated and the current User Agent will remain.
+      /// Setting this property may clear User Agent Client Hints headers
+      /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
+      /// implementation behavior is subject to change.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>

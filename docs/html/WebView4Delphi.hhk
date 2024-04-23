@@ -145,6 +145,18 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_CLIENT_CERTIFICATE_KIND">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CLIENT_CERTIFICATE_KIND">
 </object>
@@ -1065,6 +1077,30 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND_UTILITY">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_BETA">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_BETA">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_CANARY">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_CANARY">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_DEV">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_DEV">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_NONE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_NONE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_STABLE">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_SCRIPT_DIALOG_KIND">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SCRIPT_DIALOG_KIND">
 </object>
@@ -1387,6 +1423,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetAvailableCoreWebView2BrowserVersionString">
 <param name="Local" value="uWVLibFunctions.html#GetAvailableCoreWebView2BrowserVersionString">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAvailableCoreWebView2BrowserVersionStringWithOptions">
+<param name="Local" value="uWVLibFunctions.html#GetAvailableCoreWebView2BrowserVersionStringWithOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetDeviceScaleFactor">
@@ -3111,6 +3151,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_AreBrowserExtensionsEnabled">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html#Set_AreBrowserExtensionsEnabled-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2EnvironmentOptions7">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2EstimatedEndTimeChangedEventHandler">
@@ -5877,6 +5937,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions6">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2EnvironmentOptions7">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions7">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EstimatedEndTimeChangedEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EstimatedEndTimeChangedEventHandler">
 </object>
@@ -6483,6 +6547,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Internal_GetAvailableCoreWebView2BrowserVersionString">
 <param name="Local" value="uWVLoaderInternal.html#Internal_GetAvailableCoreWebView2BrowserVersionString-LPCWSTR-PLPWSTR-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions">
+<param name="Local" value="uWVLoaderInternal.html#Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions-LPCWSTR-ICoreWebView2EnvironmentOptions-PLPWSTR-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IWVBrowserEvents">
@@ -8152,16 +8220,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -9062,16 +9130,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -10686,16 +10754,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -10720,7 +10788,7 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Destroy">
@@ -10743,6 +10811,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FAreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCustomCrashReportingEnabled">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FCustomCrashReportingEnabled">
 </object>
@@ -10757,6 +10829,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FLanguage">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FLanguage">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FSchemeRegistrations">
@@ -10783,6 +10859,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_AreBrowserExtensionsEnabled-Integer-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Get_EnableTrackingPrevention">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_EnableTrackingPrevention-Integer-">
 </object>
@@ -10797,6 +10877,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_Language">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_Language-PWideChar-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Get_TargetCompatibleBrowserVersion">
@@ -10819,6 +10903,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_AreBrowserExtensionsEnabled-Integer-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Set_EnableTrackingPrevention">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_EnableTrackingPrevention-Integer-">
 </object>
@@ -10833,6 +10921,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_Language">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_Language-PWideChar-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Set_TargetCompatibleBrowserVersion">
@@ -13886,16 +13978,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -15700,327 +15792,327 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TLoaderBrowserProcessExitedEvent">
-<param name="Local" value="uWVEvents.html#TLoaderBrowserProcessExitedEvent-TObject-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">
+<param name="Local" value="uWVEvents.html#TLoaderBrowserProcessExitedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TLoaderGetCustomSchemesEvent">
-<param name="Local" value="uWVEvents.html#TLoaderGetCustomSchemesEvent-TObject-TWVCustomSchemeInfoArray-">
+<param name="Local" value="uWVEvents.html#TLoaderGetCustomSchemesEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TLoaderNewBrowserVersionAvailableEvent">
-<param name="Local" value="uWVEvents.html#TLoaderNewBrowserVersionAvailableEvent-TObject-ICoreWebView2Environment-">
+<param name="Local" value="uWVEvents.html#TLoaderNewBrowserVersionAvailableEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TLoaderNotifyEvent">
-<param name="Local" value="uWVEvents.html#TLoaderNotifyEvent-TObject-">
+<param name="Local" value="uWVEvents.html#TLoaderNotifyEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TLoaderProcessInfosChangedEvent">
-<param name="Local" value="uWVEvents.html#TLoaderProcessInfosChangedEvent-TObject-ICoreWebView2Environment-">
+<param name="Local" value="uWVEvents.html#TLoaderProcessInfosChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnAcceleratorKeyPressedEvent">
-<param name="Local" value="uWVEvents.html#TOnAcceleratorKeyPressedEvent-TObject-ICoreWebView2Controller-ICoreWebView2AcceleratorKeyPressedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnAcceleratorKeyPressedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent-TObject-HRESULT-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnBasicAuthenticationRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnBasicAuthenticationRequestedEvent-TObject-ICoreWebView2-ICoreWebView2BasicAuthenticationRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnBasicAuthenticationRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnBrowserExtensionEnableCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnBrowserExtensionEnableCompletedEvent-TObject-HRESULT-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnBrowserExtensionEnableCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnBrowserExtensionRemoveCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnBrowserExtensionRemoveCompletedEvent-TObject-HRESULT-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnBrowserExtensionRemoveCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnBrowserProcessExitedEvent">
-<param name="Local" value="uWVEvents.html#TOnBrowserProcessExitedEvent-TObject-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnBrowserProcessExitedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnBytesReceivedChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnBytesReceivedChangedEvent-TObject-ICoreWebView2DownloadOperation-integer-">
+<param name="Local" value="uWVEvents.html#TOnBytesReceivedChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnCallDevToolsProtocolMethodCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnCallDevToolsProtocolMethodCompletedEvent-TObject-HRESULT-wvstring-integer-">
+<param name="Local" value="uWVEvents.html#TOnCallDevToolsProtocolMethodCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnCapturePreviewCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnCapturePreviewCompletedEvent-TObject-HRESULT-">
+<param name="Local" value="uWVEvents.html#TOnCapturePreviewCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnClearBrowsingDataCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnClearBrowsingDataCompletedEvent-TObject-HRESULT-">
+<param name="Local" value="uWVEvents.html#TOnClearBrowsingDataCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnClearCacheCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnClearCacheCompletedEvent-TObject-boolean-">
+<param name="Local" value="uWVEvents.html#TOnClearCacheCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnClearDataForOriginCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnClearDataForOriginCompletedEvent-TObject-boolean-">
+<param name="Local" value="uWVEvents.html#TOnClearDataForOriginCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnClientCertificateRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnClientCertificateRequestedEvent-TObject-ICoreWebView2-ICoreWebView2ClientCertificateRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnClientCertificateRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnCompMsgEvent">
-<param name="Local" value="uWVEvents.html#TOnCompMsgEvent-TObject-TMessage-Boolean-">
+<param name="Local" value="uWVEvents.html#TOnCompMsgEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnContentLoadingEvent">
-<param name="Local" value="uWVEvents.html#TOnContentLoadingEvent-TObject-ICoreWebView2-ICoreWebView2ContentLoadingEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnContentLoadingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnContextMenuRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnContextMenuRequestedEvent-TObject-ICoreWebView2-ICoreWebView2ContextMenuRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnContextMenuRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnCustomItemSelectedEvent">
-<param name="Local" value="uWVEvents.html#TOnCustomItemSelectedEvent-TObject-ICoreWebView2ContextMenuItem-">
+<param name="Local" value="uWVEvents.html#TOnCustomItemSelectedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnDevToolsProtocolEventReceivedEvent">
-<param name="Local" value="uWVEvents.html#TOnDevToolsProtocolEventReceivedEvent-TObject-ICoreWebView2-ICoreWebView2DevToolsProtocolEventReceivedEventArgs-wvstring-integer-">
+<param name="Local" value="uWVEvents.html#TOnDevToolsProtocolEventReceivedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnDOMContentLoadedEvent">
-<param name="Local" value="uWVEvents.html#TOnDOMContentLoadedEvent-TObject-ICoreWebView2-ICoreWebView2DOMContentLoadedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnDOMContentLoadedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnDownloadStartingEvent">
-<param name="Local" value="uWVEvents.html#TOnDownloadStartingEvent-TObject-ICoreWebView2-ICoreWebView2DownloadStartingEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnDownloadStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnDownloadStateChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnDownloadStateChangedEvent-TObject-ICoreWebView2DownloadOperation-integer-">
+<param name="Local" value="uWVEvents.html#TOnDownloadStateChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnEstimatedEndTimeChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnEstimatedEndTimeChangedEvent-TObject-ICoreWebView2DownloadOperation-integer-">
+<param name="Local" value="uWVEvents.html#TOnEstimatedEndTimeChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnExecuteScriptCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnExecuteScriptCompletedEvent-TObject-HRESULT-wvstring-integer-">
+<param name="Local" value="uWVEvents.html#TOnExecuteScriptCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnExecuteScriptWithResultCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnExecuteScriptWithResultCompletedEvent-TObject-HResult-ICoreWebView2ExecuteScriptResult-integer-">
+<param name="Local" value="uWVEvents.html#TOnExecuteScriptWithResultCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFaviconChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnFaviconChangedEvent-TObject-ICoreWebView2-IUnknown-">
+<param name="Local" value="uWVEvents.html#TOnFaviconChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameContentLoadingEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameContentLoadingEvent-TObject-ICoreWebView2Frame-ICoreWebView2ContentLoadingEventArgs-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameContentLoadingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameCreatedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameCreatedEvent-TObject-ICoreWebView2-ICoreWebView2FrameCreatedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnFrameCreatedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameDestroyedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameDestroyedEvent-TObject-ICoreWebView2Frame-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameDestroyedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameDOMContentLoadedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameDOMContentLoadedEvent-TObject-ICoreWebView2Frame-ICoreWebView2DOMContentLoadedEventArgs-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameDOMContentLoadedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameNameChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameNameChangedEvent-TObject-ICoreWebView2Frame-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameNameChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameNavigationCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameNavigationCompletedEvent-TObject-ICoreWebView2Frame-ICoreWebView2NavigationCompletedEventArgs-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameNavigationCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameNavigationStartingEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameNavigationStartingEvent-TObject-ICoreWebView2Frame-ICoreWebView2NavigationStartingEventArgs-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameNavigationStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFramePermissionRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnFramePermissionRequestedEvent-TObject-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFramePermissionRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnFrameWebMessageReceivedEvent">
-<param name="Local" value="uWVEvents.html#TOnFrameWebMessageReceivedEvent-TObject-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-">
+<param name="Local" value="uWVEvents.html#TOnFrameWebMessageReceivedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnGetCookiesCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnGetCookiesCompletedEvent-TObject-HRESULT-ICoreWebView2CookieList-">
+<param name="Local" value="uWVEvents.html#TOnGetCookiesCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnGetCustomSchemesEvent">
-<param name="Local" value="uWVEvents.html#TOnGetCustomSchemesEvent-TObject-TWVCustomSchemeInfoArray-">
+<param name="Local" value="uWVEvents.html#TOnGetCustomSchemesEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnGetFaviconCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnGetFaviconCompletedEvent-TObject-HRESULT-IStream-">
+<param name="Local" value="uWVEvents.html#TOnGetFaviconCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnGetNonDefaultPermissionSettingsCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnGetNonDefaultPermissionSettingsCompletedEvent-TObject-HRESULT-ICoreWebView2PermissionSettingCollectionView-">
+<param name="Local" value="uWVEvents.html#TOnGetNonDefaultPermissionSettingsCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnGetProcessExtendedInfosCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnGetProcessExtendedInfosCompletedEvent-TObject-HRESULT-ICoreWebView2ProcessExtendedInfoCollection-">
+<param name="Local" value="uWVEvents.html#TOnGetProcessExtendedInfosCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnIgnoreCertificateErrorsCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnIgnoreCertificateErrorsCompletedEvent-TObject-boolean-">
+<param name="Local" value="uWVEvents.html#TOnIgnoreCertificateErrorsCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnInitializationErrorEvent">
-<param name="Local" value="uWVEvents.html#TOnInitializationErrorEvent-TObject-HRESULT-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnInitializationErrorEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnIsDefaultDownloadDialogOpenChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnIsDefaultDownloadDialogOpenChangedEvent-TObject-ICoreWebView2-">
+<param name="Local" value="uWVEvents.html#TOnIsDefaultDownloadDialogOpenChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnIsDocumentPlayingAudioChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnIsDocumentPlayingAudioChangedEvent-TObject-ICoreWebView2-">
+<param name="Local" value="uWVEvents.html#TOnIsDocumentPlayingAudioChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnIsMutedChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnIsMutedChangedEvent-TObject-ICoreWebView2-">
+<param name="Local" value="uWVEvents.html#TOnIsMutedChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnLaunchingExternalUriSchemeEvent">
-<param name="Local" value="uWVEvents.html#TOnLaunchingExternalUriSchemeEvent-TObject-ICoreWebView2-ICoreWebView2LaunchingExternalUriSchemeEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnLaunchingExternalUriSchemeEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnMoveFocusRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnMoveFocusRequestedEvent-TObject-ICoreWebView2Controller-ICoreWebView2MoveFocusRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnMoveFocusRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnNavigationCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnNavigationCompletedEvent-TObject-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnNavigationCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnNavigationStartingEvent">
-<param name="Local" value="uWVEvents.html#TOnNavigationStartingEvent-TObject-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnNavigationStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnNewWindowRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnNewWindowRequestedEvent-TObject-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnNewWindowRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnNonClientRegionChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnNonClientRegionChangedEvent-TObject-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnNonClientRegionChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnOfflineCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnOfflineCompletedEvent-TObject-boolean-">
+<param name="Local" value="uWVEvents.html#TOnOfflineCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnPermissionRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnPermissionRequestedEvent-TObject-ICoreWebView2-ICoreWebView2PermissionRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnPermissionRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnPrintCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnPrintCompletedEvent-TObject-HRESULT-TWVPrintStatus-">
+<param name="Local" value="uWVEvents.html#TOnPrintCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnPrintToPdfCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnPrintToPdfCompletedEvent-TObject-HRESULT-boolean-">
+<param name="Local" value="uWVEvents.html#TOnPrintToPdfCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnPrintToPdfStreamCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnPrintToPdfStreamCompletedEvent-TObject-HRESULT-IStream-">
+<param name="Local" value="uWVEvents.html#TOnPrintToPdfStreamCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnProcessFailedEvent">
-<param name="Local" value="uWVEvents.html#TOnProcessFailedEvent-TObject-ICoreWebView2-ICoreWebView2ProcessFailedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnProcessFailedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnProcessInfosChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnProcessInfosChangedEvent-TObject-ICoreWebView2Environment-">
+<param name="Local" value="uWVEvents.html#TOnProcessInfosChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnProfileAddBrowserExtensionCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnProfileAddBrowserExtensionCompletedEvent-TObject-HRESULT-ICoreWebView2BrowserExtension-">
+<param name="Local" value="uWVEvents.html#TOnProfileAddBrowserExtensionCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnProfileDeletedEvent">
-<param name="Local" value="uWVEvents.html#TOnProfileDeletedEvent-TObject-ICoreWebView2Profile-">
+<param name="Local" value="uWVEvents.html#TOnProfileDeletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnProfileGetBrowserExtensionsCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnProfileGetBrowserExtensionsCompletedEvent-TObject-HRESULT-ICoreWebView2BrowserExtensionList-">
+<param name="Local" value="uWVEvents.html#TOnProfileGetBrowserExtensionsCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnRefreshIgnoreCacheCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnRefreshIgnoreCacheCompletedEvent-TObject-HRESULT-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnRefreshIgnoreCacheCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnRetrieveHTMLCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnRetrieveHTMLCompletedEvent-TObject-boolean-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnRetrieveHTMLCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnRetrieveMHTMLCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnRetrieveMHTMLCompletedEvent-TObject-boolean-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnRetrieveMHTMLCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnRetrieveTextCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnRetrieveTextCompletedEvent-TObject-boolean-wvstring-">
+<param name="Local" value="uWVEvents.html#TOnRetrieveTextCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnScriptDialogOpeningEvent">
-<param name="Local" value="uWVEvents.html#TOnScriptDialogOpeningEvent-TObject-ICoreWebView2-ICoreWebView2ScriptDialogOpeningEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnScriptDialogOpeningEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnServerCertificateErrorActionsCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnServerCertificateErrorActionsCompletedEvent-TObject-HRESULT-">
+<param name="Local" value="uWVEvents.html#TOnServerCertificateErrorActionsCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnServerCertificateErrorDetectedEvent">
-<param name="Local" value="uWVEvents.html#TOnServerCertificateErrorDetectedEvent-TObject-ICoreWebView2-ICoreWebView2ServerCertificateErrorDetectedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnServerCertificateErrorDetectedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnSetPermissionStateCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnSetPermissionStateCompletedEvent-TObject-HRESULT-">
+<param name="Local" value="uWVEvents.html#TOnSetPermissionStateCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnSimulateKeyEventCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnSimulateKeyEventCompletedEvent-TObject-boolean-">
+<param name="Local" value="uWVEvents.html#TOnSimulateKeyEventCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnSourceChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnSourceChangedEvent-TObject-ICoreWebView2-ICoreWebView2SourceChangedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnSourceChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnStatusBarTextChangedEvent">
-<param name="Local" value="uWVEvents.html#TOnStatusBarTextChangedEvent-TObject-ICoreWebView2-">
+<param name="Local" value="uWVEvents.html#TOnStatusBarTextChangedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnTrySuspendCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnTrySuspendCompletedEvent-TObject-HRESULT-boolean-">
+<param name="Local" value="uWVEvents.html#TOnTrySuspendCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnWebMessageReceivedEvent">
-<param name="Local" value="uWVEvents.html#TOnWebMessageReceivedEvent-TObject-ICoreWebView2-ICoreWebView2WebMessageReceivedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnWebMessageReceivedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnWebResourceRequestedEvent">
-<param name="Local" value="uWVEvents.html#TOnWebResourceRequestedEvent-TObject-ICoreWebView2-ICoreWebView2WebResourceRequestedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnWebResourceRequestedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnWebResourceResponseReceivedEvent">
-<param name="Local" value="uWVEvents.html#TOnWebResourceResponseReceivedEvent-TObject-ICoreWebView2-ICoreWebView2WebResourceResponseReceivedEventArgs-">
+<param name="Local" value="uWVEvents.html#TOnWebResourceResponseReceivedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnWebResourceResponseViewGetContentCompletedEvent">
-<param name="Local" value="uWVEvents.html#TOnWebResourceResponseViewGetContentCompletedEvent-TObject-HRESULT-IStream-integer-">
+<param name="Local" value="uWVEvents.html#TOnWebResourceResponseViewGetContentCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TryIso8601BasicToDate">
@@ -16631,6 +16723,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CapturePreviewCompletedHandler_Invoke-HRESULT-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ClearBrowsingData">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ClearBrowsingData-TWVBrowsingDataKinds-">
 </object>
@@ -16732,16 +16828,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -17373,6 +17469,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FBrowserExecPath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FClearBrowsingDataCompletedHandler">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FClearBrowsingDataCompletedHandler">
 </object>
@@ -17919,6 +18019,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FreeAndNilStub">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FreeAndNilStub-pointer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FRenderCompHWND">
@@ -18949,6 +19053,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RefreshIgnoreCache">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="RemoveHostObjectFromScript">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveHostObjectFromScript-wvstring-">
 </object>
@@ -19395,6 +19503,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVCapturePreviewImageFormat">
 <param name="Local" value="uWVTypes.html#TWVCapturePreviewImageFormat">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVChannelSearchKind">
+<param name="Local" value="uWVTypes.html#TWVChannelSearchKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVClearDataStorageTypes">
@@ -20025,6 +20137,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersion">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersionWithOptions">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="BlinkSettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#BlinkSettings">
 </object>
@@ -20035,6 +20151,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="BrowserProcessExitedEventHandler_Invoke">
 <param name="Local" value="uWVLoader.TWVLoader.html#BrowserProcessExitedEventHandler_Invoke-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#ChannelSearchKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CheckBrowserExecPath">
@@ -20245,6 +20365,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FBrowserExecPath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCheckFiles">
 <param name="Local" value="uWVLoader.TWVLoader.html#FCheckFiles">
 </object>
@@ -20405,6 +20529,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FProxySettings">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#FReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FRemoteAllowOrigins">
 <param name="Local" value="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">
 </object>
@@ -20455,6 +20583,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetAvailableBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersionWithOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetCustomCommandLineSwitches">
@@ -20607,6 +20739,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ProxySettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#ProxySettings">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoteAllowOrigins">
@@ -20827,6 +20963,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Server">
 <param name="Local" value="uWVLoader.TWVProxySettings.html#Server">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVReleaseChannels">
+<param name="Local" value="uWVTypes.html#TWVReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVScriptDialogKind">

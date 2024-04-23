@@ -54,6 +54,8 @@ type
       FCustomCrashReportingEnabled            : boolean;
       FEnableTrackingPrevention               : boolean;
       FAreBrowserExtensionsEnabled            : boolean;
+      FChannelSearchKind                      : TWVChannelSearchKind;
+      FReleaseChannels                        : TWVReleaseChannels;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -88,6 +90,7 @@ type
       FAutoAcceptCamAndMicCapture             : boolean;
 
       function  GetAvailableBrowserVersion : wvstring;
+      function  GetAvailableBrowserVersionWithOptions : wvstring;
       function  GetInitialized : boolean;
       function  GetInitializationError : boolean;
       function  GetEnvironmentIsInitialized : boolean;
@@ -183,9 +186,15 @@ type
       property Status                                 : TWV2LoaderStatus                   read FStatus;
       /// <summary>
       /// Get the browser version info including channel name if it is not the
-      /// WebView2 Runtime.  Channel names are Beta, Dev, and Canary.
+      /// WebView2 Runtime. Channel names are Beta, Dev, and Canary.
       /// </summary>
       property AvailableBrowserVersion                : wvstring                           read GetAvailableBrowserVersion;
+      /// <summary>
+      /// Get the browser version info of the release channel used when creating
+      /// an environment with the same options. Channel names are Beta, Dev, and
+      /// Canary.
+      /// </summary>
+      property AvailableBrowserVersionWithOptions     : wvstring                           read GetAvailableBrowserVersionWithOptions;
       /// <summary>
       /// Returns all the text appended to the error log with AppendErrorLog.
       /// </summary>
@@ -354,6 +363,61 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextension">See the ICoreWebView2BrowserExtension article for Extensions API details.</see></para>
       /// </remarks>
       property AreBrowserExtensionsEnabled            : boolean                            read FAreBrowserExtensionsEnabled             write FAreBrowserExtensionsEnabled;
+      /// <summary>
+      /// <para>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE`
+      /// by default; environment creation searches for a release channel on the machine
+      /// from most to least stable using the first channel found. The default search order is:
+      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set `ChannelSearchKind` to
+      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// so that environment creation searches for a channel from least to most stable. If
+      /// `ReleaseChannels` has been provided, the loader will only search
+      /// for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details
+      /// on channels.</para>
+      /// <para>This property can be overridden by the corresponding
+      /// registry key `ChannelSearchKind` or the environment variable
+      /// `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to
+      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See
+      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ChannelSearchKind.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+      /// </remarks>
+      property ChannelSearchKind                      : TWVChannelSearchKind               read FChannelSearchKind                       write FChannelSearchKind;
+      /// <summary>
+      /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
+      /// indicating which channels environment creation should search for.</para>
+      /// <para>OR operation(s) can be applied to multiple  to create a mask.
+      /// The default value is a mask of all the channels. By default, environment
+      /// creation searches for channels from most to least stable, using the first
+      /// channel found on the device. When  is provided, environment creation will
+      /// only search for the channels specified in the set. Set  to  to reverse
+      /// the search order so that the loader searches for the least stable build
+      /// first. See  for descriptions of each channel. Environment creation fails
+      /// if it is unable to find any channel from the  installed on the device.</para>
+      /// <para>Use  to verify which channel is used. If both a  and  are provided,
+      /// the  takes precedence. The  can be overridden by the corresponding
+      /// registry override  or the environment variable . Set the value to a
+      /// comma-separated string of integers, which map to the  values: Stable (0),
+      /// Beta (1), Dev (2), and Canary (3).</para>
+      /// <para>For example, the values "0,2" and "2,0" indicate that the loader
+      /// should only search for Dev channel and the WebView2 Runtime, using the
+      /// order indicated by . Environment creation attempts to interpret each
+      /// integer and treats any invalid entry as Stable channel.</para>
+      /// <code>
+      /// |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
+      /// | --- | --- | --- |
+      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -> Beta | Beta -> WebView2 Runtime|
+      /// |CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Dev -> Canary | Canary -> Dev -> Beta -> WebView2 Runtime |
+      /// |CoreWebView2ReleaseChannels.Canary| Canary | Canary |
+      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Canary | Canary -> Beta -> WebView2 Runtime |
+      /// </code>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+      /// </remarks>
+      property ReleaseChannels                        : TWVReleaseChannels                 read FReleaseChannels                         write FReleaseChannels;
       /// <summary>
       /// Enable GPU hardware acceleration.
       /// </summary>
@@ -787,6 +851,11 @@ begin
   FCustomCrashReportingEnabled            := False;
   FEnableTrackingPrevention               := True;
   FAreBrowserExtensionsEnabled            := False;
+  FChannelSearchKind                      := COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE;
+  FReleaseChannels                        := COREWEBVIEW2_RELEASE_CHANNELS_STABLE or
+                                             COREWEBVIEW2_RELEASE_CHANNELS_BETA or
+                                             COREWEBVIEW2_RELEASE_CHANNELS_DEV or
+                                             COREWEBVIEW2_RELEASE_CHANNELS_CANARY;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1389,10 +1458,11 @@ begin
 
   if FUseInternalLoader then
     begin
-      CreateCoreWebView2EnvironmentWithOptions     := Internal_CreateCoreWebView2EnvironmentWithOptions;
-      CreateCoreWebView2Environment                := Internal_CreateCoreWebView2Environment;
-      GetAvailableCoreWebView2BrowserVersionString := Internal_GetAvailableCoreWebView2BrowserVersionString;
-      CompareBrowserVersions                       := Internal_CompareBrowserVersions;
+      CreateCoreWebView2EnvironmentWithOptions                := Internal_CreateCoreWebView2EnvironmentWithOptions;
+      CreateCoreWebView2Environment                           := Internal_CreateCoreWebView2Environment;
+      GetAvailableCoreWebView2BrowserVersionString            := Internal_GetAvailableCoreWebView2BrowserVersionString;
+      GetAvailableCoreWebView2BrowserVersionStringWithOptions := Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions;
+      CompareBrowserVersions                                  := Internal_CompareBrowserVersions;
       FStatus := wvlsImported;
       Result  := True;
     end
@@ -1400,15 +1470,17 @@ begin
     if (FLibHandle <> 0) then
       try
         begin
-          CreateCoreWebView2EnvironmentWithOptions      := GetProcAddress(FLibHandle, 'CreateCoreWebView2EnvironmentWithOptions');
-          CreateCoreWebView2Environment                 := GetProcAddress(FLibHandle, 'CreateCoreWebView2Environment');
-          GetAvailableCoreWebView2BrowserVersionString  := GetProcAddress(FLibHandle, 'GetAvailableCoreWebView2BrowserVersionString');
-          CompareBrowserVersions                        := GetProcAddress(FLibHandle, 'CompareBrowserVersions');
+          CreateCoreWebView2EnvironmentWithOptions                := GetProcAddress(FLibHandle, 'CreateCoreWebView2EnvironmentWithOptions');
+          CreateCoreWebView2Environment                           := GetProcAddress(FLibHandle, 'CreateCoreWebView2Environment');
+          GetAvailableCoreWebView2BrowserVersionString            := GetProcAddress(FLibHandle, 'GetAvailableCoreWebView2BrowserVersionString');
+          GetAvailableCoreWebView2BrowserVersionStringWithOptions := GetProcAddress(FLibHandle, 'GetAvailableCoreWebView2BrowserVersionStringWithOptions');
+          CompareBrowserVersions                                  := GetProcAddress(FLibHandle, 'CompareBrowserVersions');
 
-          if assigned(CreateCoreWebView2EnvironmentWithOptions)     and
-             assigned(CreateCoreWebView2Environment)                and
-             assigned(GetAvailableCoreWebView2BrowserVersionString) and
-             assigned(CompareBrowserVersions)                       then
+          if assigned(CreateCoreWebView2EnvironmentWithOptions)                and
+             assigned(CreateCoreWebView2Environment)                           and
+             assigned(GetAvailableCoreWebView2BrowserVersionString)            and
+             assigned(GetAvailableCoreWebView2BrowserVersionStringWithOptions) and
+             assigned(CompareBrowserVersions)                                  then
             begin
               Result  := True;
               FStatus := wvlsImported;
@@ -1703,7 +1775,9 @@ begin
                                                               FCustomCrashReportingEnabled,
                                                               TempSchemeRegistrations,
                                                               FEnableTrackingPrevention,
-                                                              FAreBrowserExtensionsEnabled);
+                                                              FAreBrowserExtensionsEnabled,
+                                                              FChannelSearchKind,
+                                                              FReleaseChannels);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),
@@ -1810,6 +1884,53 @@ begin
     begin
       Result := TempVersion;
       CoTaskMemFree(TempVersion);
+    end;
+end;
+
+function TWVLoader.GetAvailableBrowserVersionWithOptions : wvstring;
+var
+  TempVersion : PWideChar;
+  TempOptions : ICoreWebView2EnvironmentOptions;
+  TempSchemeRegistrations : TWVCustomSchemeRegistrationArray;
+  i : integer;
+begin
+  Result      := '';
+  TempVersion := nil;
+  TempOptions := nil;
+  TempSchemeRegistrations := nil;
+
+  if Initialized then
+    try
+      TempOptions := TCoreWebView2EnvironmentOptions.Create(CustomCommandLineSwitches,
+                                                            FLanguage,
+                                                            FTargetCompatibleBrowserVersion,
+                                                            FAllowSingleSignOnUsingOSPrimaryAccount,
+                                                            FExclusiveUserDataFolderAccess,
+                                                            FCustomCrashReportingEnabled,
+                                                            TempSchemeRegistrations,
+                                                            FEnableTrackingPrevention,
+                                                            FAreBrowserExtensionsEnabled,
+                                                            FChannelSearchKind,
+                                                            FReleaseChannels);
+
+      if succeeded(GetAvailableCoreWebView2BrowserVersionStringWithOptions(PWideChar(FBrowserExecPath), TempOptions, @TempVersion)) and
+         assigned(TempVersion) then
+        begin
+          Result := TempVersion;
+          CoTaskMemFree(TempVersion);
+        end;
+    finally
+      TempOptions := nil;
+
+      if assigned(TempSchemeRegistrations) then
+        begin
+          i := pred(length(TempSchemeRegistrations));
+          while (i >= 0) do
+            begin
+              TempSchemeRegistrations[i] := nil;
+              dec(i);
+            end;
+        end;
     end;
 end;
 

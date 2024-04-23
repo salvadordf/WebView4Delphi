@@ -69,6 +69,31 @@ var
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#getavailablecorewebview2browserversionstring">See the Globals article.</see></para>
   /// </remarks>
   GetAvailableCoreWebView2BrowserVersionString : function(browserExecutableFolder: LPCWSTR; versionInfo: PLPWSTR): HRESULT; stdcall;
+  /// <summary>
+  /// <para>This function will tell you the browser version info of the release channel
+  /// used when creating an environment with the same options. Browser version
+  /// info includes channel name if it is not the WebView2 Runtime. Channel names
+  /// are Beta, Dev, and Canary.  The format of the return string matches the format of
+  /// `BrowserVersionString` on `ICoreWebView2Environment`.</para>
+  /// <para>If an override exists for `browserExecutableFolder`, `releaseChannels`,
+  /// or `ChannelSearchKind`, the override is used. The presence of an override
+  /// can result in a different channel used than the one expected based on the
+  /// environment options object. `browserExecutableFolder` takes precedence over
+  /// the other options, regardless of whether or not its channel is included in
+  /// the `releaseChannels`. See `CreateCoreWebView2EnvironmentWithOptions`
+  /// for more details on overrides. If an override is not specified, then the
+  /// parameters passed to `GetAvailableCoreWebView2BrowserVersionStringWithOptions`
+  /// are used. Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find
+  /// an installed WebView2 Runtime or non-stable Microsoft Edge installation. Use
+  /// `GetAvailableCoreWebView2BrowserVersionString` to get the version info without
+  /// the environment options.</para>
+  /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+  /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#getavailablecorewebview2browserversionstringwithoptions">See the Globals article.</see></para>
+  /// </remarks>
+  GetAvailableCoreWebView2BrowserVersionStringWithOptions : function(browserExecutableFolder: LPCWSTR; const environmentOptions: ICoreWebView2EnvironmentOptions; versionInfo: PLPWSTR): HRESULT; stdcall;
 
 implementation
 

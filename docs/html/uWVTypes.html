@@ -170,6 +170,12 @@
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a></strong>                  = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND">COREWEBVIEW2_NON_CLIENT_REGION_KIND</a>;</code></td>
 </tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a></strong>                    = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a></strong>                      = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a></strong> = (...);</code></td>
 </tr>
 <tr class="list">
@@ -781,6 +787,46 @@
 
 
 <p>Renamed COREWEBVIEW2_NON_CLIENT_REGION_KIND type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TWVChannelSearchKind"></span><code><strong>TWVChannelSearchKind</strong>                    = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ The channel search kind determines the order that release channels are searched for during environment creation. The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of channels. </p>
+<p>
+
+
+<p>Renamed COREWEBVIEW2_CHANNEL_SEARCH_KIND type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TWVReleaseChannels"></span><code><strong>TWVReleaseChannels</strong>                      = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+
+
+<p>The WebView2 release channels. Use `ReleaseChannels` and `ChannelSearchKind` on `ICoreWebView2EnvironmentOptions` to control which channel is searched for during environment creation.
+
+<p></p>
+
+<pre class="preformatted">
+|Channel|Primary purpose|How often updated with new features|
+|:---:|---|:---:|
+|Stable (WebView2 Runtime)|Broad Deployment|Monthly|
+|Beta|Flighting with inner rings, automated testing|Monthly|
+|Dev|Automated testing, selfhosting to test new APIs and features|Weekly|
+|Canary|Automated testing, selfhosting to test new APIs and features|Daily|</pre>
+
+<p> </p>
+<p>
+
+
+<p>Renamed COREWEBVIEW2_RELEASE_CHANNELS type.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

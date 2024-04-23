@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2EnvironmentOptions7</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2EnvironmentOptions7"></span><h1 class="cio">Interface ICoreWebView2EnvironmentOptions7</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2EnvironmentOptions7 = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Additional options used to create the WebView2 Environment that support specifying the `ReleaseChannels` and `ChannelSearchKind`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions7 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2EnvironmentOptions7</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">Get_ChannelSearchKind</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">Set_ChannelSearchKind</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">Get_ReleaseChannels</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">Set_ReleaseChannels</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-"></span><code>function <strong>Get_ChannelSearchKind</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `ChannelSearchKind` property. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{C48D539F-E39F-441C-AE68-1F66E570BDC5}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-"></span><code>function <strong>Set_ChannelSearchKind</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE` by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so that environment creation searches for a channel from least to most stable. If `ReleaseChannels` has been provided, the loader will only search for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details on channels.
+
+<p>This property can be overridden by the corresponding registry key `ChannelSearchKind` or the environment variable `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-"></span><code>function <strong>Get_ReleaseChannels</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `ReleaseChannels` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-"></span><code>function <strong>Set_ReleaseChannels</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">COREWEBVIEW2_RELEASE_CHANNELS</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Sets the `ReleaseChannels`, which is a mask of one or more indicating which channels environment creation should search for.
+
+<p>OR operation(s) can be applied to multiple to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When is provided, environment creation will only search for the channels specified in the set. Set to to reverse the search order so that the loader searches for the least stable build first. See for descriptions of each channel. Environment creation fails if it is unable to find any channel from the installed on the device.
+
+<p>Use to verify which channel is used. If both a and are provided, the takes precedence. The can be overridden by the corresponding registry override or the environment variable . Set the value to a comma-separated string of integers, which map to the values: Stable (0), Beta (1), Dev (2), and Canary (3).
+
+<p>For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that the loader should only search for Dev channel and the WebView2 Runtime, using the order indicated by . Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
+
+<p></p>
+
+<pre class="preformatted">
+|   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
+| --- | --- | --- |
+|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -&gt; Beta | Beta -&gt; WebView2 Runtime|
+|CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary | Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime |
+|CoreWebView2ReleaseChannels.Canary| Canary | Canary |
+|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |</pre>
+
+<p> </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

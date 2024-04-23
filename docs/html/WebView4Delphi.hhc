@@ -550,30 +550,6 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FUserDataFolder">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="FAdditionalBrowserArguments">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAdditionalBrowserArguments">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="FLanguage">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FLanguage">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="FTargetCompatibleBrowserVersion">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FTargetCompatibleBrowserVersion">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="FAllowSingleSignOnUsingOSPrimaryAccount">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAllowSingleSignOnUsingOSPrimaryAccount">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="FExclusiveUserDataFolderAccess">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FExclusiveUserDataFolderAccess">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="FCustomCrashReportingEnabled">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCustomCrashReportingEnabled">
-</object>
-<li><object type="text/sitemap">
 <param name="Name" value="FIgnoreCertificateErrors">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FIgnoreCertificateErrors">
 </object>
@@ -618,6 +594,38 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FProfileGetBrowserExtensionsCompletedHandler">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FPreferredTrackingPreventionLevel">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FPreferredTrackingPreventionLevel">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FScriptLocale">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FAdditionalBrowserArguments">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAdditionalBrowserArguments">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FLanguage">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FLanguage">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FTargetCompatibleBrowserVersion">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FTargetCompatibleBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FAllowSingleSignOnUsingOSPrimaryAccount">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAllowSingleSignOnUsingOSPrimaryAccount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FExclusiveUserDataFolderAccess">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FExclusiveUserDataFolderAccess">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FCustomCrashReportingEnabled">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCustomCrashReportingEnabled">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FEnableTrackingPrevention">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FEnableTrackingPrevention">
 </object>
@@ -626,12 +634,12 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="FPreferredTrackingPreventionLevel">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FPreferredTrackingPreventionLevel">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FChannelSearchKind">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="FScriptLocale">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FScriptLocale">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FOldWidget0CompWndPrc">
@@ -1178,6 +1186,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AreBrowserExtensionsEnabled">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AreBrowserExtensionsEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="BrowserVersionInfo">
@@ -11975,6 +11991,14 @@
 <param name="Name" value="FAreBrowserExtensionsEnabled">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FAreBrowserExtensionsEnabled">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FReleaseChannels">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -12052,6 +12076,22 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_AreBrowserExtensionsEnabled">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_AreBrowserExtensionsEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ReleaseChannels">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="DestroySchemeRegistrations">
@@ -16968,6 +17008,14 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FAreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#FReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FEnableGPU">
 <param name="Local" value="uWVLoader.TWVLoader.html#FEnableGPU">
 </object>
@@ -17110,6 +17158,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersion">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersionWithOptions">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ErrorMessage">
 <param name="Local" value="uWVLoader.TWVLoader.html#ErrorMessage">
 </object>
@@ -17208,6 +17260,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AreBrowserExtensionsEnabled">
 <param name="Local" value="uWVLoader.TWVLoader.html#AreBrowserExtensionsEnabled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="EnableGPU">
@@ -17378,6 +17438,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetAvailableBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersionWithOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetInitialized">
@@ -17676,6 +17740,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Internal_GetAvailableCoreWebView2BrowserVersionString">
 <param name="Local" value="uWVLoaderInternal.html#Internal_GetAvailableCoreWebView2BrowserVersionString">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions">
+<param name="Local" value="uWVLoaderInternal.html#Internal_GetAvailableCoreWebView2BrowserVersionStringWithOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Internal_CompareBrowserVersions">
@@ -22774,6 +22842,34 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2EnvironmentOptions7">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Frame2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame2.html">
 </object>
@@ -24056,6 +24152,14 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_FRAME_KIND">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FRAME_KIND">
 </object>
@@ -24828,6 +24932,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EnvironmentOptions6">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions6">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2EnvironmentOptions7">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions7">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Frame2">
@@ -25814,6 +25922,34 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_NONE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_NONE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_STABLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_STABLE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_BETA">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_BETA">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_DEV">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_DEV">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_RELEASE_CHANNELS_CANARY">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_CANARY">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_FRAME_KIND_UNKNOWN">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FRAME_KIND_UNKNOWN">
 </object>
@@ -26402,6 +26538,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVNonClientRegionKind">
 <param name="Local" value="uWVTypes.html#TWVNonClientRegionKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVChannelSearchKind">
+<param name="Local" value="uWVTypes.html#TWVChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVReleaseChannels">
+<param name="Local" value="uWVTypes.html#TWVReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWV2LoaderStatus">
@@ -29100,6 +29244,34 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_AreBrowserExtensionsEnabled">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html#Set_AreBrowserExtensionsEnabled">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2EnvironmentOptions7">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels">
 </object>
 </ul>
 </ul>
@@ -37790,6 +37962,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FAreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCustomCrashReportingEnabled">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FCustomCrashReportingEnabled">
 </object>
@@ -37804,6 +37980,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FLanguage">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FLanguage">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FSchemeRegistrations">
@@ -37844,6 +38024,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_AreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="Get_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Get_EnableTrackingPrevention">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_EnableTrackingPrevention">
 </object>
@@ -37858,6 +38042,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_Language">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_Language">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Get_TargetCompatibleBrowserVersion">
@@ -37880,6 +38068,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_AreBrowserExtensionsEnabled">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="Set_ChannelSearchKind">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Set_EnableTrackingPrevention">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_EnableTrackingPrevention">
 </object>
@@ -37894,6 +38086,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_Language">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_Language">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ReleaseChannels">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Set_TargetCompatibleBrowserVersion">
@@ -44864,6 +45060,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FBrowserExecPath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FClearBrowsingDataCompletedHandler">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FClearBrowsingDataCompletedHandler">
 </object>
@@ -45352,6 +45552,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FProfileName">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FRenderCompHWND">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FRenderCompHWND">
 </object>
@@ -45472,6 +45676,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="CanGoForward">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CanGoForward">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ChannelSearchKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ContainsFullScreenElement">
@@ -46064,6 +46272,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="RasterizationScale">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RasterizationScale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ReleaseChannels">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RenderCompHWND">
@@ -48358,6 +48570,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FBrowserExecPath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#FChannelSearchKind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCheckFiles">
 <param name="Local" value="uWVLoader.TWVLoader.html#FCheckFiles">
 </object>
@@ -48506,6 +48722,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FProxySettings">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#FReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FRemoteAllowOrigins">
 <param name="Local" value="uWVLoader.TWVLoader.html#FRemoteAllowOrigins">
 </object>
@@ -48600,12 +48820,20 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersion">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#AvailableBrowserVersionWithOptions">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="BlinkSettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#BlinkSettings">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="BrowserExecPath">
 <param name="Local" value="uWVLoader.TWVLoader.html#BrowserExecPath">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ChannelSearchKind">
+<param name="Local" value="uWVLoader.TWVLoader.html#ChannelSearchKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CheckFiles">
@@ -48784,6 +49012,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#ProxySettings">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ReleaseChannels">
+<param name="Local" value="uWVLoader.TWVLoader.html#ReleaseChannels">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="RemoteAllowOrigins">
 <param name="Local" value="uWVLoader.TWVLoader.html#RemoteAllowOrigins">
 </object>
@@ -48900,6 +49132,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetAvailableBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAvailableBrowserVersionWithOptions">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersionWithOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetCustomCommandLineSwitches">

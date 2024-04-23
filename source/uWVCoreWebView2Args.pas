@@ -1819,6 +1819,12 @@ type
       /// `Source`, for example, if `window.location` is set to `"calculator://", the
       /// `InitiatingOrigin` will be set to `calculator://`. If the request is initiated
       ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.</para>
+      /// <para>If the `InitiatingOrigin` is
+      /// [opaque](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque),
+      /// the `InitiatingOrigin` reported in the event args will be its precursor origin.
+      /// The precursor origin is the origin that created the opaque origin. For example, if
+      /// a frame on example.com opens a subframe with a different opaque origin, the subframe's
+      /// precursor origin is example.com.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2launchingexternalurischemeeventargs#get_initiatingorigin">See the ICoreWebView2LaunchingExternalUriSchemeEventArgs article.</see></para>

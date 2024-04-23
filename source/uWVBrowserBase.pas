@@ -42,12 +42,6 @@ type
       FDefaultURL                                      : wvstring;
       FBrowserExecPath                                 : wvstring;
       FUserDataFolder                                  : wvstring;
-      FAdditionalBrowserArguments                      : wvstring;
-      FLanguage                                        : wvstring;
-      FTargetCompatibleBrowserVersion                  : wvstring;
-      FAllowSingleSignOnUsingOSPrimaryAccount          : boolean;
-      FExclusiveUserDataFolderAccess                   : boolean;
-      FCustomCrashReportingEnabled                     : boolean;
       FIgnoreCertificateErrors                         : boolean;
       FZoomStep                                        : byte;
       FOffline                                         : boolean;
@@ -59,10 +53,20 @@ type
       FGetNonDefaultPermissionSettingsCompletedHandler : ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler;
       FProfileAddBrowserExtensionCompletedHandler      : ICoreWebView2ProfileAddBrowserExtensionCompletedHandler;
       FProfileGetBrowserExtensionsCompletedHandler     : ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler;
-      FEnableTrackingPrevention                        : boolean;
-      FAreBrowserExtensionsEnabled                     : boolean;
       FPreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel;
       FScriptLocale                                    : wvstring;
+
+      // Fields used to create the environment
+      FAdditionalBrowserArguments                      : wvstring;
+      FLanguage                                        : wvstring;
+      FTargetCompatibleBrowserVersion                  : wvstring;
+      FAllowSingleSignOnUsingOSPrimaryAccount          : boolean;
+      FExclusiveUserDataFolderAccess                   : boolean;
+      FCustomCrashReportingEnabled                     : boolean;
+      FEnableTrackingPrevention                        : boolean;
+      FAreBrowserExtensionsEnabled                     : boolean;
+      FChannelSearchKind                               : TWVChannelSearchKind;
+      FReleaseChannels                                 : TWVReleaseChannels;
 
       FOldWidget0CompWndPrc                           : TFNWndProc;
       FOldWidget1CompWndPrc                           : TFNWndProc;
@@ -1858,6 +1862,61 @@ type
       /// </remarks>
       property AreBrowserExtensionsEnabled                     : boolean                                               read FAreBrowserExtensionsEnabled                     write FAreBrowserExtensionsEnabled;
       /// <summary>
+      /// <para>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE`
+      /// by default; environment creation searches for a release channel on the machine
+      /// from most to least stable using the first channel found. The default search order is:
+      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set `ChannelSearchKind` to
+      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// so that environment creation searches for a channel from least to most stable. If
+      /// `ReleaseChannels` has been provided, the loader will only search
+      /// for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details
+      /// on channels.</para>
+      /// <para>This property can be overridden by the corresponding
+      /// registry key `ChannelSearchKind` or the environment variable
+      /// `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to
+      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See
+      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ChannelSearchKind.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+      /// </remarks>
+      property ChannelSearchKind                               : TWVChannelSearchKind                                  read FChannelSearchKind                               write FChannelSearchKind;
+      /// <summary>
+      /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
+      /// indicating which channels environment creation should search for.</para>
+      /// <para>OR operation(s) can be applied to multiple  to create a mask.
+      /// The default value is a mask of all the channels. By default, environment
+      /// creation searches for channels from most to least stable, using the first
+      /// channel found on the device. When  is provided, environment creation will
+      /// only search for the channels specified in the set. Set  to  to reverse
+      /// the search order so that the loader searches for the least stable build
+      /// first. See  for descriptions of each channel. Environment creation fails
+      /// if it is unable to find any channel from the  installed on the device.</para>
+      /// <para>Use  to verify which channel is used. If both a  and  are provided,
+      /// the  takes precedence. The  can be overridden by the corresponding
+      /// registry override  or the environment variable . Set the value to a
+      /// comma-separated string of integers, which map to the  values: Stable (0),
+      /// Beta (1), Dev (2), and Canary (3).</para>
+      /// <para>For example, the values "0,2" and "2,0" indicate that the loader
+      /// should only search for Dev channel and the WebView2 Runtime, using the
+      /// order indicated by . Environment creation attempts to interpret each
+      /// integer and treats any invalid entry as Stable channel.</para>
+      /// <code>
+      /// |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
+      /// | --- | --- | --- |
+      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -> Beta | Beta -> WebView2 Runtime|
+      /// |CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Dev -> Canary | Canary -> Dev -> Beta -> WebView2 Runtime |
+      /// |CoreWebView2ReleaseChannels.Canary| Canary | Canary |
+      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Canary | Canary -> Beta -> WebView2 Runtime |
+      /// </code>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+      /// </remarks>
+      property ReleaseChannels                                 : TWVReleaseChannels                                    read FReleaseChannels                                 write FReleaseChannels;
+      /// <summary>
       /// The browser version info of the current `ICoreWebView2Environment`,
       /// including channel name if it is not the WebView2 Runtime.  It matches the
       /// format of the `GetAvailableCoreWebView2BrowserVersionString` API.
@@ -2258,11 +2317,12 @@ type
       /// <summary>
       /// <para>Returns the User Agent. The default value is the default User Agent of the
       /// Microsoft Edge browser.</para>
-      /// <para>This property may be overridden if the User-Agent header is set in a request.
-      /// If the parameter is empty the User Agent will not be updated and the current
-      /// User Agent will remain.</para>
-      /// <para>Setting this property will cause the other user agent client hints
-      /// Sec-CH-UA-* headers to be overridden and dropped.</para>
+      /// <para>This property may be overridden if
+      /// the User-Agent header is set in a request. If the parameter is empty
+      /// the User Agent will not be updated and the current User Agent will remain.
+      /// Setting this property may clear User Agent Client Hints headers
+      /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
+      /// implementation behavior is subject to change.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>
@@ -3539,16 +3599,8 @@ begin
   FCoreWebView2                                    := nil;
   FCoreWebView2Profile                             := nil;
   FDefaultURL                                      := '';
-  FAdditionalBrowserArguments                      := '';
-  FLanguage                                        := '';
   FUseDefaultEnvironment                           := False;
   FUseCompositionController                        := False;
-  FTargetCompatibleBrowserVersion                  := LowestChromiumVersion;
-  FAllowSingleSignOnUsingOSPrimaryAccount          := False;
-  FExclusiveUserDataFolderAccess                   := False;
-  FCustomCrashReportingEnabled                     := False;
-  FEnableTrackingPrevention                        := True;
-  FAreBrowserExtensionsEnabled                     := False;
   FZoomStep                                        := ZOOM_STEP_DEF;
   FOffline                                         := False;
   FIsNavigating                                    := False;
@@ -3560,6 +3612,21 @@ begin
   FGetNonDefaultPermissionSettingsCompletedHandler := nil;
   FProfileAddBrowserExtensionCompletedHandler      := nil;
   FProfileGetBrowserExtensionsCompletedHandler     := nil;
+
+  // Fields used to create the environment
+  FAdditionalBrowserArguments                      := '';
+  FLanguage                                        := '';
+  FTargetCompatibleBrowserVersion                  := LowestChromiumVersion;
+  FAllowSingleSignOnUsingOSPrimaryAccount          := False;
+  FExclusiveUserDataFolderAccess                   := False;
+  FCustomCrashReportingEnabled                     := False;
+  FEnableTrackingPrevention                        := True;
+  FAreBrowserExtensionsEnabled                     := False;
+  FChannelSearchKind                               := COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE;
+  FReleaseChannels                                 := COREWEBVIEW2_RELEASE_CHANNELS_STABLE or
+                                                      COREWEBVIEW2_RELEASE_CHANNELS_BETA or
+                                                      COREWEBVIEW2_RELEASE_CHANNELS_DEV or
+                                                      COREWEBVIEW2_RELEASE_CHANNELS_CANARY;
 
   FOldWidget0CompWndPrc                            := nil;
   FOldWidget1CompWndPrc                            := nil;
@@ -4070,6 +4137,7 @@ begin
 
             if assigned(TempSettings) then
               begin
+                DestroyProfile;
                 FCoreWebView2Profile := TCoreWebView2Profile.Create(FCoreWebView2.Profile);
                 FCoreWebView2Profile.AddAllBrowserEvents(self);
 
@@ -5796,7 +5864,9 @@ begin
                                                           FCustomCrashReportingEnabled,
                                                           TempSchemeRegistrations,
                                                           FEnableTrackingPrevention,
-                                                          FAreBrowserExtensionsEnabled);
+                                                          FAreBrowserExtensionsEnabled,
+                                                          FChannelSearchKind,
+                                                          FReleaseChannels);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),

@@ -205,6 +205,7 @@ const
   IID_ICoreWebView2EnvironmentOptions4: TGUID = '{AC52D13F-0D38-475A-9DCA-876580D6793E}';
   IID_ICoreWebView2EnvironmentOptions5: TGUID = '{0AE35D64-C47F-4464-814E-259C345D1501}';
   IID_ICoreWebView2EnvironmentOptions6: TGUID = '{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}';
+  IID_ICoreWebView2EnvironmentOptions7: TGUID = '{C48D539F-E39F-441C-AE68-1F66E570BDC5}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -2062,6 +2063,93 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = $00000006;
 
+type
+  /// <summary>
+  /// The channel search kind determines the order that release channels are
+  /// searched for during environment creation. The default behavior is to search
+  /// for and use the most stable channel found on the device. The order from most
+  /// to least stable is: WebView2 Runtime -> Beta -> Dev -> Canary. Switch the
+  /// order to prefer the least stable channel in order to perform pre-release
+  /// testing. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of channels.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_channel_search_kind">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_CHANNEL_SEARCH_KIND = TOleEnum;
+const
+  /// <summary>
+  /// Search for a release channel from most to least stable:
+  /// WebView2 Runtime -> Beta -> Dev -> Canary. This is the default behavior.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_CHANNEL_SEARCH_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE = $00000000;
+  /// <summary>
+  /// Search for a release channel from least to most stable:
+  /// Canary -> Dev -> Beta -> WebView2 Runtime.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_CHANNEL_SEARCH_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE = $00000001;
+
+type
+  /// <summary>
+  /// <para>The WebView2 release channels. Use `ReleaseChannels` and `ChannelSearchKind`
+  /// on `ICoreWebView2EnvironmentOptions` to control which channel is searched
+  /// for during environment creation.</para>
+  /// <code>
+  /// |Channel|Primary purpose|How often updated with new features|
+  /// |:---:|---|:---:|
+  /// |Stable (WebView2 Runtime)|Broad Deployment|Monthly|
+  /// |Beta|Flighting with inner rings, automated testing|Monthly|
+  /// |Dev|Automated testing, selfhosting to test new APIs and features|Weekly|
+  /// |Canary|Automated testing, selfhosting to test new APIs and features|Daily|
+  /// </code>
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_release_channels">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS = TOleEnum;
+const
+  /// <summary>
+  /// No release channel. Passing only this value to `ReleaseChannels` results
+  /// in HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND).
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_RELEASE_CHANNELS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS_NONE = $00000000;
+  /// <summary>
+  /// The stable WebView2 Runtime that is released every 4 weeks.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_RELEASE_CHANNELS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS_STABLE = $00000001;
+  /// <summary>
+  /// The Beta release channel that is released every 4 weeks, a week before the
+  /// stable release.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_RELEASE_CHANNELS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS_BETA = $00000002;
+  /// <summary>
+  /// The Dev release channel that is released weekly.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_RELEASE_CHANNELS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS_DEV = $00000004;
+  /// <summary>
+  /// The Canary release channel that is released daily.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_RELEASE_CHANNELS values.</para>
+  /// </remarks>
+  COREWEBVIEW2_RELEASE_CHANNELS_CANARY = $00000008;
 
 type
   /// <summary>
@@ -2947,6 +3035,7 @@ type
   ICoreWebView2EnvironmentOptions4 = interface;
   ICoreWebView2EnvironmentOptions5 = interface;
   ICoreWebView2EnvironmentOptions6 = interface;
+  ICoreWebView2EnvironmentOptions7 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -8524,13 +8613,19 @@ type
     /// </summary>
     function Get_uri(out value: PWideChar): HResult; stdcall;
     /// <summary>
-    /// The origin initiating the external URI scheme launch.
+    /// <para>The origin initiating the external URI scheme launch.
     /// The origin will be an empty string if the request is initiated by calling
     /// `CoreWebView2.Navigate` on the external URI scheme. If a script initiates
     /// the navigation, the `InitiatingOrigin` will be the top-level document's
     /// `Source`, for example, if `window.location` is set to `"calculator://", the
     /// `InitiatingOrigin` will be set to `calculator://`. If the request is initiated
-    ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.
+    ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.</para>
+    /// <para>If the `InitiatingOrigin` is
+    /// [opaque](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque),
+    /// the `InitiatingOrigin` reported in the event args will be its precursor origin.
+    /// The precursor origin is the origin that created the opaque origin. For example, if
+    /// a frame on example.com opens a subframe with a different opaque origin, the subframe's
+    /// precursor origin is example.com.</para>
     /// </summary>
     function Get_InitiatingOrigin(out value: PWideChar): HResult; stdcall;
     /// <summary>
@@ -10846,6 +10941,72 @@ type
   end;
 
   /// <summary>
+  /// Additional options used to create the WebView2 Environment that support
+  /// specifying the `ReleaseChannels` and `ChannelSearchKind`.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+  /// </remarks>
+  ICoreWebView2EnvironmentOptions7 = interface(IUnknown)
+    ['{C48D539F-E39F-441C-AE68-1F66E570BDC5}']
+    /// <summary>
+    /// Gets the `ChannelSearchKind` property.
+    /// </summary>
+    function Get_ChannelSearchKind(out value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+    /// <summary>
+    /// <para>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE`
+    /// by default; environment creation searches for a release channel on the machine
+    /// from most to least stable using the first channel found. The default search order is:
+    /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set `ChannelSearchKind` to
+    /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+    /// so that environment creation searches for a channel from least to most stable. If
+    /// `ReleaseChannels` has been provided, the loader will only search
+    /// for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details
+    /// on channels.</para>
+    /// <para>This property can be overridden by the corresponding
+    /// registry key `ChannelSearchKind` or the environment variable
+    /// `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to
+    /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See
+    /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+    /// </summary>
+    function Set_ChannelSearchKind(value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+    /// <summary>
+    /// Gets the `ReleaseChannels` property.
+    /// </summary>
+    function Get_ReleaseChannels(out value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+    /// <summary>
+    /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
+    /// indicating which channels environment creation should search for.</para>
+    /// <para>OR operation(s) can be applied to multiple  to create a mask.
+    /// The default value is a mask of all the channels. By default, environment
+    /// creation searches for channels from most to least stable, using the first
+    /// channel found on the device. When  is provided, environment creation will
+    /// only search for the channels specified in the set. Set  to  to reverse
+    /// the search order so that the loader searches for the least stable build
+    /// first. See  for descriptions of each channel. Environment creation fails
+    /// if it is unable to find any channel from the  installed on the device.</para>
+    /// <para>Use  to verify which channel is used. If both a  and  are provided,
+    /// the  takes precedence. The  can be overridden by the corresponding
+    /// registry override  or the environment variable . Set the value to a
+    /// comma-separated string of integers, which map to the  values: Stable (0),
+    /// Beta (1), Dev (2), and Canary (3).</para>
+    /// <para>For example, the values "0,2" and "2,0" indicate that the loader
+    /// should only search for Dev channel and the WebView2 Runtime, using the
+    /// order indicated by . Environment creation attempts to interpret each
+    /// integer and treats any invalid entry as Stable channel.</para>
+    /// <code>
+    /// |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
+    /// | --- | --- | --- |
+    /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -> Beta | Beta -> WebView2 Runtime|
+    /// |CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Dev -> Canary | Canary -> Dev -> Beta -> WebView2 Runtime |
+    /// |CoreWebView2ReleaseChannels.Canary| Canary | Canary |
+    /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Canary | Canary -> Beta -> WebView2 Runtime |
+    /// </code>
+    /// </summary>
+    function Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// A continuation of the ICoreWebView2Frame interface with navigation events,
   /// executing script and posting web messages.
   /// </summary>
@@ -12245,8 +12406,9 @@ type
     /// Sets the `UserAgent` property. This property may be overridden if
     /// the User-Agent header is set in a request. If the parameter is empty
     /// the User Agent will not be updated and the current User Agent will remain.
-    /// Setting this property will cause the other user agent client hints
-    /// Sec-CH-UA-* headers to be overridden and dropped.
+    /// Setting this property may clear User Agent Client Hints headers
+    /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
+    /// implementation behavior is subject to change.
     /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if the owning WebView is
     /// closed.
     /// </summary>

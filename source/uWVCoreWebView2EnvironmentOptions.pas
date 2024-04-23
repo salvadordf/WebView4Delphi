@@ -28,7 +28,8 @@ type
                                           ICoreWebView2EnvironmentOptions3,
                                           ICoreWebView2EnvironmentOptions4,
                                           ICoreWebView2EnvironmentOptions5,
-                                          ICoreWebView2EnvironmentOptions6)
+                                          ICoreWebView2EnvironmentOptions6,
+                                          ICoreWebView2EnvironmentOptions7)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
@@ -39,6 +40,8 @@ type
       FSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
       FEnableTrackingPrevention               : boolean;
       FAreBrowserExtensionsEnabled            : boolean;
+      FChannelSearchKind                      : TWVChannelSearchKind;
+      FReleaseChannels                        : TWVReleaseChannels;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -70,6 +73,12 @@ type
       function Get_AreBrowserExtensionsEnabled(out value: Integer): HResult; stdcall;
       function Set_AreBrowserExtensionsEnabled(value: Integer): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions7
+      function Get_ChannelSearchKind(out value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+      function Set_ChannelSearchKind(value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+      function Get_ReleaseChannels(out value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+      function Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+
       procedure DestroySchemeRegistrations;
 
     public
@@ -85,6 +94,8 @@ type
       /// <param name="aSchemeRegistrations">Array of custom scheme registrations.</param>
       /// <param name="aEnableTrackingPrevention">Enable tracking prevention.</param>
       /// <param name="aAreBrowserExtensionsEnabled">If it's set to True, new extensions can be added to user profile and used.</param>
+      /// <param name="aChannelSearchKind">WebView2 Runtime channel search order.</param>
+      /// <param name="aReleaseChannels">Indicates which channels environment creation should search for.</param>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
@@ -92,8 +103,9 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions4">See the ICoreWebView2EnvironmentOptions4 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
       /// </remarks>
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : TWVChannelSearchKind; aReleaseChannels : TWVReleaseChannels);
       destructor  Destroy; override;
   end;
 
@@ -110,7 +122,9 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                          aCustomCrashReportingEnabled            : boolean;
                                                    const aSchemeRegistrations                    : TWVCustomSchemeRegistrationArray;
                                                          aEnableTrackingPrevention               : boolean;
-                                                         aAreBrowserExtensionsEnabled            : boolean);
+                                                         aAreBrowserExtensionsEnabled            : boolean;
+                                                         aChannelSearchKind                      : TWVChannelSearchKind;
+                                                         aReleaseChannels                        : TWVReleaseChannels);
 var
   i : integer;
 begin
@@ -125,6 +139,8 @@ begin
   FSchemeRegistrations                    := nil;
   FEnableTrackingPrevention               := aEnableTrackingPrevention;
   FAreBrowserExtensionsEnabled            := aAreBrowserExtensionsEnabled;
+  FChannelSearchKind                      := aChannelSearchKind;
+  FReleaseChannels                        := aReleaseChannels;
 
   if assigned(aSchemeRegistrations) then
     begin
@@ -335,6 +351,30 @@ function TCoreWebView2EnvironmentOptions.Set_AreBrowserExtensionsEnabled(value: 
 begin
   Result                       := S_OK;
   FAreBrowserExtensionsEnabled := (value <> 0);
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_ChannelSearchKind(out value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := FChannelSearchKind;
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_ChannelSearchKind(value: COREWEBVIEW2_CHANNEL_SEARCH_KIND): HResult; stdcall;
+begin
+  Result             := S_OK;
+  FChannelSearchKind := value;
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_ReleaseChannels(out value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := FReleaseChannels;
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+begin
+  Result           := S_OK;
+  FReleaseChannels := value;
 end;
 
 end.
