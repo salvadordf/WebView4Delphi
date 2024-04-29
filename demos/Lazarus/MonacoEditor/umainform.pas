@@ -45,7 +45,7 @@ implementation
 
 // This file is located in the WebView4Delphi\assets\monaco directory.
 
-// This demo maps the customhost.test domain to the ..\assets\monaco directory by calling
+// This demo maps the monaco.editor domain to the ..\assets\monaco directory by calling
 // TWVBrowser.SetVirtualHostNameToFolderMapping inside the TWVBrowser.OnAfterCreated event.
 
 // Read this for all the details about this feature :
