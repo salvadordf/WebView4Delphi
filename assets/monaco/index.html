@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <link rel="stylesheet"
+              data-name="vs/editor/editor.main"
+              href="./min/vs/editor/editor.main.css" />
+        <style>
+            html, body { height: 100%; margin: 0; }
+            #container { height: 100%; }
+            #editorContainer {
+              width: 100%;
+              height: 100vh; /* Set the height to 100% of the viewport height */
+            }
+        </style>
+    </head>
+
+     <body>
+        <div id="container"></div>
+        <script src="./min/vs/loader.js"></script>
+        <script>
+            require.config({ paths: { 'vs': './min/vs' } });
+        </script>
+        <script src="./min/vs/editor/editor.main.nls.js"></script>
+        <script src="./min/vs/editor/editor.main.js"></script>
+
+        <script>
+            monaco.editor.setTheme('vs-dark');
+            var editor = monaco.editor.create(document.getElementById('container'), {
+                value: 'function helloWorld(); \n  begin\n\t  console.log("Hello world!");\n  end;',
+                language: 'pascal'
+            });
+
+            editor.addAction({
+                id: "myFind",
+                label: "Find",
+                contextMenuGroupId: "2_selection", // You can choose an appropriate group
+                run: (editor) => {
+                // Programmatically open the find widget
+                editor.focus();
+                const findAction = editor.getAction("actions.find");
+                void findAction?.run();
+                }
+            });
+        </script>
+
+    </body>
+</html>
