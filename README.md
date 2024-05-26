@@ -51,7 +51,7 @@ You can also support this project with Liberapay.
 
 ## Attribution
 * [Fugue & Diagona icons](http://yusukekamiyamane.com/)
-* [FatCow Farm-Fresh Web Icons](https://www.fatcow.com/free-icons)
+* [FatCow Farm-Fresh Web Icons](https://github.com/gammasoft/fatcow)
 * [Material Design Icons](https://github.com/google/material-design-icons) 
 * [Monaco Editor](https://github.com/microsoft/monaco-editor)
 
