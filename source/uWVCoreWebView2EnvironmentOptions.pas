@@ -29,7 +29,8 @@ type
                                           ICoreWebView2EnvironmentOptions4,
                                           ICoreWebView2EnvironmentOptions5,
                                           ICoreWebView2EnvironmentOptions6,
-                                          ICoreWebView2EnvironmentOptions7)
+                                          ICoreWebView2EnvironmentOptions7,
+                                          ICoreWebView2EnvironmentOptions8)
     protected
       FAdditionalBrowserArguments             : wvstring;
       FLanguage                               : wvstring;
@@ -42,6 +43,7 @@ type
       FAreBrowserExtensionsEnabled            : boolean;
       FChannelSearchKind                      : TWVChannelSearchKind;
       FReleaseChannels                        : TWVReleaseChannels;
+      FScrollBarStyle                         : TWVScrollBarStyle;
 
       // ICoreWebView2EnvironmentOptions
       function Get_AdditionalBrowserArguments(out value: PWideChar): HResult; stdcall;
@@ -79,6 +81,10 @@ type
       function Get_ReleaseChannels(out value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
       function Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
 
+      // ICoreWebView2EnvironmentOptions8
+      function Get_ScrollBarStyle(out value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
+      function Set_ScrollBarStyle(value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
+
       procedure DestroySchemeRegistrations;
 
     public
@@ -96,6 +102,7 @@ type
       /// <param name="aAreBrowserExtensionsEnabled">If it's set to True, new extensions can be added to user profile and used.</param>
       /// <param name="aChannelSearchKind">WebView2 Runtime channel search order.</param>
       /// <param name="aReleaseChannels">Indicates which channels environment creation should search for.</param>
+      /// <param name="aScrollBarStyle">The ScrollBar style being set on the WebView2 Environment.</param>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions">See the ICoreWebView2EnvironmentOptions article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions2">See the ICoreWebView2EnvironmentOptions2 article.</see></para>
@@ -104,8 +111,9 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions5">See the ICoreWebView2EnvironmentOptions5 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">See the ICoreWebView2EnvironmentOptions6 article.</see></para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8">See the ICoreWebView2EnvironmentOptions8 article.</see></para>
       /// </remarks>
-      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : TWVChannelSearchKind; aReleaseChannels : TWVReleaseChannels);
+      constructor Create(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : wvstring; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: TWVCustomSchemeRegistrationArray; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : TWVChannelSearchKind; aReleaseChannels : TWVReleaseChannels; aScrollBarStyle: TWVScrollBarStyle);
       destructor  Destroy; override;
   end;
 
@@ -124,7 +132,8 @@ constructor TCoreWebView2EnvironmentOptions.Create(const aAdditionalBrowserArgum
                                                          aEnableTrackingPrevention               : boolean;
                                                          aAreBrowserExtensionsEnabled            : boolean;
                                                          aChannelSearchKind                      : TWVChannelSearchKind;
-                                                         aReleaseChannels                        : TWVReleaseChannels);
+                                                         aReleaseChannels                        : TWVReleaseChannels;
+                                                         aScrollBarStyle                         : TWVScrollBarStyle);
 var
   i : integer;
 begin
@@ -141,6 +150,7 @@ begin
   FAreBrowserExtensionsEnabled            := aAreBrowserExtensionsEnabled;
   FChannelSearchKind                      := aChannelSearchKind;
   FReleaseChannels                        := aReleaseChannels;
+  FScrollBarStyle                         := aScrollBarStyle;
 
   if assigned(aSchemeRegistrations) then
     begin
@@ -375,6 +385,18 @@ function TCoreWebView2EnvironmentOptions.Set_ReleaseChannels(value: COREWEBVIEW2
 begin
   Result           := S_OK;
   FReleaseChannels := value;
+end;
+
+function TCoreWebView2EnvironmentOptions.Get_ScrollBarStyle(out value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
+begin
+  Result := S_OK;
+  value  := FScrollBarStyle;
+end;
+
+function TCoreWebView2EnvironmentOptions.Set_ScrollBarStyle(value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
+begin
+  Result          := S_OK;
+  FScrollBarStyle := value;
 end;
 
 end.

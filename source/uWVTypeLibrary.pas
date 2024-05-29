@@ -206,6 +206,7 @@ const
   IID_ICoreWebView2EnvironmentOptions5: TGUID = '{0AE35D64-C47F-4464-814E-259C345D1501}';
   IID_ICoreWebView2EnvironmentOptions6: TGUID = '{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}';
   IID_ICoreWebView2EnvironmentOptions7: TGUID = '{C48D539F-E39F-441C-AE68-1F66E570BDC5}';
+  IID_ICoreWebView2EnvironmentOptions8: TGUID = '{7C7ECF51-E918-5CAF-853C-E9A2BCC27775}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -2153,6 +2154,32 @@ const
 
 type
   /// <summary>
+  /// Set ScrollBar style on `ICoreWebView2EnvironmentOptions` during environment creation.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_scrollbar_style">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_SCROLLBAR_STYLE = TOleEnum;
+const
+  /// <summary>
+  /// Browser default ScrollBar style.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_SCROLLBAR_STYLE values.</para>
+  /// </remarks>
+  COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT = $00000000;
+  /// <summary>
+  /// <para>Window style fluent overlay scroll bar.</para>
+  /// <para>Please see [Fluent UI](https:/-/developer.microsoft.com/en-us/fluentui#/)
+  /// for more details on fluent UI.</para>
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_SCROLLBAR_STYLE values.</para>
+  /// </remarks>
+  COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY = $00000001;
+
+type
+  /// <summary>
   /// Indicates the frame type used in the `ICoreWebView2FrameInfo` interface.
   /// </summary>
   /// <remarks>
@@ -3036,6 +3063,7 @@ type
   ICoreWebView2EnvironmentOptions5 = interface;
   ICoreWebView2EnvironmentOptions6 = interface;
   ICoreWebView2EnvironmentOptions7 = interface;
+  ICoreWebView2EnvironmentOptions8 = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -4070,6 +4098,11 @@ type
     /// If you require CDP methods to run in a particular order, you should wait
     /// for the previous method's completed handler to run before calling the
     /// next method.
+    /// If the method is to run in add_NewWindowRequested handler it should be called
+    /// before the new window is set if the cdp message should affect the initial navigation. If
+    /// called after setting the NewWindow property, the cdp messages
+    /// may or may not apply to the initial navigation and may only apply to the subsequent navigation.
+    /// For more details see `ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow`.
     ///
     /// \snippet ScriptComponent.cpp CallDevToolsProtocolMethod
     /// </summary>
@@ -11004,6 +11037,32 @@ type
     /// </code>
     /// </summary>
     function Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Additional options used to create WebView2 Environment.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8">See the ICoreWebView2EnvironmentOptions8 article.</see></para>
+  /// </remarks>
+  ICoreWebView2EnvironmentOptions8 = interface(IUnknown)
+    ['{7C7ECF51-E918-5CAF-853C-E9A2BCC27775}']
+    /// <summary>
+    /// Gets the `ScrollBarStyle` property.
+    /// </summary>
+    function Get_ScrollBarStyle(out value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
+    /// <summary>
+    /// The ScrollBar style being set on the WebView2 Environment.
+    /// The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT`
+    /// which specifies the default browser ScrollBar style.
+    /// The `color-scheme` CSS property needs to be set on the corresponding page
+    /// to allow ScrollBar to follow light or dark theme. Please see
+    /// [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
+    /// for how `color-scheme` can be set.
+    /// CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
+    /// that is selected with `ScrollBarStyle`.
+    /// </summary>
+    function Set_ScrollBarStyle(value: COREWEBVIEW2_SCROLLBAR_STYLE): HResult; stdcall;
   end;
 
   /// <summary>

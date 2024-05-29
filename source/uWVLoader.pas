@@ -56,6 +56,7 @@ type
       FAreBrowserExtensionsEnabled            : boolean;
       FChannelSearchKind                      : TWVChannelSearchKind;
       FReleaseChannels                        : TWVReleaseChannels;
+      FScrollBarStyle                         : TWVScrollBarStyle;
 
       // Fields used to set command line switches
       FEnableGPU                              : boolean;
@@ -418,6 +419,22 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
       /// </remarks>
       property ReleaseChannels                        : TWVReleaseChannels                 read FReleaseChannels                         write FReleaseChannels;
+      /// <summary>
+      /// <para>The ScrollBar style being set on the WebView2 Environment.</para>
+      /// <para>The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT`
+      /// which specifies the default browser ScrollBar style.</para>
+      /// <para>The `color-scheme` CSS property needs to be set on the corresponding page
+      /// to allow ScrollBar to follow light or dark theme. Please see
+      /// [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
+      /// for how `color-scheme` can be set.</para>
+      /// <para>CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
+      /// that is selected with `ScrollBarStyle`.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions8.Get_ScrollBarStyle.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8">See the ICoreWebView2EnvironmentOptions8 article.</see></para>
+      /// </remarks>
+      property ScrollBarStyle                         : TWVScrollBarStyle                  read FScrollBarStyle                          write FScrollBarStyle;
       /// <summary>
       /// Enable GPU hardware acceleration.
       /// </summary>
@@ -856,6 +873,7 @@ begin
                                              COREWEBVIEW2_RELEASE_CHANNELS_BETA or
                                              COREWEBVIEW2_RELEASE_CHANNELS_DEV or
                                              COREWEBVIEW2_RELEASE_CHANNELS_CANARY;
+  FScrollBarStyle                         := COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT;
 
   // Fields used to set command line switches
   FEnableGPU                              := True;
@@ -1777,7 +1795,8 @@ begin
                                                               FEnableTrackingPrevention,
                                                               FAreBrowserExtensionsEnabled,
                                                               FChannelSearchKind,
-                                                              FReleaseChannels);
+                                                              FReleaseChannels,
+                                                              FScrollBarStyle);
 
         TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                                 PWideChar(FUserDataFolder),
@@ -1911,7 +1930,8 @@ begin
                                                             FEnableTrackingPrevention,
                                                             FAreBrowserExtensionsEnabled,
                                                             FChannelSearchKind,
-                                                            FReleaseChannels);
+                                                            FReleaseChannels,
+                                                            FScrollBarStyle);
 
       if succeeded(GetAvailableCoreWebView2BrowserVersionStringWithOptions(PWideChar(FBrowserExecPath), TempOptions, @TempVersion)) and
          assigned(TempVersion) then

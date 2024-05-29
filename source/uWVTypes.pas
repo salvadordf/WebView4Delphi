@@ -407,6 +407,13 @@ type
   /// <para>Renamed COREWEBVIEW2_RELEASE_CHANNELS type.</para>
   /// </remarks>
   TWVReleaseChannels                      = type COREWEBVIEW2_RELEASE_CHANNELS;
+  /// <summary>
+  /// Set ScrollBar style on `ICoreWebView2EnvironmentOptions` during environment creation.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_SCROLLBAR_STYLE type.</para>
+  /// </remarks>
+  TWVScrollBarStyle                       = type COREWEBVIEW2_SCROLLBAR_STYLE;
 
   /// <summary>
   /// TWVLoader status values

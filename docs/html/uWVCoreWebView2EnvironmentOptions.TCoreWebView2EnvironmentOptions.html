@@ -16,7 +16,7 @@
 <a href="uWVCoreWebView2EnvironmentOptions.html">uWVCoreWebView2EnvironmentOptions</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TCoreWebView2EnvironmentOptions = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html">ICoreWebView2EnvironmentOptions2</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html">ICoreWebView2EnvironmentOptions3</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions4.html">ICoreWebView2EnvironmentOptions4</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html">ICoreWebView2EnvironmentOptions5</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html">ICoreWebView2EnvironmentOptions6</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">ICoreWebView2EnvironmentOptions7</a>)</code></p>
+<code>type TCoreWebView2EnvironmentOptions = class(TInterfacedObject, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html">ICoreWebView2EnvironmentOptions</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html">ICoreWebView2EnvironmentOptions2</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html">ICoreWebView2EnvironmentOptions3</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions4.html">ICoreWebView2EnvironmentOptions4</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html">ICoreWebView2EnvironmentOptions5</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html">ICoreWebView2EnvironmentOptions6</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">ICoreWebView2EnvironmentOptions7</a>, <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html">ICoreWebView2EnvironmentOptions8</a>)</code></p>
 <h2 class="description">Description</h2>
 <p>
  Options used to create WebView2 Environment. A default implementation is provided in WebView2EnvironmentOptions.h. </p>
@@ -72,6 +72,10 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FReleaseChannels">FReleaseChannels</a></strong>: <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FScrollBarStyle">FScrollBarStyle</a></strong>: <a href="uWVTypes.html#TWVScrollBarStyle">TWVScrollBarStyle</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -166,11 +170,19 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">Get_ScrollBarStyle</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">COREWEBVIEW2_SCROLLBAR_STYLE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">Set_ScrollBarStyle</a></strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">COREWEBVIEW2_SCROLLBAR_STYLE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#DestroySchemeRegistrations">DestroySchemeRegistrations</a></strong>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-">Create</a></strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>);</code></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-TWVScrollBarStyle-">Create</a></strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>; aScrollBarStyle: <a href="uWVTypes.html#TWVScrollBarStyle">TWVScrollBarStyle</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -263,6 +275,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FReleaseChannels"></span><code><strong>FReleaseChannels</strong>: <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FScrollBarStyle"></span><code><strong>FScrollBarStyle</strong>: <a href="uWVTypes.html#TWVScrollBarStyle">TWVScrollBarStyle</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -523,6 +543,26 @@ ICoreWebView2EnvironmentOptions7</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-"></span><code>function <strong>Get_ScrollBarStyle</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">COREWEBVIEW2_SCROLLBAR_STYLE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2EnvironmentOptions8</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-"></span><code>function <strong>Set_ScrollBarStyle</strong>(value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">COREWEBVIEW2_SCROLLBAR_STYLE</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">ICoreWebView2EnvironmentOptions8.Set_ScrollBarStyle</a>.</p><p>
+ The ScrollBar style being set on the WebView2 Environment. The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT` which specifies the default browser ScrollBar style. The `color-scheme` CSS property needs to be set on the corresponding page to allow ScrollBar to follow light or dark theme. Please see [color-scheme](<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences">https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences</a>) for how `color-scheme` can be set. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with `ScrollBarStyle`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="DestroySchemeRegistrations"></span><code>procedure <strong>DestroySchemeRegistrations</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -531,13 +571,15 @@ ICoreWebView2EnvironmentOptions7</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-"></span><code>constructor <strong>Create</strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>);</code></td>
+<td class="itemcode"><span id="Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-TWVScrollBarStyle-"></span><code>constructor <strong>Create</strong>(const aAdditionalBrowserArguments, aLanguage, aTargetCompatibleBrowserVersion : <a href="uWVTypes.html#wvstring">wvstring</a>; aAllowSingleSignOnUsingOSPrimaryAccount, aExclusiveUserDataFolderAccess, aCustomCrashReportingEnabled : boolean; const aSchemeRegistrations: <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>; aEnableTrackingPrevention, aAreBrowserExtensionsEnabled: boolean; aChannelSearchKind : <a href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a>; aReleaseChannels : <a href="uWVTypes.html#TWVReleaseChannels">TWVReleaseChannels</a>; aScrollBarStyle: <a href="uWVTypes.html#TWVScrollBarStyle">TWVScrollBarStyle</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
  Constructor of the ICoreWebView2EnvironmentOptions wrapper. </p>
 <p>
  
+
+<p>
 
 <p>
 
@@ -571,7 +613,9 @@ ICoreWebView2EnvironmentOptions7</p>
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions6</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions6 article.)
 
-<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions7 article.)</p>
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions7 article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8</a>&quot;&gt;See the ICoreWebView2EnvironmentOptions8 article.)</p>
 <h6 class="description_section">Parameters</h6>
 <dl class="parameters">
 <dt>aAdditionalBrowserArguments</dt>
@@ -596,6 +640,8 @@ ICoreWebView2EnvironmentOptions7</p>
 <dd>WebView2 Runtime channel search order.</dd>
 <dt>aReleaseChannels</dt>
 <dd>Indicates which channels environment creation should search for.</dd>
+<dt>aScrollBarStyle</dt>
+<dd>The ScrollBar style being set on the WebView2 Environment.</dd>
 </dl>
 </td></tr>
 </table>

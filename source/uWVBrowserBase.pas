@@ -67,6 +67,7 @@ type
       FAreBrowserExtensionsEnabled                     : boolean;
       FChannelSearchKind                               : TWVChannelSearchKind;
       FReleaseChannels                                 : TWVReleaseChannels;
+      FScrollBarStyle                                  : TWVScrollBarStyle;
 
       FOldWidget0CompWndPrc                           : TFNWndProc;
       FOldWidget1CompWndPrc                           : TFNWndProc;
@@ -620,6 +621,11 @@ type
       /// CDP method calls may be processed out of order.
       /// If you require CDP methods to run in a particular order, you should wait
       /// for the previous method is finished before calling the next method.</para>
+      /// <para>If the method is to run in add_NewWindowRequested handler it should be called
+      /// before the new window is set if the cdp message should affect the initial navigation. If
+      /// called after setting the NewWindow property, the cdp messages
+      /// may or may not apply to the initial navigation and may only apply to the subsequent navigation.
+      /// For more details see `ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow`.</para>
       /// </summary>
       /// <param name="aMethodName">The DevTools protocol full method name.</param>
       /// <param name="aParametersAsJson">JSON formatted string containing the parameters for the corresponding method.</param>
@@ -1916,6 +1922,22 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions7">See the ICoreWebView2EnvironmentOptions7 article.</see></para>
       /// </remarks>
       property ReleaseChannels                                 : TWVReleaseChannels                                    read FReleaseChannels                                 write FReleaseChannels;
+      /// <summary>
+      /// <para>The ScrollBar style being set on the WebView2 Environment.</para>
+      /// <para>The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT`
+      /// which specifies the default browser ScrollBar style.</para>
+      /// <para>The `color-scheme` CSS property needs to be set on the corresponding page
+      /// to allow ScrollBar to follow light or dark theme. Please see
+      /// [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
+      /// for how `color-scheme` can be set.</para>
+      /// <para>CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
+      /// that is selected with `ScrollBarStyle`.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions8.Get_ScrollBarStyle.</para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environmentoptions8">See the ICoreWebView2EnvironmentOptions8 article.</see></para>
+      /// </remarks>
+      property ScrollBarStyle                                  : TWVScrollBarStyle                                     read FScrollBarStyle                                  write FScrollBarStyle;
       /// <summary>
       /// The browser version info of the current `ICoreWebView2Environment`,
       /// including channel name if it is not the WebView2 Runtime.  It matches the
@@ -3627,6 +3649,7 @@ begin
                                                       COREWEBVIEW2_RELEASE_CHANNELS_BETA or
                                                       COREWEBVIEW2_RELEASE_CHANNELS_DEV or
                                                       COREWEBVIEW2_RELEASE_CHANNELS_CANARY;
+  FScrollBarStyle                                  := COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT;
 
   FOldWidget0CompWndPrc                            := nil;
   FOldWidget1CompWndPrc                            := nil;
@@ -5866,7 +5889,8 @@ begin
                                                           FEnableTrackingPrevention,
                                                           FAreBrowserExtensionsEnabled,
                                                           FChannelSearchKind,
-                                                          FReleaseChannels);
+                                                          FReleaseChannels,
+                                                          FScrollBarStyle);
 
     TempHResult := CreateCoreWebView2EnvironmentWithOptions(PWideChar(FBrowserExecPath),
                                                             PWideChar(FUserDataFolder),

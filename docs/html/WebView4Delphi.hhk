@@ -1121,6 +1121,18 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SCRIPT_DIALOG_KIND_PROMPT">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_SCROLLBAR_STYLE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION">
 </object>
@@ -3171,6 +3183,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_ReleaseChannels">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2EnvironmentOptions8">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ScrollBarStyle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html#Get_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ScrollBarStyle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2EstimatedEndTimeChangedEventHandler">
@@ -5939,6 +5963,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EnvironmentOptions7">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions7">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2EnvironmentOptions8">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions8">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EstimatedEndTimeChangedEventHandler">
@@ -10788,7 +10816,7 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Create-wvstring-wvstring-wvstring-boolean-boolean-boolean-TWVCustomSchemeRegistrationArray-boolean-boolean-TWVChannelSearchKind-TWVReleaseChannels-TWVScrollBarStyle-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Destroy">
@@ -10839,6 +10867,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FSchemeRegistrations">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FScrollBarStyle">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FScrollBarStyle">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FTargetCompatibleBrowserVersion">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#FTargetCompatibleBrowserVersion">
 </object>
@@ -10883,6 +10915,10 @@
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="Get_ScrollBarStyle">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Get_TargetCompatibleBrowserVersion">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Get_TargetCompatibleBrowserVersion-PWideChar-">
 </object>
@@ -10925,6 +10961,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_ReleaseChannels">
 <param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ScrollBarStyle">
+<param name="Local" value="uWVCoreWebView2EnvironmentOptions.TCoreWebView2EnvironmentOptions.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Set_TargetCompatibleBrowserVersion">
@@ -13978,16 +14018,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -16828,16 +16868,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18037,6 +18077,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FScriptLocale">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FScrollBarStyle">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FScrollBarStyle">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FSetPermissionStateCompletedHandler">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FSetPermissionStateCompletedHandler">
 </object>
@@ -19139,6 +19183,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ScriptLocale">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScrollBarStyle">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ScrollBarStyle">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SendMouseInput">
@@ -20545,6 +20593,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FReRaiseExceptions">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FScrollBarStyle">
+<param name="Local" value="uWVLoader.TWVLoader.html#FScrollBarStyle">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FSetCurrentDir">
 <param name="Local" value="uWVLoader.TWVLoader.html#FSetCurrentDir">
 </object>
@@ -20755,6 +20807,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ReRaiseExceptions">
 <param name="Local" value="uWVLoader.TWVLoader.html#ReRaiseExceptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScrollBarStyle">
+<param name="Local" value="uWVLoader.TWVLoader.html#ScrollBarStyle">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SearchInstalledProgram">
@@ -20971,6 +21027,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVScriptDialogKind">
 <param name="Local" value="uWVTypes.html#TWVScriptDialogKind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVScrollBarStyle">
+<param name="Local" value="uWVTypes.html#TWVScrollBarStyle">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVServerCertificateErrorAction">
