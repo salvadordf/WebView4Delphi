@@ -16868,16 +16868,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -16924,16 +16924,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -20561,6 +20561,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#FOpenOfficeDocumentsInWebViewer">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ForcedDeviceScaleFactor">
 <param name="Local" value="uWVLoader.TWVLoader.html#ForcedDeviceScaleFactor">
 </object>
@@ -20779,6 +20783,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnProcessInfosChanged">
 <param name="Local" value="uWVLoader.TWVLoader.html#OnProcessInfosChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#OpenOfficeDocumentsInWebViewer">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ProcessInfos">

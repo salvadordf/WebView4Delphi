@@ -87,6 +87,7 @@ type
       FJavaScriptFlags                        : wvstring;
       FDisableEdgePitchNotification           : boolean;
       FTreatInsecureOriginAsSecure            : wvstring;
+      FOpenOfficeDocumentsInWebViewer         : boolean;
 
       FAutoAcceptCamAndMicCapture             : boolean;
 
@@ -679,6 +680,11 @@ type
       /// </remarks>
       property TreatInsecureOriginAsSecure            : wvstring                           read FTreatInsecureOriginAsSecure             write FTreatInsecureOriginAsSecure;
       /// <summary>
+      /// <para>Enable the MS Office file viewer in the browser.</para>
+      /// <para>This is a workaround given by Microsoft to open MS Office documents in the web browser instead of downloading the files.</para>
+      /// </summary>
+      property OpenOfficeDocumentsInWebViewer         : boolean                            read FOpenOfficeDocumentsInWebViewer          write FOpenOfficeDocumentsInWebViewer;
+      /// <summary>
       /// Bypasses the dialog prompting the user for permission to capture cameras and microphones.
       /// Useful in automatic tests of video-conferencing Web applications. This is nearly
       /// identical to kUseFakeUIForMediaStream, with the exception being that this flag does NOT
@@ -901,6 +907,7 @@ begin
   FJavaScriptFlags                        := '';
   FDisableEdgePitchNotification           := True;
   FTreatInsecureOriginAsSecure            := '';
+  FOpenOfficeDocumentsInWebViewer         := False;
   FAutoAcceptCamAndMicCapture             := False;
   FProxySettings                          := nil;
   FErrorLog                               := nil;
@@ -1533,8 +1540,19 @@ begin
   // https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc
   // https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc
   // https://source.chromium.org/search?q=base::Feature
-  if (length(FEnableFeatures) > 0) then
-    Result := Result + '--enable-features=' + FEnableFeatures + ' ';
+  TempFeatures := FEnableFeatures;
+
+  // This is a workaround given by Microsoft to open MS Office documents in the web browser instead of downloading the files.
+  if FOpenOfficeDocumentsInWebViewer then
+    begin
+      if (length(TempFeatures) > 0) then
+        TempFeatures := TempFeatures + ',msOpenOfficeDocumentsInWebViewer'
+       else
+        TempFeatures := 'msOpenOfficeDocumentsInWebViewer';
+    end;
+
+  if (length(TempFeatures) > 0) then
+    Result := Result + '--enable-features=' + TempFeatures + ' ';
 
   // The list of features you can disable is here :
   // https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc

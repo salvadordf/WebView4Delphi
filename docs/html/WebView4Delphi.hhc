@@ -17152,6 +17152,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FTreatInsecureOriginAsSecure">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#FOpenOfficeDocumentsInWebViewer">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAutoAcceptCamAndMicCapture">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">
 </object>
@@ -17412,6 +17416,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TreatInsecureOriginAsSecure">
 <param name="Local" value="uWVLoader.TWVLoader.html#TreatInsecureOriginAsSecure">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#OpenOfficeDocumentsInWebViewer">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AutoAcceptCamAndMicCapture">
@@ -48826,6 +48834,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FOnProcessInfosChanged">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#FOpenOfficeDocumentsInWebViewer">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FProxySettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#FProxySettings">
 </object>
@@ -49114,6 +49126,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnProcessInfosChanged">
 <param name="Local" value="uWVLoader.TWVLoader.html#OnProcessInfosChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OpenOfficeDocumentsInWebViewer">
+<param name="Local" value="uWVLoader.TWVLoader.html#OpenOfficeDocumentsInWebViewer">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ProcessInfos">
