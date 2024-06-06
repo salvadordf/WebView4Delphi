@@ -8,6 +8,7 @@ uses
   Vcl.ComCtrls, Vcl.StdCtrls, Vcl.AppEvnts,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args, uWVBrowserBase,
+  uWVCoreWebView2ContextMenuItemCollection, uWVCoreWebView2ContextMenuItem,
   uDirectCompositionHost;
 
 type
@@ -20,6 +21,7 @@ type
     ApplicationEvents1: TApplicationEvents;
 
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
@@ -31,6 +33,9 @@ type
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
     procedure WVBrowser1InitializationError(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring);
     procedure WVBrowser1CursorChanged(Sender: TObject);
+    procedure WVBrowser1ContextMenuRequested(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+    procedure WVBrowser1CustomItemSelected(Sender: TObject; const aMenuItem: ICoreWebView2ContextMenuItem);
+    procedure WVBrowser1WebMessageReceived(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
 
   protected
     FWVDirectCompositionHost : TWVDirectCompositionHost;
@@ -43,6 +48,9 @@ type
     function OffsetPointToWebView(aPoint : TPoint) : TPoint;
 
   public
+    FExecJSCommandID : integer;
+    FExecJSMenuItem  : TCoreWebView2ContextMenuItem;
+
     // IDropTarget
     function DragEnter(const dataObj: IDataObject; grfKeyState: Longint; pt: TPoint; var dwEffect: Longint): HResult; stdcall;
     function IDropTarget.DragOver = IDropTarget_DragOver;
@@ -62,6 +70,7 @@ implementation
 {$R *.dfm}
 
 uses
+  System.JSON,
   uWVMiscFunctions;
 
 // This is a demo of a WebView2 browser in "Windowsless mode" using WebView4Delphi.
@@ -215,6 +224,8 @@ end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  FExecJSCommandID        := 0;
+  FExecJSMenuItem         := nil;
   FIsCapturingMouse       := False;
   FIsTrackingMouse        := False;
   FDragAndDropInitialized := False;
@@ -226,6 +237,12 @@ begin
   FWVDirectCompositionHost.Align   := alClient;
   FWVDirectCompositionHost.Browser := WVBrowser1;
   FWVDirectCompositionHost.CreateHandle;
+end;
+
+procedure TMainForm.FormDestroy(Sender: TObject);
+begin
+  if assigned(FExecJSMenuItem) then
+    FreeAndNil(FExecJSMenuItem);
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -263,9 +280,66 @@ begin
   AddressPnl.Enabled := True;
 end;
 
+procedure TMainForm.WVBrowser1ContextMenuRequested(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ContextMenuRequestedEventArgs);
+var
+  TempArgs        : TCoreWebView2ContextMenuRequestedEventArgs;
+  TempCollection  : TCoreWebView2ContextMenuItemCollection;
+  TempMenuItemItf : ICoreWebView2ContextMenuItem;
+begin
+  TempArgs       := TCoreWebView2ContextMenuRequestedEventArgs.Create(aArgs);
+  TempCollection := TCoreWebView2ContextMenuItemCollection.Create(TempArgs.MenuItems);
+
+  try
+    if not(Assigned(FExecJSMenuItem)) then
+      begin
+        if WVBrowser1.CoreWebView2Environment.CreateContextMenuItem('Execute custom JavaScript...', nil, COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND, TempMenuItemItf) then
+          try
+            FExecJSMenuItem   := TCoreWebView2ContextMenuItem.Create(TempMenuItemItf);
+            FExecJSCommandID  := FExecJSMenuItem.CommandId;
+            FExecJSMenuItem.AddAllBrowserEvents(WVBrowser1);
+          finally
+            TempMenuItemItf := nil;
+          end;
+      end;
+
+    if assigned(FExecJSMenuItem) and FExecJSMenuItem.Initialized then
+      TempCollection.InsertValueAtIndex(TempCollection.Count, FExecJSMenuItem.BaseIntf);
+  finally
+    FreeAndNil(TempCollection);
+    FreeAndNil(TempArgs);
+  end;
+end;
+
 procedure TMainForm.WVBrowser1CursorChanged(Sender: TObject);
 begin
   FWVDirectCompositionHost.Cursor := SystemCursorIDToDelphiCursor(WVBrowser1.SystemCursorId);
+end;
+
+procedure TMainForm.WVBrowser1CustomItemSelected(Sender: TObject;
+  const aMenuItem: ICoreWebView2ContextMenuItem);
+var
+  TempMenuItem : TCoreWebView2ContextMenuItem;
+begin
+  TempMenuItem := TCoreWebView2ContextMenuItem.Create(aMenuItem);
+
+  if (TempMenuItem.CommandId = FExecJSCommandID) then
+    TThread.ForceQueue(nil,
+      procedure
+      var
+        TempCode : string;
+      begin
+        TempCode := 'var myElement = document.getElementById(' + quotedstr('keywords') + ');' + CRLF +
+                    'var myRect = myElement.getBoundingClientRect();' + CRLF +
+                    'window.chrome.webview.postMessage(myRect.toJSON());';
+        TempCode := trim(InputBox('Execute JavaScript', 'JavaScript code', TempCode));
+
+        if (TempCode <> '') then
+          WVBrowser1.ExecuteScript(TempCode);
+      end);
+
+  FreeAndNil(TempMenuItem);
 end;
 
 procedure TMainForm.WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -277,6 +351,50 @@ procedure TMainForm.WVBrowser1InitializationError(Sender: TObject;
   aErrorCode: HRESULT; const aErrorMessage: wvstring);
 begin
   showmessage(aErrorMessage);
+end;
+
+procedure TMainForm.WVBrowser1WebMessageReceived(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
+var
+  TempArgs   : TCoreWebView2WebMessageReceivedEventArgs;
+  TempMsg    : string;
+  TempObject : TJSonObject;
+  TempValue  : TJSonValue;
+  TempPoint  : TPoint;
+  TempSize   : TSize;
+begin
+  TempArgs := TCoreWebView2WebMessageReceivedEventArgs.Create(aArgs);
+  TempMsg  := TempArgs.WebMessageAsJson;
+
+  // The JavaScript code returned a DOMRect in JSON format.
+  TempObject  := TJSonObject.Create;
+  TempValue   := TempObject.ParseJSONValue(TempMsg);
+
+  // Get the coordinates and size of the element
+  TempPoint.x :=(TempValue as TJSONObject).Get('x').JSONValue.AsType<integer>;
+  TempPoint.y :=(TempValue as TJSONObject).Get('y').JSONValue.AsType<integer>;
+  TempSize.cx :=(TempValue as TJSONObject).Get('width').JSONValue.AsType<integer>;
+  TempSize.cy :=(TempValue as TJSONObject).Get('height').JSONValue.AsType<integer>;
+
+  // Middle point of the element
+  TempPoint.x := TempPoint.x + (TempSize.cx div 2);
+  TempPoint.y := TempPoint.y + (TempSize.cy div 2);
+
+  // Simulate a left mouse button down
+  WVBrowser1.SendMouseInput(COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN,
+                            COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_LEFT_BUTTON,
+                            0,
+                            TempPoint);
+
+  // Simulate a left mouse button up to complete a simulated click on the element
+  WVBrowser1.SendMouseInput(COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP,
+                            COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE,
+                            0,
+                            TempPoint);
+
+  TempArgs.Free;
+  TempObject.Free;
 end;
 
 procedure TMainForm.Timer1Timer(Sender: TObject);

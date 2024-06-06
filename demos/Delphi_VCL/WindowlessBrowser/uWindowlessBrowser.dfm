@@ -13,6 +13,7 @@ object MainForm: TMainForm
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   TextHeight = 15
   object AddressPnl: TPanel
@@ -33,9 +34,9 @@ object MainForm: TMainForm
       Width = 943
       Height = 23
       Anchors = [akLeft, akTop, akRight]
-      ItemIndex = 0
+      ItemIndex = 18
       TabOrder = 0
-      Text = 'https://www.bing.com'
+      Text = 'https://www.briskbard.com/forum/'
       Items.Strings = (
         'https://www.bing.com'
         
@@ -65,6 +66,7 @@ object MainForm: TMainForm
         'http://webglsamples.org/'
         'https://get.webgl.org/'
         'https://www.briskbard.com'
+        'https://www.briskbard.com/forum/'
         'https://www.youtube.com'
         'https://html5demos.com/drag/'
         'https://frames-per-second.appspot.com/')
@@ -93,7 +95,10 @@ object MainForm: TMainForm
     OnInitializationError = WVBrowser1InitializationError
     OnAfterCreated = WVBrowser1AfterCreated
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
+    OnWebMessageReceived = WVBrowser1WebMessageReceived
     OnCursorChanged = WVBrowser1CursorChanged
+    OnContextMenuRequested = WVBrowser1ContextMenuRequested
+    OnCustomItemSelected = WVBrowser1CustomItemSelected
     Left = 200
     Top = 160
   end
