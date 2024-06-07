@@ -372,10 +372,10 @@ begin
   TempValue   := TempObject.ParseJSONValue(TempMsg);
 
   // Get the coordinates and size of the element
-  TempPoint.x :=(TempValue as TJSONObject).Get('x').JSONValue.AsType<integer>;
-  TempPoint.y :=(TempValue as TJSONObject).Get('y').JSONValue.AsType<integer>;
-  TempSize.cx :=(TempValue as TJSONObject).Get('width').JSONValue.AsType<integer>;
-  TempSize.cy :=(TempValue as TJSONObject).Get('height').JSONValue.AsType<integer>;
+  TempPoint.x := round((TempValue as TJSONObject).Get('x').JSONValue.AsType<double>);
+  TempPoint.y := round((TempValue as TJSONObject).Get('y').JSONValue.AsType<double>);
+  TempSize.cx := round((TempValue as TJSONObject).Get('width').JSONValue.AsType<double>);
+  TempSize.cy := round((TempValue as TJSONObject).Get('height').JSONValue.AsType<double>);
 
   // Middle point of the element
   TempPoint.x := TempPoint.x + (TempSize.cx div 2);
