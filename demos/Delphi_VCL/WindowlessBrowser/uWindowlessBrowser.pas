@@ -363,6 +363,7 @@ var
   TempValue  : TJSonValue;
   TempPoint  : TPoint;
   TempSize   : TSize;
+  TempScale  : single;
 begin
   TempArgs := TCoreWebView2WebMessageReceivedEventArgs.Create(aArgs);
   TempMsg  := TempArgs.WebMessageAsJson;
@@ -370,12 +371,13 @@ begin
   // The JavaScript code returned a DOMRect in JSON format.
   TempObject  := TJSonObject.Create;
   TempValue   := TempObject.ParseJSONValue(TempMsg);
+  TempScale   := WVBrowser1.ScreenScale;
 
   // Get the coordinates and size of the element
-  TempPoint.x := round((TempValue as TJSONObject).Get('x').JSONValue.AsType<double> * GlobalWebView2Loader.DeviceScaleFactor);
-  TempPoint.y := round((TempValue as TJSONObject).Get('y').JSONValue.AsType<double> * GlobalWebView2Loader.DeviceScaleFactor);
-  TempSize.cx := round((TempValue as TJSONObject).Get('width').JSONValue.AsType<double> * GlobalWebView2Loader.DeviceScaleFactor);
-  TempSize.cy := round((TempValue as TJSONObject).Get('height').JSONValue.AsType<double> * GlobalWebView2Loader.DeviceScaleFactor);
+  TempPoint.x := round((TempValue as TJSONObject).Get('x').JSONValue.AsType<double> * TempScale);
+  TempPoint.y := round((TempValue as TJSONObject).Get('y').JSONValue.AsType<double> * TempScale);
+  TempSize.cx := round((TempValue as TJSONObject).Get('width').JSONValue.AsType<double> * TempScale);
+  TempSize.cy := round((TempValue as TJSONObject).Get('height').JSONValue.AsType<double> * TempScale);
 
   // Middle point of the element
   TempPoint.x := TempPoint.x + (TempSize.cx div 2);
