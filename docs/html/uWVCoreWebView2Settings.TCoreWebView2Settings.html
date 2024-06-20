@@ -867,6 +867,8 @@
 
 <p>This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain. Setting this property may clear User Agent Client Hints headers Sec-CH-UA-* and script values from navigator.userAgentData. Current implementation behavior is subject to change.
 
+<p>The User Agent set will also be effective on service workers and shared workers associated with the WebView. If there are multiple WebViews associated with the same service worker or shared worker, the last User Agent set will be used.
+
 <p></p>
 <p>
 

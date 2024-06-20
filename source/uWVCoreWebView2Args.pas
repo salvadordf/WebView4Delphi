@@ -1816,7 +1816,7 @@ type
       /// <para>The origin will be an empty string if the request is initiated by calling
       /// `CoreWebView2.Navigate` on the external URI scheme. If a script initiates
       /// the navigation, the `InitiatingOrigin` will be the top-level document's
-      /// `Source`, for example, if `window.location` is set to `"calculator://", the
+      /// `Source`, for example, if `window.location` is set to `"calculator://"`, the
       /// `InitiatingOrigin` will be set to `calculator://`. If the request is initiated
       ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.</para>
       /// <para>If the `InitiatingOrigin` is

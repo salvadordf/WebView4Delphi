@@ -787,7 +787,7 @@ type
       /// </remarks>
       function    GetNonDefaultPermissionSettings: boolean;
       /// <summary>
-      /// <para>Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+      /// <para>Adds the [browser extension](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions)
       /// using the extension path for unpacked extensions from the local device. Extension is
       /// running right after installation.</para>
       /// <para>The extension folder path is the topmost folder of an unpacked browser extension and
@@ -1890,32 +1890,43 @@ type
       property ChannelSearchKind                               : TWVChannelSearchKind                                  read FChannelSearchKind                               write FChannelSearchKind;
       /// <summary>
       /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
-      /// indicating which channels environment creation should search for.</para>
-      /// <para>OR operation(s) can be applied to multiple  to create a mask.
-      /// The default value is a mask of all the channels. By default, environment
-      /// creation searches for channels from most to least stable, using the first
-      /// channel found on the device. When  is provided, environment creation will
-      /// only search for the channels specified in the set. Set  to  to reverse
-      /// the search order so that the loader searches for the least stable build
-      /// first. See  for descriptions of each channel. Environment creation fails
-      /// if it is unable to find any channel from the  installed on the device.</para>
-      /// <para>Use  to verify which channel is used. If both a  and  are provided,
-      /// the  takes precedence. The  can be overridden by the corresponding
-      /// registry override  or the environment variable . Set the value to a
-      /// comma-separated string of integers, which map to the  values: Stable (0),
-      /// Beta (1), Dev (2), and Canary (3).</para>
-      /// <para>For example, the values "0,2" and "2,0" indicate that the loader
-      /// should only search for Dev channel and the WebView2 Runtime, using the
-      /// order indicated by . Environment creation attempts to interpret each
-      /// integer and treats any invalid entry as Stable channel.</para>
+      /// `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment
+      /// creation should search for. OR operation(s) can be applied to multiple
+      /// `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a
+      /// a mask of all the channels. By default, environment creation searches for
+      /// channels from most to least stable, using the first channel found on the
+      /// device. When `ReleaseChannels` is provided, environment creation will only
+      /// search for the channels specified in the set. Set `ChannelSearchKind` to
+      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// so environment creation searches for least stable build first. See
+      /// `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.</para>
+      /// <para>`CreateCoreWebView2EnvironmentWithOptions` fails with
+      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable
+      /// to find any channel from the `ReleaseChannels` installed on the device.
+      /// Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on
+      /// `ICoreWebView2Environment` to verify which channel is used when this option
+      /// is set.</para>
+      /// Examples:
       /// <code>
       /// |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
       /// | --- | --- | --- |
-      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -> Beta | Beta -> WebView2 Runtime|
-      /// |CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Dev -> Canary | Canary -> Dev -> Beta -> WebView2 Runtime |
-      /// |CoreWebView2ReleaseChannels.Canary| Canary | Canary |
-      /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Canary | Canary -> Beta -> WebView2 Runtime |
+      /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&gt; Beta | Beta -&gt; WebView2 Runtime|
+      /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_DEV \| COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary | Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime |
+      /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY| Canary | Canary |
+      /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |
       /// </code>
+      /// <para>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the
+      /// `BrowserExecutableFolder` takes precedence, regardless of whether or not the
+      /// channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.</para>
+      /// <para>`ReleaseChannels` can be overridden by the corresponding registry override
+      /// `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.</para>
+      /// <para>Set the value to a comma-separated string of integers, which map to the
+      /// following release channel values: Stable (0), Beta (1), Dev (2), and
+      /// Canary (3). For example, the values "0,2" and "2,0" indicate that environment
+      /// creation should only search for Dev channel and the WebView2 Runtime, using the
+      /// order indicated by `ChannelSearchKind`. Environment creation attempts to
+      /// interpret each integer and treats any invalid entry as Stable channel. See
+      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels.</para>
@@ -1928,7 +1939,7 @@ type
       /// which specifies the default browser ScrollBar style.</para>
       /// <para>The `color-scheme` CSS property needs to be set on the corresponding page
       /// to allow ScrollBar to follow light or dark theme. Please see
-      /// [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
+      /// [color-scheme](https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
       /// for how `color-scheme` can be set.</para>
       /// <para>CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
       /// that is selected with `ScrollBarStyle`.</para>
@@ -2345,6 +2356,10 @@ type
       /// Setting this property may clear User Agent Client Hints headers
       /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
       /// implementation behavior is subject to change.</para>
+      /// <para>The User Agent set will also be effective on service workers
+      /// and shared workers associated with the WebView.
+      /// If there are multiple WebViews associated with the same service worker or
+      /// shared worker, the last User Agent set will be used.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings2#get_useragent">See the ICoreWebView2Settings2 article.</see></para>
@@ -2933,7 +2948,8 @@ type
       /// `OnWindowCloseRequested` triggers when content inside the WebView
       /// requested to close the window, such as after `window.close` is run.  The
       /// app should close the WebView and related app window if that makes sense
-      /// to the app.
+      /// to the app. After the first window.close() call, this event may not fire
+      /// for any immediate back to back window.close() calls.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_windowcloserequested">See the ICoreWebView2 article.</see></para>
@@ -3027,7 +3043,7 @@ type
       /// Basic HTTP Authentication request as described in
       /// https://developer.mozilla.org/docs/Web/HTTP/Authentication, a Digest
       /// HTTP Authentication request as described in
-      /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#digest,
+      /// https://developer.mozilla.org/docs/Web/HTTP/Headers/Authorization#digest,
       /// an NTLM authentication or a Proxy Authentication request.</para>
       /// <para>The host can provide a response with credentials for the authentication or
       /// cancel the request. If the host sets the Cancel property to false but does not

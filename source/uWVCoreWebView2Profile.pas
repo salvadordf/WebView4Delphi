@@ -131,7 +131,7 @@ type
       /// otherwise the method fails with `E_INVALIDARG`. Additional URI parts like
       /// path and fragment are ignored. For example, "https://wwww.example.com/app1/index.html/"
       /// is treated the same as "https://wwww.example.com". See the
-      /// [MDN origin definition](https://developer.mozilla.org/en-US/docs/Glossary/Origin)
+      /// [MDN origin definition](https://developer.mozilla.org/docs/Glossary/Origin)
       /// for more details.</para>
       /// </summary>
       /// <remarks>
@@ -148,7 +148,7 @@ type
       /// </remarks>
       function    GetNonDefaultPermissionSettings(const completedHandler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): boolean;
       /// <summary>
-      /// <para>Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+      /// <para>Adds the [browser extension](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions)
       /// using the extension path for unpacked extensions from the local device. Extension is
       /// running right after installation.</para>
       /// <para>The extension folder path is the topmost folder of an unpacked browser extension and

@@ -14510,6 +14510,82 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Destroy">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="uWVCoreWebView2ScriptException">
 <param name="Local" value="uWVCoreWebView2ScriptException.html">
 </object>
@@ -42702,6 +42778,70 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2RasterizationScaleChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetValueAtIndex">
 </object>
 </ul>
 </ul>

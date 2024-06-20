@@ -586,7 +586,7 @@
 
 <p>Sets permission state for the given permission kind and origin asynchronously. The change persists across sessions until it is changed by another call to `SetPermissionState`, or by setting the `State` property in `PermissionRequestedEventArgs`. Setting the state to `COREWEBVIEW2_PERMISSION_STATE_DEFAULT` will erase any state saved in the profile and restore the default behavior.
 
-<p>The origin should have a valid scheme and host (e.g. &quot;<a href="https://www.example.com">https://www.example.com</a>&quot;), otherwise the method fails with `E_INVALIDARG`. Additional URI parts like path and fragment are ignored. For example, &quot;<a href="https://wwww.example.com/app1/index.html/">https://wwww.example.com/app1/index.html/</a>&quot; is treated the same as &quot;<a href="https://wwww.example.com">https://wwww.example.com</a>&quot;. See the [MDN origin definition](<a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">https://developer.mozilla.org/en-US/docs/Glossary/Origin</a>) for more details.
+<p>The origin should have a valid scheme and host (e.g. &quot;<a href="https://www.example.com">https://www.example.com</a>&quot;), otherwise the method fails with `E_INVALIDARG`. Additional URI parts like path and fragment are ignored. For example, &quot;<a href="https://wwww.example.com/app1/index.html/">https://wwww.example.com/app1/index.html/</a>&quot; is treated the same as &quot;<a href="https://wwww.example.com">https://wwww.example.com</a>&quot;. See the [MDN origin definition](<a href="https://developer.mozilla.org/docs/Glossary/Origin">https://developer.mozilla.org/docs/Glossary/Origin</a>) for more details.
 
 <p></p>
 <p>
@@ -618,7 +618,7 @@
 <p>
 
 
-<p>Adds the [browser extension](<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions</a>) using the extension path for unpacked extensions from the local device. Extension is running right after installation.
+<p>Adds the [browser extension](<a href="https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions">https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions</a>) using the extension path for unpacked extensions from the local device. Extension is running right after installation.
 
 <p>The extension folder path is the topmost folder of an unpacked browser extension and contains the browser extension manifest file.
 

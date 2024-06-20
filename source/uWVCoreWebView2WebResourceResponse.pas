@@ -71,12 +71,12 @@ type
       /// <para>When providing the response data, you should consider relevant HTTP
       /// request headers just like an HTTP server would do. For example, if the
       /// request was for a video resource in a HTML video element, the request may
-      /// contain the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range)
+      /// contain the [Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Range)
       /// header to request only a part of the video that is streaming. In this
       /// case, your response stream should be only the portion of the video
       /// specified by the range HTTP request headers and you should set the
       /// appropriate
-      /// [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+      /// [Content-Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Range)
       /// header in the response.</para>
       /// </summary>
       /// <remarks>

@@ -12,7 +12,7 @@ uses
 type
   /// <summary>
   /// Representation of a DOM
-  /// [File](https://developer.mozilla.org/en-US/docs/Web/API/File) object
+  /// [File](https://developer.mozilla.org/docs/Web/API/File) object
   /// passed via WebMessage. You can use this object to obtain the path of a
   /// File dropped on WebView2.
   /// </summary>

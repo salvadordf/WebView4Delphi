@@ -64,7 +64,7 @@ type
       property BaseIntf       : ICoreWebView2BrowserExtension         read FBaseIntf           write FBaseIntf;
       /// <summary>
       /// This is the browser extension's ID. This is the same browser extension ID returned by
-      /// the browser extension API [`chrome.runtime.id`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id).
+      /// the browser extension API [`chrome.runtime.id`](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id).
       /// Please see that documentation for more details on how the ID is generated.
       /// After an extension is removed, calling `Id` will return the id of the extension that is removed.
       /// </summary>
@@ -73,7 +73,7 @@ type
       /// This is the browser extension's name. This value is defined in this browser extension's
       /// manifest.json file. If manifest.json define extension's localized name, this value will
       /// be the localized version of the name.
-      /// Please see [Manifest.json name](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
+      /// Please see [Manifest.json name](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
       /// for more details.
       /// After an extension is removed, calling `Name` will return the name of the extension that is removed.
       /// </summary>

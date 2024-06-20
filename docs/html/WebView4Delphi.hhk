@@ -10782,16 +10782,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -14018,16 +14018,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -14329,6 +14329,50 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2RasterizationScaleChangedEventHandler.html#Invoke-ICoreWebView2Controller-IUnknown-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Create-ICoreWebView2RegionRectCollectionView-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#GetValueAtIndex-cardinal-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html#Items">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ScriptDialogOpeningEventArgs">

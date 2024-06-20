@@ -613,7 +613,7 @@ const
   COREWEBVIEW2_PERMISSION_KIND_MULTIPLE_AUTOMATIC_DOWNLOADS = $00000007;
   /// <summary>
   /// Indicates permission to read and write to files or folders on the device.
-  /// Permission is requested when developers use the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API)
+  /// Permission is requested when developers use the [File System Access API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API)
   /// to show the file or folder picker to the end user, and then request
   /// "readwrite" permission for the user's selection.
   /// </summary>
@@ -625,7 +625,7 @@ const
   /// Indicates permission to play audio and video automatically on sites. This
   /// permission affects the autoplay attribute and play method of the audio and
   /// video HTML elements, and the start method of the Web Audio API. See the
-  /// [Autoplay guide for media and Web Audio APIs](https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide) for details.
+  /// [Autoplay guide for media and Web Audio APIs](https://developer.mozilla.org/docs/Web/Media/Autoplay_guide) for details.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PERMISSION_KIND values.</para>
@@ -643,7 +643,7 @@ const
   /// <summary>
   /// Indicates permission to send and receive system exclusive messages to/from MIDI
   /// (Musical Instrument Digital Interface) devices. Permission is requested
-  /// when developers use the [Web MIDI API](https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API)
+  /// when developers use the [Web MIDI API](https://developer.mozilla.org/docs/Web/API/Web_MIDI_API)
   /// to request access to system exclusive MIDI messages.
   /// </summary>
   /// <remarks>
@@ -2170,7 +2170,7 @@ const
   COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT = $00000000;
   /// <summary>
   /// <para>Window style fluent overlay scroll bar.</para>
-  /// <para>Please see [Fluent UI](https:/-/developer.microsoft.com/en-us/fluentui#/)
+  /// <para>Please see [Fluent UI](https://developer.microsoft.com/fluentui#/)
   /// for more details on fluent UI.</para>
   /// </summary>
   /// <remarks>
@@ -4261,6 +4261,7 @@ type
     /// `defaultSyncProxy` | When calling a method on a synchronous proxy, the result should also be a synchronous proxy. But in some cases, the sync/async context is lost (for example, when providing to native code a reference to a function, and then calling that function in native code). In these cases, the proxy will be asynchronous, unless this property is set.
     /// `forceAsyncMethodMatches ` | This is an array of regular expressions. When calling a method on a synchronous proxy, the method call will be performed asynchronously if the method name matches a string or regular expression in this array. Setting this value to `Async` will make any method that ends with Async be an asynchronous method call. If an async method doesn't match here and isn't forced to be asynchronous, the method will be invoked synchronously, blocking execution of the calling JavaScript and then returning the resolution of the promise, rather than returning a promise.
     /// `ignoreMemberNotFoundError` | By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to `true` switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning `undefined` with no error.
+    /// `shouldPassTypedArraysAsArrays` | By default, typed arrays will be passed to host as IDispatch. Otherwise, set to true to pass typed arrays to host as array.
     ///
     /// Host object proxies additionally have the following methods which run
     /// locally.
@@ -4432,11 +4433,12 @@ type
     /// `WindowCloseRequested` triggers when content inside the WebView
     /// requested to close the window, such as after `window.close` is run.  The
     /// app should close the WebView and related app window if that makes sense
-    /// to the app.
+    /// to the app. After the first window.close() call, this event may not fire
+    /// for any immediate back to back window.close() calls.
     ///
     /// \snippet AppWindow.cpp WindowCloseRequested
     /// </summary>
-    function add_WindowCloseRequested(const eventHandler: ICoreWebView2WindowCloseRequestedEventHandler; 
+    function add_WindowCloseRequested(const eventHandler: ICoreWebView2WindowCloseRequestedEventHandler;
                                       out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
     /// Remove an event handler previously added with `add_WindowCloseRequested`.
@@ -5271,7 +5273,7 @@ type
     /// a WebView as the target for a `window.open()` from inside the
     /// requesting WebView. If this is set, the top-level window of this WebView
     /// is returned as the opened
-    /// [WindowProxy](https://developer.mozilla.org/en-US/docs/glossary/windowproxy)
+    /// [WindowProxy](https://developer.mozilla.org/docs/glossary/windowproxy)
     /// to the opener script. If this is not set, then `Handled` is checked to
     /// determine behavior for NewWindowRequested event.
     /// CoreWebView2 provided in the `NewWindow` property must be on the same
@@ -5570,12 +5572,12 @@ type
     /// When providing the response data, you should consider relevant HTTP
     /// request headers just like an HTTP server would do. For example, if the
     /// request was for a video resource in a HTML video element, the request may
-    /// contain the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range)
+    /// contain the [Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Range)
     /// header to request only a part of the video that is streaming. In this
     /// case, your response stream should be only the portion of the video
     /// specified by the range HTTP request headers and you should set the
     /// appropriate
-    /// [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+    /// [Content-Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Range)
     /// header in the response.
     /// </summary>
     function Get_Content(out Content: IStream): HResult; stdcall;
@@ -7465,7 +7467,7 @@ type
     /// Basic HTTP Authentication request as described in
     /// https://developer.mozilla.org/docs/Web/HTTP/Authentication, a Digest
     /// HTTP Authentication request as described in
-    /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#digest,
+    /// https://developer.mozilla.org/docs/Web/HTTP/Headers/Authorization#digest,
     /// an NTLM authentication or a Proxy Authentication request.
     ///
     /// The host can provide a response with credentials for the authentication or
@@ -8650,7 +8652,7 @@ type
     /// The origin will be an empty string if the request is initiated by calling
     /// `CoreWebView2.Navigate` on the external URI scheme. If a script initiates
     /// the navigation, the `InitiatingOrigin` will be the top-level document's
-    /// `Source`, for example, if `window.location` is set to `"calculator://", the
+    /// `Source`, for example, if `window.location` is set to `"calculator://"`, the
     /// `InitiatingOrigin` will be set to `calculator://`. If the request is initiated
     ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.</para>
     /// <para>If the `InitiatingOrigin` is
@@ -11009,32 +11011,43 @@ type
     function Get_ReleaseChannels(out value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
     /// <summary>
     /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
-    /// indicating which channels environment creation should search for.</para>
-    /// <para>OR operation(s) can be applied to multiple  to create a mask.
-    /// The default value is a mask of all the channels. By default, environment
-    /// creation searches for channels from most to least stable, using the first
-    /// channel found on the device. When  is provided, environment creation will
-    /// only search for the channels specified in the set. Set  to  to reverse
-    /// the search order so that the loader searches for the least stable build
-    /// first. See  for descriptions of each channel. Environment creation fails
-    /// if it is unable to find any channel from the  installed on the device.</para>
-    /// <para>Use  to verify which channel is used. If both a  and  are provided,
-    /// the  takes precedence. The  can be overridden by the corresponding
-    /// registry override  or the environment variable . Set the value to a
-    /// comma-separated string of integers, which map to the  values: Stable (0),
-    /// Beta (1), Dev (2), and Canary (3).</para>
-    /// <para>For example, the values "0,2" and "2,0" indicate that the loader
-    /// should only search for Dev channel and the WebView2 Runtime, using the
-    /// order indicated by . Environment creation attempts to interpret each
-    /// integer and treats any invalid entry as Stable channel.</para>
+    /// `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment
+    /// creation should search for. OR operation(s) can be applied to multiple
+    /// `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a
+    /// a mask of all the channels. By default, environment creation searches for
+    /// channels from most to least stable, using the first channel found on the
+    /// device. When `ReleaseChannels` is provided, environment creation will only
+    /// search for the channels specified in the set. Set `ChannelSearchKind` to
+    /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+    /// so environment creation searches for least stable build first. See
+    /// `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.</para>
+    /// <para>`CreateCoreWebView2EnvironmentWithOptions` fails with
+    /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable
+    /// to find any channel from the `ReleaseChannels` installed on the device.
+    /// Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on
+    /// `ICoreWebView2Environment` to verify which channel is used when this option
+    /// is set.</para>
+    /// Examples:
     /// <code>
     /// |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
     /// | --- | --- | --- |
-    /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -> Beta | Beta -> WebView2 Runtime|
-    /// |CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Dev -> Canary | Canary -> Dev -> Beta -> WebView2 Runtime |
-    /// |CoreWebView2ReleaseChannels.Canary| Canary | Canary |
-    /// |CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -> Beta -> Canary | Canary -> Beta -> WebView2 Runtime |
+    /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&gt; Beta | Beta -&gt; WebView2 Runtime|
+    /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_DEV \| COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary | Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime |
+    /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY| Canary | Canary |
+    /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |
     /// </code>
+    /// <para>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the
+    /// `BrowserExecutableFolder` takes precedence, regardless of whether or not the
+    /// channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.</para>
+    /// <para>`ReleaseChannels` can be overridden by the corresponding registry override
+    /// `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.</para>
+    /// <para>Set the value to a comma-separated string of integers, which map to the
+    /// following release channel values: Stable (0), Beta (1), Dev (2), and
+    /// Canary (3). For example, the values "0,2" and "2,0" indicate that environment
+    /// creation should only search for Dev channel and the WebView2 Runtime, using the
+    /// order indicated by `ChannelSearchKind`. Environment creation attempts to
+    /// interpret each integer and treats any invalid entry as Stable channel. See
+    /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
     /// </summary>
     function Set_ReleaseChannels(value: COREWEBVIEW2_RELEASE_CHANNELS): HResult; stdcall;
   end;
@@ -11057,7 +11070,7 @@ type
     /// which specifies the default browser ScrollBar style.
     /// The `color-scheme` CSS property needs to be set on the corresponding page
     /// to allow ScrollBar to follow light or dark theme. Please see
-    /// [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
+    /// [color-scheme](https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
     /// for how `color-scheme` can be set.
     /// CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
     /// that is selected with `ScrollBarStyle`.
@@ -12082,7 +12095,7 @@ type
     /// otherwise the method fails with `E_INVALIDARG`. Additional URI parts like
     /// path and fragment are ignored. For example, "https://wwww.example.com/app1/index.html/"
     /// is treated the same as "https://wwww.example.com". See the
-    /// [MDN origin definition](https://developer.mozilla.org/en-US/docs/Glossary/Origin)
+    /// [MDN origin definition](https://developer.mozilla.org/docs/Glossary/Origin)
     /// for more details.
     ///
     /// \snippet ScenarioPermissionManagement.cpp SetPermissionState
@@ -12207,7 +12220,7 @@ type
   ICoreWebView2Profile7 = interface(ICoreWebView2Profile6)
     ['{7B4C7906-A1AA-4CB4-B723-DB09F813D541}']
     /// <summary>
-    /// Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+    /// Adds the [browser extension](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions)
     /// using the extension path for unpacked extensions from the local device. Extension is
     /// running right after installation.
     /// The extension folder path is the topmost folder of an unpacked browser extension and
@@ -12279,7 +12292,7 @@ type
     ['{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}']
     /// <summary>
     /// This is the browser extension's ID. This is the same browser extension ID returned by
-    /// the browser extension API [`chrome.runtime.id`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id).
+    /// the browser extension API [`chrome.runtime.id`](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id).
     /// Please see that documentation for more details on how the ID is generated.
     /// After an extension is removed, calling `Id` will return the id of the extension that is removed.
     /// The caller must free the returned string with `CoTaskMemFree`.  See
@@ -12290,7 +12303,7 @@ type
     /// This is the browser extension's name. This value is defined in this browser extension's
     /// manifest.json file. If manifest.json define extension's localized name, this value will
     /// be the localized version of the name.
-    /// Please see [Manifest.json name](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
+    /// Please see [Manifest.json name](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
     /// for more details.
     /// After an extension is removed, calling `Name` will return the name of the extension that is removed.
     /// The caller must free the returned string with `CoTaskMemFree`.  See
@@ -12468,6 +12481,10 @@ type
     /// Setting this property may clear User Agent Client Hints headers
     /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
     /// implementation behavior is subject to change.
+    /// The User Agent set will also be effective on service workers
+    /// and shared workers associated with the WebView.
+    /// If there are multiple WebViews associated with the same service worker or
+    /// shared worker, the last User Agent set will be used.
     /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if the owning WebView is
     /// closed.
     /// </summary>
@@ -12879,7 +12896,7 @@ type
 
   /// <summary>
   /// Representation of a DOM
-  /// [File](https://developer.mozilla.org/en-US/docs/Web/API/File) object
+  /// [File](https://developer.mozilla.org/docs/Web/API/File) object
   /// passed via WebMessage. You can use this object to obtain the path of a
   /// File dropped on WebView2.
   /// </summary>

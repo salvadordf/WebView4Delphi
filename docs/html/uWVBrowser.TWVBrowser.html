@@ -910,7 +910,7 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnWindowCloseRequested">TWVBrowserBase.OnWindowCloseRequested</a>.</p><p>
- `OnWindowCloseRequested` triggers when content inside the WebView requested to close the window, such as after `window.close` is run. The app should close the WebView and related app window if that makes sense to the app. 
+ `OnWindowCloseRequested` triggers when content inside the WebView requested to close the window, such as after `window.close` is run. The app should close the WebView and related app window if that makes sense to the app. After the first window.close() call, this event may not fire for any immediate back to back window.close() calls. 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_windowcloserequested">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_windowcloserequested</a>&quot;&gt;See the ICoreWebView2 article.)</p>
 </td></tr>
@@ -1532,7 +1532,7 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnBasicAuthenticationRequested">TWVBrowserBase.OnBasicAuthenticationRequested</a>.</p><p>
 
 
-<p>Add an event handler for the BasicAuthenticationRequested event. BasicAuthenticationRequested event is raised when WebView encounters a Basic HTTP Authentication request as described in <a href="https://developer.mozilla.org/docs/Web/HTTP/Authentication">https://developer.mozilla.org/docs/Web/HTTP/Authentication</a>, a Digest HTTP Authentication request as described in <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#digest">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#digest</a>, an NTLM authentication or a Proxy Authentication request.
+<p>Add an event handler for the BasicAuthenticationRequested event. BasicAuthenticationRequested event is raised when WebView encounters a Basic HTTP Authentication request as described in <a href="https://developer.mozilla.org/docs/Web/HTTP/Authentication">https://developer.mozilla.org/docs/Web/HTTP/Authentication</a>, a Digest HTTP Authentication request as described in <a href="https://developer.mozilla.org/docs/Web/HTTP/Headers/Authorization#digest">https://developer.mozilla.org/docs/Web/HTTP/Headers/Authorization#digest</a>, an NTLM authentication or a Proxy Authentication request.
 
 <p>The host can provide a response with credentials for the authentication or cancel the request. If the host sets the Cancel property to false but does not provide either UserName or Password properties on the Response property, then WebView2 will show the default authentication challenge dialog prompt to the user.
 

@@ -519,25 +519,29 @@ ICoreWebView2EnvironmentOptions7</p>
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">ICoreWebView2EnvironmentOptions7.Set_ReleaseChannels</a>.</p><p>
 
 
-<p>Sets the `ReleaseChannels`, which is a mask of one or more indicating which channels environment creation should search for.
+<p>Sets the `ReleaseChannels`, which is a mask of one or more `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment creation should search for. OR operation(s) can be applied to multiple `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When `ReleaseChannels` is provided, environment creation will only search for the channels specified in the set. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so environment creation searches for least stable build first. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.
 
-<p>OR operation(s) can be applied to multiple to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When is provided, environment creation will only search for the channels specified in the set. Set to to reverse the search order so that the loader searches for the least stable build first. See for descriptions of each channel. Environment creation fails if it is unable to find any channel from the installed on the device.
+<p>`CreateCoreWebView2EnvironmentWithOptions` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable to find any channel from the `ReleaseChannels` installed on the device. Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on `ICoreWebView2Environment` to verify which channel is used when this option is set.
 
-<p>Use to verify which channel is used. If both a and are provided, the takes precedence. The can be overridden by the corresponding registry override or the environment variable . Set the value to a comma-separated string of integers, which map to the values: Stable (0), Beta (1), Dev (2), and Canary (3).
-
-<p>For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that the loader should only search for Dev channel and the WebView2 Runtime, using the order indicated by . Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
-
-<p></p>
+<p>Examples: </p>
 
 <pre class="preformatted">
 |   ReleaseChannels   |   Channel Search Kind: Most Stable (default)   |   Channel Search Kind: Least Stable   |
 | --- | --- | --- |
-|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable| WebView2 Runtime -&gt; Beta | Beta -&gt; WebView2 Runtime|
-|CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Dev \| CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary | Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime |
-|CoreWebView2ReleaseChannels.Canary| Canary | Canary |
-|CoreWebView2ReleaseChannels.Beta \| CoreWebView2ReleaseChannels.Canary \| CoreWebView2ReleaseChannels.Stable | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |</pre>
+|COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&amp;gt; Beta | Beta -&amp;gt; WebView2 Runtime|
+|COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_DEV \| COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE| WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary | Canary -&amp;gt; Dev -&amp;gt; Beta -&amp;gt; WebView2 Runtime |
+|COREWEBVIEW2_RELEASE_CHANNELS_CANARY| Canary | Canary |
+|COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE | WebView2 Runtime -&amp;gt; Beta -&amp;gt; Canary | Canary -&amp;gt; Beta -&amp;gt; WebView2 Runtime |</pre>
 
-<p> </p>
+<p>
+
+<p>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the `BrowserExecutableFolder` takes precedence, regardless of whether or not the channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.
+
+<p>`ReleaseChannels` can be overridden by the corresponding registry override `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.
+
+<p>Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by `ChannelSearchKind`. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+
+<p></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -557,7 +561,7 @@ ICoreWebView2EnvironmentOptions8</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">ICoreWebView2EnvironmentOptions8.Set_ScrollBarStyle</a>.</p><p>
- The ScrollBar style being set on the WebView2 Environment. The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT` which specifies the default browser ScrollBar style. The `color-scheme` CSS property needs to be set on the corresponding page to allow ScrollBar to follow light or dark theme. Please see [color-scheme](<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences">https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences</a>) for how `color-scheme` can be set. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with `ScrollBarStyle`. </p>
+ The ScrollBar style being set on the WebView2 Environment. The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT` which specifies the default browser ScrollBar style. The `color-scheme` CSS property needs to be set on the corresponding page to allow ScrollBar to follow light or dark theme. Please see [color-scheme](<a href="https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences">https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences</a>) for how `color-scheme` can be set. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with `ScrollBarStyle`. </p>
 </td></tr>
 </table>
 <table class="detail wide_list">

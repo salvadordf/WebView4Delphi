@@ -201,6 +201,8 @@ uWVCoreWebView2ProcessInfoCollection.html
 uWVCoreWebView2ProcessInfoCollection.TCoreWebView2ProcessInfoCollection.html
 uWVCoreWebView2Profile.html
 uWVCoreWebView2Profile.TCoreWebView2Profile.html
+uWVCoreWebView2RegionRectCollectionView.html
+uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html
 uWVCoreWebView2ScriptException.html
 uWVCoreWebView2ScriptException.TCoreWebView2ScriptException.html
 uWVCoreWebView2Settings.html
@@ -485,11 +487,11 @@ automated.gif
 pasdoc.css
 
 Compile time: 0 minutes, 8 seconds
-7,939	Topics
-61,009	Local links
+7,957	Topics
+61,143	Local links
 5	Internet links
 5	Graphics
 
 
-Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,921,778 bytes
-Compression decreased file by 12,349,108 bytes.
+Created c:\Users\usuario\Documents\Embarcadero\Studio\Projects\WebView4Delphi\docs\WebView4Delphi.chm, 1,924,924 bytes
+Compression decreased file by 12,383,645 bytes.
