@@ -923,7 +923,8 @@ type
       /// <summary>
       /// Retrieve the text contents. The TWVBrowserBase.OnRetrieveTextCompleted event is triggered asynchronously with the text contents.
       /// </summary>
-      function    RetrieveText : boolean;
+      /// <param name="aVisibleTextOnly">Exclude text that is hidden with CSS or rendered as invisible due to its parent's visibility settings.</param>
+      function    RetrieveText(aVisibleTextOnly: boolean = False) : boolean;
       /// <summary>
       /// Retrieve the web page contents in MHTML format. The TWVBrowserBase.OnRetrieveMHTMLCompleted event is triggered asynchronously with the MHTML contents.
       /// </summary>
@@ -6255,9 +6256,12 @@ begin
   Result := ExecuteScript('encodeURIComponent(document.documentElement.outerHTML);', WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID);
 end;
 
-function TWVBrowserBase.RetrieveText : boolean;
+function TWVBrowserBase.RetrieveText(aVisibleTextOnly: boolean) : boolean;
 begin
-  Result := ExecuteScript('encodeURIComponent(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
+  if aVisibleTextOnly then
+    Result := ExecuteScript('encodeURIComponent(document.body.innerText);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID)
+   else
+    Result := ExecuteScript('encodeURIComponent(document.body.textContent);', WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID);
 end;
 
 function TWVBrowserBase.RetrieveMHTML : boolean;

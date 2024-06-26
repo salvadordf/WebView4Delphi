@@ -19206,7 +19206,7 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RetrieveText">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RetrieveText">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RetrieveText-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RootVisualTarget">

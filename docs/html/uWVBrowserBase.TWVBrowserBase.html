@@ -1944,7 +1944,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#RetrieveText">RetrieveText</a></strong>: boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#RetrieveText-boolean-">RetrieveText</a></strong>(aVisibleTextOnly: boolean = False) : boolean;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -7395,11 +7395,18 @@ Error value                                     | Description
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="RetrieveText"></span><code>function <strong>RetrieveText</strong>: boolean;</code></td>
+<td class="itemcode"><span id="RetrieveText-boolean-"></span><code>function <strong>RetrieveText</strong>(aVisibleTextOnly: boolean = False) : boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
  Retrieve the text contents. The TWVBrowserBase.OnRetrieveTextCompleted event is triggered asynchronously with the text contents. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aVisibleTextOnly</dt>
+<dd>Exclude text that is hidden with CSS or rendered as invisible due to its parent's visibility settings.</dd>
+</dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
