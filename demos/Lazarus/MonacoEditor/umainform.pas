@@ -86,7 +86,6 @@ begin
   Caption := 'Monaco Editor';
   AddressPnl.Enabled := True;          
   WVBrowser1.SetVirtualHostNameToFolderMapping('monaco.editor', '..\assets\monaco', COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW);
-  GoBtn.Click;
 end;
 
 procedure TMainForm.WVBrowser1DocumentTitleChanged(Sender: TObject);

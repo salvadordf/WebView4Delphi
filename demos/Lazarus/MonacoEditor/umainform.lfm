@@ -9,7 +9,7 @@ object MainForm: TMainForm
   ClientHeight = 627
   ClientWidth = 1040
   OnShow = FormShow
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.4.0.0'
   object AddressPnl: TPanel
     Left = 0
     Height = 24
@@ -82,6 +82,7 @@ object MainForm: TMainForm
     Top = 188
   end
   object WVBrowser1: TWVBrowser
+    DefaultURL = 'https://monaco.editor/index.html'
     TargetCompatibleBrowserVersion = '95.0.1020.44'
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVBrowser1InitializationError

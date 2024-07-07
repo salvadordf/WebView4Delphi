@@ -33,15 +33,12 @@ object MainForm: TMainForm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
-    DesignSize = (
-      995
-      24)
     object AddressCb: TComboBox
-      Left = -3
+      Left = 0
       Top = 0
-      Width = 943
+      Width = 946
       Height = 23
-      Anchors = [akLeft, akTop, akRight]
+      Align = alClient
       ItemIndex = 0
       TabOrder = 0
       Text = 'https://monaco.editor/index.html'
@@ -95,6 +92,7 @@ object MainForm: TMainForm
     Top = 160
   end
   object WVBrowser1: TWVBrowser
+    DefaultURL = 'https://monaco.editor/index.html'
     TargetCompatibleBrowserVersion = '95.0.1020.44'
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVBrowser1InitializationError

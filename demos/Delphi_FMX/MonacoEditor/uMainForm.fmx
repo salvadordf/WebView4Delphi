@@ -92,6 +92,7 @@ object MainForm: TMainForm
     end
   end
   object WVFMXBrowser1: TWVFMXBrowser
+    DefaultURL = 'https://monaco.editor/index.html'
     TargetCompatibleBrowserVersion = '95.0.1020.44'
     AllowSingleSignOnUsingOSPrimaryAccount = False
     OnInitializationError = WVFMXBrowser1InitializationError
