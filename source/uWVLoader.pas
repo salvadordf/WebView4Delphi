@@ -461,7 +461,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --enable-features</see></para>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/webview-features-flags"">See the WebView2 browser flags article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/webview-features-flags">See the WebView2 browser flags article.</see></para>
       /// <para>The list of features you can enable is here:</para>
       /// <para>https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_features.cc</para>
       /// <para>https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_features.cc</para>
@@ -702,7 +702,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para>This property uses the msSingleSignOnOSForPrimaryAccountIsShared flag.</para>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/webview-features-flags"">See the WebView2 browser flags article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/webview-features-flags">See the WebView2 browser flags article.</see></para>
       /// </remarks>
       property MicrosoftSignIn                        : boolean                            read FMicrosoftSignIn                         write FMicrosoftSignIn;
       /// <summary>
