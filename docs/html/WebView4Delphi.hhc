@@ -17232,6 +17232,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FOpenOfficeDocumentsInWebViewer">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FMicrosoftSignIn">
+<param name="Local" value="uWVLoader.TWVLoader.html#FMicrosoftSignIn">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAutoAcceptCamAndMicCapture">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">
 </object>
@@ -17496,6 +17500,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OpenOfficeDocumentsInWebViewer">
 <param name="Local" value="uWVLoader.TWVLoader.html#OpenOfficeDocumentsInWebViewer">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="MicrosoftSignIn">
+<param name="Local" value="uWVLoader.TWVLoader.html#MicrosoftSignIn">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AutoAcceptCamAndMicCapture">
@@ -48946,6 +48954,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FLoaderDllPath">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FMicrosoftSignIn">
+<param name="Local" value="uWVLoader.TWVLoader.html#FMicrosoftSignIn">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FMuteAudio">
 <param name="Local" value="uWVLoader.TWVLoader.html#FMuteAudio">
 </object>
@@ -49238,6 +49250,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="LoaderDllPath">
 <param name="Local" value="uWVLoader.TWVLoader.html#LoaderDllPath">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="MicrosoftSignIn">
+<param name="Local" value="uWVLoader.TWVLoader.html#MicrosoftSignIn">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="MuteAudio">
