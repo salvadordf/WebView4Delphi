@@ -296,6 +296,7 @@ type
       procedure DestroySettings;
       procedure DestroyPrintSettings;
 
+      procedure CalculateZoomStep;
       procedure UpdateZoomStep(aInc : boolean);
       procedure UpdateZoomPct(const aValue : double);
 
@@ -4415,6 +4416,7 @@ end;
 function TWVBrowserBase.ZoomFactorChangedEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HRESULT;
 begin
   Result := S_OK;
+  CalculateZoomStep;
   doOnZoomFactorChanged(sender);
 end;
 
@@ -7010,6 +7012,35 @@ begin
     FOnAddScriptToExecuteOnDocumentCreatedCompleted(self, aErrorCode, aID);
 end;
 
+procedure TWVBrowserBase.CalculateZoomStep;
+var
+  TempPct, TempDelta, TempBest : double;
+  i, TempStep : integer;
+begin
+  TempPct  := ZoomPct;
+  TempStep := ZOOM_STEP_DEF;
+  TempBest := 10000;
+  i        := ZOOM_STEP_MIN;
+
+  while (i <= ZOOM_STEP_MAX) do
+    begin
+      TempDelta := abs(ZoomStepValues[i] - TempPCt);
+
+      if (TempBest > TempDelta) then
+        begin
+          TempBest := TempDelta;
+          TempStep := i;
+        end
+       else
+        if (TempBest < TempDelta) then
+          break;
+
+      inc(i);
+    end;
+
+  FZoomStep := TempStep;
+end;
+
 procedure TWVBrowserBase.UpdateZoomStep(aInc : boolean);
 var
   TempPct, TempPrev, TempNext : double;
@@ -7029,10 +7060,10 @@ begin
         end
        else
         if (FZoomStep > ZOOM_STEP_MIN) then
-        begin
-          dec(FZoomStep);
-          UpdateZoomPct(ZoomStepValues[FZoomStep]);
-        end;
+          begin
+            dec(FZoomStep);
+            UpdateZoomPct(ZoomStepValues[FZoomStep]);
+          end;
     end
    else
     begin
