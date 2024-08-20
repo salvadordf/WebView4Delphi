@@ -19,7 +19,7 @@
 <code>type ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The caller implements this interface to handle the result of GetNonDefaultPermissionSettings. </p>
+ Receives the result of the `GetNonDefaultPermissionSettings` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html#Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-">Invoke</a></strong>(errorCode: HResult; const collectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html#Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const collectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2PermissionSettingCollectionView-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the permission setting collection for the requested permission kind. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{38274481-A15C-4563-94CF-990EDC9AEB95}']</dt>

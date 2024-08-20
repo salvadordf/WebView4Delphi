@@ -19,7 +19,7 @@
 <code>type ICoreWebView2TrySuspendCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The caller implements this interface to receive the TrySuspend result. </p>
+ Receives the result of the `TrySuspend` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html#Invoke-HResult-Integer-">Invoke</a></strong>(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html#Invoke-HResult-Integer-">Invoke</a></strong>(errorCode: HResult; result_: Integer): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-Integer-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-Integer-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; result_: Integer): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the result of the TrySuspend operation. See [Sleeping Tabs FAQ](<a href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434</a>) for conditions that might prevent WebView from being suspended. In those situations, isSuccessful will be false and errorCode is S_OK. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{00F206A7-9D17-4605-91F6-4E8E4DE192E3}']</dt>

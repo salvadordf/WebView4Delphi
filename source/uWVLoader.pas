@@ -134,7 +134,7 @@ type
       procedure doProcessInfosChangedEvent(const sender: ICoreWebView2Environment); virtual;
       procedure doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray); virtual;
 
-      function  EnvironmentCompletedHandler_Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HRESULT;
+      function  EnvironmentCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2Environment): HRESULT;
       function  NewBrowserVersionAvailableEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
       function  BrowserProcessExitedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: ICoreWebView2BrowserProcessExitedEventArgs): HRESULT;
       function  ProcessInfosChangedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HRESULT;
@@ -2036,16 +2036,16 @@ begin
             CreateEnvironment;
 end;
 
-function TWVLoader.EnvironmentCompletedHandler_Invoke(      errorCode          : HResult;
-                                                      const createdEnvironment : ICoreWebView2Environment) : HRESULT;
+function TWVLoader.EnvironmentCompletedHandler_Invoke(      errorCode : HResult;
+                                                      const result_   : ICoreWebView2Environment) : HRESULT;
 begin
   Result := S_OK;
 
-  if succeeded(errorCode) and assigned(createdEnvironment) then
+  if succeeded(errorCode) and assigned(result_) then
     begin
       DestroyEnvironment;
 
-      FCoreWebView2Environment := TCoreWebView2Environment.Create(createdEnvironment);
+      FCoreWebView2Environment := TCoreWebView2Environment.Create(result_);
       FCoreWebView2Environment.AddAllLoaderEvents(self);
 
       FStatus := wvlsInitialized;

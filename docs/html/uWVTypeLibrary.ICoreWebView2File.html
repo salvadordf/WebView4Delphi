@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2File.html#Get_Path-PWideChar-">Get_Path</a></strong>(out Path: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2File.html#Get_Path-PWideChar-">Get_Path</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,13 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Get_Path-PWideChar-"></span><code>function <strong>Get_Path</strong>(out Path: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Get_Path-PWideChar-"></span><code>function <strong>Get_Path</strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Get the absolute file path. </p>
+ Get the absolute file path.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{F2C19559-6BC1-4583-A757-90021BE9AFEC}']</dt>

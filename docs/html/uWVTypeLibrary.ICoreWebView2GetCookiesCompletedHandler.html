@@ -19,7 +19,7 @@
 <code>type ICoreWebView2GetCookiesCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Receives the result of the GetCookies method. The result is written to the cookie list provided in the GetCookies method call. </p>
+ Receives the result of the GetCookies method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html#Invoke-HResult-ICoreWebView2CookieList-">Invoke</a></strong>(result: HResult; const cookieList: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html#Invoke-HResult-ICoreWebView2CookieList-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2CookieList-"></span><code>function <strong>Invoke</strong>(result: HResult; const cookieList: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2CookieList-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the completion status of the corresponding asynchronous method call. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{5A4F5069-5C15-47C3-8646-F4DE1C116670}']</dt>

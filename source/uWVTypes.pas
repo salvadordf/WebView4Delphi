@@ -414,6 +414,22 @@ type
   /// <para>Renamed COREWEBVIEW2_SCROLLBAR_STYLE type.</para>
   /// </remarks>
   TWVScrollBarStyle                       = type COREWEBVIEW2_SCROLLBAR_STYLE;
+  /// <summary>
+  /// Allowed permissions of a CoreWebView2FileSystemHandle as described in
+  /// [FileSystemHandle.requestPermission()](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission)
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION type.</para>
+  /// </remarks>
+  TWVFileSystemHandlePermission           = type COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION;
+  /// <summary>
+  /// Kind of CoreWebView2FileSystemHandle as described in
+  /// [FileSystemHandle.kind](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/kind)
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND type.</para>
+  /// </remarks>
+  TWVFileSystemHandleKind                 = type COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND;
 
   /// <summary>
   /// TWVLoader status values

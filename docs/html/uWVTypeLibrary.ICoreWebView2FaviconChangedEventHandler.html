@@ -19,7 +19,7 @@
 <code>type ICoreWebView2FaviconChangedEventHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- This interface is a handler for when the Favicon is changed. The sender is the ICoreWebView2 object the top-level document of which has changed favicon and the eventArgs is nullptr. Use the FaviconUri property and GetFavicon method to obtain the favicon data. The second argument is always null. For more information see add_FaviconChanged. </p>
+ Receives `FaviconChanged` events. </p>
 <p>
 
 
@@ -43,7 +43,7 @@
 </tr>
 <tr><td colspan="2">
 <p>
- Called to notify the favicon changed. The event args are always null. </p>
+ Provides the event args for the corresponding event. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{2913DA94-833D-4DE0-8DCA-900FC524A1A4}']</dt>

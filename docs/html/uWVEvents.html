@@ -37,22 +37,22 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnCapturePreviewCompletedEvent">TOnCapturePreviewCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnWebResourceResponseViewGetContentCompletedEvent">TOnWebResourceResponseViewGetContentCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID : integer) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnWebResourceResponseViewGetContentCompletedEvent">TOnWebResourceResponseViewGetContentCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream; aResourceID : integer) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetCookiesCompletedEvent">TOnGetCookiesCompletedEvent</a></strong> = procedure(Sender: TObject; aResult: HRESULT; const aCookieList: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetCookiesCompletedEvent">TOnGetCookiesCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnTrySuspendCompletedEvent">TOnTrySuspendCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnTrySuspendCompletedEvent">TOnTrySuspendCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintToPdfCompletedEvent">TOnPrintToPdfCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintToPdfCompletedEvent">TOnPrintToPdfCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnCallDevToolsProtocolMethodCompletedEvent">TOnCallDevToolsProtocolMethodCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aReturnObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID: integer) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnCallDevToolsProtocolMethodCompletedEvent">TOnCallDevToolsProtocolMethodCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID: integer) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent">TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aID: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent">TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnMoveFocusRequestedEvent">TOnMoveFocusRequestedEvent</a></strong> = procedure(Sender: TObject; const aController: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const aArgs: <a href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventArgs.html">ICoreWebView2MoveFocusRequestedEventArgs</a>) of object;</code></td>
@@ -130,7 +130,7 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnInitializationErrorEvent">TOnInitializationErrorEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintCompletedEvent">TOnPrintCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: <a href="uWVTypes.html#TWVPrintStatus">TWVPrintStatus</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintCompletedEvent">TOnPrintCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: <a href="uWVTypes.html#TWVPrintStatus">TWVPrintStatus</a>) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnRefreshIgnoreCacheCompletedEvent">TOnRefreshIgnoreCacheCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
@@ -214,16 +214,16 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnFaviconChangedEvent">TOnFaviconChangedEvent</a></strong> = procedure(Sender: TObject; const aWebView: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const aArgs: IUnknown) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetFaviconCompletedEvent">TOnGetFaviconCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetFaviconCompletedEvent">TOnGetFaviconCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintToPdfStreamCompletedEvent">TOnPrintToPdfStreamCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnPrintToPdfStreamCompletedEvent">TOnPrintToPdfStreamCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetCustomSchemesEvent">TOnGetCustomSchemesEvent</a></strong> = procedure(Sender: TObject; var aCustomSchemes: <a href="uWVTypes.html#TWVCustomSchemeInfoArray">TWVCustomSchemeInfoArray</a>) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetNonDefaultPermissionSettingsCompletedEvent">TOnGetNonDefaultPermissionSettingsCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetNonDefaultPermissionSettingsCompletedEvent">TOnGetNonDefaultPermissionSettingsCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>) of object;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnSetPermissionStateCompletedEvent">TOnSetPermissionStateCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT) of object;</code></td>
@@ -232,7 +232,7 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnLaunchingExternalUriSchemeEvent">TOnLaunchingExternalUriSchemeEvent</a></strong> = procedure(Sender: TObject; const aWebView: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const aArgs: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html">ICoreWebView2LaunchingExternalUriSchemeEventArgs</a>) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetProcessExtendedInfosCompletedEvent">TOnGetProcessExtendedInfosCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aValue: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnGetProcessExtendedInfosCompletedEvent">TOnGetProcessExtendedInfosCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnBrowserExtensionRemoveCompletedEvent">TOnBrowserExtensionRemoveCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
@@ -241,16 +241,16 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnBrowserExtensionEnableCompletedEvent">TOnBrowserExtensionEnableCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnProfileAddBrowserExtensionCompletedEvent">TOnProfileAddBrowserExtensionCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnProfileAddBrowserExtensionCompletedEvent">TOnProfileAddBrowserExtensionCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnProfileGetBrowserExtensionsCompletedEvent">TOnProfileGetBrowserExtensionsCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnProfileGetBrowserExtensionsCompletedEvent">TOnProfileGetBrowserExtensionsCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnProfileDeletedEvent">TOnProfileDeletedEvent</a></strong> = procedure(Sender: TObject; const aProfile: <a href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a>) of object;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnExecuteScriptWithResultCompletedEvent">TOnExecuteScriptWithResultCompletedEvent</a></strong> = procedure(Sender: TObject; errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer) of object;</code></td>
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnExecuteScriptWithResultCompletedEvent">TOnExecuteScriptWithResultCompletedEvent</a></strong> = procedure(Sender: TObject; errorCode: HResult; const aResult: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnNonClientRegionChangedEvent">TOnNonClientRegionChangedEvent</a></strong> = procedure(Sender: TObject; const aController : <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>; const aArgs : <a href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">ICoreWebView2NonClientRegionChangedEventArgs</a>) of object;</code></td>
@@ -316,42 +316,42 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnWebResourceResponseViewGetContentCompletedEvent"></span><code><strong>TOnWebResourceResponseViewGetContentCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID : integer) of object;</code></td>
+<td class="itemcode"><span id="TOnWebResourceResponseViewGetContentCompletedEvent"></span><code><strong>TOnWebResourceResponseViewGetContentCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream; aResourceID : integer) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnGetCookiesCompletedEvent"></span><code><strong>TOnGetCookiesCompletedEvent</strong> = procedure(Sender: TObject; aResult: HRESULT; const aCookieList: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnGetCookiesCompletedEvent"></span><code><strong>TOnGetCookiesCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnTrySuspendCompletedEvent"></span><code><strong>TOnTrySuspendCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;</code></td>
+<td class="itemcode"><span id="TOnTrySuspendCompletedEvent"></span><code><strong>TOnTrySuspendCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnPrintToPdfCompletedEvent"></span><code><strong>TOnPrintToPdfCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;</code></td>
+<td class="itemcode"><span id="TOnPrintToPdfCompletedEvent"></span><code><strong>TOnPrintToPdfCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnCallDevToolsProtocolMethodCompletedEvent"></span><code><strong>TOnCallDevToolsProtocolMethodCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aReturnObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID: integer) of object;</code></td>
+<td class="itemcode"><span id="TOnCallDevToolsProtocolMethodCompletedEvent"></span><code><strong>TOnCallDevToolsProtocolMethodCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID: integer) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent"></span><code><strong>TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aID: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent"></span><code><strong>TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypes.html#wvstring">wvstring</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -533,7 +533,7 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnPrintCompletedEvent"></span><code><strong>TOnPrintCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: <a href="uWVTypes.html#TWVPrintStatus">TWVPrintStatus</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnPrintCompletedEvent"></span><code><strong>TOnPrintCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: <a href="uWVTypes.html#TWVPrintStatus">TWVPrintStatus</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -729,14 +729,14 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnGetFaviconCompletedEvent"></span><code><strong>TOnGetFaviconCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;</code></td>
+<td class="itemcode"><span id="TOnGetFaviconCompletedEvent"></span><code><strong>TOnGetFaviconCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnPrintToPdfStreamCompletedEvent"></span><code><strong>TOnPrintToPdfStreamCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream) of object;</code></td>
+<td class="itemcode"><span id="TOnPrintToPdfStreamCompletedEvent"></span><code><strong>TOnPrintToPdfStreamCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -750,7 +750,7 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnGetNonDefaultPermissionSettingsCompletedEvent"></span><code><strong>TOnGetNonDefaultPermissionSettingsCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnGetNonDefaultPermissionSettingsCompletedEvent"></span><code><strong>TOnGetNonDefaultPermissionSettingsCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -771,7 +771,7 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnGetProcessExtendedInfosCompletedEvent"></span><code><strong>TOnGetProcessExtendedInfosCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aValue: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnGetProcessExtendedInfosCompletedEvent"></span><code><strong>TOnGetProcessExtendedInfosCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -792,14 +792,14 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnProfileAddBrowserExtensionCompletedEvent"></span><code><strong>TOnProfileAddBrowserExtensionCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnProfileAddBrowserExtensionCompletedEvent"></span><code><strong>TOnProfileAddBrowserExtensionCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnProfileGetBrowserExtensionsCompletedEvent"></span><code><strong>TOnProfileGetBrowserExtensionsCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>) of object;</code></td>
+<td class="itemcode"><span id="TOnProfileGetBrowserExtensionsCompletedEvent"></span><code><strong>TOnProfileGetBrowserExtensionsCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -813,7 +813,7 @@ Browser events</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnExecuteScriptWithResultCompletedEvent"></span><code><strong>TOnExecuteScriptWithResultCompletedEvent</strong> = procedure(Sender: TObject; errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer) of object;</code></td>
+<td class="itemcode"><span id="TOnExecuteScriptWithResultCompletedEvent"></span><code><strong>TOnExecuteScriptWithResultCompletedEvent</strong> = procedure(Sender: TObject; errorCode: HResult; const aResult: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>

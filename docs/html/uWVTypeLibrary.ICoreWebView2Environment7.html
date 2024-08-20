@@ -51,9 +51,9 @@
 <p>
  Returns the user data folder that all CoreWebView2's created from this environment are using. This could be either the value passed in by the developer when creating the environment object or the calculated one for default handling. It will always be an absolute path.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>\snippet AppWindow.cpp GetUserDataFolder
 
-<p>\snippet AppWindow.cpp GetUserDataFolder </p>
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{43C22296-3BBD-43A4-9C00-5C0DF6DD29A2}']</dt>

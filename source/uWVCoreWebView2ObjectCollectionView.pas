@@ -11,7 +11,7 @@ uses
 
 type
   /// <summary>
-  /// Read-only collection of generic objects.
+  /// A collection of objects.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview">See the ICoreWebView2ObjectCollectionView article.</see></para>
@@ -37,15 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2ObjectCollectionView            read FBaseIntf;
       /// <summary>
-      /// Gets the number of items in the collection.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview#get_count">See the ICoreWebView2ObjectCollectionView article.</see></para>
       /// </remarks>
       property Count                 : cardinal                                     read GetCount;
       /// <summary>
-      /// Gets the object at the specified index. Cast the object to the native type
-      /// to access its specific properties.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview#getvalueatindex">See the ICoreWebView2ObjectCollectionView article.</see></para>

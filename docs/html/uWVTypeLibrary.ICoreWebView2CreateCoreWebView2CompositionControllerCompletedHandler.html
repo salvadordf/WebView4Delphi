@@ -19,7 +19,7 @@
 <code>type ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The caller implements this interface to receive the CoreWebView2Controller created via CreateCoreWebView2CompositionController. </p>
+ Receives the result of the `CreateCoreWebView2CompositionController` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html#Invoke-HResult-ICoreWebView2CompositionController-">Invoke</a></strong>(errorCode: HResult; const webView: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html#Invoke-HResult-ICoreWebView2CompositionController-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2CompositionController-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const webView: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2CompositionController-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Called to provide the implementer with the completion status and result of the corresponding asynchronous method call. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{02FAB84B-1428-4FB7-AD45-1B2E64736184}']</dt>

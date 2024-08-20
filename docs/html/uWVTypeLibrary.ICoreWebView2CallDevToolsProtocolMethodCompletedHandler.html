@@ -19,7 +19,7 @@
 <code>type ICoreWebView2CallDevToolsProtocolMethodCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Receives CallDevToolsProtocolMethod completion results. </p>
+ Receives the result of the `CallDevToolsProtocolMethod` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html#Invoke-HResult-PWideChar-">Invoke</a></strong>(errorCode: HResult; returnObjectAsJson: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html#Invoke-HResult-PWideChar-">Invoke</a></strong>(errorCode: HResult; result_: PWideChar): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-PWideChar-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; returnObjectAsJson: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-PWideChar-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; result_: PWideChar): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the completion status and result of the corresponding asynchronous method. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{5C4889F0-5EF6-4C5A-952C-D8F1B92D0574}']</dt>

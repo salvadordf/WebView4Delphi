@@ -48,14 +48,14 @@ type
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httprequestheaders#getheaders">See the ICoreWebView2HttpRequestHeaders article.</see></para>
       /// </remarks>
-      function    GetHeaders(const aName: wvstring; var aIterator: ICoreWebView2HttpHeadersCollectionIterator): boolean;
+      function    GetHeaders(const aName: wvstring; var aValue: ICoreWebView2HttpHeadersCollectionIterator): boolean;
       /// <summary>
-      /// Verifies that the headers contain an entry that matches the header name.
+      /// Checks whether the headers contain an entry that matches the header name.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httprequestheaders#contains">See the ICoreWebView2HttpRequestHeaders article.</see></para>
       /// </remarks>
-      function    Contains(const aName: wvstring) : boolean;
+      function    Contains(const aValue: wvstring) : boolean;
       /// <summary>
       /// Removes header that matches the name.
       /// </summary>
@@ -131,30 +131,30 @@ begin
     end;
 end;
 
-function TCoreWebView2HttpRequestHeaders.GetHeaders(const aName: wvstring; var aIterator: ICoreWebView2HttpHeadersCollectionIterator): boolean;
+function TCoreWebView2HttpRequestHeaders.GetHeaders(const aName: wvstring; var aValue: ICoreWebView2HttpHeadersCollectionIterator): boolean;
 var
   TempIterator : ICoreWebView2HttpHeadersCollectionIterator;
 begin
   Result       := False;
   TempIterator := nil;
-  aIterator    := nil;
+  aValue       := nil;
 
   if Initialized and
      succeeded(FBaseIntf.GetHeaders(PWideChar(aName), TempIterator)) and
      assigned(TempIterator) then
     begin
-      aIterator := TempIterator;
-      Result    := True;
+      aValue := TempIterator;
+      Result := True;
     end;
 end;
 
-function TCoreWebView2HttpRequestHeaders.Contains(const aName: wvstring) : boolean;
+function TCoreWebView2HttpRequestHeaders.Contains(const aValue: wvstring) : boolean;
 var
   TempContains : integer;
 begin
   TempContains := 0;
   Result       := Initialized and
-                  succeeded(FBaseIntf.Contains(PWideChar(aName), TempContains)) and
+                  succeeded(FBaseIntf.Contains(PWideChar(aValue), TempContains)) and
                   (TempContains <> 0);
 end;
 

@@ -19,7 +19,7 @@ type
     ['{5B91E1BB-CA98-476E-A2F0-10BDED27A916}']
 
     // ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
-    function EnvironmentCompletedHandler_Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HResult;
+    function EnvironmentCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2Environment): HResult;
 
     // ICoreWebView2NewBrowserVersionAvailableEventHandler
     function NewBrowserVersionAvailableEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult;
@@ -35,13 +35,13 @@ type
     ['{4E06D91F-1213-46C1-ABB8-D41D8CC19E81}']
 
     // ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
-    function EnvironmentCompletedHandler_Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HResult;
+    function EnvironmentCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2Environment): HResult;
 
     // ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
-    function ControllerCompletedHandler_Invoke(errorCode: HResult; const createdController: ICoreWebView2Controller): HResult;
+    function ControllerCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2Controller): HResult;
 
     // ICoreWebView2ExecuteScriptCompletedHandler
-    function ExecuteScriptCompletedHandler_Invoke(errorCode: HResult; resultObjectAsJson: PWideChar; aExecutionID : integer): HResult;
+    function ExecuteScriptCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar; aExecutionID : integer): HResult;
 
     // ICoreWebView2CapturePreviewCompletedHandler
     function CapturePreviewCompletedHandler_Invoke(errorCode: HResult): HResult;
@@ -113,7 +113,7 @@ type
     function DevToolsProtocolEventReceivedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DevToolsProtocolEventReceivedEventArgs; const aEventName : wvstring; aEventID : integer): HResult;
 
     // ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
-    function CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HResult;
+    function CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HResult;
 
     // ICoreWebView2CursorChangedEventHandler
     function CursorChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: IUnknown): HResult;
@@ -131,13 +131,13 @@ type
     function DOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs): HResult;
 
     // ICoreWebView2WebResourceResponseViewGetContentCompletedHandler
-    function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HResult;
+    function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const result_: IStream; aResourceID : integer): HResult;
 
     // ICoreWebView2GetCookiesCompletedHandler
-    function GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HResult;
+    function GetCookiesCompletedHandler_Invoke(errorCode : HResult; const result_ : ICoreWebView2CookieList): HResult;
 
     // ICoreWebView2TrySuspendCompletedHandler
-    function TrySuspendCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HResult;
+    function TrySuspendCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HResult;
 
     // ICoreWebView2FrameCreatedEventHandler
     function FrameCreatedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs): HResult;
@@ -149,7 +149,7 @@ type
     function ClientCertificateRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ClientCertificateRequestedEventArgs): HResult;
 
     // ICoreWebView2PrintToPdfCompletedHandler
-    function PrintToPdfCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HResult;
+    function PrintToPdfCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HResult;
 
     // ICoreWebView2BytesReceivedChangedEventHandler
     function BytesReceivedChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HResult;
@@ -167,7 +167,7 @@ type
     function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HResult;
 
     // ICoreWebView2CallDevToolsProtocolMethodCompletedHandler
-    function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HResult;
+    function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar; aExecutionID : integer): HResult;
 
     // ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
     function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HResult;
@@ -227,16 +227,16 @@ type
     function FaviconChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult;
 
     // ICoreWebView2GetFaviconCompletedHandler
-    function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const faviconStream: IStream): HResult;
+    function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HResult;
 
     // ICoreWebView2PrintCompletedHandler
-    function PrintCompletedHandler_Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HResult;
+    function PrintCompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HResult;
 
     // ICoreWebView2PrintToPdfStreamCompletedHandler
-    function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HResult;
+    function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HResult;
 
     // ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler
-    function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult;
+    function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HResult;
 
     // ICoreWebView2SetPermissionStateCompletedHandler
     function SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HResult;
@@ -245,7 +245,7 @@ type
     function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HResult;
 
     // ICoreWebView2GetProcessExtendedInfosCompletedHandler
-    function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult;
+    function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HResult;
 
     // ICoreWebView2BrowserExtensionRemoveCompletedHandler
     function BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HResult;
@@ -254,10 +254,10 @@ type
     function BrowserExtensionEnableCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HResult;
 
     // ICoreWebView2ProfileAddBrowserExtensionCompletedHandler
-    function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult;
+    function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HResult;
 
     // ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler
-    function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult;
+    function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HResult;
 
     // ICoreWebView2ProfileDeletedEventHandler
     function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult;

@@ -96,6 +96,8 @@ contains
   uWVCoreWebView2BrowserExtensionList in '..\source\uWVCoreWebView2BrowserExtensionList.pas',
   uWVCoreWebView2ScriptException in '..\source\uWVCoreWebView2ScriptException.pas',
   uWVCoreWebView2ExecuteScriptResult in '..\source\uWVCoreWebView2ExecuteScriptResult.pas',
-  uWVCoreWebView2RegionRectCollectionView in '..\source\uWVCoreWebView2RegionRectCollectionView.pas';
+  uWVCoreWebView2RegionRectCollectionView in '..\source\uWVCoreWebView2RegionRectCollectionView.pas',
+  uWVCoreWebView2ObjectCollection in '..\source\uWVCoreWebView2ObjectCollection.pas',
+  uWVCoreWebView2FileSystemHandle in '..\source\uWVCoreWebView2FileSystemHandle.pas';
 
 end.

@@ -11,7 +11,7 @@ uses
 
 type
   /// <summary>
-  /// A list of cookie objects. See ICoreWebView2Cookie.
+  /// A collection of ICoreWebView2Cookie.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookielist">See the ICoreWebView2CookieList article.</see></para>
@@ -37,14 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2CookieList     read FBaseIntf;
       /// <summary>
-      /// The number of cookies contained in the ICoreWebView2CookieList.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookielist#get_count">See the ICoreWebView2CookieList article.</see></para>
       /// </remarks>
       property Count                 : cardinal                    read GetCount;
       /// <summary>
-      /// Gets the cookie object at the given index.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookielist#getvalueatindex">See the ICoreWebView2CookieList article.</see></para>

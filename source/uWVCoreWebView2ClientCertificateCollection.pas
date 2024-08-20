@@ -11,7 +11,7 @@ uses
 
 type
   /// <summary>
-  /// A collection of client certificate object.
+  /// A collection of ICoreWebView2ClientCertificate.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection">See the ICoreWebView2ClientCertificateCollection article.</see></para>
@@ -37,15 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2ClientCertificateCollection     read FBaseIntf;
       /// <summary>
-      /// The number of client certificates contained in the
-      /// ICoreWebView2ClientCertificateCollection.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection#get_count">See the ICoreWebView2ClientCertificateCollection article.</see></para>
       /// </remarks>
       property Count                 : cardinal                                     read GetCount;
       /// <summary>
-      /// Gets the certificate object at the given index.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection#getvalueatindex">See the ICoreWebView2ClientCertificateCollection article.</see></para>

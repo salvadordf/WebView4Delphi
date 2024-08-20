@@ -11,9 +11,7 @@ uses
 
 type
   /// <summary>
-  /// Provides a set of properties for managing browser Extension Lists from user profile. This
-  /// includes the number of browser Extensions in the list, and the ability to get an browser
-  /// Extension from the list at a particular index.
+  /// A collection of ICoreWebView2BrowserExtension.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionlist">See the ICoreWebView2BrowserExtensionList article.</see></para>
@@ -39,14 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2BrowserExtensionList   read FBaseIntf;
       /// <summary>
-      /// The number of browser Extensions in the list.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionlist#get_count">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>
       /// </remarks>
       property Count                 : cardinal                                     read GetCount;
       /// <summary>
-      /// Gets the browser Extension located in the browser Extension List at the given index.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionlist#getvalueatindex">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>

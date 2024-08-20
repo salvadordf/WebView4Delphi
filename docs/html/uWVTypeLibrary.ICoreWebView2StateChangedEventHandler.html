@@ -19,7 +19,7 @@
 <code>type ICoreWebView2StateChangedEventHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Implements the interface to receive StateChanged event. Use the ICoreWebView2DownloadOperation.State property to get the current state, which can be in progress, interrupted, or completed. Use the ICoreWebView2DownloadOperation.InterruptReason property to get the interrupt reason if the download is interrupted. </p>
+ Receives `StateChanged` events. </p>
 <p>
 
 
@@ -43,7 +43,7 @@
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the event args for the corresponding event. No event args exist and the `args` parameter is set to `null`. </p>
+ Provides the event args for the corresponding event. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{81336594-7EDE-4BA9-BF71-ACF0A95B58DD}']</dt>

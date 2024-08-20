@@ -19,7 +19,7 @@
 <code>type ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The caller implements this interface to receive the result of getting the browser Extensions. </p>
+ Receives the result of the `GetBrowserExtensions` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html#Invoke-HResult-ICoreWebView2BrowserExtensionList-">Invoke</a></strong>(errorCode: HResult; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html#Invoke-HResult-ICoreWebView2BrowserExtensionList-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2BrowserExtensionList-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const extensionList: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2BrowserExtensionList-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the browser extension list for the requested user profile. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{FCE16A1C-F107-4601-8B75-FC4940AE25D0}']</dt>

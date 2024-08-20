@@ -53,7 +53,9 @@
 </tr>
 <tr><td colspan="2">
 <p>
- `FailureReportFolderPath` returns the path of the folder where minidump files are written. Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder. The crash dump format is minidump files. Please see [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information. Normally when a single child process fails, a minidump will be generated and written to disk, then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated at all, despite whether `ProcessFailed` event is raised. If there are multiple process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath` could contain old minidump files that are not associated with a specific `ProcessFailed` event. \snippet AppWindow.cpp GetFailureReportFolder </p>
+ `FailureReportFolderPath` returns the path of the folder where minidump files are written. Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder. The crash dump format is minidump files. Please see [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information. Normally when a single child process fails, a minidump will be generated and written to disk, then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated at all, despite whether `ProcessFailed` event is raised. If there are multiple process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath` could contain old minidump files that are not associated with a specific `ProcessFailed` event. \snippet AppWindow.cpp GetFailureReportFolder
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{F0913DC6-A0EC-42EF-9805-91DFF3A2966A}']</dt>

@@ -19,7 +19,7 @@
 <code>type ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The caller implements this interface to receive the result of loading an browser Extension. </p>
+ Receives the result of the `AddBrowserExtension` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html#Invoke-HResult-ICoreWebView2BrowserExtension-">Invoke</a></strong>(errorCode: HResult; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html#Invoke-HResult-ICoreWebView2BrowserExtension-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2BrowserExtension-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const extension: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2BrowserExtension-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the result of the `AddBrowserExtension` operation. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}']</dt>

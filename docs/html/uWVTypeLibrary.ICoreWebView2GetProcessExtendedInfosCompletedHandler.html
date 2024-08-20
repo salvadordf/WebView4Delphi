@@ -19,7 +19,7 @@
 <code>type ICoreWebView2GetProcessExtendedInfosCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Receives the result of the `GetProcessExtendedInfos` method. The result is written to the collection of `ProcessExtendedInfo`s provided in the `GetProcessExtendedInfos` method call. </p>
+ Receives the result of the `GetProcessExtendedInfos` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetProcessExtendedInfosCompletedHandler.html#Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-">Invoke</a></strong>(errorCode: HResult; const value: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetProcessExtendedInfosCompletedHandler.html#Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const value: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2ProcessExtendedInfoCollection-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the process extended info list for the `GetProcessExtendedInfos`. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{F45E55AA-3BC2-11EE-BE56-0242AC120002}']</dt>

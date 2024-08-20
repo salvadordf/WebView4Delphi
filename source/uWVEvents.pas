@@ -25,12 +25,12 @@ type
   // Browser events
   TOnExecuteScriptCompletedEvent                           = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring; aExecutionID: integer) of object;
   TOnCapturePreviewCompletedEvent                          = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
-  TOnWebResourceResponseViewGetContentCompletedEvent       = procedure(Sender: TObject; aErrorCode: HRESULT; const aContents: IStream; aResourceID : integer) of object;
-  TOnGetCookiesCompletedEvent                              = procedure(Sender: TObject; aResult: HRESULT; const aCookieList: ICoreWebView2CookieList) of object;
-  TOnTrySuspendCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;
-  TOnPrintToPdfCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aIsSuccessful: boolean) of object;
-  TOnCallDevToolsProtocolMethodCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID: integer) of object;
-  TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent     = procedure(Sender: TObject; aErrorCode: HRESULT; const aID: wvstring) of object;
+  TOnWebResourceResponseViewGetContentCompletedEvent       = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream; aResourceID : integer) of object;
+  TOnGetCookiesCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: ICoreWebView2CookieList) of object;
+  TOnTrySuspendCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;
+  TOnPrintToPdfCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: boolean) of object;
+  TOnCallDevToolsProtocolMethodCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: wvstring; aExecutionID: integer) of object;
+  TOnAddScriptToExecuteOnDocumentCreatedCompletedEvent     = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: wvstring) of object;
   TOnMoveFocusRequestedEvent                               = procedure(Sender: TObject; const aController: ICoreWebView2Controller; const aArgs: ICoreWebView2MoveFocusRequestedEventArgs) of object;
   TOnAcceleratorKeyPressedEvent                            = procedure(Sender: TObject; const aController: ICoreWebView2Controller; const aArgs: ICoreWebView2AcceleratorKeyPressedEventArgs) of object;
   TOnBrowserProcessExitedEvent                             = procedure(Sender: TObject; const aEnvironment: ICoreWebView2Environment; const aArgs: ICoreWebView2BrowserProcessExitedEventArgs) of object;
@@ -56,7 +56,7 @@ type
   TOnFrameNameChangedEvent                                 = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: cardinal) of object;
   TOnFrameDestroyedEvent                                   = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; aFrameID: cardinal) of object;
   TOnInitializationErrorEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aErrorMessage: wvstring) of object;
-  TOnPrintCompletedEvent                                   = procedure(Sender: TObject; aErrorCode: HRESULT; aPrintStatus: TWVPrintStatus) of object;
+  TOnPrintCompletedEvent                                   = procedure(Sender: TObject; aErrorCode: HRESULT; aResult: TWVPrintStatus) of object;
   TOnRefreshIgnoreCacheCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT; const aResultObjectAsJson: wvstring) of object;
   TOnRetrieveHTMLCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aHTML: wvstring) of object;
   TOnRetrieveTextCompletedEvent                            = procedure(Sender: TObject; aResult: boolean; const aText: wvstring) of object;
@@ -84,19 +84,19 @@ type
   TOnServerCertificateErrorActionsCompletedEvent           = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnServerCertificateErrorDetectedEvent                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs) of object;
   TOnFaviconChangedEvent                                   = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: IUnknown) of object;
-  TOnGetFaviconCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aFaviconStream: IStream) of object;
-  TOnPrintToPdfStreamCompletedEvent                        = procedure(Sender: TObject; aErrorCode: HRESULT; const aPdfStream: IStream) of object;
+  TOnGetFaviconCompletedEvent                              = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;
+  TOnPrintToPdfStreamCompletedEvent                        = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: IStream) of object;
   TOnGetCustomSchemesEvent                                 = procedure(Sender: TObject; var aCustomSchemes: TWVCustomSchemeInfoArray) of object;
-  TOnGetNonDefaultPermissionSettingsCompletedEvent         = procedure(Sender: TObject; aErrorCode: HRESULT; const aCollectionView: ICoreWebView2PermissionSettingCollectionView) of object;
+  TOnGetNonDefaultPermissionSettingsCompletedEvent         = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: ICoreWebView2PermissionSettingCollectionView) of object;
   TOnSetPermissionStateCompletedEvent                      = procedure(Sender: TObject; aErrorCode: HRESULT) of object;
   TOnLaunchingExternalUriSchemeEvent                       = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2LaunchingExternalUriSchemeEventArgs) of object;
-  TOnGetProcessExtendedInfosCompletedEvent                 = procedure(Sender: TObject; aErrorCode: HRESULT; const aValue: ICoreWebView2ProcessExtendedInfoCollection) of object;
+  TOnGetProcessExtendedInfosCompletedEvent                 = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: ICoreWebView2ProcessExtendedInfoCollection) of object;
   TOnBrowserExtensionRemoveCompletedEvent                  = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: wvstring) of object;
   TOnBrowserExtensionEnableCompletedEvent                  = procedure(Sender: TObject; aErrorCode: HRESULT; const aExtensionID: wvstring) of object;
-  TOnProfileAddBrowserExtensionCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension) of object;
-  TOnProfileGetBrowserExtensionsCompletedEvent             = procedure(Sender: TObject; aErrorCode: HRESULT; const extensionList: ICoreWebView2BrowserExtensionList) of object;
+  TOnProfileAddBrowserExtensionCompletedEvent              = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: ICoreWebView2BrowserExtension) of object;
+  TOnProfileGetBrowserExtensionsCompletedEvent             = procedure(Sender: TObject; aErrorCode: HRESULT; const aResult: ICoreWebView2BrowserExtensionList) of object;
   TOnProfileDeletedEvent                                   = procedure(Sender: TObject; const aProfile: ICoreWebView2Profile) of object;
-  TOnExecuteScriptWithResultCompletedEvent                 = procedure(Sender: TObject; errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer) of object;
+  TOnExecuteScriptWithResultCompletedEvent                 = procedure(Sender: TObject; errorCode: HResult; const aResult: ICoreWebView2ExecuteScriptResult; aExecutionID : integer) of object;
   TOnNonClientRegionChangedEvent                           = procedure(Sender: TObject; const aController : ICoreWebView2CompositionController; const aArgs : ICoreWebView2NonClientRegionChangedEventArgs) of object;
 
   // Custom events

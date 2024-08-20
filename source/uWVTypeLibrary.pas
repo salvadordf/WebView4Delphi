@@ -31,14 +31,6 @@ const
 
   LIBID_WebView2: TGUID = '{26D34152-879F-4065-BEA2-3DAA2CFADFB8}';
 
-  IID_ICoreWebView2AcceleratorKeyPressedEventArgs: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';
-  IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
-  IID_ICoreWebView2AcceleratorKeyPressedEventHandler: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';
-  IID_ICoreWebView2Controller: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';
-  IID_ICoreWebView2ZoomFactorChangedEventHandler: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';
-  IID_ICoreWebView2MoveFocusRequestedEventHandler: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';
-  IID_ICoreWebView2MoveFocusRequestedEventArgs: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';
-  IID_ICoreWebView2FocusChangedEventHandler: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';
   IID_ICoreWebView2: TGUID = '{76ECEACB-0462-4D94-AC83-423A6793775E}';
   IID_ICoreWebView2Settings: TGUID = '{E562E4F0-D7FA-43AC-8D71-C05150499F00}';
   IID_ICoreWebView2NavigationStartingEventHandler: TGUID = '{9ADBE429-F36D-432B-9DDC-F8881FBD76E3}';
@@ -92,6 +84,13 @@ const
   IID_ICoreWebView2CookieList: TGUID = '{F7F6F714-5D2A-43C6-9503-346ECE02D186}';
   IID_ICoreWebView2Environment: TGUID = '{B96D755E-0319-4E92-A296-23436F46A1FC}';
   IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler: TGUID = '{6C4819F3-C9B7-4260-8127-C9F5BDE7F68C}';
+  IID_ICoreWebView2Controller: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';
+  IID_ICoreWebView2ZoomFactorChangedEventHandler: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';
+  IID_ICoreWebView2MoveFocusRequestedEventHandler: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';
+  IID_ICoreWebView2MoveFocusRequestedEventArgs: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';
+  IID_ICoreWebView2FocusChangedEventHandler: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';
+  IID_ICoreWebView2AcceleratorKeyPressedEventHandler: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';
+  IID_ICoreWebView2AcceleratorKeyPressedEventArgs: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';
   IID_ICoreWebView2NewBrowserVersionAvailableEventHandler: TGUID = '{F9A2976E-D34E-44FC-ADEE-81B6B57CA914}';
   IID_ICoreWebView2_3: TGUID = '{A0D6DF20-3B92-416D-AA0C-437A9C727857}';
   IID_ICoreWebView2TrySuspendCompletedHandler: TGUID = '{00F206A7-9D17-4605-91F6-4E8E4DE192E3}';
@@ -160,28 +159,37 @@ const
   IID_ICoreWebView2ExecuteScriptResult: TGUID = '{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}';
   IID_ICoreWebView2ScriptException: TGUID = '{054DAE00-84A3-49FF-BC17-4012A90BC9FD}';
   IID_ICoreWebView2_22: TGUID = '{DB75DFC7-A857-4632-A398-6969DDE26C0A}';
+  IID_ICoreWebView2_23: TGUID = '{508F0DB5-90C4-5872-90A7-267A91377502}';
+  IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
+  IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
+  IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
+  IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
+  IID_ICoreWebView2BrowserExtensionEnableCompletedHandler: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';
   IID_ICoreWebView2BrowserProcessExitedEventArgs: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';
-  IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2CompositionController: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';
   IID_ICoreWebView2PointerInfo: TGUID = '{E6995887-D10D-4F5D-9359-4CE46E4F96B9}';
   IID_ICoreWebView2CursorChangedEventHandler: TGUID = '{9DA43CCC-26E1-4DAD-B56C-D8961C94C571}';
   IID_ICoreWebView2CompositionController2: TGUID = '{0B6A3D24-49CB-4806-BA20-B5E0734A7B26}';
   IID_ICoreWebView2CompositionController3: TGUID = '{9570570E-4D76-4361-9EE1-F04D0DBDFB1E}';
+  IID_ICoreWebView2CompositionController4: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';
+  IID_ICoreWebView2RegionRectCollectionView: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';
+  IID_ICoreWebView2NonClientRegionChangedEventHandler: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';
+  IID_ICoreWebView2NonClientRegionChangedEventArgs: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';
   IID_ICoreWebView2Controller2: TGUID = '{C979903E-D4CA-4228-92EB-47EE3FA96EAB}';
   IID_ICoreWebView2Controller3: TGUID = '{F9614724-5D2B-41DC-AEF7-73D62B51543B}';
   IID_ICoreWebView2RasterizationScaleChangedEventHandler: TGUID = '{9C98C8B1-AC53-427E-A345-3049B5524BBE}';
   IID_ICoreWebView2Controller4: TGUID = '{97D418D5-A426-4E49-A151-E1A10F327D9E}';
   IID_ICoreWebView2ControllerOptions: TGUID = '{12AAE616-8CCB-44EC-BCB3-EB1831881635}';
   IID_ICoreWebView2ControllerOptions2: TGUID = '{06C991D8-9E7E-11ED-A8FC-0242AC120002}';
-  IID_ICoreWebView2ClearBrowsingDataCompletedHandler: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';
-  IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';
-  IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
   IID_ICoreWebView2CustomSchemeRegistration: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
+  IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
   IID_ICoreWebView2Environment2: TGUID = '{41F3632B-5EF4-404F-AD82-2D606C5A9A21}';
   IID_ICoreWebView2Environment3: TGUID = '{80A22AE3-BE7C-4CE2-AFE1-5A50056CDEEB}';
+  IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';
   IID_ICoreWebView2Environment4: TGUID = '{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}';
   IID_ICoreWebView2Environment5: TGUID = '{319E423D-E0D7-4B8D-9254-AE9475DE9B17}';
+  IID_ICoreWebView2BrowserProcessExitedEventHandler: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';
   IID_ICoreWebView2Environment6: TGUID = '{E59EE362-ACBD-4857-9A8E-D3644D9459A9}';
   IID_ICoreWebView2Environment7: TGUID = '{43C22296-3BBD-43A4-9C00-5C0DF6DD29A2}';
   IID_ICoreWebView2Environment8: TGUID = '{D6EB91DD-C3D2-45E5-BD29-6DC2BC4DE9CF}';
@@ -199,6 +207,9 @@ const
   IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
   IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
   IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
+  IID_ICoreWebView2Environment14: TGUID = '{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}';
+  IID_ICoreWebView2FileSystemHandle: TGUID = '{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}';
+  IID_ICoreWebView2ObjectCollection: TGUID = '{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2EnvironmentOptions3: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';
@@ -207,6 +218,7 @@ const
   IID_ICoreWebView2EnvironmentOptions6: TGUID = '{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}';
   IID_ICoreWebView2EnvironmentOptions7: TGUID = '{C48D539F-E39F-441C-AE68-1F66E570BDC5}';
   IID_ICoreWebView2EnvironmentOptions8: TGUID = '{7C7ECF51-E918-5CAF-853C-E9A2BCC27775}';
+  IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
   IID_ICoreWebView2Frame2: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';
   IID_ICoreWebView2FrameNavigationStartingEventHandler: TGUID = '{E79908BF-2D5D-4968-83DB-263FEA2C1DA3}';
   IID_ICoreWebView2FrameContentLoadingEventHandler: TGUID = '{0D6156F2-D332-49A7-9E03-7D8F2FEEEE54}';
@@ -219,29 +231,27 @@ const
   IID_ICoreWebView2Frame4: TGUID = '{188782DC-92AA-4732-AB3C-FCC59F6F68B9}';
   IID_ICoreWebView2Frame5: TGUID = '{99D199C4-7305-11EE-B962-0242AC120002}';
   IID_ICoreWebView2FrameInfo2: TGUID = '{56F85CFA-72C4-11EE-B962-0242AC120002}';
-  IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';
-  IID_ICoreWebView2PermissionSettingCollectionView: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';
-  IID_ICoreWebView2PermissionSetting: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';
   IID_ICoreWebView2NavigationCompletedEventArgs2: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
   IID_ICoreWebView2NavigationStartingEventArgs3: TGUID = '{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}';
   IID_ICoreWebView2NewWindowRequestedEventArgs2: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';
   IID_ICoreWebView2NewWindowRequestedEventArgs3: TGUID = '{842BED3C-6AD6-4DD9-B938-28C96667AD66}';
   IID_ICoreWebView2PermissionRequestedEventArgs3: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';
+  IID_ICoreWebView2PermissionSetting: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';
   IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
   IID_ICoreWebView2ProcessFailedEventArgs3: TGUID = '{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}';
   IID_ICoreWebView2Profile2: TGUID = '{FA740D4B-5EAE-4344-A8AD-74BE31925397}';
+  IID_ICoreWebView2ClearBrowsingDataCompletedHandler: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';
   IID_ICoreWebView2Profile3: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';
   IID_ICoreWebView2Profile4: TGUID = '{8F4AE680-192E-4EC8-833A-21CFADAEF628}';
   IID_ICoreWebView2SetPermissionStateCompletedHandler: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';
+  IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';
+  IID_ICoreWebView2PermissionSettingCollectionView: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';
   IID_ICoreWebView2Profile5: TGUID = '{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}';
   IID_ICoreWebView2Profile6: TGUID = '{BD82FA6A-1D65-4C33-B2B4-0393020CC61B}';
   IID_ICoreWebView2Profile7: TGUID = '{7B4C7906-A1AA-4CB4-B723-DB09F813D541}';
   IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler: TGUID = '{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}';
-  IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
-  IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
-  IID_ICoreWebView2BrowserExtensionEnableCompletedHandler: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';
   IID_ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler: TGUID = '{FCE16A1C-F107-4601-8B75-FC4940AE25D0}';
   IID_ICoreWebView2BrowserExtensionList: TGUID = '{2EF3D2DC-BD5F-4F4D-90AF-FD67798F0C2F}';
   IID_ICoreWebView2Profile8: TGUID = '{FBF70C2F-EB1F-4383-85A0-163E92044011}';
@@ -254,14 +264,8 @@ const
   IID_ICoreWebView2Settings7: TGUID = '{488DC902-35EF-42D2-BC7D-94B65C4BC49C}';
   IID_ICoreWebView2Settings8: TGUID = '{9E6B0E8F-86AD-4E81-8147-A9B5EDB68650}';
   IID_ICoreWebView2Settings9: TGUID = '{0528A73B-E92D-49F4-927A-E547DDDAA37D}';
-  IID_ICoreWebView2WebResourceRequestedEventArgs2: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';
-  IID_ICoreWebView2NonClientRegionChangedEventHandler: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';
-  IID_ICoreWebView2NonClientRegionChangedEventArgs: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';
-  IID_ICoreWebView2RegionRectCollectionView: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';
-  IID_ICoreWebView2CompositionController4: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';
-  IID_ICoreWebView2File: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';
-  IID_ICoreWebView2ObjectCollectionView: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';
   IID_ICoreWebView2WebMessageReceivedEventArgs2: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';
+  IID_ICoreWebView2WebResourceRequestedEventArgs2: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';
 
 {*
  *********************************************************************
@@ -915,8 +919,6 @@ const
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.</para>
-  /// <para>Note that this isn't working. Fetch API requests are fired as a part
-  /// of COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST.</para>
   /// </remarks>
   COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FETCH = $00000008;
   /// <summary>
@@ -938,8 +940,6 @@ const
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.</para>
-  /// <para>Note that this isn't working. EventSource API requests are fired as a part
-  /// of COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST.</para>
   /// </remarks>
   COREWEBVIEW2_WEB_RESOURCE_CONTEXT_WEBSOCKET = $0000000B;
   /// <summary>
@@ -1737,126 +1737,126 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL = $0000020E;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL = 526;
   /// <summary>
   /// Left button double click mouse event, WM_LBUTTONDBLCLK.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK = $00000203;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK = 515;
   /// <summary>
   /// Left button down mouse event, WM_LBUTTONDOWN.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN = $00000201;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN = 513;
   /// <summary>
   /// Left button up mouse event, WM_LBUTTONUP.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP = $00000202;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP = 514;
   /// <summary>
   /// Mouse leave event, WM_MOUSELEAVE.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE = $000002A3;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE = 675;
   /// <summary>
   /// Middle button double click mouse event, WM_MBUTTONDBLCLK.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK = $00000209;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK = 521;
   /// <summary>
   /// Middle button down mouse event, WM_MBUTTONDOWN.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN = $00000207;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN = 519;
   /// <summary>
   /// Middle button up mouse event, WM_MBUTTONUP.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP = $00000208;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP = 520;
   /// <summary>
   /// Mouse move event, WM_MOUSEMOVE.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE = $00000200;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE = 512;
   /// <summary>
   /// Right button double click mouse event, WM_RBUTTONDBLCLK.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK = $00000206;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK = 518;
   /// <summary>
   /// Right button down mouse event, WM_RBUTTONDOWN.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN = $00000204;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN = 516;
   /// <summary>
   /// Right button up mouse event, WM_RBUTTONUP.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP = $00000205;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP = 517;
   /// <summary>
   /// Mouse wheel scroll event, WM_MOUSEWHEEL.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL = $0000020A;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL = 522;
   /// <summary>
   /// First or second X button double click mouse event, WM_XBUTTONDBLCLK.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK = $0000020D;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK = 525;
   /// <summary>
   /// First or second X button down mouse event, WM_XBUTTONDOWN.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN = $0000020B;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN = 523;
   /// <summary>
   /// First or second X button up mouse event, WM_XBUTTONUP.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP = $0000020C;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP = 524;
   /// <summary>
   /// Mouse Right Button Down event over a nonclient area, WM_NCRBUTTONDOWN.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN = $00A4;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN = 164;
   /// <summary>
   /// Mouse Right Button up event over a nonclient area, WM_NCRBUTTONUP.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_MOUSE_EVENT_KIND values.</para>
   /// </remarks>
-  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP = $00A5;
+  COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP = 165;
 
 type
   /// <summary>
@@ -2066,6 +2066,58 @@ const
 
 type
   /// <summary>
+  /// Allowed permissions of a CoreWebView2FileSystemHandle as described in
+  /// [FileSystemHandle.requestPermission()](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission)
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_permission">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = TOleEnum;
+const
+  /// <summary>
+  /// Read-only permission for FileSystemHandle.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY = $00000000;
+  /// <summary>
+  /// Read and write permissions for FileSystemHandle.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE = $00000001;
+
+type
+  /// <summary>
+  /// Kind of CoreWebView2FileSystemHandle as described in
+  /// [FileSystemHandle.kind](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/kind)
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_kind">See the Globals article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND = TOleEnum;
+const
+  /// <summary>
+  /// FileSystemHandle is for a file
+  /// (i.e. [FileSystemFileHandle](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle))
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE = $00000000;
+  /// <summary>
+  /// FileSystemHandle is for a directory
+  /// (i.e. [FileSystemDirectoryHandle](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle))
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY = $00000001;
+
+type
+  /// <summary>
   /// The channel search kind determines the order that release channels are
   /// searched for during environment creation. The default behavior is to search
   /// for and use the most stable channel found on the device. The order from most
@@ -2251,8 +2303,6 @@ const
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_NAVIGATION_KIND values.</para>
-  /// <para>This kind doesn't distinguish back or forward, because we can't
-  /// distinguish it from origin source blink.mojom.NavigationType.</para>
   /// </remarks>
   COREWEBVIEW2_NAVIGATION_KIND_BACK_OR_FORWARD = $00000001;
   /// <summary>
@@ -2466,35 +2516,35 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS = 1 shl 0;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS = $0001;
   /// <summary>
   /// Specifies data stored by the IndexedDB DOM feature.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB = 1 shl 1;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB = $0002;
   /// <summary>
   /// Specifies data stored by the localStorage DOM API.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE = 1 shl 2;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE = $0004;
   /// <summary>
   /// Specifies data stored by the Web SQL database DOM API.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL = 1 shl 3;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL = $0008;
   /// <summary>
   /// Specifies data stored by the CacheStorage DOM API.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE = 1 shl 4;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE = $0010;
   /// <summary>
   /// Specifies DOM storage data, now and future. This browsing data kind is
   /// inclusive of COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS,
@@ -2509,14 +2559,14 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE = 1 shl 5;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE = $0020;
   /// <summary>
   /// Specifies HTTP cookies data.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES = 1 shl 6;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES = $0040;
   /// <summary>
   /// Specifies all site data, now and future. This browsing data kind
   /// is inclusive of COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE and
@@ -2526,21 +2576,21 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE = 1 shl 7;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE = $0080;
   /// <summary>
   /// Specifies disk cache.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE = 1 shl 8;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE = $0100;
   /// <summary>
   /// Specifies download history data.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY = 1 shl 9;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY = $0200;
   /// <summary>
   /// Specifies general autofill form data.
   /// This excludes password information and includes information like:
@@ -2550,28 +2600,28 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL = 1 shl 10;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL = $0400;
   /// <summary>
   /// Specifies password autosave data.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE = 1 shl 11;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE = $0800;
   /// <summary>
   /// Specifies browsing history data.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY = 1 shl 12;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY = $1000;
   /// <summary>
   /// Specifies settings data.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS = 1 shl 13;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS = $2000;
   /// <summary>
   /// Specifies profile data that should be wiped to make it look like a new profile.
   /// This does not delete account-scoped data like passwords but will remove access
@@ -2589,7 +2639,7 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE = 1 shl 14;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE = $4000;
   /// <summary>
   /// Specifies service workers registered for an origin, and clear will result in
   /// termination and deregistration of them.
@@ -2597,7 +2647,7 @@ const
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_BROWSING_DATA_KINDS values.</para>
   /// </remarks>
-  COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS = 1 shl 15;
+  COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS = $8000;
 
 type
   /// <summary>
@@ -2664,7 +2714,6 @@ const
 
 type
   /// <summary>
-  /// PDF toolbar item. This enum must be in sync with ToolBarItem in pdf-store-data-types.ts
   /// Specifies the PDF toolbar item types used for the ICoreWebView2Settings.put_HiddenPdfToolbarItems method.
   /// </summary>
   /// <remarks>
@@ -2888,14 +2937,6 @@ type
  Forward declaration of types defined in TypeLibrary
  *********************************************************************
 *}
-  ICoreWebView2AcceleratorKeyPressedEventArgs = interface;
-  ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
-  ICoreWebView2AcceleratorKeyPressedEventHandler = interface;
-  ICoreWebView2Controller = interface;
-  ICoreWebView2ZoomFactorChangedEventHandler = interface;
-  ICoreWebView2MoveFocusRequestedEventHandler = interface;
-  ICoreWebView2MoveFocusRequestedEventArgs = interface;
-  ICoreWebView2FocusChangedEventHandler = interface;
   ICoreWebView2 = interface;
   ICoreWebView2Settings = interface;
   ICoreWebView2NavigationStartingEventHandler = interface;
@@ -2949,6 +2990,13 @@ type
   ICoreWebView2CookieList = interface;
   ICoreWebView2Environment = interface;
   ICoreWebView2CreateCoreWebView2ControllerCompletedHandler = interface;
+  ICoreWebView2Controller = interface;
+  ICoreWebView2ZoomFactorChangedEventHandler = interface;
+  ICoreWebView2MoveFocusRequestedEventHandler = interface;
+  ICoreWebView2MoveFocusRequestedEventArgs = interface;
+  ICoreWebView2FocusChangedEventHandler = interface;
+  ICoreWebView2AcceleratorKeyPressedEventHandler = interface;
+  ICoreWebView2AcceleratorKeyPressedEventArgs = interface;
   ICoreWebView2NewBrowserVersionAvailableEventHandler = interface;
   ICoreWebView2_3 = interface;
   ICoreWebView2TrySuspendCompletedHandler = interface;
@@ -3017,28 +3065,37 @@ type
   ICoreWebView2ExecuteScriptResult = interface;
   ICoreWebView2ScriptException = interface;
   ICoreWebView2_22 = interface;
+  ICoreWebView2_23 = interface;
+  ICoreWebView2ObjectCollectionView = interface;
+  ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
+  ICoreWebView2BrowserExtension = interface;
+  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
+  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface;
   ICoreWebView2BrowserProcessExitedEventArgs = interface;
-  ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2CompositionController = interface;
   ICoreWebView2PointerInfo = interface;
   ICoreWebView2CursorChangedEventHandler = interface;
   ICoreWebView2CompositionController2 = interface;
   ICoreWebView2CompositionController3 = interface;
+  ICoreWebView2CompositionController4 = interface;
+  ICoreWebView2RegionRectCollectionView = interface;
+  ICoreWebView2NonClientRegionChangedEventHandler = interface;
+  ICoreWebView2NonClientRegionChangedEventArgs = interface;
   ICoreWebView2Controller2 = interface;
   ICoreWebView2Controller3 = interface;
   ICoreWebView2RasterizationScaleChangedEventHandler = interface;
   ICoreWebView2Controller4 = interface;
   ICoreWebView2ControllerOptions = interface;
   ICoreWebView2ControllerOptions2 = interface;
-  ICoreWebView2ClearBrowsingDataCompletedHandler = interface;
-  ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface;
-  ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
   ICoreWebView2CustomSchemeRegistration = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
+  ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
   ICoreWebView2Environment2 = interface;
   ICoreWebView2Environment3 = interface;
+  ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface;
   ICoreWebView2Environment4 = interface;
   ICoreWebView2Environment5 = interface;
+  ICoreWebView2BrowserProcessExitedEventHandler = interface;
   ICoreWebView2Environment6 = interface;
   ICoreWebView2Environment7 = interface;
   ICoreWebView2Environment8 = interface;
@@ -3056,6 +3113,9 @@ type
   ICoreWebView2FrameInfoCollection = interface;
   ICoreWebView2FrameInfoCollectionIterator = interface;
   ICoreWebView2FrameInfo = interface;
+  ICoreWebView2Environment14 = interface;
+  ICoreWebView2FileSystemHandle = interface;
+  ICoreWebView2ObjectCollection = interface;
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2EnvironmentOptions3 = interface;
@@ -3064,6 +3124,7 @@ type
   ICoreWebView2EnvironmentOptions6 = interface;
   ICoreWebView2EnvironmentOptions7 = interface;
   ICoreWebView2EnvironmentOptions8 = interface;
+  ICoreWebView2File = interface;
   ICoreWebView2Frame2 = interface;
   ICoreWebView2FrameNavigationStartingEventHandler = interface;
   ICoreWebView2FrameContentLoadingEventHandler = interface;
@@ -3076,29 +3137,27 @@ type
   ICoreWebView2Frame4 = interface;
   ICoreWebView2Frame5 = interface;
   ICoreWebView2FrameInfo2 = interface;
-  ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = interface;
-  ICoreWebView2PermissionSettingCollectionView = interface;
-  ICoreWebView2PermissionSetting = interface;
   ICoreWebView2NavigationCompletedEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs3 = interface;
   ICoreWebView2NewWindowRequestedEventArgs2 = interface;
   ICoreWebView2NewWindowRequestedEventArgs3 = interface;
   ICoreWebView2PermissionRequestedEventArgs3 = interface;
+  ICoreWebView2PermissionSetting = interface;
   ICoreWebView2PrintSettings2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
   ICoreWebView2ProcessFailedEventArgs3 = interface;
   ICoreWebView2Profile2 = interface;
+  ICoreWebView2ClearBrowsingDataCompletedHandler = interface;
   ICoreWebView2Profile3 = interface;
   ICoreWebView2Profile4 = interface;
   ICoreWebView2SetPermissionStateCompletedHandler = interface;
+  ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = interface;
+  ICoreWebView2PermissionSettingCollectionView = interface;
   ICoreWebView2Profile5 = interface;
   ICoreWebView2Profile6 = interface;
   ICoreWebView2Profile7 = interface;
   ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface;
-  ICoreWebView2BrowserExtension = interface;
-  ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
-  ICoreWebView2BrowserExtensionEnableCompletedHandler = interface;
   ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface;
   ICoreWebView2BrowserExtensionList = interface;
   ICoreWebView2Profile8 = interface;
@@ -3111,14 +3170,8 @@ type
   ICoreWebView2Settings7 = interface;
   ICoreWebView2Settings8 = interface;
   ICoreWebView2Settings9 = interface;
-  ICoreWebView2WebResourceRequestedEventArgs2 = interface;
-  ICoreWebView2NonClientRegionChangedEventHandler = interface;
-  ICoreWebView2NonClientRegionChangedEventArgs = interface;
-  ICoreWebView2RegionRectCollectionView = interface;
-  ICoreWebView2CompositionController4 = interface;
-  ICoreWebView2File = interface;
-  ICoreWebView2ObjectCollectionView = interface;
   ICoreWebView2WebMessageReceivedEventArgs2 = interface;
+  ICoreWebView2WebResourceRequestedEventArgs2 = interface;
 
 {*
  *********************************************************************
@@ -3253,7 +3306,7 @@ type
   end;
 
   /// <summary>
-  /// This is This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface.
+  /// This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs2">See the ICoreWebView2AcceleratorKeyPressedEventArgs2 article.</see></para>
@@ -3608,9 +3661,7 @@ type
   end;
 
   /// <summary>
-  /// Implements the interface to receive ZoomFactorChanged events.  Use the
-  /// ICoreWebView2Controller.ZoomFactor property to get the modified zoom
-  /// factor.
+  /// Receives `ZoomFactorChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2zoomfactorchangedeventhandler">See the ICoreWebView2ZoomFactorChangedEventHandler article.</see></para>
@@ -3618,8 +3669,7 @@ type
   ICoreWebView2ZoomFactorChangedEventHandler = interface(IUnknown)
     ['{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HResult; stdcall;
   end;
@@ -3668,7 +3718,7 @@ type
   end;
 
   /// <summary>
-  /// Receives GotFocus and LostFocus events.
+  /// Receives `GotFocus` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2focuschangedeventhandler">See the ICoreWebView2FocusChangedEventHandler article.</see></para>
@@ -3676,8 +3726,7 @@ type
   ICoreWebView2FocusChangedEventHandler = interface(IUnknown)
     ['{05EA24BD-6452-4926-9014-4B82B498135D}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HResult; stdcall;
   end;
@@ -4672,11 +4721,11 @@ type
     /// <summary>
     /// Gets the header value matching the name using an iterator.
     /// </summary>
-    function GetHeaders(name: PWideChar; out iterator: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
+    function GetHeaders(name: PWideChar; out value: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
     /// <summary>
-    /// Verifies that the headers contain an entry that matches the header name.
+    /// Checks whether the headers contain an entry that matches the header name.
     /// </summary>
-    function Contains(name: PWideChar; out Contains: Integer): HResult; stdcall;
+    function Contains(name: PWideChar; out value: Integer): HResult; stdcall;
     /// <summary>
     /// Adds or updates header that matches the name.
     /// </summary>
@@ -4688,7 +4737,7 @@ type
     /// <summary>
     /// Gets an iterator over the collection of request headers.
     /// </summary>
-    function GetIterator(out iterator: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
+    function GetIterator(out value: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
   end;
 
   /// <summary>
@@ -4749,11 +4798,11 @@ type
     /// <summary>
     /// `TRUE` if the loaded content is an error page.
     /// </summary>
-    function Get_IsErrorPage(out IsErrorPage: Integer): HResult; stdcall;
+    function Get_IsErrorPage(out value: Integer): HResult; stdcall;
     /// <summary>
     /// The ID of the navigation.
     /// </summary>
-    function Get_NavigationId(out NavigationId: Largeuint): HResult; stdcall;
+    function Get_NavigationId(out value: Largeuint): HResult; stdcall;
   end;
 
   /// <summary>
@@ -4781,7 +4830,7 @@ type
     /// <summary>
     /// `TRUE` if the page being navigated to is a new document.
     /// </summary>
-    function Get_IsNewDocument(out IsNewDocument: Integer): HResult; stdcall;
+    function Get_IsNewDocument(out value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -4793,7 +4842,7 @@ type
   ICoreWebView2HistoryChangedEventHandler = interface(IUnknown)
     ['{C79A420C-EFD9-4058-9295-3E8B4BCAB645}']
     /// <summary>
-    ///
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -4807,10 +4856,9 @@ type
   ICoreWebView2NavigationCompletedEventHandler = interface(IUnknown)
     ['{D33A35BF-1C49-4F98-93AB-006E0533FE1C}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
-    function Invoke(const sender: ICoreWebView2; 
+    function Invoke(const sender: ICoreWebView2;
                     const args: ICoreWebView2NavigationCompletedEventArgs): HResult; stdcall;
   end;
 
@@ -5040,7 +5088,7 @@ type
     /// conditions under which each failure kind occurs, see
     /// `COREWEBVIEW2_PROCESS_FAILED_KIND`.
     /// </summary>
-    function Get_ProcessFailedKind(out ProcessFailedKind: COREWEBVIEW2_PROCESS_FAILED_KIND): HResult; stdcall;
+    function Get_ProcessFailedKind(out value: COREWEBVIEW2_PROCESS_FAILED_KIND): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5052,9 +5100,9 @@ type
   ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler = interface(IUnknown)
     ['{B99369F3-9B11-47B5-BC6F-8E7895FCEA17}']
     /// <summary>
-    ///
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; id: PWideChar): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5066,10 +5114,9 @@ type
   ICoreWebView2ExecuteScriptCompletedHandler = interface(IUnknown)
     ['{49511172-CC67-4BCA-9923-137112F4C4CC}']
     /// <summary>
-    /// Provide the completion status and result of the corresponding
-    /// asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; resultObjectAsJson: PWideChar): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5082,7 +5129,7 @@ type
   ICoreWebView2CapturePreviewCompletedHandler = interface(IUnknown)
     ['{697E05E9-3D8F-45FA-96F4-8FFE1EDEDAF5}']
     /// <summary>
-    /// Provides the completion status of the corresponding asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult): HResult; stdcall;
   end;
@@ -5116,7 +5163,7 @@ type
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function Get_Source(out Source: PWideChar): HResult; stdcall;
+    function Get_Source(out value: PWideChar): HResult; stdcall;
     /// <summary>
     /// The message posted from the WebView content to the host converted to a
     /// JSON string.  Run this operation to communicate using JavaScript objects.
@@ -5133,7 +5180,7 @@ type
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function Get_webMessageAsJson(out webMessageAsJson: PWideChar): HResult; stdcall;
+    function Get_webMessageAsJson(out value: PWideChar): HResult; stdcall;
     /// <summary>
     /// If the message posted from the WebView content to the host is a string
     /// type, this method returns the value of that string.  If the message
@@ -5158,11 +5205,11 @@ type
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function TryGetWebMessageAsString(out webMessageAsString: PWideChar): HResult; stdcall;
+    function TryGetWebMessageAsString(out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Receives CallDevToolsProtocolMethod completion results.
+  /// Receives the result of the `CallDevToolsProtocolMethod` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2calldevtoolsprotocolmethodcompletedhandler">See the ICoreWebView2CallDevToolsProtocolMethodCompletedHandler article.</see></para>
@@ -5170,10 +5217,9 @@ type
   ICoreWebView2CallDevToolsProtocolMethodCompletedHandler = interface(IUnknown)
     ['{5C4889F0-5EF6-4C5A-952C-D8F1B92D0574}']
     /// <summary>
-    /// Provides the completion status and result of the corresponding
-    /// asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; returnObjectAsJson: PWideChar): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5187,6 +5233,7 @@ type
   ICoreWebView2DevToolsProtocolEventReceiver = interface(IUnknown)
     ['{B32CA51A-8371-45E9-9317-AF021D080367}']
     /// <summary>
+    /// Adds an event handler for the `DevToolsProtocolEventReceived` event.
     /// Subscribe to a `DevToolsProtocol` event.  The `Invoke` method of the
     /// `handler` runs whenever the corresponding `DevToolsProtocol` event runs.
     /// `Invoke` runs with an event args object containing the parameter object
@@ -5194,17 +5241,16 @@ type
     ///
     /// \snippet ScriptComponent.cpp DevToolsProtocolEventReceived
     /// </summary>
-    function add_DevToolsProtocolEventReceived(const handler: ICoreWebView2DevToolsProtocolEventReceivedEventHandler;
+    function add_DevToolsProtocolEventReceived(const eventHandler: ICoreWebView2DevToolsProtocolEventReceivedEventHandler;
                                                out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with
-    /// `add_DevToolsProtocolEventReceived`.
+    /// Removes an event handler previously added with `add_DevToolsProtocolEventReceived`.
     /// </summary>
     function remove_DevToolsProtocolEventReceived(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Receives DevToolsProtocolEventReceived events from the WebView.
+  /// Receives `DevToolsProtocolEventReceived` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2devtoolsprotocoleventreceivedeventhandler">See the ICoreWebView2DevToolsProtocolEventReceivedEventHandler article.</see></para>
@@ -5214,7 +5260,7 @@ type
     /// <summary>
     /// Provides the event args for the corresponding event.
     /// </summary>
-    function Invoke(const sender: ICoreWebView2; 
+    function Invoke(const sender: ICoreWebView2;
                     const args: ICoreWebView2DevToolsProtocolEventReceivedEventArgs): HResult; stdcall;
   end;
 
@@ -5233,7 +5279,7 @@ type
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function Get_ParameterObjectAsJson(out ParameterObjectAsJson: PWideChar): HResult; stdcall;
+    function Get_ParameterObjectAsJson(out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5426,8 +5472,7 @@ type
   ICoreWebView2DocumentTitleChangedEventHandler = interface(IUnknown)
     ['{F5F2B923-953E-4042-9F95-F3A118E1AFD4}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -5441,20 +5486,13 @@ type
   ICoreWebView2ContainsFullScreenElementChangedEventHandler = interface(IUnknown)
     ['{E45D98B1-AFEF-45BE-8BAF-6C7728867F73}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Runs when a URL request (through network, file, and so on) is made in
-  /// the webview for a Web resource matching resource context filter and URL
-  /// specified in AddWebResourceRequestedFilter.  The host views and modifies
-  /// the request or provide a response in a similar pattern to HTTP, in which
-  /// case the request immediately completed.  This may not contain any request
-  /// headers that are added by the network stack, such as an Authorization
-  /// header.
+  /// Receives `WebResourceRequested` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequestedeventhandler">See the ICoreWebView2WebResourceRequestedEventHandler article.</see></para>
@@ -5626,7 +5664,7 @@ type
     /// <summary>
     /// Verifies that the headers contain entries that match the header name.
     /// </summary>
-    function Contains(name: PWideChar; out Contains: Integer): HResult; stdcall;
+    function Contains(name: PWideChar; out value: Integer): HResult; stdcall;
     /// <summary>
     /// Gets the first header value in the collection matching the name.
     ///
@@ -5637,11 +5675,11 @@ type
     /// <summary>
     /// Gets the header values matching the name.
     /// </summary>
-    function GetHeaders(name: PWideChar; out iterator: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
+    function GetHeaders(name: PWideChar; out value: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
     /// <summary>
     /// Gets an iterator over the collection of entire response headers.
     /// </summary>
-    function GetIterator(out iterator: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
+    function GetIterator(out value: ICoreWebView2HttpHeadersCollectionIterator): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5653,8 +5691,7 @@ type
   ICoreWebView2WindowCloseRequestedEventHandler = interface(IUnknown)
     ['{5C19E9E0-092F-486B-AFFA-CA8231913039}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -5753,11 +5790,11 @@ type
     /// Modifications to this object have no effect on how the request is
     /// processed as it has already been sent.
     /// </summary>
-    function Get_Request(out Request: ICoreWebView2WebResourceRequest): HResult; stdcall;
+    function Get_Request(out value: ICoreWebView2WebResourceRequest): HResult; stdcall;
     /// <summary>
     /// View of the response object received for the web resource.
     /// </summary>
-    function Get_Response(out Response: ICoreWebView2WebResourceResponseView): HResult; stdcall;
+    function Get_Response(out value: ICoreWebView2WebResourceResponseView): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5804,7 +5841,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method.
+  /// Receives the result of the `GetContent` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponseviewgetcontentcompletedhandler">See the ICoreWebView2WebResourceResponseViewGetContentCompletedHandler article.</see></para>
@@ -5812,15 +5849,9 @@ type
   ICoreWebView2WebResourceResponseViewGetContentCompletedHandler = interface(IUnknown)
     ['{875738E1-9FA2-40E3-8B74-2E8972DD6FE7}']
     /// <summary>
-    /// Provides the completion status and result of the corresponding
-    /// asynchronous method call. A failure `errorCode` will be passed if the
-    /// content failed to load. `E_ABORT` means the response loading was blocked
-    /// (e.g., by CORS policy); `ERROR_CANCELLED` means the response loading was
-    /// cancelled. `ERROR_NO_DATA` means the response has no content data,
-    /// `content` is `null` in this case. Note content (if any) is ignored for
-    /// redirects, 204 No Content, 205 Reset Content, and HEAD-request responses.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const Content: IStream): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
   end;
 
   /// <summary>
@@ -5848,7 +5879,7 @@ type
     /// <summary>
     /// The ID of the navigation which corresponds to other navigation ID properties on other navigation events.
     /// </summary>
-    function Get_NavigationId(out NavigationId: Largeuint): HResult; stdcall;
+    function Get_NavigationId(out value: Largeuint): HResult; stdcall;
   end;
 
   /// <summary>
@@ -6013,8 +6044,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the GetCookies method.  The result is written to
-  /// the cookie list provided in the GetCookies method call.
+  /// Receives the result of the GetCookies method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getcookiescompletedhandler">See the ICoreWebView2GetCookiesCompletedHandler article.</see></para>
@@ -6022,14 +6052,13 @@ type
   ICoreWebView2GetCookiesCompletedHandler = interface(IUnknown)
     ['{5A4F5069-5C15-47C3-8646-F4DE1C116670}']
     /// <summary>
-    /// Provides the completion status of the corresponding asynchronous method
-    /// call.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(result: HResult; const cookieList: ICoreWebView2CookieList): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2CookieList): HResult; stdcall;
   end;
 
   /// <summary>
-  /// A list of cookie objects. See ICoreWebView2Cookie.
+  /// A collection of ICoreWebView2Cookie.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cookielist">See the ICoreWebView2CookieList article.</see></para>
@@ -6037,13 +6066,13 @@ type
   ICoreWebView2CookieList = interface(IUnknown)
     ['{F7F6F714-5D2A-43C6-9503-346ECE02D186}']
     /// <summary>
-    /// The number of cookies contained in the ICoreWebView2CookieList.
+    /// The number of elements contained in the collection.
     /// </summary>
-    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the cookie object at the given index.
+    /// Gets the element at the given index.
     /// </summary>
-    function GetValueAtIndex(index: SYSUINT; out cookie: ICoreWebView2Cookie): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2Cookie): HResult; stdcall;
   end;
 
   /// <summary>
@@ -6172,7 +6201,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the CoreWebView2Controller created using CreateCoreWebView2Controller.
+  /// Receives the result of the `CreateCoreWebView2Controller` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2controllercompletedhandler">See the ICoreWebView2CreateCoreWebView2ControllerCompletedHandler article.</see></para>
@@ -6180,10 +6209,9 @@ type
   ICoreWebView2CreateCoreWebView2ControllerCompletedHandler = interface(IUnknown)
     ['{6C4819F3-C9B7-4260-8127-C9F5BDE7F68C}']
     /// <summary>
-    /// Provides the completion status and result of the corresponding
-    /// asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const createdController: ICoreWebView2Controller): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2Controller): HResult; stdcall;
   end;
 
   /// <summary>
@@ -6351,7 +6379,7 @@ type
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the TrySuspend result.
+  /// Receives the result of the `TrySuspend` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2trysuspendcompletedhandler">See the ICoreWebView2TrySuspendCompletedHandler article.</see></para>
@@ -6359,12 +6387,9 @@ type
   ICoreWebView2TrySuspendCompletedHandler = interface(IUnknown)
     ['{00F206A7-9D17-4605-91F6-4E8E4DE192E3}']
     /// <summary>
-    /// Provides the result of the TrySuspend operation.
-    /// See [Sleeping Tabs FAQ](https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434)
-    /// for conditions that might prevent WebView from being suspended. In those situations,
-    /// isSuccessful will be false and errorCode is S_OK.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -6416,7 +6441,7 @@ type
   end;
 
   /// <summary>
-  /// Receives FrameCreated event.
+  /// Receives `FrameCreated` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framecreatedeventhandler">See the ICoreWebView2FrameCreatedEventHandler article.</see></para>
@@ -6424,7 +6449,7 @@ type
   ICoreWebView2FrameCreatedEventHandler = interface(IUnknown)
     ['{38059770-9BAA-11EB-A8B3-0242AC130003}']
     /// <summary>
-    /// Provides the result for the iframe created event.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs): HResult; stdcall;
   end;
@@ -6440,7 +6465,7 @@ type
     /// <summary>
     /// The frame which was created.
     /// </summary>
-    function Get_Frame(out Frame: ICoreWebView2Frame): HResult; stdcall;
+    function Get_Frame(out value: ICoreWebView2Frame): HResult; stdcall;
   end;
 
   /// <summary>
@@ -6530,7 +6555,7 @@ type
   end;
 
   /// <summary>
-  /// Receives FrameNameChanged event.
+  /// Receives `NameChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenamechangedeventhandler">See the ICoreWebView2FrameNameChangedEventHandler article.</see></para>
@@ -6538,14 +6563,13 @@ type
   ICoreWebView2FrameNameChangedEventHandler = interface(IUnknown)
     ['{435C7DC8-9BAA-11EB-A8B3-0242AC130003}']
     /// <summary>
-    /// Provides the result for the iframe name changed event.
-    /// No event args exist and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Frame; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Receives FrameDestroyed event.
+  /// Receives `Destroyed` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framedestroyedeventhandler">See the ICoreWebView2FrameDestroyedEventHandler article.</see></para>
@@ -6553,14 +6577,13 @@ type
   ICoreWebView2FrameDestroyedEventHandler = interface(IUnknown)
     ['{59DD7B4C-9BAA-11EB-A8B3-0242AC130003}']
     /// <summary>
-    /// Provides the result for the iframe destroyed event.
-    /// No event args exist and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Frame; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Add an event handler for the DownloadStarting event.
+  /// Receives `DownloadStarting` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadstartingeventhandler">See the ICoreWebView2DownloadStartingEventHandler article.</see></para>
@@ -6757,9 +6780,7 @@ type
   end;
 
   /// <summary>
-  /// Implements the interface to receive BytesReceivedChanged event.  Use the
-  /// ICoreWebView2DownloadOperation.BytesReceived property to get the received
-  /// bytes count.
+  /// Receives `BytesReceivedChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2bytesreceivedchangedeventhandler">See the ICoreWebView2BytesReceivedChangedEventHandler article.</see></para>
@@ -6767,16 +6788,13 @@ type
   ICoreWebView2BytesReceivedChangedEventHandler = interface(IUnknown)
     ['{828E8AB6-D94C-4264-9CEF-5217170D6251}']
     /// <summary>
-    /// Provides the event args for the corresponding event. No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Implements the interface to receive EstimatedEndTimeChanged event. Use the
-  /// ICoreWebView2DownloadOperation.EstimatedEndTime property to get the new
-  /// estimated end time.
+  /// Receives `EstimatedEndTimeChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2estimatedendtimechangedeventhandler">See the ICoreWebView2EstimatedEndTimeChangedEventHandler article.</see></para>
@@ -6784,18 +6802,13 @@ type
   ICoreWebView2EstimatedEndTimeChangedEventHandler = interface(IUnknown)
     ['{28F0D425-93FE-4E63-9F8D-2AEEC6D3BA1E}']
     /// <summary>
-    /// Provides the event args for the corresponding event. No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Implements the interface to receive StateChanged event. Use the
-  /// ICoreWebView2DownloadOperation.State property to get the current state,
-  /// which can be in progress, interrupted, or completed. Use the
-  /// ICoreWebView2DownloadOperation.InterruptReason property to get the
-  /// interrupt reason if the download is interrupted.
+  /// Receives `StateChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2statechangedeventhandler">See the ICoreWebView2StateChangedEventHandler article.</see></para>
@@ -6803,8 +6816,7 @@ type
   ICoreWebView2StateChangedEventHandler = interface(IUnknown)
     ['{81336594-7EDE-4BA9-BF71-ACF0A95B58DD}']
     /// <summary>
-    /// Provides the event args for the corresponding event. No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown): HResult; stdcall;
   end;
@@ -6819,7 +6831,7 @@ type
   ICoreWebView2_5 = interface(ICoreWebView2_4)
     ['{BEDB11B8-D63C-11EB-B8BC-0242AC130003}']
     /// <summary>
-    /// Add an event handler for the ClientCertificateRequested event.
+    /// Adds an event handler for the ClientCertificateRequested event.
     /// The ClientCertificateRequested event is raised when the WebView2
     /// is making a request to an HTTP server that needs a client certificate
     /// for HTTP authentication.
@@ -6844,13 +6856,13 @@ type
     function add_ClientCertificateRequested(const eventHandler: ICoreWebView2ClientCertificateRequestedEventHandler; 
                                             out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with add_ClientCertificateRequested.
+    /// Removes an event handler previously added with add_ClientCertificateRequested.
     /// </summary>
     function remove_ClientCertificateRequested(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
-  /// An event handler for the ClientCertificateRequested event.
+  /// Receives `ClientCertificateRequested` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventhandler">See the ICoreWebView2ClientCertificateRequestedEventHandler article.</see></para>
@@ -6951,20 +6963,17 @@ type
   ICoreWebView2StringCollection = interface(IUnknown)
     ['{F41F3F8A-BCC3-11EB-8529-0242AC130003}']
     /// <summary>
-    /// The number of strings contained in ICoreWebView2StringCollection.
+    /// The number of elements contained in the collection.
     /// </summary>
     function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the value at a given index.
-    ///
-    /// The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// Gets the element at the given index.
     /// </summary>
     function GetValueAtIndex(index: SYSUINT; out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
-  /// A collection of client certificate object.
+  /// A collection of ICoreWebView2ClientCertificate.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificatecollection">See the ICoreWebView2ClientCertificateCollection article.</see></para>
@@ -6972,14 +6981,13 @@ type
   ICoreWebView2ClientCertificateCollection = interface(IUnknown)
     ['{EF5674D2-BCC3-11EB-8529-0242AC130003}']
     /// <summary>
-    /// The number of client certificates contained in the
-    /// ICoreWebView2ClientCertificateCollection.
+    /// The number of elements contained in the collection.
     /// </summary>
     function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the certificate object at the given index.
+    /// Gets the element at the given index.
     /// </summary>
-    function GetValueAtIndex(index: SYSUINT; out certificate: ICoreWebView2ClientCertificate): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2ClientCertificate): HResult; stdcall;
   end;
 
   /// <summary>
@@ -7249,10 +7257,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the PrintToPdf method. If the print to PDF
-  /// operation succeeds, isSuccessful is true. Otherwise, if the operation
-  /// failed, isSuccessful is set to false. An invalid path returns
-  /// E_INVALIDARG.
+  /// Receives the result of the `PrintToPdf` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printtopdfcompletedhandler">See the ICoreWebView2PrintToPdfCompletedHandler article.</see></para>
@@ -7262,7 +7267,7 @@ type
     /// <summary>
     /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -7319,8 +7324,7 @@ type
   end;
 
   /// <summary>
-  /// Implements the interface to receive IsMutedChanged events.  Use the
-  /// IsMuted property to get the mute state.
+  /// Receives `IsMutedChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2ismutedchangedeventhandler">See the ICoreWebView2IsMutedChangedEventHandler article.</see></para>
@@ -7328,15 +7332,13 @@ type
   ICoreWebView2IsMutedChangedEventHandler = interface(IUnknown)
     ['{57D90347-CD0E-4952-A4A2-7483A2756F08}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Implements the interface to receive IsDocumentPlayingAudioChanged events.  Use the
-  /// IsDocumentPlayingAudio property to get the audio playing state.
+  /// Receives `IsDocumentPlayingAudioChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2isdocumentplayingaudiochangedeventhandler">See the ICoreWebView2IsDocumentPlayingAudioChangedEventHandler article.</see></para>
@@ -7344,8 +7346,7 @@ type
   ICoreWebView2IsDocumentPlayingAudioChangedEventHandler = interface(IUnknown)
     ['{5DEF109A-2F4B-49FA-B7F6-11C39E513328}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -7437,8 +7438,7 @@ type
   end;
 
   /// <summary>
-  /// Implements the interface to receive IsDefaultDownloadDialogOpenChanged
-  /// events.
+  /// Receives `IsDefaultDownloadDialogOpenChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2isdefaultdownloaddialogopenchangedeventhandler">See the ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler article.</see></para>
@@ -7446,8 +7446,7 @@ type
   ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler = interface(IUnknown)
     ['{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}']
     /// <summary>
-    /// Provides the event args for the corresponding event. No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -7462,7 +7461,7 @@ type
   ICoreWebView2_10 = interface(ICoreWebView2_9)
     ['{B1690564-6F5A-4983-8E48-31D1143FECDB}']
     /// <summary>
-    /// Add an event handler for the BasicAuthenticationRequested event.
+    /// Adds an event handler for the BasicAuthenticationRequested event.
     /// BasicAuthenticationRequested event is raised when WebView encounters a
     /// Basic HTTP Authentication request as described in
     /// https://developer.mozilla.org/docs/Web/HTTP/Authentication, a Digest
@@ -7481,13 +7480,13 @@ type
     function add_BasicAuthenticationRequested(const eventHandler: ICoreWebView2BasicAuthenticationRequestedEventHandler; 
                                               out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with add_BasicAuthenticationRequested.
+    /// Removes an event handler previously added with add_BasicAuthenticationRequested.
     /// </summary>
     function remove_BasicAuthenticationRequested(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
-  /// The caller implements this interface to handle the BasicAuthenticationRequested event.
+  /// Receives `BasicAuthenticationRequested` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2basicauthenticationrequestedeventhandler">See the ICoreWebView2BasicAuthenticationRequestedEventHandler article.</see></para>
@@ -7495,8 +7494,7 @@ type
   ICoreWebView2BasicAuthenticationRequestedEventHandler = interface(IUnknown)
     ['{58B4D6C2-18D4-497E-B39B-9A96533FA278}']
     /// <summary>
-    /// Called to provide the implementer with the event args for the
-    /// corresponding event.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2;
                     const args: ICoreWebView2BasicAuthenticationRequestedEventArgs): HResult; stdcall;
@@ -7653,10 +7651,9 @@ type
   ICoreWebView2ContextMenuRequestedEventHandler = interface(IUnknown)
     ['{04D3FE1D-AB87-42FB-A898-DA241D35B63C}']
     /// <summary>
-    /// Called to provide the event args when a context menu is requested on a
-    /// WebView element.
+    /// Provides the event args for the corresponding event.
     /// </summary>
-    function Invoke(const sender: ICoreWebView2; 
+    function Invoke(const sender: ICoreWebView2;
                     const args: ICoreWebView2ContextMenuRequestedEventArgs): HResult; stdcall;
   end;
 
@@ -7847,9 +7844,7 @@ type
   end;
 
   /// <summary>
-  /// Raised to notify the host that the end user selected a custom
-  /// ContextMenuItem. CustomItemSelected event is raised on the specific
-  /// ContextMenuItem that the end user selected.
+  /// Receives `CustomItemSelected` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2customitemselectedeventhandler">See the ICoreWebView2CustomItemSelectedEventHandler article.</see></para>
@@ -7857,8 +7852,7 @@ type
   ICoreWebView2CustomItemSelectedEventHandler = interface(IUnknown)
     ['{49E1D0BC-FE9E-4481-B7C2-32324AA21998}']
     /// <summary>
-    /// Provides the event args for the corresponding event. No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2ContextMenuItem; const args: IUnknown): HResult; stdcall;
   end;
@@ -7984,9 +7978,7 @@ type
   ICoreWebView2StatusBarTextChangedEventHandler = interface(IUnknown)
     ['{A5E3B0D0-10DF-4156-BFAD-3B43867ACAC6}']
     /// <summary>
-    /// Called to provide the implementer with the event args for the
-    /// corresponding event. No event args exist and the `args`
-    /// parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
@@ -8088,7 +8080,7 @@ type
   ICoreWebView2_14 = interface(ICoreWebView2_13)
     ['{6DAA4F10-4A90-4753-8898-77C5DF534165}']
     /// <summary>
-    /// Add an event handler for the ServerCertificateErrorDetected event.
+    /// Adds an event handler for the ServerCertificateErrorDetected event.
     /// The ServerCertificateErrorDetected event is raised when the WebView2
     /// cannot verify server's digital certificate while loading a web page.
     ///
@@ -8121,7 +8113,7 @@ type
     function add_ServerCertificateErrorDetected(const eventHandler: ICoreWebView2ServerCertificateErrorDetectedEventHandler; 
                                                 out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with add_ServerCertificateErrorDetected.
+    /// Removes an event handler previously added with add_ServerCertificateErrorDetected.
     /// </summary>
     function remove_ServerCertificateErrorDetected(token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
@@ -8132,7 +8124,7 @@ type
   end;
 
   /// <summary>
-  /// An event handler for the ServerCertificateErrorDetected event.
+  /// Receives `ServerCertificateErrorDetected` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventhandler">See the ICoreWebView2ServerCertificateErrorDetectedEventHandler article.</see></para>
@@ -8312,12 +8304,7 @@ type
   end;
 
   /// <summary>
-  /// This interface is a handler for when the Favicon is changed.
-  /// The sender is the ICoreWebView2 object the top-level document of
-  /// which has changed favicon and the eventArgs is nullptr. Use the
-  /// FaviconUri property and GetFavicon method to obtain the favicon
-  /// data. The second argument is always null.
-  /// For more information see add_FaviconChanged.
+  /// Receives `FaviconChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2faviconchangedeventhandler">See the ICoreWebView2FaviconChangedEventHandler article.</see></para>
@@ -8325,18 +8312,13 @@ type
   ICoreWebView2FaviconChangedEventHandler = interface(IUnknown)
     ['{2913DA94-833D-4DE0-8DCA-900FC524A1A4}']
     /// <summary>
-    /// Called to notify the favicon changed. The event args are always null.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// This interface is a handler for the completion of the population of
-  /// imageStream.
-  /// errorCode returns S_OK if the API succeeded.
-  /// The image is returned in the faviconStream object. If there is no image
-  /// then no data would be copied into the imageStream.
-  /// For more details, see the GetFavicon API.
+  /// Receives the result of the `GetFavicon` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getfaviconcompletedhandler">See the ICoreWebView2GetFaviconCompletedHandler article.</see></para>
@@ -8344,9 +8326,9 @@ type
   ICoreWebView2GetFaviconCompletedHandler = interface(IUnknown)
     ['{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}']
     /// <summary>
-    /// Called to notify the favicon has been retrieved.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8427,7 +8409,7 @@ type
     /// <summary>
     /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
+    function Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8443,7 +8425,7 @@ type
     /// <summary>
     /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const pdfStream: IStream): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8569,7 +8551,7 @@ type
   ICoreWebView2_18 = interface(ICoreWebView2_17)
     ['{7A626017-28BE-49B2-B865-3BA2B3522D90}']
     /// <summary>
-    /// Add an event handler for the `LaunchingExternalUriScheme` event.
+    /// Adds an event handler for the `LaunchingExternalUriScheme` event.
     /// The `LaunchingExternalUriScheme` event is raised when a navigation request is made to
     /// a URI scheme that is registered with the OS.
     /// The `LaunchingExternalUriScheme` event handler may suppress the default dialog
@@ -8601,27 +8583,21 @@ type
     ///
     /// If the request is initiated by a cross-origin frame without a user gesture,
     /// the request will be blocked and the `LaunchingExternalUriScheme` event will not
-    /// be raised. A URI scheme may be blocked for safety reasons. In this case the
-    /// `LaunchingExternalUriScheme` event will not be raised. The default dialog may show
-    /// an "always allow" checkbox which allows the user to opt-in to relaxed security
-    /// (i.e. skipping future default dialogs) for the combination of the URI scheme and the
-    /// origin of the page initiating this external URI scheme launch. The checkbox is offered
-    /// so long as the group policy to show the checkbox is not explicitly disabled and there
-    /// is a trustworthy initiating origin. If the user has checked this box, future attempts
-    /// to launch this URI scheme will still raise the event.
+    /// be raised.
+    ///
     /// \snippet SettingsComponent.cpp ToggleLaunchingExternalUriScheme
     /// </summary>
     function add_LaunchingExternalUriScheme(const eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler; 
                                             out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with
+    /// Removes an event handler previously added with
     /// `add_LaunchingExternalUriScheme`.
     /// </summary>
     function remove_LaunchingExternalUriScheme(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Event handler for the LaunchingExternalUriScheme event.
+  /// Receives `LaunchingExternalUriScheme` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2launchingexternalurischemeeventhandler">See the ICoreWebView2LaunchingExternalUriSchemeEventHandler article.</see></para>
@@ -8702,7 +8678,7 @@ type
     /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
     /// WebView.
     /// </summary>
-    function Get_MemoryUsageTargetLevel(out level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
+    function Get_MemoryUsageTargetLevel(out value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
     /// <summary>
     /// An app may set `MemoryUsageTargetLevel` to indicate desired memory
     /// consumption level of WebView. Scripts will not be impacted and continue
@@ -8738,7 +8714,7 @@ type
     ///
     /// \snippet ViewComponent.cpp MemoryUsageTargetLevel
     /// </summary>
-    function Set_MemoryUsageTargetLevel(level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
+    function Set_MemoryUsageTargetLevel(value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8756,7 +8732,7 @@ type
     /// any navigation. It's safe to get this value during or after the first
     /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
     /// </summary>
-    function Get_FrameId(out id: SYSUINT): HResult; stdcall;
+    function Get_FrameId(out value: SYSUINT): HResult; stdcall;
   end;
 
   /// <summary>
@@ -8786,7 +8762,7 @@ type
   end;
 
   /// <summary>
-  /// This is the callback for ExecuteScriptWithResult
+  /// Receives the result of the `ExecuteScriptWithResult` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2executescriptwithresultcompletedhandler">See the ICoreWebView2ExecuteScriptWithResultCompletedHandler article.</see></para>
@@ -8794,7 +8770,7 @@ type
   ICoreWebView2ExecuteScriptWithResultCompletedHandler = interface(IUnknown)
     ['{1BB5317B-8238-4C67-A7FF-BAF6558F289D}']
     /// <summary>
-    /// Provides the result of ExecuteScriptWithResult
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult; const result: ICoreWebView2ExecuteScriptResult): HResult; stdcall;
   end;
@@ -8976,6 +8952,48 @@ type
 
 
   /// <summary>
+  /// This is the ICoreWebView_23 interface for
+  /// PostWebMessageAsJsonWithAdditionalObjects.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_23">See the ICoreWebView2_23 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_23 = interface(ICoreWebView2_22)
+    ['{508F0DB5-90C4-5872-90A7-267A91377502}']
+    /// <summary>
+    /// Same as `PostWebMessageAsJson`, but also has support for posting DOM objects
+    /// to page content. The `additionalObjects` property in the DOM MessageEvent
+    /// fired on the page content is an array-like list of DOM objects that can
+    /// be posted to the web content. Currently these can be the following
+    /// types of objects:
+    ///
+    /// | Win32             | DOM type    |
+    /// |-------------------|-------------|
+    /// | ICoreWebView2FileSystemHandle | [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) |
+    /// | nullptr           | null        |
+    ///
+    /// The objects are posted to the web content, following the
+    /// [structured-clone](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+    /// semantics, meaning only objects that can be cloned can be posted.
+    /// They will also behave as if they had been created by the web content they are
+    /// posted to. For example, if a FileSystemFileHandle is posted to a web content
+    /// it can only be re-transferred via postMessage to other web content
+    /// [with the same origin](https://fs.spec.whatwg.org/#filesystemhandle).
+    /// Warning: An app needs to be mindful when using this API to post DOM objects
+    /// as this API provides the web content with unusual access to sensitive Web
+    /// Platform features such as filesystem access! Similar to PostWebMessageAsJson
+    /// the app should check the `Source` property of WebView2 right before posting the message
+    /// to ensure the message and objects will only be sent to the target web content
+    /// that it expects to receive the DOM objects. Additionally, the order
+    /// of messages that are posted between `PostWebMessageAsJson` and `PostWebMessageAsJsonWithAdditionalObjects`
+    /// may not be preserved.
+    /// \snippet ScenarioFileSystemHandleShare.cpp PostWebMessageWithAdditionalObjects
+    /// </summary>
+    function PostWebMessageAsJsonWithAdditionalObjects(webMessageAsJson: PWideChar;
+                                                       const additionalObjects: ICoreWebView2ObjectCollectionView): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Event args for the BrowserProcessExited event.
   /// </summary>
   /// <remarks>
@@ -8986,7 +9004,7 @@ type
     /// <summary>
     /// The kind of browser process exit that has occurred.
     /// </summary>
-    function Get_BrowserProcessExitKind(out BrowserProcessExitKind: COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND): HResult; stdcall;
+    function Get_BrowserProcessExitKind(out value: COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND): HResult; stdcall;
     /// <summary>
     /// The process ID of the browser process that has exited.
     /// </summary>
@@ -9549,8 +9567,7 @@ type
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive CursorChanged events. Use
-  /// the Cursor property to get the new cursor.
+  /// Receives `CursorChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2cursorchangedeventhandler">See the ICoreWebView2CursorChangedEventHandler article.</see></para>
@@ -9558,9 +9575,7 @@ type
   ICoreWebView2CursorChangedEventHandler = interface(IUnknown)
     ['{9DA43CCC-26E1-4DAD-B56C-D8961C94C571}']
     /// <summary>
-    /// Called to provide the implementer with the event args for the
-    /// corresponding event. There are no event args and the args
-    /// parameter will be null.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2CompositionController; const args: IUnknown): HResult; stdcall;
   end;
@@ -9577,7 +9592,7 @@ type
     /// Returns the Automation Provider for the WebView. This object implements
     /// IRawElementProviderSimple.
     /// </summary>
-    function Get_AutomationProvider(out provider: IUnknown): HResult; stdcall;
+    function Get_AutomationProvider(out value: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
@@ -9704,11 +9719,11 @@ type
     ///
     /// \snippet ViewComponent.cpp DefaultBackgroundColor
     /// </summary>
-    function Get_DefaultBackgroundColor(out backgroundColor: COREWEBVIEW2_COLOR): HResult; stdcall;
+    function Get_DefaultBackgroundColor(out value: COREWEBVIEW2_COLOR): HResult; stdcall;
     /// <summary>
     /// Sets the `DefaultBackgroundColor` property.
     /// </summary>
-    function Set_DefaultBackgroundColor(backgroundColor: COREWEBVIEW2_COLOR): HResult; stdcall;
+    function Set_DefaultBackgroundColor(value: COREWEBVIEW2_COLOR): HResult; stdcall;
   end;
 
   /// <summary>
@@ -9806,8 +9821,7 @@ type
   end;
 
   /// <summary>
-  /// Receives RasterizationScaleChanged events.  Use the RasterizationScale
-  /// property to get the modified scale.
+  /// Receives `RasterizationScaleChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2rasterizationscalechangedeventhandler">See the ICoreWebView2RasterizationScaleChangedEventHandler article.</see></para>
@@ -9815,9 +9829,7 @@ type
   ICoreWebView2RasterizationScaleChangedEventHandler = interface(IUnknown)
     ['{9C98C8B1-AC53-427E-A345-3049B5524BBE}']
     /// <summary>
-    /// Called to provide the implementer with the event args for the
-    /// corresponding event. There are no event args and the args
-    /// parameter will be null.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HResult; stdcall;
   end;
@@ -9949,7 +9961,7 @@ type
     end;
 
     /// <summary>
-    /// The caller implements this interface to receive the ClearBrowsingData result.
+    /// Receives the result of the `ClearBrowsingData` method.
     /// </summary>
     /// <remarks>
     /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clearbrowsingdatacompletedhandler">See the ICoreWebView2ClearBrowsingDataCompletedHandler article.</see></para>
@@ -9957,14 +9969,13 @@ type
     ICoreWebView2ClearBrowsingDataCompletedHandler = interface(IUnknown)
     ['{E9710A06-1D1D-49B2-8234-226F35846AE5}']
     /// <summary>
-    /// Sets the `ScriptLocale` property.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult): HResult; stdcall;
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the CoreWebView2Controller
-  /// created via CreateCoreWebView2CompositionController.
+  /// Receives the result of the `CreateCoreWebView2CompositionController` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2compositioncontrollercompletedhandler">See the ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler article.</see></para>
@@ -9972,15 +9983,13 @@ type
   ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler = interface(IUnknown)
     ['{02FAB84B-1428-4FB7-AD45-1B2E64736184}']
     /// <summary>
-    /// Called to provide the implementer with the completion status and result
-    /// of the corresponding asynchronous method call.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Receives the WebView2Environment created using
-  /// CreateCoreWebView2Environment.
+  /// Receives the result of the `CreateCoreWebView2Environment` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2createcorewebview2environmentcompletedhandler">See the ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler article.</see></para>
@@ -9988,10 +9997,9 @@ type
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface(IUnknown)
     ['{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}']
     /// <summary>
-    /// Provides the completion status and result of the corresponding
-    /// asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2Environment): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10145,12 +10153,12 @@ type
     /// Empty string is returned as sessionId if the event comes from the default
     /// session for the top page.
     ///
+    /// \snippet ScriptComponent.cpp DevToolsProtocolEventReceivedSessionId
+    ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
-    ///
-    /// \snippet ScriptComponent.cpp DevToolsProtocolEventReceivedSessionId
     /// </summary>
-    function Get_sessionId(out sessionId: PWideChar): HResult; stdcall;
+    function Get_sessionId(out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10175,7 +10183,7 @@ type
     /// </summary>
     function CreateWebResourceRequest(uri: PWideChar; Method: PWideChar; const postData: IStream; 
                                       Headers: PWideChar; 
-                                      out Request: ICoreWebView2WebResourceRequest): HResult; stdcall;
+                                      out value: ICoreWebView2WebResourceRequest): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10257,7 +10265,7 @@ type
     /// ICoreWebView2PointerInfo needs to be populated with all of the relevant
     /// info before calling SendPointerInput.
     /// </summary>
-    function CreateCoreWebView2PointerInfo(out pointerInfo: ICoreWebView2PointerInfo): HResult; stdcall;
+    function CreateCoreWebView2PointerInfo(out value: ICoreWebView2PointerInfo): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10275,7 +10283,7 @@ type
     /// called, the app can pass the HWND to GetAutomationProviderForWindow to
     /// find the matching WebView Automation Provider.
     /// </summary>
-    function GetAutomationProviderForWindow(aHWND: HWND; out provider: IUnknown): HResult; stdcall;
+    function GetAutomationProviderForWindow(HWND_: HWND; out value: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10288,7 +10296,7 @@ type
   ICoreWebView2Environment5 = interface(ICoreWebView2Environment4)
     ['{319E423D-E0D7-4B8D-9254-AE9475DE9B17}']
     /// <summary>
-    /// Add an event handler for the `BrowserProcessExited` event.
+    /// Adds an event handler for the `BrowserProcessExited` event.
     /// The `BrowserProcessExited` event is raised when the collection of WebView2
     /// Runtime processes for the browser process of this environment terminate
     /// due to browser process failure or normal shutdown (for example, when all
@@ -10334,7 +10342,7 @@ type
     function add_BrowserProcessExited(const eventHandler: ICoreWebView2BrowserProcessExitedEventHandler;
                                       out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with `add_BrowserProcessExited`.
+    /// Removes an event handler previously added with `add_BrowserProcessExited`.
     /// </summary>
     function remove_BrowserProcessExited(token: EventRegistrationToken): HResult; stdcall;
   end;
@@ -10352,7 +10360,7 @@ type
     /// Creates the `ICoreWebView2PrintSettings` used by the `PrintToPdf`
     /// method.
     /// </summary>
-    function CreatePrintSettings(out printSettings: ICoreWebView2PrintSettings): HResult; stdcall;
+    function CreatePrintSettings(out value: ICoreWebView2PrintSettings): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10372,10 +10380,10 @@ type
     /// the environment object or the calculated one for default handling.  It
     /// will always be an absolute path.
     ///
+    /// \snippet AppWindow.cpp GetUserDataFolder
+    ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
-    ///
-    /// \snippet AppWindow.cpp GetUserDataFolder
     /// </summary>
     function Get_UserDataFolder(out value: PWideChar): HResult; stdcall;
   end;
@@ -10398,7 +10406,7 @@ type
     function add_ProcessInfosChanged(const eventHandler: ICoreWebView2ProcessInfosChangedEventHandler;
                                      out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with `add_ProcessInfosChanged`.
+    /// Removes an event handler previously added with `add_ProcessInfosChanged`.
     /// </summary>
     function remove_ProcessInfosChanged(token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
@@ -10409,7 +10417,7 @@ type
   end;
 
   /// <summary>
-  /// An event handler for the ProcessInfosChanged event.
+  /// eceives `ProcessInfosChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfoschangedeventhandler">See the ICoreWebView2ProcessInfosChangedEventHandler article.</see></para>
@@ -10417,14 +10425,13 @@ type
   ICoreWebView2ProcessInfosChangedEventHandler = interface(IUnknown)
     ['{F4AF0C39-44B9-40E9-8B11-0484CFB9E0A1}']
     /// <summary>
-    /// Provides the event args for the corresponding event.  No event args exist
-    /// and the `args` parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Environment; const args: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>
-  /// A list containing process id and corresponding process type.
+  /// A collection of ICoreWebView2ProcessInfo.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processinfocollection">See the ICoreWebView2ProcessInfoCollection article.</see></para>
@@ -10432,14 +10439,13 @@ type
   ICoreWebView2ProcessInfoCollection = interface(IUnknown)
     ['{402B99CD-A0CC-4FA5-B7A5-51D86A1D2339}']
     /// <summary>
-    /// The number of process contained in the ICoreWebView2ProcessInfoCollection.
+    /// The number of elements contained in the collection.
     /// </summary>
-    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the `ICoreWebView2ProcessInfo` located in the `ICoreWebView2ProcessInfoCollection`
-    /// at the given index.
+    /// Gets the element at the given index.
     /// </summary>
-    function GetValueAtIndex(index: SYSUINT; out processInfo: ICoreWebView2ProcessInfo): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2ProcessInfo): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10484,7 +10490,7 @@ type
     /// </summary>
     function CreateContextMenuItem(Label_: PWideChar; const iconStream: IStream; 
                                    Kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND; 
-                                   out item: ICoreWebView2ContextMenuItem): HResult; stdcall;
+                                   out value: ICoreWebView2ContextMenuItem): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10513,7 +10519,7 @@ type
     /// and the default value for IsInPrivateModeEnabled is false.
     /// Also the profile name can be reused.
     /// </summary>
-    function CreateCoreWebView2ControllerOptions(out options: ICoreWebView2ControllerOptions): HResult; stdcall;
+    function CreateCoreWebView2ControllerOptions(out value: ICoreWebView2ControllerOptions): HResult; stdcall;
     /// <summary>
     /// Create a new WebView with options.
     /// </summary>
@@ -10548,6 +10554,9 @@ type
     /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
     /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
     /// \snippet AppWindow.cpp GetFailureReportFolder
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
     function Get_FailureReportFolderPath(out value: PWideChar): HResult; stdcall;
   end;
@@ -10571,7 +10580,7 @@ type
     /// that work for ArrayBuffer including Atomics APIs can be used on it.
     /// There is currently a limitation that only size less than 2GB is supported.
     /// </summary>
-    function CreateSharedBuffer(Size: Largeuint; out shared_buffer: ICoreWebView2SharedBuffer): HResult; stdcall;
+    function CreateSharedBuffer(Size: Largeuint; out value: ICoreWebView2SharedBuffer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10599,8 +10608,6 @@ type
 
   /// <summary>
   /// Receives the result of the `GetProcessExtendedInfos` method.
-  /// The result is written to the collection of `ProcessExtendedInfo`s provided
-  /// in the `GetProcessExtendedInfos` method call.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getprocessextendedinfoscompletedhandler">See the ICoreWebView2GetProcessExtendedInfosCompletedHandler article.</see></para>
@@ -10608,13 +10615,13 @@ type
   ICoreWebView2GetProcessExtendedInfosCompletedHandler = interface(IUnknown)
     ['{F45E55AA-3BC2-11EE-BE56-0242AC120002}']
     /// <summary>
-    /// Provides the process extended info list for the `GetProcessExtendedInfos`.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
   end;
 
   /// <summary>
-  /// A list containing processInfo and associated extended information.
+  /// A collection of ICoreWebView2ProcessExtendedInfo.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>
@@ -10622,14 +10629,13 @@ type
   ICoreWebView2ProcessExtendedInfoCollection = interface(IUnknown)
     ['{32EFA696-407A-11EE-BE56-0242AC120002}']
     /// <summary>
-    /// The number of process contained in the `ICoreWebView2ProcessExtendedInfoCollection`.
+    /// The number of elements contained in the collection.
     /// </summary>
-    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the `ICoreWebView2ProcessExtendedInfo` located in the
-    /// `ICoreWebView2ProcessExtendedInfoCollection` at the given index.
+    /// Gets the element at the given index.
     /// </summary>
-    function GetValueAtIndex(index: SYSUINT; out processInfo: ICoreWebView2ProcessExtendedInfo): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2ProcessExtendedInfo): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10670,7 +10676,7 @@ type
     /// <summary>
     /// Gets an iterator over the collection of `FrameInfo`s.
     /// </summary>
-    function GetIterator(out iterator: ICoreWebView2FrameInfoCollectionIterator): HResult; stdcall;
+    function GetIterator(out value: ICoreWebView2FrameInfoCollectionIterator): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10688,17 +10694,17 @@ type
     /// collection over which the iterator is iterating is empty or if the
     /// iterator has gone past the end of the collection, then this is `FALSE`.
     /// </summary>
-    function Get_hasCurrent(out hasCurrent: Integer): HResult; stdcall;
+    function Get_hasCurrent(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Get the current `ICoreWebView2FrameInfo` of the iterator.
     /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)` if HasCurrent is
     /// `FALSE`.
     /// </summary>
-    function GetCurrent(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
+    function GetCurrent(out value: ICoreWebView2FrameInfo): HResult; stdcall;
     /// <summary>
     /// Move the iterator to the next `FrameInfo` in the collection.
     /// </summary>
-    function MoveNext(out hasNext: Integer): HResult; stdcall;
+    function MoveNext(out value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -10711,20 +10717,178 @@ type
     ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
     /// <summary>
     /// The value of iframe's window.name property. The default value equals to
-    /// iframe html tag declaring it, as in `<iframe name="frame-name" ...>`.
+    /// iframe html tag declaring it, as in `<iframe name="frame-name">...</iframe>`.
     /// The returned string is empty when the frame has no name attribute and
     /// no assigned value for window.name.
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function Get_name(out name: PWideChar): HResult; stdcall;
+    function Get_name(out value: PWideChar): HResult; stdcall;
     /// <summary>
     /// <para>The URI of the document in the frame.</para>
     /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
     /// </summary>
-    function Get_Source(out Source: PWideChar): HResult; stdcall;
+    function Get_Source(out value: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is ICoreWebView2Environment14 that exposes new methods to
+  /// create Filesystem access related DOM objects.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment14">See the ICoreWebView2Environment14 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Environment14 = interface(ICoreWebView2Environment13)
+    ['{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}']
+    /// <summary>
+    /// Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web
+    /// [FileSystemFileHandle](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle).
+    ///
+    /// The `path` is the path pointed by the file and must be a syntactically correct fully qualified
+    /// path, but it is not checked here whether it currently points to a file. If an invalid path is
+    /// passed, an E_INVALIDARG will be returned and the object will fail to create. Any other state
+    /// validation will be done when this handle is accessed from web content
+    /// and will cause the DOM exceptions described in
+    /// [FileSystemFileHandle methods](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle#instance_methods)
+    /// if access operations fail.
+    ///
+    /// `Permission` property is used to specify whether the Handle should be created with a Read-only or
+    /// Read-and-write web permission. For the `permission` value specified here, the DOM
+    /// [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus) property
+    /// will be [granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)
+    /// and the unspecified permission will be
+    /// [prompt](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state). Therefore,
+    /// the web content then does not need to call
+    /// [requestPermission](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission)
+    /// for the permission that was specified before attempting the permitted operation,
+    /// but if it does, the promise will immediately be resolved
+    /// with 'granted' PermissionStatus without firing the WebView2
+    /// [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs)
+    /// event or prompting the user for permission. Otherwise, `requestPermission` will behave as the
+    /// status of permission is currently `prompt`, which means the `PermissionRequested` event will fire
+    /// or the user will be prompted.
+    /// Additionally, the app must have the same OS permissions that have propagated to the
+    /// [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model)
+    /// for the path it wishes to give the web content to read/write the file.
+    /// Specifically, the WebView2 browser process will run in same user, package identity, and app
+    /// container of the app, but other means such as security context impersonations do not get
+    /// propagated, so such permissions that the app has, will not be effective in WebView2.
+    /// Note: An exception to this is, if there is a parent directory handle that
+    /// has broader permissions in the same page context than specified in here, the handle will automatically
+    /// inherit the most permissive permission of the parent handle when posted to that page context.
+    /// i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on
+    /// a page, even though a WebFileSystemHandle to file `C:\example\file.txt` is created with
+    /// `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission
+    /// will be automatically granted to the created handle.
+    ///
+    /// An app needs to be mindful that this object, when posted to the web content, provides it with unusual
+    /// access to OS file system via the Web FileSystem API! The app should therefore only post objects
+    /// for paths that it wants to allow access to the web content and it is not recommended that the web content
+    /// "asks" for this path. The app should also check the source property of the target to ensure
+    /// that it is sending to the web content of intended origin.
+    ///
+    /// Once the object is passed to web content, if the content is attempting a read,
+    /// the file must be existing and available to read similar to a file chosen by
+    /// [open file picker](https://developer.mozilla.org/docs/Web/API/Window/showOpenFilePicker),
+    /// otherwise the read operation will
+    /// [throw a DOM exception](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile#exceptions).
+    /// For write operations, the file does not need to exist as `FileSystemFileHandle` will behave
+    /// as a file path chosen by
+    /// [save file picker](https://developer.mozilla.org/docs/Web/API/Window/showSaveFilePicker)
+    /// and will create or overwrite the file, but the parent directory structure pointed
+    /// by the file must exist and an existing file must be available to write and delete
+    /// or the write operation will
+    /// [throw a DOM exception](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createWritable#exceptions).
+    /// </summary>
+    function CreateWebFileSystemFileHandle(Path: PWideChar;
+                                           Permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION;
+                                           out value: ICoreWebView2FileSystemHandle): HResult; stdcall;
+    /// <summary>
+    /// Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web
+    /// [FileSystemDirectoryHandle](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle).
+    ///
+    /// The `path` is the path pointed by the directory and must be a syntactically correct fully qualified
+    /// path, but it is not checked here whether it currently points to a directory. Any other state
+    /// validation will be done when this handle is accessed from web content
+    /// and will cause DOM exceptions if access operations fail. If an invalid path is
+    /// passed, an E_INVALIDARG will be returned and the object will fail to create.
+    ///
+    /// `Permission` property is used to specify whether the Handle should be created with a Read-only or
+    /// Read-and-write web permission. For the `permission` value specified here, the Web
+    /// [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus)
+    /// will be [granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)
+    /// and the unspecified permission will be
+    /// [prompt](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state). Therefore,
+    /// the web content then does not need to call
+    /// [requestPermission](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission)
+    /// for the permission that was specified before attempting the permitted operation,
+    /// but if it does, the promise will immediately be resolved
+    /// with 'granted' PermissionStatus without firing the WebView2
+    /// [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs)
+    /// event or prompting the user for permission. Otherwise, `requestPermission` will behave as the
+    /// status of permission is currently `Prompt`, which means the `PermissionRequested` event will fire
+    /// or the user will be prompted.
+    /// Additionally, the app must have the same OS permissions that have propagated to the
+    /// [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model)
+    /// for the path it wishes to give the web content to make any operations on the directory.
+    /// Specifically, the WebView2 browser process will run in same user, package identity, and app
+    /// container of the app, but other means such as security context impersonations do not get
+    /// propagated, so such permissions that the app has, will not be effective in WebView2.
+    /// Note: An exception to this is, if there is a parent directory handle that
+    /// has broader permissions in the same page context than specified in here, the handle will automatically
+    /// inherit the most permissive permission of the parent handle when posted to that page context.
+    /// i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on
+    /// a page, even though a WebFileSystemHandle to directory `C:\example\directory` is created with
+    /// `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission
+    /// will be automatically granted to the created handle.
+    ///
+    /// An app needs to be mindful that this object, when posted to the web content, provides it with unusual
+    /// access to OS file system via the Web FileSystem API! The app should therefore only post objects
+    /// for paths that it wants to allow access to the web content and it is not recommended that the web content
+    /// "asks" for this path. The app should also check the source property of the target to ensure
+    /// that it is sending to the web content of intended origin.
+    ///
+    /// Once the object is passed to web content, the path must point to a directory as if it was chosen via
+    /// [directory picker](https://developer.mozilla.org/docs/Web/API/Window/showDirectoryPicker)
+    /// otherwise any IO operation done on the `FileSystemDirectoryHandle` will throw a DOM exception.
+    /// </summary>
+    function CreateWebFileSystemDirectoryHandle(Path: PWideChar;
+                                                Permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION;
+                                                out value: ICoreWebView2FileSystemHandle): HResult; stdcall;
+    /// <summary>
+    /// Create a generic object collection.
+    /// </summary>
+    function CreateObjectCollection(length: SYSUINT; var items: IUnknown;
+                                    out objectCollection: ICoreWebView2ObjectCollection): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Representation of a DOM
+  /// [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle)
+  /// object.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2filesystemhandle">See the ICoreWebView2FileSystemHandle article.</see></para>
+  /// </remarks>
+  ICoreWebView2FileSystemHandle = interface(IUnknown)
+    ['{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}']
+    /// <summary>
+    /// The kind of the FileSystemHandle. It can either be a file or a directory.
+    /// </summary>
+    function Get_Kind(out value: COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND): HResult; stdcall;
+    /// <summary>
+    /// The path to the FileSystemHandle.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_Path(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// The permissions granted to the FileSystemHandle.
+    /// </summary>
+    function Get_Permission(out value: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11221,7 +11385,7 @@ type
   end;
 
   /// <summary>
-  /// Receives NavigationStarting events for iframe.
+  /// Receives `NavigationStarting` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenavigationstartingeventhandler">See the ICoreWebView2FrameNavigationStartingEventHandler article.</see></para>
@@ -11236,7 +11400,7 @@ type
   end;
 
   /// <summary>
-  /// Receives ContentLoading events for iframe.
+  /// Receives `ContentLoading` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framecontentloadingeventhandler">See the ICoreWebView2FrameContentLoadingEventHandler article.</see></para>
@@ -11251,7 +11415,7 @@ type
   end;
 
   /// <summary>
-  /// Receives NavigationCompleted events for iframe.
+  /// Receives `NavigationCompleted` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framenavigationcompletedeventhandler">See the ICoreWebView2FrameNavigationCompletedEventHandler article.</see></para>
@@ -11266,7 +11430,7 @@ type
   end;
 
   /// <summary>
-  /// Receives DOMContentLoaded events for iframe.
+  /// Receives `DOMContentLoaded` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framedomcontentloadedeventhandler">See the ICoreWebView2FrameDOMContentLoadedEventHandler article.</see></para>
@@ -11281,7 +11445,7 @@ type
   end;
 
   /// <summary>
-  /// Receives WebMessageReceived events for iframe.
+  /// Receives `WebMessageReceived` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framewebmessagereceivedeventhandler">See the ICoreWebView2FrameWebMessageReceivedEventHandler article.</see></para>
@@ -11304,7 +11468,7 @@ type
   ICoreWebView2Frame3 = interface(ICoreWebView2Frame2)
     ['{B50D82CC-CC28-481D-9614-CB048895E6A0}']
     /// <summary>
-    /// Add an event handler for the `PermissionRequested` event.
+    /// Adds an event handler for the `PermissionRequested` event.
     /// `PermissionRequested` is raised when content in an iframe any of its
     /// descendant iframes requests permission to privileged resources.
     ///
@@ -11326,16 +11490,16 @@ type
     /// \snippet ScenarioIFrameDevicePermission.cpp PermissionRequested0
     /// \snippet ScenarioIFrameDevicePermission.cpp PermissionRequested1
     /// </summary>
-    function add_PermissionRequested(const handler: ICoreWebView2FramePermissionRequestedEventHandler;
+    function add_PermissionRequested(const eventHandler: ICoreWebView2FramePermissionRequestedEventHandler;
                                      out token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
-    /// Remove an event handler previously added with `add_PermissionRequested`
+    /// Removes an event handler previously added with `add_PermissionRequested`
     /// </summary>
     function remove_PermissionRequested(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Receives PermissionRequested events for iframes.
+  /// Receives `PermissionRequested` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framepermissionrequestedeventhandler">See the ICoreWebView2FramePermissionRequestedEventHandler article.</see></para>
@@ -11368,11 +11532,11 @@ type
     /// set `Handled` to TRUE prior to taking your deferral to prevent the
     /// `CoreWebView2`s event handlers from being invoked.
     /// </summary>
-    function Get_Handled(out Handled: Integer): HResult; stdcall;
+    function Get_Handled(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Sets the `Handled` property.
     /// </summary>
-    function Set_Handled(Handled: Integer): HResult; stdcall;
+    function Set_Handled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11439,7 +11603,7 @@ type
     /// The unique identifier of the current frame. It's the same kind of ID as
     /// with the `FrameId` in `CoreWebView2` and via `CoreWebView2FrameInfo`.
     /// </summary>
-    function Get_FrameId(out id: SYSUINT): HResult; stdcall;
+    function Get_FrameId(out value: SYSUINT): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11485,8 +11649,7 @@ type
   end;
 
   /// <summary>
-  /// The caller implements this interface to handle the result of
-  /// GetNonDefaultPermissionSettings.
+  /// Receives the result of the `GetNonDefaultPermissionSettings` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getnondefaultpermissionsettingscompletedhandler">See the ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler article.</see></para>
@@ -11494,10 +11657,9 @@ type
   ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler = interface(IUnknown)
     ['{38274481-A15C-4563-94CF-990EDC9AEB95}']
     /// <summary>
-    /// Provides the permission setting collection for the requested permission kind.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; 
-                    const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11535,6 +11697,9 @@ type
     function Get_PermissionKind(out value: COREWEBVIEW2_PERMISSION_KIND): HResult; stdcall;
     /// <summary>
     /// The origin of the permission setting.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
     function Get_PermissionOrigin(out value: PWideChar): HResult; stdcall;
     /// <summary>
@@ -11577,7 +11742,7 @@ type
     /// Since WebView2 handles HTTP continuations and redirects automatically, it
     /// is unlikely for `HttpStatusCode` to ever be in the 1xx or 3xx ranges.
     /// </summary>
-    function Get_HttpStatusCode(out http_status_code: SYSINT): HResult; stdcall;
+    function Get_HttpStatusCode(out value: SYSINT): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11639,7 +11804,7 @@ type
     /// <summary>
     /// Get the navigation kind of this navigation.
     /// </summary>
-    function Get_NavigationKind(out navigation_kind: COREWEBVIEW2_NAVIGATION_KIND): HResult; stdcall;
+    function Get_NavigationKind(out value: COREWEBVIEW2_NAVIGATION_KIND): HResult; stdcall;
   end;
 
   /// <summary>
@@ -11681,7 +11846,7 @@ type
     /// new window was requested. See `ICoreWebView2FrameInfo` for details on frame
     /// properties.
     /// </summary>
-    function Get_OriginalSourceFrameInfo(out frameInfo: ICoreWebView2FrameInfo): HResult; stdcall;
+    function Get_OriginalSourceFrameInfo(out value: ICoreWebView2FrameInfo): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12102,7 +12267,7 @@ type
     /// </summary>
     function SetPermissionState(PermissionKind: COREWEBVIEW2_PERMISSION_KIND; origin: PWideChar;
                                 State: COREWEBVIEW2_PERMISSION_STATE;
-                                const completedHandler: ICoreWebView2SetPermissionStateCompletedHandler): HResult; stdcall;
+                                const handler: ICoreWebView2SetPermissionStateCompletedHandler): HResult; stdcall;
     /// <summary>
     /// Invokes the handler with a collection of all nondefault permission settings.
     /// Use this method to get the permission state set in the current and previous
@@ -12110,12 +12275,11 @@ type
     ///
     /// \snippet ScenarioPermissionManagement.cpp GetNonDefaultPermissionSettings
     /// </summary>
-    function GetNonDefaultPermissionSettings(const completedHandler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): HResult; stdcall;
+    function GetNonDefaultPermissionSettings(const handler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler): HResult; stdcall;
   end;
 
   /// <summary>
-  /// The caller implements this interface to handle the result of
-  /// SetPermissionState.
+  /// Receives the result of the `SetPermissionState` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2setpermissionstatecompletedhandler">See the ICoreWebView2SetPermissionStateCompletedHandler article.</see></para>
@@ -12123,7 +12287,7 @@ type
   ICoreWebView2SetPermissionStateCompletedHandler = interface(IUnknown)
     ['{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}']
     /// <summary>
-    /// Provide the completion status of the corresponding asynchronous method.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult): HResult; stdcall;
   end;
@@ -12144,7 +12308,7 @@ type
     ///
     /// \snippet ScenarioCookieManagement.cpp CookieManagerProfile
     /// </summary>
-    function Get_CookieManager(out CookieManager: ICoreWebView2CookieManager): HResult; stdcall;
+    function Get_CookieManager(out value: ICoreWebView2CookieManager): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12266,8 +12430,7 @@ type
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the result
-  /// of loading an browser Extension.
+  /// Receives the result of the `AddBrowserExtension` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profileaddbrowserextensioncompletedhandler">See the ICoreWebView2ProfileAddBrowserExtensionCompletedHandler article.</see></para>
@@ -12275,9 +12438,9 @@ type
   ICoreWebView2ProfileAddBrowserExtensionCompletedHandler = interface(IUnknown)
     ['{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}']
     /// <summary>
-    /// Provides the result of the `AddBrowserExtension` operation.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12335,8 +12498,7 @@ type
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the result of removing
-  /// the browser Extension from the Profile.
+  /// Receives the result of the `Remove` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionremovecompletedhandler">See the ICoreWebView2BrowserExtensionRemoveCompletedHandler article.</see></para>
@@ -12344,15 +12506,13 @@ type
   ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface(IUnknown)
     ['{8E41909A-9B18-4BB1-8CDF-930F467A50BE}']
     /// <summary>
-    /// Provides the result of the browser extension Remove operation.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult): HResult; stdcall;
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the result of setting the
-  /// browser Extension as enabled or disabled. If enabled, the browser Extension is
-  /// running in WebView instances. If disabled, the browser Extension is not running in WebView instances.
+  /// Receives the result of the `Enable` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionenablecompletedhandler">See the ICoreWebView2BrowserExtensionEnableCompletedHandler article.</see></para>
@@ -12360,14 +12520,13 @@ type
   ICoreWebView2BrowserExtensionEnableCompletedHandler = interface(IUnknown)
     ['{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}']
     /// <summary>
-    /// Provides the result of the browser extension enable operation.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult): HResult; stdcall;
   end;
 
   /// <summary>
-  /// The caller implements this interface to receive the result of
-  /// getting the browser Extensions.
+  /// Receives the result of the `GetBrowserExtensions` method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profilegetbrowserextensionscompletedhandler">See the ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler article.</see></para>
@@ -12375,15 +12534,13 @@ type
   ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler = interface(IUnknown)
     ['{FCE16A1C-F107-4601-8B75-FC4940AE25D0}']
     /// <summary>
-    /// Provides the browser extension list for the requested user profile.
+    /// Provides the result of the corresponding asynchronous method.
     /// </summary>
-    function Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+    function Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Provides a set of properties for managing browser Extension Lists from user profile. This
-  /// includes the number of browser Extensions in the list, and the ability to get an browser
-  /// Extension from the list at a particular index.
+  /// A collection of ICoreWebView2BrowserExtension.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2browserextensionlist">See the ICoreWebView2BrowserExtensionList article.</see></para>
@@ -12391,13 +12548,13 @@ type
   ICoreWebView2BrowserExtensionList = interface(IUnknown)
     ['{2EF3D2DC-BD5F-4F4D-90AF-FD67798F0C2F}']
     /// <summary>
-    /// The number of browser Extensions in the list.
+    /// The number of elements contained in the collection.
     /// </summary>
-    function Get_Count(out Count: SYSUINT): HResult; stdcall;
+    function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the browser Extension located in the browser Extension List at the given index.
+    /// Gets the element at the given index.
     /// </summary>
-    function GetValueAtIndex(index: SYSUINT; out extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+    function GetValueAtIndex(index: SYSUINT; out value: ICoreWebView2BrowserExtension): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12441,7 +12598,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the `CoreWebView2Profile.Deleted` event.
+  /// Receives `Deleted` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profiledeletedeventhandler">See the ICoreWebView2ProfileDeletedEventHandler article.</see></para>
@@ -12449,9 +12606,7 @@ type
   ICoreWebView2ProfileDeletedEventHandler = interface(IUnknown)
     ['{DF35055D-772E-4DBE-B743-5FBF74A2B258}']
     /// <summary>
-    /// Called to provide the implementer with the event args for the
-    /// profile deleted event. No event args exist and the `args`
-    /// parameter is set to `null`.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HResult; stdcall;
   end;
@@ -12470,25 +12625,23 @@ type
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
-    ///
-    /// \snippet SettingsComponent.cpp UserAgent
     /// </summary>
-    function Get_UserAgent(out UserAgent: PWideChar): HResult; stdcall;
+    function Get_UserAgent(out value: PWideChar): HResult; stdcall;
     /// <summary>
-    /// Sets the `UserAgent` property. This property may be overridden if
+    /// This setting determines the UserAgent of WebView. This property may be overridden if
     /// the User-Agent header is set in a request. If the parameter is empty
     /// the User Agent will not be updated and the current User Agent will remain.
     /// Setting this property may clear User Agent Client Hints headers
     /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
     /// implementation behavior is subject to change.
     /// The User Agent set will also be effective on service workers
-    /// and shared workers associated with the WebView.
-    /// If there are multiple WebViews associated with the same service worker or
+    /// and shared workers associated with the WebView. If there are
+    /// multiple WebViews associated with the same service worker or
     /// shared worker, the last User Agent set will be used.
-    /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if the owning WebView is
-    /// closed.
+    ///
+    /// \snippet SettingsComponent.cpp UserAgent
     /// </summary>
-    function Set_UserAgent(UserAgent: PWideChar): HResult; stdcall;
+    function Set_UserAgent(value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12527,11 +12680,11 @@ type
     ///
     /// \snippet SettingsComponent.cpp AreBrowserAcceleratorKeysEnabled
     /// </summary>
-    function Get_AreBrowserAcceleratorKeysEnabled(out AreBrowserAcceleratorKeysEnabled: Integer): HResult; stdcall;
+    function Get_AreBrowserAcceleratorKeysEnabled(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Sets the `AreBrowserAcceleratorKeysEnabled` property.
     /// </summary>
-    function Set_AreBrowserAcceleratorKeysEnabled(AreBrowserAcceleratorKeysEnabled: Integer): HResult; stdcall;
+    function Set_AreBrowserAcceleratorKeysEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12625,11 +12778,11 @@ type
     ///
     /// \snippet SettingsComponent.cpp TogglePinchZoomEnabled
     /// </summary>
-    function Get_IsPinchZoomEnabled(out enabled: Integer): HResult; stdcall;
+    function Get_IsPinchZoomEnabled(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Set the `IsPinchZoomEnabled` property
     /// </summary>
-    function Set_IsPinchZoomEnabled(enabled: Integer): HResult; stdcall;
+    function Set_IsPinchZoomEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12661,11 +12814,11 @@ type
     ///
     /// \snippet SettingsComponent.cpp ToggleSwipeNavigationEnabled
     /// </summary>
-    function Get_IsSwipeNavigationEnabled(out enabled: Integer): HResult; stdcall;
+    function Get_IsSwipeNavigationEnabled(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Set the `IsSwipeNavigationEnabled` property
     /// </summary>
-    function Set_IsSwipeNavigationEnabled(enabled: Integer): HResult; stdcall;
+    function Set_IsSwipeNavigationEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12682,11 +12835,11 @@ type
     /// Changes to this setting apply only after the next navigation.
     /// \snippet SettingsComponent.cpp ToggleHidePdfToolbarItems
     /// </summary>
-    function Get_HiddenPdfToolbarItems(out hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
+    function Get_HiddenPdfToolbarItems(out value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
     /// <summary>
     /// Set the `HiddenPdfToolbarItems` property.
     /// </summary>
-    function Set_HiddenPdfToolbarItems(hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
+    function Set_HiddenPdfToolbarItems(value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12762,11 +12915,11 @@ type
     /// The `app-region` CSS style will be ignored on web pages.
     /// \snippet SettingsComponent.cpp ToggleNonClientRegionSupportEnabled
     /// </summary>
-    function Get_IsNonClientRegionSupportEnabled(out enabled: Integer): HResult; stdcall;
+    function Get_IsNonClientRegionSupportEnabled(out value: Integer): HResult; stdcall;
     /// <summary>
     /// Set the IsNonClientRegionSupportEnabled property
     /// </summary>
-    function Set_IsNonClientRegionSupportEnabled(enabled: Integer): HResult; stdcall;
+    function Set_IsNonClientRegionSupportEnabled(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>
@@ -12780,12 +12933,11 @@ type
     /// <summary>
     /// The web resource requested source.
     /// </summary>
-    function Get_RequestedSourceKind(out RequestedSourceKind: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
+    function Get_RequestedSourceKind(out value: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS): HResult; stdcall;
   end;
 
   /// <summary>
-  /// This is the Interface of the event handler for the non-client region changed
-  /// event.
+  /// Receives `NonClientRegionChanged` events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2nonclientregionchangedeventhandler">See the ICoreWebView2NonClientRegionChangedEventHandler article.</see></para>
@@ -12793,8 +12945,7 @@ type
   ICoreWebView2NonClientRegionChangedEventHandler = interface(IUnknown)
     ['{4A794E66-AA6C-46BD-93A3-382196837680}']
     /// <summary>
-    /// This is the event handler for add_NonClientRegionChanged when executed,
-    /// it recieves the event args.
+    /// Provides the event args for the corresponding event.
     /// </summary>
     function Invoke(const sender: ICoreWebView2CompositionController;
                     const args: ICoreWebView2NonClientRegionChangedEventArgs): HResult; stdcall;
@@ -12818,7 +12969,7 @@ type
   end;
 
   /// <summary>
-  /// This Interface Represents a Collection of Region Rects.
+  /// A collection of RECT.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2regionrectcollectionview">See the ICoreWebView2RegionRectCollectionView article.</see></para>
@@ -12826,11 +12977,11 @@ type
   ICoreWebView2RegionRectCollectionView = interface(IUnknown)
     ['{333353B8-48BF-4449-8FCC-22697FAF5753}']
     /// <summary>
-    /// This method gets the number of Rects contained in the collection.
+    /// The number of elements contained in the collection.
     /// </summary>
     function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// This method gets the Rect at the specified index.
+    /// Gets the element at the given index.
     /// </summary>
     function GetValueAtIndex(index: SYSUINT; out value: tagRECT): HResult; stdcall;
   end;
@@ -12907,12 +13058,15 @@ type
     ['{F2C19559-6BC1-4583-A757-90021BE9AFEC}']
     /// <summary>
     /// Get the absolute file path.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
-    function Get_Path(out Path: PWideChar): HResult; stdcall;
+    function Get_Path(out value: PWideChar): HResult; stdcall;
   end;
 
   /// <summary>
-  /// Read-only collection of generic objects.
+  /// A collection of objects.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollectionview">See the ICoreWebView2ObjectCollectionView article.</see></para>
@@ -12920,14 +13074,32 @@ type
   ICoreWebView2ObjectCollectionView = interface(IUnknown)
     ['{0F36FD87-4F69-4415-98DA-888F89FB9A33}']
     /// <summary>
-    /// Gets the number of items in the collection.
+    /// The number of elements contained in the collection.
     /// </summary>
     function Get_Count(out value: SYSUINT): HResult; stdcall;
     /// <summary>
-    /// Gets the object at the specified index. Cast the object to the native type
-    /// to access its specific properties.
+    /// Gets the element at the given index.
     /// </summary>
     function GetValueAtIndex(index: SYSUINT; out value: IUnknown): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Represents a collection of generic objects. Used to get, remove and add
+  /// objects at the specified index.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2objectcollection">See the ICoreWebView2ObjectCollection article.</see></para>
+  /// </remarks>
+  ICoreWebView2ObjectCollection = interface(ICoreWebView2ObjectCollectionView)
+    ['{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}']
+    /// <summary>
+    /// Removes the object at the specified index.
+    /// </summary>
+    function RemoveValueAtIndex(index: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// Inserts the object at the specified index.
+    /// </summary>
+    function InsertValueAtIndex(index: SYSUINT; const value: IUnknown): HResult; stdcall;
   end;
 
   /// <summary>

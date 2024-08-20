@@ -31,11 +31,11 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html#Get_name-PWideChar-">Get_name</a></strong>(out name: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html#Get_name-PWideChar-">Get_name</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html#Get_Source-PWideChar-">Get_Source</a></strong>(out Source: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2FrameInfo.html#Get_Source-PWideChar-">Get_Source</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -43,11 +43,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Get_name-PWideChar-"></span><code>function <strong>Get_name</strong>(out name: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Get_name-PWideChar-"></span><code>function <strong>Get_name</strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- The value of iframe's window.name property. The default value equals to iframe html tag declaring it, as in `&lt;iframe name=&quot;frame-name&quot; ...&gt;`. The returned string is empty when the frame has no name attribute and no assigned value for window.name.
+ The value of iframe's window.name property. The default value equals to iframe html tag declaring it, as in `&lt;iframe name=&quot;frame-name&quot;&gt;...&lt;/iframe&gt;`. The returned string is empty when the frame has no name attribute and no assigned value for window.name.
 
 <p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
@@ -60,7 +60,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Get_Source-PWideChar-"></span><code>function <strong>Get_Source</strong>(out Source: PWideChar): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Get_Source-PWideChar-"></span><code>function <strong>Get_Source</strong>(out value: PWideChar): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>

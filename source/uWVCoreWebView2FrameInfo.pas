@@ -49,7 +49,7 @@ type
       property BaseIntf          : ICoreWebView2FrameInfo  read FBaseIntf       write FBaseIntf;
       /// <summary>
       /// The value of iframe's window.name property. The default value equals to
-      /// iframe html tag declaring it, as in `<iframe name="frame-name" ...>`.
+      /// iframe html tag declaring it, as in `<iframe name="frame-name">...</iframe>`.
       /// The returned string is empty when the frame has no name attribute and
       /// no assigned value for window.name.
       /// </summary>

@@ -194,8 +194,8 @@ type
       /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
       /// implementation behavior is subject to change.</para>
       /// <para>The User Agent set will also be effective on service workers
-      /// and shared workers associated with the WebView.
-      /// If there are multiple WebViews associated with the same service worker or
+      /// and shared workers associated with the WebView. If there are
+      /// multiple WebViews associated with the same service worker or
       /// shared worker, the last User Agent set will be used.</para>
       /// </summary>
       /// <remarks>

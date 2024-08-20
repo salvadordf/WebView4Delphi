@@ -39,7 +39,8 @@ uses
   uWVCoreWebView2ProcessExtendedInfoCollection, 
   uWVCoreWebView2BrowserExtension, uWVCoreWebView2ProcessExtendedInfo, 
   uWVCoreWebView2ExecuteScriptResult, uWVCoreWebView2ScriptException, 
-  uWVCoreWebView2RegionRectCollectionView, LazarusPackageIntf;
+  uWVCoreWebView2RegionRectCollectionView, uWVCoreWebView2ObjectCollection, 
+  uWVCoreWebView2FileSystemHandle, LazarusPackageIntf;
 
 implementation
 

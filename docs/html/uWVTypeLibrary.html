@@ -37,7 +37,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs2.html"><code>ICoreWebView2AcceleratorKeyPressedEventArgs2</code></a></td>
-<td class="itemdesc"> This is This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface. </td>
+<td class="itemdesc"> This is a continuation of the ICoreWebView2AcceleratorKeyPressedEventArgs interface. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventHandler.html"><code>ICoreWebView2AcceleratorKeyPressedEventHandler</code></a></td>
@@ -49,7 +49,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ZoomFactorChangedEventHandler.html"><code>ICoreWebView2ZoomFactorChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive ZoomFactorChanged events. Use the ICoreWebView2Controller.ZoomFactor property to get the modified zoom factor. </td>
+<td class="itemdesc"> Receives `ZoomFactorChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventHandler.html"><code>ICoreWebView2MoveFocusRequestedEventHandler</code></a></td>
@@ -61,7 +61,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FocusChangedEventHandler.html"><code>ICoreWebView2FocusChangedEventHandler</code></a></td>
-<td class="itemdesc"> Receives GotFocus and LostFocus events. </td>
+<td class="itemdesc"> Receives `GotFocus` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2.html"><code>ICoreWebView2</code></a></td>
@@ -165,7 +165,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html"><code>ICoreWebView2CallDevToolsProtocolMethodCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives CallDevToolsProtocolMethod completion results. </td>
+<td class="itemdesc"> Receives the result of the `CallDevToolsProtocolMethod` method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceiver.html"><code>ICoreWebView2DevToolsProtocolEventReceiver</code></a></td>
@@ -173,7 +173,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventHandler.html"><code>ICoreWebView2DevToolsProtocolEventReceivedEventHandler</code></a></td>
-<td class="itemdesc"> Receives DevToolsProtocolEventReceived events from the WebView. </td>
+<td class="itemdesc"> Receives `DevToolsProtocolEventReceived` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventArgs.html"><code>ICoreWebView2DevToolsProtocolEventReceivedEventArgs</code></a></td>
@@ -209,7 +209,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventHandler.html"><code>ICoreWebView2WebResourceRequestedEventHandler</code></a></td>
-<td class="itemdesc"> Runs when a URL request (through network, file, and so on) is made in the webview for a Web resource matching resource context filter and URL specified in AddWebResourceRequestedFilter. The host views and modifies the request or provide a response in a similar pattern to HTTP, in which case the request immediately completed. This may not contain any request headers that are added by the network stack, such as an Authorization header. </td>
+<td class="itemdesc"> Receives `WebResourceRequested` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html"><code>ICoreWebView2WebResourceRequestedEventArgs</code></a></td>
@@ -249,7 +249,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseViewGetContentCompletedHandler.html"><code>ICoreWebView2WebResourceResponseViewGetContentCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method. </td>
+<td class="itemdesc"> Receives the result of the `GetContent` method. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventHandler.html"><code>ICoreWebView2DOMContentLoadedEventHandler</code></a></td>
@@ -269,11 +269,11 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html"><code>ICoreWebView2GetCookiesCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the result of the GetCookies method. The result is written to the cookie list provided in the GetCookies method call. </td>
+<td class="itemdesc"> Receives the result of the GetCookies method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CookieList.html"><code>ICoreWebView2CookieList</code></a></td>
-<td class="itemdesc"> A list of cookie objects. See ICoreWebView2Cookie. </td>
+<td class="itemdesc"> A collection of ICoreWebView2Cookie. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment.html"><code>ICoreWebView2Environment</code></a></td>
@@ -281,7 +281,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler.html"><code>ICoreWebView2CreateCoreWebView2ControllerCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the CoreWebView2Controller created using CreateCoreWebView2Controller. </td>
+<td class="itemdesc"> Receives the result of the `CreateCoreWebView2Controller` method. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NewBrowserVersionAvailableEventHandler.html"><code>ICoreWebView2NewBrowserVersionAvailableEventHandler</code></a></td>
@@ -293,7 +293,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html"><code>ICoreWebView2TrySuspendCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the TrySuspend result. </td>
+<td class="itemdesc"> Receives the result of the `TrySuspend` method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_4.html"><code>ICoreWebView2_4</code></a></td>
@@ -301,7 +301,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventHandler.html"><code>ICoreWebView2FrameCreatedEventHandler</code></a></td>
-<td class="itemdesc"> Receives FrameCreated event. </td>
+<td class="itemdesc"> Receives `FrameCreated` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html"><code>ICoreWebView2FrameCreatedEventArgs</code></a></td>
@@ -313,15 +313,15 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNameChangedEventHandler.html"><code>ICoreWebView2FrameNameChangedEventHandler</code></a></td>
-<td class="itemdesc"> Receives FrameNameChanged event. </td>
+<td class="itemdesc"> Receives `NameChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDestroyedEventHandler.html"><code>ICoreWebView2FrameDestroyedEventHandler</code></a></td>
-<td class="itemdesc"> Receives FrameDestroyed event. </td>
+<td class="itemdesc"> Receives `Destroyed` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventHandler.html"><code>ICoreWebView2DownloadStartingEventHandler</code></a></td>
-<td class="itemdesc"> Add an event handler for the DownloadStarting event. </td>
+<td class="itemdesc"> Receives `DownloadStarting` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventArgs.html"><code>ICoreWebView2DownloadStartingEventArgs</code></a></td>
@@ -333,15 +333,15 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BytesReceivedChangedEventHandler.html"><code>ICoreWebView2BytesReceivedChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive BytesReceivedChanged event. Use the ICoreWebView2DownloadOperation.BytesReceived property to get the received bytes count. </td>
+<td class="itemdesc"> Receives `BytesReceivedChanged` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EstimatedEndTimeChangedEventHandler.html"><code>ICoreWebView2EstimatedEndTimeChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive EstimatedEndTimeChanged event. Use the ICoreWebView2DownloadOperation.EstimatedEndTime property to get the new estimated end time. </td>
+<td class="itemdesc"> Receives `EstimatedEndTimeChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2StateChangedEventHandler.html"><code>ICoreWebView2StateChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive StateChanged event. Use the ICoreWebView2DownloadOperation.State property to get the current state, which can be in progress, interrupted, or completed. Use the ICoreWebView2DownloadOperation.InterruptReason property to get the interrupt reason if the download is interrupted. </td>
+<td class="itemdesc"> Receives `StateChanged` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_5.html"><code>ICoreWebView2_5</code></a></td>
@@ -349,7 +349,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventHandler.html"><code>ICoreWebView2ClientCertificateRequestedEventHandler</code></a></td>
-<td class="itemdesc"> An event handler for the ClientCertificateRequested event. </td>
+<td class="itemdesc"> Receives `ClientCertificateRequested` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html"><code>ICoreWebView2ClientCertificateRequestedEventArgs</code></a></td>
@@ -361,7 +361,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ClientCertificateCollection.html"><code>ICoreWebView2ClientCertificateCollection</code></a></td>
-<td class="itemdesc"> A collection of client certificate object. </td>
+<td class="itemdesc"> A collection of ICoreWebView2ClientCertificate. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ClientCertificate.html"><code>ICoreWebView2ClientCertificate</code></a></td>
@@ -381,7 +381,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PrintToPdfCompletedHandler.html"><code>ICoreWebView2PrintToPdfCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the result of the PrintToPdf method. If the print to PDF operation succeeds, isSuccessful is true. Otherwise, if the operation failed, isSuccessful is set to false. An invalid path returns E_INVALIDARG. </td>
+<td class="itemdesc"> Receives the result of the `PrintToPdf` method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_8.html"><code>ICoreWebView2_8</code></a></td>
@@ -389,11 +389,11 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2IsMutedChangedEventHandler.html"><code>ICoreWebView2IsMutedChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive IsMutedChanged events. Use the IsMuted property to get the mute state. </td>
+<td class="itemdesc"> Receives `IsMutedChanged` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2IsDocumentPlayingAudioChangedEventHandler.html"><code>ICoreWebView2IsDocumentPlayingAudioChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive IsDocumentPlayingAudioChanged events. Use the IsDocumentPlayingAudio property to get the audio playing state. </td>
+<td class="itemdesc"> Receives `IsDocumentPlayingAudioChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_9.html"><code>ICoreWebView2_9</code></a></td>
@@ -401,7 +401,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html"><code>ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</code></a></td>
-<td class="itemdesc"> Implements the interface to receive IsDefaultDownloadDialogOpenChanged events. </td>
+<td class="itemdesc"> Receives `IsDefaultDownloadDialogOpenChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_10.html"><code>ICoreWebView2_10</code></a></td>
@@ -409,7 +409,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventHandler.html"><code>ICoreWebView2BasicAuthenticationRequestedEventHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to handle the BasicAuthenticationRequested event. </td>
+<td class="itemdesc"> Receives `BasicAuthenticationRequested` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventArgs.html"><code>ICoreWebView2BasicAuthenticationRequestedEventArgs</code></a></td>
@@ -441,7 +441,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CustomItemSelectedEventHandler.html"><code>ICoreWebView2CustomItemSelectedEventHandler</code></a></td>
-<td class="itemdesc"> Raised to notify the host that the end user selected a custom ContextMenuItem. CustomItemSelected event is raised on the specific ContextMenuItem that the end user selected. </td>
+<td class="itemdesc"> Receives `CustomItemSelected` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ContextMenuTarget.html"><code>ICoreWebView2ContextMenuTarget</code></a></td>
@@ -469,7 +469,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventHandler.html"><code>ICoreWebView2ServerCertificateErrorDetectedEventHandler</code></a></td>
-<td class="itemdesc"> An event handler for the ServerCertificateErrorDetected event. </td>
+<td class="itemdesc"> Receives `ServerCertificateErrorDetected` events. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html"><code>ICoreWebView2ServerCertificateErrorDetectedEventArgs</code></a></td>
@@ -489,11 +489,11 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FaviconChangedEventHandler.html"><code>ICoreWebView2FaviconChangedEventHandler</code></a></td>
-<td class="itemdesc"> This interface is a handler for when the Favicon is changed. The sender is the ICoreWebView2 object the top-level document of which has changed favicon and the eventArgs is nullptr. Use the FaviconUri property and GetFavicon method to obtain the favicon data. The second argument is always null. For more information see add_FaviconChanged. </td>
+<td class="itemdesc"> Receives `FaviconChanged` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2GetFaviconCompletedHandler.html"><code>ICoreWebView2GetFaviconCompletedHandler</code></a></td>
-<td class="itemdesc"> This interface is a handler for the completion of the population of imageStream. errorCode returns S_OK if the API succeeded. The image is returned in the faviconStream object. If there is no image then no data would be copied into the imageStream. For more details, see the GetFavicon API. </td>
+<td class="itemdesc"> Receives the result of the `GetFavicon` method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_16.html"><code>ICoreWebView2_16</code></a></td>
@@ -521,7 +521,7 @@
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventHandler.html"><code>ICoreWebView2LaunchingExternalUriSchemeEventHandler</code></a></td>
-<td class="itemdesc"> Event handler for the LaunchingExternalUriScheme event. </td>
+<td class="itemdesc"> Receives `LaunchingExternalUriScheme` events. </td>
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html"><code>ICoreWebView2LaunchingExternalUriSchemeEventArgs</code></a></td>
@@ -541,7 +541,7 @@
 </tr>
 <tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ExecuteScriptWithResultCompletedHandler.html"><code>ICoreWebView2ExecuteScriptWithResultCompletedHandler</code></a></td>
-<td class="itemdesc"> This is the callback for ExecuteScriptWithResult </td>
+<td class="itemdesc"> Receives the result of the `ExecuteScriptWithResult` method. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html"><code>ICoreWebView2ExecuteScriptResult</code></a></td>
@@ -556,18 +556,22 @@
 <td class="itemdesc"> This interface is an extension of `ICoreWebView2` that allows to set filters in order to receive WebResourceRequested events for service workers, shared workers and different origin iframes. </td>
 </tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2_23.html"><code>ICoreWebView2_23</code></a></td>
+<td class="itemdesc"> This is the ICoreWebView_23 interface for PostWebMessageAsJsonWithAdditionalObjects. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html"><code>ICoreWebView2BrowserProcessExitedEventArgs</code></a></td>
 <td class="itemdesc"> Event args for the BrowserProcessExited event. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventHandler.html"><code>ICoreWebView2BrowserProcessExitedEventHandler</code></a></td>
 <td class="itemdesc"> Receives BrowserProcessExited events. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CompositionController.html"><code>ICoreWebView2CompositionController</code></a></td>
 <td class="itemdesc"> This interface is an extension of the ICoreWebView2Controller interface to support visual hosting. An object implementing the ICoreWebView2CompositionController interface will also implement ICoreWebView2Controller. Callers are expected to use ICoreWebView2Controller for resizing, visibility, focus, and so on, and then use ICoreWebView2CompositionController to connect to a composition tree and provide input meant for the WebView. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PointerInfo.html"><code>ICoreWebView2PointerInfo</code></a></td>
 <td class="itemdesc">
 
@@ -577,395 +581,407 @@
 
 <p></td>
 </tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CursorChangedEventHandler.html"><code>ICoreWebView2CursorChangedEventHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive CursorChanged events. Use the Cursor property to get the new cursor. </td>
-</tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CursorChangedEventHandler.html"><code>ICoreWebView2CursorChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `CursorChanged` events. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CompositionController2.html"><code>ICoreWebView2CompositionController2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2CompositionController interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CompositionController3.html"><code>ICoreWebView2CompositionController3</code></a></td>
 <td class="itemdesc"> This interface is the continuation of the ICoreWebView2CompositionController2 interface to manage drag and drop. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Controller2.html"><code>ICoreWebView2Controller2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Controller interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Controller3.html"><code>ICoreWebView2Controller3</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Controller2 interface. </td>
 </tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html"><code>ICoreWebView2RasterizationScaleChangedEventHandler</code></a></td>
-<td class="itemdesc"> Receives RasterizationScaleChanged events. Use the RasterizationScale property to get the modified scale. </td>
-</tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html"><code>ICoreWebView2RasterizationScaleChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `RasterizationScaleChanged` events. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Controller4.html"><code>ICoreWebView2Controller4</code></a></td>
 <td class="itemdesc"> This is the ICoreWebView2Controller4 interface. The ICoreWebView2Controller4 provides interface to enable/disable external drop. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ControllerOptions.html"><code>ICoreWebView2ControllerOptions</code></a></td>
 <td class="itemdesc"> This interface is used to manage profile options that created by 'CreateCoreWebView2ControllerOptions'. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ControllerOptions2.html"><code>ICoreWebView2ControllerOptions2</code></a></td>
 <td class="itemdesc"> This is the interface in ControllerOptions for ScriptLocale. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html"><code>ICoreWebView2ClearBrowsingDataCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the ClearBrowsingData result. </td>
-</tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html"><code>ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the CoreWebView2Controller created via CreateCoreWebView2CompositionController. </td>
+<td class="itemdesc"> Receives the result of the `ClearBrowsingData` method. </td>
 </tr>
 <tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html"><code>ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the WebView2Environment created using CreateCoreWebView2Environment. </td>
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html"><code>ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `CreateCoreWebView2CompositionController` method. </td>
 </tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html"><code>ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `CreateCoreWebView2Environment` method. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html"><code>ICoreWebView2CustomSchemeRegistration</code></a></td>
 <td class="itemdesc"> Represents the registration of a custom scheme with the CoreWebView2Environment. This allows the WebView2 app to be able to handle WebResourceRequested event for requests with the specified scheme and be able to navigate the WebView2 to the custom scheme. Once the environment is created, the registrations are valid and immutable throughout the lifetime of the associated WebView2s' browser process and any WebView2 environments sharing the browser process must be created with identical custom scheme registrations, otherwise the environment creation will fail. Any further attempts to register the same scheme will fail during environment creation. The URIs of registered custom schemes will be treated similar to http URIs for their origins. They will have tuple origins for URIs with host and opaque origins for URIs without host as specified in [7.5 Origin - HTML Living Standard](<a href="https://html.spec.whatwg.org/multipage/origin.html">https://html.spec.whatwg.org/multipage/origin.html</a>)
 
 <p>Example: custom-scheme-with-<a href="host://hostname/path/to/resource">host://hostname/path/to/resource</a> has origin of custom-scheme-with-<a href="host://hostname">host://hostname</a>. custom-scheme-without-host:path/to/resource has origin of custom-scheme-without-host:path/to/resource. For WebResourceRequested event, the cases of request URIs and filter URIs with custom schemes will be normalized according to generic URI syntax rules. Any non-ASCII characters will be preserved. The registered custom schemes also participate in [CORS](<a href="https://developer.mozilla.org/docs/Web/HTTP/CORS">https://developer.mozilla.org/docs/Web/HTTP/CORS</a>) and adheres to [CSP](<a href="https://developer.mozilla.org/docs/Web/HTTP/CSP">https://developer.mozilla.org/docs/Web/HTTP/CSP</a>). The app needs to set the appropriate access headers in its WebResourceRequested event handler to allow CORS requests. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventArgs2.html"><code>ICoreWebView2DevToolsProtocolEventReceivedEventArgs2</code></a></td>
 <td class="itemdesc"> This is a continuation of the ICoreWebView2DevToolsProtocolEventReceivedEventArgs interface that provides the session ID of the target where the event originates from. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment2.html"><code>ICoreWebView2Environment2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment interface. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment3.html"><code>ICoreWebView2Environment3</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment2 interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment4.html"><code>ICoreWebView2Environment4</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment3 interface. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment5.html"><code>ICoreWebView2Environment5</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment4 interface that supports the BrowserProcessExited event. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment6.html"><code>ICoreWebView2Environment6</code></a></td>
 <td class="itemdesc"> This interface is an extension of the ICoreWebView2Environment that supports creating print settings for printing to PDF. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment7.html"><code>ICoreWebView2Environment7</code></a></td>
 <td class="itemdesc"> This interface is an extension of the ICoreWebView2Environment. An object implementing the ICoreWebView2Environment7 interface will also implement ICoreWebView2Environment. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment8.html"><code>ICoreWebView2Environment8</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment7 interface that supports the ProcessInfosChanged event. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessInfosChangedEventHandler.html"><code>ICoreWebView2ProcessInfosChangedEventHandler</code></a></td>
-<td class="itemdesc"> An event handler for the ProcessInfosChanged event. </td>
+<td class="itemdesc"> eceives `ProcessInfosChanged` events. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html"><code>ICoreWebView2ProcessInfoCollection</code></a></td>
+<td class="itemdesc"> A collection of ICoreWebView2ProcessInfo. </td>
 </tr>
 <tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessInfoCollection.html"><code>ICoreWebView2ProcessInfoCollection</code></a></td>
-<td class="itemdesc"> A list containing process id and corresponding process type. </td>
-</tr>
-<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessInfo.html"><code>ICoreWebView2ProcessInfo</code></a></td>
 <td class="itemdesc"> Provides a set of properties for a process in the ICoreWebView2Environment. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment9.html"><code>ICoreWebView2Environment9</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment interface for creating CoreWebView2 ContextMenuItem objects. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment10.html"><code>ICoreWebView2Environment10</code></a></td>
 <td class="itemdesc"> This interface is used to create ICoreWebView2ControllerOptions object, which can be passed as a parameter in CreateCoreWebView2ControllerWithOptions and CreateCoreWebView2CompositionControllerWithOptions function for multiple profiles support. The profile will be created on disk or opened when calling CreateCoreWebView2ControllerWithOptions or CreateCoreWebView2CompositionControllerWithOptions no matter InPrivate mode is enabled or not, and it will be released in memory when the corresponding controller is closed but still remain on disk. If you create a WebView2Controller with {ProfileName=&quot;name&quot;, InPrivate=false} and then later create another one with {ProfileName=&quot;name&quot;, InPrivate=true}, these two controllers using the same profile would be allowed to run at the same time. As WebView2 is built on top of Edge browser, it follows Edge's behavior pattern. To create an InPrivate WebView, we gets an off-the-record profile (an InPrivate profile) from a regular profile, then create the WebView with the off-the-record profile. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment11.html"><code>ICoreWebView2Environment11</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment interface for getting the crash dump folder path. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment12.html"><code>ICoreWebView2Environment12</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment interface for creating shared buffer object. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment13.html"><code>ICoreWebView2Environment13</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Environment interface for getting process with associated information. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2GetProcessExtendedInfosCompletedHandler.html"><code>ICoreWebView2GetProcessExtendedInfosCompletedHandler</code></a></td>
-<td class="itemdesc"> Receives the result of the `GetProcessExtendedInfos` method. The result is written to the collection of `ProcessExtendedInfo`s provided in the `GetProcessExtendedInfos` method call. </td>
+<td class="itemdesc"> Receives the result of the `GetProcessExtendedInfos` method. </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html"><code>ICoreWebView2ProcessExtendedInfoCollection</code></a></td>
+<td class="itemdesc"> A collection of ICoreWebView2ProcessExtendedInfo. </td>
 </tr>
 <tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html"><code>ICoreWebView2ProcessExtendedInfoCollection</code></a></td>
-<td class="itemdesc"> A list containing processInfo and associated extended information. </td>
-</tr>
-<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html"><code>ICoreWebView2ProcessExtendedInfo</code></a></td>
 <td class="itemdesc"> Provides process with associated extended information in the `ICoreWebView2Environment`. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfoCollection.html"><code>ICoreWebView2FrameInfoCollection</code></a></td>
 <td class="itemdesc"> Collection of FrameInfos (name and source). Used to list the affected frames' info when a frame-only render process failure occurs in the ICoreWebView2. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfoCollectionIterator.html"><code>ICoreWebView2FrameInfoCollectionIterator</code></a></td>
 <td class="itemdesc"> Iterator for a collection of FrameInfos. For more info, see ICoreWebView2ProcessFailedEventArgs2 and ICoreWebView2FrameInfoCollection. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfo.html"><code>ICoreWebView2FrameInfo</code></a></td>
 <td class="itemdesc"> Provides a set of properties for a frame in the ICoreWebView2. </td>
 </tr>
+<tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment14.html"><code>ICoreWebView2Environment14</code></a></td>
+<td class="itemdesc"> This is ICoreWebView2Environment14 that exposes new methods to create Filesystem access related DOM objects. </td>
+</tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html"><code>ICoreWebView2FileSystemHandle</code></a></td>
+<td class="itemdesc"> Representation of a DOM [FileSystemHandle](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle">https://developer.mozilla.org/docs/Web/API/FileSystemHandle</a>) object. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html"><code>ICoreWebView2EnvironmentOptions</code></a></td>
 <td class="itemdesc"> Options used to create WebView2 Environment. A default implementation is provided in WebView2EnvironmentOptions.h. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html"><code>ICoreWebView2EnvironmentOptions2</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment. A default implementation is provided in WebView2EnvironmentOptions.h. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html"><code>ICoreWebView2EnvironmentOptions3</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment to manage crash reporting. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions4.html"><code>ICoreWebView2EnvironmentOptions4</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment that manages custom scheme registration. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html"><code>ICoreWebView2EnvironmentOptions5</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment to manage tracking prevention. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html"><code>ICoreWebView2EnvironmentOptions6</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment to manage browser extensions. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html"><code>ICoreWebView2EnvironmentOptions7</code></a></td>
 <td class="itemdesc"> Additional options used to create the WebView2 Environment that support specifying the `ReleaseChannels` and `ChannelSearchKind`. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html"><code>ICoreWebView2EnvironmentOptions8</code></a></td>
 <td class="itemdesc"> Additional options used to create WebView2 Environment. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame2.html"><code>ICoreWebView2Frame2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Frame interface with navigation events, executing script and posting web messages. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNavigationStartingEventHandler.html"><code>ICoreWebView2FrameNavigationStartingEventHandler</code></a></td>
-<td class="itemdesc"> Receives NavigationStarting events for iframe. </td>
+<td class="itemdesc"> Receives `NavigationStarting` events. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html"><code>ICoreWebView2FrameContentLoadingEventHandler</code></a></td>
-<td class="itemdesc"> Receives ContentLoading events for iframe. </td>
+<td class="itemdesc"> Receives `ContentLoading` events. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNavigationCompletedEventHandler.html"><code>ICoreWebView2FrameNavigationCompletedEventHandler</code></a></td>
-<td class="itemdesc"> Receives NavigationCompleted events for iframe. </td>
-</tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDOMContentLoadedEventHandler.html"><code>ICoreWebView2FrameDOMContentLoadedEventHandler</code></a></td>
-<td class="itemdesc"> Receives DOMContentLoaded events for iframe. </td>
+<td class="itemdesc"> Receives `NavigationCompleted` events. </td>
 </tr>
 <tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameWebMessageReceivedEventHandler.html"><code>ICoreWebView2FrameWebMessageReceivedEventHandler</code></a></td>
-<td class="itemdesc"> Receives WebMessageReceived events for iframe. </td>
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDOMContentLoadedEventHandler.html"><code>ICoreWebView2FrameDOMContentLoadedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `DOMContentLoaded` events. </td>
 </tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameWebMessageReceivedEventHandler.html"><code>ICoreWebView2FrameWebMessageReceivedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `WebMessageReceived` events. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame3.html"><code>ICoreWebView2Frame3</code></a></td>
 <td class="itemdesc"> This is an extension of the ICoreWebView2Frame interface that supports PermissionRequested </td>
 </tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FramePermissionRequestedEventHandler.html"><code>ICoreWebView2FramePermissionRequestedEventHandler</code></a></td>
-<td class="itemdesc"> Receives PermissionRequested events for iframes. </td>
-</tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FramePermissionRequestedEventHandler.html"><code>ICoreWebView2FramePermissionRequestedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `PermissionRequested` events. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs2.html"><code>ICoreWebView2PermissionRequestedEventArgs2</code></a></td>
 <td class="itemdesc"> This is a continuation of the ICoreWebView2PermissionRequestedEventArgs interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame4.html"><code>ICoreWebView2Frame4</code></a></td>
 <td class="itemdesc"> This is an extension of the ICoreWebView2Frame interface that supports shared buffer based on file mapping. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame5.html"><code>ICoreWebView2Frame5</code></a></td>
 <td class="itemdesc"> This is an extension of the ICoreWebView2Frame interface that provides the `FrameId` property. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfo2.html"><code>ICoreWebView2FrameInfo2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2FrameInfo interface that provides `ParentFrameInfo`, `FrameId` and `FrameKind` properties. </td>
 </tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html"><code>ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to handle the result of GetNonDefaultPermissionSettings. </td>
-</tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html"><code>ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `GetNonDefaultPermissionSettings` method. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html"><code>ICoreWebView2PermissionSettingCollectionView</code></a></td>
 <td class="itemdesc"> Read-only collection of PermissionSettings (origin, kind, and state). Used to list the nondefault permission settings on the profile that are persisted across sessions. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PermissionSetting.html"><code>ICoreWebView2PermissionSetting</code></a></td>
 <td class="itemdesc"> Provides a set of properties for a permission setting. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs2.html"><code>ICoreWebView2NavigationCompletedEventArgs2</code></a></td>
 <td class="itemdesc"> This is an interface for the StatusCode property of ICoreWebView2NavigationCompletedEventArgs </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs2.html"><code>ICoreWebView2NavigationStartingEventArgs2</code></a></td>
 <td class="itemdesc"> The AdditionalAllowedFrameAncestors API that enable developers to provide additional allowed frame ancestors. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs3.html"><code>ICoreWebView2NavigationStartingEventArgs3</code></a></td>
 <td class="itemdesc"> The NavigationKind API that enables developers to get more information about navigation type. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs2.html"><code>ICoreWebView2NewWindowRequestedEventArgs2</code></a></td>
 <td class="itemdesc"> This is a continuation of the ICoreWebView2NewWindowRequestedEventArgs interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs3.html"><code>ICoreWebView2NewWindowRequestedEventArgs3</code></a></td>
 <td class="itemdesc"> This is a continuation of the ICoreWebView2NewWindowRequestedEventArgs interface. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs3.html"><code>ICoreWebView2PermissionRequestedEventArgs3</code></a></td>
 <td class="itemdesc"> This is a continuation of the ICoreWebView2PermissionRequestedEventArgs interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2PrintSettings2.html"><code>ICoreWebView2PrintSettings2</code></a></td>
 <td class="itemdesc"> Settings used by the Print method. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs2.html"><code>ICoreWebView2ProcessFailedEventArgs2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2ProcessFailedEventArgs interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html"><code>ICoreWebView2ProcessFailedEventArgs3</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2ProcessFailedEventArgs2 interface for getting blocked file for code integrity process failures. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile2.html"><code>ICoreWebView2Profile2</code></a></td>
 <td class="itemdesc"> Profile2 interface. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile3.html"><code>ICoreWebView2Profile3</code></a></td>
 <td class="itemdesc"> This is an extension of the ICoreWebView2Profile interface to control levels of tracking prevention. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile4.html"><code>ICoreWebView2Profile4</code></a></td>
 <td class="itemdesc"> This is the ICoreWebView2Profile interface for the permission management APIs. </td>
 </tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2SetPermissionStateCompletedHandler.html"><code>ICoreWebView2SetPermissionStateCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to handle the result of SetPermissionState. </td>
-</tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2SetPermissionStateCompletedHandler.html"><code>ICoreWebView2SetPermissionStateCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `SetPermissionState` method. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile5.html"><code>ICoreWebView2Profile5</code></a></td>
 <td class="itemdesc"> This is the ICoreWebView2Profile interface for cookie manager. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile6.html"><code>ICoreWebView2Profile6</code></a></td>
 <td class="itemdesc"> Interfaces in profile for managing password-autosave and general-autofill. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile7.html"><code>ICoreWebView2Profile7</code></a></td>
 <td class="itemdesc"> Interfaces in profile for managing browser extensions. </td>
 </tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html"><code>ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the result of loading an browser Extension. </td>
-</tr>
 <tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html"><code>ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `AddBrowserExtension` method. </td>
+</tr>
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html"><code>ICoreWebView2BrowserExtension</code></a></td>
 <td class="itemdesc"> Provides a set of properties for managing an Extension, which includes an ID, name, and whether it is enabled or not, and the ability to Remove the Extension, and enable or disable it. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionRemoveCompletedHandler.html"><code>ICoreWebView2BrowserExtensionRemoveCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the result of removing the browser Extension from the Profile. </td>
+<td class="itemdesc"> Receives the result of the `Remove` method. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionEnableCompletedHandler.html"><code>ICoreWebView2BrowserExtensionEnableCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the result of setting the browser Extension as enabled or disabled. If enabled, the browser Extension is running in WebView instances. If disabled, the browser Extension is not running in WebView instances. </td>
-</tr>
-<tr class="list">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html"><code>ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</code></a></td>
-<td class="itemdesc"> The caller implements this interface to receive the result of getting the browser Extensions. </td>
+<td class="itemdesc"> Receives the result of the `Enable` method. </td>
 </tr>
 <tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html"><code>ICoreWebView2BrowserExtensionList</code></a></td>
-<td class="itemdesc"> Provides a set of properties for managing browser Extension Lists from user profile. This includes the number of browser Extensions in the list, and the ability to get an browser Extension from the list at a particular index. </td>
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html"><code>ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</code></a></td>
+<td class="itemdesc"> Receives the result of the `GetBrowserExtensions` method. </td>
 </tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html"><code>ICoreWebView2BrowserExtensionList</code></a></td>
+<td class="itemdesc"> A collection of ICoreWebView2BrowserExtension. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile8.html"><code>ICoreWebView2Profile8</code></a></td>
 <td class="itemdesc"> This is the profile interface that manages profile deletion. </td>
 </tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileDeletedEventHandler.html"><code>ICoreWebView2ProfileDeletedEventHandler</code></a></td>
-<td class="itemdesc"> Receives the `CoreWebView2Profile.Deleted` event. </td>
-</tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileDeletedEventHandler.html"><code>ICoreWebView2ProfileDeletedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `Deleted` events. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings2.html"><code>ICoreWebView2Settings2</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface that manages the user agent. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings3.html"><code>ICoreWebView2Settings3</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface that manages whether browser accelerator keys are enabled. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings4.html"><code>ICoreWebView2Settings4</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to manage autofill. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings5.html"><code>ICoreWebView2Settings5</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to manage pinch zoom. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings6.html"><code>ICoreWebView2Settings6</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to manage swipe navigation. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings7.html"><code>ICoreWebView2Settings7</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to hide Pdf toolbar items. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings8.html"><code>ICoreWebView2Settings8</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to manage smartscreen. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings9.html"><code>ICoreWebView2Settings9</code></a></td>
 <td class="itemdesc"> A continuation of the ICoreWebView2Settings interface to manage non-client regions. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html"><code>ICoreWebView2WebResourceRequestedEventArgs2</code></a></td>
 <td class="itemdesc"> Event args for the `WebResourceRequested` event. </td>
 </tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html"><code>ICoreWebView2NonClientRegionChangedEventHandler</code></a></td>
-<td class="itemdesc"> This is the Interface of the event handler for the non-client region changed event. </td>
-</tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html"><code>ICoreWebView2NonClientRegionChangedEventHandler</code></a></td>
+<td class="itemdesc"> Receives `NonClientRegionChanged` events. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html"><code>ICoreWebView2NonClientRegionChangedEventArgs</code></a></td>
 <td class="itemdesc"> This is the Interface for non-client region change event args. </td>
 </tr>
-<tr class="list2">
-<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html"><code>ICoreWebView2RegionRectCollectionView</code></a></td>
-<td class="itemdesc"> This Interface Represents a Collection of Region Rects. </td>
-</tr>
 <tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html"><code>ICoreWebView2RegionRectCollectionView</code></a></td>
+<td class="itemdesc"> A collection of RECT. </td>
+</tr>
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2CompositionController4.html"><code>ICoreWebView2CompositionController4</code></a></td>
 <td class="itemdesc"> This Interface includes an API which enables non-client hit-testing support for WebView2. </td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2File.html"><code>ICoreWebView2File</code></a></td>
 <td class="itemdesc"> Representation of a DOM [File](<a href="https://developer.mozilla.org/docs/Web/API/File">https://developer.mozilla.org/docs/Web/API/File</a>) object passed via WebMessage. You can use this object to obtain the path of a File dropped on WebView2. </td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ObjectCollectionView.html"><code>ICoreWebView2ObjectCollectionView</code></a></td>
-<td class="itemdesc"> Read-only collection of generic objects. </td>
+<td class="itemdesc"> A collection of objects. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2ObjectCollection.html"><code>ICoreWebView2ObjectCollection</code></a></td>
+<td class="itemdesc"> Represents a collection of generic objects. Used to get, remove and add objects at the specified index. </td>
 </tr>
 <tr class="list2">
 <td class="itemname">Interface&nbsp;<a class="bold" href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs2.html"><code>ICoreWebView2WebMessageReceivedEventArgs2</code></a></td>
@@ -1065,6 +1081,12 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND">COREWEBVIEW2_PROCESS_KIND</a></strong> = TOleEnum;</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</a></strong> = TOleEnum;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND">COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND</a></strong> = TOleEnum;</code></td>
+</tr>
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a></strong> = TOleEnum;</code></td>
 </tr>
 <tr class="list2">
@@ -1129,30 +1151,6 @@
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#LIBID_WebView2">LIBID_WebView2</a></strong>: TGUID = '{26D34152-879F-4065-BEA2-3DAA2CFADFB8}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs">IID_ICoreWebView2AcceleratorKeyPressedEventArgs</a></strong>: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">IID_ICoreWebView2AcceleratorKeyPressedEventArgs2</a></strong>: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventHandler">IID_ICoreWebView2AcceleratorKeyPressedEventHandler</a></strong>: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Controller">IID_ICoreWebView2Controller</a></strong>: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ZoomFactorChangedEventHandler">IID_ICoreWebView2ZoomFactorChangedEventHandler</a></strong>: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventHandler">IID_ICoreWebView2MoveFocusRequestedEventHandler</a></strong>: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventArgs">IID_ICoreWebView2MoveFocusRequestedEventArgs</a></strong>: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FocusChangedEventHandler">IID_ICoreWebView2FocusChangedEventHandler</a></strong>: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2">IID_ICoreWebView2</a></strong>: TGUID = '{76ECEACB-0462-4D94-AC83-423A6793775E}';</code></td>
@@ -1314,214 +1312,250 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler">IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler</a></strong>: TGUID = '{6C4819F3-C9B7-4260-8127-C9F5BDE7F68C}';</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Controller">IID_ICoreWebView2Controller</a></strong>: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ZoomFactorChangedEventHandler">IID_ICoreWebView2ZoomFactorChangedEventHandler</a></strong>: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventHandler">IID_ICoreWebView2MoveFocusRequestedEventHandler</a></strong>: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventArgs">IID_ICoreWebView2MoveFocusRequestedEventArgs</a></strong>: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FocusChangedEventHandler">IID_ICoreWebView2FocusChangedEventHandler</a></strong>: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventHandler">IID_ICoreWebView2AcceleratorKeyPressedEventHandler</a></strong>: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs">IID_ICoreWebView2AcceleratorKeyPressedEventArgs</a></strong>: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NewBrowserVersionAvailableEventHandler">IID_ICoreWebView2NewBrowserVersionAvailableEventHandler</a></strong>: TGUID = '{F9A2976E-D34E-44FC-ADEE-81B6B57CA914}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_3">IID_ICoreWebView2_3</a></strong>: TGUID = '{A0D6DF20-3B92-416D-AA0C-437A9C727857}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2TrySuspendCompletedHandler">IID_ICoreWebView2TrySuspendCompletedHandler</a></strong>: TGUID = '{00F206A7-9D17-4605-91F6-4E8E4DE192E3}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_4">IID_ICoreWebView2_4</a></strong>: TGUID = '{20D02D59-6DF2-42DC-BD06-F98A694B1302}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameCreatedEventHandler">IID_ICoreWebView2FrameCreatedEventHandler</a></strong>: TGUID = '{38059770-9BAA-11EB-A8B3-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameCreatedEventArgs">IID_ICoreWebView2FrameCreatedEventArgs</a></strong>: TGUID = '{4D6E7B5E-9BAA-11EB-A8B3-0242AC130003}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Frame">IID_ICoreWebView2Frame</a></strong>: TGUID = '{F1131A5E-9BA9-11EB-A8B3-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameNameChangedEventHandler">IID_ICoreWebView2FrameNameChangedEventHandler</a></strong>: TGUID = '{435C7DC8-9BAA-11EB-A8B3-0242AC130003}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameDestroyedEventHandler">IID_ICoreWebView2FrameDestroyedEventHandler</a></strong>: TGUID = '{59DD7B4C-9BAA-11EB-A8B3-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2DownloadStartingEventHandler">IID_ICoreWebView2DownloadStartingEventHandler</a></strong>: TGUID = '{EFEDC989-C396-41CA-83F7-07F845A55724}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2DownloadStartingEventArgs">IID_ICoreWebView2DownloadStartingEventArgs</a></strong>: TGUID = '{E99BBE21-43E9-4544-A732-282764EAFA60}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2DownloadOperation">IID_ICoreWebView2DownloadOperation</a></strong>: TGUID = '{3D6B6CF2-AFE1-44C7-A995-C65117714336}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BytesReceivedChangedEventHandler">IID_ICoreWebView2BytesReceivedChangedEventHandler</a></strong>: TGUID = '{828E8AB6-D94C-4264-9CEF-5217170D6251}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EstimatedEndTimeChangedEventHandler">IID_ICoreWebView2EstimatedEndTimeChangedEventHandler</a></strong>: TGUID = '{28F0D425-93FE-4E63-9F8D-2AEEC6D3BA1E}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2StateChangedEventHandler">IID_ICoreWebView2StateChangedEventHandler</a></strong>: TGUID = '{81336594-7EDE-4BA9-BF71-ACF0A95B58DD}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_5">IID_ICoreWebView2_5</a></strong>: TGUID = '{BEDB11B8-D63C-11EB-B8BC-0242AC130003}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClientCertificateRequestedEventHandler">IID_ICoreWebView2ClientCertificateRequestedEventHandler</a></strong>: TGUID = '{D7175BA2-BCC3-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClientCertificateRequestedEventArgs">IID_ICoreWebView2ClientCertificateRequestedEventArgs</a></strong>: TGUID = '{BC59DB28-BCC3-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2StringCollection">IID_ICoreWebView2StringCollection</a></strong>: TGUID = '{F41F3F8A-BCC3-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClientCertificateCollection">IID_ICoreWebView2ClientCertificateCollection</a></strong>: TGUID = '{EF5674D2-BCC3-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClientCertificate">IID_ICoreWebView2ClientCertificate</a></strong>: TGUID = '{E7188076-BCC3-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_6">IID_ICoreWebView2_6</a></strong>: TGUID = '{499AADAC-D92C-4589-8A75-111BFC167795}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_7">IID_ICoreWebView2_7</a></strong>: TGUID = '{79C24D83-09A3-45AE-9418-487F32A58740}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PrintSettings">IID_ICoreWebView2PrintSettings</a></strong>: TGUID = '{377F3721-C74E-48CA-8DB1-DF68E51D60E2}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PrintToPdfCompletedHandler">IID_ICoreWebView2PrintToPdfCompletedHandler</a></strong>: TGUID = '{CCF1EF04-FD8E-4D5F-B2DE-0983E41B8C36}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_8">IID_ICoreWebView2_8</a></strong>: TGUID = '{E9632730-6E1E-43AB-B7B8-7B2C9E62E094}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2IsMutedChangedEventHandler">IID_ICoreWebView2IsMutedChangedEventHandler</a></strong>: TGUID = '{57D90347-CD0E-4952-A4A2-7483A2756F08}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2IsDocumentPlayingAudioChangedEventHandler">IID_ICoreWebView2IsDocumentPlayingAudioChangedEventHandler</a></strong>: TGUID = '{5DEF109A-2F4B-49FA-B7F6-11C39E513328}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_9">IID_ICoreWebView2_9</a></strong>: TGUID = '{4D7B2EAB-9FDC-468D-B998-A9260B5ED651}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler">IID_ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</a></strong>: TGUID = '{3117DA26-AE13-438D-BD46-EDBEB2C4CE81}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_10">IID_ICoreWebView2_10</a></strong>: TGUID = '{B1690564-6F5A-4983-8E48-31D1143FECDB}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BasicAuthenticationRequestedEventHandler">IID_ICoreWebView2BasicAuthenticationRequestedEventHandler</a></strong>: TGUID = '{58B4D6C2-18D4-497E-B39B-9A96533FA278}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BasicAuthenticationRequestedEventArgs">IID_ICoreWebView2BasicAuthenticationRequestedEventArgs</a></strong>: TGUID = '{EF05516F-D897-4F9E-B672-D8E2307A3FB0}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BasicAuthenticationResponse">IID_ICoreWebView2BasicAuthenticationResponse</a></strong>: TGUID = '{07023F7D-2D77-4D67-9040-6E7D428C6A40}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_11">IID_ICoreWebView2_11</a></strong>: TGUID = '{0BE78E56-C193-4051-B943-23B460C08BDB}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ContextMenuRequestedEventHandler">IID_ICoreWebView2ContextMenuRequestedEventHandler</a></strong>: TGUID = '{04D3FE1D-AB87-42FB-A898-DA241D35B63C}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ContextMenuRequestedEventArgs">IID_ICoreWebView2ContextMenuRequestedEventArgs</a></strong>: TGUID = '{A1D309EE-C03F-11EB-8529-0242AC130003}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ContextMenuItemCollection">IID_ICoreWebView2ContextMenuItemCollection</a></strong>: TGUID = '{F562A2F5-C415-45CF-B909-D4B7C1E276D3}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ContextMenuItem">IID_ICoreWebView2ContextMenuItem</a></strong>: TGUID = '{7AED49E3-A93F-497A-811C-749C6B6B6C65}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CustomItemSelectedEventHandler">IID_ICoreWebView2CustomItemSelectedEventHandler</a></strong>: TGUID = '{49E1D0BC-FE9E-4481-B7C2-32324AA21998}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ContextMenuTarget">IID_ICoreWebView2ContextMenuTarget</a></strong>: TGUID = '{B8611D99-EED6-4F3F-902C-A198502AD472}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_12">IID_ICoreWebView2_12</a></strong>: TGUID = '{35D69927-BCFA-4566-9349-6B3E0D154CAC}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2StatusBarTextChangedEventHandler">IID_ICoreWebView2StatusBarTextChangedEventHandler</a></strong>: TGUID = '{A5E3B0D0-10DF-4156-BFAD-3B43867ACAC6}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_13">IID_ICoreWebView2_13</a></strong>: TGUID = '{F75F09A8-667E-4983-88D6-C8773F315E84}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile">IID_ICoreWebView2Profile</a></strong>: TGUID = '{79110AD3-CD5D-4373-8BC3-C60658F17A5F}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_14">IID_ICoreWebView2_14</a></strong>: TGUID = '{6DAA4F10-4A90-4753-8898-77C5DF534165}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ServerCertificateErrorDetectedEventHandler">IID_ICoreWebView2ServerCertificateErrorDetectedEventHandler</a></strong>: TGUID = '{969B3A26-D85E-4795-8199-FEF57344DA22}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ServerCertificateErrorDetectedEventArgs">IID_ICoreWebView2ServerCertificateErrorDetectedEventArgs</a></strong>: TGUID = '{012193ED-7C13-48FF-969D-A84C1F432A14}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Certificate">IID_ICoreWebView2Certificate</a></strong>: TGUID = '{C5FB2FCE-1CAC-4AEE-9C79-5ED0362EAAE0}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler">IID_ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler</a></strong>: TGUID = '{3B40AAC6-ACFE-4FFD-8211-F607B96E2D5B}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_15">IID_ICoreWebView2_15</a></strong>: TGUID = '{517B2D1D-7DAE-4A66-A4F4-10352FFB9518}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FaviconChangedEventHandler">IID_ICoreWebView2FaviconChangedEventHandler</a></strong>: TGUID = '{2913DA94-833D-4DE0-8DCA-900FC524A1A4}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2GetFaviconCompletedHandler">IID_ICoreWebView2GetFaviconCompletedHandler</a></strong>: TGUID = '{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_16">IID_ICoreWebView2_16</a></strong>: TGUID = '{0EB34DC9-9F91-41E1-8639-95CD5943906B}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PrintCompletedHandler">IID_ICoreWebView2PrintCompletedHandler</a></strong>: TGUID = '{8FD80075-ED08-42DB-8570-F5D14977461E}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PrintToPdfStreamCompletedHandler">IID_ICoreWebView2PrintToPdfStreamCompletedHandler</a></strong>: TGUID = '{4C9F8229-8F93-444F-A711-2C0DFD6359D5}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_17">IID_ICoreWebView2_17</a></strong>: TGUID = '{702E75D4-FD44-434D-9D70-1A68A6B1192A}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2SharedBuffer">IID_ICoreWebView2SharedBuffer</a></strong>: TGUID = '{B747A495-0C6F-449E-97B8-2F81E9D6AB43}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_18">IID_ICoreWebView2_18</a></strong>: TGUID = '{7A626017-28BE-49B2-B865-3BA2B3522D90}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2LaunchingExternalUriSchemeEventHandler">IID_ICoreWebView2LaunchingExternalUriSchemeEventHandler</a></strong>: TGUID = '{74F712E0-8165-43A9-A13F-0CCE597E75DF}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2LaunchingExternalUriSchemeEventArgs">IID_ICoreWebView2LaunchingExternalUriSchemeEventArgs</a></strong>: TGUID = '{07D1A6C3-7175-4BA1-9306-E593CA07E46C}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_19">IID_ICoreWebView2_19</a></strong>: TGUID = '{6921F954-79B0-437F-A997-C85811897C68}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_20">IID_ICoreWebView2_20</a></strong>: TGUID = '{B4BC1926-7305-11EE-B962-0242AC120002}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_21">IID_ICoreWebView2_21</a></strong>: TGUID = '{C4980DEA-587B-43B9-8143-3EF3BF552D95}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ExecuteScriptWithResultCompletedHandler">IID_ICoreWebView2ExecuteScriptWithResultCompletedHandler</a></strong>: TGUID = '{1BB5317B-8238-4C67-A7FF-BAF6558F289D}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ExecuteScriptResult">IID_ICoreWebView2ExecuteScriptResult</a></strong>: TGUID = '{0CE15963-3698-4DF7-9399-71ED6CDD8C9F}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ScriptException">IID_ICoreWebView2ScriptException</a></strong>: TGUID = '{054DAE00-84A3-49FF-BC17-4012A90BC9FD}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_22">IID_ICoreWebView2_22</a></strong>: TGUID = '{DB75DFC7-A857-4632-A398-6969DDE26C0A}';</code></td>
 </tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2_23">IID_ICoreWebView2_23</a></strong>: TGUID = '{508F0DB5-90C4-5872-90A7-267A91377502}';</code></td>
+</tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventArgs">IID_ICoreWebView2BrowserProcessExitedEventArgs</a></strong>: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollectionView">IID_ICoreWebView2ObjectCollectionView</a></strong>: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventHandler">IID_ICoreWebView2BrowserProcessExitedEventHandler</a></strong>: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">IID_ICoreWebView2AcceleratorKeyPressedEventArgs2</a></strong>: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtension">IID_ICoreWebView2BrowserExtension</a></strong>: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler</a></strong>: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">IID_ICoreWebView2BrowserExtensionEnableCompletedHandler</a></strong>: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventArgs">IID_ICoreWebView2BrowserProcessExitedEventArgs</a></strong>: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController">IID_ICoreWebView2CompositionController</a></strong>: TGUID = '{3DF9B733-B9AE-4A15-86B4-EB9EE9826469}';</code></td>
@@ -1537,6 +1571,18 @@
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController3">IID_ICoreWebView2CompositionController3</a></strong>: TGUID = '{9570570E-4D76-4361-9EE1-F04D0DBDFB1E}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">IID_ICoreWebView2CompositionController4</a></strong>: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">IID_ICoreWebView2RegionRectCollectionView</a></strong>: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">IID_ICoreWebView2NonClientRegionChangedEventHandler</a></strong>: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">IID_ICoreWebView2NonClientRegionChangedEventArgs</a></strong>: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Controller2">IID_ICoreWebView2Controller2</a></strong>: TGUID = '{C979903E-D4CA-4228-92EB-47EE3FA96EAB}';</code></td>
@@ -1557,19 +1603,13 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions2">IID_ICoreWebView2ControllerOptions2</a></strong>: TGUID = '{06C991D8-9E7E-11ED-A8FC-0242AC120002}';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClearBrowsingDataCompletedHandler">IID_ICoreWebView2ClearBrowsingDataCompletedHandler</a></strong>: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CustomSchemeRegistration">IID_ICoreWebView2CustomSchemeRegistration</a></strong>: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</a></strong>: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2">IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2</a></strong>: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler">IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a></strong>: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CustomSchemeRegistration">IID_ICoreWebView2CustomSchemeRegistration</a></strong>: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2">IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2</a></strong>: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment2">IID_ICoreWebView2Environment2</a></strong>: TGUID = '{41F3632B-5EF4-404F-AD82-2D606C5A9A21}';</code></td>
@@ -1578,10 +1618,16 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment3">IID_ICoreWebView2Environment3</a></strong>: TGUID = '{80A22AE3-BE7C-4CE2-AFE1-5A50056CDEEB}';</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment4">IID_ICoreWebView2Environment4</a></strong>: TGUID = '{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</a></strong>: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';</code></td>
 </tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment4">IID_ICoreWebView2Environment4</a></strong>: TGUID = '{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}';</code></td>
+</tr>
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment5">IID_ICoreWebView2Environment5</a></strong>: TGUID = '{319E423D-E0D7-4B8D-9254-AE9475DE9B17}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventHandler">IID_ICoreWebView2BrowserProcessExitedEventHandler</a></strong>: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment6">IID_ICoreWebView2Environment6</a></strong>: TGUID = '{E59EE362-ACBD-4857-9A8E-D3644D9459A9}';</code></td>
@@ -1635,28 +1681,40 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameInfo">IID_ICoreWebView2FrameInfo</a></strong>: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';</code></td>
 </tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Environment14">IID_ICoreWebView2Environment14</a></strong>: TGUID = '{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FileSystemHandle">IID_ICoreWebView2FileSystemHandle</a></strong>: TGUID = '{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollection">IID_ICoreWebView2ObjectCollection</a></strong>: TGUID = '{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}';</code></td>
+</tr>
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions">IID_ICoreWebView2EnvironmentOptions</a></strong>: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions2">IID_ICoreWebView2EnvironmentOptions2</a></strong>: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions3">IID_ICoreWebView2EnvironmentOptions3</a></strong>: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions4">IID_ICoreWebView2EnvironmentOptions4</a></strong>: TGUID = '{AC52D13F-0D38-475A-9DCA-876580D6793E}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions5">IID_ICoreWebView2EnvironmentOptions5</a></strong>: TGUID = '{0AE35D64-C47F-4464-814E-259C345D1501}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions6">IID_ICoreWebView2EnvironmentOptions6</a></strong>: TGUID = '{57D29CC3-C84F-42A0-B0E2-EFFBD5E179DE}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions7">IID_ICoreWebView2EnvironmentOptions7</a></strong>: TGUID = '{C48D539F-E39F-441C-AE68-1F66E570BDC5}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions8">IID_ICoreWebView2EnvironmentOptions8</a></strong>: TGUID = '{7C7ECF51-E918-5CAF-853C-E9A2BCC27775}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2File">IID_ICoreWebView2File</a></strong>: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Frame2">IID_ICoreWebView2Frame2</a></strong>: TGUID = '{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}';</code></td>
@@ -1695,31 +1753,25 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2FrameInfo2">IID_ICoreWebView2FrameInfo2</a></strong>: TGUID = '{56F85CFA-72C4-11EE-B962-0242AC120002}';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a></strong>: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationCompletedEventArgs2">IID_ICoreWebView2NavigationCompletedEventArgs2</a></strong>: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSettingCollectionView">IID_ICoreWebView2PermissionSettingCollectionView</a></strong>: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationStartingEventArgs2">IID_ICoreWebView2NavigationStartingEventArgs2</a></strong>: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationStartingEventArgs3">IID_ICoreWebView2NavigationStartingEventArgs3</a></strong>: TGUID = '{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NewWindowRequestedEventArgs2">IID_ICoreWebView2NewWindowRequestedEventArgs2</a></strong>: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NewWindowRequestedEventArgs3">IID_ICoreWebView2NewWindowRequestedEventArgs3</a></strong>: TGUID = '{842BED3C-6AD6-4DD9-B938-28C96667AD66}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PermissionRequestedEventArgs3">IID_ICoreWebView2PermissionRequestedEventArgs3</a></strong>: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSetting">IID_ICoreWebView2PermissionSetting</a></strong>: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationCompletedEventArgs2">IID_ICoreWebView2NavigationCompletedEventArgs2</a></strong>: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationStartingEventArgs2">IID_ICoreWebView2NavigationStartingEventArgs2</a></strong>: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NavigationStartingEventArgs3">IID_ICoreWebView2NavigationStartingEventArgs3</a></strong>: TGUID = '{DDFFE494-4942-4BD2-AB73-35B8FF40E19F}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NewWindowRequestedEventArgs2">IID_ICoreWebView2NewWindowRequestedEventArgs2</a></strong>: TGUID = '{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NewWindowRequestedEventArgs3">IID_ICoreWebView2NewWindowRequestedEventArgs3</a></strong>: TGUID = '{842BED3C-6AD6-4DD9-B938-28C96667AD66}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PermissionRequestedEventArgs3">IID_ICoreWebView2PermissionRequestedEventArgs3</a></strong>: TGUID = '{E61670BC-3DCE-4177-86D2-C629AE3CB6AC}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PrintSettings2">IID_ICoreWebView2PrintSettings2</a></strong>: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';</code></td>
@@ -1734,34 +1786,34 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile2">IID_ICoreWebView2Profile2</a></strong>: TGUID = '{FA740D4B-5EAE-4344-A8AD-74BE31925397}';</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ClearBrowsingDataCompletedHandler">IID_ICoreWebView2ClearBrowsingDataCompletedHandler</a></strong>: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile3">IID_ICoreWebView2Profile3</a></strong>: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile4">IID_ICoreWebView2Profile4</a></strong>: TGUID = '{8F4AE680-192E-4EC8-833A-21CFADAEF628}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2SetPermissionStateCompletedHandler">IID_ICoreWebView2SetPermissionStateCompletedHandler</a></strong>: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';</code></td>
 </tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a></strong>: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';</code></td>
+</tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSettingCollectionView">IID_ICoreWebView2PermissionSettingCollectionView</a></strong>: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';</code></td>
+</tr>
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile5">IID_ICoreWebView2Profile5</a></strong>: TGUID = '{2EE5B76E-6E80-4DF2-BCD3-D4EC3340A01B}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile6">IID_ICoreWebView2Profile6</a></strong>: TGUID = '{BD82FA6A-1D65-4C33-B2B4-0393020CC61B}';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Profile7">IID_ICoreWebView2Profile7</a></strong>: TGUID = '{7B4C7906-A1AA-4CB4-B723-DB09F813D541}';</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler">IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</a></strong>: TGUID = '{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtension">IID_ICoreWebView2BrowserExtension</a></strong>: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler</a></strong>: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">IID_ICoreWebView2BrowserExtensionEnableCompletedHandler</a></strong>: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler">IID_ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a></strong>: TGUID = '{FCE16A1C-F107-4601-8B75-FC4940AE25D0}';</code></td>
@@ -1800,28 +1852,10 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2Settings9">IID_ICoreWebView2Settings9</a></strong>: TGUID = '{0528A73B-E92D-49F4-927A-E547DDDAA37D}';</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">IID_ICoreWebView2WebResourceRequestedEventArgs2</a></strong>: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">IID_ICoreWebView2NonClientRegionChangedEventHandler</a></strong>: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">IID_ICoreWebView2NonClientRegionChangedEventArgs</a></strong>: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">IID_ICoreWebView2RegionRectCollectionView</a></strong>: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">IID_ICoreWebView2CompositionController4</a></strong>: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2File">IID_ICoreWebView2File</a></strong>: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollectionView">IID_ICoreWebView2ObjectCollectionView</a></strong>: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';</code></td>
-</tr>
-<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2WebMessageReceivedEventArgs2">IID_ICoreWebView2WebMessageReceivedEventArgs2</a></strong>: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">IID_ICoreWebView2WebResourceRequestedEventArgs2</a></strong>: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN">COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN</a></strong> = $00000000;</code></td>
@@ -2274,58 +2308,58 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_FAILED">COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_FAILED</a></strong> = $00000001;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL">COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL</a></strong> = $0000020E;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL">COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL</a></strong> = 526;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK</a></strong> = $00000203;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK</a></strong> = 515;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN</a></strong> = $00000201;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN</a></strong> = 513;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP</a></strong> = $00000202;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP</a></strong> = 514;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE">COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE</a></strong> = $000002A3;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE">COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE</a></strong> = 675;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK</a></strong> = $00000209;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK</a></strong> = 521;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN</a></strong> = $00000207;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN</a></strong> = 519;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP</a></strong> = $00000208;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP</a></strong> = 520;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE">COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE</a></strong> = $00000200;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE">COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE</a></strong> = 512;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK</a></strong> = $00000206;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK</a></strong> = 518;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN</a></strong> = $00000204;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN</a></strong> = 516;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP</a></strong> = $00000205;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP</a></strong> = 517;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL">COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL</a></strong> = $0000020A;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL">COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL</a></strong> = 522;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK</a></strong> = $0000020D;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK</a></strong> = 525;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN</a></strong> = $0000020B;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN</a></strong> = 523;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP</a></strong> = $0000020C;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP</a></strong> = 524;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN</a></strong> = $00A4;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN">COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN</a></strong> = 164;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP</a></strong> = $00A5;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP">COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP</a></strong> = 165;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE">COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE</a></strong> = $00000000;</code></td>
@@ -2395,6 +2429,18 @@
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER">COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER</a></strong> = $00000006;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY</a></strong> = $00000000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE</a></strong> = $00000001;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE">COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE</a></strong> = $00000000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY">COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY</a></strong> = $00000001;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE</a></strong> = $00000000;</code></td>
@@ -2505,52 +2551,52 @@
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED">COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED</a></strong> = $00000006;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS">COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS</a></strong> = 1 shl 0;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS">COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS</a></strong> = $0001;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB">COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB</a></strong> = 1 shl 1;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB">COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB</a></strong> = $0002;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE</a></strong> = 1 shl 2;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE</a></strong> = $0004;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL">COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL</a></strong> = 1 shl 3;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL">COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL</a></strong> = $0008;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE</a></strong> = 1 shl 4;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE</a></strong> = $0010;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE</a></strong> = 1 shl 5;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE</a></strong> = $0020;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES">COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES</a></strong> = 1 shl 6;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES">COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES</a></strong> = $0040;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE</a></strong> = 1 shl 7;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE</a></strong> = $0080;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE">COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE</a></strong> = 1 shl 8;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE">COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE</a></strong> = $0100;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY">COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY</a></strong> = 1 shl 9;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY">COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY</a></strong> = $0200;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL">COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL</a></strong> = 1 shl 10;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL">COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL</a></strong> = $0400;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE">COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE</a></strong> = 1 shl 11;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE">COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE</a></strong> = $0800;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY">COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY</a></strong> = 1 shl 12;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY">COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY</a></strong> = $1000;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS">COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS</a></strong> = 1 shl 13;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS">COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS</a></strong> = $2000;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE</a></strong> = 1 shl 14;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE">COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE</a></strong> = $4000;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS">COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS</a></strong> = 1 shl 15;</code></td>
+<td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS">COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS</a></strong> = $8000;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypeLibrary.html#COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE">COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE</a></strong> = $00000000;</code></td>
@@ -3033,6 +3079,32 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</strong> = TOleEnum;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Allowed permissions of a CoreWebView2FileSystemHandle as described in [FileSystemHandle.requestPermission()](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission">https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission</a>) </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_permission">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_permission</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND</strong> = TOleEnum;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Kind of CoreWebView2FileSystemHandle as described in [FileSystemHandle.kind](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle/kind">https://developer.mozilla.org/docs/Web/API/FileSystemHandle/kind</a>) </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_kind">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_file_system_handle_kind</a>&quot;&gt;See the Globals article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="COREWEBVIEW2_CHANNEL_SEARCH_KIND"></span><code><strong>COREWEBVIEW2_CHANNEL_SEARCH_KIND</strong> = TOleEnum;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -3207,7 +3279,7 @@
 </tr>
 <tr><td colspan="1">
 <p>
- PDF toolbar item. This enum must be in sync with ToolBarItem in pdf-store-data-types.ts Specifies the PDF toolbar item types used for the ICoreWebView2Settings.put_HiddenPdfToolbarItems method. </p>
+ Specifies the PDF toolbar item types used for the ICoreWebView2Settings.put_HiddenPdfToolbarItems method. </p>
 <p>
 
 
@@ -3293,62 +3365,6 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="LIBID_WebView2"></span><code><strong>LIBID_WebView2</strong>: TGUID = '{26D34152-879F-4065-BEA2-3DAA2CFADFB8}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventArgs"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventArgs</strong>: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventArgs2"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventArgs2</strong>: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventHandler"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventHandler</strong>: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2Controller"></span><code><strong>IID_ICoreWebView2Controller</strong>: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2ZoomFactorChangedEventHandler"></span><code><strong>IID_ICoreWebView2ZoomFactorChangedEventHandler</strong>: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2MoveFocusRequestedEventHandler"></span><code><strong>IID_ICoreWebView2MoveFocusRequestedEventHandler</strong>: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2MoveFocusRequestedEventArgs"></span><code><strong>IID_ICoreWebView2MoveFocusRequestedEventArgs</strong>: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2FocusChangedEventHandler"></span><code><strong>IID_ICoreWebView2FocusChangedEventHandler</strong>: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -3720,6 +3736,55 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler"></span><code><strong>IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler</strong>: TGUID = '{6C4819F3-C9B7-4260-8127-C9F5BDE7F68C}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2Controller"></span><code><strong>IID_ICoreWebView2Controller</strong>: TGUID = '{4D00C0D1-9434-4EB6-8078-8697A560334F}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2ZoomFactorChangedEventHandler"></span><code><strong>IID_ICoreWebView2ZoomFactorChangedEventHandler</strong>: TGUID = '{B52D71D6-C4DF-4543-A90C-64A3E60F38CB}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2MoveFocusRequestedEventHandler"></span><code><strong>IID_ICoreWebView2MoveFocusRequestedEventHandler</strong>: TGUID = '{69035451-6DC7-4CB8-9BCE-B2BD70AD289F}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2MoveFocusRequestedEventArgs"></span><code><strong>IID_ICoreWebView2MoveFocusRequestedEventArgs</strong>: TGUID = '{2D6AA13B-3839-4A15-92FC-D88B3C0D9C9D}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2FocusChangedEventHandler"></span><code><strong>IID_ICoreWebView2FocusChangedEventHandler</strong>: TGUID = '{05EA24BD-6452-4926-9014-4B82B498135D}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventHandler"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventHandler</strong>: TGUID = '{B29C7E28-FA79-41A8-8E44-65811C76DCB2}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventArgs"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventArgs</strong>: TGUID = '{9F760F8A-FB79-42BE-9990-7B56900FA9C7}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4202,14 +4267,49 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2BrowserProcessExitedEventArgs"></span><code><strong>IID_ICoreWebView2BrowserProcessExitedEventArgs</strong>: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';</code></td>
+<td class="itemcode"><span id="IID_ICoreWebView2_23"></span><code><strong>IID_ICoreWebView2_23</strong>: TGUID = '{508F0DB5-90C4-5872-90A7-267A91377502}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2BrowserProcessExitedEventHandler"></span><code><strong>IID_ICoreWebView2BrowserProcessExitedEventHandler</strong>: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';</code></td>
+<td class="itemcode"><span id="IID_ICoreWebView2ObjectCollectionView"></span><code><strong>IID_ICoreWebView2ObjectCollectionView</strong>: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2AcceleratorKeyPressedEventArgs2"></span><code><strong>IID_ICoreWebView2AcceleratorKeyPressedEventArgs2</strong>: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtension"></span><code><strong>IID_ICoreWebView2BrowserExtension</strong>: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler"></span><code><strong>IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler</strong>: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtensionEnableCompletedHandler"></span><code><strong>IID_ICoreWebView2BrowserExtensionEnableCompletedHandler</strong>: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2BrowserProcessExitedEventArgs"></span><code><strong>IID_ICoreWebView2BrowserProcessExitedEventArgs</strong>: TGUID = '{1F00663F-AF8C-4782-9CDD-DD01C52E34CB}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4245,6 +4345,34 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2CompositionController3"></span><code><strong>IID_ICoreWebView2CompositionController3</strong>: TGUID = '{9570570E-4D76-4361-9EE1-F04D0DBDFB1E}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2CompositionController4"></span><code><strong>IID_ICoreWebView2CompositionController4</strong>: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2RegionRectCollectionView"></span><code><strong>IID_ICoreWebView2RegionRectCollectionView</strong>: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2NonClientRegionChangedEventHandler"></span><code><strong>IID_ICoreWebView2NonClientRegionChangedEventHandler</strong>: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2NonClientRegionChangedEventArgs"></span><code><strong>IID_ICoreWebView2NonClientRegionChangedEventArgs</strong>: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4293,27 +4421,6 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2ClearBrowsingDataCompletedHandler"></span><code><strong>IID_ICoreWebView2ClearBrowsingDataCompletedHandler</strong>: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler"></span><code><strong>IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</strong>: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler"></span><code><strong>IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</strong>: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2CustomSchemeRegistration"></span><code><strong>IID_ICoreWebView2CustomSchemeRegistration</strong>: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4322,6 +4429,13 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2"></span><code><strong>IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2</strong>: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler"></span><code><strong>IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</strong>: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4342,6 +4456,13 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler"></span><code><strong>IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</strong>: TGUID = '{02FAB84B-1428-4FB7-AD45-1B2E64736184}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2Environment4"></span><code><strong>IID_ICoreWebView2Environment4</strong>: TGUID = '{20944379-6DCF-41D6-A0A0-ABC0FC50DE0D}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4350,6 +4471,13 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2Environment5"></span><code><strong>IID_ICoreWebView2Environment5</strong>: TGUID = '{319E423D-E0D7-4B8D-9254-AE9475DE9B17}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2BrowserProcessExitedEventHandler"></span><code><strong>IID_ICoreWebView2BrowserProcessExitedEventHandler</strong>: TGUID = '{FA504257-A216-4911-A860-FE8825712861}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4475,6 +4603,27 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2Environment14"></span><code><strong>IID_ICoreWebView2Environment14</strong>: TGUID = '{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2FileSystemHandle"></span><code><strong>IID_ICoreWebView2FileSystemHandle</strong>: TGUID = '{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2ObjectCollection"></span><code><strong>IID_ICoreWebView2ObjectCollection</strong>: TGUID = '{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2EnvironmentOptions"></span><code><strong>IID_ICoreWebView2EnvironmentOptions</strong>: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4525,6 +4674,13 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2EnvironmentOptions8"></span><code><strong>IID_ICoreWebView2EnvironmentOptions8</strong>: TGUID = '{7C7ECF51-E918-5CAF-853C-E9A2BCC27775}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2File"></span><code><strong>IID_ICoreWebView2File</strong>: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4615,27 +4771,6 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler"></span><code><strong>IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</strong>: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2PermissionSettingCollectionView"></span><code><strong>IID_ICoreWebView2PermissionSettingCollectionView</strong>: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2PermissionSetting"></span><code><strong>IID_ICoreWebView2PermissionSetting</strong>: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2NavigationCompletedEventArgs2"></span><code><strong>IID_ICoreWebView2NavigationCompletedEventArgs2</strong>: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4678,6 +4813,13 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2PermissionSetting"></span><code><strong>IID_ICoreWebView2PermissionSetting</strong>: TGUID = '{792B6ECA-5576-421C-9119-74EBB3A4FFB3}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2PrintSettings2"></span><code><strong>IID_ICoreWebView2PrintSettings2</strong>: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4706,6 +4848,13 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2ClearBrowsingDataCompletedHandler"></span><code><strong>IID_ICoreWebView2ClearBrowsingDataCompletedHandler</strong>: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2Profile3"></span><code><strong>IID_ICoreWebView2Profile3</strong>: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';</code></td>
 </tr>
 <tr><td colspan="1">
@@ -4721,6 +4870,20 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2SetPermissionStateCompletedHandler"></span><code><strong>IID_ICoreWebView2SetPermissionStateCompletedHandler</strong>: TGUID = '{FC77FB30-9C9E-4076-B8C7-7644A703CA1B}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler"></span><code><strong>IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</strong>: TGUID = '{38274481-A15C-4563-94CF-990EDC9AEB95}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2PermissionSettingCollectionView"></span><code><strong>IID_ICoreWebView2PermissionSettingCollectionView</strong>: TGUID = '{F5596F62-3DE5-47B1-91E8-A4104B596B96}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4749,27 +4912,6 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler"></span><code><strong>IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</strong>: TGUID = '{DF1AAB27-82B9-4AB6-AAE8-017A49398C14}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtension"></span><code><strong>IID_ICoreWebView2BrowserExtension</strong>: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler"></span><code><strong>IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler</strong>: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2BrowserExtensionEnableCompletedHandler"></span><code><strong>IID_ICoreWebView2BrowserExtensionEnableCompletedHandler</strong>: TGUID = '{30C186CE-7FAD-421F-A3BC-A8EAF071DDB8}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4860,56 +5002,14 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2WebResourceRequestedEventArgs2"></span><code><strong>IID_ICoreWebView2WebResourceRequestedEventArgs2</strong>: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2NonClientRegionChangedEventHandler"></span><code><strong>IID_ICoreWebView2NonClientRegionChangedEventHandler</strong>: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2NonClientRegionChangedEventArgs"></span><code><strong>IID_ICoreWebView2NonClientRegionChangedEventArgs</strong>: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2RegionRectCollectionView"></span><code><strong>IID_ICoreWebView2RegionRectCollectionView</strong>: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2CompositionController4"></span><code><strong>IID_ICoreWebView2CompositionController4</strong>: TGUID = '{7C367B9B-3D2B-450F-9E58-D61A20F486AA}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2File"></span><code><strong>IID_ICoreWebView2File</strong>: TGUID = '{F2C19559-6BC1-4583-A757-90021BE9AFEC}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IID_ICoreWebView2ObjectCollectionView"></span><code><strong>IID_ICoreWebView2ObjectCollectionView</strong>: TGUID = '{0F36FD87-4F69-4415-98DA-888F89FB9A33}';</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="IID_ICoreWebView2WebMessageReceivedEventArgs2"></span><code><strong>IID_ICoreWebView2WebMessageReceivedEventArgs2</strong>: TGUID = '{06FC7AB7-C90C-4297-9389-33CA01CF6D5E}';</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IID_ICoreWebView2WebResourceRequestedEventArgs2"></span><code><strong>IID_ICoreWebView2WebResourceRequestedEventArgs2</strong>: TGUID = '{9C562C24-B219-4D7F-92F6-B187FBBADD56}';</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -5788,9 +5888,7 @@
 <p>
 
 
-<p>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.
-
-<p>Note that this isn't working. Fetch API requests are fired as a part of COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST.</p>
+<p>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -5829,9 +5927,7 @@
 <p>
 
 
-<p>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.
-
-<p>Note that this isn't working. EventSource API requests are fired as a part of COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST.</p>
+<p>This is one of the COREWEBVIEW2_WEB_RESOURCE_CONTEXT values.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -6876,7 +6972,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL</strong> = $0000020E;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL</strong> = 526;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6889,7 +6985,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK</strong> = $00000203;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK</strong> = 515;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6902,7 +6998,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN</strong> = $00000201;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN</strong> = 513;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6915,7 +7011,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP</strong> = $00000202;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP</strong> = 514;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6928,7 +7024,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE</strong> = $000002A3;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE</strong> = 675;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6941,7 +7037,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK</strong> = $00000209;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK</strong> = 521;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6954,7 +7050,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN</strong> = $00000207;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN</strong> = 519;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6967,7 +7063,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP</strong> = $00000208;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP</strong> = 520;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6980,7 +7076,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE</strong> = $00000200;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE</strong> = 512;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -6993,7 +7089,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK</strong> = $00000206;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK</strong> = 518;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7006,7 +7102,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN</strong> = $00000204;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN</strong> = 516;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7019,7 +7115,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP</strong> = $00000205;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP</strong> = 517;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7032,7 +7128,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL</strong> = $0000020A;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL</strong> = 522;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7045,7 +7141,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK</strong> = $0000020D;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK</strong> = 525;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7058,7 +7154,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN</strong> = $0000020B;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN</strong> = 523;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7071,7 +7167,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP</strong> = $0000020C;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP</strong> = 524;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7084,7 +7180,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN</strong> = $00A4;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN</strong> = 164;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7097,7 +7193,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP</strong> = $00A5;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP"></span><code><strong>COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP</strong> = 165;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7409,6 +7505,58 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY</strong> = $00000000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Read-only permission for FileSystemHandle. </p>
+<p>
+
+
+<p>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE</strong> = $00000001;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Read and write permissions for FileSystemHandle. </p>
+<p>
+
+
+<p>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE</strong> = $00000000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ FileSystemHandle is for a file (i.e. [FileSystemFileHandle](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle">https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle</a>)) </p>
+<p>
+
+
+<p>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY"></span><code><strong>COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY</strong> = $00000001;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ FileSystemHandle is for a directory (i.e. [FileSystemDirectoryHandle](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle">https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle</a>)) </p>
+<p>
+
+
+<p>This is one of the COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="itemcode"><span id="COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE"></span><code><strong>COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE</strong> = $00000000;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -7618,9 +7766,7 @@
 <p>
 
 
-<p>This is one of the COREWEBVIEW2_NAVIGATION_KIND values.
-
-<p>This kind doesn't distinguish back or forward, because we can't distinguish it from origin source blink.mojom.NavigationType.</p>
+<p>This is one of the COREWEBVIEW2_NAVIGATION_KIND values.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -7885,7 +8031,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS</strong> = 1 shl 0;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS</strong> = $0001;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7898,7 +8044,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB</strong> = 1 shl 1;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB</strong> = $0002;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7911,7 +8057,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE</strong> = 1 shl 2;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE</strong> = $0004;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7924,7 +8070,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL</strong> = 1 shl 3;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL</strong> = $0008;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7937,7 +8083,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE</strong> = 1 shl 4;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE</strong> = $0010;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7950,7 +8096,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE</strong> = 1 shl 5;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE</strong> = $0020;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7963,7 +8109,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES</strong> = 1 shl 6;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES</strong> = $0040;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7976,7 +8122,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE</strong> = 1 shl 7;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE</strong> = $0080;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -7989,7 +8135,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE</strong> = 1 shl 8;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE</strong> = $0100;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8002,7 +8148,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY</strong> = 1 shl 9;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY</strong> = $0200;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8015,7 +8161,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL</strong> = 1 shl 10;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL</strong> = $0400;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8028,7 +8174,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE</strong> = 1 shl 11;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE</strong> = $0800;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8041,7 +8187,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY</strong> = 1 shl 12;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY</strong> = $1000;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8054,7 +8200,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS</strong> = 1 shl 13;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS</strong> = $2000;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8067,7 +8213,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE</strong> = 1 shl 14;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE</strong> = $4000;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -8080,7 +8226,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS</strong> = 1 shl 15;</code></td>
+<td class="itemcode"><span id="COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS"></span><code><strong>COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS</strong> = $8000;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>

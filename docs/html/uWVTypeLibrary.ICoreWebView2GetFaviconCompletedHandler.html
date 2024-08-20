@@ -19,7 +19,7 @@
 <code>type ICoreWebView2GetFaviconCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- This interface is a handler for the completion of the population of imageStream. errorCode returns S_OK if the API succeeded. The image is returned in the faviconStream object. If there is no image then no data would be copied into the imageStream. For more details, see the GetFavicon API. </p>
+ Receives the result of the `GetFavicon` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetFaviconCompletedHandler.html#Invoke-HResult-IStream-">Invoke</a></strong>(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2GetFaviconCompletedHandler.html#Invoke-HResult-IStream-">Invoke</a></strong>(errorCode: HResult; const result_: IStream): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-IStream-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-IStream-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: IStream): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Called to notify the favicon has been retrieved. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{A2508329-7DA8-49D7-8C05-FA125E4AEE8D}']</dt>

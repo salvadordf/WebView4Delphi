@@ -39,6 +39,7 @@ type
       FBaseIntf20                              : ICoreWebView2_20;
       FBaseIntf21                              : ICoreWebView2_21;
       FBaseIntf22                              : ICoreWebView2_22;
+      FBaseIntf23                              : ICoreWebView2_23;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -849,6 +850,37 @@ type
                                                                       requestSourceKinds: TWVWebResourceRequestSourceKind): boolean;
 
       /// <summary>
+      /// <para>Same as `PostWebMessageAsJson`, but also has support for posting DOM objects
+      /// to page content. The `additionalObjects` property in the DOM MessageEvent
+      /// fired on the page content is an array-like list of DOM objects that can
+      /// be posted to the web content. Currently these can be the following
+      /// types of objects:</para>
+      /// <code>
+      /// | Win32             | DOM type    |
+      /// |-------------------|-------------|
+      /// | ICoreWebView2FileSystemHandle | [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) |
+      /// | nullptr           | null        |
+      /// </code>
+      /// <para>The objects are posted to the web content, following the
+      /// [structured-clone](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+      /// semantics, meaning only objects that can be cloned can be posted.</para>
+      /// <para>They will also behave as if they had been created by the web content they are
+      /// posted to. For example, if a FileSystemFileHandle is posted to a web content
+      /// it can only be re-transferred via postMessage to other web content
+      /// [with the same origin](https://fs.spec.whatwg.org/#filesystemhandle).</para>
+      /// <para>Warning: An app needs to be mindful when using this API to post DOM objects
+      /// as this API provides the web content with unusual access to sensitive Web
+      /// Platform features such as filesystem access! Similar to PostWebMessageAsJson
+      /// the app should check the `Source` property of WebView2 right before posting the message
+      /// to ensure the message and objects will only be sent to the target web content
+      /// that it expects to receive the DOM objects. Additionally, the order
+      /// of messages that are posted between `PostWebMessageAsJson` and `PostWebMessageAsJsonWithAdditionalObjects`
+      /// may not be preserved.</para>
+      /// </summary>
+      function PostWebMessageAsJsonWithAdditionalObjects(const webMessageAsJson: wvstring;
+                                                         const additionalObjects: ICoreWebView2ObjectCollectionView): boolean;
+
+      /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
       /// </summary>
       property Initialized                          : boolean                                   read GetInitialized;
@@ -1059,8 +1091,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_18, FBaseIntf18) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_19, FBaseIntf19) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_20, FBaseIntf20) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_21, FBaseIntf21) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_22, FBaseIntf22);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_21, FBaseIntf21) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_22, FBaseIntf22) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_23, FBaseIntf23);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -1114,6 +1147,7 @@ begin
   FBaseIntf20          := nil;
   FBaseIntf21          := nil;
   FBaseIntf22          := nil;
+  FBaseIntf23          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
   FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
@@ -2155,6 +2189,13 @@ function TCoreWebView2.RemoveWebResourceRequestedFilterWithRequestSourceKinds(co
 begin
   Result := assigned(FBaseIntf22) and
             succeeded(FBaseIntf22.RemoveWebResourceRequestedFilterWithRequestSourceKinds(PWideChar(uri), ResourceContext, requestSourceKinds));
+end;
+
+function TCoreWebView2.PostWebMessageAsJsonWithAdditionalObjects(const webMessageAsJson  : wvstring;
+                                                                 const additionalObjects : ICoreWebView2ObjectCollectionView): boolean;
+begin
+  Result := assigned(FBaseIntf23) and
+            succeeded(FBaseIntf23.PostWebMessageAsJsonWithAdditionalObjects(PWideChar(webMessageAsJson), additionalObjects));
 end;
 
 function TCoreWebView2.GetBrowserProcessID : cardinal;

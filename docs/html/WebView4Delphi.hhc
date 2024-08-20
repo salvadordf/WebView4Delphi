@@ -2286,6 +2286,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyPrintSettings">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="CalculateZoomStep">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CalculateZoomStep">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="UpdateZoomStep">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#UpdateZoomStep">
 </object>
@@ -3222,6 +3226,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#PostWebMessageAsJsonWithAdditionalObjects">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AddHostObjectToScript">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AddHostObjectToScript">
 </object>
@@ -3790,6 +3798,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf22">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf22">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf23">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf23">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FContainsFullScreenElementChangedToken">
@@ -4426,6 +4438,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveWebResourceRequestedFilterWithRequestSourceKinds">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#RemoveWebResourceRequestedFilterWithRequestSourceKinds">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#PostWebMessageAsJsonWithAdditionalObjects">
 </object>
 </ul>
 </ul>
@@ -11756,6 +11772,10 @@
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf13">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf14">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf14">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FNewBrowserVersionAvailableEventToken">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FNewBrowserVersionAvailableEventToken">
 </object>
@@ -11938,6 +11958,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetProcessExtendedInfos">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#GetProcessExtendedInfos">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemFileHandle">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateWebFileSystemFileHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemDirectoryHandle">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateWebFileSystemDirectoryHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateObjectCollection">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateObjectCollection">
 </object>
 </ul>
 </ul>
@@ -21802,6 +21834,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_23">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html#PostWebMessageAsJsonWithAdditionalObjects">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2BrowserProcessExitedEventArgs">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">
 </object>
@@ -22814,6 +22862,54 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_Source">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameInfo.html#Get_Source">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Environment14">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemFileHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemFileHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemDirectoryHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemDirectoryHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateObjectCollection">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateObjectCollection">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FileSystemHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Kind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Kind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Path">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Path">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Permission">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Permission">
 </object>
 </ul>
 </ul>
@@ -24150,6 +24246,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ObjectCollection">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#RemoveValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InsertValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#InsertValueAtIndex">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2WebMessageReceivedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs2.html">
 </object>
@@ -24292,6 +24408,14 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">
 </object>
@@ -24380,38 +24504,6 @@
 <li><object type="text/sitemap">
 <param name="Name" value="LIBID_WebView2">
 <param name="Local" value="uWVTypeLibrary.html#LIBID_WebView2">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventArgs">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2Controller">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Controller">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2ZoomFactorChangedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ZoomFactorChangedEventHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2MoveFocusRequestedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2MoveFocusRequestedEventArgs">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventArgs">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2FocusChangedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FocusChangedEventHandler">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2">
@@ -24624,6 +24716,34 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2ControllerCompletedHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Controller">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Controller">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ZoomFactorChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ZoomFactorChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2MoveFocusRequestedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2MoveFocusRequestedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2MoveFocusRequestedEventArgs">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FocusChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FocusChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2NewBrowserVersionAvailableEventHandler">
@@ -24898,12 +25018,32 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_22">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2BrowserProcessExitedEventArgs">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventArgs">
+<param name="Name" value="IID_ICoreWebView2_23">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_23">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2BrowserProcessExitedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventHandler">
+<param name="Name" value="IID_ICoreWebView2ObjectCollectionView">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollectionView">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2BrowserExtension">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtension">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2BrowserProcessExitedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventArgs">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CompositionController">
@@ -24924,6 +25064,22 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CompositionController3">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController3">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2RegionRectCollectionView">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Controller2">
@@ -24950,24 +25106,16 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions2">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2ClearBrowsingDataCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ClearBrowsingDataCompletedHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler">
-</object>
-<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CustomSchemeRegistration">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CustomSchemeRegistration">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Environment2">
@@ -24978,12 +25126,20 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Environment3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Environment4">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Environment4">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Environment5">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Environment5">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2BrowserProcessExitedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserProcessExitedEventHandler">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Environment6">
@@ -25054,6 +25210,18 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameInfo">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Environment14">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Environment14">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FileSystemHandle">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FileSystemHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ObjectCollection">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollection">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EnvironmentOptions">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions">
 </object>
@@ -25084,6 +25252,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EnvironmentOptions8">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2EnvironmentOptions8">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2File">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2File">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Frame2">
@@ -25134,18 +25306,6 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameInfo2">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2PermissionSettingCollectionView">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSettingCollectionView">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2PermissionSetting">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSetting">
-</object>
-<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2NavigationCompletedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NavigationCompletedEventArgs2">
 </object>
@@ -25170,6 +25330,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PermissionRequestedEventArgs3">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2PermissionSetting">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSetting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2PrintSettings2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PrintSettings2">
 </object>
@@ -25186,6 +25350,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Profile2">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ClearBrowsingDataCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ClearBrowsingDataCompletedHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Profile3">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Profile3">
 </object>
@@ -25196,6 +25364,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2SetPermissionStateCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2SetPermissionStateCompletedHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2PermissionSettingCollectionView">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2PermissionSettingCollectionView">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Profile5">
@@ -25212,18 +25388,6 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProfileAddBrowserExtensionCompletedHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2BrowserExtension">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtension">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2BrowserExtensionEnableCompletedHandler">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler">
@@ -25274,36 +25438,12 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Settings9">
 </object>
 <li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2WebResourceRequestedEventArgs2">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventHandler">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventHandler">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventArgs">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2RegionRectCollectionView">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2RegionRectCollectionView">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2CompositionController4">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController4">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2File">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2File">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="IID_ICoreWebView2ObjectCollectionView">
-<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollectionView">
-</object>
-<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2WebMessageReceivedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2WebMessageReceivedEventArgs2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2WebResourceRequestedEventArgs2">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2WebResourceRequestedEventArgs2">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN">
@@ -26070,6 +26210,22 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE">
 </object>
@@ -26706,6 +26862,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TWVScrollBarStyle">
 <param name="Local" value="uWVTypes.html#TWVScrollBarStyle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVFileSystemHandlePermission">
+<param name="Local" value="uWVTypes.html#TWVFileSystemHandlePermission">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TWVFileSystemHandleKind">
+<param name="Local" value="uWVTypes.html#TWVFileSystemHandleKind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWV2LoaderStatus">
@@ -29120,6 +29284,30 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Environment14">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateObjectCollection">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateObjectCollection">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemDirectoryHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemDirectoryHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemFileHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemFileHandle">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Environment2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment2.html">
 </object>
@@ -29560,6 +29748,30 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_Path">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2File.html#Get_Path">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FileSystemHandle">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Kind">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Kind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Path">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Path">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Permission">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Permission">
 </object>
 </ul>
 </ul>
@@ -30580,6 +30792,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ObjectCollection">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="InsertValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#InsertValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveValueAtIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ObjectCollection.html#RemoveValueAtIndex">
 </object>
 </ul>
 </ul>
@@ -32880,6 +33112,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_23">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_23.html#PostWebMessageAsJsonWithAdditionalObjects">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2_3">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2_3.html">
 </object>
@@ -33502,6 +33750,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf22">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf23">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf23">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf3">
 </object>
@@ -33864,6 +34116,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="PostWebMessageAsJson">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#PostWebMessageAsJson">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#PostWebMessageAsJsonWithAdditionalObjects">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="PostWebMessageAsString">
@@ -37860,6 +38116,10 @@
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf13">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf14">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf14">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf2">
 </object>
@@ -37992,12 +38252,24 @@
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateCoreWebView2PointerInfo">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="CreateObjectCollection">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateObjectCollection">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="CreatePrintSettings">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreatePrintSettings">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateSharedBuffer">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateSharedBuffer">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemDirectoryHandle">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateWebFileSystemDirectoryHandle">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateWebFileSystemFileHandle">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateWebFileSystemFileHandle">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWebResourceRequest">
@@ -46868,6 +47140,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#PostWebMessageAsJson">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJsonWithAdditionalObjects">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#PostWebMessageAsJsonWithAdditionalObjects">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="PostWebMessageAsString">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#PostWebMessageAsString">
 </object>
@@ -47606,6 +47882,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ToggleMuteState">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ToggleMuteState">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CalculateZoomStep">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CalculateZoomStep">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CallOldCompWndProc">

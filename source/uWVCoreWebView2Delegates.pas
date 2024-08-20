@@ -94,7 +94,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const createdController: ICoreWebView2Controller): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2Controller): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -155,7 +155,7 @@ type
       FBrowserEvents : Pointer;
       FLoaderEvents  : Pointer;
 
-      function Invoke(errorCode: HResult; const createdEnvironment: ICoreWebView2Environment): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2Environment): HResult; stdcall;
 
     public
       constructor Create(const aBrowserEvents: IWVBrowserEvents); reintroduce; overload;
@@ -174,7 +174,7 @@ type
       FEvents : Pointer;
       FID     : integer;
 
-      function Invoke(errorCode: HResult; resultObjectAsJson: PWideChar): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents; aExecutionID : integer); reintroduce;
@@ -506,7 +506,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -613,7 +613,7 @@ type
       FEvents     : Pointer;
       FResourceID : integer;
 
-      function Invoke(errorCode: HResult; const Content: IStream): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents; aResourceID : integer = 0); reintroduce;
@@ -633,7 +633,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HResult; stdcall;
+      function Invoke(errorCode : HResult; const result_ : ICoreWebView2CookieList): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -650,7 +650,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -721,7 +721,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -837,7 +837,7 @@ type
       FEvents : Pointer;
       FID     : integer;
 
-      function Invoke(errorCode: HResult; returnObjectAsJson: PWideChar): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents; aExecutionID : integer); reintroduce;
@@ -854,7 +854,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; id: PWideChar): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1200,7 +1200,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1217,7 +1217,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
+      function Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1236,7 +1236,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const pdfStream: IStream): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1254,7 +1254,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1308,7 +1308,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1365,7 +1365,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1383,7 +1383,7 @@ type
     protected
       FEvents : Pointer;
 
-      function Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+      function Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HResult; stdcall;
 
     public
       constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
@@ -1564,10 +1564,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2CreateCoreWebView2ControllerCompletedHandler.Invoke(errorCode: HResult; const createdController: ICoreWebView2Controller): HResult;
+function TCoreWebView2CreateCoreWebView2ControllerCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2Controller): HResult;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).ControllerCompletedHandler_Invoke(errorCode, createdController)
+    Result := IWVBrowserEvents(FEvents).ControllerCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -1652,14 +1652,14 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2EnvironmentCompletedHandler.Invoke(      errorCode          : HResult;
-                                                         const createdEnvironment : ICoreWebView2Environment): HResult;
+function TCoreWebView2EnvironmentCompletedHandler.Invoke(      errorCode : HResult;
+                                                         const result_   : ICoreWebView2Environment): HResult;
 begin
   if (FBrowserEvents <> nil) then
-    Result := IWVBrowserEvents(FBrowserEvents).EnvironmentCompletedHandler_Invoke(errorCode, createdEnvironment)
+    Result := IWVBrowserEvents(FBrowserEvents).EnvironmentCompletedHandler_Invoke(errorCode, result_)
    else
     if (FLoaderEvents <> nil) then
-      Result := IWVLoaderEvents(FLoaderEvents).EnvironmentCompletedHandler_Invoke(errorCode, createdEnvironment)
+      Result := IWVLoaderEvents(FLoaderEvents).EnvironmentCompletedHandler_Invoke(errorCode, result_)
      else
       Result := E_FAIL;
 end;
@@ -1682,10 +1682,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2ExecuteScriptCompletedHandler.Invoke(errorCode: HResult; resultObjectAsJson: PWideChar): HResult; stdcall;
+function TCoreWebView2ExecuteScriptCompletedHandler.Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).ExecuteScriptCompletedHandler_Invoke(errorCode, resultObjectAsJson, FID)
+    Result := IWVBrowserEvents(FEvents).ExecuteScriptCompletedHandler_Invoke(errorCode, result_, FID)
    else
     Result := E_FAIL;
 end;
@@ -2162,10 +2162,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HResult; stdcall;
+function TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode, webView)
+    Result := IWVBrowserEvents(FEvents).CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -2327,10 +2327,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Invoke(errorCode: HResult; const Content: IStream): HResult; stdcall;
+function TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode, Content, FResourceID)
+    Result := IWVBrowserEvents(FEvents).WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode, result_, FResourceID)
    else
     Result := E_FAIL;
 end;
@@ -2352,10 +2352,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2GetCookiesCompletedHandler.Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HResult; stdcall;
+function TCoreWebView2GetCookiesCompletedHandler.Invoke(errorCode : HResult; const result_ : ICoreWebView2CookieList): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).GetCookiesCompletedHandler_Invoke(aResult, aCookieList)
+    Result := IWVBrowserEvents(FEvents).GetCookiesCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -2377,10 +2377,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2TrySuspendCompletedHandler.Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+function TCoreWebView2TrySuspendCompletedHandler.Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).TrySuspendCompletedHandler_Invoke(errorCode, isSuccessful)
+    Result := IWVBrowserEvents(FEvents).TrySuspendCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -2477,10 +2477,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2PrintToPdfCompletedHandler.Invoke(errorCode: HResult; isSuccessful: Integer): HResult; stdcall;
+function TCoreWebView2PrintToPdfCompletedHandler.Invoke(errorCode: HResult; result_: Integer): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).PrintToPdfCompletedHandler_Invoke(errorCode, isSuccessful)
+    Result := IWVBrowserEvents(FEvents).PrintToPdfCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -2633,10 +2633,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.Invoke(errorCode: HResult; returnObjectAsJson: PWideChar): HResult; stdcall;
+function TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode, returnObjectAsJson, FID)
+    Result := IWVBrowserEvents(FEvents).CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode, result_, FID)
    else
     Result := E_FAIL;
 end;
@@ -2658,10 +2658,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler.Invoke(errorCode: HResult; id: PWideChar): HResult; stdcall;
+function TCoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler.Invoke(errorCode: HResult; result_: PWideChar): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode, id)
+    Result := IWVBrowserEvents(FEvents).AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3162,10 +3162,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2GetFaviconCompletedHandler.Invoke(errorCode: HResult; const faviconStream: IStream): HResult; stdcall;
+function TCoreWebView2GetFaviconCompletedHandler.Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).GetFaviconCompletedHandler_Invoke(errorCode, faviconStream)
+    Result := IWVBrowserEvents(FEvents).GetFaviconCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3187,10 +3187,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2PrintCompletedHandler.Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
+function TCoreWebView2PrintCompletedHandler.Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).PrintCompletedHandler_Invoke(errorCode, printStatus)
+    Result := IWVBrowserEvents(FEvents).PrintCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3212,10 +3212,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2PrintToPdfStreamCompletedHandler.Invoke(errorCode: HResult; const pdfStream: IStream): HResult; stdcall;
+function TCoreWebView2PrintToPdfStreamCompletedHandler.Invoke(errorCode: HResult; const result_: IStream): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).PrintToPdfStreamCompletedHandler_Invoke(errorCode, pdfStream)
+    Result := IWVBrowserEvents(FEvents).PrintToPdfStreamCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3237,10 +3237,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
+function TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode, collectionView)
+    Result := IWVBrowserEvents(FEvents).GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3313,10 +3313,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2GetProcessExtendedInfosCompletedHandler.Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
+function TCoreWebView2GetProcessExtendedInfosCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).GetProcessExtendedInfosCompletedHandler_Invoke(errorCode, value)
+    Result := IWVBrowserEvents(FEvents).GetProcessExtendedInfosCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3390,10 +3390,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HResult; stdcall;
+function TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode, extension)
+    Result := IWVBrowserEvents(FEvents).ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;
@@ -3415,10 +3415,10 @@ begin
   inherited Destroy;
 end;
 
-function TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HResult; stdcall;
+function TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HResult; stdcall;
 begin
   if (FEvents <> nil) then
-    Result := IWVBrowserEvents(FEvents).ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode, extensionList)
+    Result := IWVBrowserEvents(FEvents).ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode, result_)
    else
     Result := E_FAIL;
 end;

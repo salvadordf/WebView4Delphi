@@ -315,9 +315,9 @@ type
       function  ExtractJSONData(const aJSON: wvstring; var aData: wvstring) : boolean; virtual;
       function  ExtractEncodedJSON(const aJSON: wvstring): wvstring;
 
-      function EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const createdEnvironment: ICoreWebView2Environment): HRESULT;
-      function ControllerCompletedHandler_Invoke(errorCode: HRESULT; const createdController: ICoreWebView2Controller): HRESULT;
-      function ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
+      function EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const result_: ICoreWebView2Environment): HRESULT;
+      function ControllerCompletedHandler_Invoke(errorCode: HRESULT; const result_: ICoreWebView2Controller): HRESULT;
+      function ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;
       function CapturePreviewCompletedHandler_Invoke(errorCode: HRESULT): HRESULT;
       function NavigationStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationStartingEventArgs): HRESULT;
       function NavigationCompletedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NavigationCompletedEventArgs): HRESULT;
@@ -341,26 +341,26 @@ type
       function AcceleratorKeyPressedEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: ICoreWebView2AcceleratorKeyPressedEventArgs): HRESULT;
       function GotFocusEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HRESULT;
       function LostFocusEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HRESULT;
-      function CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HRESULT;
+      function CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HRESULT;
       function CursorChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: IUnknown): HRESULT;
       function BrowserProcessExitedEventHandler_Invoke(const sender: ICoreWebView2Environment; const args: ICoreWebView2BrowserProcessExitedEventArgs): HRESULT;
       function RasterizationScaleChangedEventHandler_Invoke(const sender: ICoreWebView2Controller; const args: IUnknown): HRESULT;
       function WebResourceResponseReceivedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2WebResourceResponseReceivedEventArgs): HRESULT;
       function DOMContentLoadedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs): HRESULT;
-      function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HRESULT;
-      function GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HRESULT;
-      function TrySuspendCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HRESULT;
+      function WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const result_: IStream; aResourceID : integer): HRESULT;
+      function GetCookiesCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2CookieList): HRESULT;
+      function TrySuspendCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HRESULT;
       function FrameCreatedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs): HRESULT;
       function DownloadStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2DownloadStartingEventArgs): HRESULT;
       function ClientCertificateRequestedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ClientCertificateRequestedEventArgs): HRESULT;
-      function PrintToPdfCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HRESULT;
+      function PrintToPdfCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HRESULT;
       function BytesReceivedChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
       function EstimatedEndTimeChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
       function StateChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
       function FrameNameChangedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
       function FrameDestroyedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal): HRESULT;
-      function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
-      function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
+      function CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar; aExecutionID : integer): HRESULT;
+      function AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar): HRESULT;
       function IsMutedChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDocumentPlayingAudioChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
       function IsDefaultDownloadDialogOpenChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
@@ -379,17 +379,17 @@ type
       function ClearServerCertificateErrorActionsCompletedHandler_Invoke(errorCode: HResult): HRESULT;
       function ServerCertificateErrorDetectedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs): HRESULT;
       function FaviconChangedEventHandler_Invoke(const sender: ICoreWebView2; const args: IUnknown): HRESULT;
-      function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const faviconStream: IStream): HRESULT;
-      function PrintCompletedHandler_Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HRESULT;
-      function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HRESULT;
-      function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HRESULT;
+      function GetFaviconCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HRESULT;
+      function PrintCompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HRESULT;
+      function PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HRESULT;
+      function GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HRESULT;
       function SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HRESULT;
       function LaunchingExternalUriSchemeEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs): HRESULT;
-      function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
+      function GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
       function BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
       function BrowserExtensionEnableCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
-      function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HRESULT;
-      function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
+      function ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HRESULT;
+      function ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HRESULT;
       function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
       function ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HRESULT;
       function NonClientRegionChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs): HRESULT;
@@ -428,20 +428,20 @@ type
       procedure doOnRasterizationScaleChangedEvent(const sender: ICoreWebView2Controller); virtual;
       procedure doOnWebResourceResponseReceivedEvent(const sender: ICoreWebView2; const args: ICoreWebView2WebResourceResponseReceivedEventArgs); virtual;
       procedure doOnDOMContentLoadedEvent(const sender: ICoreWebView2; const args: ICoreWebView2DOMContentLoadedEventArgs); virtual;
-      procedure doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream; aResourceID : integer); virtual;
-      procedure doOnGetCookiesCompletedEvent(aResult : HResult; const aCookieList : ICoreWebView2CookieList); virtual;
-      procedure doOnTrySuspendCompletedEvent(errorCode: HResult; isSuccessful: Integer); virtual;
+      procedure doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const result_: IStream; aResourceID : integer); virtual;
+      procedure doOnGetCookiesCompletedEvent(errorCode: HResult; const result_: ICoreWebView2CookieList); virtual;
+      procedure doOnTrySuspendCompletedEvent(errorCode: HResult; result_: Integer); virtual;
       procedure doOnFrameCreatedEvent(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs); virtual;
       procedure doOnDownloadStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2DownloadStartingEventArgs); virtual;
       procedure doOnClientCertificateRequestedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ClientCertificateRequestedEventArgs); virtual;
-      procedure doOnPrintToPdfCompletedEvent(errorCode: HResult; isSuccessful: Integer); virtual;
+      procedure doOnPrintToPdfCompletedEvent(errorCode: HResult; result_: Integer); virtual;
       procedure doOnBytesReceivedChangedEventEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
       procedure doOnEstimatedEndTimeChangedEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
       procedure doOnStateChangedEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer); virtual;
       procedure doOnFrameNameChangedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal); virtual;
       procedure doOnFrameDestroyedEvent(const sender: ICoreWebView2Frame; const args: IUnknown; aFrameID : cardinal); virtual;
-      procedure doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID : integer); virtual;
-      procedure doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aID : wvstring); virtual;
+      procedure doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aResult: wvstring; aExecutionID : integer); virtual;
+      procedure doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aResult : wvstring); virtual;
       procedure doOnRetrieveHTMLCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveTextCompleted(aErrorCode: HRESULT; const aResultObjectAsJson: wvstring); virtual;
       procedure doOnRetrieveMHTMLCompleted(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring); virtual;
@@ -469,18 +469,18 @@ type
       procedure doOnServerCertificateErrorActionsCompletedEvent(aErrorCode: HRESULT); virtual;
       procedure doOnServerCertificateErrorDetectedEvent(const sender: ICoreWebView2; const args: ICoreWebView2ServerCertificateErrorDetectedEventArgs); virtual;
       procedure doOnFaviconChangedEvent(const sender: ICoreWebView2; const args: IUnknown); virtual;
-      procedure doOnGetFaviconCompletedEvent(errorCode: HResult; const faviconStream: IStream); virtual;
-      procedure doOnPrintCompletedEvent(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS); virtual;
-      procedure doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const pdfStream: IStream); virtual;
+      procedure doOnGetFaviconCompletedEvent(errorCode: HResult; const result_: IStream); virtual;
+      procedure doOnPrintCompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS); virtual;
+      procedure doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const result_: IStream); virtual;
       procedure doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray); virtual;
-      procedure doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView); virtual;
+      procedure doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView); virtual;
       procedure doOnSetPermissionStateCompleted(errorCode: HResult); virtual;
       procedure doOnLaunchingExternalUriSchemeEvent(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs); virtual;
-      procedure doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection); virtual;
+      procedure doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection); virtual;
       procedure doOnBrowserExtensionRemoveCompletedEvent(errorCode: HResult; const aExtensionID: wvstring); virtual;
       procedure doOnBrowserExtensionEnableCompletedEvent(errorCode: HResult; const aExtensionID: wvstring); virtual;
-      procedure doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const extension: ICoreWebView2BrowserExtension); virtual;
-      procedure doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList); virtual;
+      procedure doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtension); virtual;
+      procedure doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList); virtual;
       procedure doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown); virtual;
       procedure doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer); virtual;
       procedure doOnNonClientRegionChangedEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs); virtual;
@@ -1144,6 +1144,39 @@ type
       function RemoveWebResourceRequestedFilterWithRequestSourceKinds(const uri: wvstring;
                                                                       ResourceContext: TWVWebResourceContext;
                                                                       requestSourceKinds: TWVWebResourceRequestSourceKind): boolean;
+      /// <summary>
+      /// <para>Same as `PostWebMessageAsJson`, but also has support for posting DOM objects
+      /// to page content. The `additionalObjects` property in the DOM MessageEvent
+      /// fired on the page content is an array-like list of DOM objects that can
+      /// be posted to the web content. Currently these can be the following
+      /// types of objects:</para>
+      /// <code>
+      /// | Win32             | DOM type    |
+      /// |-------------------|-------------|
+      /// | ICoreWebView2FileSystemHandle | [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) |
+      /// | nullptr           | null        |
+      /// </code>
+      /// <para>The objects are posted to the web content, following the
+      /// [structured-clone](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+      /// semantics, meaning only objects that can be cloned can be posted.</para>
+      /// <para>They will also behave as if they had been created by the web content they are
+      /// posted to. For example, if a FileSystemFileHandle is posted to a web content
+      /// it can only be re-transferred via postMessage to other web content
+      /// [with the same origin](https://fs.spec.whatwg.org/#filesystemhandle).</para>
+      /// <para>Warning: An app needs to be mindful when using this API to post DOM objects
+      /// as this API provides the web content with unusual access to sensitive Web
+      /// Platform features such as filesystem access! Similar to PostWebMessageAsJson
+      /// the app should check the `Source` property of WebView2 right before posting the message
+      /// to ensure the message and objects will only be sent to the target web content
+      /// that it expects to receive the DOM objects. Additionally, the order
+      /// of messages that are posted between `PostWebMessageAsJson` and `PostWebMessageAsJsonWithAdditionalObjects`
+      /// may not be preserved.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_23#postwebmessageasjsonwithadditionalobjects">See the ICoreWebView2_23 article.</see></para>
+      /// </remarks>
+      function PostWebMessageAsJsonWithAdditionalObjects(const webMessageAsJson: wvstring;
+                                                         const additionalObjects: ICoreWebView2ObjectCollectionView): boolean;
       /// <summary>
       /// Add the provided host object to script running in the WebView with the
       /// specified name.  Host objects are exposed as host object proxies using
@@ -2359,8 +2392,8 @@ type
       /// Sec-CH-UA-* and script values from navigator.userAgentData. Current
       /// implementation behavior is subject to change.</para>
       /// <para>The User Agent set will also be effective on service workers
-      /// and shared workers associated with the WebView.
-      /// If there are multiple WebViews associated with the same service worker or
+      /// and shared workers associated with the WebView. If there are
+      /// multiple WebViews associated with the same service worker or
       /// shared worker, the last User Agent set will be used.</para>
       /// </summary>
       /// <remarks>
@@ -4108,23 +4141,29 @@ begin
             FCoreWebView2.RemoveWebResourceRequestedFilterWithRequestSourceKinds(uri, ResourceContext, requestSourceKinds);
 end;
 
-// This function is asynchronous and it triggers the TWVBrowserBase.OnCapturePreviewCompleted event when it finishes
+function TWVBrowserBase.PostWebMessageAsJsonWithAdditionalObjects(const webMessageAsJson: wvstring;
+                                                                  const additionalObjects: ICoreWebView2ObjectCollectionView): boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.PostWebMessageAsJsonWithAdditionalObjects(webMessageAsJson, additionalObjects);
+end;
+
 function TWVBrowserBase.CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream) : boolean;
 begin
   Result := Initialized and
             FCoreWebView2.CapturePreview(aImageFormat, aImageStream, self);
 end;
 
-function TWVBrowserBase.EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const createdEnvironment: ICoreWebView2Environment): HRESULT;
+function TWVBrowserBase.EnvironmentCompletedHandler_Invoke(errorCode: HRESULT; const result_: ICoreWebView2Environment): HRESULT;
 var
   TempError : wvstring;
 begin
   Result := S_OK;
 
-  if succeeded(errorCode) and assigned(createdEnvironment) then
+  if succeeded(errorCode) and assigned(result_) then
     begin
       DestroyEnvironment;
-      FCoreWebView2Environment := TCoreWebView2Environment.Create(createdEnvironment);
+      FCoreWebView2Environment := TCoreWebView2Environment.Create(result_);
 
       doOnEnvironmentCompleted;
 
@@ -4148,7 +4187,7 @@ begin
     end;
 end;
 
-function TWVBrowserBase.ControllerCompletedHandler_Invoke(errorCode: HRESULT; const createdController: ICoreWebView2Controller): HRESULT;
+function TWVBrowserBase.ControllerCompletedHandler_Invoke(errorCode: HRESULT; const result_: ICoreWebView2Controller): HRESULT;
 var
   TempSettings      : ICoreWebView2Settings;
   TempPrintSettings : ICoreWebView2PrintSettings;
@@ -4161,10 +4200,10 @@ begin
   TempPrintSettings := nil;
 
   try
-    if succeeded(errorCode) and assigned(createdController) then
+    if succeeded(errorCode) and assigned(result_) then
       begin
         DestroyController;
-        FCoreWebView2Controller := TCoreWebView2Controller.Create(createdController);
+        FCoreWebView2Controller := TCoreWebView2Controller.Create(result_);
 
         doOnControllerCompleted;
 
@@ -4444,7 +4483,7 @@ begin
   doOnLostFocus(sender);
 end;
 
-function TWVBrowserBase.CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const webView: ICoreWebView2CompositionController): HRESULT;
+function TWVBrowserBase.CreateCoreWebView2CompositionControllerCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2CompositionController): HRESULT;
 var
   TempControllerIntf : ICoreWebView2Controller;
   TempError          : wvstring;
@@ -4452,14 +4491,14 @@ var
 begin
   Result := S_OK;
 
-  if succeeded(errorCode) and assigned(webView) then
+  if succeeded(errorCode) and assigned(result_) then
     begin
       DestroyCompositionController;
-      FCoreWebView2CompositionController := TCoreWebView2CompositionController.Create(webView);
+      FCoreWebView2CompositionController := TCoreWebView2CompositionController.Create(result_);
 
       doOnCompositionControllerCompleted;
 
-      TempHResult := webView.QueryInterface(IID_ICoreWebView2Controller, TempControllerIntf);
+      TempHResult := result_.QueryInterface(IID_ICoreWebView2Controller, TempControllerIntf);
 
       if succeeded(TempHResult) then
         Result := ControllerCompletedHandler_Invoke(errorCode, TempControllerIntf)
@@ -4512,22 +4551,22 @@ begin
   doOnDOMContentLoadedEvent(sender, args);
 end;
 
-function TWVBrowserBase.WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const Content: IStream; aResourceID : integer): HRESULT;
+function TWVBrowserBase.WebResourceResponseViewGetContentCompletedHandler_Invoke(errorCode: HResult; const result_: IStream; aResourceID : integer): HRESULT;
 begin
   Result := S_OK;
-  doOnWebResourceResponseViewGetContentCompletedEvent(errorCode, Content, aResourceID);
+  doOnWebResourceResponseViewGetContentCompletedEvent(errorCode, result_, aResourceID);
 end;
 
-function TWVBrowserBase.GetCookiesCompletedHandler_Invoke(aResult : HResult; const aCookieList : ICoreWebView2CookieList): HRESULT;
+function TWVBrowserBase.GetCookiesCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2CookieList): HRESULT;
 begin
   Result := S_OK;
-  doOnGetCookiesCompletedEvent(aResult, aCookieList);
+  doOnGetCookiesCompletedEvent(errorCode, result_);
 end;
 
-function TWVBrowserBase.TrySuspendCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HRESULT;
+function TWVBrowserBase.TrySuspendCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HRESULT;
 begin
   Result := S_OK;
-  doOnTrySuspendCompletedEvent(errorCode, isSuccessful);
+  doOnTrySuspendCompletedEvent(errorCode, result_);
 end;
 
 function TWVBrowserBase.FrameCreatedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs): HRESULT;
@@ -4548,10 +4587,10 @@ begin
   doOnClientCertificateRequestedEvent(sender, args);
 end;
 
-function TWVBrowserBase.PrintToPdfCompletedHandler_Invoke(errorCode: HResult; isSuccessful: Integer): HRESULT;
+function TWVBrowserBase.PrintToPdfCompletedHandler_Invoke(errorCode: HResult; result_: Integer): HRESULT;
 begin
   Result := S_OK;
-  doOnPrintToPdfCompletedEvent(errorCode, isSuccessful);
+  doOnPrintToPdfCompletedEvent(errorCode, result_);
 end;
 
 function TWVBrowserBase.BytesReceivedChangedEventHandler_Invoke(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer): HRESULT;
@@ -4584,13 +4623,13 @@ begin
   doOnFrameDestroyedEvent(sender, args, aFrameID);
 end;
 
-function TWVBrowserBase.CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; returnObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
+function TWVBrowserBase.CallDevToolsProtocolMethodCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
 
   case aExecutionID of
     WEBVIEW4DELPHI_DEVTOOLS_RETRIEVEMHTML_ID :
-      doOnRetrieveMHTMLCompleted(errorCode, wvstring(returnObjectAsJson));
+      doOnRetrieveMHTMLCompleted(errorCode, wvstring(result_));
 
     WEBVIEW4DELPHI_DEVTOOLS_CLEARBROWSERCACHE_ID :
       doOnClearCacheCompleted(errorCode);
@@ -4608,10 +4647,10 @@ begin
       doOnSimulateKeyEventCompleted(errorCode);
 
     WEBVIEW4DELPHI_DEVTOOLS_REFRESH_ID :
-      doOnRefreshIgnoreCacheCompleted(errorCode, wvstring(returnObjectAsJson));
+      doOnRefreshIgnoreCacheCompleted(errorCode, wvstring(result_));
 
     else
-      doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(returnObjectAsJson), aExecutionID);
+      doOnCallDevToolsProtocolMethodCompletedEvent(errorCode, wvstring(result_), aExecutionID);
   end;
 end;
 
@@ -4771,23 +4810,23 @@ begin
     FOnFaviconChanged(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnGetFaviconCompletedEvent(      errorCode     : HResult;
-                                                      const faviconStream : IStream);
+procedure TWVBrowserBase.doOnGetFaviconCompletedEvent(      errorCode : HResult;
+                                                      const result_   : IStream);
 begin
   if assigned(FOnGetFaviconCompleted) then
-    FOnGetFaviconCompleted(self, errorCode, faviconStream);
+    FOnGetFaviconCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnPrintCompletedEvent(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS);
+procedure TWVBrowserBase.doOnPrintCompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS);
 begin
   if assigned(FOnPrintCompleted) then
-    FOnPrintCompleted(self, errorCode, printStatus);
+    FOnPrintCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const pdfStream: IStream);
+procedure TWVBrowserBase.doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const result_: IStream);
 begin
   if assigned(FOnPrintToPdfStreamCompleted) then
-    FOnPrintToPdfStreamCompleted(self, errorCode, pdfStream);
+    FOnPrintToPdfStreamCompleted(self, errorCode, result_);
 end;
 
 procedure TWVBrowserBase.doOnGetCustomSchemes(var aSchemeRegistrations : TWVCustomSchemeRegistrationArray);
@@ -4814,10 +4853,10 @@ begin
     end;
 end;
 
-procedure TWVBrowserBase.doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView);
+procedure TWVBrowserBase.doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView);
 begin
   if assigned(FOnGetNonDefaultPermissionSettingsCompleted) then
-    FOnGetNonDefaultPermissionSettingsCompleted(self, errorCode, collectionView);
+    FOnGetNonDefaultPermissionSettingsCompleted(self, errorCode, result_);
 end;
 
 procedure TWVBrowserBase.doOnSetPermissionStateCompleted(errorCode: HResult);
@@ -4832,10 +4871,10 @@ begin
     FOnLaunchingExternalUriScheme(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection);
+procedure TWVBrowserBase.doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection);
 begin
   if assigned(FOnGetProcessExtendedInfosCompleted) then
-    FOnGetProcessExtendedInfosCompleted(self, errorCode, value);
+    FOnGetProcessExtendedInfosCompleted(self, errorCode, result_);
 end;
 
 procedure TWVBrowserBase.doOnBrowserExtensionRemoveCompletedEvent(errorCode: HResult; const aExtensionID: wvstring);
@@ -4850,16 +4889,16 @@ begin
     FOnBrowserExtensionEnableCompleted(self, errorCode, aExtensionID);
 end;
 
-procedure TWVBrowserBase.doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const extension: ICoreWebView2BrowserExtension);
+procedure TWVBrowserBase.doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtension);
 begin
   if assigned(FOnProfileAddBrowserExtensionCompleted) then
-    FOnProfileAddBrowserExtensionCompleted(self, errorCode, extension);
+    FOnProfileAddBrowserExtensionCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList);
+procedure TWVBrowserBase.doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList);
 begin
   if assigned(FOnProfileGetBrowserExtensionsCompleted) then
-    FOnProfileGetBrowserExtensionsCompleted(self, errorCode, extensionList);
+    FOnProfileGetBrowserExtensionsCompleted(self, errorCode, result_);
 end;
 
 procedure TWVBrowserBase.doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown);
@@ -5008,10 +5047,10 @@ begin
     Result := copy(Result, 2, length(Result) - 2);
 end;
 
-function TWVBrowserBase.AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; id: PWideChar): HRESULT;
+function TWVBrowserBase.AddScriptToExecuteOnDocumentCreatedCompletedHandler_Invoke(errorCode: HResult; result_: PWideChar): HRESULT;
 begin
   Result := S_OK;
-  doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(errorCode, wvstring(id));
+  doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(errorCode, wvstring(result_));
 end;
 
 function TWVBrowserBase.IsMutedChangedEventHandler_Invoke(const sender : ICoreWebView2;
@@ -5143,28 +5182,28 @@ begin
   doOnFaviconChangedEvent(sender, args);
 end;
 
-function TWVBrowserBase.GetFaviconCompletedHandler_Invoke(errorCode: HResult; const faviconStream: IStream): HRESULT;
+function TWVBrowserBase.GetFaviconCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HRESULT;
 begin
   Result := S_OK;
-  doOnGetFaviconCompletedEvent(errorCode, faviconStream);
+  doOnGetFaviconCompletedEvent(errorCode, result_);
 end;
 
-function TWVBrowserBase.PrintCompletedHandler_Invoke(errorCode: HResult; printStatus: COREWEBVIEW2_PRINT_STATUS): HRESULT;
+function TWVBrowserBase.PrintCompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS): HRESULT;
 begin
   Result := S_OK;
-  doOnPrintCompletedEvent(errorCode, printStatus);
+  doOnPrintCompletedEvent(errorCode, result_);
 end;
 
-function TWVBrowserBase.PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const pdfStream: IStream): HRESULT;
+function TWVBrowserBase.PrintToPdfStreamCompletedHandler_Invoke(errorCode: HResult; const result_: IStream): HRESULT;
 begin
   Result := S_OK;
-  doOnPrintToPdfStreamCompletedEvent(errorCode, pdfStream);
+  doOnPrintToPdfStreamCompletedEvent(errorCode, result_);
 end;
 
-function TWVBrowserBase.GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const collectionView: ICoreWebView2PermissionSettingCollectionView): HRESULT;
+function TWVBrowserBase.GetNonDefaultPermissionSettingsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView): HRESULT;
 begin
   Result := S_OK;
-  doOnGetNonDefaultPermissionSettingsCompleted(errorCode, collectionView);
+  doOnGetNonDefaultPermissionSettingsCompleted(errorCode, result_);
 end;
 
 function TWVBrowserBase.SetPermissionStateCompletedHandler_Invoke(errorCode: HResult): HRESULT;
@@ -5179,10 +5218,10 @@ begin
   doOnLaunchingExternalUriSchemeEvent(sender, args);
 end;
 
-function TWVBrowserBase.GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const value: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
+function TWVBrowserBase.GetProcessExtendedInfosCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection): HRESULT;
 begin
   Result := S_OK;
-  doOnGetProcessExtendedInfosCompletedEvent(errorCode, value);
+  doOnGetProcessExtendedInfosCompletedEvent(errorCode, result_);
 end;
 
 function TWVBrowserBase.BrowserExtensionRemoveCompletedHandler_Invoke(errorCode: HResult; const aExtensionID: wvstring): HRESULT;
@@ -5197,16 +5236,16 @@ begin
   doOnBrowserExtensionEnableCompletedEvent(errorCode, aExtensionID);
 end;
 
-function TWVBrowserBase.ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const extension: ICoreWebView2BrowserExtension): HRESULT;
+function TWVBrowserBase.ProfileAddBrowserExtensionCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtension): HRESULT;
 begin
   Result := S_OK;
-  doOnProfileAddBrowserExtensionCompletedEvent(errorCode, extension);
+  doOnProfileAddBrowserExtensionCompletedEvent(errorCode, result_);
 end;
 
-function TWVBrowserBase.ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const extensionList: ICoreWebView2BrowserExtensionList): HRESULT;
+function TWVBrowserBase.ProfileGetBrowserExtensionsCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList): HRESULT;
 begin
   Result := S_OK;
-  doOnProfileGetBrowserExtensionsCompletedEvent(errorCode, extensionList);
+  doOnProfileGetBrowserExtensionsCompletedEvent(errorCode, result_);
 end;
 
 function TWVBrowserBase.ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
@@ -5227,19 +5266,19 @@ begin
   doOnNonClientRegionChangedEvent(sender, args);
 end;
 
-function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; resultObjectAsJson: PWideChar; aExecutionID : integer): HRESULT;
+function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;
 begin
   Result := S_OK;
 
   case aExecutionID of
     WEBVIEW4DELPHI_JS_RETRIEVEHTMLJOB_ID :
-      doOnRetrieveHTMLCompleted(errorCode, wvstring(resultObjectAsJson));
+      doOnRetrieveHTMLCompleted(errorCode, wvstring(result_));
 
     WEBVIEW4DELPHI_JS_RETRIEVETEXTJOB_ID :
-      doOnRetrieveTextCompleted(errorCode, wvstring(resultObjectAsJson));
+      doOnRetrieveTextCompleted(errorCode, wvstring(result_));
 
     else
-      doOnExecuteScriptCompleted(errorCode, wvstring(resultObjectAsJson), aExecutionID);
+      doOnExecuteScriptCompleted(errorCode, wvstring(result_), aExecutionID);
   end;
 end;
 
@@ -6928,22 +6967,22 @@ begin
     FOnDOMContentLoaded(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const Content: IStream; aResourceID : integer);
+procedure TWVBrowserBase.doOnWebResourceResponseViewGetContentCompletedEvent(errorCode: HResult; const result_: IStream; aResourceID : integer);
 begin
   if assigned(FOnWebResourceResponseViewGetContentCompleted) then
-    FOnWebResourceResponseViewGetContentCompleted(self, errorCode, Content, aResourceID);
+    FOnWebResourceResponseViewGetContentCompleted(self, errorCode, result_, aResourceID);
 end;
 
-procedure TWVBrowserBase.doOnGetCookiesCompletedEvent(aResult : HResult; const aCookieList : ICoreWebView2CookieList);
+procedure TWVBrowserBase.doOnGetCookiesCompletedEvent(errorCode: HResult; const result_ : ICoreWebView2CookieList);
 begin
   if assigned(FOnGetCookiesCompleted) then
-    FOnGetCookiesCompleted(self, aResult, aCookieList);
+    FOnGetCookiesCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnTrySuspendCompletedEvent(errorCode: HResult; isSuccessful: Integer);
+procedure TWVBrowserBase.doOnTrySuspendCompletedEvent(errorCode: HResult; result_: Integer);
 begin
   if assigned(FOnTrySuspendCompleted) then
-    FOnTrySuspendCompleted(self, errorCode, (isSuccessful <> 0));
+    FOnTrySuspendCompleted(self, errorCode, (result_ <> 0));
 end;
 
 procedure TWVBrowserBase.doOnFrameCreatedEvent(const sender: ICoreWebView2; const args: ICoreWebView2FrameCreatedEventArgs);
@@ -6964,10 +7003,10 @@ begin
     FOnClientCertificateRequested(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnPrintToPdfCompletedEvent(errorCode: HResult; isSuccessful: Integer);
+procedure TWVBrowserBase.doOnPrintToPdfCompletedEvent(errorCode: HResult; result_: Integer);
 begin
   if assigned(FOnPrintToPdfCompleted) then
-    FOnPrintToPdfCompleted(self, errorCode, (isSuccessful <> 0));
+    FOnPrintToPdfCompleted(self, errorCode, (result_ <> 0));
 end;
 
 procedure TWVBrowserBase.doOnBytesReceivedChangedEventEvent(const sender: ICoreWebView2DownloadOperation; const args: IUnknown; aDownloadID : integer);
@@ -7000,16 +7039,16 @@ begin
     FOnFrameDestroyed(self, sender, aFrameID);
 end;
 
-procedure TWVBrowserBase.doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aReturnObjectAsJson: wvstring; aExecutionID : integer);
+procedure TWVBrowserBase.doOnCallDevToolsProtocolMethodCompletedEvent(aErrorCode: HRESULT; const aResult: wvstring; aExecutionID : integer);
 begin
   if assigned(FOnCallDevToolsProtocolMethodCompleted) then
-    FOnCallDevToolsProtocolMethodCompleted(self, aErrorCode, aReturnObjectAsJson, aExecutionID);
+    FOnCallDevToolsProtocolMethodCompleted(self, aErrorCode, aResult, aExecutionID);
 end;
 
-procedure TWVBrowserBase.doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aID : wvstring);
+procedure TWVBrowserBase.doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent(aErrorCode: HRESULT; const aResult : wvstring);
 begin
   if assigned(FOnAddScriptToExecuteOnDocumentCreatedCompleted) then
-    FOnAddScriptToExecuteOnDocumentCreatedCompleted(self, aErrorCode, aID);
+    FOnAddScriptToExecuteOnDocumentCreatedCompleted(self, aErrorCode, aResult);
 end;
 
 procedure TWVBrowserBase.CalculateZoomStep;

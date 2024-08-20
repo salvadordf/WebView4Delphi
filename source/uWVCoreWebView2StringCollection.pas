@@ -37,14 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2StringCollection     read FBaseIntf;
       /// <summary>
-      /// The number of strings contained in ICoreWebView2StringCollection.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2stringcollection#get_count">See the ICoreWebView2StringCollection article.</see></para>
       /// </remarks>
       property Count                 : cardinal                          read GetCount;
       /// <summary>
-      /// Gets the value at a given index.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2stringcollection#getvalueatindex">See the ICoreWebView2StringCollection article.</see></para>

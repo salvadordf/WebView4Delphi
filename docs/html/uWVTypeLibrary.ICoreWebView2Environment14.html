@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Environment14</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Environment14"></span><h1 class="cio">Interface ICoreWebView2Environment14</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Environment14 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment13.html">ICoreWebView2Environment13</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is ICoreWebView2Environment14 that exposes new methods to create Filesystem access related DOM objects. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment14">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment14</a>&quot;&gt;See the ICoreWebView2Environment14 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment2.html">ICoreWebView2Environment2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment3.html">ICoreWebView2Environment3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment4.html">ICoreWebView2Environment4</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment5.html">ICoreWebView2Environment5</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment6.html">ICoreWebView2Environment6</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment7.html">ICoreWebView2Environment7</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment8.html">ICoreWebView2Environment8</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment9.html">ICoreWebView2Environment9</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment10.html">ICoreWebView2Environment10</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment11.html">ICoreWebView2Environment11</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment12.html">ICoreWebView2Environment12</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2Environment13.html">ICoreWebView2Environment13</a></li>
+<li class="thisitem">ICoreWebView2Environment14</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemFileHandle-PWideChar-COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION-ICoreWebView2FileSystemHandle-">CreateWebFileSystemFileHandle</a></strong>(Path: PWideChar; Permission: <a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</a>; out value: <a href="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">ICoreWebView2FileSystemHandle</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateWebFileSystemDirectoryHandle-PWideChar-COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION-ICoreWebView2FileSystemHandle-">CreateWebFileSystemDirectoryHandle</a></strong>(Path: PWideChar; Permission: <a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</a>; out value: <a href="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">ICoreWebView2FileSystemHandle</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Environment14.html#CreateObjectCollection-SYSUINT-IUnknown-ICoreWebView2ObjectCollection-">CreateObjectCollection</a></strong>(length: SYSUINT; var items: IUnknown; out objectCollection: <a href="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">ICoreWebView2ObjectCollection</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateWebFileSystemFileHandle-PWideChar-COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION-ICoreWebView2FileSystemHandle-"></span><code>function <strong>CreateWebFileSystemFileHandle</strong>(Path: PWideChar; Permission: <a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</a>; out value: <a href="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">ICoreWebView2FileSystemHandle</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web [FileSystemFileHandle](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle">https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle</a>).
+
+<p>The `path` is the path pointed by the file and must be a syntactically correct fully qualified path, but it is not checked here whether it currently points to a file. If an invalid path is passed, an E_INVALIDARG will be returned and the object will fail to create. Any other state validation will be done when this handle is accessed from web content and will cause the DOM exceptions described in [FileSystemFileHandle methods](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle#instance_methods">https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle#instance_methods</a>) if access operations fail.
+
+<p>`Permission` property is used to specify whether the Handle should be created with a Read-only or Read-and-write web permission. For the `permission` value specified here, the DOM [PermissionStatus](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus">https://developer.mozilla.org/docs/Web/API/PermissionStatus</a>) property will be [granted](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus/state">https://developer.mozilla.org/docs/Web/API/PermissionStatus/state</a>) and the unspecified permission will be [prompt](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus/state">https://developer.mozilla.org/docs/Web/API/PermissionStatus/state</a>). Therefore, the web content then does not need to call [requestPermission](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission">https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission</a>) for the permission that was specified before attempting the permitted operation, but if it does, the promise will immediately be resolved with 'granted' PermissionStatus without firing the WebView2 [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs) event or prompting the user for permission. Otherwise, `requestPermission` will behave as the status of permission is currently `prompt`, which means the `PermissionRequested` event will fire or the user will be prompted. Additionally, the app must have the same OS permissions that have propagated to the [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model) for the path it wishes to give the web content to read/write the file. Specifically, the WebView2 browser process will run in same user, package identity, and app container of the app, but other means such as security context impersonations do not get propagated, so such permissions that the app has, will not be effective in WebView2. Note: An exception to this is, if there is a parent directory handle that has broader permissions in the same page context than specified in here, the handle will automatically inherit the most permissive permission of the parent handle when posted to that page context. i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on a page, even though a WebFileSystemHandle to file `C:\example\file.txt` is created with `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission will be automatically granted to the created handle.
+
+<p>An app needs to be mindful that this object, when posted to the web content, provides it with unusual access to OS file system via the Web FileSystem API! The app should therefore only post objects for paths that it wants to allow access to the web content and it is not recommended that the web content &quot;asks&quot; for this path. The app should also check the source property of the target to ensure that it is sending to the web content of intended origin.
+
+<p>Once the object is passed to web content, if the content is attempting a read, the file must be existing and available to read similar to a file chosen by [open file picker](<a href="https://developer.mozilla.org/docs/Web/API/Window/showOpenFilePicker">https://developer.mozilla.org/docs/Web/API/Window/showOpenFilePicker</a>), otherwise the read operation will [throw a DOM exception](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile#exceptions">https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile#exceptions</a>). For write operations, the file does not need to exist as `FileSystemFileHandle` will behave as a file path chosen by [save file picker](<a href="https://developer.mozilla.org/docs/Web/API/Window/showSaveFilePicker">https://developer.mozilla.org/docs/Web/API/Window/showSaveFilePicker</a>) and will create or overwrite the file, but the parent directory structure pointed by the file must exist and an existing file must be available to write and delete or the write operation will [throw a DOM exception](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createWritable#exceptions">https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createWritable#exceptions</a>). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateWebFileSystemDirectoryHandle-PWideChar-COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION-ICoreWebView2FileSystemHandle-"></span><code>function <strong>CreateWebFileSystemDirectoryHandle</strong>(Path: PWideChar; Permission: <a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION">COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION</a>; out value: <a href="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html">ICoreWebView2FileSystemHandle</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web [FileSystemDirectoryHandle](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle">https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle</a>).
+
+<p>The `path` is the path pointed by the directory and must be a syntactically correct fully qualified path, but it is not checked here whether it currently points to a directory. Any other state validation will be done when this handle is accessed from web content and will cause DOM exceptions if access operations fail. If an invalid path is passed, an E_INVALIDARG will be returned and the object will fail to create.
+
+<p>`Permission` property is used to specify whether the Handle should be created with a Read-only or Read-and-write web permission. For the `permission` value specified here, the Web [PermissionStatus](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus">https://developer.mozilla.org/docs/Web/API/PermissionStatus</a>) will be [granted](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus/state">https://developer.mozilla.org/docs/Web/API/PermissionStatus/state</a>) and the unspecified permission will be [prompt](<a href="https://developer.mozilla.org/docs/Web/API/PermissionStatus/state">https://developer.mozilla.org/docs/Web/API/PermissionStatus/state</a>). Therefore, the web content then does not need to call [requestPermission](<a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission">https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission</a>) for the permission that was specified before attempting the permitted operation, but if it does, the promise will immediately be resolved with 'granted' PermissionStatus without firing the WebView2 [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs) event or prompting the user for permission. Otherwise, `requestPermission` will behave as the status of permission is currently `Prompt`, which means the `PermissionRequested` event will fire or the user will be prompted. Additionally, the app must have the same OS permissions that have propagated to the [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model) for the path it wishes to give the web content to make any operations on the directory. Specifically, the WebView2 browser process will run in same user, package identity, and app container of the app, but other means such as security context impersonations do not get propagated, so such permissions that the app has, will not be effective in WebView2. Note: An exception to this is, if there is a parent directory handle that has broader permissions in the same page context than specified in here, the handle will automatically inherit the most permissive permission of the parent handle when posted to that page context. i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on a page, even though a WebFileSystemHandle to directory `C:\example\directory` is created with `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission will be automatically granted to the created handle.
+
+<p>An app needs to be mindful that this object, when posted to the web content, provides it with unusual access to OS file system via the Web FileSystem API! The app should therefore only post objects for paths that it wants to allow access to the web content and it is not recommended that the web content &quot;asks&quot; for this path. The app should also check the source property of the target to ensure that it is sending to the web content of intended origin.
+
+<p>Once the object is passed to web content, the path must point to a directory as if it was chosen via [directory picker](<a href="https://developer.mozilla.org/docs/Web/API/Window/showDirectoryPicker">https://developer.mozilla.org/docs/Web/API/Window/showDirectoryPicker</a>) otherwise any IO operation done on the `FileSystemDirectoryHandle` will throw a DOM exception. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateObjectCollection-SYSUINT-IUnknown-ICoreWebView2ObjectCollection-"></span><code>function <strong>CreateObjectCollection</strong>(length: SYSUINT; var items: IUnknown; out objectCollection: <a href="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">ICoreWebView2ObjectCollection</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create a generic object collection. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

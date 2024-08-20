@@ -11,7 +11,7 @@ uses
 
 type
   /// <summary>
-  /// A list containing processInfo and associated extended information.
+  /// A collection of ICoreWebView2ProcessExtendedInfo.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>
@@ -37,15 +37,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2ProcessExtendedInfoCollection   read FBaseIntf;
       /// <summary>
-      /// The number of process contained in the `ICoreWebView2ProcessExtendedInfoCollection`.
+      /// The number of elements contained in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#get_count">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>
       /// </remarks>
       property Count                 : cardinal                                     read GetCount;
       /// <summary>
-      /// Gets the `ICoreWebView2ProcessExtendedInfo` located in the
-      /// `ICoreWebView2ProcessExtendedInfoCollection` at the given index.
+      /// Gets the element at the given index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfocollection#getvalueatindex">See the ICoreWebView2ProcessExtendedInfoCollection article.</see></para>

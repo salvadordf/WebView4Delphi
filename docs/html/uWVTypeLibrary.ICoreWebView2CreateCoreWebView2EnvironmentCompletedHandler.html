@@ -19,7 +19,7 @@
 <code>type ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Receives the WebView2Environment created using CreateCoreWebView2Environment. </p>
+ Receives the result of the `CreateCoreWebView2Environment` method. </p>
 <p>
 
 
@@ -31,7 +31,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html#Invoke-HResult-ICoreWebView2Environment-">Invoke</a></strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html#Invoke-HResult-ICoreWebView2Environment-">Invoke</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -39,11 +39,11 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2Environment-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const createdEnvironment: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
+<td class="itemcode"><span id="Invoke-HResult-ICoreWebView2Environment-"></span><code>function <strong>Invoke</strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>): HResult; stdcall;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Provides the completion status and result of the corresponding asynchronous method. </p>
+ Provides the result of the corresponding asynchronous method. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}']</dt>
