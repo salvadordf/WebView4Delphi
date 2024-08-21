@@ -1,5 +1,7 @@
 unit uWindowlessBrowser;
 
+{$I ..\..\..\source\webview2.inc}
+
 interface
 
 uses
@@ -356,6 +358,7 @@ end;
 procedure TMainForm.WVBrowser1WebMessageReceived(Sender: TObject;
   const aWebView: ICoreWebView2;
   const aArgs: ICoreWebView2WebMessageReceivedEventArgs);
+{$IFDEF DELPHI26_UP}
 var
   TempArgs   : TCoreWebView2WebMessageReceivedEventArgs;
   TempMsg    : string;
@@ -364,7 +367,11 @@ var
   TempPoint  : TPoint;
   TempSize   : TSize;
   TempScale  : single;
+{$ELSE}
+  // TO-DO: Use an alternative way to parse the JSON message in Delphi 10.2.3 Tokio or older
+{$ENDIF}
 begin
+{$IFDEF DELPHI26_UP}
   TempArgs := TCoreWebView2WebMessageReceivedEventArgs.Create(aArgs);
   TempMsg  := TempArgs.WebMessageAsJson;
 
@@ -397,6 +404,9 @@ begin
 
   TempArgs.Free;
   TempObject.Free;
+{$ELSE}
+  // TO-DO: Use an alternative way to parse the JSON message in Delphi 10.2.3 Tokio or older
+{$ENDIF}
 end;
 
 procedure TMainForm.Timer1Timer(Sender: TObject);
