@@ -185,33 +185,42 @@
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVFileSystemHandleKind">TWVFileSystemHandleKind</a></strong>                 = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND">COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND</a>;</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypes.html#TWVTextDirectionKind">TWVTextDirectionKind</a></strong>                    = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_TEXT_DIRECTION_KIND">COREWEBVIEW2_TEXT_DIRECTION_KIND</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVTypes.html#TWVSaveAsKind">TWVSaveAsKind</a></strong>                           = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND">COREWEBVIEW2_SAVE_AS_KIND</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVTypes.html#TWVSaveAsUIResult">TWVSaveAsUIResult</a></strong>                       = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2LoaderStatus">TWV2LoaderStatus</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2KeyEventType">TWV2KeyEventType</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2DebugLog">TWV2DebugLog</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2DebugLogLevel">TWV2DebugLogLevel</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWV2EditingCommand">TWV2EditingCommand</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVClearDataStorageTypes">TWVClearDataStorageTypes</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVState">TWVState</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVAutoplayPolicy">TWVAutoplayPolicy</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVCustomSchemeInfoArray">TWVCustomSchemeInfoArray</a></strong> = array of <a href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a></strong> = array of <a href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html">ICoreWebView2CustomSchemeRegistration</a>;</code></td>
 </tr>
 </table>
@@ -875,6 +884,47 @@
 
 
 <p>Renamed COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TWVTextDirectionKind"></span><code><strong>TWVTextDirectionKind</strong>                    = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_TEXT_DIRECTION_KIND">COREWEBVIEW2_TEXT_DIRECTION_KIND</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Indicates the text direction of the notification. </p>
+<p>
+
+
+<p>Renamed COREWEBVIEW2_TEXT_DIRECTION_KIND type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TWVSaveAsKind"></span><code><strong>TWVSaveAsKind</strong>                           = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND">COREWEBVIEW2_SAVE_AS_KIND</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Specifies Save As kind selection options for `ICoreWebView2SaveAsUIShowingEventArgs`.
+
+<p>For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of `text/html` and `application/xhtml+xml` are considered HTML documents. </p>
+<p>
+
+
+<p>Renamed COREWEBVIEW2_SAVE_AS_KIND type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TWVSaveAsUIResult"></span><code><strong>TWVSaveAsUIResult</strong>                       = type <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Status of a programmatic Save As call. Indicates the result of the `ShowSaveAsUI` method. </p>
+<p>
+
+
+<p>Renamed COREWEBVIEW2_SAVE_AS_UI_RESULT type.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

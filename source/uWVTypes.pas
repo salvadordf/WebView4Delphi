@@ -22,11 +22,6 @@ type
       wvstring = type UnicodeString;
     {$ELSE}
       wvstring = type WideString;
-      {$IFNDEF DELPHI7_UP}
-        uint64     = type int64;
-        PPAnsiChar = array of PChar;
-        NativeInt  = integer;
-      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
 
@@ -430,6 +425,33 @@ type
   /// <para>Renamed COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND type.</para>
   /// </remarks>
   TWVFileSystemHandleKind                 = type COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND;
+  /// <summary>
+  /// Indicates the text direction of the notification.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_TEXT_DIRECTION_KIND type.</para>
+  /// </remarks>
+  TWVTextDirectionKind                    = type COREWEBVIEW2_TEXT_DIRECTION_KIND;
+  /// <summary>
+  /// Specifies Save As kind selection options for
+  /// `ICoreWebView2SaveAsUIShowingEventArgs`.
+  ///
+  /// For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and
+  /// COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of `text/html` and
+  /// `application/xhtml+xml` are considered HTML documents.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_SAVE_AS_KIND type.</para>
+  /// </remarks>
+  TWVSaveAsKind                           = type COREWEBVIEW2_SAVE_AS_KIND;
+  /// <summary>
+  /// Status of a programmatic Save As call. Indicates the result
+  /// of the `ShowSaveAsUI` method.
+  /// </summary>
+  /// <remarks>
+  /// <para>Renamed COREWEBVIEW2_SAVE_AS_UI_RESULT type.</para>
+  /// </remarks>
+  TWVSaveAsUIResult                       = type COREWEBVIEW2_SAVE_AS_UI_RESULT;
 
   /// <summary>
   /// TWVLoader status values

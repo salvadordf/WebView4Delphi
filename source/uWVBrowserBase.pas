@@ -176,6 +176,10 @@ type
       FOnProfileDeleted                               : TOnProfileDeletedEvent;
       FOnExecuteScriptWithResultCompleted             : TOnExecuteScriptWithResultCompletedEvent;
       FOnNonClientRegionChanged                       : TOnNonClientRegionChangedEvent;
+      FOnNotificationReceived                         : TOnNotificationReceivedEvent;
+      FOnNotificationCloseRequested                   : TOnNotificationCloseRequestedEvent;
+      FOnSaveAsUIShowing                              : TOnSaveAsUIShowingEvent;
+      FOnShowSaveAsUICompleted                        : TOnShowSaveAsUICompletedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -393,6 +397,10 @@ type
       function ProfileDeletedEventHandler_Invoke(const sender: ICoreWebView2Profile; const args: IUnknown): HRESULT;
       function ExecuteScriptWithResultCompletedHandler_Invoke(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer): HRESULT;
       function NonClientRegionChangedEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs): HRESULT;
+      function NotificationReceivedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NotificationReceivedEventArgs): HRESULT;
+      function NotificationCloseRequestedEventHandler_Invoke(const sender: ICoreWebView2Notification; const args: IUnknown): HRESULT;
+      function SaveAsUIShowingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs): HRESULT;
+      function ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -484,6 +492,10 @@ type
       procedure doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown); virtual;
       procedure doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer); virtual;
       procedure doOnNonClientRegionChangedEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs); virtual;
+      procedure doOnNotificationReceivedEvent(const sender: ICoreWebView2; const args: ICoreWebView2NotificationReceivedEventArgs); virtual;
+      procedure doOnNotificationCloseRequestedEvent(const sender: ICoreWebView2Notification; const args: IUnknown); virtual;
+      procedure doOnSaveAsUIShowingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs); virtual;
+      procedure doOnShowSaveAsUICompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -1178,15 +1190,101 @@ type
       function PostWebMessageAsJsonWithAdditionalObjects(const webMessageAsJson: wvstring;
                                                          const additionalObjects: ICoreWebView2ObjectCollectionView): boolean;
       /// <summary>
-      /// Add the provided host object to script running in the WebView with the
+      /// <para>Add the provided host object to script running in the WebView with the
       /// specified name.  Host objects are exposed as host object proxies using
       /// `window.chrome.webview.hostObjects.{name}`.  Host object proxies are
       /// promises and resolves to an object representing the host object.  The
-      /// promise is rejected if the app has not added an object with the name.
-      /// When JavaScript code access a property or method of the object, a promise
+      /// promise is rejected if the app has not added an object with the name.</para>
+      /// <para>When JavaScript code access a property or method of the object, a promise
       ///  is return, which resolves to the value returned from the host for the
       /// property or method, or rejected in case of error, for example, no
-      /// property or method on the object or parameters are not valid.
+      /// property or method on the object or parameters are not valid.</para>
+      ///
+      /// <para>NOTE: While simple types, `IDispatch` and array are supported, and
+      /// `IUnknown` objects that also implement `IDispatch` are treated as `IDispatch`,
+      /// generic `IUnknown`, `VT_DECIMAL`, or `VT_RECORD` variant is not supported.
+      /// Remote JavaScript objects like callback functions are represented as an
+      /// `VT_DISPATCH` `VARIANT` with the object implementing `IDispatch`.  The
+      /// JavaScript callback method may be invoked using `DISPID_VALUE` for the
+      /// `DISPID`.  Such callback method invocations will return immediately and will
+      /// not wait for the JavaScript function to run and so will not provide the return
+      /// value of the JavaScript function.</para>
+      /// <para>Nested arrays are supported up to a depth of 3.  Arrays of by
+      /// reference types are not supported. `VT_EMPTY` and `VT_NULL` are mapped
+      /// into JavaScript as `null`.  In JavaScript, `null` and undefined are
+      /// mapped to `VT_EMPTY`.</para>
+      ///
+      /// <para>Additionally, all host objects are exposed as
+      /// `window.chrome.webview.hostObjects.sync.{name}`.  Here the host objects
+      /// are exposed as synchronous host object proxies. These are not promises
+      /// and function runtimes or property access synchronously block running
+      /// script waiting to communicate cross process for the host code to run.
+      /// Accordingly the result may have reliability issues and it is recommended
+      /// that you use the promise-based asynchronous
+      /// `window.chrome.webview.hostObjects.{name}` API.</para>
+      ///
+      /// <para>Synchronous host object proxies and asynchronous host object proxies may
+      /// both use a proxy to the same host object.  Remote changes made by one
+      /// proxy propagates to any other proxy of that same host object whether
+      /// the other proxies and synchronous or asynchronous.</para>
+      ///
+      /// <para>While JavaScript is blocked on a synchronous run to native code, that
+      /// native code is unable to run back to JavaScript.  Attempts to do so fail
+      ///  with `HRESULT_FROM_WIN32(ERROR_POSSIBLE_DEADLOCK)`.</para>
+      ///
+      /// <para>Host object proxies are JavaScript Proxy objects that intercept all
+      /// property get, property set, and method invocations. Properties or methods
+      ///  that are a part of the Function or Object prototype are run locally.
+      /// Additionally any property or method in the
+      /// `chrome.webview.hostObjects.options.forceLocalProperties`
+      /// array are also run locally.  This defaults to including optional methods
+      /// that have meaning in JavaScript like `toJSON` and `Symbol.toPrimitive`.
+      /// Add more to the array as required.</para>
+      ///
+      /// <para>The `chrome.webview.hostObjects.cleanupSome` method performs a best
+      /// effort garbage collection on host object proxies.</para>
+      ///
+      /// <para>The `chrome.webview.hostObjects.options` object provides the ability to
+      /// change some functionality of host objects.</para>
+      /// <code>
+      /// Options property | Details
+      /// ---|---
+      /// `forceLocalProperties` | This is an array of host object property names that will be run locally, instead of being called on the native host object. This defaults to `then`, `toJSON`, `Symbol.toString`, and `Symbol.toPrimitive`. You can add other properties to specify that they should be run locally on the javascript host object proxy.
+      /// `log` | This is a callback that will be called with debug information. For example, you can set this to `console.log.bind(console)` to have it print debug information to the console to help when troubleshooting host object usage. By default this is null.
+      /// `shouldSerializeDates` | By default this is false, and javascript Date objects will be sent to host objects as a string using `JSON.stringify`. You can set this property to true to have Date objects properly serialize as a `VT_DATE` when sending to the native host object, and have `VT_DATE` properties and return values create a javascript Date object.
+      /// `defaultSyncProxy` | When calling a method on a synchronous proxy, the result should also be a synchronous proxy. But in some cases, the sync/async context is lost (for example, when providing to native code a reference to a function, and then calling that function in native code). In these cases, the proxy will be asynchronous, unless this property is set.
+      /// `forceAsyncMethodMatches ` | This is an array of regular expressions. When calling a method on a synchronous proxy, the method call will be performed asynchronously if the method name matches a string or regular expression in this array. Setting this value to `Async` will make any method that ends with Async be an asynchronous method call. If an async method doesn't match here and isn't forced to be asynchronous, the method will be invoked synchronously, blocking execution of the calling JavaScript and then returning the resolution of the promise, rather than returning a promise.
+      /// `ignoreMemberNotFoundError` | By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to `true` switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning `undefined` with no error.
+      /// `shouldPassTypedArraysAsArrays` | By default, typed arrays are passed to the host as `IDispatch`. To instead pass typed arrays to the host as `array`, set this to `true`.
+      /// </code>
+      /// <para>Host object proxies additionally have the following methods which run
+      /// locally.</para>
+      /// <code>
+      /// Method name | Details
+      /// ---|---
+      ///`applyHostFunction`, `getHostProperty`, `setHostProperty` | Perform a method invocation, property get, or property set on the host object. Use the methods to explicitly force a method or property to run remotely if a conflicting local method or property exists.  For instance, `proxy.toString()` runs the local `toString` method on the proxy object. But proxy.applyHostFunction('toString') runs `toString` on the host proxied object instead.
+      ///`getLocalProperty`, `setLocalProperty` | Perform property get, or property set locally.  Use the methods to force getting or setting a property on the host object proxy rather than on the host object it represents. For instance, `proxy.unknownProperty` gets the property named `unknownProperty` from the host proxied object.  But proxy.getLocalProperty('unknownProperty') gets the value of the property `unknownProperty` on the proxy object.
+      ///`sync` | Asynchronous host object proxies expose a sync method which returns a promise for a synchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sample.methodCall()` returns an asynchronous host object proxy.  Use the `sync` method to obtain a synchronous host object proxy instead: `const syncProxy = await chrome.webview.hostObjects.sample.methodCall().sync()`.
+      ///`async` | Synchronous host object proxies expose an async method which blocks and returns an asynchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sync.sample.methodCall()` returns a synchronous host object proxy.  Running the `async` method on this blocks and then returns an asynchronous host object proxy for the same host object: `const asyncProxy = chrome.webview.hostObjects.sync.sample.methodCall().async()`.
+      ///`then` | Asynchronous host object proxies have a `then` method.  Allows proxies to be awaitable.  `then` returns a promise that resolves with a representation of the host object.  If the proxy represents a JavaScript literal, a copy of that is returned locally.  If the proxy represents a function, a non-awaitable proxy is returned.  If the proxy represents a JavaScript object with a mix of literal properties and function properties, the a copy of the object is returned with some properties as host object proxies.
+      /// </code>
+      /// <para>All other property and method invocations (other than the above Remote
+      /// object proxy methods, `forceLocalProperties` list, and properties on
+      /// Function and Object prototypes) are run remotely.  Asynchronous host
+      /// object proxies return a promise representing asynchronous completion of
+      /// remotely invoking the method, or getting the property.  The promise
+      /// resolves after the remote operations complete and the promises resolve to
+      ///  the resulting value of the operation.  Synchronous host object proxies
+      /// work similarly, but block running JavaScript and wait for the remote
+      /// operation to complete.</para>
+      ///
+      /// <para>Setting a property on an asynchronous host object proxy works slightly
+      /// differently.  The set returns immediately and the return value is the
+      /// value that is set.  This is a requirement of the JavaScript Proxy object.
+      /// If you need to asynchronously wait for the property set to complete, use
+      /// the `setHostProperty` method which returns a promise as described above.
+      /// Synchronous object property set property synchronously blocks until the
+      /// property is set.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addhostobjecttoscript">See the ICoreWebView2 article.</see></para>
@@ -1685,6 +1783,19 @@ type
       /// <para>This function triggers the TWVBrowserBase.OnGetProcessExtendedInfosCompleted event.</para>
       /// </remarks>
       function    GetProcessExtendedInfos : boolean;
+      /// <summary>
+      /// <para>Programmatically trigger a Save As action for the currently loaded document.</para>
+      /// <para>Opens a system modal dialog by default. If the `SuppressDefaultDialog` property
+      /// is `TRUE`, the system dialog is not opened.</para>
+      /// <para>This method returns `COREWEBVIEW2_SAVE_AS_UI_RESULT`. See
+      /// `COREWEBVIEW2_SAVE_AS_UI_RESULT` for details.</para>
+      /// </summary>
+      /// <returns>True if successfull.</return>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">See the ICoreWebView2_25 article.</see></para>
+      /// <para>This function triggers the TWVBrowserBase.OnSaveAsUIShowing and TWVBrowserBase.OnShowSaveAsUICompleted events.</para>
+      /// </remarks>
+      function    ShowSaveAsUI : boolean;
 
       // Custom properties
       property Initialized                                     : boolean                                               read GetInitialized;
@@ -3556,39 +3667,39 @@ type
       /// <summary>
       /// <para>The `OnLaunchingExternalUriScheme` event is raised when a navigation request is made to
       /// a URI scheme that is registered with the OS.</para>
+      ///
       /// <para>The `OnLaunchingExternalUriScheme` event handler may suppress the default dialog
       /// or replace the default dialog with a custom dialog.</para>
+      ///
       /// <para>If a deferral is not taken on the event args, the external URI scheme launch is
       /// blocked until the event handler returns.  If a deferral is taken, the
       /// external URI scheme launch is blocked until the deferral is completed.
       /// The host also has the option to cancel the URI scheme launch.</para>
-      /// <para>The `NavigationStarting` and `NavigationCompleted` events will be raised,
+      ///
+      /// <para>The `OnNavigationStarting` and `OnNavigationCompleted` events will be raised,
       /// regardless of whether the `Cancel` property is set to `TRUE` or
-      /// `FALSE`. The `NavigationCompleted` event will be raised with the `IsSuccess` property
+      /// `FALSE`. The `OnNavigationCompleted` event will be raised with the `IsSuccess` property
       /// set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of
       /// whether the host sets the `Cancel` property on the
-      /// `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `SourceChanged`, `ContentLoading`,
-      /// and `HistoryChanged` events will not be raised for this navigation to the external URI
+      /// `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `OnSourceChanged`, `OnContentLoading`,
+      /// and `OnHistoryChanged` events will not be raised for this navigation to the external URI
       /// scheme regardless of the `Cancel` property.</para>
+      ///
       /// <para>The `OnLaunchingExternalUriScheme` event will be raised after the
-      /// `NavigationStarting` event and before the `NavigationCompleted` event.</para>
+      /// `OnNavigationStarting` event and before the `OnNavigationCompleted` event.</para>
+      ///
       /// <para>The default `CoreWebView2Settings` will also be updated upon navigation to an external
       /// URI scheme. If a setting on the `CoreWebView2Settings` interface has been changed,
       /// navigating to an external URI scheme will trigger the `CoreWebView2Settings` to update.</para>
+      ///
       /// <para>The WebView2 may not display the default dialog based on user settings, browser settings,
       /// and whether the origin is determined as a
       /// [trustworthy origin](https://w3c.github.io/webappsec-secure-contexts#
       /// potentially-trustworthy-origin); however, the event will still be raised.</para>
+      ///
       /// <para>If the request is initiated by a cross-origin frame without a user gesture,
       /// the request will be blocked and the `OnLaunchingExternalUriScheme` event will not
-      /// be raised. A URI scheme may be blocked for safety reasons. In this case the
-      /// `LaunchingExternalUriScheme` event will not be raised. The default dialog may show
-      /// an "always allow" checkbox which allows the user to opt-in to relaxed security
-      /// (i.e. skipping future default dialogs) for the combination of the URI scheme and the
-      /// origin of the page initiating this external URI scheme launch. The checkbox is offered
-      /// so long as the group policy to show the checkbox is not explicitly disabled and there
-      /// is a trustworthy initiating origin. If the user has checked this box, future attempts
-      /// to launch this URI scheme will still raise the event.</para>
+      /// be raised.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_18#add_launchingexternalurischeme">See the ICoreWebView2_18 article.</see></para>
@@ -3652,6 +3763,41 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#add_nonclientregionchanged">See the ICoreWebView2CompositionController4 article.</see></para>
       /// </remarks>
       property OnNonClientRegionChanged                        : TOnNonClientRegionChangedEvent                        read FOnNonClientRegionChanged                        write FOnNonClientRegionChanged;
+      /// <summary>
+      /// <para>Event for non-persistent notifications.</para>
+      ///
+      /// <para>If a deferral is not taken on the event args, the subsequent scripts after
+      /// the DOM notification creation call (i.e. `Notification()`) are blocked
+      /// until the event handler returns. If a deferral is taken, the scripts are
+      /// blocked until the deferral is completed.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_24#add_notificationreceived">See the ICoreWebView2_24 article.</see></para>
+      /// </remarks>
+      property OnNotificationReceived                          : TOnNotificationReceivedEvent                          read FOnNotificationReceived                          write FOnNotificationReceived;
+      /// <summary>
+      /// This event is raised when the notification is closed by the web code, such as through
+      /// `notification.close()`. You don't need to call `ReportClosed` since this is
+      /// coming from the web code.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification#add_closerequested">See the ICoreWebView2Notification article.</see></para>
+      /// </remarks>
+      property OnNotificationCloseRequested                    : TOnNotificationCloseRequestedEvent                    read FOnNotificationCloseRequested                    write FOnNotificationCloseRequested;
+      /// <summary>
+      /// This event is raised when save as is triggered, programmatically or manually.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#add_saveasuishowing">See the ICoreWebView2_25 article.</see></para>
+      /// </remarks>
+      property OnSaveAsUIShowing                               : TOnSaveAsUIShowingEvent                               read FOnSaveAsUIShowing                               write FOnSaveAsUIShowing;
+      /// <summary>
+      /// This event receives the result of the `ShowSaveAsUI` method.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">See the ICoreWebView2_25 article.</see></para>
+      /// </remarks>
+      property OnShowSaveAsUICompleted                        : TOnShowSaveAsUICompletedEvent                          read FOnShowSaveAsUICompleted                         write FOnShowSaveAsUICompleted;
   end;
 
 implementation
@@ -3809,6 +3955,10 @@ begin
   FOnProfileDeleted                                := nil;
   FOnExecuteScriptWithResultCompleted              := nil;
   FOnNonClientRegionChanged                        := nil;
+  FOnNotificationReceived                          := nil;
+  FOnNotificationCloseRequested                    := nil;
+  FOnSaveAsUIShowing                               := nil;
+  FOnShowSaveAsUICompleted                         := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -4919,6 +5069,30 @@ begin
     FOnNonClientRegionChanged(self, sender, args);
 end;
 
+procedure TWVBrowserBase.doOnNotificationReceivedEvent(const sender: ICoreWebView2; const args: ICoreWebView2NotificationReceivedEventArgs);
+begin
+  if assigned(FOnNotificationReceived) then
+    FOnNotificationReceived(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnNotificationCloseRequestedEvent(const sender: ICoreWebView2Notification; const args: IUnknown);
+begin
+  if assigned(FOnNotificationCloseRequested) then
+    FOnNotificationCloseRequested(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnSaveAsUIShowingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs);
+begin
+  if assigned(FOnSaveAsUIShowing) then
+    FOnSaveAsUIShowing(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnShowSaveAsUICompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT);
+begin
+  if assigned(FOnShowSaveAsUICompleted) then
+    FOnShowSaveAsUICompleted(self, errorCode, result_);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -5264,6 +5438,30 @@ function TWVBrowserBase.NonClientRegionChangedEventHandler_Invoke(const sender: 
 begin
   Result := S_OK;
   doOnNonClientRegionChangedEvent(sender, args);
+end;
+
+function TWVBrowserBase.NotificationReceivedEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2NotificationReceivedEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnNotificationReceivedEvent(sender, args);
+end;
+
+function TWVBrowserBase.NotificationCloseRequestedEventHandler_Invoke(const sender: ICoreWebView2Notification; const args: IUnknown): HRESULT;
+begin
+  Result := S_OK;
+  doOnNotificationCloseRequestedEvent(sender, args);
+end;
+
+function TWVBrowserBase.SaveAsUIShowingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnSaveAsUIShowingEvent(sender, args);
+end;
+
+function TWVBrowserBase.ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HRESULT;
+begin
+  Result := S_OK;
+  doOnShowSaveAsUICompletedEvent(errorCode, result_);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;
@@ -6250,6 +6448,12 @@ function TWVBrowserBase.GetProcessExtendedInfos : boolean;
 begin
   Result := Initialized and
             FCoreWebView2Environment.GetProcessExtendedInfos(self);
+end;
+
+function TWVBrowserBase.ShowSaveAsUI : boolean;
+begin
+  Result := Initialized and
+            FCoreWebView2.ShowSaveAsUI(self);
 end;
 
 function TWVBrowserBase.TrySuspend : boolean;

@@ -62,7 +62,6 @@ type
       /// Constructor of the ICoreWebView2Frame wrapper.
       /// </summary>
       /// <param name="aBaseIntf">The ICoreWebView2Frame instance.</param>
-      /// <param name="aFrameID">Custom ID used to identify this frame.</param>
       constructor Create(const aBaseIntf : ICoreWebView2Frame); reintroduce;
       destructor  Destroy; override;
       /// <summary>

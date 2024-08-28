@@ -467,6 +467,26 @@
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnExecuteScriptWithResultCompleted">OnExecuteScriptWithResultCompleted</a></strong>;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnNonClientRegionChanged">OnNonClientRegionChanged</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnNotificationReceived">OnNotificationReceived</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnNotificationCloseRequested">OnNotificationCloseRequested</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnSaveAsUIShowing">OnSaveAsUIShowing</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVFMXBrowser.TWVFMXBrowser.html#OnShowSaveAsUICompleted">OnShowSaveAsUICompleted</a></strong>;</code></td>
+</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
@@ -1766,15 +1786,15 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
 
 <p>If a deferral is not taken on the event args, the external URI scheme launch is blocked until the event handler returns. If a deferral is taken, the external URI scheme launch is blocked until the deferral is completed. The host also has the option to cancel the URI scheme launch.
 
-<p>The `NavigationStarting` and `NavigationCompleted` events will be raised, regardless of whether the `Cancel` property is set to `TRUE` or `FALSE`. The `NavigationCompleted` event will be raised with the `IsSuccess` property set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of whether the host sets the `Cancel` property on the `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `SourceChanged`, `ContentLoading`, and `HistoryChanged` events will not be raised for this navigation to the external URI scheme regardless of the `Cancel` property.
+<p>The `OnNavigationStarting` and `OnNavigationCompleted` events will be raised, regardless of whether the `Cancel` property is set to `TRUE` or `FALSE`. The `OnNavigationCompleted` event will be raised with the `IsSuccess` property set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of whether the host sets the `Cancel` property on the `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `OnSourceChanged`, `OnContentLoading`, and `OnHistoryChanged` events will not be raised for this navigation to the external URI scheme regardless of the `Cancel` property.
 
-<p>The `OnLaunchingExternalUriScheme` event will be raised after the `NavigationStarting` event and before the `NavigationCompleted` event.
+<p>The `OnLaunchingExternalUriScheme` event will be raised after the `OnNavigationStarting` event and before the `OnNavigationCompleted` event.
 
 <p>The default `CoreWebView2Settings` will also be updated upon navigation to an external URI scheme. If a setting on the `CoreWebView2Settings` interface has been changed, navigating to an external URI scheme will trigger the `CoreWebView2Settings` to update.
 
 <p>The WebView2 may not display the default dialog based on user settings, browser settings, and whether the origin is determined as a [trustworthy origin](<a href="https://w3c.github.io/webappsec-secure-contexts#">https://w3c.github.io/webappsec-secure-contexts#</a> potentially-trustworthy-origin); however, the event will still be raised.
 
-<p>If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `OnLaunchingExternalUriScheme` event will not be raised. A URI scheme may be blocked for safety reasons. In this case the `LaunchingExternalUriScheme` event will not be raised. The default dialog may show an &quot;always allow&quot; checkbox which allows the user to opt-in to relaxed security (i.e. skipping future default dialogs) for the combination of the URI scheme and the origin of the page initiating this external URI scheme launch. The checkbox is offered so long as the group policy to show the checkbox is not explicitly disabled and there is a trustworthy initiating origin. If the user has checked this box, future attempts to launch this URI scheme will still raise the event.
+<p>If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `OnLaunchingExternalUriScheme` event will not be raised.
 
 <p>
 
@@ -1863,6 +1883,72 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
  Provides the result of ExecuteScriptWithResult. 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21#executescriptwithresult">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_21#executescriptwithresult</a>&quot;&gt;See the ICoreWebView2_21 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnNonClientRegionChanged"></span><code>property <strong>OnNonClientRegionChanged</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnNonClientRegionChanged">TWVBrowserBase.OnNonClientRegionChanged</a>.</p><p>
+ This event is fired when regions which are marked as non-client in the app html have changed. So either when new regions have been marked, or unmarked, or the region(s) have been changed to a different kind. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#add_nonclientregionchanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4#add_nonclientregionchanged</a>&quot;&gt;See the ICoreWebView2CompositionController4 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnNotificationReceived"></span><code>property <strong>OnNotificationReceived</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnNotificationReceived">TWVBrowserBase.OnNotificationReceived</a>.</p><p>
+
+
+<p>Event for non-persistent notifications.
+
+<p>If a deferral is not taken on the event args, the subsequent scripts after the DOM notification creation call (i.e. `Notification()`) are blocked until the event handler returns. If a deferral is taken, the scripts are blocked until the deferral is completed.
+
+<p>
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_24#add_notificationreceived">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_24#add_notificationreceived</a>&quot;&gt;See the ICoreWebView2_24 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnNotificationCloseRequested"></span><code>property <strong>OnNotificationCloseRequested</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnNotificationCloseRequested">TWVBrowserBase.OnNotificationCloseRequested</a>.</p><p>
+ This event is raised when the notification is closed by the web code, such as through `notification.close()`. You don't need to call `ReportClosed` since this is coming from the web code. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification#add_closerequested">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification#add_closerequested</a>&quot;&gt;See the ICoreWebView2Notification article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnSaveAsUIShowing"></span><code>property <strong>OnSaveAsUIShowing</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnSaveAsUIShowing">TWVBrowserBase.OnSaveAsUIShowing</a>.</p><p>
+ This event is raised when save as is triggered, programmatically or manually. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#add_saveasuishowing">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#add_saveasuishowing</a>&quot;&gt;See the ICoreWebView2_25 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnShowSaveAsUICompleted"></span><code>property <strong>OnShowSaveAsUICompleted</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnShowSaveAsUICompleted">TWVBrowserBase.OnShowSaveAsUICompleted</a>.</p><p>
+ This event receives the result of the `ShowSaveAsUI` method. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui</a>&quot;&gt;See the ICoreWebView2_25 article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

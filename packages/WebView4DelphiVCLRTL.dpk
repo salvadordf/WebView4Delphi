@@ -98,6 +98,7 @@ contains
   uWVCoreWebView2ExecuteScriptResult in '..\source\uWVCoreWebView2ExecuteScriptResult.pas',
   uWVCoreWebView2RegionRectCollectionView in '..\source\uWVCoreWebView2RegionRectCollectionView.pas',
   uWVCoreWebView2ObjectCollection in '..\source\uWVCoreWebView2ObjectCollection.pas',
-  uWVCoreWebView2FileSystemHandle in '..\source\uWVCoreWebView2FileSystemHandle.pas';
+  uWVCoreWebView2FileSystemHandle in '..\source\uWVCoreWebView2FileSystemHandle.pas',
+  uWVCoreWebView2Notification in '..\source\uWVCoreWebView2Notification.pas';
 
 end.

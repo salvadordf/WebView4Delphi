@@ -340,6 +340,22 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NonClientRegionChangedEventHandler_Invoke-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">NonClientRegionChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">ICoreWebView2NonClientRegionChangedEventArgs</a>): HResult;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NotificationReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NotificationReceivedEventArgs-">NotificationReceivedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NotificationReceivedEventArgs.html">ICoreWebView2NotificationReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#NotificationCloseRequestedEventHandler_Invoke-ICoreWebView2Notification-IUnknown-">NotificationCloseRequestedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#SaveAsUIShowingEventHandler_Invoke-ICoreWebView2-ICoreWebView2SaveAsUIShowingEventArgs-">SaveAsUIShowingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveAsUIShowingEventArgs.html">ICoreWebView2SaveAsUIShowingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVInterfaces.IWVBrowserEvents.html#ShowSaveAsUICompletedHandler_Invoke-HResult-COREWEBVIEW2_SAVE_AS_UI_RESULT-">ShowSaveAsUICompletedHandler_Invoke</a></strong>(errorCode: HResult; result_: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a>): HResult;</code></td>
+</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
@@ -1121,6 +1137,46 @@ ICoreWebView2ExecuteScriptWithResultCompletedHandler</p>
 <tr><td colspan="2">
 <p>
 ICoreWebView2NonClientRegionChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NotificationReceivedEventHandler_Invoke-ICoreWebView2-ICoreWebView2NotificationReceivedEventArgs-"></span><code>function <strong>NotificationReceivedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NotificationReceivedEventArgs.html">ICoreWebView2NotificationReceivedEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NonClientRegionChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NotificationCloseRequestedEventHandler_Invoke-ICoreWebView2Notification-IUnknown-"></span><code>function <strong>NotificationCloseRequestedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>; const args: IUnknown): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2NotificationCloseRequestedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SaveAsUIShowingEventHandler_Invoke-ICoreWebView2-ICoreWebView2SaveAsUIShowingEventArgs-"></span><code>function <strong>SaveAsUIShowingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveAsUIShowingEventArgs.html">ICoreWebView2SaveAsUIShowingEventArgs</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2SaveAsUIShowingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShowSaveAsUICompletedHandler_Invoke-HResult-COREWEBVIEW2_SAVE_AS_UI_RESULT-"></span><code>function <strong>ShowSaveAsUICompletedHandler_Invoke</strong>(errorCode: HResult; result_: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a>): HResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ICoreWebView2ShowSaveAsUICompletedHandler</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

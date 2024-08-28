@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Notification</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Notification"></span><h1 class="cio">Interface ICoreWebView2Notification</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Notification = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is the ICoreWebView2Notification that represents a [HTML Notification object](<a href="https://developer.mozilla.org/docs/Web/API/Notification">https://developer.mozilla.org/docs/Web/API/Notification</a>). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification</a>&quot;&gt;See the ICoreWebView2Notification article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2Notification</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#add_CloseRequested-ICoreWebView2NotificationCloseRequestedEventHandler-EventRegistrationToken-">add_CloseRequested</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2NotificationCloseRequestedEventHandler.html">ICoreWebView2NotificationCloseRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#remove_CloseRequested-EventRegistrationToken-">remove_CloseRequested</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#ReportShown">ReportShown</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#ReportClicked">ReportClicked</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#ReportClosed">ReportClosed</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_Body-PWideChar-">Get_Body</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_Direction-COREWEBVIEW2_TEXT_DIRECTION_KIND-">Get_Direction</a></strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_TEXT_DIRECTION_KIND">COREWEBVIEW2_TEXT_DIRECTION_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_Language-PWideChar-">Get_Language</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_Tag-PWideChar-">Get_Tag</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_IconUri-PWideChar-">Get_IconUri</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_title-PWideChar-">Get_title</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_BadgeUri-PWideChar-">Get_BadgeUri</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_BodyImageUri-PWideChar-">Get_BodyImageUri</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_ShouldRenotify-Integer-">Get_ShouldRenotify</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_RequiresInteraction-Integer-">Get_RequiresInteraction</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_IsSilent-Integer-">Get_IsSilent</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#Get_Timestamp-Double-">Get_Timestamp</a></strong>(out value: Double): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Notification.html#GetVibrationPattern-SYSUINT-Uint64Array-">GetVibrationPattern</a></strong>(out Count: SYSUINT; out vibrationPattern: <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_CloseRequested-ICoreWebView2NotificationCloseRequestedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_CloseRequested</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2NotificationCloseRequestedEventHandler.html">ICoreWebView2NotificationCloseRequestedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an event handler for the `CloseRequested` event. This event is raised when the notification is closed by the web code, such as through `notification.close()`. You don't need to call `ReportClosed` since this is coming from the web code. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{B7434D98-6BC8-419D-9DA5-FB5A96D4DACD}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_CloseRequested-EventRegistrationToken-"></span><code>function <strong>remove_CloseRequested</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Remove an event handler previously added with `add_CloseRequested`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportShown"></span><code>function <strong>ReportShown</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification has been displayed and it will cause the [show](<a href="https://developer.mozilla.org/docs/Web/API/Notification/show_event">https://developer.mozilla.org/docs/Web/API/Notification/show_event</a>) event to be raised for non-persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` when this is called. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportClicked"></span><code>function <strong>ReportClicked</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification has been clicked, and it will cause the [click](<a href="https://developer.mozilla.org/docs/Web/API/Notification/click_event">https://developer.mozilla.org/docs/Web/API/Notification/click_event</a>) event to be raised for non-persistent notifications and the [notificationclick](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event</a>) event for persistent notifications. Use `ReportClickedWithActionIndex` to specify an action to activate a persistent notification. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportClosed"></span><code>function <strong>ReportClosed</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification was dismissed, and it will cause the [close](<a href="https://developer.mozilla.org/docs/Web/API/Notification/close_event">https://developer.mozilla.org/docs/Web/API/Notification/close_event</a>) event to be raised for non-persistent notifications and the [notificationclose](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event</a>) event for persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Body-PWideChar-"></span><code>function <strong>Get_Body</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string representing the body text of the notification. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Direction-COREWEBVIEW2_TEXT_DIRECTION_KIND-"></span><code>function <strong>Get_Direction</strong>(out value: <a href="uWVTypeLibrary.html#COREWEBVIEW2_TEXT_DIRECTION_KIND">COREWEBVIEW2_TEXT_DIRECTION_KIND</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The text direction in which to display the notification. This corresponds to [Notification.dir](<a href="https://developer.mozilla.org/docs/Web/API/Notification/dir">https://developer.mozilla.org/docs/Web/API/Notification/dir</a>) DOM API. The default value is `COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Language-PWideChar-"></span><code>function <strong>Get_Language</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The notification's language, as intended to be specified using a string representing a language tag (such as `en-US`) according to [BCP47](<a href="https://datatracker.ietf.org/doc/html/rfc5646">https://datatracker.ietf.org/doc/html/rfc5646</a>). Note that no validation is performed on this property and it can be any string the notification sender specifies. This corresponds to [Notification.lang](<a href="https://developer.mozilla.org/docs/Web/API/Notification/lang">https://developer.mozilla.org/docs/Web/API/Notification/lang</a>) DOM API. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Tag-PWideChar-"></span><code>function <strong>Get_Tag</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string representing an identifying tag for the notification. This corresponds to [Notification.tag](<a href="https://developer.mozilla.org/docs/Web/API/Notification/tag">https://developer.mozilla.org/docs/Web/API/Notification/tag</a>) DOM API. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IconUri-PWideChar-"></span><code>function <strong>Get_IconUri</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of an icon to be displayed in the notification. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_title-PWideChar-"></span><code>function <strong>Get_title</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The title of the notification.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_BadgeUri-PWideChar-"></span><code>function <strong>Get_BadgeUri</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of the image used to represent the notification when there isn't enough space to display the notification itself. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_BodyImageUri-PWideChar-"></span><code>function <strong>Get_BodyImageUri</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of an image to be displayed in the notification. The default value is an empty string.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ShouldRenotify-Integer-"></span><code>function <strong>Get_ShouldRenotify</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates whether the user should be notified after a new notification replaces an old one. This corresponds to [Notification.renotify](<a href="https://developer.mozilla.org/docs/Web/API/Notification/renotify">https://developer.mozilla.org/docs/Web/API/Notification/renotify</a>) DOM API. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_RequiresInteraction-Integer-"></span><code>function <strong>Get_RequiresInteraction</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A boolean value indicating that a notification should remain active until the user clicks or dismisses it, rather than closing automatically. This corresponds to [Notification.requireInteraction](<a href="https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction">https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction</a>) DOM API. Note that you may not be able to necessarily implement this due to native API limitations. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_IsSilent-Integer-"></span><code>function <strong>Get_IsSilent</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates whether the notification should be silent &ndash; i.e., no sounds or vibrations should be issued, regardless of the device settings. This corresponds to [Notification.silent](<a href="https://developer.mozilla.org/docs/Web/API/Notification/silent">https://developer.mozilla.org/docs/Web/API/Notification/silent</a>) DOM API. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_Timestamp-Double-"></span><code>function <strong>Get_Timestamp</strong>(out value: Double): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates the time at which a notification is created or applicable (past, present, or future) as the number of milliseconds since the UNIX epoch. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetVibrationPattern-SYSUINT-Uint64Array-"></span><code>function <strong>GetVibrationPattern</strong>(out Count: SYSUINT; out vibrationPattern: <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+* vibrationPattern: PLargeuint1 &ndash;&gt; vibrationPattern: Uint64Array ************** WEBVIEW4DELPHI ************** *</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>
