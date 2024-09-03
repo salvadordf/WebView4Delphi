@@ -8700,16 +8700,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -9610,16 +9610,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -11250,16 +11250,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -14590,16 +14590,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -17668,16 +17668,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -17702,16 +17702,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateInvisibleBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -17724,16 +17724,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -21481,6 +21481,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#ForceFieldTrials">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FPostQuantumKyber">
+<param name="Local" value="uWVLoader.TWVLoader.html#FPostQuantumKyber">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FProxySettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#FProxySettings">
 </object>
@@ -21771,6 +21775,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TargetCompatibleBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#TargetCompatibleBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TLS13HybridizedKyberSupport">
+<param name="Local" value="uWVLoader.TWVLoader.html#TLS13HybridizedKyberSupport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TouchEvents">

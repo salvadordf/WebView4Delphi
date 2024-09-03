@@ -89,6 +89,7 @@ type
       FTreatInsecureOriginAsSecure            : wvstring;
       FOpenOfficeDocumentsInWebViewer         : boolean;
       FMicrosoftSignIn                        : boolean;
+      FPostQuantumKyber                       : TWVState;
 
       FAutoAcceptCamAndMicCapture             : boolean;
 
@@ -706,6 +707,10 @@ type
       /// </remarks>
       property MicrosoftSignIn                        : boolean                            read FMicrosoftSignIn                         write FMicrosoftSignIn;
       /// <summary>
+      /// This option enables a combination of X25519 and Kyber in TLS 1.3.
+      /// </summary>
+      property TLS13HybridizedKyberSupport            : TWVState                           read FPostQuantumKyber                        write FPostQuantumKyber;
+      /// <summary>
       /// Bypasses the dialog prompting the user for permission to capture cameras and microphones.
       /// Useful in automatic tests of video-conferencing Web applications. This is nearly
       /// identical to kUseFakeUIForMediaStream, with the exception being that this flag does NOT
@@ -931,6 +936,7 @@ begin
   FOpenOfficeDocumentsInWebViewer         := False;
   FAutoAcceptCamAndMicCapture             := False;
   FMicrosoftSignIn                        := False;
+  FPostQuantumKyber                       := STATE_DEFAULT;
   FProxySettings                          := nil;
   FErrorLog                               := nil;
 
@@ -1581,6 +1587,14 @@ begin
         TempFeatures := 'msSingleSignOnOSForPrimaryAccountIsShared';
     end;
 
+  if (FPostQuantumKyber = STATE_ENABLED) then
+    begin
+      if (length(TempFeatures) > 0) then
+        TempFeatures := TempFeatures + ',PostQuantumKyber'
+       else
+        TempFeatures := 'PostQuantumKyber';
+    end;
+
   if (length(TempFeatures) > 0) then
     Result := Result + '--enable-features=' + TempFeatures + ' ';
 
@@ -1606,6 +1620,14 @@ begin
         TempFeatures := TempFeatures + ',msEdgeRose'
        else
         TempFeatures := 'msEdgeRose';
+    end;
+
+  if (FPostQuantumKyber = STATE_DISABLED) then
+    begin
+      if (length(TempFeatures) > 0) then
+        TempFeatures := TempFeatures + ',PostQuantumKyber'
+       else
+        TempFeatures := 'PostQuantumKyber';
     end;
 
   if (length(TempFeatures) > 0) then

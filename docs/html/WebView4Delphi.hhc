@@ -17780,6 +17780,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FMicrosoftSignIn">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FPostQuantumKyber">
+<param name="Local" value="uWVLoader.TWVLoader.html#FPostQuantumKyber">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAutoAcceptCamAndMicCapture">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">
 </object>
@@ -18048,6 +18052,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="MicrosoftSignIn">
 <param name="Local" value="uWVLoader.TWVLoader.html#MicrosoftSignIn">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TLS13HybridizedKyberSupport">
+<param name="Local" value="uWVLoader.TWVLoader.html#TLS13HybridizedKyberSupport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AutoAcceptCamAndMicCapture">
@@ -50958,6 +50966,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FOpenOfficeDocumentsInWebViewer">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FPostQuantumKyber">
+<param name="Local" value="uWVLoader.TWVLoader.html#FPostQuantumKyber">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FProxySettings">
 <param name="Local" value="uWVLoader.TWVLoader.html#FProxySettings">
 </object>
@@ -51310,6 +51322,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TargetCompatibleBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#TargetCompatibleBrowserVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TLS13HybridizedKyberSupport">
+<param name="Local" value="uWVLoader.TWVLoader.html#TLS13HybridizedKyberSupport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TouchEvents">
