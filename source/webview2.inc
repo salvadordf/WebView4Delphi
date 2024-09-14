@@ -1,5 +1,5 @@
  // The complete list of compiler versions is here :
- // http://docwiki.embarcadero.com/RADStudio/Tokyo/en/Compiler_Versions
+ // https://docwiki.embarcadero.com/RADStudio/Athens/en/Compiler_Versions
 
 {$DEFINE DELPHI_VERSION_UNKNOW}
 
@@ -393,7 +393,7 @@
   {$DEFINE DELPHI28_UP}
 {$ENDIF}
 
-// Rad Studio 12.0 - Delphi Yukon
+// Rad Studio 12.0 - Delphi Athens
 {$IFDEF VER360}
   {$UNDEF DELPHI_VERSION_UNKNOW}
   {$DEFINE DELPHI5_UP}
@@ -485,24 +485,3 @@
     {$DEFINE TARGET_64BITS}
   {$IFEND}
 {$IFEND}
-
-// Delphi uses MACOS for the new MacOSX and DARWIN is not defined
-// FPC uses DARWIN for the new MacOSX and MACOS is defined for the classic Macintosh OS (System 7)
-// We define MACOSX to avoid conflicts in both situations
-{$IFDEF FPC}
-  {$IFDEF DARWIN}
-    {$DEFINE MACOSX}
-  {$ENDIF}
-{$ELSE}
-  {$IFDEF MACOS}
-    {$DEFINE MACOSX}
-  {$ENDIF}
-{$ENDIF}
-
-{$IFDEF LINUX}
-  {$IFDEF FPC}
-    {$DEFINE LINUXFPC}
-  {$ELSE}
-    {$DEFINE LINUXFMX}
-  {$ENDIF}
-{$ENDIF}

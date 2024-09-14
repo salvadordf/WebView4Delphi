@@ -1,7 +1,5 @@
 program MobileBrowser;
 
-{$I ..\..\..\source\webview2.inc}
-
 uses
   Vcl.Forms,
   uMobileBrowser in 'uMobileBrowser.pas' {MainForm};

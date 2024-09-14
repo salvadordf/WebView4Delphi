@@ -21,8 +21,6 @@ object MainForm: TMainForm
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
-    ExplicitTop = 29
-    ExplicitHeight = 676
   end
   object AddressPnl: TPanel
     Left = 0
@@ -71,9 +69,6 @@ object MainForm: TMainForm
         'https://www.youtube.com'
         'https://html5demos.com/drag/'
         'https://frames-per-second.appspot.com/')
-      ExplicitLeft = -6
-      ExplicitTop = -2
-      ExplicitWidth = 945
     end
     object GoBtn: TButton
       Left = 945
@@ -85,8 +80,6 @@ object MainForm: TMainForm
       TabOrder = 1
       WordWrap = True
       OnClick = GoBtnClick
-      ExplicitLeft = 941
-      ExplicitHeight = 24
     end
     object DevToolsBtn: TButton
       Left = 870
@@ -97,8 +90,6 @@ object MainForm: TMainForm
       Caption = 'DevTools'
       TabOrder = 2
       OnClick = DevToolsBtnClick
-      ExplicitLeft = 904
-      ExplicitHeight = 25
     end
   end
   object Timer1: TTimer

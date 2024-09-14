@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{DE8B4A26-5C97-4F34-974E-E3EE0CCF67E9}</ProjectGuid>
         <MainSource>WebView4DelphiVCLRTL.dpk</MainSource>
-        <ProjectVersion>20.1</ProjectVersion>
+        <ProjectVersion>20.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -175,6 +175,9 @@
         <DCCReference Include="..\source\uWVCoreWebView2ScriptException.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2ExecuteScriptResult.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2RegionRectCollectionView.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2ObjectCollection.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2FileSystemHandle.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2Notification.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -200,33 +203,18 @@
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
-            <Deployment Version="4">
+            <Deployment Version="5">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule"/>
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule"/>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule"/>
                 <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\22.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\23.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>WebView4DelphiVCLRTL.bpl</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
+                <DeployFile LocalName="..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\23.0\Bpl\WebView4DelphiVCLRTL.bpl" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win32">
                         <Operation>0</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="AndroidClasses">
-                    <Platform Name="Android">
-                        <RemoteDir>classes</RemoteDir>
-                        <Operation>64</Operation>
-                    </Platform>
-                    <Platform Name="Android64">
-                        <RemoteDir>classes</RemoteDir>
-                        <Operation>64</Operation>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="AndroidFileProvider">
@@ -236,12 +224,6 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\xml</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="AndroidGDBServer">
-                    <Platform Name="Android">
-                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>

@@ -2,7 +2,7 @@ unit uSimpleBrowser;
 
 interface
 
-{$I webview2.inc}
+{$I ..\..\..\source\webview2.inc}
 
 uses
   {$IFDEF DELPHI16_UP}

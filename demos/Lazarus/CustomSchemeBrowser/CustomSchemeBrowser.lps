@@ -20,8 +20,7 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="84"/>
-        <CursorPos X="23" Y="80"/>
+        <CursorPos X="62" Y="4"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -118,11 +117,21 @@
         <EditorIndex Value="-1"/>
         <UsageCount Value="20"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\..\..\source\webview2.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
     </Units>
-    <JumpHistory>
+    <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="uCustomSchemeBrowser.pas"/>
         <Caret Line="83" Column="41" TopLine="64"/>
+      </Position>
+      <Position>
+        <Filename Value="uCustomSchemeBrowser.pas"/>
+        <Caret Line="4" Column="62"/>
       </Position>
     </JumpHistory>
     <RunParams>

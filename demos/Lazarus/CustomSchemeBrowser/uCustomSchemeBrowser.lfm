@@ -12,7 +12,7 @@ object MainForm: TMainForm
   Font.Name = 'Segoe UI'
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.4.0.0'
   object WVWindowParent1: TWVWindowParent
     Left = 0
     Height = 677
@@ -32,6 +32,7 @@ object MainForm: TMainForm
     ClientHeight = 23
     ClientWidth = 995
     Enabled = False
+    ParentBackground = False
     TabOrder = 0
     object AddressCb: TComboBox
       Left = 0
@@ -72,8 +73,8 @@ object MainForm: TMainForm
       Width = 50
       Align = alRight
       Caption = 'Go'
-      OnClick = GoBtnClick
       TabOrder = 1
+      OnClick = GoBtnClick
     end
     object DevToolsBtn: TButton
       Left = 870
@@ -82,8 +83,8 @@ object MainForm: TMainForm
       Width = 75
       Align = alRight
       Caption = 'DevTools'
-      OnClick = DevToolsBtnClick
       TabOrder = 2
+      OnClick = DevToolsBtnClick
     end
   end
   object Timer1: TTimer

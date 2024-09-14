@@ -4,7 +4,7 @@ unit uCustomSchemeBrowser;
 
 interface
 
-{$I webview2.inc}
+{$I ..\..\..\source\webview2.inc}
 
 uses
   LCLIntf, LCLType, LMessages, Messages, SysUtils, Variants, Classes, Graphics,
