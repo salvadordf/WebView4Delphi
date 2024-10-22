@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2Notification: Class TCoreWebView2Notification</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="TCoreWebView2Notification"></span><h1 class="cio">Class TCoreWebView2Notification</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2Notification.html">uWVCoreWebView2Notification</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2Notification = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This is the ICoreWebView2Notification that represents a [HTML Notification object](<a href="https://developer.mozilla.org/docs/Web/API/Notification">https://developer.mozilla.org/docs/Web/API/Notification</a>). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notification</a>&quot;&gt;See the ICoreWebView2Notification article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2Notification</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FCloseRequestedToken">FCloseRequestedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBody">GetBody</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetDirection">GetDirection</a></strong>: <a href="uWVTypes.html#TWVTextDirectionKind">TWVTextDirectionKind</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetLanguage">GetLanguage</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTag">GetTag</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIconUri">GetIconUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTitle">GetTitle</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBadgeUri">GetBadgeUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBodyImageUri">GetBodyImageUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetShouldRenotify">GetShouldRenotify</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetRequiresInteraction">GetRequiresInteraction</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIsSilent">GetIsSilent</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTimestamp">GetTimestamp</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetVibrationPattern">GetVibrationPattern</a></strong>: <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#AddCloseRequestedEvent-TComponent-">AddCloseRequestedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Create-ICoreWebView2Notification-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#ReportShown">ReportShown</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#ReportClicked">ReportClicked</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#ReportClosed">ReportClosed</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Initialized">Initialized</a></strong>                         : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#BaseIntf">BaseIntf</a></strong>                            : <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>       read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Body">Body</a></strong>                                : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBody">GetBody</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Direction">Direction</a></strong>                           : <a href="uWVTypes.html#TWVTextDirectionKind">TWVTextDirectionKind</a>            read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetDirection">GetDirection</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Language">Language</a></strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetLanguage">GetLanguage</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Tag">Tag</a></strong>                                 : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTag">GetTag</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#IconUri">IconUri</a></strong>                             : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIconUri">GetIconUri</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Title">Title</a></strong>                               : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTitle">GetTitle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#BadgeUri">BadgeUri</a></strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBadgeUri">GetBadgeUri</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#BodyImageUri">BodyImageUri</a></strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBodyImageUri">GetBodyImageUri</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#ShouldRenotify">ShouldRenotify</a></strong>                      : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetShouldRenotify">GetShouldRenotify</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#RequiresInteraction">RequiresInteraction</a></strong>                 : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetRequiresInteraction">GetRequiresInteraction</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#IsSilent">IsSilent</a></strong>                            : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIsSilent">GetIsSilent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#Timestamp">Timestamp</a></strong>                           : TDateTime                       read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTimestamp">GetTimestamp</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#VibrationPattern">VibrationPattern</a></strong>                    : <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>                     read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetVibrationPattern">GetVibrationPattern</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCloseRequestedToken"></span><code><strong>FCloseRequestedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBody"></span><code>function <strong>GetBody</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDirection"></span><code>function <strong>GetDirection</strong>: <a href="uWVTypes.html#TWVTextDirectionKind">TWVTextDirectionKind</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetLanguage"></span><code>function <strong>GetLanguage</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTag"></span><code>function <strong>GetTag</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIconUri"></span><code>function <strong>GetIconUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTitle"></span><code>function <strong>GetTitle</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBadgeUri"></span><code>function <strong>GetBadgeUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBodyImageUri"></span><code>function <strong>GetBodyImageUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetShouldRenotify"></span><code>function <strong>GetShouldRenotify</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetRequiresInteraction"></span><code>function <strong>GetRequiresInteraction</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetIsSilent"></span><code>function <strong>GetIsSilent</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetTimestamp"></span><code>function <strong>GetTimestamp</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetVibrationPattern"></span><code>function <strong>GetVibrationPattern</strong>: <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddCloseRequestedEvent-TComponent-"></span><code>function <strong>AddCloseRequestedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create-ICoreWebView2Notification-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBrowserComponent</dt>
+<dd>The TWVBrowserBase instance.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportShown"></span><code>function <strong>ReportShown</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification has been displayed and it will cause the [show](<a href="https://developer.mozilla.org/docs/Web/API/Notification/show_event">https://developer.mozilla.org/docs/Web/API/Notification/show_event</a>) event to be raised for non-persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` when this is called. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportClicked"></span><code>function <strong>ReportClicked</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification has been clicked, and it will cause the [click](<a href="https://developer.mozilla.org/docs/Web/API/Notification/click_event">https://developer.mozilla.org/docs/Web/API/Notification/click_event</a>) event to be raised for non-persistent notifications and the [notificationclick](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event</a>) event for persistent notifications. Use `ReportClickedWithActionIndex` to specify an action to activate a persistent notification. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReportClosed"></span><code>function <strong>ReportClosed</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The host may run this to report the notification was dismissed, and it will cause the [close](<a href="https://developer.mozilla.org/docs/Web/API/Notification/close_event">https://developer.mozilla.org/docs/Web/API/Notification/close_event</a>) event to be raised for non-persistent notifications and the [notificationclose](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event</a>) event for persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>                         : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>                            : <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>       read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FBaseIntf">FBaseIntf</a>                            write <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Body"></span><code>property <strong>Body</strong>                                : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBody">GetBody</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string representing the body text of the notification. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Direction"></span><code>property <strong>Direction</strong>                           : <a href="uWVTypes.html#TWVTextDirectionKind">TWVTextDirectionKind</a>            read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetDirection">GetDirection</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The text direction in which to display the notification. This corresponds to [Notification.dir](<a href="https://developer.mozilla.org/docs/Web/API/Notification/dir">https://developer.mozilla.org/docs/Web/API/Notification/dir</a>) DOM API. The default value is `COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Language"></span><code>property <strong>Language</strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetLanguage">GetLanguage</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The notification's language, as intended to be specified using a string representing a language tag (such as `en-US`) according to [BCP47](<a href="https://datatracker.ietf.org/doc/html/rfc5646">https://datatracker.ietf.org/doc/html/rfc5646</a>). Note that no validation is performed on this property and it can be any string the notification sender specifies. This corresponds to [Notification.lang](<a href="https://developer.mozilla.org/docs/Web/API/Notification/lang">https://developer.mozilla.org/docs/Web/API/Notification/lang</a>) DOM API. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>                                 : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTag">GetTag</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string representing an identifying tag for the notification. This corresponds to [Notification.tag](<a href="https://developer.mozilla.org/docs/Web/API/Notification/tag">https://developer.mozilla.org/docs/Web/API/Notification/tag</a>) DOM API. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IconUri"></span><code>property <strong>IconUri</strong>                             : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIconUri">GetIconUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of an icon to be displayed in the notification. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>                               : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTitle">GetTitle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The title of the notification. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BadgeUri"></span><code>property <strong>BadgeUri</strong>                            : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBadgeUri">GetBadgeUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of the image used to represent the notification when there isn't enough space to display the notification itself. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BodyImageUri"></span><code>property <strong>BodyImageUri</strong>                        : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetBodyImageUri">GetBodyImageUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A string containing the URI of an image to be displayed in the notification. The default value is an empty string. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldRenotify"></span><code>property <strong>ShouldRenotify</strong>                      : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetShouldRenotify">GetShouldRenotify</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates whether the user should be notified after a new notification replaces an old one. This corresponds to [Notification.renotify](<a href="https://developer.mozilla.org/docs/Web/API/Notification/renotify">https://developer.mozilla.org/docs/Web/API/Notification/renotify</a>) DOM API. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RequiresInteraction"></span><code>property <strong>RequiresInteraction</strong>                 : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetRequiresInteraction">GetRequiresInteraction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A boolean value indicating that a notification should remain active until the user clicks or dismisses it, rather than closing automatically. This corresponds to [Notification.requireInteraction](<a href="https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction">https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction</a>) DOM API. Note that you may not be able to necessarily implement this due to native API limitations. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsSilent"></span><code>property <strong>IsSilent</strong>                            : boolean                         read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetIsSilent">GetIsSilent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates whether the notification should be silent &ndash; i.e., no sounds or vibrations should be issued, regardless of the device settings. This corresponds to [Notification.silent](<a href="https://developer.mozilla.org/docs/Web/API/Notification/silent">https://developer.mozilla.org/docs/Web/API/Notification/silent</a>) DOM API. The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Timestamp"></span><code>property <strong>Timestamp</strong>                           : TDateTime                       read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetTimestamp">GetTimestamp</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Indicates the time at which a notification is created or applicable (past, present, or future) as the number of milliseconds since the UNIX epoch. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="VibrationPattern"></span><code>property <strong>VibrationPattern</strong>                    : <a href="uWVTypeLibrary.html#Uint64Array">Uint64Array</a>                     read <a href="uWVCoreWebView2Notification.TCoreWebView2Notification.html#GetVibrationPattern">GetVibrationPattern</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the vibration pattern for devices with vibration hardware to emit. The vibration pattern can be represented by an array of 64-bit unsigned integers describing a pattern of vibrations and pauses. See [Vibration API](<a href="https://developer.mozilla.org/docs/Web/API/Vibration_API">https://developer.mozilla.org/docs/Web/API/Vibration_API</a>) for more information. This corresponds to [Notification.vibrate](<a href="https://developer.mozilla.org/docs/Web/API/Notification/vibrate">https://developer.mozilla.org/docs/Web/API/Notification/vibrate</a>) DOM API. An empty array is returned if no vibration patterns are specified. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

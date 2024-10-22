@@ -138,6 +138,7 @@ type
       property OnNotificationCloseRequested;
       property OnSaveAsUIShowing;
       property OnShowSaveAsUICompleted;
+      property OnSaveFileSecurityCheckStarting;
   end;
 
 {$IFDEF FPC}

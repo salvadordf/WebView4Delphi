@@ -170,6 +170,9 @@ const
   IID_ICoreWebView2SaveAsUIShowingEventHandler: TGUID = '{6BAA177E-3A2E-5CCF-9A13-FAD676CD0522}';
   IID_ICoreWebView2SaveAsUIShowingEventArgs: TGUID = '{55902952-0E0D-5AAA-A7D0-E833CDB34F62}';
   IID_ICoreWebView2ShowSaveAsUICompletedHandler: TGUID = '{E24B07E3-8169-5C34-994A-7F6478946A3C}';
+  IID_ICoreWebView2_26: TGUID = '{806268B8-F897-5685-88E5-C45FCA0B1A48}';
+  IID_ICoreWebView2SaveFileSecurityCheckStartingEventHandler: TGUID = '{7899576C-19E3-57C8-B7D1-55808292DE57}';
+  IID_ICoreWebView2SaveFileSecurityCheckStartingEventArgs: TGUID = '{CF4FF1D1-5A67-5660-8D63-EF699881EA65}';
   IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
   IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
   IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
@@ -3223,6 +3226,9 @@ type
   ICoreWebView2SaveAsUIShowingEventHandler = interface;
   ICoreWebView2SaveAsUIShowingEventArgs = interface;
   ICoreWebView2ShowSaveAsUICompletedHandler = interface;
+  ICoreWebView2_26 = interface;
+  ICoreWebView2SaveFileSecurityCheckStartingEventHandler = interface;
+  ICoreWebView2SaveFileSecurityCheckStartingEventArgs = interface;
   ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
   ICoreWebView2BrowserExtension = interface;
   ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
@@ -4566,9 +4572,9 @@ type
     /// <summary>
     /// Add an event handler for the `WebResourceRequested` event.
     /// `WebResourceRequested` runs when the WebView is performing a URL request
-    /// to a matching URL and resource context filter that was added with
-    /// `AddWebResourceRequestedFilter`.  At least one filter must be added for
-    /// the event to run.
+    /// to a matching URL and resource context and source kind filter that was
+    /// added with `AddWebResourceRequestedFilterWithRequestSourceKinds`.
+    /// At least one filter must be added for the event to run.
     ///
     /// The web resource requested may be blocked until the event handler returns
     /// if a deferral is not taken on the event args.  If a deferral is taken,
@@ -4592,6 +4598,13 @@ type
     /// </summary>
     function remove_WebResourceRequested(token: EventRegistrationToken): HResult; stdcall;
     /// <summary>
+    /// Warning: This method is deprecated and does not behave as expected for
+    /// iframes. It will cause the WebResourceRequested event to fire only for the
+    /// main frame and its same-origin iframes. Please use
+    /// `AddWebResourceRequestedFilterWithRequestSourceKinds`
+    /// instead, which will let the event to fire for all iframes on the
+    /// document.
+    ///
     /// Adds a URI and resource context filter for the `WebResourceRequested`
     /// event.  A web resource request with a resource context that matches this
     /// filter's resource context and a URI that matches this filter's URI
@@ -4633,13 +4646,17 @@ type
     function AddWebResourceRequestedFilter(uri: PWideChar;
                                            ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT): HResult; stdcall;
     /// <summary>
+    /// Warning: This method and `AddWebResourceRequestedFilter` are deprecated.
+    /// Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` and
+    /// `RemoveWebResourceRequestedFilterWithRequestSourceKinds` instead.
+    ///
     /// Removes a matching WebResource filter that was previously added for the
     /// `WebResourceRequested` event.  If the same filter was added multiple
     /// times, then it must be removed as many times as it was added for the
     /// removal to be effective.  Returns `E_INVALIDARG` for a filter that was
     /// never added.
     /// </summary>
-    function RemoveWebResourceRequestedFilter(uri: PWideChar; 
+    function RemoveWebResourceRequestedFilter(uri: PWideChar;
                                               ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT): HResult; stdcall;
     /// <summary>
     /// Add an event handler for the `WindowCloseRequested` event.
@@ -9600,6 +9617,139 @@ type
     /// Provides the result of the corresponding asynchronous method.
     /// </summary>
     function Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the ICoreWebView2_26 interface.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26">See the ICoreWebView2_26 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_26 = interface(ICoreWebView2_25)
+    ['{806268B8-F897-5685-88E5-C45FCA0B1A48}']
+    /// <summary>
+    /// Adds an event handler for the `SaveFileSecurityCheckStarting` event.
+    /// This event will be raised during system FileTypePolicy
+    /// checking the dangerous file extension list.
+    ///
+    /// Developers can specify their own logic for determining whether
+    /// to allow a particular type of file to be saved from the document origin URI.
+    /// Developers can also determine the save decision based on other criteria.
+    ///
+    /// Here are two properties in `ICoreWebView2SaveFileSecurityCheckStartingEventArgs`
+    /// to manage the decision: `CancelSave` and `SuppressDefaultPolicy`.
+    /// Table of Properties' value and result:
+    ///
+    /// | CancelSave | SuppressDefaultPolicy | Result
+    /// | ---------- | ------ | ---------------------
+    /// | False      | False  | Perform the default policy check. It may show the
+    /// |            |        | security warning UI if the file extension is
+    /// |            |        | dangerous.
+    /// | ---------- | ------ | ---------------------
+    /// | False      | True   | Skip the default policy check and the possible
+    /// |            |        | security warning. Start saving or downloading.
+    /// | ---------- | ------ | ---------------------
+    /// | True       | Any    | Skip the default policy check and the possible
+    /// |            |        | security warning. Abort save or download.
+    ///
+    /// \snippet ScenarioFileTypePolicy.cpp SuppressPolicyForExtension
+    /// </summary>
+    function add_SaveFileSecurityCheckStarting(const eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler;
+                                               out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_SaveFileSecurityCheckStarting`.
+    /// </summary>
+    function remove_SaveFileSecurityCheckStarting(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `SaveFileSecurityCheckStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventhandler">See the ICoreWebView2SaveFileSecurityCheckStartingEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2SaveFileSecurityCheckStartingEventHandler = interface(IUnknown)
+    ['{7899576C-19E3-57C8-B7D1-55808292DE57}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2;
+                    const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// The event args for `SaveFileSecurityCheckStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventargs">See the ICoreWebView2SaveFileSecurityCheckStartingEventArgs article.</see></para>
+  /// </remarks>
+  ICoreWebView2SaveFileSecurityCheckStartingEventArgs = interface(IUnknown)
+    ['{CF4FF1D1-5A67-5660-8D63-EF699881EA65}']
+    /// <summary>
+    /// Gets the `CancelSave` property.
+    /// </summary>
+    function Get_CancelSave(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Set if cancel the upcoming save/download. `TRUE` means the action
+    /// will be cancelled before validations in default policy.
+    ///
+    /// The default value is `FALSE`.
+    /// </summary>
+    function Set_CancelSave(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Get the document origin URI of this file save operation.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_DocumentOriginUri(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Get the extension of file to be saved.
+    ///
+    /// The file extension is the extension portion of the FilePath,
+    /// preserving original case.
+    ///
+    /// Only final extension with period "." will be provided. For example,
+    /// "*.tar.gz" is a double extension, where the ".gz" will be its
+    /// final extension.
+    ///
+    /// File extension can be empty, if the file name has no extension
+    /// at all.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FileExtension(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Get the full path of file to be saved. This includes the
+    /// file name and extension.
+    ///
+    /// This method doesn't provide path validation, the returned
+    /// string may longer than MAX_PATH.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FilePath(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Gets the `SuppressDefaultPolicy` property.
+    /// </summary>
+    function Get_SuppressDefaultPolicy(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Set if the default policy checking and security warning will be
+    /// suppressed. `TRUE` means it will be suppressed.
+    ///
+    /// The default value is `FALSE`.
+    /// </summary>
+    function Set_SuppressDefaultPolicy(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+    /// the SaveFileSecurityCheckStartingEvent.
+    ///
+    /// The default policy checking and any default UI will be blocked temporarily,
+    /// saving file to local won't start, until the deferral is completed.
+    /// </summary>
+    function GetDeferral(out value: ICoreWebView2Deferral): HResult; stdcall;
   end;
 
   /// <summary>

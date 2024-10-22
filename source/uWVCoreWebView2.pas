@@ -42,6 +42,7 @@ type
       FBaseIntf23                              : ICoreWebView2_23;
       FBaseIntf24                              : ICoreWebView2_24;
       FBaseIntf25                              : ICoreWebView2_25;
+      FBaseIntf26                              : ICoreWebView2_26;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -74,6 +75,7 @@ type
       FLaunchingExternalUriSchemeToken         : EventRegistrationToken;
       FNotificationReceivedToken               : EventRegistrationToken;
       FSaveAsUIShowingToken                    : EventRegistrationToken;
+      FSaveFileSecurityCheckStartingToken      : EventRegistrationToken;
       FFrameIDCopy                             : cardinal;
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -142,6 +144,7 @@ type
       function  AddLaunchingExternalUriScheme(const aBrowserComponent : TComponent) : boolean;
       function  AddNotificationReceived(const aBrowserComponent : TComponent) : boolean;
       function  AddSaveAsUIShowing(const aBrowserComponent : TComponent) : boolean;
+      function  AddSaveFileSecurityCheckStarting(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -481,6 +484,13 @@ type
       /// </summary>
       function    CallDevToolsProtocolMethodForSession(const aSessionId, aMethodName, aParametersAsJson : wvstring; aExecutionID : integer; const aBrowserComponent : TComponent) : boolean;
       /// <summary>
+      /// Warning: This method is deprecated and does not behave as expected for
+      /// iframes. It will cause the WebResourceRequested event to fire only for the
+      /// main frame and its same-origin iframes. Please use
+      /// `AddWebResourceRequestedFilterWithRequestSourceKinds`
+      /// instead, which will let the event to fire for all iframes on the
+      /// document.
+      ///
       /// Adds a URI and resource context filter for the `WebResourceRequested`
       /// event.  A web resource request with a resource context that matches this
       /// filter's resource context and a URI that matches this filter's URI
@@ -522,11 +532,14 @@ type
       /// </summary>
       function    AddWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
       /// <summary>
-      /// Removes a matching WebResource filter that was previously added for the
+      /// <para>Warning: This method and `AddWebResourceRequestedFilter` are deprecated.
+      /// Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` and
+      /// `RemoveWebResourceRequestedFilterWithRequestSourceKinds` instead.</para>
+      /// <para>Removes a matching WebResource filter that was previously added for the
       /// `WebResourceRequested` event.  If the same filter was added multiple
       /// times, then it must be removed as many times as it was added for the
       /// removal to be effective.  Returns `E_INVALIDARG` for a filter that was
-      /// never added.
+      /// never added.</para>
       /// </summary>
       function    RemoveWebResourceRequestedFilter(const URI : wvstring; ResourceContext: TWVWebResourceContext) : boolean;
       /// <summary>
@@ -1111,8 +1124,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_21, FBaseIntf21) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_22, FBaseIntf22) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_23, FBaseIntf23) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_24, FBaseIntf24) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_25, FBaseIntf25);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_24, FBaseIntf24) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_25, FBaseIntf25) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_26, FBaseIntf26);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -1169,6 +1183,7 @@ begin
   FBaseIntf23          := nil;
   FBaseIntf24          := nil;
   FBaseIntf25          := nil;
+  FBaseIntf26          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
   FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
@@ -1210,6 +1225,7 @@ begin
   FLaunchingExternalUriSchemeToken.value         := 0;
   FNotificationReceivedToken.value               := 0;
   FSaveAsUIShowingToken.value                    := 0;
+  FSaveFileSecurityCheckStartingToken.value      := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -1339,6 +1355,10 @@ begin
           if assigned(FBaseIntf25) and
              (FSaveAsUIShowingToken.value <> 0) then
             FBaseIntf25.remove_SaveAsUIShowing(FSaveAsUIShowingToken);
+
+          if assigned(FBaseIntf26) and
+             (FSaveFileSecurityCheckStartingToken.value <> 0) then
+            FBaseIntf26.remove_SaveFileSecurityCheckStarting(FSaveFileSecurityCheckStartingToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -1831,6 +1851,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddSaveFileSecurityCheckStarting(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2SaveFileSecurityCheckStartingEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf26) and (FSaveFileSecurityCheckStartingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2SaveFileSecurityCheckStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf26.add_SaveFileSecurityCheckStarting(TempHandler, FSaveFileSecurityCheckStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -1864,7 +1899,8 @@ begin
             AddFaviconChanged(aBrowserComponent)                          and
             AddLaunchingExternalUriScheme(aBrowserComponent)              and
             AddNotificationReceived(aBrowserComponent)                    and
-            AddSaveAsUIShowing(aBrowserComponent);
+            AddSaveAsUIShowing(aBrowserComponent)                         and
+            AddSaveFileSecurityCheckStarting(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;

@@ -2061,6 +2061,82 @@ type
       property Kind                          : TWVSaveAsKind                                     read GetKind                   write SetKind;
   end;
 
+  /// <summary>
+  /// The event args for `SaveFileSecurityCheckStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventargs">See the ICoreWebView2SaveFileSecurityCheckStartingEventArgs article.</see></para>
+  /// </remarks>
+  TCoreWebView2SaveFileSecurityCheckStartingEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2SaveFileSecurityCheckStartingEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetCancelSave : boolean;
+      function  GetDocumentOriginUri : wvstring;
+      function  GetFileExtension : wvstring;
+      function  GetFilePath : wvstring;
+      function  GetSuppressDefaultPolicy : boolean;
+      function  GetDeferral : ICoreWebView2Deferral;
+
+      procedure SetCancelSave(aValue: boolean);
+      procedure SetSuppressDefaultPolicy(aValue: boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2SaveFileSecurityCheckStartingEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
+      property Initialized                   : boolean                                                    read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
+      property BaseIntf                      : ICoreWebView2SaveFileSecurityCheckStartingEventArgs        read FBaseIntf;
+      /// <summary>
+      /// Set if cancel the upcoming save/download. `TRUE` means the action
+      /// will be cancelled before validations in default policy.
+      /// The default value is `FALSE`.
+      /// </summary>
+      property CancelSave                    : boolean                                                    read GetCancelSave             write SetCancelSave;
+      /// <summary>
+      /// Get the document origin URI of this file save operation.
+      /// </summary>
+      property DocumentOriginUri             : wvstring                                                   read GetDocumentOriginUri;
+      /// <summary>
+      /// Get the extension of file to be saved.
+      /// The file extension is the extension portion of the FilePath,
+      /// preserving original case.
+      /// Only final extension with period "." will be provided. For example,
+      /// "*.tar.gz" is a double extension, where the ".gz" will be its
+      /// final extension.
+      /// File extension can be empty, if the file name has no extension
+      /// at all.
+      /// </summary>
+      property FileExtension                 : wvstring                                                   read GetFileExtension;
+      /// <summary>
+      /// Get the full path of file to be saved. This includes the
+      /// file name and extension.
+      /// This method doesn't provide path validation, the returned
+      /// string may longer than MAX_PATH.
+      /// </summary>
+      property FilePath                      : wvstring                                                   read GetFilePath;
+      /// <summary>
+      /// Set if the default policy checking and security warning will be
+      /// suppressed. `TRUE` means it will be suppressed.
+      /// The default value is `FALSE`.
+      /// </summary>
+      property SuppressDefaultPolicy         : boolean                                                    read GetSuppressDefaultPolicy  write SetSuppressDefaultPolicy;
+      /// <summary>
+      /// Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+      /// the SaveFileSecurityCheckStartingEvent.
+      /// The default policy checking and any default UI will be blocked temporarily,
+      /// saving file to local won't start, until the deferral is completed.
+      /// </summary>
+      property Deferral                      : ICoreWebView2Deferral                                      read GetDeferral;
+  end;
+
 implementation
 
 uses
@@ -4355,6 +4431,116 @@ procedure TCoreWebView2SaveAsUIShowingEventArgs.SetKind(aValue : TWVSaveAsKind);
 begin
   if Initialized then
     FBaseIntf.Set_Kind(aValue);
+end;
+
+
+// TCoreWebView2SaveFileSecurityCheckStartingEventArgs
+
+constructor TCoreWebView2SaveFileSecurityCheckStartingEventArgs.Create(const aArgs: ICoreWebView2SaveFileSecurityCheckStartingEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2SaveFileSecurityCheckStartingEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetCancelSave : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_CancelSave(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetDocumentOriginUri : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_DocumentOriginUri(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetFileExtension : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_FileExtension(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetFilePath : wvstring;
+var
+  TempString : PWideChar;
+begin
+  Result     := '';
+  TempString := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_FilePath(TempString)) then
+    begin
+      Result := TempString;
+      CoTaskMemFree(TempString);
+    end;
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetSuppressDefaultPolicy : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_SuppressDefaultPolicy(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventArgs.GetDeferral : ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2SaveFileSecurityCheckStartingEventArgs.SetCancelSave(aValue: boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_CancelSave(ord(aValue));
+end;
+
+procedure TCoreWebView2SaveFileSecurityCheckStartingEventArgs.SetSuppressDefaultPolicy(aValue: boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_SuppressDefaultPolicy(ord(aValue));
 end;
 
 end.

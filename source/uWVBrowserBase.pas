@@ -180,6 +180,7 @@ type
       FOnNotificationCloseRequested                   : TOnNotificationCloseRequestedEvent;
       FOnSaveAsUIShowing                              : TOnSaveAsUIShowingEvent;
       FOnShowSaveAsUICompleted                        : TOnShowSaveAsUICompletedEvent;
+      FOnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -401,6 +402,7 @@ type
       function NotificationCloseRequestedEventHandler_Invoke(const sender: ICoreWebView2Notification; const args: IUnknown): HRESULT;
       function SaveAsUIShowingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs): HRESULT;
       function ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HRESULT;
+      function SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -496,6 +498,7 @@ type
       procedure doOnNotificationCloseRequestedEvent(const sender: ICoreWebView2Notification; const args: IUnknown); virtual;
       procedure doOnSaveAsUIShowingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs); virtual;
       procedure doOnShowSaveAsUICompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT); virtual;
+      procedure doOnSaveFileSecurityCheckStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -1034,6 +1037,12 @@ type
       /// </remarks>
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
       /// <summary>
+      /// <para>Warning: This method is deprecated and does not behave as expected for
+      /// iframes. It will cause the WebResourceRequested event to fire only for the
+      /// main frame and its same-origin iframes. Please use
+      /// `AddWebResourceRequestedFilterWithRequestSourceKinds`
+      /// instead, which will let the event to fire for all iframes on the
+      /// document.</para>
       /// <para>Adds a URI and resource context filter for the `WebResourceRequested`
       /// event.  A web resource request with a resource context that matches this
       /// filter's resource context and a URI that matches this filter's URI
@@ -1072,13 +1081,14 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addwebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       function    AddWebResourceRequestedFilter(const aURI: wvstring; aResourceContext: TWVWebResourceContext) : boolean;
-      /// <summary>
-      /// Removes a matching WebResource filter that was previously added for the
+      /// <para>Warning: This method and `AddWebResourceRequestedFilter` are deprecated.
+      /// Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` and
+      /// `RemoveWebResourceRequestedFilterWithRequestSourceKinds` instead.</para>
+      /// <para>Removes a matching WebResource filter that was previously added for the
       /// `WebResourceRequested` event.  If the same filter was added multiple
       /// times, then it must be removed as many times as it was added for the
-      /// removal to be effective.  Returns false for a filter that was
-      /// never added.
-      /// </summary>
+      /// removal to be effective.  Returns `E_INVALIDARG` for a filter that was
+      /// never added.</para>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#removewebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
       /// </remarks>
@@ -3073,9 +3083,9 @@ type
       property OnWebMessageReceived                            : TOnWebMessageReceivedEvent                            read FOnWebMessageReceived                            write FOnWebMessageReceived;
       /// <summary>
       /// <para>`OnWebResourceRequested` runs when the WebView is performing a URL request
-      /// to a matching URL and resource context filter that was added with
-      /// `AddWebResourceRequestedFilter`.  At least one filter must be added for
-      /// the event to run.</para>
+      /// to a matching URL and resource context and source kind filter that was
+      /// added with `AddWebResourceRequestedFilterWithRequestSourceKinds`.
+      /// At least one filter must be added for the event to run.</para>
       /// <para>The web resource requested may be blocked until the event handler returns
       /// if a deferral is not taken on the event args.  If a deferral is taken,
       /// then the web resource requested is blocked until the deferral is
@@ -3798,6 +3808,33 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">See the ICoreWebView2_25 article.</see></para>
       /// </remarks>
       property OnShowSaveAsUICompleted                        : TOnShowSaveAsUICompletedEvent                          read FOnShowSaveAsUICompleted                         write FOnShowSaveAsUICompleted;
+      /// <summary>
+      /// <para>This event will be raised during system FileTypePolicy
+      /// checking the dangerous file extension list.</para>
+      /// <para>Developers can specify their own logic for determining whether
+      /// to allow a particular type of file to be saved from the document origin URI.
+      /// Developers can also determine the save decision based on other criteria.</para>
+      /// <para>Here are two properties in `ICoreWebView2SaveFileSecurityCheckStartingEventArgs`
+      /// to manage the decision: `CancelSave` and `SuppressDefaultPolicy`.</para>
+      /// <para>Table of Properties' value and result:</para>
+      /// <code>
+      /// | CancelSave | SuppressDefaultPolicy | Result
+      /// | ---------- | ------ | ---------------------
+      /// | False      | False  | Perform the default policy check. It may show the
+      /// |            |        | security warning UI if the file extension is
+      /// |            |        | dangerous.
+      /// | ---------- | ------ | ---------------------
+      /// | False      | True   | Skip the default policy check and the possible
+      /// |            |        | security warning. Start saving or downloading.
+      /// | ---------- | ------ | ---------------------
+      /// | True       | Any    | Skip the default policy check and the possible
+      /// |            |        | security warning. Abort save or download.
+      /// </code>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26#add_savefilesecuritycheckstarting">See the ICoreWebView2_26 article.</see></para>
+      /// </remarks>
+      property OnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent                  read FOnSaveFileSecurityCheckStarting                 write FOnSaveFileSecurityCheckStarting;
   end;
 
 implementation
@@ -3959,6 +3996,7 @@ begin
   FOnNotificationCloseRequested                    := nil;
   FOnSaveAsUIShowing                               := nil;
   FOnShowSaveAsUICompleted                         := nil;
+  FOnSaveFileSecurityCheckStarting                 := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -4967,13 +5005,15 @@ begin
     FOnGetFaviconCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnPrintCompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_PRINT_STATUS);
+procedure TWVBrowserBase.doOnPrintCompletedEvent(errorCode : HResult;
+                                                 result_   : COREWEBVIEW2_PRINT_STATUS);
 begin
   if assigned(FOnPrintCompleted) then
     FOnPrintCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnPrintToPdfStreamCompletedEvent(errorCode: HResult; const result_: IStream);
+procedure TWVBrowserBase.doOnPrintToPdfStreamCompletedEvent(      errorCode : HResult;
+                                                            const result_   : IStream);
 begin
   if assigned(FOnPrintToPdfStreamCompleted) then
     FOnPrintToPdfStreamCompleted(self, errorCode, result_);
@@ -5003,7 +5043,8 @@ begin
     end;
 end;
 
-procedure TWVBrowserBase.doOnGetNonDefaultPermissionSettingsCompleted(errorCode: HResult; const result_: ICoreWebView2PermissionSettingCollectionView);
+procedure TWVBrowserBase.doOnGetNonDefaultPermissionSettingsCompleted(      errorCode : HResult;
+                                                                      const result_   : ICoreWebView2PermissionSettingCollectionView);
 begin
   if assigned(FOnGetNonDefaultPermissionSettingsCompleted) then
     FOnGetNonDefaultPermissionSettingsCompleted(self, errorCode, result_);
@@ -5015,82 +5056,103 @@ begin
     FOnSetPermissionStateCompleted(self, errorCode);
 end;
 
-procedure TWVBrowserBase.doOnLaunchingExternalUriSchemeEvent(const sender: ICoreWebView2; const args: ICoreWebView2LaunchingExternalUriSchemeEventArgs);
+procedure TWVBrowserBase.doOnLaunchingExternalUriSchemeEvent(const sender : ICoreWebView2;
+                                                             const args   : ICoreWebView2LaunchingExternalUriSchemeEventArgs);
 begin
   if assigned(FOnLaunchingExternalUriScheme) then
     FOnLaunchingExternalUriScheme(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnGetProcessExtendedInfosCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ProcessExtendedInfoCollection);
+procedure TWVBrowserBase.doOnGetProcessExtendedInfosCompletedEvent(      errorCode : HResult;
+                                                                   const result_   : ICoreWebView2ProcessExtendedInfoCollection);
 begin
   if assigned(FOnGetProcessExtendedInfosCompleted) then
     FOnGetProcessExtendedInfosCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnBrowserExtensionRemoveCompletedEvent(errorCode: HResult; const aExtensionID: wvstring);
+procedure TWVBrowserBase.doOnBrowserExtensionRemoveCompletedEvent(      errorCode    : HResult;
+                                                                  const aExtensionID : wvstring);
 begin
   if assigned(FOnBrowserExtensionRemoveCompleted) then
     FOnBrowserExtensionRemoveCompleted(self, errorCode, aExtensionID);
 end;
 
-procedure TWVBrowserBase.doOnBrowserExtensionEnableCompletedEvent(errorCode: HResult; const aExtensionID: wvstring);
+procedure TWVBrowserBase.doOnBrowserExtensionEnableCompletedEvent(      errorCode    : HResult;
+                                                                  const aExtensionID : wvstring);
 begin
   if assigned(FOnBrowserExtensionEnableCompleted) then
     FOnBrowserExtensionEnableCompleted(self, errorCode, aExtensionID);
 end;
 
-procedure TWVBrowserBase.doOnProfileAddBrowserExtensionCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtension);
+procedure TWVBrowserBase.doOnProfileAddBrowserExtensionCompletedEvent(      errorCode : HResult;
+                                                                      const result_   : ICoreWebView2BrowserExtension);
 begin
   if assigned(FOnProfileAddBrowserExtensionCompleted) then
     FOnProfileAddBrowserExtensionCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnProfileGetBrowserExtensionsCompletedEvent(errorCode: HResult; const result_: ICoreWebView2BrowserExtensionList);
+procedure TWVBrowserBase.doOnProfileGetBrowserExtensionsCompletedEvent(      errorCode : HResult;
+                                                                       const result_   : ICoreWebView2BrowserExtensionList);
 begin
   if assigned(FOnProfileGetBrowserExtensionsCompleted) then
     FOnProfileGetBrowserExtensionsCompleted(self, errorCode, result_);
 end;
 
-procedure TWVBrowserBase.doOnProfileDeletedEvent(const sender: ICoreWebView2Profile; const args: IUnknown);
+procedure TWVBrowserBase.doOnProfileDeletedEvent(const sender : ICoreWebView2Profile;
+                                                 const args   : IUnknown);
 begin
   if assigned(FOnProfileDeleted) then
     FOnProfileDeleted(self, sender);
 end;
 
-procedure TWVBrowserBase.doOnExecuteScriptWithResultCompletedEvent(errorCode: HResult; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID : integer);
+procedure TWVBrowserBase.doOnExecuteScriptWithResultCompletedEvent(      errorCode    : HResult;
+                                                                   const result_      : ICoreWebView2ExecuteScriptResult;
+                                                                         aExecutionID : integer);
 begin
   if assigned(FOnExecuteScriptWithResultCompleted) then
     FOnExecuteScriptWithResultCompleted(self, errorCode, result_, aExecutionID);
 end;
 
-procedure TWVBrowserBase.doOnNonClientRegionChangedEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2NonClientRegionChangedEventArgs);
+procedure TWVBrowserBase.doOnNonClientRegionChangedEvent(const sender : ICoreWebView2CompositionController;
+                                                         const args   : ICoreWebView2NonClientRegionChangedEventArgs);
 begin
   if assigned(FOnNonClientRegionChanged) then
     FOnNonClientRegionChanged(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnNotificationReceivedEvent(const sender: ICoreWebView2; const args: ICoreWebView2NotificationReceivedEventArgs);
+procedure TWVBrowserBase.doOnNotificationReceivedEvent(const sender : ICoreWebView2;
+                                                       const args   : ICoreWebView2NotificationReceivedEventArgs);
 begin
   if assigned(FOnNotificationReceived) then
     FOnNotificationReceived(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnNotificationCloseRequestedEvent(const sender: ICoreWebView2Notification; const args: IUnknown);
+procedure TWVBrowserBase.doOnNotificationCloseRequestedEvent(const sender : ICoreWebView2Notification;
+                                                             const args   : IUnknown);
 begin
   if assigned(FOnNotificationCloseRequested) then
     FOnNotificationCloseRequested(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnSaveAsUIShowingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs);
+procedure TWVBrowserBase.doOnSaveAsUIShowingEvent(const sender : ICoreWebView2;
+                                                  const args   : ICoreWebView2SaveAsUIShowingEventArgs);
 begin
   if assigned(FOnSaveAsUIShowing) then
     FOnSaveAsUIShowing(self, sender, args);
 end;
 
-procedure TWVBrowserBase.doOnShowSaveAsUICompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT);
+procedure TWVBrowserBase.doOnShowSaveAsUICompletedEvent(errorCode : HResult;
+                                                        result_   : COREWEBVIEW2_SAVE_AS_UI_RESULT);
 begin
   if assigned(FOnShowSaveAsUICompleted) then
     FOnShowSaveAsUICompleted(self, errorCode, result_);
+end;
+
+procedure TWVBrowserBase.doOnSaveFileSecurityCheckStartingEvent(const sender : ICoreWebView2;
+                                                                const args   : ICoreWebView2SaveFileSecurityCheckStartingEventArgs);
+begin
+  if assigned(FOnSaveFileSecurityCheckStarting) then
+    FOnSaveFileSecurityCheckStarting(self, sender, args);
 end;
 
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
@@ -5462,6 +5524,12 @@ function TWVBrowserBase.ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; 
 begin
   Result := S_OK;
   doOnShowSaveAsUICompletedEvent(errorCode, result_);
+end;
+
+function TWVBrowserBase.SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnSaveFileSecurityCheckStartingEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;

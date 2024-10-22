@@ -1513,6 +1513,23 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives `SaveFileSecurityCheckStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventhandler">See the ICoreWebView2SaveFileSecurityCheckStartingEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2SaveFileSecurityCheckStartingEventHandler = class(TInterfacedObject, ICoreWebView2SaveFileSecurityCheckStartingEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -3666,6 +3683,32 @@ function TCoreWebView2ShowSaveAsUICompletedHandler.Invoke(errorCode: HResult; re
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).ShowSaveAsUICompletedHandler_Invoke(errorCode, result_)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2SaveFileSecurityCheckStartingEventHandler
+
+constructor TCoreWebView2SaveFileSecurityCheckStartingEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2SaveFileSecurityCheckStartingEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2SaveFileSecurityCheckStartingEventHandler.Invoke(const sender : ICoreWebView2;
+                                                                       const args   : ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).SaveFileSecurityCheckStartingEventHandler_Invoke(sender, args)
    else
     Result := E_FAIL;
 end;

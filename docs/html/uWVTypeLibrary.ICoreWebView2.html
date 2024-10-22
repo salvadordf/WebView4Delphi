@@ -924,7 +924,7 @@
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `WebResourceRequested` event. `WebResourceRequested` runs when the WebView is performing a URL request to a matching URL and resource context filter that was added with `AddWebResourceRequestedFilter`. At least one filter must be added for the event to run.
+ Add an event handler for the `WebResourceRequested` event. `WebResourceRequested` runs when the WebView is performing a URL request to a matching URL and resource context and source kind filter that was added with `AddWebResourceRequestedFilterWithRequestSourceKinds`. At least one filter must be added for the event to run.
 
 <p>The web resource requested may be blocked until the event handler returns if a deferral is not taken on the event args. If a deferral is taken, then the web resource requested is blocked until the deferral is completed.
 
@@ -952,7 +952,9 @@
 </tr>
 <tr><td colspan="2">
 <p>
- Adds a URI and resource context filter for the `WebResourceRequested` event. A web resource request with a resource context that matches this filter's resource context and a URI that matches this filter's URI wildcard string will be raised via the `WebResourceRequested` event.
+ Warning: This method is deprecated and does not behave as expected for iframes. It will cause the WebResourceRequested event to fire only for the main frame and its same-origin iframes. Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` instead, which will let the event to fire for all iframes on the document.
+
+<p>Adds a URI and resource context filter for the `WebResourceRequested` event. A web resource request with a resource context that matches this filter's resource context and a URI that matches this filter's URI wildcard string will be raised via the `WebResourceRequested` event.
 
 <p>The `uri` parameter value is a wildcard string matched against the URI of the web resource request. This is a glob style wildcard string in which a `*` matches zero or more characters and a `?` matches exactly one character. These wildcard characters can be escaped using a backslash just before the wildcard character in order to represent the literal `*` or `?`.
 
@@ -972,7 +974,9 @@
 </tr>
 <tr><td colspan="2">
 <p>
- Removes a matching WebResource filter that was previously added for the `WebResourceRequested` event. If the same filter was added multiple times, then it must be removed as many times as it was added for the removal to be effective. Returns `E_INVALIDARG` for a filter that was never added. </p>
+ Warning: This method and `AddWebResourceRequestedFilter` are deprecated. Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` and `RemoveWebResourceRequestedFilterWithRequestSourceKinds` instead.
+
+<p>Removes a matching WebResource filter that was previously added for the `WebResourceRequested` event. If the same filter was added multiple times, then it must be removed as many times as it was added for the removal to be effective. Returns `E_INVALIDARG` for a filter that was never added. </p>
 </td></tr>
 </table>
 <table class="detail wide_list">

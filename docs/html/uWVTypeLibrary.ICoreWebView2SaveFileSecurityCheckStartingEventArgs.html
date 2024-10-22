@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2SaveFileSecurityCheckStartingEventArgs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2SaveFileSecurityCheckStartingEventArgs"></span><h1 class="cio">Interface ICoreWebView2SaveFileSecurityCheckStartingEventArgs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2SaveFileSecurityCheckStartingEventArgs = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ The event args for `SaveFileSecurityCheckStarting` event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventargs">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventargs</a>&quot;&gt;See the ICoreWebView2SaveFileSecurityCheckStartingEventArgs article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2SaveFileSecurityCheckStartingEventArgs</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Get_CancelSave-Integer-">Get_CancelSave</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Set_CancelSave-Integer-">Set_CancelSave</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Get_DocumentOriginUri-PWideChar-">Get_DocumentOriginUri</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Get_FileExtension-PWideChar-">Get_FileExtension</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Get_FilePath-PWideChar-">Get_FilePath</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Get_SuppressDefaultPolicy-Integer-">Get_SuppressDefaultPolicy</a></strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#Set_SuppressDefaultPolicy-Integer-">Set_SuppressDefaultPolicy</a></strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html#GetDeferral-ICoreWebView2Deferral-">GetDeferral</a></strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_CancelSave-Integer-"></span><code>function <strong>Get_CancelSave</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `CancelSave` property. </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{CF4FF1D1-5A67-5660-8D63-EF699881EA65}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_CancelSave-Integer-"></span><code>function <strong>Set_CancelSave</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set if cancel the upcoming save/download. `TRUE` means the action will be cancelled before validations in default policy.
+
+<p>The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_DocumentOriginUri-PWideChar-"></span><code>function <strong>Get_DocumentOriginUri</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the document origin URI of this file save operation.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_FileExtension-PWideChar-"></span><code>function <strong>Get_FileExtension</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the extension of file to be saved.
+
+<p>The file extension is the extension portion of the FilePath, preserving original case.
+
+<p>Only final extension with period &quot;.&quot; will be provided. For example, &quot;*.tar.gz&quot; is a double extension, where the &quot;.gz&quot; will be its final extension.
+
+<p>File extension can be empty, if the file name has no extension at all.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_FilePath-PWideChar-"></span><code>function <strong>Get_FilePath</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the full path of file to be saved. This includes the file name and extension.
+
+<p>This method doesn't provide path validation, the returned string may longer than MAX_PATH.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_SuppressDefaultPolicy-Integer-"></span><code>function <strong>Get_SuppressDefaultPolicy</strong>(out value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the `SuppressDefaultPolicy` property. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_SuppressDefaultPolicy-Integer-"></span><code>function <strong>Set_SuppressDefaultPolicy</strong>(value: Integer): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set if the default policy checking and security warning will be suppressed. `TRUE` means it will be suppressed.
+
+<p>The default value is `FALSE`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDeferral-ICoreWebView2Deferral-"></span><code>function <strong>GetDeferral</strong>(out value: <a href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns an `ICoreWebView2Deferral` object. Use this operation to complete the SaveFileSecurityCheckStartingEvent.
+
+<p>The default policy checking and any default UI will be blocked temporarily, saving file to local won't start, until the deferral is completed. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

@@ -102,6 +102,7 @@ type
   TOnNotificationCloseRequestedEvent                       = procedure(Sender: TObject; const aNotification: ICoreWebView2Notification; const aArgs: IUnknown) of object;
   TOnSaveAsUIShowingEvent                                  = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SaveAsUIShowingEventArgs) of object;
   TOnShowSaveAsUICompletedEvent                            = procedure(Sender: TObject; aErrorCode: HResult; aResult: TWVSaveAsUIResult) of object;
+  TOnSaveFileSecurityCheckStartingEvent                    = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SaveFileSecurityCheckStartingEventArgs) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

@@ -279,6 +279,9 @@ type
 
     // ICoreWebView2ShowSaveAsUICompletedHandler
     function ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HResult;
+
+    // ICoreWebView2SaveFileSecurityCheckStartingEventHandler
+    function SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HResult;
   end;
 
 implementation
