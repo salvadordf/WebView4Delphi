@@ -181,6 +181,8 @@ type
       FOnSaveAsUIShowing                              : TOnSaveAsUIShowingEvent;
       FOnShowSaveAsUICompleted                        : TOnShowSaveAsUICompletedEvent;
       FOnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent;
+      FOnScreenCaptureStarting                        : TOnScreenCaptureStartingEvent;
+      FOnFrameScreenCaptureStarting                   : TOnFrameScreenCaptureStartingEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -403,6 +405,8 @@ type
       function SaveAsUIShowingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs): HRESULT;
       function ShowSaveAsUICompletedHandler_Invoke(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT): HRESULT;
       function SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HRESULT;
+      function ScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs): HRESULT;
+      function FrameScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -499,6 +503,8 @@ type
       procedure doOnSaveAsUIShowingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveAsUIShowingEventArgs); virtual;
       procedure doOnShowSaveAsUICompletedEvent(errorCode: HResult; result_: COREWEBVIEW2_SAVE_AS_UI_RESULT); virtual;
       procedure doOnSaveFileSecurityCheckStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs); virtual;
+      procedure doOnScreenCaptureStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs); virtual;
+      procedure doOnFrameScreenCaptureStartingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -3835,6 +3841,33 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26#add_savefilesecuritycheckstarting">See the ICoreWebView2_26 article.</see></para>
       /// </remarks>
       property OnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent                  read FOnSaveFileSecurityCheckStarting                 write FOnSaveFileSecurityCheckStarting;
+      /// <summary>
+      /// `OnScreenCaptureStarting` event is raised when the [Screen Capture API](https://www.w3.org/TR/screen-capture/)
+      /// is requested by the user using getDisplayMedia().
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_27#add_screencapturestarting">See the ICoreWebView2_27 article.</see></para>
+      /// </remarks>
+      property OnScreenCaptureStarting                        : TOnScreenCaptureStartingEvent                          read FOnScreenCaptureStarting                         write FOnScreenCaptureStarting;
+      /// <summary>
+      /// <para>`OnFrameScreenCaptureStarting` is raised when content in an iframe or any of its
+      /// descendant iframes requests permission to use the Screen Capture
+      /// API from getDisplayMedia().</para>
+      ///
+      /// <para>This relates to the `ScreenCaptureStarting` event on the
+      /// `CoreWebView2`.</para>
+      /// <para>Both these events will be raised in the case of an iframe requesting
+      /// screen capture. The `CoreWebView2Frame`'s event handlers will be invoked
+      /// before the event handlers on the `CoreWebView2`. If the `Handled`
+      /// property of the `ScreenCaptureStartingEventArgs` is set to TRUE
+      /// within the`CoreWebView2Frame` event handler, then the event will not
+      /// be raised on the `CoreWebView2`, and its event handlers will not be
+      /// invoked.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame6#add_screencapturestarting">See the ICoreWebView2Frame6 article.</see></para>
+      /// </remarks>
+      property OnFrameScreenCaptureStarting                   : TOnFrameScreenCaptureStartingEvent                     read FOnFrameScreenCaptureStarting                    write FOnFrameScreenCaptureStarting;
   end;
 
 implementation
@@ -3997,6 +4030,8 @@ begin
   FOnSaveAsUIShowing                               := nil;
   FOnShowSaveAsUICompleted                         := nil;
   FOnSaveFileSecurityCheckStarting                 := nil;
+  FOnScreenCaptureStarting                         := nil;
+  FOnFrameScreenCaptureStarting                    := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -5155,6 +5190,21 @@ begin
     FOnSaveFileSecurityCheckStarting(self, sender, args);
 end;
 
+procedure TWVBrowserBase.doOnScreenCaptureStartingEvent(const sender : ICoreWebView2;
+                                                        const args   : ICoreWebView2ScreenCaptureStartingEventArgs);
+begin
+  if assigned(FOnScreenCaptureStarting) then
+    FOnScreenCaptureStarting(self, sender, args);
+end;
+
+procedure TWVBrowserBase.doOnFrameScreenCaptureStartingEvent(const sender   : ICoreWebView2Frame;
+                                                             const args     : ICoreWebView2ScreenCaptureStartingEventArgs;
+                                                                   aFrameID : cardinal);
+begin
+  if assigned(FOnFrameScreenCaptureStarting) then
+    FOnFrameScreenCaptureStarting(self, sender, args, aFrameID);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -5530,6 +5580,18 @@ function TWVBrowserBase.SaveFileSecurityCheckStartingEventHandler_Invoke(const s
 begin
   Result := S_OK;
   doOnSaveFileSecurityCheckStartingEvent(sender, args);
+end;
+
+function TWVBrowserBase.ScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnScreenCaptureStartingEvent(sender, args);
+end;
+
+function TWVBrowserBase.FrameScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameScreenCaptureStartingEvent(sender, args, aFrameID);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;

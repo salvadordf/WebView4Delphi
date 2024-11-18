@@ -145,7 +145,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
           
             'https://www.sede.fnmt.gob.es/certificados/persona-fisica/verific' +
             'ar-estado'
-          'https://badssl.com/'
+          'https://progressier.com/pwa-capabilities/screen-capture-desktop'
           'edge://flags/'
           'edge://gpu/'
           'edge://about/'
@@ -253,6 +253,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnProfileAddBrowserExtensionCompleted = WVBrowser1ProfileAddBrowserExtensionCompleted
     OnProfileGetBrowserExtensionsCompleted = WVBrowser1ProfileGetBrowserExtensionsCompleted
     OnExecuteScriptWithResultCompleted = WVBrowser1ExecuteScriptWithResultCompleted
+    OnScreenCaptureStarting = WVBrowser1ScreenCaptureStarting
     Left = 48
     Top = 64
   end

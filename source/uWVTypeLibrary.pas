@@ -173,6 +173,10 @@ const
   IID_ICoreWebView2_26: TGUID = '{806268B8-F897-5685-88E5-C45FCA0B1A48}';
   IID_ICoreWebView2SaveFileSecurityCheckStartingEventHandler: TGUID = '{7899576C-19E3-57C8-B7D1-55808292DE57}';
   IID_ICoreWebView2SaveFileSecurityCheckStartingEventArgs: TGUID = '{CF4FF1D1-5A67-5660-8D63-EF699881EA65}';
+  IID_ICoreWebView2_27: TGUID = '{00FBE33B-8C07-517C-AA23-0DDD4B5F6FA0}';
+  IID_ICoreWebView2ScreenCaptureStartingEventHandler: TGUID = '{E24FF05A-1DB5-59D9-89F3-3C864268DB4A}';
+  IID_ICoreWebView2ScreenCaptureStartingEventArgs: TGUID = '{892C03FD-AEE3-5EBA-A1FA-6FD2F6484B2B}';
+  IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
   IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
   IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
   IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
@@ -218,7 +222,6 @@ const
   IID_ICoreWebView2ProcessExtendedInfo: TGUID = '{AF4C4C2E-45DB-11EE-BE56-0242AC120002}';
   IID_ICoreWebView2FrameInfoCollection: TGUID = '{8F834154-D38E-4D90-AFFB-6800A7272839}';
   IID_ICoreWebView2FrameInfoCollectionIterator: TGUID = '{1BF89E2D-1B2B-4629-B28F-05099B41BB03}';
-  IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
   IID_ICoreWebView2Environment14: TGUID = '{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}';
   IID_ICoreWebView2FileSystemHandle: TGUID = '{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}';
   IID_ICoreWebView2ObjectCollection: TGUID = '{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}';
@@ -242,6 +245,8 @@ const
   IID_ICoreWebView2PermissionRequestedEventArgs2: TGUID = '{74D7127F-9DE6-4200-8734-42D6FB4FF741}';
   IID_ICoreWebView2Frame4: TGUID = '{188782DC-92AA-4732-AB3C-FCC59F6F68B9}';
   IID_ICoreWebView2Frame5: TGUID = '{99D199C4-7305-11EE-B962-0242AC120002}';
+  IID_ICoreWebView2Frame6: TGUID = '{0DE611FD-31E9-5DDC-9D71-95EDA26EFF32}';
+  IID_ICoreWebView2FrameScreenCaptureStartingEventHandler: TGUID = '{A6C1D8AD-BB80-59C5-895B-FBA1698B9309}';
   IID_ICoreWebView2FrameInfo2: TGUID = '{56F85CFA-72C4-11EE-B962-0242AC120002}';
   IID_ICoreWebView2NavigationCompletedEventArgs2: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
@@ -2972,7 +2977,8 @@ const
 
   /// <summary>
   /// This enum contains values representing possible regions a given
-  /// point lies within.
+  /// point lies within. The values of this enum align with the
+  /// matching WM_NCHITTEST* window message return values.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl#corewebview2_non_client_region_kind">See the Globals article.</see></para>
@@ -3009,6 +3015,30 @@ const
   /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION = $00000002;
+  /// <summary>
+  /// A hit test region in the Webview2 which corresponds to the minimize
+  /// window control button.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE = $00000008;
+  /// <summary>
+  /// A hit test region in the Webview2 which corresponds to the maximize
+  /// window control button.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE = $00000009;
+  /// <summary>
+  /// A hit test region in the Webview2 which corresponds to the close
+  /// window control button.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_NON_CLIENT_REGION_KIND values.</para>
+  /// </remarks>
+  COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE = $00000014;
 
 type
   /// <summary>
@@ -3229,6 +3259,10 @@ type
   ICoreWebView2_26 = interface;
   ICoreWebView2SaveFileSecurityCheckStartingEventHandler = interface;
   ICoreWebView2SaveFileSecurityCheckStartingEventArgs = interface;
+  ICoreWebView2_27 = interface;
+  ICoreWebView2ScreenCaptureStartingEventHandler = interface;
+  ICoreWebView2ScreenCaptureStartingEventArgs = interface;
+  ICoreWebView2FrameInfo = interface;
   ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
   ICoreWebView2BrowserExtension = interface;
   ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
@@ -3274,7 +3308,6 @@ type
   ICoreWebView2ProcessExtendedInfo = interface;
   ICoreWebView2FrameInfoCollection = interface;
   ICoreWebView2FrameInfoCollectionIterator = interface;
-  ICoreWebView2FrameInfo = interface;
   ICoreWebView2Environment14 = interface;
   ICoreWebView2FileSystemHandle = interface;
   ICoreWebView2ObjectCollection = interface;
@@ -3298,6 +3331,8 @@ type
   ICoreWebView2PermissionRequestedEventArgs2 = interface;
   ICoreWebView2Frame4 = interface;
   ICoreWebView2Frame5 = interface;
+  ICoreWebView2Frame6 = interface;
+  ICoreWebView2FrameScreenCaptureStartingEventHandler = interface;
   ICoreWebView2FrameInfo2 = interface;
   ICoreWebView2NavigationCompletedEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs2 = interface;
@@ -9753,6 +9788,121 @@ type
   end;
 
   /// <summary>
+  /// This interface is an extension of `ICoreWebView2` that supports the ScreenCaptureStarting event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_27">See the ICoreWebView2_27 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_27 = interface(ICoreWebView2_26)
+    ['{00FBE33B-8C07-517C-AA23-0DDD4B5F6FA0}']
+    /// <summary>
+    /// Adds an event handler for the `ScreenCaptureStarting` event.
+    /// Add an event handler for the `ScreenCaptureStarting` event.
+    /// `ScreenCaptureStarting` event is raised when the [Screen Capture API](https://www.w3.org/TR/screen-capture/)
+    /// is requested by the user using getDisplayMedia().
+    /// \snippet ScenarioScreenCapture.cpp ScreenCaptureStarting0
+    /// </summary>
+    function add_ScreenCaptureStarting(const eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler;
+                                       out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_ScreenCaptureStarting`.
+    /// </summary>
+    function remove_ScreenCaptureStarting(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `ScreenCaptureStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2screencapturestartingeventhandler">See the ICoreWebView2ScreenCaptureStartingEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ScreenCaptureStartingEventHandler = interface(IUnknown)
+    ['{E24FF05A-1DB5-59D9-89F3-3C864268DB4A}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2;
+                    const args: ICoreWebView2ScreenCaptureStartingEventArgs): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Event args for the `ScreenCaptureStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2screencapturestartingeventargs">See the ICoreWebView2ScreenCaptureStartingEventArgs article.</see></para>
+  /// </remarks>
+  ICoreWebView2ScreenCaptureStartingEventArgs = interface(IUnknown)
+    ['{892C03FD-AEE3-5EBA-A1FA-6FD2F6484B2B}']
+    /// <summary>
+    /// Gets the `Cancel` property.
+    /// </summary>
+    function Get_Cancel(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// The host may set this flag to cancel the screen capture. If canceled,
+    /// the screen capture UI is not displayed regardless of the
+    /// `Handled` property.
+    /// On the script side, it will return with a NotAllowedError as Permission denied.
+    /// </summary>
+    function Set_Cancel(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Gets the `Handled` property.
+    /// </summary>
+    function Get_Handled(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// By default, both the `ScreenCaptureStarting` event handlers on the
+    /// `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the
+    /// `CoreWebView2Frame` event handlers invoked first. The host may
+    /// set this flag to `TRUE` within the `CoreWebView2Frame` event handlers
+    /// to prevent the remaining `CoreWebView2` event handlers from being
+    /// invoked. If the flag is set to `FALSE` within the `CoreWebView2Frame`
+    /// event handlers, downstream handlers can update the `Cancel` property.
+    ///
+    /// If a deferral is taken on the event args, then you must synchronously
+    /// set `Handled` to TRUE prior to taking your deferral to prevent the
+    /// `CoreWebView2`s event handlers from being invoked.
+    /// </summary>
+    function Set_Handled(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// The associated frame information that requests the screen capture
+    /// permission. This can be used to get the frame source, name, frameId,
+    /// and parent frame information.
+    /// </summary>
+    function Get_OriginalSourceFrameInfo(out value: ICoreWebView2FrameInfo): HResult; stdcall;
+    /// <summary>
+    /// Returns an `ICoreWebView2Deferral` object. Use this deferral to
+    /// defer the decision to show the Screen Capture UI. getDisplayMedia()
+    /// won't call its callbacks until the deferral is completed.
+    /// </summary>
+    function GetDeferral(out value: ICoreWebView2Deferral): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Provides a set of properties for a frame in the ICoreWebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo">See the ICoreWebView2FrameInfo article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameInfo = interface(IUnknown)
+    ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
+    /// <summary>
+    /// The value of iframe's window.name property. The default value equals to
+    /// iframe html tag declaring it, as in `<iframe name="frame-name">...</iframe>`.
+    /// The returned string is empty when the frame has no name attribute and
+    /// no assigned value for window.name.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_name(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// <para>The URI of the document in the frame.</para>
+    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
+    /// </summary>
+    function Get_Source(out value: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Event args for the BrowserProcessExited event.
   /// </summary>
   /// <remarks>
@@ -11467,32 +11617,6 @@ type
   end;
 
   /// <summary>
-  /// Provides a set of properties for a frame in the ICoreWebView2.
-  /// </summary>
-  /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo">See the ICoreWebView2FrameInfo article.</see></para>
-  /// </remarks>
-  ICoreWebView2FrameInfo = interface(IUnknown)
-    ['{DA86B8A1-BDF3-4F11-9955-528CEFA59727}']
-    /// <summary>
-    /// The value of iframe's window.name property. The default value equals to
-    /// iframe html tag declaring it, as in `<iframe name="frame-name">...</iframe>`.
-    /// The returned string is empty when the frame has no name attribute and
-    /// no assigned value for window.name.
-    ///
-    /// The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
-    /// </summary>
-    function Get_name(out value: PWideChar): HResult; stdcall;
-    /// <summary>
-    /// <para>The URI of the document in the frame.</para>
-    /// <para>The caller must free the returned string with `CoTaskMemFree`.  See
-    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).</para>
-    /// </summary>
-    function Get_Source(out value: PWideChar): HResult; stdcall;
-  end;
-
-  /// <summary>
   /// This is ICoreWebView2Environment14 that exposes new methods to
   /// create Filesystem access related DOM objects.
   /// </summary>
@@ -12363,6 +12487,56 @@ type
     /// with the `FrameId` in `CoreWebView2` and via `CoreWebView2FrameInfo`.
     /// </summary>
     function Get_FrameId(out value: SYSUINT): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is an extension of the ICoreWebView2Frame interface that supports ScreenCaptureStarting.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame6">See the ICoreWebView2Frame6 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Frame6 = interface(ICoreWebView2Frame5)
+    ['{0DE611FD-31E9-5DDC-9D71-95EDA26EFF32}']
+    /// <summary>
+    /// Adds an event handler for the `ScreenCaptureStarting` event.
+    /// Add an event handler for the `ScreenCaptureStarting` event.
+    /// `ScreenCaptureStarting` is raised when content in an iframe or any of its
+    /// descendant iframes requests permission to use the Screen Capture
+    /// API from getDisplayMedia().
+    ///
+    /// This relates to the `ScreenCaptureStarting` event on the
+    /// `CoreWebView2`.
+    /// Both these events will be raised in the case of an iframe requesting
+    /// screen capture. The `CoreWebView2Frame`'s event handlers will be invoked
+    /// before the event handlers on the `CoreWebView2`. If the `Handled`
+    /// property of the `ScreenCaptureStartingEventArgs` is set to TRUE
+    /// within the`CoreWebView2Frame` event handler, then the event will not
+    /// be raised on the `CoreWebView2`, and its event handlers will not be
+    /// invoked.
+    ///
+    /// \snippet ScenarioScreenCapture.cpp ScreenCaptureStarting1
+    /// </summary>
+    function add_ScreenCaptureStarting(const eventHandler: ICoreWebView2FrameScreenCaptureStartingEventHandler;
+                                       out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_ScreenCaptureStarting`.
+    /// </summary>
+    function remove_ScreenCaptureStarting(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `ScreenCaptureStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framescreencapturestartingeventhandler">See the ICoreWebView2FrameScreenCaptureStartingEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameScreenCaptureStartingEventHandler = interface(IUnknown)
+    ['{A6C1D8AD-BB80-59C5-895B-FBA1698B9309}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2Frame;
+                    const args: ICoreWebView2ScreenCaptureStartingEventArgs): HResult; stdcall;
   end;
 
   /// <summary>

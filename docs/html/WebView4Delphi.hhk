@@ -681,6 +681,18 @@
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE">
+<param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
 <param name="Local" value="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE">
 </object>
@@ -3501,6 +3513,18 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame5.html#Get_FrameId-SYSUINT-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Frame6">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame6.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_ScreenCaptureStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame6.html#add_ScreenCaptureStarting-ICoreWebView2FrameScreenCaptureStartingEventHandler-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_ScreenCaptureStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame6.html#remove_ScreenCaptureStarting-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2FrameContentLoadingEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">
 </object>
@@ -3623,6 +3647,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2FramePermissionRequestedEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FrameScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameScreenCaptureStartingEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameScreenCaptureStartingEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2FrameWebMessageReceivedEventHandler">
@@ -5033,6 +5065,42 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ScreenCaptureStartingEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#GetDeferral-ICoreWebView2Deferral-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Cancel">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#Get_Cancel-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#Get_Handled-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_OriginalSourceFrameInfo">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#Get_OriginalSourceFrameInfo-ICoreWebView2FrameInfo-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_Cancel">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#Set_Cancel-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html#Set_Handled-Integer-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ScriptDialogOpeningEventArgs">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ScriptDialogOpeningEventArgs.html">
 </object>
@@ -5897,6 +5965,18 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2_26.html#remove_SaveFileSecurityCheckStarting-EventRegistrationToken-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_27">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_27.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_ScreenCaptureStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_27.html#add_ScreenCaptureStarting-ICoreWebView2ScreenCaptureStartingEventHandler-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_ScreenCaptureStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_27.html#remove_ScreenCaptureStarting-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2_3">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2_3.html">
 </object>
@@ -6429,6 +6509,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Frame5">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Frame6">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Frame6">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2FrameContentLoadingEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameContentLoadingEventHandler">
 </object>
@@ -6479,6 +6563,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2FramePermissionRequestedEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FramePermissionRequestedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FrameScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameScreenCaptureStartingEventHandler">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2FrameWebMessageReceivedEventHandler">
@@ -6777,6 +6865,14 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2SaveFileSecurityCheckStartingEventHandler">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ScreenCaptureStartingEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ScreenCaptureStartingEventArgs">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ScreenCaptureStartingEventHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ScriptDialogOpeningEventArgs">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ScriptDialogOpeningEventArgs">
 </object>
@@ -7001,6 +7097,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_26">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2_27">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_27">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2_3">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_3">
 </object>
@@ -7205,6 +7305,10 @@
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FramePermissionRequestedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FrameScreenCaptureStartingEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FrameScreenCaptureStartingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FrameWebMessageReceivedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FrameWebMessageReceivedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-">
 </object>
@@ -7327,6 +7431,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SaveFileSecurityCheckStartingEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#SaveFileSecurityCheckStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScreenCaptureStartingEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#ScreenCaptureStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ScriptDialogOpeningEventHandler_Invoke">
@@ -7615,6 +7723,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddSaveFileSecurityCheckStarting-TComponent-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddScreenCaptureStarting">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddScreenCaptureStarting-TComponent-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AddScriptDialogOpeningEvent">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#AddScriptDialogOpeningEvent-TComponent-">
 </object>
@@ -7823,6 +7935,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf26">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf27">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf27">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf3">
 </object>
@@ -7965,6 +8081,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FSaveFileSecurityCheckStartingToken">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FSaveFileSecurityCheckStartingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FScreenCaptureStartingToken">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FScreenCaptureStartingToken">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FScriptDialogOpeningToken">
@@ -9694,16 +9814,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -11334,16 +11454,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -11791,6 +11911,10 @@
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameNavigationStartingEvent-TComponent-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddFrameScreenCaptureStartingEvent">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameScreenCaptureStartingEvent-TComponent-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AddFrameWebMessageReceivedEvent">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameWebMessageReceivedEvent-TComponent-">
 </object>
@@ -11839,6 +11963,10 @@
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FBaseIntf5">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf6">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FBaseIntf6">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FDestroyedToken">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FDestroyedToken">
 </object>
@@ -11861,6 +11989,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FFrameNavigationStartingToken">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FFrameNavigationStartingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FFrameScreenCaptureStartingToken">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FFrameScreenCaptureStartingToken">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FFrameWebMessageReceivedToken">
@@ -12365,6 +12497,30 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FramePermissionRequestedEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FrameScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html#Create-IWVBrowserEvents-cardinal-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html#FEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FFrameID">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html#FFrameID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2FrameWebMessageReceivedEventHandler">
@@ -14906,16 +15062,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -15489,6 +15645,94 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2SaveFileSecurityCheckStartingEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ScreenCaptureStartingEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Cancel">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Cancel">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Create-ICoreWebView2ScreenCaptureStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Deferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Deferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCancel">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#GetCancel">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCoreWebView2FrameInfo">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#GetCoreWebView2FrameInfo">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#GetDeferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#GetHandled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Handled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OriginalSourceFrameInfo">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#OriginalSourceFrameInfo">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetCancel">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#SetCancel-boolean-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html#SetHandled-boolean-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ScreenCaptureStartingEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html#Create-IWVBrowserEvents-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html#FEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html#Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ScriptDialogOpeningEventArgs">
@@ -17163,6 +17407,10 @@
 <param name="Local" value="uWVEvents.html#TOnFramePermissionRequestedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnFrameScreenCaptureStartingEvent">
+<param name="Local" value="uWVEvents.html#TOnFrameScreenCaptureStartingEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnFrameWebMessageReceivedEvent">
 <param name="Local" value="uWVEvents.html#TOnFrameWebMessageReceivedEvent">
 </object>
@@ -17301,6 +17549,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TOnSaveFileSecurityCheckStartingEvent">
 <param name="Local" value="uWVEvents.html#TOnSaveFileSecurityCheckStartingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TOnScreenCaptureStartingEvent">
+<param name="Local" value="uWVEvents.html#TOnScreenCaptureStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TOnScriptDialogOpeningEvent">
@@ -17591,6 +17843,10 @@
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFramePermissionRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="OnFrameScreenCaptureStarting">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFrameScreenCaptureStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="OnFrameWebMessageReceived">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFrameWebMessageReceived">
 </object>
@@ -17749,6 +18005,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnSaveFileSecurityCheckStarting">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnSaveFileSecurityCheckStarting">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnScreenCaptureStarting">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnScreenCaptureStarting">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnScriptDialogOpening">
@@ -18096,16 +18356,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18130,16 +18390,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateInvisibleBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateInvisibleBrowser-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18453,6 +18713,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFramePermissionRequestedEvent-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="doOnFrameScreenCaptureStartingEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFrameScreenCaptureStartingEvent-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="doOnFrameWebMessageReceivedEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFrameWebMessageReceivedEvent-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-">
 </object>
@@ -18607,6 +18871,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnSaveFileSecurityCheckStartingEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnSaveFileSecurityCheckStartingEvent-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnScreenCaptureStartingEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnScreenCaptureStartingEvent-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="doOnScriptDialogOpening">
@@ -19033,6 +19301,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFramePermissionRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnFrameScreenCaptureStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnFrameWebMessageReceived">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFrameWebMessageReceived">
 </object>
@@ -19193,6 +19465,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnSaveFileSecurityCheckStarting">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnScreenCaptureStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnScriptDialogOpening">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnScriptDialogOpening">
 </object>
@@ -19319,6 +19595,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FramePermissionRequestedEventHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FramePermissionRequestedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FrameScreenCaptureStartingEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FrameScreenCaptureStartingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameWebMessageReceivedEventHandler_Invoke">
@@ -20033,6 +20313,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFramePermissionRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="OnFrameScreenCaptureStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFrameScreenCaptureStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="OnFrameWebMessageReceived">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFrameWebMessageReceived">
 </object>
@@ -20191,6 +20475,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnSaveFileSecurityCheckStarting">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnSaveFileSecurityCheckStarting">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnScreenCaptureStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnScreenCaptureStarting">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnScriptDialogOpening">
@@ -20475,6 +20763,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SaveFileSecurityCheckStartingEventHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#SaveFileSecurityCheckStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScreenCaptureStartingEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ScreenCaptureStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ScreenScale">
@@ -21153,6 +21445,10 @@
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFramePermissionRequested">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="OnFrameScreenCaptureStarting">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFrameScreenCaptureStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="OnFrameWebMessageReceived">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFrameWebMessageReceived">
 </object>
@@ -21311,6 +21607,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnSaveFileSecurityCheckStarting">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnSaveFileSecurityCheckStarting">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnScreenCaptureStarting">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnScreenCaptureStarting">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnScriptDialogOpening">

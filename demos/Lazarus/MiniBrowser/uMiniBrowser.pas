@@ -114,6 +114,7 @@ type
     procedure WVBrowser1RetrieveHTMLCompleted(Sender: TObject; aResult: boolean; const aHTML: wvstring);
     procedure WVBrowser1RetrieveMHTMLCompleted(Sender: TObject; aResult: boolean; const aMHTML: wvstring);
     procedure WVBrowser1RetrieveTextCompleted(Sender: TObject; aResult: boolean; const aText: wvstring);
+    procedure WVBrowser1ScreenCaptureStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
     procedure WVBrowser1ServerCertificateErrorDetected(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ServerCertificateErrorDetectedEventArgs);
     procedure WVBrowser1SourceChanged(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SourceChangedEventArgs);
     procedure WVBrowser1NavigationStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationStartingEventArgs);
@@ -755,6 +756,18 @@ procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
 begin
   if aResult then
     SaveAsTextFile(SaveDialog1.FileName, aText);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ScreenCaptureStarting(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
+var
+  TempArgs : TCoreWebView2ScreenCaptureStartingEventArgs;
+begin
+  TempArgs         := TCoreWebView2ScreenCaptureStartingEventArgs.Create(aArgs);
+  TempArgs.Cancel  := False;
+  TempArgs.Handled := True;
+  TempArgs.Free;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1ServerCertificateErrorDetected(

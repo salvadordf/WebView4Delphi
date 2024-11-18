@@ -367,7 +367,8 @@ type
   TWVWebResourceRequestSourceKind         = type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS;
   /// <summary>
   /// This enum contains values representing possible regions a given
-  /// point lies within.
+  /// point lies within. The values of this enum align with the
+  /// matching WM_NCHITTEST* window message return values.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_NON_CLIENT_REGION_KIND type.</para>

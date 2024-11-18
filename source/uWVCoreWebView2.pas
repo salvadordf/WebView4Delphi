@@ -43,6 +43,7 @@ type
       FBaseIntf24                              : ICoreWebView2_24;
       FBaseIntf25                              : ICoreWebView2_25;
       FBaseIntf26                              : ICoreWebView2_26;
+      FBaseIntf27                              : ICoreWebView2_27;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -76,6 +77,7 @@ type
       FNotificationReceivedToken               : EventRegistrationToken;
       FSaveAsUIShowingToken                    : EventRegistrationToken;
       FSaveFileSecurityCheckStartingToken      : EventRegistrationToken;
+      FScreenCaptureStartingToken              : EventRegistrationToken;
       FFrameIDCopy                             : cardinal;
       FDevToolsEventNames                      : TStringList;
       FDevToolsEventTokens                     : array of EventRegistrationToken;
@@ -145,6 +147,7 @@ type
       function  AddNotificationReceived(const aBrowserComponent : TComponent) : boolean;
       function  AddSaveAsUIShowing(const aBrowserComponent : TComponent) : boolean;
       function  AddSaveFileSecurityCheckStarting(const aBrowserComponent : TComponent) : boolean;
+      function  AddScreenCaptureStarting(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2); reintroduce;
@@ -1125,8 +1128,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_22, FBaseIntf22) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_23, FBaseIntf23) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_24, FBaseIntf24) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_25, FBaseIntf25) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_26, FBaseIntf26);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_25, FBaseIntf25) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_26, FBaseIntf26) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_27, FBaseIntf27);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -1184,6 +1188,7 @@ begin
   FBaseIntf24          := nil;
   FBaseIntf25          := nil;
   FBaseIntf26          := nil;
+  FBaseIntf27          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
   FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
@@ -1226,6 +1231,7 @@ begin
   FNotificationReceivedToken.value               := 0;
   FSaveAsUIShowingToken.value                    := 0;
   FSaveFileSecurityCheckStartingToken.value      := 0;
+  FScreenCaptureStartingToken.value              := 0;
 end;
 
 function TCoreWebView2.GetInitialized : boolean;
@@ -1359,6 +1365,10 @@ begin
           if assigned(FBaseIntf26) and
              (FSaveFileSecurityCheckStartingToken.value <> 0) then
             FBaseIntf26.remove_SaveFileSecurityCheckStarting(FSaveFileSecurityCheckStartingToken);
+
+          if assigned(FBaseIntf27) and
+             (FScreenCaptureStartingToken.value <> 0) then
+            FBaseIntf27.remove_ScreenCaptureStarting(FScreenCaptureStartingToken);
 
           UnsubscribeAllDevToolsProtocolEvents;
         end;
@@ -1866,6 +1876,21 @@ begin
     end;
 end;
 
+function TCoreWebView2.AddScreenCaptureStarting(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2ScreenCaptureStartingEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf27) and (FScreenCaptureStartingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2ScreenCaptureStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf27.add_ScreenCaptureStarting(TempHandler, FScreenCaptureStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
 function TCoreWebView2.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddNavigationStartingEvent(aBrowserComponent)                 and
@@ -1900,7 +1925,8 @@ begin
             AddLaunchingExternalUriScheme(aBrowserComponent)              and
             AddNotificationReceived(aBrowserComponent)                    and
             AddSaveAsUIShowing(aBrowserComponent)                         and
-            AddSaveFileSecurityCheckStarting(aBrowserComponent);
+            AddSaveFileSecurityCheckStarting(aBrowserComponent)           and
+            AddScreenCaptureStarting(aBrowserComponent);
 end;
 
 function TCoreWebView2.AddWebResourceRequestedFilter(const URI             : wvstring;

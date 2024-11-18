@@ -619,6 +619,14 @@
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnSaveFileSecurityCheckStarting">FOnSaveFileSecurityCheckStarting</a></strong>: <a href="uWVEvents.html#TOnSaveFileSecurityCheckStartingEvent">TOnSaveFileSecurityCheckStartingEvent</a>;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">FOnScreenCaptureStarting</a></strong>: <a href="uWVEvents.html#TOnScreenCaptureStartingEvent">TOnScreenCaptureStartingEvent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">FOnFrameScreenCaptureStarting</a></strong>: <a href="uWVEvents.html#TOnFrameScreenCaptureStartingEvent">TOnFrameScreenCaptureStartingEvent</a>;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
@@ -1480,6 +1488,14 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#ScreenCaptureStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">ScreenCaptureStartingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>): HRESULT;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FrameScreenCaptureStartingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">FrameScreenCaptureStartingEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>; aFrameID: cardinal): HRESULT;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError-HRESULT-wvstring-">doOnInitializationError</a></strong>(aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
 <tr class="list2">
@@ -1857,6 +1873,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSaveFileSecurityCheckStartingEvent-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">doOnSaveFileSecurityCheckStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html">ICoreWebView2SaveFileSecurityCheckStartingEventArgs</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnScreenCaptureStartingEvent-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">doOnScreenCaptureStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameScreenCaptureStartingEvent-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">doOnFrameScreenCaptureStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -3024,6 +3048,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnSaveFileSecurityCheckStarting">OnSaveFileSecurityCheckStarting</a></strong>                : <a href="uWVEvents.html#TOnSaveFileSecurityCheckStartingEvent">TOnSaveFileSecurityCheckStartingEvent</a>                  read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnSaveFileSecurityCheckStarting">FOnSaveFileSecurityCheckStarting</a>                 write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnSaveFileSecurityCheckStarting">FOnSaveFileSecurityCheckStarting</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnScreenCaptureStarting">OnScreenCaptureStarting</a></strong>                        : <a href="uWVEvents.html#TOnScreenCaptureStartingEvent">TOnScreenCaptureStartingEvent</a>                          read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">FOnScreenCaptureStarting</a>                         write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">FOnScreenCaptureStarting</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnFrameScreenCaptureStarting">OnFrameScreenCaptureStarting</a></strong>                   : <a href="uWVEvents.html#TOnFrameScreenCaptureStartingEvent">TOnFrameScreenCaptureStartingEvent</a>                     read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">FOnFrameScreenCaptureStarting</a>                    write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">FOnFrameScreenCaptureStarting</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -4210,6 +4242,22 @@ Fields used to create the environment</p>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FOnSaveFileSecurityCheckStarting"></span><code><strong>FOnSaveFileSecurityCheckStarting</strong>: <a href="uWVEvents.html#TOnSaveFileSecurityCheckStartingEvent">TOnSaveFileSecurityCheckStartingEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnScreenCaptureStarting"></span><code><strong>FOnScreenCaptureStarting</strong>: <a href="uWVEvents.html#TOnScreenCaptureStartingEvent">TOnScreenCaptureStartingEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnFrameScreenCaptureStarting"></span><code><strong>FOnFrameScreenCaptureStarting</strong>: <a href="uWVEvents.html#TOnFrameScreenCaptureStartingEvent">TOnFrameScreenCaptureStartingEvent</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -6096,6 +6144,26 @@ ICoreWebView2SaveFileSecurityCheckStartingEventHandler</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ScreenCaptureStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-"></span><code>function <strong>ScreenCaptureStartingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVBrowserEvents.html#ScreenCaptureStartingEventHandler_Invoke-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">IWVBrowserEvents.ScreenCaptureStartingEventHandler_Invoke</a>.</p><p>
+ICoreWebView2ScreenCaptureStartingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FrameScreenCaptureStartingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-"></span><code>function <strong>FrameScreenCaptureStartingEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>; aFrameID: cardinal): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVBrowserEvents.html#FrameScreenCaptureStartingEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">IWVBrowserEvents.FrameScreenCaptureStartingEventHandler_Invoke</a>.</p><p>
+ICoreWebView2FrameScreenCaptureStartingEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="doOnInitializationError-HRESULT-wvstring-"></span><code>procedure <strong>doOnInitializationError</strong>(aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -6849,6 +6917,22 @@ ICoreWebView2SaveFileSecurityCheckStartingEventHandler</p>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="doOnSaveFileSecurityCheckStartingEvent-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-"></span><code>procedure <strong>doOnSaveFileSecurityCheckStartingEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html">ICoreWebView2SaveFileSecurityCheckStartingEventArgs</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnScreenCaptureStartingEvent-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-"></span><code>procedure <strong>doOnScreenCaptureStartingEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnFrameScreenCaptureStartingEvent-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-"></span><code>procedure <strong>doOnFrameScreenCaptureStartingEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -11878,6 +11962,42 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26#add_savefilesecuritycheckstarting">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26#add_savefilesecuritycheckstarting</a>&quot;&gt;See the ICoreWebView2_26 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnScreenCaptureStarting"></span><code>property <strong>OnScreenCaptureStarting</strong>                        : <a href="uWVEvents.html#TOnScreenCaptureStartingEvent">TOnScreenCaptureStartingEvent</a>                          read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">FOnScreenCaptureStarting</a>                         write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnScreenCaptureStarting">FOnScreenCaptureStarting</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ `OnScreenCaptureStarting` event is raised when the [Screen Capture API](<a href="https://www.w3.org/TR/screen-capture/">https://www.w3.org/TR/screen-capture/</a>) is requested by the user using getDisplayMedia(). </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_27#add_screencapturestarting">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_27#add_screencapturestarting</a>&quot;&gt;See the ICoreWebView2_27 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnFrameScreenCaptureStarting"></span><code>property <strong>OnFrameScreenCaptureStarting</strong>                   : <a href="uWVEvents.html#TOnFrameScreenCaptureStartingEvent">TOnFrameScreenCaptureStartingEvent</a>                     read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">FOnFrameScreenCaptureStarting</a>                    write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameScreenCaptureStarting">FOnFrameScreenCaptureStarting</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>`OnFrameScreenCaptureStarting` is raised when content in an iframe or any of its descendant iframes requests permission to use the Screen Capture API from getDisplayMedia().
+
+<p>This relates to the `ScreenCaptureStarting` event on the `CoreWebView2`.
+
+<p>Both these events will be raised in the case of an iframe requesting screen capture. The `CoreWebView2Frame`'s event handlers will be invoked before the event handlers on the `CoreWebView2`. If the `Handled` property of the `ScreenCaptureStartingEventArgs` is set to TRUE within the`CoreWebView2Frame` event handler, then the event will not be raised on the `CoreWebView2`, and its event handlers will not be invoked.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame6#add_screencapturestarting">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame6#add_screencapturestarting</a>&quot;&gt;See the ICoreWebView2Frame6 article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

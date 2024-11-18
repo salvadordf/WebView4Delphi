@@ -282,6 +282,12 @@ type
 
     // ICoreWebView2SaveFileSecurityCheckStartingEventHandler
     function SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HResult;
+
+    // ICoreWebView2ScreenCaptureStartingEventHandler
+    function ScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs): HResult;
+
+    // ICoreWebView2FrameScreenCaptureStartingEventHandler
+    function FrameScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal): HResult;
   end;
 
 implementation

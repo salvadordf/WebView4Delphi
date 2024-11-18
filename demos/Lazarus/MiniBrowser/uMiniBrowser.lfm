@@ -14,7 +14,6 @@ object MiniBrowserFrm: TMiniBrowserFrm
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '3.0.0.3'
   object NavControlPnl: TPanel
     Left = 0
     Height = 25
@@ -108,11 +107,11 @@ object MiniBrowserFrm: TMiniBrowserFrm
       TabOrder = 1
       object URLCbx: TComboBox
         Left = 0
-        Height = 24
+        Height = 23
         Top = 0
         Width = 913
         Align = alClient
-        ItemHeight = 16
+        ItemHeight = 15
         ItemIndex = 0
         Items.Strings = (
           'https://www.bing.com'
@@ -138,7 +137,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
           'https://badssl.com/'
           'https://www.httpwatch.com/httpgallery/authentication/'
           'https://www.sede.fnmt.gob.es/certificados/persona-fisica/verificar-estado'
-          'https://badssl.com/'
+          'https://progressier.com/pwa-capabilities/screen-capture-desktop'
           'edge://flags/'
           'edge://gpu/'
           'edge://about/'
@@ -240,6 +239,7 @@ object MiniBrowserFrm: TMiniBrowserFrm
     OnClearBrowsingDataCompleted = WVBrowser1ClearBrowsingDataCompleted
     OnServerCertificateErrorDetected = WVBrowser1ServerCertificateErrorDetected
     OnExecuteScriptWithResultCompleted = WVBrowser1ExecuteScriptWithResultCompleted
+    OnScreenCaptureStarting = WVBrowser1ScreenCaptureStarting
     Left = 48
     Top = 64
   end

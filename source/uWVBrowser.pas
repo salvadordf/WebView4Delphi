@@ -139,6 +139,8 @@ type
       property OnSaveAsUIShowing;
       property OnShowSaveAsUICompleted;
       property OnSaveFileSecurityCheckStarting;
+      property OnScreenCaptureStarting;
+      property OnFrameScreenCaptureStarting;
   end;
 
 {$IFDEF FPC}

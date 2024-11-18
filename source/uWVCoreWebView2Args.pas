@@ -2137,6 +2137,72 @@ type
       property Deferral                      : ICoreWebView2Deferral                                      read GetDeferral;
   end;
 
+  /// <summary>
+  /// Event args for the `ScreenCaptureStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/tcorewebview2screencapturestartingeventargs">See the TCoreWebView2ScreenCaptureStartingEventArgs article.</see></para>
+  /// </remarks>
+  TCoreWebView2ScreenCaptureStartingEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2ScreenCaptureStartingEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetCancel : boolean;
+      function  GetHandled : boolean;
+      function  GetCoreWebView2FrameInfo : ICoreWebView2FrameInfo;
+      function  GetDeferral : ICoreWebView2Deferral;
+
+      procedure SetCancel(aValue: boolean);
+      procedure SetHandled(aValue: boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
+      property Initialized                   : boolean                                           read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
+      property BaseIntf                      : ICoreWebView2ScreenCaptureStartingEventArgs       read FBaseIntf;
+      /// <summary>
+      /// <para>The host may set this flag to cancel the screen capture. If canceled,
+      /// the screen capture UI is not displayed regardless of the
+      /// `Handled` property.</para>
+      /// <para>On the script side, it will return with a NotAllowedError as Permission denied.</para>
+      /// </summary>
+      property Cancel                        : boolean                                           read GetCancel                  write SetCancel;
+      /// <summary>
+      /// <para>By default, both the `ScreenCaptureStarting` event handlers on the
+      /// `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the
+      /// `CoreWebView2Frame` event handlers invoked first. The host may
+      /// set this flag to `TRUE` within the `CoreWebView2Frame` event handlers
+      /// to prevent the remaining `CoreWebView2` event handlers from being
+      /// invoked. If the flag is set to `FALSE` within the `CoreWebView2Frame`
+      /// event handlers, downstream handlers can update the `Cancel` property.</para>
+      ///
+      /// <para>If a deferral is taken on the event args, then you must synchronously
+      /// set `Handled` to TRUE prior to taking your deferral to prevent the
+      /// `CoreWebView2`s event handlers from being invoked.</para>
+      /// </summary>
+      property Handled                       : boolean                                           read GetHandled                 write SetHandled;
+      /// <summary>
+      /// The associated frame information that requests the screen capture
+      /// permission. This can be used to get the frame source, name, frameId,
+      /// and parent frame information.
+      /// </summary>
+      property OriginalSourceFrameInfo       : ICoreWebView2FrameInfo                            read GetCoreWebView2FrameInfo;
+      /// <summary>
+      /// Returns an `ICoreWebView2Deferral` object. Use this deferral to
+      /// defer the decision to show the Screen Capture UI. getDisplayMedia()
+      /// won't call its callbacks until the deferral is completed.
+      /// </summary>
+      property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
+  end;
+
 implementation
 
 uses
@@ -4541,6 +4607,84 @@ procedure TCoreWebView2SaveFileSecurityCheckStartingEventArgs.SetSuppressDefault
 begin
   if Initialized then
     FBaseIntf.Set_SuppressDefaultPolicy(ord(aValue));
+end;
+
+
+// TCoreWebView2ScreenCaptureStartingEventArgs
+
+constructor TCoreWebView2ScreenCaptureStartingEventArgs.Create(const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2ScreenCaptureStartingEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2ScreenCaptureStartingEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2ScreenCaptureStartingEventArgs.GetCancel : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Cancel(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2ScreenCaptureStartingEventArgs.GetHandled : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Handled(TempInt)) and
+            (TempInt <> 0);
+end;
+
+function TCoreWebView2ScreenCaptureStartingEventArgs.GetCoreWebView2FrameInfo : ICoreWebView2FrameInfo;
+var
+  TempResult : ICoreWebView2FrameInfo;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_OriginalSourceFrameInfo(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2ScreenCaptureStartingEventArgs.GetDeferral : ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2ScreenCaptureStartingEventArgs.SetCancel(aValue : boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Cancel(ord(aValue));
+end;
+
+procedure TCoreWebView2ScreenCaptureStartingEventArgs.SetHandled(aValue : boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Handled(ord(aValue));
 end;
 
 end.

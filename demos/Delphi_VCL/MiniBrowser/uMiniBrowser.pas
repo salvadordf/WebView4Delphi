@@ -136,6 +136,7 @@ type
     procedure WVBrowser1ProfileAddBrowserExtensionCompleted(Sender: TObject; aErrorCode: HRESULT; const extension: ICoreWebView2BrowserExtension);
     procedure WVBrowser1ContainsFullScreenElementChanged(Sender: TObject);
     procedure WVBrowser1ExecuteScriptWithResultCompleted(Sender: TObject; errorCode: HRESULT; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: Integer);
+    procedure WVBrowser1ScreenCaptureStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -960,6 +961,18 @@ procedure TMiniBrowserFrm.WVBrowser1RetrieveTextCompleted(Sender: TObject;
 begin
   if aResult then
     SaveAsTextFile(SaveDialog1.FileName, aText);
+end;
+
+procedure TMiniBrowserFrm.WVBrowser1ScreenCaptureStarting(Sender: TObject;
+  const aWebView: ICoreWebView2;
+  const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
+var
+  TempArgs : TCoreWebView2ScreenCaptureStartingEventArgs;
+begin
+  TempArgs         := TCoreWebView2ScreenCaptureStartingEventArgs.Create(aArgs);
+  TempArgs.Cancel  := False;
+  TempArgs.Handled := True;
+  TempArgs.Free;
 end;
 
 procedure TMiniBrowserFrm.WVBrowser1ServerCertificateErrorDetected(
