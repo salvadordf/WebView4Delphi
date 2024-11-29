@@ -93,6 +93,7 @@ type
 
       FAutoAcceptCamAndMicCapture             : boolean;
 
+      function  GetInternalAvailableBrowserVersion : wvstring;
       function  GetAvailableBrowserVersion : wvstring;
       function  GetAvailableBrowserVersionWithOptions : wvstring;
       function  GetInitialized : boolean;
@@ -1251,7 +1252,8 @@ begin
   if (length(FBrowserExecPath) = 0) then
     begin
       if (length(InstalledRuntimeVersion) > 0) or
-         SearchInstalledProgram('WebView2 Runtime', 'Microsoft Corporation') then
+         SearchInstalledProgram('WebView2 Runtime', 'Microsoft Corporation') or
+         (length(GetInternalAvailableBrowserVersion) > 0) then
         Result := True
        else
         begin
@@ -1969,6 +1971,21 @@ begin
 
   if Initialized and
      succeeded(GetAvailableCoreWebView2BrowserVersionString(PWideChar(FBrowserExecPath), @TempVersion)) and
+     assigned(TempVersion) then
+    begin
+      Result := TempVersion;
+      CoTaskMemFree(TempVersion);
+    end;
+end;
+
+function TWVLoader.GetInternalAvailableBrowserVersion : wvstring;
+var
+  TempVersion : PWideChar;
+begin
+  Result      := '';
+  TempVersion := nil;
+
+  if succeeded(Internal_GetAvailableCoreWebView2BrowserVersionString(PWideChar(FBrowserExecPath), @TempVersion)) and
      assigned(TempVersion) then
     begin
       Result := TempVersion;
