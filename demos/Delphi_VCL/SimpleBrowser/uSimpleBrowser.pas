@@ -14,7 +14,7 @@ uses
   {$ENDIF}
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args,
-  uWVBrowserBase;
+  uWVBrowserBase, Menus;
 
 type
   TMainForm = class(TForm)
@@ -24,10 +24,13 @@ type
     AddressPnl: TPanel;
     AddressCb: TComboBox;
     GoBtn: TButton;
+    pmExtended: TPopupMenu;
+    mniTestRecreateWnd: TMenuItem;
 
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure GoBtnClick(Sender: TObject);
+    procedure mniTestRecreateWndClick(Sender: TObject);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -85,6 +88,12 @@ end;
 procedure TMainForm.GoBtnClick(Sender: TObject);
 begin
   WVBrowser1.Navigate(AddressCb.Text);
+end;
+
+procedure TMainForm.mniTestRecreateWndClick(Sender: TObject);
+begin
+  // test esotheric Delphi VCL feature 
+  PostMessage(WVWindowParent1.Handle, CM_RECREATEWND, 0, 0);
 end;
 
 procedure TMainForm.WVBrowser1AfterCreated(Sender: TObject);

@@ -10,8 +10,10 @@ object MainForm: TMainForm
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poScreenCenter
   OnShow = FormShow
+  PixelsPerInch = 96
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent
     Left = 0
@@ -21,9 +23,8 @@ object MainForm: TMainForm
     Align = alClient
     TabStop = True
     TabOrder = 0
+    DoubleBuffered = False
     Browser = WVBrowser1
-    ExplicitWidth = 991
-    ExplicitHeight = 675
   end
   object AddressPnl: TPanel
     Left = 0
@@ -34,7 +35,6 @@ object MainForm: TMainForm
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 1
-    ExplicitWidth = 991
     DesignSize = (
       995
       24)
@@ -44,6 +44,7 @@ object MainForm: TMainForm
       Width = 943
       Height = 23
       Anchors = [akLeft, akTop, akRight]
+      ItemHeight = 15
       ItemIndex = 0
       TabOrder = 0
       Text = 'https://www.bing.com'
@@ -76,7 +77,6 @@ object MainForm: TMainForm
         'https://www.youtube.com'
         'https://html5demos.com/drag/'
         'https://frames-per-second.appspot.com/')
-      ExplicitWidth = 939
     end
     object GoBtn: TButton
       Left = 945
@@ -85,10 +85,10 @@ object MainForm: TMainForm
       Height = 24
       Anchors = [akTop, akRight]
       Caption = 'Go'
+      PopupMenu = pmExtended
       TabOrder = 1
       WordWrap = True
       OnClick = GoBtnClick
-      ExplicitLeft = 941
     end
   end
   object Timer1: TTimer
@@ -107,5 +107,13 @@ object MainForm: TMainForm
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
     Left = 200
     Top = 160
+  end
+  object pmExtended: TPopupMenu
+    Left = 880
+    Top = 32
+    object mniTestRecreateWnd: TMenuItem
+      Caption = 'Test RecreateWnd'
+      OnClick = mniTestRecreateWndClick
+    end
   end
 end
