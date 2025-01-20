@@ -2648,7 +2648,7 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY = $00000005;
   /// <summary>
-  /// The process exited because its corresponding profile was deleted.
+  /// Deprecated. This value is unused.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_REASON values.</para>

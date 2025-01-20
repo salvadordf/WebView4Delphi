@@ -18412,16 +18412,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -22347,6 +22347,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetInstalledRuntimeVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetInstalledRuntimeVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInternalAvailableBrowserVersion">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetInternalAvailableBrowserVersion">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetProcessInfos">

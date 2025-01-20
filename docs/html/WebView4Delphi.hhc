@@ -18854,6 +18854,10 @@
 </object>
 <ul>
 <li><object type="text/sitemap">
+<param name="Name" value="GetInternalAvailableBrowserVersion">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetInternalAvailableBrowserVersion">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetAvailableBrowserVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetAvailableBrowserVersion">
 </object>
@@ -53320,6 +53324,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetInstalledRuntimeVersion">
 <param name="Local" value="uWVLoader.TWVLoader.html#GetInstalledRuntimeVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInternalAvailableBrowserVersion">
+<param name="Local" value="uWVLoader.TWVLoader.html#GetInternalAvailableBrowserVersion">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetProcessInfos">
