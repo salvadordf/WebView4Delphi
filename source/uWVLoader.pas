@@ -90,6 +90,7 @@ type
       FOpenOfficeDocumentsInWebViewer         : boolean;
       FMicrosoftSignIn                        : boolean;
       FPostQuantumKyber                       : TWVState;
+      FUserAgent                              : wvstring;
 
       FAutoAcceptCamAndMicCapture             : boolean;
 
@@ -712,6 +713,13 @@ type
       /// </summary>
       property TLS13HybridizedKyberSupport            : TWVState                           read FPostQuantumKyber                        write FPostQuantumKyber;
       /// <summary>
+      /// A string used to override the default user agent with a custom one.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://peter.sh/experiments/chromium-command-line-switches/">Uses the following command line switch: --user-agent</see></para>
+      /// </remarks>
+      property UserAgent                              : wvstring                           read FUserAgent                               write FUserAgent;
+      /// <summary>
       /// Bypasses the dialog prompting the user for permission to capture cameras and microphones.
       /// Useful in automatic tests of video-conferencing Web applications. This is nearly
       /// identical to kUseFakeUIForMediaStream, with the exception being that this flag does NOT
@@ -938,6 +946,7 @@ begin
   FAutoAcceptCamAndMicCapture             := False;
   FMicrosoftSignIn                        := False;
   FPostQuantumKyber                       := STATE_DEFAULT;
+  FUserAgent                              := '';
   FProxySettings                          := nil;
   FErrorLog                               := nil;
 
@@ -1761,6 +1770,9 @@ begin
   // https://chromium.googlesource.com/v8/v8/+/master/src/flags/flag-definitions.h
   if (length(FJavaScriptFlags) > 0) then
     Result := Result + '--js-flags="' + FJavaScriptFlags + '" ';
+
+  if (length(FUserAgent) > 0) then
+    Result := Result + '--user-agent="' + FUserAgent + '" ';
 
   if (length(FAdditionalBrowserArguments) > 0) then
     Result := Result + FAdditionalBrowserArguments

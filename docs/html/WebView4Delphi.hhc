@@ -18530,6 +18530,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FPostQuantumKyber">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FUserAgent">
+<param name="Local" value="uWVLoader.TWVLoader.html#FUserAgent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAutoAcceptCamAndMicCapture">
 <param name="Local" value="uWVLoader.TWVLoader.html#FAutoAcceptCamAndMicCapture">
 </object>
@@ -18802,6 +18806,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="TLS13HybridizedKyberSupport">
 <param name="Local" value="uWVLoader.TWVLoader.html#TLS13HybridizedKyberSupport">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="UserAgent">
+<param name="Local" value="uWVLoader.TWVLoader.html#UserAgent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AutoAcceptCamAndMicCapture">
@@ -52894,6 +52902,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FUseInternalLoader">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FUserAgent">
+<param name="Local" value="uWVLoader.TWVLoader.html#FUserAgent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FUserDataFolder">
 <param name="Local" value="uWVLoader.TWVLoader.html#FUserDataFolder">
 </object>
@@ -53206,6 +53218,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="UseInternalLoader">
 <param name="Local" value="uWVLoader.TWVLoader.html#UseInternalLoader">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="UserAgent">
+<param name="Local" value="uWVLoader.TWVLoader.html#UserAgent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="UserDataFolder">

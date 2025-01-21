@@ -323,7 +323,7 @@ end;
 
 procedure TMainForm.OverrideUserAgentBtnClick(Sender: TObject);
 var
-  TempObject, TempValue : TJSonObject;
+  TempObject : TJSonObject;
   TempMetadataDict, TempBrandDict, TempFullVersionDict: TJSonObject;
   TempBrandsArray, TempFullVersionListArray : TJSONArray;
 begin
@@ -364,6 +364,8 @@ end;
 initialization
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := ExtractFileDir(Application.ExeName) + '\CustomCache';
+  // Enable this line to set the user agent. This is needed for https://abrahamjuliot.github.io/creepjs/
+  //GlobalWebView2Loader.UserAgent      := 'Mozilla/5.0 (Linux; Android 11; M2102K1G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36';
   GlobalWebView2Loader.StartWebView2;
 
 end.

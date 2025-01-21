@@ -412,8 +412,6 @@ object MainForm: TMainForm
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = -3
-    ExplicitTop = -7
     object AddressPnl: TPanel
       Left = 0
       Top = 0
@@ -444,7 +442,6 @@ object MainForm: TMainForm
         Width = 780
         Height = 21
         Align = alClient
-        ItemIndex = 0
         TabOrder = 1
         Text = 'https://www.google.com'
         Items.Strings = (
@@ -453,7 +450,8 @@ object MainForm: TMainForm
           'https://www.leaktest.io/'
           'https://coveryourtracks.eff.org/'
           'https://ipleak.com/full-report/'
-          'https://xsinator.com/testing.html')
+          'https://xsinator.com/testing.html'
+          'https://abrahamjuliot.github.io/creepjs/')
       end
     end
     object WVWindowParent1: TWVWindowParent
@@ -464,8 +462,6 @@ object MainForm: TMainForm
       Align = alClient
       TabStop = True
       TabOrder = 1
-      ExplicitLeft = -3
-      ExplicitTop = 31
     end
   end
   object Timer1: TTimer
