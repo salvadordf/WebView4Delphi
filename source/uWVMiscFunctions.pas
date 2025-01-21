@@ -75,9 +75,19 @@ const
 function PosEx(const SubStr, S: string; Offset: Cardinal = 1): Integer;
 {$ENDIF}{$ENDIF}
 
+type
+  IWVFreeGuard = type IInterface;  // #81 get read of fragile boilerplate in the events
+  IWVPrematureGuardedFree = interface // GUID's are not needed here: compile-time type checking only
+    procedure Unlink(const Self: TObject);
+  end;
+procedure UnlinkGuardedFree(const Self: TObject; const GuardProxy: IWVPrematureGuardedFree); // #81
+procedure LinkGuardedFree(const Self: TObject; var Guard: IWVFreeGuard;
+  out GuardProxy: IWVPrematureGuardedFree);
+
 implementation
 
 uses
+  Contnrs,
   uWVLoader;
 
 function AllocCoTaskMemStr(const aString : wvstring): PWideChar;
@@ -727,5 +737,132 @@ begin
     end;
 end;
 {$ENDIF}{$ENDIF}
+
+{$Region '#81 get read of fragile boilerplate in the events'}
+procedure UnlinkGuardedFree(const Self: TObject; const GuardProxy: IWVPrematureGuardedFree); // #81
+begin
+  if (nil = GuardProxy) or (nil = Self) then Exit;
+
+  GuardProxy.Unlink(Self);
+end;
+
+type
+  IWVFreeGuardInternal = interface(IWVFreeGuard) ['{15D1DAF9-68BC-4E2E-9916-8DDADE8F35BF}']
+    function GetPrematureFreeProxy: IWVPrematureGuardedFree;
+    function Link(const Obj: TObject): integer;
+  end;
+
+  TWVFreeGuardProxy = class;
+  TWVFreeGuard = class(TInterfacedObject, IWVFreeGuard, IWVFreeGuardInternal)
+  private
+    FList: TObjectList;
+    FPremature: TWVFreeGuardProxy;
+    function GetPrematureFreeProxy: IWVPrematureGuardedFree;
+    function Link(const Obj: TObject): integer;
+  public
+    procedure BeforeDestruction; override;
+  end;
+  TWVFreeGuardProxy = class(TInterfacedObject, IWVPrematureGuardedFree)
+  private
+    FOwner: TWVFreeGuard;
+    procedure Unlink(const Obj: TObject);
+  public
+    procedure BeforeDestruction; override;
+  end;
+
+procedure LinkGuardedFree(const Self: TObject; var Guard: IWVFreeGuard;
+  out GuardProxy: IWVPrematureGuardedFree);
+var
+  GuardInternals: IWVFreeGuardInternal;
+begin
+  if nil = Self then Exit;
+  
+  if nil = Guard then
+     Guard := TWVFreeGuard.Create;
+  
+  // to do check and create
+
+  GuardInternals := IWVFreeGuardInternal(Guard); // runtime cast, needs GUID
+  GuardProxy := GuardInternals.GetPrematureFreeProxy;
+  GuardInternals.Link(Self);
+end;
+
+{ TWVFreeGuardProxy }
+
+procedure TWVFreeGuardProxy.BeforeDestruction;
+begin
+// should only happen after all client objects are being memory-freed finally
+  if nil <> FOwner then
+     if Self = FOwner.FPremature then
+        FOwner.FPremature := nil;
+  FOwner := nil;
+
+  inherited;
+end;
+
+procedure TWVFreeGuardProxy.Unlink(const Obj: TObject);
+begin
+  if nil = Obj then Exit; // should never happen
+  if nil = FOwner then Exit;
+  if nil = FOwner.FList then Exit;
+  FOwner.FList.Remove(Obj);
+end;
+
+{ TWVFreeGuard }
+
+function TWVFreeGuard.GetPrematureFreeProxy: IWVPrematureGuardedFree;
+begin
+  if nil = FPremature then begin
+     FPremature := TWVFreeGuardProxy.Create;
+     FPremature.FOwner := Self;
+  end;
+  Result := FPremature; // it is upon client objects to destroy it eventually!
+end;
+
+function TWVFreeGuard.Link(const Obj: TObject): integer;
+begin
+  Result := -1;
+  
+  if nil = Obj then Exit; // should never happen
+  if nil = FList then
+     FList := TObjectList.Create(False)
+  else
+     if FList.IndexOf(Obj) >= 0 then
+{$IfOpt D+}
+        raise EInvalidContainer.Create(IntToHex(Integer(Pointer(Obj)), 2*SizeOf(Pointer))
+            + ' object was registered TWICE in the ' + ClassName);
+{$Else}
+        Exit; // let's be forgiving in release vuilds, though this should NEVER happen
+{$EndIf}
+
+  Result := FList.Add(Obj);
+end;
+
+procedure TWVFreeGuard.BeforeDestruction;
+var
+  N: integer;
+  LList: TObjectList;
+  err: string;
+begin
+  inherited;
+
+  LList := FList;
+  FList := nil; // mark "nothing to do" for the FPremature
+  if nil = LList then Exit; // nothing was ever guarded, weird!
+
+  N := LList.Count;
+  while N > 0 do begin
+    Dec(N);
+    try
+      LList[N].Free;
+    except
+      on E: Exception do begin
+         err := ClassName + ' destroying ERROR! ' + E.ClassName + ':: ' + E.Message;
+         OutputDebugString(PChar(err));
+      end;
+    end;
+  end;
+end;
+{$EndRegion}
 
 end.
