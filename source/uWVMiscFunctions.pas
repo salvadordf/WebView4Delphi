@@ -80,7 +80,8 @@ type
   IWVPrematureGuardedFree = interface // GUID's are not needed here: compile-time type checking only
     procedure Unlink(const Self: TObject);
   end;
-procedure UnlinkGuardedFree(const Self: TObject; const GuardProxy: IWVPrematureGuardedFree); // #81
+procedure UnlinkGuardedFree(const Self: TObject;
+  const GuardProxy: IWVPrematureGuardedFree);
 procedure LinkGuardedFree(const Self: TObject; var Guard: IWVFreeGuard;
   out GuardProxy: IWVPrematureGuardedFree);
 
@@ -792,10 +793,11 @@ end;
 procedure TWVFreeGuardProxy.BeforeDestruction;
 begin
 // should only happen after all client objects are being memory-freed finally
-  if nil <> FOwner then
+  if nil <> FOwner then begin
      if Self = FOwner.FPremature then
         FOwner.FPremature := nil;
-  FOwner := nil;
+     FOwner := nil;
+  end;
 
   inherited;
 end;
@@ -816,7 +818,7 @@ begin
      FPremature := TWVFreeGuardProxy.Create;
      FPremature.FOwner := Self;
   end;
-  Result := FPremature; // it is upon client objects to destroy it eventually!
+  Result := FPremature; // it would be upon client objects not TWVFreeGuard to destroy it eventually!
 end;
 
 function TWVFreeGuard.Link(const Obj: TObject): integer;
@@ -848,19 +850,26 @@ begin
 
   LList := FList;
   FList := nil; // mark "nothing to do" for the FPremature
+  if nil <> FPremature then
+     if Self = FPremature.FOwner then  // should always be so, yet playing safer in destructors
+        FPremature.FOwner := nil;
   if nil = LList then Exit; // nothing was ever guarded, weird!
 
-  N := LList.Count;
-  while N > 0 do begin
-    Dec(N);
-    try
-      LList[N].Free;
-    except
-      on E: Exception do begin
-         err := ClassName + ' destroying ERROR! ' + E.ClassName + ':: ' + E.Message;
-         OutputDebugString(PChar(err));
+  try
+    N := LList.Count;
+    while N > 0 do begin
+      Dec(N);
+      try
+        LList[N].Free;
+      except
+        on E: Exception do begin
+           err := ClassName + ' destroying ERROR! ' + E.ClassName + ':: ' + E.Message;
+           OutputDebugString(PChar(err));
+        end;
       end;
     end;
+  finally
+    LList.Destroy;
   end;
 end;
 {$EndRegion}
