@@ -12,6 +12,7 @@ uses
   {$ELSE}
   Classes, Types, Forms, Math, {$IFDEF FPC}LResources,{$ENDIF}
   {$ENDIF}
+  uWVMiscFunctions,  // #81
   uWVBrowserBase;
 
 type
@@ -146,6 +147,11 @@ type
 {$IFDEF FPC}
 procedure Register;
 {$ENDIF}
+
+{$Region '#81 forwarding app-level features from uWVMiscFunctions'}
+type
+  IWVFreeGuard = uWVMiscFunctions.IWVFreeGuard;
+{$EndRegion}
 
 implementation
 
