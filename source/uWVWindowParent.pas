@@ -140,7 +140,7 @@ begin
               FBrowser.IsVisible := tmpVisible;
             end;
         end;
-      end
+      end;
 
     else inherited WndProc(aMessage);
   end;
