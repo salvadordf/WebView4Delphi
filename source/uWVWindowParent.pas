@@ -104,6 +104,8 @@ begin
 end;
 
 procedure TWVWindowParent.WndProc(var aMessage: TMessage);
+var
+  tmpVisible: boolean;
 begin
   case aMessage.Msg of
     WM_SETFOCUS:
@@ -117,6 +119,28 @@ begin
     WM_ERASEBKGND:
       if (ChildWindowHandle = 0) then
         inherited WndProc(aMessage);
+
+    CM_RECREATEWND:  // #75: this VCL quirk kills CEF/WebView2 instantly
+      begin
+        if (FBrowser <> nil) then
+          begin
+            tmpVisible := FBrowser.IsVisible;
+            if tmpVisible then
+              FBrowser.IsVisible := False; // avoid flicker, 0 is GetDesktopHWND
+            FBrowser.ParentWindow := 0;
+          end
+        else
+          tmpVisible := False;  // avoid compiler warning
+        try
+          inherited WndProc(aMessage);
+        finally
+          if (FBrowser <> nil) then
+            begin
+              FBrowser.ParentWindow := Self.Handle;
+              FBrowser.IsVisible := tmpVisible;
+            end;
+        end;
+      end
 
     else inherited WndProc(aMessage);
   end;
