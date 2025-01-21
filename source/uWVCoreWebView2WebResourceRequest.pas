@@ -12,6 +12,7 @@ uses
   {$ELSE}
   ActiveX,
   {$ENDIF}
+  uWVMiscFunctions,
   uWVTypeLibrary, uWVTypes;
 
 type
@@ -24,6 +25,7 @@ type
   TCoreWebView2WebResourceRequestRef = class
     protected
       FBaseIntf : ICoreWebView2WebResourceRequest;
+      FFreeGuard : IWVPrematureGuardedFree;  // #81
 
       function  GetInitialized : boolean;
       function  GetURI : wvstring;
@@ -36,7 +38,8 @@ type
       procedure SetContent(const aContent : IStream);
 
     public
-      constructor Create(const aBaseIntf : ICoreWebView2WebResourceRequest); reintroduce;
+      constructor Create(const aBaseIntf : ICoreWebView2WebResourceRequest); reintroduce; overload;
+      constructor Create(var Guard: IWVFreeGuard; const aBaseIntf : ICoreWebView2WebResourceRequest); overload;
       destructor  Destroy; override;
 
       /// <summary>
@@ -111,9 +114,6 @@ type
 
 implementation
 
-uses
-  uWVMiscFunctions;
-
 constructor TCoreWebView2WebResourceRequestRef.Create(const aBaseIntf: ICoreWebView2WebResourceRequest);
 begin
   inherited Create;
@@ -121,9 +121,18 @@ begin
   FBaseIntf := aBaseIntf;
 end;
 
+constructor TCoreWebView2WebResourceRequestRef.Create(var Guard: IWVFreeGuard;
+  const aBaseIntf: ICoreWebView2WebResourceRequest);
+begin
+  LinkGuardedFree(Self, Guard, FFreeGuard);  // #81
+
+  Create(aBaseIntf);
+end;
+
 destructor TCoreWebView2WebResourceRequestRef.Destroy;
 begin
-  FBaseIntf := nil;
+//  FBaseIntf := nil;  no need, TObject.CleanupInstance would do
+  UnlinkGuardedFree(Self, FFreeGuard);  // #81
 
   inherited Destroy;
 end;

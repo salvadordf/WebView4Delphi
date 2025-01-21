@@ -12,6 +12,7 @@ uses
   {$ELSE}
   Types, ActiveX,
   {$ENDIF}
+  uWVMiscFunctions,
   uWVTypeLibrary, uWVTypes;
 
 type
@@ -1122,6 +1123,7 @@ type
     protected
       FBaseIntf  : ICoreWebView2WebResourceRequestedEventArgs;
       FBaseIntf2 : ICoreWebView2WebResourceRequestedEventArgs2;
+      FFreeGuard : IWVPrematureGuardedFree;  // #81
 
       function  GetInitialized : boolean;
       function  GetRequest : ICoreWebView2WebResourceRequest;
@@ -1132,10 +1134,11 @@ type
 
       procedure SetResponse(const aValue : ICoreWebView2WebResourceResponse);
 
-      procedure InitializeFields;
+//      procedure InitializeFields;
 
     public
-      constructor Create(const aArgs: ICoreWebView2WebResourceRequestedEventArgs); reintroduce;
+      constructor Create(const aArgs: ICoreWebView2WebResourceRequestedEventArgs); reintroduce; overload;
+      constructor Create(var Guard: IWVFreeGuard; const aArgs: ICoreWebView2WebResourceRequestedEventArgs); overload;
       destructor  Destroy; override;
 
       /// <summary>
@@ -2204,9 +2207,6 @@ type
   end;
 
 implementation
-
-uses
-  uWVMiscFunctions;
 
 // TCoreWebView2AcceleratorKeyPressedEventArgs
 
@@ -3378,7 +3378,7 @@ constructor TCoreWebView2WebResourceRequestedEventArgs.Create(const aArgs: ICore
 begin
   inherited Create;
 
-  InitializeFields;
+//  InitializeFields;
 
   FBaseIntf := aArgs;
 
@@ -3386,18 +3386,30 @@ begin
     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2WebResourceRequestedEventArgs2, FBaseIntf2);
 end;
 
+constructor TCoreWebView2WebResourceRequestedEventArgs.Create(
+  var Guard: IWVFreeGuard;
+  const aArgs: ICoreWebView2WebResourceRequestedEventArgs);
+begin
+  LinkGuardedFree(Self, Guard, FFreeGuard);  // #81
+  Create(aArgs);
+end;
+
 destructor TCoreWebView2WebResourceRequestedEventArgs.Destroy;
 begin
-  InitializeFields;
+//  InitializeFields;
+  UnlinkGuardedFree(Self, FFreeGuard);  // #81
 
   inherited Destroy;
 end;
 
-procedure TCoreWebView2WebResourceRequestedEventArgs.InitializeFields;
-begin
-  FBaseIntf  := nil;
-  FBaseIntf2 := nil;
-end;
+// #81 no need for manual clearing, because FBaseIntf and FBaseIntf are "managed types"
+//   * when creating TObject.NewInstance zeroes out all the memory, mostly for M.T. to work
+//   * when destroying TObject.CleanupInstance finalizes all the M.T. member variables too
+//procedure TCoreWebView2WebResourceRequestedEventArgs.InitializeFields;
+//begin
+//  FBaseIntf  := nil;
+//  FBaseIntf2 := nil;
+//end;
 
 function TCoreWebView2WebResourceRequestedEventArgs.GetInitialized : boolean;
 begin
