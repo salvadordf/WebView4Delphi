@@ -120,6 +120,7 @@ procedure TMainForm.WVBrowser1WebResourceRequested(Sender: TObject;
 const
   URI_START = MY_CUSTOM_SCHEME + '://domain/';
 var
+  TempFreeGuard: IWVFreeGuard;
   TempArgs     : TCoreWebView2WebResourceRequestedEventArgs;
   TempResponse : ICoreWebView2WebResourceResponse;
   TempRequest  : TCoreWebView2WebResourceRequestRef;
@@ -130,52 +131,45 @@ var
   TempAdapter  : IStream;
   TempStream   : TFileStream;
 begin
-  try
-    TempArgs    := TCoreWebView2WebResourceRequestedEventArgs.Create(aArgs);
-    TempRequest := TCoreWebView2WebResourceRequestRef.Create(TempArgs.Request);
-    TempURI     := TempRequest.URI;
-    TempStart   := copy(TempURI, 1, length(URI_START));
+  TempArgs    := TCoreWebView2WebResourceRequestedEventArgs.Create(TempFreeGuard, aArgs);
+  TempRequest := TCoreWebView2WebResourceRequestRef.Create(TempFreeGuard, TempArgs.Request);
+  TempURI     := TempRequest.URI;
+  TempStart   := copy(TempURI, 1, length(URI_START));
 
-    if (CompareText(TempStart, URI_START) = 0) then
-      begin
-        TempFileName := '..\assets\' + copy(TempURI, succ(length(URI_START)), length(TempURI));
+  if (CompareText(TempStart, URI_START) = 0) then
+    begin
+      TempFileName := '..\assets\' + copy(TempURI, succ(length(URI_START)), length(TempURI));
 
-        if FileExists(TempFileName) then
-          begin
-            TempExt     := ExtractFileExt(TempFileName);
-            TempStream  := TFileStream.Create(TempFileName, fmOpenRead);
-            TempAdapter := TStreamAdapter.Create(TempStream, soOwned);
+      if FileExists(TempFileName) then
+        begin
+          TempExt     := ExtractFileExt(TempFileName);
+          TempStream  := TFileStream.Create(TempFileName, fmOpenRead);
+          TempAdapter := TStreamAdapter.Create(TempStream, soOwned);
 
-            if (CompareText(TempExt, '.htm') = 0) or (CompareText(TempExt, '.html') = 0) then
-              WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: text/html', TempResponse)
+          if (CompareText(TempExt, '.htm') = 0) or (CompareText(TempExt, '.html') = 0) then
+            WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: text/html', TempResponse)
+           else
+            if (CompareText(TempExt, '.css') = 0) then
+              WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: text/css', TempResponse)
              else
-              if (CompareText(TempExt, '.css') = 0) then
-                WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: text/css', TempResponse)
+              if (CompareText(TempExt, '.js') = 0) then
+                WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: application/javascript', TempResponse)
                else
-                if (CompareText(TempExt, '.js') = 0) then
-                  WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: application/javascript', TempResponse)
+                if (CompareText(TempExt, '.jpg') = 0) then
+                  WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: image/jpeg', TempResponse)
                  else
-                  if (CompareText(TempExt, '.jpg') = 0) then
-                    WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: image/jpeg', TempResponse)
+                  if (CompareText(TempExt, '.png') = 0) then
+                    WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: image/png', TempResponse)
                    else
-                    if (CompareText(TempExt, '.png') = 0) then
-                      WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(TempAdapter, 200, 'OK', 'Content-Type: image/png', TempResponse)
-                     else
-                      WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
-          end
-         else
-          WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
-      end
-     else
-      WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
+                    WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
+        end
+       else
+        WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
+    end
+  else
+    WVBrowser1.CoreWebView2Environment.CreateWebResourceResponse(nil, 404, 'Not Found', '', TempResponse);
 
-    TempArgs.Response := TempResponse;
-  finally
-    FreeAndNil(TempRequest);
-    FreeAndNil(TempArgs);
-    TempResponse := nil;
-    TempAdapter  := nil;
-  end;
+  TempArgs.Response := TempResponse;
 end;
 
 procedure TMainForm.Timer1Timer(Sender: TObject);
