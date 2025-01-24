@@ -567,15 +567,18 @@ function FindInstalledClientDll(var clientPath : wvstring;
                                     preference : TWebView2ReleaseChannelPreference;
                                 var versionStr : wvstring;
                                 var channelStr : wvstring): integer;
+const
+  APPMODEL_ERROR_NO_PACKAGE = $00003D54;                                
 var
   channel: Cardinal;
   lpSubKey: wvstring;
   version: TVersionRec;
-  pkBuf: wvstring;
+  pkBuf: array of byte;
   i, j: integer;
   len, cPackages: Cardinal;
   packages, package: PPACKAGE_INFO;
   GetCurrentPackageInfo: TGetCurrentPackageInfoProc;
+  TempResult : integer;
 begin
   // GetCurrentPackageInfo is only available in Windows 8 or newer
   if (Win32MajorVersion > 6) or
@@ -611,11 +614,18 @@ begin
         continue;
 
       len := 0;
-      if (GetCurrentPackageInfo(1, len, nil, cPackages) <> ERROR_INSUFFICIENT_BUFFER) or (len = 0) then
+      TempResult := GetCurrentPackageInfo(1, len, nil, cPackages);
+      if (TempResult = APPMODEL_ERROR_NO_PACKAGE) then
+        begin
+          Result := E_FAIL;
+          exit;
+        end;
+      
+      if (TempResult <> ERROR_INSUFFICIENT_BUFFER) or (len = 0) then
         continue;
 
       SetLength(pkBuf, len);
-      if (GetCurrentPackageInfo(1, len, pointer(pkBuf), cPackages) <> 0) or (cPackages = 0) then
+      if (GetCurrentPackageInfo(1, len, @pkBuf[0], cPackages) <> 0) or (cPackages = 0) then
         continue;
 
       packages := PPACKAGE_INFO(pkBuf);
