@@ -41,6 +41,7 @@ object MainForm: TMainForm
       TabOrder = 0
       Text = 'myscheme://domain/CustomScheme.html'
       Items.Strings = (
+        'myscheme://domain/CustomScheme.html'
         'https://www.bing.com'
         'https://www.google.com'
         
@@ -107,7 +108,7 @@ object MainForm: TMainForm
     OnAfterCreated = WVBrowser1AfterCreated
     OnDocumentTitleChanged = WVBrowser1DocumentTitleChanged
     OnWebResourceRequested = WVBrowser1WebResourceRequested
-    Left = 200
-    Top = 160
+    Left = 128
+    Top = 128
   end
 end
