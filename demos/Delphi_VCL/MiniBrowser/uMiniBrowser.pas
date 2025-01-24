@@ -65,6 +65,7 @@ type
     N3: TMenuItem;
     Addbrowserextension1: TMenuItem;
     ExecuteJavaScript1: TMenuItem;
+    estRecreateWnd1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -137,6 +138,7 @@ type
     procedure WVBrowser1ContainsFullScreenElementChanged(Sender: TObject);
     procedure WVBrowser1ExecuteScriptWithResultCompleted(Sender: TObject; errorCode: HRESULT; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: Integer);
     procedure WVBrowser1ScreenCaptureStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
+    procedure estRecreateWnd1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -338,6 +340,11 @@ end;
 procedure TMiniBrowserFrm.Downloadfavicon1Click(Sender: TObject);
 begin
   WVBrowser1.GetFavicon;
+end;
+
+procedure TMiniBrowserFrm.estRecreateWnd1Click(Sender: TObject);
+begin
+  PostMessage(WVWindowParent1.Handle, CM_RECREATEWND, 0, 0);
 end;
 
 procedure TMiniBrowserFrm.ExecuteJavaScript1Click(Sender: TObject);

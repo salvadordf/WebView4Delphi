@@ -23,6 +23,7 @@ type
     MenuItem1: TMenuItem;
     Cleatallstorage1: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem5: TMenuItem;
     SmartScreen1: TMenuItem;
     MenuItem4: TMenuItem;
     Muted1: TMenuItem;
@@ -68,6 +69,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
     procedure SmartScreen1Click(Sender: TObject);
 
     procedure Timer1Timer(Sender: TObject);
@@ -242,6 +244,11 @@ begin
 
   if assigned(FDownloadOperation) then
     FreeAndNil(FDownloadOperation);
+end;
+
+procedure TMiniBrowserFrm.MenuItem5Click(Sender: TObject);
+begin
+  PostMessage(WVWindowParent1.Handle, CM_RECREATEWND, 0, 0);
 end;
 
 procedure TMiniBrowserFrm.MenuItem2Click(Sender: TObject);

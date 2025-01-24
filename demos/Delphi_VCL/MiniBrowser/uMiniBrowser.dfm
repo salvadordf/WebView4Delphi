@@ -393,6 +393,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'Execute JavaScript...'
       OnClick = ExecuteJavaScript1Click
     end
+    object estRecreateWnd1: TMenuItem
+      Caption = 'Test RecreateWnd'
+      OnClick = estRecreateWnd1Click
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 48
