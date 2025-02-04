@@ -38,6 +38,7 @@ type
       FCheckFiles                             : boolean;
       FShowMessageDlg                         : boolean;
       FInitCOMLibrary                         : boolean;
+      FLocalCOMInitMade                       : boolean;
       FDeviceScaleFactor                      : single;
       FForcedDeviceScaleFactor                : single;
       FReRaiseExceptions                      : boolean;
@@ -858,6 +859,7 @@ procedure DestroyGlobalWebView2Loader;
 implementation
 
 uses
+  ComObj, // or OleAuto - need for OleCheck
   uWVConstants, uWVMiscFunctions, uWVCoreWebView2Delegates,
   uWVCoreWebView2EnvironmentOptions, uWVLoaderInternal, uWVCoreWebView2CustomSchemeRegistration;
 
@@ -959,7 +961,7 @@ begin
     DestroyEnvironment;
     UnLoadWebView2Library;
 
-    if FInitCOMLibrary then
+    if FLocalCOMInitMade then
       CoUnInitialize;
 
     if assigned(FProxySettings) then
@@ -1397,20 +1399,29 @@ begin
        else
         Result := True;
     end
-   else
+  else
     begin
       FStatus := wvlsError;
-      AppendErrorLog('Unsupported WebView2Loader.dll version !');
 
-      if GetFileVersion(TempLoaderLibPath, TempVersionInfo) then
-        begin
-          AppendErrorLog('Expected WebView2Loader.dll version : ' + LowestLoaderDLLVersion);
-          AppendErrorLog('Found WebView2Loader.dll version : ' +
-                         IntToStr(TempVersionInfo.MajorVer) + '.' +
-                         IntToStr(TempVersionInfo.MinorVer) + '.' +
-                         IntToStr(TempVersionInfo.Release)  + '.' +
-                         IntToStr(TempVersionInfo.Build));
-        end;
+      // Unicode to ANSI path conversion could, in some cases, lead to false positives
+      //   earlier (TWVLoader.GetFileVersion in pre-Unicode Delphi calls SysUtils.FileExists).
+      // Hence, we would not bother using pure Win32 API here for the sake of UNICODE
+      //   unless the whole of the loading sequence gets Unicode-coerced.
+      if FileExists(TempLoaderLibPath) then begin
+        AppendErrorLog('Unsupported WebView2Loader.dll version !');
+        if GetFileVersion(TempLoaderLibPath, TempVersionInfo) then
+          begin
+            AppendErrorLog('Expected WebView2Loader.dll version : ' + LowestLoaderDLLVersion);
+            AppendErrorLog('Found WebView2Loader.dll version : ' +
+                           IntToStr(TempVersionInfo.MajorVer) + '.' +
+                           IntToStr(TempVersionInfo.MinorVer) + '.' +
+                           IntToStr(TempVersionInfo.Release)  + '.' +
+                           IntToStr(TempVersionInfo.Build));
+          end
+        else
+          AppendErrorLog('Found WebView2Loader.dll has no version info, the file might be damaged.');
+      end else
+        AppendErrorLog('WebView2Loader.dll was not found or is within an unreachable path.');
 
       ShowErrorMessageDlg(ErrorMessage);
     end;
@@ -2077,8 +2088,21 @@ end;
 
 function TWVLoader.StartWebView2 : boolean;
 begin
-  if FInitCOMLibrary then
-    CoInitializeEx(nil, COINIT_APARTMENTTHREADED);
+  if FInitCOMLibrary and not FLocalCOMInitMade then
+    begin
+      try
+        OleCheck(CoInitializeEx(nil, COINIT_APARTMENTTHREADED));
+        FLocalCOMInitMade := True;
+      except
+        on E: Exception do begin
+          FStatus   := wvlsError;
+          FError    := GetLastError;
+          AppendErrorLog(E.ClassName + ':: ' + E.Message);
+          Result := False;
+          Exit;
+        end;
+      end;
+    end;
 
   Result := CheckWV2Library            and
             LoadWebView2Library        and
