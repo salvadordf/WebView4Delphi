@@ -483,8 +483,8 @@ const
   /// <summary>
   /// Indicates that the operation was canceled. This status code is also used
   /// in the following cases:
-  /// - When the app cancels a navigation via NavigationStarting event.
-  /// - For original navigation if the app navigates the WebView2 in a rapid succession
+  /// 1) when the app cancels a navigation via NavigationStarting event.
+  /// 2) For original navigation if the app navigates the WebView2 in a rapid succession
   /// away after the load for original navigation commenced, but before it completed.
   /// </summary>
   /// <remarks>
@@ -749,10 +749,9 @@ const
   /// <summary>
   /// <para>Indicates that the main frame's render process is unresponsive. Renderer
   /// process unresponsiveness can happen for the following reasons:</para>
-  /// <para>*   There is a **long-running script** being executed. For example, the
+  /// <para>There is a **long-running script** being executed. For example, the
   /// web content in your WebView might be performing a synchronous XHR, or have
-  /// entered an infinite loop.</para>
-  /// <para>*   The **system is busy**.</para>
+  /// entered an infinite loop. Or, the **system is busy**.</para>
   /// <para>The `ProcessFailed` event will continue to be raised every few seconds
   /// until the renderer process has become responsive again. The application
   /// can consider taking action if the event keeps being raised. For example,
@@ -1033,6 +1032,7 @@ type
   /// Kind of cross origin resource access allowed for host resources during download.
   /// Note that other normal access checks like same origin DOM access check and [Content
   /// Security Policy](https://developer.mozilla.org/docs/Web/HTTP/CSP) still apply.
+  ///
   /// The following table illustrates the host resource cross origin access according to
   /// access context and COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND.
   ///
@@ -13089,6 +13089,7 @@ type
     /// which nested bullet points are included in their parent bullet point's data kind.
     /// Ex: All DOM storage is encompassed in all site data which is encompassed in
     /// all profile data.
+    ///
     /// * All Profile
     ///   * All Site Data
     ///     * All DOM Storage: File Systems, Indexed DB, Local Storage, Web SQL, Cache
@@ -13100,6 +13101,7 @@ type
     ///   * Password Autosave
     ///   * Browsing History
     ///   * Settings
+    ///
     /// The completed handler will be invoked when the browsing data has been cleared and
     /// will indicate if the specified data was properly cleared. In the case in which
     /// the operation is interrupted and the corresponding data is not fully cleared

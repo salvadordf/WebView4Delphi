@@ -8904,16 +8904,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2BrowserProcessExitedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2BrowserProcessExitedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -9814,16 +9814,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -13824,16 +13824,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs2-">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2PermissionRequestedEventArgs - uWVCoreWebView2Args Unit">
-<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs2-">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2PermissionRequestedEventArgs - uWVCoreWebView2Args Unit">
-<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs-">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html#Create-ICoreWebView2PermissionRequestedEventArgs2-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -22179,6 +22179,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FLoaderDllPath">
 <param name="Local" value="uWVLoader.TWVLoader.html#FLoaderDllPath">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FLocalCOMInitMade">
+<param name="Local" value="uWVLoader.TWVLoader.html#FLocalCOMInitMade">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FMicrosoftSignIn">

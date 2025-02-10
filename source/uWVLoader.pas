@@ -38,6 +38,7 @@ type
       FCheckFiles                             : boolean;
       FShowMessageDlg                         : boolean;
       FInitCOMLibrary                         : boolean;
+      FLocalCOMInitMade                       : boolean;
       FDeviceScaleFactor                      : single;
       FForcedDeviceScaleFactor                : single;
       FReRaiseExceptions                      : boolean;
@@ -890,6 +891,7 @@ begin
   FCheckFiles                             := True;
   FShowMessageDlg                         := True;
   FInitCOMLibrary                         := {$IFDEF DELPHI16_UP}False{$ELSE}True{$ENDIF};
+  FLocalCOMInitMade                       := False;
   FForcedDeviceScaleFactor                := 0;
   FReRaiseExceptions                      := False;
   FLoaderDllPath                          := '';
@@ -959,7 +961,7 @@ begin
     DestroyEnvironment;
     UnLoadWebView2Library;
 
-    if FInitCOMLibrary then
+    if FLocalCOMInitMade then
       CoUnInitialize;
 
     if assigned(FProxySettings) then
@@ -1400,17 +1402,19 @@ begin
    else
     begin
       FStatus := wvlsError;
-      AppendErrorLog('Unsupported WebView2Loader.dll version !');
 
       if GetFileVersion(TempLoaderLibPath, TempVersionInfo) then
         begin
+          AppendErrorLog('Unsupported WebView2Loader.dll version !');
           AppendErrorLog('Expected WebView2Loader.dll version : ' + LowestLoaderDLLVersion);
           AppendErrorLog('Found WebView2Loader.dll version : ' +
                          IntToStr(TempVersionInfo.MajorVer) + '.' +
                          IntToStr(TempVersionInfo.MinorVer) + '.' +
                          IntToStr(TempVersionInfo.Release)  + '.' +
                          IntToStr(TempVersionInfo.Build));
-        end;
+        end
+       else
+        AppendErrorLog('WebView2Loader.dll file not found !');
 
       ShowErrorMessageDlg(ErrorMessage);
     end;
@@ -2077,8 +2081,34 @@ end;
 
 function TWVLoader.StartWebView2 : boolean;
 begin
-  if FInitCOMLibrary then
-    CoInitializeEx(nil, COINIT_APARTMENTTHREADED);
+  Result := False;
+
+  if FInitCOMLibrary and not(FLocalCOMInitMade) then
+    begin
+      case CoInitializeEx(nil, COINIT_APARTMENTTHREADED) of
+        S_OK, S_FALSE      :
+          begin
+            // To uninitialize the COM library gracefully on a thread, each
+            // successful call to CoInitialize or CoInitializeEx, including any
+            // call that returns S_FALSE, must be balanced by a corresponding
+            // call to CoUninitialize.
+            FLocalCOMInitMade := True;
+            Result            := True;
+          end;
+
+        RPC_E_CHANGED_MODE : AppendErrorLog('A previous call to CoInitializeEx specified an incompatible concurrency model for this thread.');
+        E_INVALIDARG       : AppendErrorLog('CoInitializeEx failed. One or more arguments are not valid.');
+        E_OUTOFMEMORY      : AppendErrorLog('CoInitializeEx failed to allocate necessary memory.');
+        E_UNEXPECTED       : AppendErrorLog('Unexpected CoInitializeEx failure.');
+        else                 AppendErrorLog('Unknown CoInitializeEx failure.');
+      end;
+
+      if not(Result) then
+        begin
+          ShowErrorMessageDlg(ErrorMessage);
+          exit;
+        end;
+    end;
 
   Result := CheckWV2Library            and
             LoadWebView2Library        and

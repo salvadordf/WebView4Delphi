@@ -18338,6 +18338,10 @@
 <param name="Local" value="uWVLoader.TWVLoader.html#FInitCOMLibrary">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FLocalCOMInitMade">
+<param name="Local" value="uWVLoader.TWVLoader.html#FLocalCOMInitMade">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FDeviceScaleFactor">
 <param name="Local" value="uWVLoader.TWVLoader.html#FDeviceScaleFactor">
 </object>
@@ -52804,6 +52808,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FLoaderDllPath">
 <param name="Local" value="uWVLoader.TWVLoader.html#FLoaderDllPath">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FLocalCOMInitMade">
+<param name="Local" value="uWVLoader.TWVLoader.html#FLocalCOMInitMade">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FMicrosoftSignIn">
