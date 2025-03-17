@@ -588,17 +588,26 @@ var
 begin
   if assigned(FDownloadOperation) and (FDownloadOperation.DownloadID = aDownloadID) then
     begin
-      TempStatus := 'Downloading...';
+      case FDownloadOperation.State of
+        COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED   : TempStatus := 'Download complete!';
+        COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED : TempStatus := 'Download interrupted.';
+        COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS :
+          begin
+            TempStatus := 'Downloading...';
 
-      if (FDownloadOperation.TotalBytesToReceive <> 0) then
-        begin
-          TempPct    := (FDownloadOperation.BytesReceived / FDownloadOperation.TotalBytesToReceive) * 100;
-          TempStatus := TempStatus + ' ' + inttostr(round(TempPct)) + '%';
-        end
-       else
-        TempStatus := TempStatus + ' ' + inttostr(FDownloadOperation.BytesReceived) + ' bytes';
+            if (FDownloadOperation.TotalBytesToReceive <> 0) then
+              begin
+                TempPct    := (FDownloadOperation.BytesReceived / FDownloadOperation.TotalBytesToReceive) * 100;
+                TempStatus := TempStatus + ' ' + inttostr(round(TempPct)) + '%';
+              end
+             else
+              TempStatus := TempStatus + ' ' + inttostr(FDownloadOperation.BytesReceived) + ' bytes';
 
-      TempStatus := TempStatus + ' - Estimated end time : ' + TimeToStr(FDownloadOperation.EstimatedEndTime);
+            TempStatus := TempStatus + ' - Estimated end time : ' + TimeToStr(FDownloadOperation.EstimatedEndTime);
+          end;
+
+        else exit;
+      end;
 
       StatusBar1.Panels[0].Text := TempStatus;
     end;
