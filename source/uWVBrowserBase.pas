@@ -3839,6 +3839,7 @@ type
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_26#add_savefilesecuritycheckstarting">See the ICoreWebView2_26 article.</see></para>
+      /// <para><see href="https://github.com/MicrosoftEdge/WebView2Feedback/blob/main/specs/FileTypePolicy.md">See the FileTypePolicy API article.</see></para>
       /// </remarks>
       property OnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent                  read FOnSaveFileSecurityCheckStarting                 write FOnSaveFileSecurityCheckStarting;
       /// <summary>
