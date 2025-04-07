@@ -91,6 +91,7 @@ const
   WV_FLAGS_URL      = 'edge://flags';
   WV_DOWNLOADS_URL  = 'edge://downloads';
   WV_EXTENSIONS_URL = 'edge://extensions';
+  WV_CRASHES_URL    = 'edge://crashes';
 
 implementation
 
