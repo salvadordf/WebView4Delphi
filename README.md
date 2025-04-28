@@ -10,6 +10,8 @@ Delphi 6 support needs to be tested and it requires installing the second Delphi
 
 WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.
 
+WebView4Delphi is a replacement of the TWebBrowser and TEdgeBrowser components. It's a full implementation of the WebView2 framework, it's updated frequently and it also supports older Delphi versions.
+
 ## Links
 * [Installation instructions and more information about WebView4Delphi](https://www.briskbard.com/index.php?lang=en&pageid=webview)
 * [Developer Forums](https://www.briskbard.com/forum)
