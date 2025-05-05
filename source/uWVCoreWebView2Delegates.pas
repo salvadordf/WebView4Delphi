@@ -1565,6 +1565,24 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives `FrameCreated` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framechildframecreatedeventhandler">See the ICoreWebView2FrameChildFrameCreatedEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2FrameChildFrameCreatedEventHandler = class(TInterfacedObject, ICoreWebView2FrameChildFrameCreatedEventHandler)
+    protected
+      FEvents  : Pointer;
+      FFrameID : cardinal;
+
+      function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -3799,5 +3817,30 @@ begin
     Result := E_FAIL;
 end;
 
+
+// TCoreWebView2FrameChildFrameCreatedEventHandler
+
+constructor TCoreWebView2FrameChildFrameCreatedEventHandler.Create(const aEvents: IWVBrowserEvents; aFrameID : cardinal);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+  FFrameID := aFrameID;
+end;
+
+destructor TCoreWebView2FrameChildFrameCreatedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FrameChildFrameCreatedEventHandler.Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FrameChildFrameCreatedEventHandler_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
 
 end.

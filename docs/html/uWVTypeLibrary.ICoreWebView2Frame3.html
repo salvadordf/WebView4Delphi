@@ -53,7 +53,7 @@
 
 <p>This relates to the `PermissionRequested` event on the `CoreWebView2`. Both these events will be raised in the case of an iframe requesting permission. The `CoreWebView2Frame`'s event handlers will be invoked before the event handlers on the `CoreWebView2`. If the `Handled` property of the `PermissionRequestedEventArgs` is set to TRUE within the `CoreWebView2Frame` event handler, then the event will not be raised on the `CoreWebView2`, and it's event handlers will not be invoked.
 
-<p>In the case of nested iframes, the 'PermissionRequested' event will be raised from the top level iframe.
+<p>In the case of nested iframes, if the `PermissionRequested` event is handled in the current nested iframe (i.e., the Handled property of the `PermissionRequestedEventArgs` is set to TRUE), the event will not be raised on the parent `CoreWebView2Frame`. However, if the `PermissionRequested` event is not handled in that nested iframe, the event will be raised from its nearest tracked parent `CoreWebView2Frame`. It will iterate through the parent frame chain up to the main frame until a parent frame handles the request.
 
 <p>If a deferral is not taken on the event args, the subsequent scripts are blocked until the event handler returns. If a deferral is taken, the scripts are blocked until the deferral is completed.
 

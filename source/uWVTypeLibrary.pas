@@ -247,6 +247,8 @@ const
   IID_ICoreWebView2Frame5: TGUID = '{99D199C4-7305-11EE-B962-0242AC120002}';
   IID_ICoreWebView2Frame6: TGUID = '{0DE611FD-31E9-5DDC-9D71-95EDA26EFF32}';
   IID_ICoreWebView2FrameScreenCaptureStartingEventHandler: TGUID = '{A6C1D8AD-BB80-59C5-895B-FBA1698B9309}';
+  IID_ICoreWebView2Frame7: TGUID = '{3598CFA2-D85D-5A9F-9228-4DDE1F59EC64}';
+  IID_ICoreWebView2FrameChildFrameCreatedEventHandler: TGUID = '{569E40E7-46B7-563D-83AE-1073155664D7}';
   IID_ICoreWebView2FrameInfo2: TGUID = '{56F85CFA-72C4-11EE-B962-0242AC120002}';
   IID_ICoreWebView2NavigationCompletedEventArgs2: TGUID = '{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}';
   IID_ICoreWebView2NavigationStartingEventArgs2: TGUID = '{9086BE93-91AA-472D-A7E0-579F2BA006AD}';
@@ -3333,6 +3335,8 @@ type
   ICoreWebView2Frame5 = interface;
   ICoreWebView2Frame6 = interface;
   ICoreWebView2FrameScreenCaptureStartingEventHandler = interface;
+  ICoreWebView2Frame7 = interface;
+  ICoreWebView2FrameChildFrameCreatedEventHandler = interface;
   ICoreWebView2FrameInfo2 = interface;
   ICoreWebView2NavigationCompletedEventArgs2 = interface;
   ICoreWebView2NavigationStartingEventArgs2 = interface;
@@ -12363,8 +12367,13 @@ type
     /// `CoreWebView2Frame` event handler, then the event will not be
     /// raised on the `CoreWebView2`, and it's event handlers will not be invoked.
     ///
-    /// In the case of nested iframes, the 'PermissionRequested' event will
-    /// be raised from the top level iframe.
+    /// In the case of nested iframes, if the `PermissionRequested` event is handled
+    /// in the current nested iframe (i.e., the Handled property of the
+    /// `PermissionRequestedEventArgs` is set to TRUE), the event will not be raised
+    /// on the parent `CoreWebView2Frame`. However, if the `PermissionRequested` event is
+    /// not handled in that nested iframe, the event will be raised from its nearest
+    /// tracked parent `CoreWebView2Frame`. It will iterate through the parent frame
+    /// chain up to the main frame until a parent frame handles the request.
     ///
     /// If a deferral is not taken on the event args, the subsequent scripts are
     /// blocked until the event handler returns.  If a deferral is taken, the
@@ -12537,6 +12546,46 @@ type
     /// </summary>
     function Invoke(const sender: ICoreWebView2Frame;
                     const args: ICoreWebView2ScreenCaptureStartingEventArgs): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// This is the `ICoreWebView2Frame` interface to support tracking
+  /// of nested iframes.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7">See the ICoreWebView2Frame7 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Frame7 = interface(ICoreWebView2Frame6)
+    ['{3598CFA2-D85D-5A9F-9228-4DDE1F59EC64}']
+    /// <summary>
+    /// Adds an event handler for the `FrameCreated` event.
+    /// Raised when a new direct descendant iframe is created.
+    /// Handle this event to get access to ICoreWebView2Frame objects.
+    /// Use `ICoreWebView2Frame.add_Destroyed` to listen for when this
+    /// iframe goes away.
+    ///
+    /// \snippet ScenarioWebViewEventMonitor.cpp FrameCreated
+    /// </summary>
+    function add_FrameCreated(const eventHandler: ICoreWebView2FrameChildFrameCreatedEventHandler;
+                              out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_FrameCreated`.
+    /// </summary>
+    function remove_FrameCreated(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `FrameCreated` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framechildframecreatedeventhandler">See the ICoreWebView2FrameChildFrameCreatedEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2FrameChildFrameCreatedEventHandler = interface(IUnknown)
+    ['{569E40E7-46B7-563D-83AE-1073155664D7}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs): HResult; stdcall;
   end;
 
   /// <summary>

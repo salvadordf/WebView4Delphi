@@ -105,6 +105,7 @@ type
   TOnSaveFileSecurityCheckStartingEvent                    = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2SaveFileSecurityCheckStartingEventArgs) of object;
   TOnScreenCaptureStartingEvent                            = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs) of object;
   TOnFrameScreenCaptureStartingEvent                       = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal) of object;
+  TOnFrameChildFrameCreatedEvent                           = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

@@ -523,6 +523,16 @@
 <td class="itemdesc"><p> This is an extension of the ICoreWebView2Frame interface that supports ScreenCaptureStarting. </p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame7.html">ICoreWebView2Frame7</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> This is the `ICoreWebView2Frame` interface to support tracking of nested iframes. </p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameChildFrameCreatedEventHandler.html">ICoreWebView2FrameChildFrameCreatedEventHandler</a></td>
+<td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
+<td class="itemdesc"><p> Receives `FrameCreated` events. </p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">ICoreWebView2FrameContentLoadingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p> Receives `ContentLoading` events. </p></td>
@@ -1639,266 +1649,271 @@
 <td class="itemdesc"><p> ICoreWebView2Frame provides direct access to the iframes information. You can get an ICoreWebView2Frame by handling the ICoreWebView2_4.add_FrameCreated event. </p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html">TCoreWebView2FrameChildFrameCreatedEventHandler</a></td>
+<td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
+<td class="itemdesc"><p> Receives `FrameCreated` events. </p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameContentLoadingEventHandler.html">TCoreWebView2FrameContentLoadingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives ContentLoading events for iframe. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2FrameCreatedEventArgs.html">TCoreWebView2FrameCreatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the FrameCreated events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameCreatedEventHandler.html">TCoreWebView2FrameCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives FrameCreated event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDestroyedEventHandler.html">TCoreWebView2FrameDestroyedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives FrameDestroyed event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDOMContentLoadedEventHandler.html">TCoreWebView2FrameDOMContentLoadedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives DOMContentLoaded events for iframe. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2FrameInfo.TCoreWebView2FrameInfo.html">TCoreWebView2FrameInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2FrameInfo.html">uWVCoreWebView2FrameInfo</a></td>
 <td class="itemdesc"><p> Provides a set of properties for a frame in the ICoreWebView2. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2FrameInfoCollection.TCoreWebView2FrameInfoCollection.html">TCoreWebView2FrameInfoCollection</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2FrameInfoCollection.html">uWVCoreWebView2FrameInfoCollection</a></td>
 <td class="itemdesc"><p> Collection of FrameInfos (name and source). Used to list the affected frames' info when a frame-only render process failure occurs in the ICoreWebView2. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2FrameInfoCollectionIterator.TCoreWebView2FrameInfoCollectionIterator.html">TCoreWebView2FrameInfoCollectionIterator</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2FrameInfoCollectionIterator.html">uWVCoreWebView2FrameInfoCollectionIterator</a></td>
 <td class="itemdesc"><p> Iterator for a collection of FrameInfos. For more info, see ICoreWebView2ProcessFailedEventArgs2 and ICoreWebView2FrameInfoCollection. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNameChangedEventHandler.html">TCoreWebView2FrameNameChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives FrameNameChanged event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationCompletedEventHandler.html">TCoreWebView2FrameNavigationCompletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationCompleted events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationCompletedEventHandler2.html">TCoreWebView2FrameNavigationCompletedEventHandler2</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationCompleted events for iframe. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationStartingEventHandler.html">TCoreWebView2FrameNavigationStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationStarting events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameNavigationStartingEventHandler2.html">TCoreWebView2FrameNavigationStartingEventHandler2</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationStarting events for iframe. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FramePermissionRequestedEventHandler.html">TCoreWebView2FramePermissionRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives PermissionRequested events for iframes. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html">TCoreWebView2FrameScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameWebMessageReceivedEventHandler.html">TCoreWebView2FrameWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives WebMessageReceived events for iframe. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetCookiesCompletedHandler.html">TCoreWebView2GetCookiesCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the GetCookies method. The result is written to the cookie list provided in the GetCookies method call. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetFaviconCompletedHandler.html">TCoreWebView2GetFaviconCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> This interface is a handler for when the Favicon is changed. The sender is the ICoreWebView2 object the top-level document of which has changed favicon and the eventArgs is nullptr. Use the FaviconUri property and GetFavicon method to obtain the favicon data. The second argument is always null. For more information see add_FaviconChanged. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html">TCoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> The caller implements this interface to handle the result of GetNonDefaultPermissionSettings. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetProcessExtendedInfosCompletedHandler.html">TCoreWebView2GetProcessExtendedInfosCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the `GetProcessExtendedInfos` method. The result is written to the collection of `ProcessExtendedInfo`s provided in the `GetProcessExtendedInfos` method call. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GotFocusEventHandler.html">TCoreWebView2GotFocusEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives GotFocus and LostFocus events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2HistoryChangedEventHandler.html">TCoreWebView2HistoryChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives HistoryChanged events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2HttpHeadersCollectionIterator.TCoreWebView2HttpHeadersCollectionIterator.html">TCoreWebView2HttpHeadersCollectionIterator</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2HttpHeadersCollectionIterator.html">uWVCoreWebView2HttpHeadersCollectionIterator</a></td>
 <td class="itemdesc"><p> Iterator for a collection of HTTP headers. For more information, navigate to ICoreWebView2HttpRequestHeaders and ICoreWebView2HttpResponseHeaders. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2HttpRequestHeaders.TCoreWebView2HttpRequestHeaders.html">TCoreWebView2HttpRequestHeaders</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2HttpRequestHeaders.html">uWVCoreWebView2HttpRequestHeaders</a></td>
 <td class="itemdesc"><p> HTTP request headers. Used to inspect the HTTP request on WebResourceRequested event and NavigationStarting event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2HttpResponseHeaders.TCoreWebView2HttpResponseHeaders.html">TCoreWebView2HttpResponseHeaders</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2HttpResponseHeaders.html">uWVCoreWebView2HttpResponseHeaders</a></td>
 <td class="itemdesc"><p> HTTP response headers. Used to construct a WebResourceResponse for the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html">TCoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Implements the interface to receive IsDefaultDownloadDialogOpenChanged events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsDocumentPlayingAudioChangedEventHandler.html">TCoreWebView2IsDocumentPlayingAudioChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Implements the interface to receive IsDocumentPlayingAudioChanged events. Use the IsDocumentPlayingAudio property to get the audio playing state. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2IsMutedChangedEventHandler.html">TCoreWebView2IsMutedChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Implements the interface to receive IsMutedChanged events. Use the IsMuted property to get the mute state. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2LaunchingExternalUriSchemeEventArgs.html">TCoreWebView2LaunchingExternalUriSchemeEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for LaunchingExternalUriScheme event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2LaunchingExternalUriSchemeEventHandler.html">TCoreWebView2LaunchingExternalUriSchemeEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Event handler for the LaunchingExternalUriScheme event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2LostFocusEventHandler.html">TCoreWebView2LostFocusEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives GotFocus and LostFocus events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2MoveFocusRequestedEventArgs.html">TCoreWebView2MoveFocusRequestedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the MoveFocusRequested event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2MoveFocusRequestedEventHandler.html">TCoreWebView2MoveFocusRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives MoveFocusRequested events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NavigationCompletedEventArgs.html">TCoreWebView2NavigationCompletedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the NavigationCompleted event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NavigationCompletedEventHandler.html">TCoreWebView2NavigationCompletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationCompleted events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NavigationStartingEventArgs.html">TCoreWebView2NavigationStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the NavigationStarting event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NavigationStartingEventHandler.html">TCoreWebView2NavigationStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NavigationStarting events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NewBrowserVersionAvailableEventHandler.html">TCoreWebView2NewBrowserVersionAvailableEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NewBrowserVersionAvailable events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NewWindowRequestedEventArgs.html">TCoreWebView2NewWindowRequestedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the NewWindowRequested event. The event is run when content inside webview requested to a open a new window (through window.open() and so on). </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NewWindowRequestedEventHandler.html">TCoreWebView2NewWindowRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives NewWindowRequested events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NonClientRegionChangedEventArgs.html">TCoreWebView2NonClientRegionChangedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> This is the Interface for non-client region change event args. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html">TCoreWebView2NonClientRegionChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `NonClientRegionChanged` events. event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Notification.TCoreWebView2Notification.html">TCoreWebView2Notification</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Notification.html">uWVCoreWebView2Notification</a></td>
 <td class="itemdesc"><p> This is the ICoreWebView2Notification that represents a [HTML Notification object](<a href="https://developer.mozilla.org/docs/Web/API/Notification">https://developer.mozilla.org/docs/Web/API/Notification</a>). </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NotificationCloseRequestedEventHandler.html">TCoreWebView2NotificationCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `CloseRequested` events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NotificationReceivedEventArgs.html">TCoreWebView2NotificationReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the `NotificationReceived` event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NotificationReceivedEventHandler.html">TCoreWebView2NotificationReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `NotificationReceived` events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ObjectCollection.TCoreWebView2ObjectCollection.html">TCoreWebView2ObjectCollection</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ObjectCollection.html">uWVCoreWebView2ObjectCollection</a></td>
 <td class="itemdesc"><p> Represents a collection of generic objects. Used to get, remove and add objects at the specified index. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ObjectCollectionView.TCoreWebView2ObjectCollectionView.html">TCoreWebView2ObjectCollectionView</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ObjectCollectionView.html">uWVCoreWebView2ObjectCollectionView</a></td>
 <td class="itemdesc"><p> A collection of objects. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2PermissionRequestedEventArgs.html">TCoreWebView2PermissionRequestedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the PermissionRequested event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PermissionRequestedEventHandler.html">TCoreWebView2PermissionRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives PermissionRequested events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2PermissionSetting.TCoreWebView2PermissionSetting.html">TCoreWebView2PermissionSetting</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2PermissionSetting.html">uWVCoreWebView2PermissionSetting</a></td>
 <td class="itemdesc"><p> Provides a set of properties for a permission setting. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2PermissionSettingCollectionView.TCoreWebView2PermissionSettingCollectionView.html">TCoreWebView2PermissionSettingCollectionView</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2PermissionSettingCollectionView.html">uWVCoreWebView2PermissionSettingCollectionView</a></td>
 <td class="itemdesc"><p> Read-only collection of PermissionSettings (origin, kind, and state). Used to list the nondefault permission settings on the profile that are persisted across sessions. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2PointerInfo.TCoreWebView2PointerInfo.html">TCoreWebView2PointerInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2PointerInfo.html">uWVCoreWebView2PointerInfo</a></td>
 <td class="itemdesc"><p>
@@ -1909,257 +1924,257 @@
 
 <p></p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintCompletedHandler.html">TCoreWebView2PrintCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the Print method. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2PrintSettings.TCoreWebView2PrintSettings.html">TCoreWebView2PrintSettings</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2PrintSettings.html">uWVCoreWebView2PrintSettings</a></td>
 <td class="itemdesc"><p> Settings used by the PrintToPdf method. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintToPdfCompletedHandler.html">TCoreWebView2PrintToPdfCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the PrintToPdf method. If the print to PDF operation succeeds, isSuccessful is true. Otherwise, if the operation failed, isSuccessful is set to false. An invalid path returns E_INVALIDARG. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2PrintToPdfStreamCompletedHandler.html">TCoreWebView2PrintToPdfStreamCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the PrintToPdfStream method. errorCode returns S_OK if the PrintToPdfStream operation succeeded. The printable pdf data is returned in the pdfStream object. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfo.TCoreWebView2ProcessExtendedInfo.html">TCoreWebView2ProcessExtendedInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfo.html">uWVCoreWebView2ProcessExtendedInfo</a></td>
 <td class="itemdesc"><p> Provides process with associated extended information in the `ICoreWebView2Environment`. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html">TCoreWebView2ProcessExtendedInfoCollection</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfoCollection.html">uWVCoreWebView2ProcessExtendedInfoCollection</a></td>
 <td class="itemdesc"><p> A collection of ICoreWebView2ProcessExtendedInfo. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html">TCoreWebView2ProcessFailedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the ProcessFailed event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProcessFailedEventHandler.html">TCoreWebView2ProcessFailedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives ProcessFailed events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessInfo.TCoreWebView2ProcessInfo.html">TCoreWebView2ProcessInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ProcessInfo.html">uWVCoreWebView2ProcessInfo</a></td>
 <td class="itemdesc"><p> Provides a set of properties for a process in the ICoreWebView2Environment. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessInfoCollection.TCoreWebView2ProcessInfoCollection.html">TCoreWebView2ProcessInfoCollection</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ProcessInfoCollection.html">uWVCoreWebView2ProcessInfoCollection</a></td>
 <td class="itemdesc"><p> A collection of ICoreWebView2ProcessInfo. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html">TCoreWebView2ProcessInfosChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> An event handler for the ProcessInfosChanged event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Profile.TCoreWebView2Profile.html">TCoreWebView2Profile</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Profile.html">uWVCoreWebView2Profile</a></td>
 <td class="itemdesc"><p> Provides a set of properties to configure a Profile object. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileAddBrowserExtensionCompletedHandler.html">TCoreWebView2ProfileAddBrowserExtensionCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> The caller implements this interface to receive the result of loading an browser Extension. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileDeletedEventHandler.html">TCoreWebView2ProfileDeletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the `CoreWebView2Profile.Deleted` event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html">TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> The caller implements this interface to receive the result of getting the browser Extensions. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2RasterizationScaleChangedEventHandler.html">TCoreWebView2RasterizationScaleChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives RasterizationScaleChanged events. Use the RasterizationScale property to get the modified scale. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2RegionRectCollectionView.TCoreWebView2RegionRectCollectionView.html">TCoreWebView2RegionRectCollectionView</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2RegionRectCollectionView.html">uWVCoreWebView2RegionRectCollectionView</a></td>
 <td class="itemdesc"><p> A collection of RECT. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SaveAsUIShowingEventArgs.html">TCoreWebView2SaveAsUIShowingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> The event args for `SaveAsUIShowing` event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SaveAsUIShowingEventHandler.html">TCoreWebView2SaveAsUIShowingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `SaveAsUIShowing` events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SaveFileSecurityCheckStartingEventArgs.html">TCoreWebView2SaveFileSecurityCheckStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> The event args for `SaveFileSecurityCheckStarting` event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SaveFileSecurityCheckStartingEventHandler.html">TCoreWebView2SaveFileSecurityCheckStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `SaveFileSecurityCheckStarting` events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html">TCoreWebView2ScreenCaptureStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the `ScreenCaptureStarting` event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html">TCoreWebView2ScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ScriptDialogOpeningEventArgs.html">TCoreWebView2ScriptDialogOpeningEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the ScriptDialogOpening event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ScriptDialogOpeningEventHandler.html">TCoreWebView2ScriptDialogOpeningEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives ScriptDialogOpening events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ScriptException.TCoreWebView2ScriptException.html">TCoreWebView2ScriptException</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ScriptException.html">uWVCoreWebView2ScriptException</a></td>
 <td class="itemdesc"><p> This interface represents a JavaScript exception. If the CoreWebView2.ExecuteScriptWithResult result has Succeeded as false, you can use the result's Exception property to get the script exception. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ServerCertificateErrorDetectedEventArgs.html">TCoreWebView2ServerCertificateErrorDetectedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the ServerCertificateErrorDetected event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServerCertificateErrorDetectedEventHandler.html">TCoreWebView2ServerCertificateErrorDetectedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> An event handler for the ServerCertificateErrorDetected event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SetPermissionStateCompletedHandler.html">TCoreWebView2SetPermissionStateCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> The caller implements this interface to handle the result of SetPermissionState. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Settings.TCoreWebView2Settings.html">TCoreWebView2Settings</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Settings.html">uWVCoreWebView2Settings</a></td>
 <td class="itemdesc"><p> Defines properties that enable, disable, or modify WebView features. Changes to IsGeneralAutofillEnabled and IsPasswordAutosaveEnabled apply immediately, while other setting changes made after NavigationStarting event do not apply until the next top-level navigation. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2SharedBuffer.TCoreWebView2SharedBuffer.html">TCoreWebView2SharedBuffer</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2SharedBuffer.html">uWVCoreWebView2SharedBuffer</a></td>
 <td class="itemdesc"><p> The shared buffer object that is created by CreateSharedBuffer. The object is presented to script as ArrayBuffer when posted to script with PostSharedBufferToScript. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ShowSaveAsUICompletedHandler.html">TCoreWebView2ShowSaveAsUICompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the `ShowSaveAsUI` method. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SourceChangedEventArgs.html">TCoreWebView2SourceChangedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the SourceChanged event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SourceChangedEventHandler.html">TCoreWebView2SourceChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives SourceChanged events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2StateChangedEventHandler.html">TCoreWebView2StateChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Implements the interface to receive StateChanged event. Use the ICoreWebView2DownloadOperation.State property to get the current state, which can be in progress, interrupted, or completed. Use the ICoreWebView2DownloadOperation.InterruptReason property to get the interrupt reason if the download is interrupted. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2StatusBarTextChangedEventHandler.html">TCoreWebView2StatusBarTextChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives StatusBarTextChanged events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2StringCollection.TCoreWebView2StringCollection.html">TCoreWebView2StringCollection</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2StringCollection.html">uWVCoreWebView2StringCollection</a></td>
 <td class="itemdesc"><p> A collection of strings. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2TrySuspendCompletedHandler.html">TCoreWebView2TrySuspendCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> The caller implements this interface to receive the TrySuspend result. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2WebMessageReceivedEventArgs.html">TCoreWebView2WebMessageReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the WebMessageReceived event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebMessageReceivedEventHandler.html">TCoreWebView2WebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives WebMessageReceived events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2WebResourceRequestedEventArgs.html">TCoreWebView2WebResourceRequestedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceRequestedEventHandler.html">TCoreWebView2WebResourceRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Runs when a URL request (through network, file, and so on) is made in the webview for a Web resource matching resource context filter and URL specified in AddWebResourceRequestedFilter. The host views and modifies the request or provide a response in a similar pattern to HTTP, in which case the request immediately completed. This may not contain any request headers that are added by the network stack, such as an Authorization header. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestOwn.html">TCoreWebView2WebResourceRequestOwn</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2WebResourceRequest.html">uWVCoreWebView2WebResourceRequest</a></td>
 <td class="itemdesc"><p> An HTTP request used with the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2WebResourceRequest.TCoreWebView2WebResourceRequestRef.html">TCoreWebView2WebResourceRequestRef</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2WebResourceRequest.html">uWVCoreWebView2WebResourceRequest</a></td>
 <td class="itemdesc"><p> An HTTP request used with the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2WebResourceResponse.TCoreWebView2WebResourceResponse.html">TCoreWebView2WebResourceResponse</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2WebResourceResponse.html">uWVCoreWebView2WebResourceResponse</a></td>
 <td class="itemdesc"><p> An HTTP response used with the WebResourceRequested event. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2WebResourceResponseReceivedEventArgs.html">TCoreWebView2WebResourceResponseReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
 <td class="itemdesc"><p> Event args for the WebResourceResponseReceived event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceResponseReceivedEventHandler.html">TCoreWebView2WebResourceResponseReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives WebResourceResponseReceived events. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2WebResourceResponseView.TCoreWebView2WebResourceResponseView.html">TCoreWebView2WebResourceResponseView</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2WebResourceResponseView.html">uWVCoreWebView2WebResourceResponseView</a></td>
 <td class="itemdesc"><p> View of the HTTP representation for a web resource response. The properties of this object are not mutable. This response view is used with the TWVBrowserBase.OnWebResourceResponseReceived event. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WebResourceResponseViewGetContentCompletedHandler.html">TCoreWebView2WebResourceResponseViewGetContentCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives the result of the ICoreWebView2WebResourceResponseView.GetContent method. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2WindowCloseRequestedEventHandler.html">TCoreWebView2WindowCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Receives WindowCloseRequested events. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2WindowFeatures.TCoreWebView2WindowFeatures.html">TCoreWebView2WindowFeatures</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2WindowFeatures.html">uWVCoreWebView2WindowFeatures</a></td>
 <td class="itemdesc"><p>
@@ -2172,62 +2187,62 @@
 
 <p></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ZoomFactorChangedEventHandler.html">TCoreWebView2ZoomFactorChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
 <td class="itemdesc"><p> Implements the interface to receive ZoomFactorChanged events. Use the ICoreWebView2Controller.ZoomFactor property to get the modified zoom factor. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.TFileVersionInfo.html">TFileVersionInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p> Record used by GetDLLVersion to get the DLL version information </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVBrowser.TWVBrowser.html">TWVBrowser</a></td>
 <td class="itemunit"><a class="bold" href="uWVBrowser.html">uWVBrowser</a></td>
 <td class="itemdesc"><p> VCL and LCL version of TWVBrowserBase that puts together all browser procedures, functions, properties and events in one place. It has all you need to create, modify and destroy a web browser. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVBrowserBase.TWVBrowserBase.html">TWVBrowserBase</a></td>
 <td class="itemunit"><a class="bold" href="uWVBrowserBase.html">uWVBrowserBase</a></td>
 <td class="itemdesc"><p> Parent class of TWVBrowser and TWVFMXBrowser that puts together all browser procedures, functions, properties and events in one place. It has all you need to create, modify and destroy a web browser. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.TWVCustomSchemeInfo.html">TWVCustomSchemeInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p> Record with all the information to create a TCoreWebView2CustomSchemeRegistration instance to register a custom scheme. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVFMXBrowser.TWVFMXBrowser.html">TWVFMXBrowser</a></td>
 <td class="itemunit"><a class="bold" href="uWVFMXBrowser.html">uWVFMXBrowser</a></td>
 <td class="itemdesc"><p> FMX version of TWVBrowserBase that puts together all browser procedures, functions, properties and events in one place. It has all you need to create, modify and destroy a web browser. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVFMXWindowParent.TWVFMXWindowParent.html">TWVFMXWindowParent</a></td>
 <td class="itemunit"><a class="bold" href="uWVFMXWindowParent.html">uWVFMXWindowParent</a></td>
 <td class="itemdesc"><p> Parent control used by FMX applications to show the web contents. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVLoader.TWVLoader.html">TWVLoader</a></td>
 <td class="itemunit"><a class="bold" href="uWVLoader.html">uWVLoader</a></td>
 <td class="itemdesc"><p> Class used to simplify the WebView2 initialization and destruction. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVLoader.TWVProxySettings.html">TWVProxySettings</a></td>
 <td class="itemunit"><a class="bold" href="uWVLoader.html">uWVLoader</a></td>
 <td class="itemdesc"><p> Class used by the TWVLoader.ProxySettigns property to configure a custom proxy server using the following command line switches: &ndash;no-proxy-server, &ndash;proxy-auto-detect, &ndash;proxy-bypass-list, &ndash;proxy-pac-url and &ndash;proxy-server. </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVWinControl.TWVWinControl.html">TWVWinControl</a></td>
 <td class="itemunit"><a class="bold" href="uWVWinControl.html">uWVWinControl</a></td>
 <td class="itemdesc"><p> Parent control that will be used by TWVWindowParent in VCL and LCL applications to show the web contents. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.TWVWindowFeatures.html">TWVWindowFeatures</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p> Record used by TCoreWebView2WindowFeatures.CopyToRecord to copy the windows featres </p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uWVWindowParent.TWVWindowParent.html">TWVWindowParent</a></td>
 <td class="itemunit"><a class="bold" href="uWVWindowParent.html">uWVWindowParent</a></td>
 <td class="itemdesc"><p> Parent control used by VCL and LCL applications to show the web contents. </p></td>

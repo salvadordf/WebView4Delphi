@@ -30,6 +30,7 @@ type
       FBaseIntf4                               : ICoreWebView2Frame4;
       FBaseIntf5                               : ICoreWebView2Frame5;
       FBaseIntf6                               : ICoreWebView2Frame6;
+      FBaseIntf7                               : ICoreWebView2Frame7;
       FNameChangedToken                        : EventRegistrationToken;
       FDestroyedToken                          : EventRegistrationToken;
       FFrameNavigationStartingToken            : EventRegistrationToken;
@@ -39,6 +40,7 @@ type
       FFrameWebMessageReceivedToken            : EventRegistrationToken;
       FPermissionRequestedToken                : EventRegistrationToken;
       FFrameScreenCaptureStartingToken         : EventRegistrationToken;
+      FFrameChildFrameCreatedToken             : EventRegistrationToken;
       FFrameIDCopy                             : cardinal;
 
       function GetInitialized : boolean;
@@ -59,6 +61,7 @@ type
       function  AddFrameWebMessageReceivedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddPermissionRequestedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddFrameScreenCaptureStartingEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddFrameCreatedEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       /// <summary>
@@ -256,8 +259,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame2, FBaseIntf2) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame3, FBaseIntf3) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame4, FBaseIntf4) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame5, FBaseIntf5) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame6, FBaseIntf6);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame5, FBaseIntf5) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame6, FBaseIntf6) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Frame7, FBaseIntf7);
 end;
 
 destructor TCoreWebView2Frame.Destroy;
@@ -278,6 +282,7 @@ begin
   FBaseIntf4   := nil;
   FBaseIntf5   := nil;
   FBaseIntf6   := nil;
+  FBaseIntf7   := nil;
   FFrameIDCopy := WEBVIEW4DELPHI_INVALID_FRAMEID;
 
   InitializeTokens;
@@ -294,6 +299,7 @@ begin
   FFrameWebMessageReceivedToken.value      := 0;
   FPermissionRequestedToken.value          := 0;
   FFrameScreenCaptureStartingToken.value   := 0;
+  FFrameChildFrameCreatedToken.value       := 0;
 end;
 
 procedure TCoreWebView2Frame.RemoveAllEvents;
@@ -332,6 +338,10 @@ begin
          (FFrameScreenCaptureStartingToken.value <> 0) then
         FBaseIntf6.remove_ScreenCaptureStarting(FFrameScreenCaptureStartingToken);
 
+      if assigned(FBaseIntf7) and
+         (FFrameChildFrameCreatedToken.value <> 0) then
+        FBaseIntf7.remove_FrameCreated(FFrameChildFrameCreatedToken);
+
       InitializeTokens;
     end;
 end;
@@ -346,7 +356,8 @@ begin
             AddFrameDOMContentLoadedEvent(aBrowserComponent)      and
             AddFrameWebMessageReceivedEvent(aBrowserComponent)    and
             AddPermissionRequestedEvent(aBrowserComponent)        and
-            AddFrameScreenCaptureStartingEvent(aBrowserComponent);
+            AddFrameScreenCaptureStartingEvent(aBrowserComponent) and
+            AddFrameCreatedEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2Frame.AddFrameNameChangedEvent(const aBrowserComponent : TComponent) : boolean;
@@ -479,6 +490,21 @@ begin
     try
       TempHandler := TCoreWebView2FrameScreenCaptureStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
       Result      := succeeded(FBaseIntf6.add_ScreenCaptureStarting(TempHandler, FFrameScreenCaptureStartingToken));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2Frame.AddFrameCreatedEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2FrameChildFrameCreatedEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf7) and (FFrameChildFrameCreatedToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2FrameChildFrameCreatedEventHandler.Create(TWVBrowserBase(aBrowserComponent), FrameID);
+      Result      := succeeded(FBaseIntf7.add_FrameCreated(TempHandler, FFrameChildFrameCreatedToken));
     finally
       TempHandler := nil;
     end;

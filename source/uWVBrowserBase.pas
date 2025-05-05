@@ -183,6 +183,7 @@ type
       FOnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent;
       FOnScreenCaptureStarting                        : TOnScreenCaptureStartingEvent;
       FOnFrameScreenCaptureStarting                   : TOnFrameScreenCaptureStartingEvent;
+      FOnFrameChildFrameCreated                       : TOnFrameChildFrameCreatedEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -407,6 +408,7 @@ type
       function SaveFileSecurityCheckStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs): HRESULT;
       function ScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs): HRESULT;
       function FrameScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal): HRESULT;
+      function FrameChildFrameCreatedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -505,6 +507,7 @@ type
       procedure doOnSaveFileSecurityCheckStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs); virtual;
       procedure doOnScreenCaptureStartingEvent(const sender: ICoreWebView2; const args: ICoreWebView2ScreenCaptureStartingEventArgs); virtual;
       procedure doOnFrameScreenCaptureStartingEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal); virtual;
+      procedure doOnFrameChildFrameCreatedEvent(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -3470,8 +3473,13 @@ type
       /// of the `PermissionRequestedEventArgs` is set to TRUE within the
       /// `CoreWebView2Frame` event handler, then the event will not be
       /// raised on the `CoreWebView2`, and it's event handlers will not be invoked.</para>
-      /// <para>In the case of nested iframes, the 'OnFramePermissionRequested' event will
-      /// be raised from the top level iframe.</para>
+      /// <para>In the case of nested iframes, if the `PermissionRequested` event is handled
+      /// in the current nested iframe (i.e., the Handled property of the
+      /// `PermissionRequestedEventArgs` is set to TRUE), the event will not be raised
+      /// on the parent `CoreWebView2Frame`. However, if the `PermissionRequested` event is
+      /// not handled in that nested iframe, the event will be raised from its nearest
+      /// tracked parent `CoreWebView2Frame`. It will iterate through the parent frame
+      /// chain up to the main frame until a parent frame handles the request.</para>
       /// <para>If a deferral is not taken on the event args, the subsequent scripts are
       /// blocked until the event handler returns.  If a deferral is taken, the
       /// scripts are blocked until the deferral is completed.</para>
@@ -3869,6 +3877,15 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame6#add_screencapturestarting">See the ICoreWebView2Frame6 article.</see></para>
       /// </remarks>
       property OnFrameScreenCaptureStarting                   : TOnFrameScreenCaptureStartingEvent                     read FOnFrameScreenCaptureStarting                    write FOnFrameScreenCaptureStarting;
+      /// <summary>
+      /// Raised when a new direct descendant iframe is created.
+      /// Handle this event to get access to ICoreWebView2Frame objects.
+      /// Use `OnFrameDestroyed` to listen for when this iframe goes away.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7">See the ICoreWebView2Frame7 article.</see></para>
+      /// </remarks>
+      property OnFrameChildFrameCreated                       : TOnFrameChildFrameCreatedEvent                         read FOnFrameChildFrameCreated                        write FOnFrameChildFrameCreated;
   end;
 
 implementation
@@ -4033,6 +4050,7 @@ begin
   FOnSaveFileSecurityCheckStarting                 := nil;
   FOnScreenCaptureStarting                         := nil;
   FOnFrameScreenCaptureStarting                    := nil;
+  FOnFrameChildFrameCreated                        := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -5206,6 +5224,14 @@ begin
     FOnFrameScreenCaptureStarting(self, sender, args, aFrameID);
 end;
 
+procedure TWVBrowserBase.doOnFrameChildFrameCreatedEvent(const sender   : ICoreWebView2Frame;
+                                                         const args     : ICoreWebView2FrameCreatedEventArgs;
+                                                               aFrameID : cardinal);
+begin
+  if assigned(FOnFrameChildFrameCreated) then
+    FOnFrameChildFrameCreated(self, sender, args, aFrameID);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -5593,6 +5619,12 @@ function TWVBrowserBase.FrameScreenCaptureStartingEventHandler_Invoke(const send
 begin
   Result := S_OK;
   doOnFrameScreenCaptureStartingEvent(sender, args, aFrameID);
+end;
+
+function TWVBrowserBase.FrameChildFrameCreatedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal): HRESULT;
+begin
+  Result := S_OK;
+  doOnFrameChildFrameCreatedEvent(sender, args, aFrameID);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;

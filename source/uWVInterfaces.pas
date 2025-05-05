@@ -288,6 +288,9 @@ type
 
     // ICoreWebView2FrameScreenCaptureStartingEventHandler
     function FrameScreenCaptureStartingEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal): HResult;
+
+    // ICoreWebView2FrameChildFrameCreatedEventHandler
+    function FrameChildFrameCreatedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal): HResult;
   end;
 
 implementation

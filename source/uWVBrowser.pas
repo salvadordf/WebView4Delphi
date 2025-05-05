@@ -141,6 +141,7 @@ type
       property OnSaveFileSecurityCheckStarting;
       property OnScreenCaptureStarting;
       property OnFrameScreenCaptureStarting;
+      property OnFrameChildFrameCreated;
   end;
 
 {$IFDEF FPC}

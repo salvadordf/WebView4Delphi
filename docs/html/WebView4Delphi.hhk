@@ -3525,6 +3525,26 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame6.html#remove_ScreenCaptureStarting-EventRegistrationToken-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Frame7">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame7.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_FrameCreated">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame7.html#add_FrameCreated-ICoreWebView2FrameChildFrameCreatedEventHandler-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_FrameCreated">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Frame7.html#remove_FrameCreated-EventRegistrationToken-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FrameChildFrameCreatedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameChildFrameCreatedEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameChildFrameCreatedEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2FrameContentLoadingEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">
 </object>
@@ -6513,6 +6533,14 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Frame6">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Frame7">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Frame7">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FrameChildFrameCreatedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameChildFrameCreatedEventHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2FrameContentLoadingEventHandler">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameContentLoadingEventHandler">
 </object>
@@ -7263,6 +7291,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FaviconChangedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FaviconChangedEventHandler_Invoke-ICoreWebView2-IUnknown-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FrameChildFrameCreatedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FrameChildFrameCreatedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-cardinal-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameContentLoadingEventHandler_Invoke">
@@ -11454,16 +11486,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2EnvironmentCompletedHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2EnvironmentCompletedHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -11891,6 +11923,10 @@
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameContentLoadingEvent-TComponent-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="AddFrameCreatedEvent">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameCreatedEvent-TComponent-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="AddFrameDestroyedEvent">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#AddFrameDestroyedEvent-TComponent-">
 </object>
@@ -11967,8 +12003,16 @@
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FBaseIntf6">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf7">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FBaseIntf7">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FDestroyedToken">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FDestroyedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FFrameChildFrameCreatedToken">
+<param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#FFrameChildFrameCreatedToken">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FFrameContentLoadingToken">
@@ -12065,6 +12109,30 @@
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveHostObjectFromScript">
 <param name="Local" value="uWVCoreWebView2Frame.TCoreWebView2Frame.html#RemoveHostObjectFromScript-wvstring-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FrameChildFrameCreatedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html#Create-IWVBrowserEvents-cardinal-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html#FEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FFrameID">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html#FFrameID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html#Invoke-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2FrameContentLoadingEventHandler">
@@ -17375,6 +17443,10 @@
 <param name="Local" value="uWVEvents.html#TOnFaviconChangedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnFrameChildFrameCreatedEvent">
+<param name="Local" value="uWVEvents.html#TOnFrameChildFrameCreatedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnFrameContentLoadingEvent">
 <param name="Local" value="uWVEvents.html#TOnFrameContentLoadingEvent">
 </object>
@@ -17801,6 +17873,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFaviconChanged">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFrameChildFrameCreated">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFrameChildFrameCreated">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameContentLoading">
@@ -18356,16 +18432,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateBrowser-THandle-ICoreWebView2Environment-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18412,16 +18488,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateWindowlessBrowser">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TWVBrowserBase - uWVBrowserBase Unit">
-<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-ICoreWebView2Environment-">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#CreateWindowlessBrowser-THandle-boolean-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18671,6 +18747,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFaviconChangedEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFaviconChangedEvent-ICoreWebView2-IUnknown-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFrameChildFrameCreatedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFrameChildFrameCreatedEvent-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-cardinal-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFrameContentLoadingEvent">
@@ -19261,6 +19341,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFaviconChanged">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnFrameChildFrameCreated">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFrameChildFrameCreated">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnFrameContentLoading">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFrameContentLoading">
 </object>
@@ -19551,6 +19635,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FProfileName">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FProfileName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FrameChildFrameCreatedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FrameChildFrameCreatedEventHandler_Invoke-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-cardinal-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameContentLoadingEventHandler_Invoke">
@@ -20271,6 +20359,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFaviconChanged">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFrameChildFrameCreated">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFrameChildFrameCreated">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameContentLoading">
@@ -21403,6 +21495,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFaviconChanged">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFrameChildFrameCreated">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFrameChildFrameCreated">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameContentLoading">
@@ -23099,6 +23195,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="wvstring">
 <param name="Local" value="uWVTypes.html#wvstring">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WV_CRASHES_URL">
+<param name="Local" value="uWVConstants.html#WV_CRASHES_URL">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="WV_DOWNLOADS_URL">
