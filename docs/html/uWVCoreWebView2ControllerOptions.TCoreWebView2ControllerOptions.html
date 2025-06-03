@@ -43,6 +43,10 @@
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf2">FBaseIntf2</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions2.html">ICoreWebView2ControllerOptions2</a>;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">FBaseIntf3</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">ICoreWebView2ControllerOptions3</a>;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
@@ -64,21 +68,33 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName-wvstring-">SetProfileName</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a></strong>: TColor;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName-wvstring-">SetProfileName</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetIsInPrivateModeEnabled-boolean-">SetIsInPrivateModeEnabled</a></strong>(aValue : boolean);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetScriptLocale-wvstring-">SetScriptLocale</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a></strong>(const aValue : TColor);</code></td>
+</tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Create-ICoreWebView2ControllerOptions-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions.html">ICoreWebView2ControllerOptions</a>); reintroduce;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
@@ -105,6 +121,10 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#ScriptLocale">ScriptLocale</a></strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                       read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetScriptLocale">GetScriptLocale</a>            write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetScriptLocale-wvstring-">SetScriptLocale</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">DefaultBackgroundColor</a></strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
@@ -120,6 +140,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FBaseIntf2"></span><code><strong>FBaseIntf2</strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions2.html">ICoreWebView2ControllerOptions2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf3"></span><code><strong>FBaseIntf3</strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">ICoreWebView2ControllerOptions3</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -160,6 +188,14 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDefaultBackgroundColor"></span><code>function <strong>GetDefaultBackgroundColor</strong>: TColor;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetProfileName-wvstring-"></span><code>procedure <strong>SetProfileName</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
 </tr>
 <tr><td colspan="2">
@@ -177,6 +213,22 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetScriptLocale-wvstring-"></span><code>procedure <strong>SetScriptLocale</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetDefaultBackgroundColor-TColor-"></span><code>procedure <strong>SetDefaultBackgroundColor</strong>(const aValue : TColor);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -280,6 +332,30 @@
 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions2#get_scriptlocale">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions2#get_scriptlocale</a>&quot;&gt;See the ICoreWebView2ControllerOptions2 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultBackgroundColor"></span><code>property <strong>DefaultBackgroundColor</strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>This property allows users to initialize the `DefaultBackgroundColor` early, preventing a white flash that can occur while WebView2 is loading when the background color is set to something other than white. With early initialization, the color remains consistent from the start. After initialization, `CoreWebView2Controller.DefaultBackgroundColor` will return the value set using this API.
+
+<p>The `CoreWebView2Controller.DefaultBackgroundColor` can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable, which will remain supported for cases where this solution is being used. It is encouraged to transition away from the environment variable and use this API solution to apply the property. It is important to highlight that when set, the enviroment variable overrides ControllerOptions::DefaultBackgroundColor and becomes the initial value of Controller::DefaultBackgroundColor.
+
+<p>The `DefaultBackgroundColor` is the color that renders underneath all web content. This means WebView2 renders this color when there is no web content loaded. When no background color is defined in WebView2, it uses the `DefaultBackgroundColor` property to render the background. By default, this color is set to white.
+
+<p>This API only supports opaque colors and full transparency. It will fail for colors with alpha values that don't equal 0 or 255. When WebView2 is set to be fully transparent, it does not render a background, allowing the content from windows behind it to be visible.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor</a>&quot;&gt;See the ICoreWebView2Controller2 article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

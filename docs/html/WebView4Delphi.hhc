@@ -638,6 +638,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FScriptLocale">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FDefaultBackgroundColor">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FDefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAdditionalBrowserArguments">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAdditionalBrowserArguments">
 </object>
@@ -8759,6 +8763,10 @@
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf2">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -8785,6 +8793,10 @@
 <param name="Name" value="ScriptLocale">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#ScriptLocale">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="DefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -8808,6 +8820,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetScriptLocale">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="SetProfileName">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName">
 </object>
@@ -8818,6 +8834,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetScriptLocale">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#InitializeFields">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
@@ -24198,6 +24222,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ControllerOptions3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Get_DefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Set_DefaultBackgroundColor">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ClearBrowsingDataCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">
 </object>
@@ -27060,6 +27104,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ControllerOptions2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ControllerOptions3">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions3">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CustomSchemeRegistration">
@@ -30684,6 +30732,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_ScriptLocale">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions2.html#Set_ScriptLocale">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ControllerOptions3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Get_DefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Set_DefaultBackgroundColor">
 </object>
 </ul>
 </ul>
@@ -39527,6 +39595,10 @@
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf2">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -39536,6 +39608,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="BaseIntf">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="DefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Initialized">
@@ -39568,6 +39644,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Destroy">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetInitialized">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetInitialized">
 </object>
@@ -39582,6 +39662,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetScriptLocale">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsInPrivateModeEnabled">
@@ -49286,6 +49374,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FD3DWindowCompStub">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FD3DWindowCompStub">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDefaultBackgroundColor">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FDefaultURL">

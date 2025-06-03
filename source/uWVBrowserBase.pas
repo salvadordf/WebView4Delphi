@@ -55,6 +55,7 @@ type
       FProfileGetBrowserExtensionsCompletedHandler     : ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler;
       FPreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel;
       FScriptLocale                                    : wvstring;
+      FDefaultBackgroundColor                          : TColor;
 
       // Fields used to create the environment
       FAdditionalBrowserArguments                      : wvstring;
@@ -3914,6 +3915,7 @@ begin
   FProfileName                                     := '';
   FIsInPrivateModeEnabled                          := False;
   FScriptLocale                                    := '';
+  FDefaultBackgroundColor                          := TColor($FFFFFFFF); // opaque white
   FClearBrowsingDataCompletedHandler               := nil;
   FSetPermissionStateCompletedHandler              := nil;
   FGetNonDefaultPermissionSettingsCompletedHandler := nil;
@@ -5728,6 +5730,7 @@ begin
         TempOptions.ProfileName            := FProfileName;
         TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
         TempOptions.ScriptLocale           := FScriptLocale;
+        TempOptions.DefaultBackgroundColor := FDefaultBackgroundColor;
 
         Result := FCoreWebView2Environment.CreateCoreWebView2CompositionControllerWithOptions(FWindowParentHandle,
                                                                                               TempOptions.BaseIntf,
@@ -5796,6 +5799,7 @@ begin
       TempOptions.ProfileName            := FProfileName;
       TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
       TempOptions.ScriptLocale           := FScriptLocale;
+      TempOptions.DefaultBackgroundColor := FDefaultBackgroundColor;
 
       Result := FCoreWebView2Environment.CreateCoreWebView2ControllerWithOptions(FWindowParentHandle,
                                                                                  TempOptions.BaseIntf,
@@ -6123,11 +6127,7 @@ begin
   if Initialized then
     Result := FCoreWebView2Controller.DefaultBackgroundColor
    else
-    {$IFDEF DELPHI16_UP}
-    Result := TColors.SysNone;  // clNone
-    {$ELSE}
-    Result := clNone;
-    {$ENDIF}
+    Result := FDefaultBackgroundColor;
 end;
 
 function TWVBrowserBase.GetRasterizationScale : double;
@@ -6390,6 +6390,8 @@ end;
 
 procedure TWVBrowserBase.SetDefaultBackgroundColor(const aValue : TColor);
 begin
+  FDefaultBackgroundColor := aValue;
+
   if Initialized then
     FCoreWebView2Controller.DefaultBackgroundColor := aValue;
 end;

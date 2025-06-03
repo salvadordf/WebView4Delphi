@@ -2649,6 +2649,18 @@
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions2.html#Set_ScriptLocale-PWideChar-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ControllerOptions3">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Get_DefaultBackgroundColor-COREWEBVIEW2_COLOR-">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_DefaultBackgroundColor">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Set_DefaultBackgroundColor-COREWEBVIEW2_COLOR-">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Cookie">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Cookie.html">
 </object>
@@ -6309,6 +6321,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions2">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ControllerOptions3">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions3">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Cookie">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Cookie">
 </object>
@@ -9846,16 +9862,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="RemoveMenuItem">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ContextMenuItemCollection - uWVCoreWebView2ContextMenuItemCollection Unit">
-<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-integer-">
+<param name="Local" value="uWVCoreWebView2ContextMenuItemCollection.TCoreWebView2ContextMenuItemCollection.html#RemoveMenuItem-wvstring-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -10347,6 +10363,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Create-ICoreWebView2ControllerOptions-">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="Destroy">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Destroy">
 </object>
@@ -10357,6 +10377,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf2">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf3">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetInitialized">
@@ -10379,6 +10407,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Initialized">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IsInPrivateModeEnabled">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#IsInPrivateModeEnabled">
 </object>
@@ -10389,6 +10421,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ScriptLocale">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#ScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetDefaultBackgroundColor">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsInPrivateModeEnabled">
@@ -15130,16 +15166,16 @@
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <ul>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ProcessInfosChangedEventHandler - uWVCoreWebView2Delegates Unit">
-<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVBrowserEvents-">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ProcessInfosChangedEventHandler.html#Create-IWVLoaderEvents-">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -19151,6 +19187,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FD3DWindowCompStub">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FD3DWindowCompStub">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDefaultBackgroundColor">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FDefaultURL">

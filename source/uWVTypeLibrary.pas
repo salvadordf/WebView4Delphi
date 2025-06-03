@@ -197,6 +197,7 @@ const
   IID_ICoreWebView2Controller4: TGUID = '{97D418D5-A426-4E49-A151-E1A10F327D9E}';
   IID_ICoreWebView2ControllerOptions: TGUID = '{12AAE616-8CCB-44EC-BCB3-EB1831881635}';
   IID_ICoreWebView2ControllerOptions2: TGUID = '{06C991D8-9E7E-11ED-A8FC-0242AC120002}';
+  IID_ICoreWebView2ControllerOptions3: TGUID = '{B32B191A-8998-57CA-B7CB-E04617E4CE4A}';
   IID_ICoreWebView2CustomSchemeRegistration: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
@@ -3285,6 +3286,7 @@ type
   ICoreWebView2Controller4 = interface;
   ICoreWebView2ControllerOptions = interface;
   ICoreWebView2ControllerOptions2 = interface;
+  ICoreWebView2ControllerOptions3 = interface;
   ICoreWebView2CustomSchemeRegistration = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
@@ -10871,15 +10873,54 @@ type
     /// Sets the `ScriptLocale` property.
     /// </summary>
     function Set_ScriptLocale(locale: PWideChar): HResult; stdcall;
-    end;
+  end;
 
+  /// <summary>
+  /// Controller option used to expose the DefaultBackgroundColor property early in the loading process.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3">See the ICoreWebView2ControllerOptions3 article.</see></para>
+  /// </remarks>
+  ICoreWebView2ControllerOptions3 = interface(ICoreWebView2ControllerOptions2)
+    ['{B32B191A-8998-57CA-B7CB-E04617E4CE4A}']
     /// <summary>
-    /// Receives the result of the `ClearBrowsingData` method.
+    /// Gets the `DefaultBackgroundColor` property.
     /// </summary>
-    /// <remarks>
-    /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clearbrowsingdatacompletedhandler">See the ICoreWebView2ClearBrowsingDataCompletedHandler article.</see></para>
-    /// </remarks>
-    ICoreWebView2ClearBrowsingDataCompletedHandler = interface(IUnknown)
+    function Get_DefaultBackgroundColor(out value: COREWEBVIEW2_COLOR): HResult; stdcall;
+    /// <summary>
+    /// <para>This property allows users to initialize the `DefaultBackgroundColor` early,
+    /// preventing a white flash that can occur while WebView2 is loading when
+    /// the background color is set to something other than white. With early
+    /// initialization, the color remains consistent from the start. After
+    /// initialization, `CoreWebView2Controller.DefaultBackgroundColor` will return the value set using this API.</para>
+    ///
+    /// <para>The `CoreWebView2Controller.DefaultBackgroundColor` can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable,
+    /// which will remain supported for cases where this solution is being used.
+    /// It is encouraged to transition away from the environment variable and use this API solution to
+    /// apply the property. It is important to highlight that when set, the enviroment variable overrides
+    /// ControllerOptions::DefaultBackgroundColor and becomes the initial value of Controller::DefaultBackgroundColor.</para>
+    ///
+    /// <para>The `DefaultBackgroundColor` is the color that renders underneath all web
+    /// content. This means WebView2 renders this color when there is no web
+    /// content loaded. When no background color is defined in WebView2, it uses
+    /// the `DefaultBackgroundColor` property to render the background.
+    /// By default, this color is set to white.</para>
+    ///
+    /// <para>This API only supports opaque colors and full transparency. It will
+    /// fail for colors with alpha values that don't equal 0 or 255.
+    /// When WebView2 is set to be fully transparent, it does not render a background,
+    /// allowing the content from windows behind it to be visible.</para>
+    /// </summary>
+    function Set_DefaultBackgroundColor(value: COREWEBVIEW2_COLOR): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives the result of the `ClearBrowsingData` method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clearbrowsingdatacompletedhandler">See the ICoreWebView2ClearBrowsingDataCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2ClearBrowsingDataCompletedHandler = interface(IUnknown)
     ['{E9710A06-1D1D-49B2-8234-226F35846AE5}']
     /// <summary>
     /// Provides the result of the corresponding asynchronous method.
