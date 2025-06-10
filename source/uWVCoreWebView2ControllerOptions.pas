@@ -246,9 +246,19 @@ begin
 end;
 
 procedure TCoreWebView2ControllerOptions.SetDefaultBackgroundColor(const aValue : TColor);
+var
+  TempColor : COREWEBVIEW2_COLOR;
 begin
   if assigned(FBaseIntf3) then
-    FBaseIntf3.Set_DefaultBackgroundColor(DelphiColorToCoreWebViewColor(aValue));
+    begin
+      TempColor := DelphiColorToCoreWebViewColor(aValue);
+
+      // The only supported alpha values are 0 (transparent) and 255 (opaque).
+      if not(TempColor.A in [0, 255]) then
+        TempColor.A := 255;
+
+      FBaseIntf3.Set_DefaultBackgroundColor(TempColor);
+    end;
 end;
 
 end.

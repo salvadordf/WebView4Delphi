@@ -2350,6 +2350,7 @@ type
       /// must be done through API call.</para>
       /// </summary>
       /// <remarks>
+      /// <para>The only supported alpha values are 0 (transparent) and 255 (opaque). Remember to set the alpha channel manually when using predefined TColor values.</para>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller2#get_defaultbackgroundcolor">See the ICoreWebView2Controller2 article.</see></para>
       /// </remarks>
       property DefaultBackgroundColor                          : TColor                                                read GetDefaultBackgroundColor                        write SetDefaultBackgroundColor;
