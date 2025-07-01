@@ -56,6 +56,7 @@ type
       FPreferredTrackingPreventionLevel                : TWVTrackingPreventionLevel;
       FScriptLocale                                    : wvstring;
       FDefaultBackgroundColor                          : TColor;
+      FAllowHostInputProcessing                        : boolean;
 
       // Fields used to create the environment
       FAdditionalBrowserArguments                      : wvstring;
@@ -2793,6 +2794,18 @@ type
       /// </remarks>
       property ScriptLocale                                    : wvstring                                              read FScriptLocale                                    write FScriptLocale;
       /// <summary>
+      /// <para>`AllowHostInputProcessing` property is to enable/disable input passing through
+      /// the app before being delivered to the WebView2. This property is only applicable
+      /// to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
+      /// composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
+      /// By default the value is `FALSE`.</para>
+      /// <para>Setting this property has no effect when using visual hosting.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions4#put_allowhostinputprocessing">See the ICoreWebView2Controller4 article.</see></para>
+      /// </remarks>
+      property AllowHostInputProcessing                        : boolean                                               read FAllowHostInputProcessing                        write FAllowHostInputProcessing;
+      /// <summary>
       /// Full path of the profile directory.
       /// </summary>
       /// <remarks>
@@ -3917,6 +3930,7 @@ begin
   FIsInPrivateModeEnabled                          := False;
   FScriptLocale                                    := '';
   FDefaultBackgroundColor                          := TColor($FFFFFFFF); // opaque white
+  FAllowHostInputProcessing                        := False;
   FClearBrowsingDataCompletedHandler               := nil;
   FSetPermissionStateCompletedHandler              := nil;
   FGetNonDefaultPermissionSettingsCompletedHandler := nil;
@@ -5727,11 +5741,12 @@ begin
    else
     if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf, TempHResult) then
       try
-        TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
-        TempOptions.ProfileName            := FProfileName;
-        TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
-        TempOptions.ScriptLocale           := FScriptLocale;
-        TempOptions.DefaultBackgroundColor := FDefaultBackgroundColor;
+        TempOptions                          := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
+        TempOptions.ProfileName              := FProfileName;
+        TempOptions.IsInPrivateModeEnabled   := FIsInPrivateModeEnabled;
+        TempOptions.ScriptLocale             := FScriptLocale;
+        TempOptions.DefaultBackgroundColor   := FDefaultBackgroundColor;
+        TempOptions.AllowHostInputProcessing := FAllowHostInputProcessing;
 
         Result := FCoreWebView2Environment.CreateCoreWebView2CompositionControllerWithOptions(FWindowParentHandle,
                                                                                               TempOptions.BaseIntf,
@@ -5796,11 +5811,12 @@ begin
 
   if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf, TempHResult) then
     try
-      TempOptions                        := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
-      TempOptions.ProfileName            := FProfileName;
-      TempOptions.IsInPrivateModeEnabled := FIsInPrivateModeEnabled;
-      TempOptions.ScriptLocale           := FScriptLocale;
-      TempOptions.DefaultBackgroundColor := FDefaultBackgroundColor;
+      TempOptions                          := TCoreWebView2ControllerOptions.Create(TempOptionsIntf);
+      TempOptions.ProfileName              := FProfileName;
+      TempOptions.IsInPrivateModeEnabled   := FIsInPrivateModeEnabled;
+      TempOptions.ScriptLocale             := FScriptLocale;
+      TempOptions.DefaultBackgroundColor   := FDefaultBackgroundColor;
+      TempOptions.AllowHostInputProcessing := FAllowHostInputProcessing;
 
       Result := FCoreWebView2Environment.CreateCoreWebView2ControllerWithOptions(FWindowParentHandle,
                                                                                  TempOptions.BaseIntf,

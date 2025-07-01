@@ -198,6 +198,7 @@ const
   IID_ICoreWebView2ControllerOptions: TGUID = '{12AAE616-8CCB-44EC-BCB3-EB1831881635}';
   IID_ICoreWebView2ControllerOptions2: TGUID = '{06C991D8-9E7E-11ED-A8FC-0242AC120002}';
   IID_ICoreWebView2ControllerOptions3: TGUID = '{B32B191A-8998-57CA-B7CB-E04617E4CE4A}';
+  IID_ICoreWebView2ControllerOptions4: TGUID = '{21EB052F-AD39-555E-824A-C87B091D4D36}';
   IID_ICoreWebView2CustomSchemeRegistration: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
@@ -3287,6 +3288,7 @@ type
   ICoreWebView2ControllerOptions = interface;
   ICoreWebView2ControllerOptions2 = interface;
   ICoreWebView2ControllerOptions3 = interface;
+  ICoreWebView2ControllerOptions4 = interface;
   ICoreWebView2CustomSchemeRegistration = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
@@ -10912,6 +10914,31 @@ type
     /// allowing the content from windows behind it to be visible.</para>
     /// </summary>
     function Set_DefaultBackgroundColor(value: COREWEBVIEW2_COLOR): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Controller option used to allow user input pass through the browser and make
+  /// them received in the host app process.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions4">See the ICoreWebView2ControllerOptions4 article.</see></para>
+  /// </remarks>
+  ICoreWebView2ControllerOptions4 = interface(ICoreWebView2ControllerOptions3)
+    ['{21EB052F-AD39-555E-824A-C87B091D4D36}']
+    /// <summary>
+    /// Gets the `AllowHostInputProcessing` property.
+    /// </summary>
+    function Get_AllowHostInputProcessing(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// `AllowHostInputProcessing` property is to enable/disable input passing through
+    /// the app before being delivered to the WebView2. This property is only applicable
+    /// to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
+    /// composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
+    /// By default the value is `FALSE`.
+    /// Setting this property has no effect when using visual hosting.
+    /// \snippet AppWindow.cpp AllowHostInputProcessing
+    /// </summary>
+    function Set_AllowHostInputProcessing(value: Integer): HResult; stdcall;
   end;
 
   /// <summary>

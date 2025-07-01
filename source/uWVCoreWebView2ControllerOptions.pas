@@ -27,17 +27,20 @@ type
       FBaseIntf  : ICoreWebView2ControllerOptions;
       FBaseIntf2 : ICoreWebView2ControllerOptions2;
       FBaseIntf3 : ICoreWebView2ControllerOptions3;
+      FBaseIntf4 : ICoreWebView2ControllerOptions4;
 
       function  GetInitialized : boolean;
       function  GetProfileName : wvstring;
       function  GetIsInPrivateModeEnabled : boolean;
       function  GetScriptLocale : wvstring;
       function  GetDefaultBackgroundColor : TColor;
+      function  GetAllowHostInputProcessing : boolean;
 
       procedure SetProfileName(const aValue : wvstring);
       procedure SetIsInPrivateModeEnabled(aValue : boolean);
       procedure SetScriptLocale(const aValue : wvstring);
       procedure SetDefaultBackgroundColor(const aValue : TColor);
+      procedure SetAllowHostInputProcessing(aValue : boolean);
 
       procedure InitializeFields;
 
@@ -124,9 +127,21 @@ type
       /// allowing the content from windows behind it to be visible.</para>
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor">See the ICoreWebView2Controller2 article.</see></para>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor">See the ICoreWebView2Controller3 article.</see></para>
       /// </remarks>
-      property DefaultBackgroundColor  : TColor                         read GetDefaultBackgroundColor  write SetDefaultBackgroundColor;
+      property DefaultBackgroundColor  : TColor                         read GetDefaultBackgroundColor    write SetDefaultBackgroundColor;
+      /// <summary>
+      /// <para>`AllowHostInputProcessing` property is to enable/disable input passing through
+      /// the app before being delivered to the WebView2. This property is only applicable
+      /// to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
+      /// composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
+      /// By default the value is `FALSE`.</para>
+      /// <para>Setting this property has no effect when using visual hosting.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions4#put_allowhostinputprocessing">See the ICoreWebView2Controller4 article.</see></para>
+      /// </remarks>
+      property AllowHostInputProcessing : boolean                       read GetAllowHostInputProcessing  write SetAllowHostInputProcessing;
   end;
 
 implementation
@@ -148,8 +163,9 @@ begin
   FBaseIntf := aBaseIntf;
 
   if Initialized and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions2, FBaseIntf2) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions3, FBaseIntf3);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions2, FBaseIntf2) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions3, FBaseIntf3) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ControllerOptions4, FBaseIntf4);
 end;
 
 destructor TCoreWebView2ControllerOptions.Destroy;
@@ -164,6 +180,7 @@ begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
   FBaseIntf3 := nil;
+  FBaseIntf4 := nil;
 end;
 
 function TCoreWebView2ControllerOptions.GetInitialized : boolean;
@@ -227,6 +244,15 @@ begin
     {$ENDIF}
 end;
 
+function TCoreWebView2ControllerOptions.GetAllowHostInputProcessing : boolean;
+var
+  TempResult : integer;
+begin
+  Result := assigned(FBaseIntf4) and
+            succeeded(FBaseIntf4.Get_AllowHostInputProcessing(TempResult)) and
+            (TempResult <> 0);
+end;
+
 procedure TCoreWebView2ControllerOptions.SetProfileName(const aValue : wvstring);
 begin
   if Initialized then
@@ -259,6 +285,12 @@ begin
 
       FBaseIntf3.Set_DefaultBackgroundColor(TempColor);
     end;
+end;
+
+procedure TCoreWebView2ControllerOptions.SetAllowHostInputProcessing(aValue : boolean);
+begin
+  if assigned(FBaseIntf4) then
+    FBaseIntf4.Set_AllowHostInputProcessing(ord(aValue));
 end;
 
 end.

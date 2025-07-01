@@ -47,6 +47,10 @@
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">FBaseIntf3</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">ICoreWebView2ControllerOptions3</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf4">FBaseIntf4</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html">ICoreWebView2ControllerOptions4</a>;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
@@ -72,19 +76,27 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName-wvstring-">SetProfileName</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetAllowHostInputProcessing">GetAllowHostInputProcessing</a></strong>: boolean;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetIsInPrivateModeEnabled-boolean-">SetIsInPrivateModeEnabled</a></strong>(aValue : boolean);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName-wvstring-">SetProfileName</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetScriptLocale-wvstring-">SetScriptLocale</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetIsInPrivateModeEnabled-boolean-">SetIsInPrivateModeEnabled</a></strong>(aValue : boolean);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetScriptLocale-wvstring-">SetScriptLocale</a></strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a></strong>(const aValue : TColor);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetAllowHostInputProcessing-boolean-">SetAllowHostInputProcessing</a></strong>(aValue : boolean);</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
@@ -123,7 +135,11 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">DefaultBackgroundColor</a></strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">DefaultBackgroundColor</a></strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>    write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#AllowHostInputProcessing">AllowHostInputProcessing</a></strong> : boolean                       read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetAllowHostInputProcessing">GetAllowHostInputProcessing</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetAllowHostInputProcessing-boolean-">SetAllowHostInputProcessing</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -148,6 +164,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FBaseIntf3"></span><code><strong>FBaseIntf3</strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html">ICoreWebView2ControllerOptions3</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf4"></span><code><strong>FBaseIntf4</strong>: <a href="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html">ICoreWebView2ControllerOptions4</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -196,6 +220,14 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAllowHostInputProcessing"></span><code>function <strong>GetAllowHostInputProcessing</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetProfileName-wvstring-"></span><code>procedure <strong>SetProfileName</strong>(const aValue : <a href="uWVTypes.html#wvstring">wvstring</a>);</code></td>
 </tr>
 <tr><td colspan="2">
@@ -221,6 +253,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetDefaultBackgroundColor-TColor-"></span><code>procedure <strong>SetDefaultBackgroundColor</strong>(const aValue : TColor);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetAllowHostInputProcessing-boolean-"></span><code>procedure <strong>SetAllowHostInputProcessing</strong>(aValue : boolean);</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -337,7 +377,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DefaultBackgroundColor"></span><code>property <strong>DefaultBackgroundColor</strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
+<td class="itemcode"><span id="DefaultBackgroundColor"></span><code>property <strong>DefaultBackgroundColor</strong>  : TColor                         read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">GetDefaultBackgroundColor</a>    write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor-TColor-">SetDefaultBackgroundColor</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -355,7 +395,27 @@
 <p>
 
 
-<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor</a>&quot;&gt;See the ICoreWebView2Controller2 article.)</p>
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions3#put_defaultbackgroundcolor</a>&quot;&gt;See the ICoreWebView2Controller3 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowHostInputProcessing"></span><code>property <strong>AllowHostInputProcessing</strong> : boolean                       read <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetAllowHostInputProcessing">GetAllowHostInputProcessing</a>  write <a href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetAllowHostInputProcessing-boolean-">SetAllowHostInputProcessing</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>`AllowHostInputProcessing` property is to enable/disable input passing through the app before being delivered to the WebView2. This property is only applicable to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`. By default the value is `FALSE`.
+
+<p>Setting this property has no effect when using visual hosting.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions4#put_allowhostinputprocessing">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions4#put_allowhostinputprocessing</a>&quot;&gt;See the ICoreWebView2Controller4 article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

@@ -642,6 +642,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FAllowHostInputProcessing">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAdditionalBrowserArguments">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAdditionalBrowserArguments">
 </object>
@@ -1482,6 +1486,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ScriptLocale">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ScriptLocale">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowHostInputProcessing">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AllowHostInputProcessing">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ProfilePath">
@@ -8767,6 +8775,10 @@
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf4">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -8797,6 +8809,10 @@
 <param name="Name" value="DefaultBackgroundColor">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#DefaultBackgroundColor">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#AllowHostInputProcessing">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -8824,6 +8840,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetAllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetAllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="SetProfileName">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetProfileName">
 </object>
@@ -8838,6 +8858,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="SetDefaultBackgroundColor">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetDefaultBackgroundColor">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetAllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetAllowHostInputProcessing">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeFields">
@@ -24242,6 +24266,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ControllerOptions4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_AllowHostInputProcessing">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#Get_AllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_AllowHostInputProcessing">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#Set_AllowHostInputProcessing">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ClearBrowsingDataCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">
 </object>
@@ -27108,6 +27152,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ControllerOptions3">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions3">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ControllerOptions4">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions4">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CustomSchemeRegistration">
@@ -30752,6 +30800,26 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_DefaultBackgroundColor">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions3.html#Set_DefaultBackgroundColor">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ControllerOptions4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_AllowHostInputProcessing">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#Get_AllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_AllowHostInputProcessing">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ControllerOptions4.html#Set_AllowHostInputProcessing">
 </object>
 </ul>
 </ul>
@@ -39599,12 +39667,20 @@
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf3">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#FBaseIntf4">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#@Properties">
 </object>
 <ul>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#AllowHostInputProcessing">
+</object>
 <li><object type="text/sitemap">
 <param name="Name" value="BaseIntf">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#BaseIntf">
@@ -39644,6 +39720,10 @@
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#Destroy">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="GetAllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetAllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="GetDefaultBackgroundColor">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#GetDefaultBackgroundColor">
 </object>
@@ -39666,6 +39746,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeFields">
 <param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetAllowHostInputProcessing">
+<param name="Local" value="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html#SetAllowHostInputProcessing">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetDefaultBackgroundColor">
@@ -49316,6 +49400,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAdditionalBrowserArguments">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FAllowHostInputProcessing">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAllowHostInputProcessing">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FAllowSingleSignOnUsingOSPrimaryAccount">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FAllowSingleSignOnUsingOSPrimaryAccount">
 </object>
@@ -49932,6 +50020,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AllowExternalDrop">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AllowExternalDrop">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowHostInputProcessing">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#AllowHostInputProcessing">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AllowSingleSignOnUsingOSPrimaryAccount">
