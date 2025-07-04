@@ -338,7 +338,9 @@ begin
          (FFrameScreenCaptureStartingToken.value <> 0) then
         FBaseIntf6.remove_ScreenCaptureStarting(FFrameScreenCaptureStartingToken);
 
+      // FBaseIntf7.remove_FrameCreated raises an exception when the frame is already destroyed.
       if assigned(FBaseIntf7) and
+         not(IsDestroyed) and
          (FFrameChildFrameCreatedToken.value <> 0) then
         FBaseIntf7.remove_FrameCreated(FFrameChildFrameCreatedToken);
 
