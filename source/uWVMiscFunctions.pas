@@ -165,7 +165,10 @@ begin
         if (aErrorCode = HResultFromWin32(ERROR_NOT_SUPPORTED)) then
           Result := 'The request is not supported.'
          else
-          Result := 'Unexpected error result.';
+          if (aErrorCode = HResultFromWin32(ERROR_FILE_NOT_FOUND)) then
+            Result := 'The system cannot find the file specified.'
+           else
+            Result := 'Unexpected error result.';
   end;
 end;
 
