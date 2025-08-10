@@ -1,11 +1,13 @@
 unit uKioskBrowser;
 
+{$MODE Delphi}
+
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.StdCtrls, Vcl.Menus, uVirtualTouchKeyboard,
+  Windows, Messages, SysUtils, Variants, Classes,
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, ComCtrls,
+  StdCtrls, Menus, uVirtualTouchKeyboard,
   uWVBrowser, uWVWinControl, uWVWindowParent, uWVTypes, uWVConstants, uWVTypeLibrary,
   uWVLibFunctions, uWVLoader, uWVInterfaces, uWVCoreWebView2Args,
   uWVBrowserBase, uWVCoreWebView2ContextMenuItemCollection,
@@ -50,7 +52,7 @@ var
 
 implementation
 
-{$R *.dfm}
+{$R *.lfm}
 
 // This is a demo with the simplest web browser you can build using WebView4Delphi and
 // it doesn't show any sign of progress like other web browsers do.

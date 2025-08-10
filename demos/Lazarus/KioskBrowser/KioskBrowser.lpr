@@ -1,14 +1,13 @@
 program KioskBrowser;
 
+{$MODE Delphi}
+
 uses
-  Vcl.Forms,
+  Forms, Interfaces,
   uKioskBrowser in 'uKioskBrowser.pas' {MainForm},
   uVirtualTouchKeyboard in 'uVirtualTouchKeyboard.pas';
 
-{$R *.res}
-
 begin
-  ReportMemoryLeaksOnShutdown := true;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMainForm, MainForm);

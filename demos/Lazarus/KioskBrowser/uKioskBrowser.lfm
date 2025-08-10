@@ -1,30 +1,28 @@
 object MainForm: TMainForm
   Left = 0
+  Height = 701
   Top = 0
+  Width = 995
   Caption = 'KioskBrowser'
   ClientHeight = 701
   ClientWidth = 995
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
-  Font.Style = []
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  TextHeight = 15
   object WVWindowParent1: TWVWindowParent
     Left = 0
+    Height = 701
     Top = 0
     Width = 995
-    Height = 701
     Align = alClient
     TabStop = True
     TabOrder = 0
     Browser = WVBrowser1
-    ExplicitWidth = 1011
-    ExplicitHeight = 560
   end
   object Timer1: TTimer
     Enabled = False
