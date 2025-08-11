@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2Find</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2Find"></span><h1 class="cio">Interface ICoreWebView2Find</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2Find = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Interface providing methods and properties for finding and navigating through text in the web view. This interface allows for finding text, navigation between matches, and customization of the find UI. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2Find</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#Get_ActiveMatchIndex-SYSINT-">Get_ActiveMatchIndex</a></strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#Get_MatchCount-SYSINT-">Get_MatchCount</a></strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#add_ActiveMatchIndexChanged-ICoreWebView2FindActiveMatchIndexChangedEventHandler-EventRegistrationToken-">add_ActiveMatchIndexChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html">ICoreWebView2FindActiveMatchIndexChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#remove_ActiveMatchIndexChanged-EventRegistrationToken-">remove_ActiveMatchIndexChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#add_MatchCountChanged-ICoreWebView2FindMatchCountChangedEventHandler-EventRegistrationToken-">add_MatchCountChanged</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html">ICoreWebView2FindMatchCountChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#remove_MatchCountChanged-EventRegistrationToken-">remove_MatchCountChanged</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#Start-ICoreWebView2FindOptions-ICoreWebView2FindStartCompletedHandler-">Start</a></strong>(const options: <a href="uWVTypeLibrary.ICoreWebView2FindOptions.html">ICoreWebView2FindOptions</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html">ICoreWebView2FindStartCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#FindNext">FindNext</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#FindPrevious">FindPrevious</a></strong>: HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2Find.html#Stop">Stop</a></strong>: HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_ActiveMatchIndex-SYSINT-"></span><code>function <strong>Get_ActiveMatchIndex</strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Retrieves the index of the currently active match in the find session. Returns the index of the currently active match, or -1 if there is no active match. The index starts at 1 for the first match.
+
+<p>\snippet AppWindow.cpp ActiveMatchIndex </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{A3EC0F5F-DDBC-54ED-8546-AF75A785B9A6}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Get_MatchCount-SYSINT-"></span><code>function <strong>Get_MatchCount</strong>(out value: SYSINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Gets the total count of matches found in the current document based on the last find sessions criteria. Returns the total count of matches.
+
+<p>\snippet AppWindow.cpp MatchCount </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_ActiveMatchIndexChanged-ICoreWebView2FindActiveMatchIndexChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_ActiveMatchIndexChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html">ICoreWebView2FindActiveMatchIndexChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds an event handler for the `ActiveMatchIndexChanged` event. Registers an event handler for the ActiveMatchIndexChanged event. This event is raised when the index of the currently active match changes. This can happen when the user navigates to a different match or when the active match is changed programmatically. The parameter is the event handler to be added. Returns a token representing the added event handler. This token can be used to unregister the event handler. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_ActiveMatchIndexChanged-EventRegistrationToken-"></span><code>function <strong>remove_ActiveMatchIndexChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes an event handler previously added with `add_ActiveMatchIndexChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_MatchCountChanged-ICoreWebView2FindMatchCountChangedEventHandler-EventRegistrationToken-"></span><code>function <strong>add_MatchCountChanged</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html">ICoreWebView2FindMatchCountChangedEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds an event handler for the `MatchCountChanged` event. Registers an event handler for the MatchCountChanged event. This event is raised when the total count of matches in the document changes due to a new find session or changes in the document. The parameter is the event handler to be added. Returns a token representing the added event handler. This token can be used to unregister the event handler. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_MatchCountChanged-EventRegistrationToken-"></span><code>function <strong>remove_MatchCountChanged</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes an event handler previously added with `add_MatchCountChanged`. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Start-ICoreWebView2FindOptions-ICoreWebView2FindStartCompletedHandler-"></span><code>function <strong>Start</strong>(const options: <a href="uWVTypeLibrary.ICoreWebView2FindOptions.html">ICoreWebView2FindOptions</a>; const handler: <a href="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html">ICoreWebView2FindStartCompletedHandler</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Initiates a find using the specified find options asynchronously. Displays the Find bar and starts the find session. If a find session was already ongoing, it will be stopped and replaced with this new instance. If called with an empty string, the Find bar is displayed but no finding occurs. Changing the FindOptions object after initiation won't affect the ongoing find session. To change the ongoing find session, Start must be called again with a new or modified FindOptions object. Start supports HTML and TXT document queries. In general, this API is designed for text-based find sessions. If you start a find session programmatically on another file format that doesn't have text fields, the find session will try to execute but will fail to find any matches. (It will silently fail) Note: The asynchronous action completes when the UI has been displayed with the find term in the UI bar, and the matches have populated on the counter on the find bar. There may be a slight latency between the UI display and the matches populating in the counter. The MatchCountChanged and ActiveMatchIndexChanged events are only raised after Start has completed; otherwise, they will have their default values (-1 for active match index and 0 for match count). To start a new find session (beginning the search from the first match), call `Stop` before invoking `Start`. If `Start` is called consecutively with the same options and without calling `Stop`, the find session will continue from the current position in the existing session. Calling `Start` without altering its parameters will behave either as `FindNext` or `FindPrevious`, depending on the most recent search action performed. Start will default to forward if neither have been called. However, calling Start again during an ongoing find session does not resume from the point of the current active match. For example, given the text &quot;1 1 A 1 1&quot; and initiating a find session for &quot;A&quot;, then starting another find session for &quot;1&quot;, it will start searching from the beginning of the document, regardless of the previous active match. This behavior indicates that changing the find query initiates a completely new find session, rather than continuing from the previous match index.
+
+<p>\snippet AppWindow.cpp Start </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindNext"></span><code>function <strong>FindNext</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Navigates to the next match in the document. If there are no matches to find, FindNext will wrap around to the first match's index. If called when there is no find session active, FindNext will silently fail.
+
+<p>\snippet AppWindow.cpp FindNext </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindPrevious"></span><code>function <strong>FindPrevious</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Navigates to the previous match in the document. If there are no matches to find, FindPrevious will wrap around to the last match's index. If called when there is no find session active, FindPrevious will silently fail.
+
+<p>\snippet AppWindow.cpp FindPrevious </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Stop"></span><code>function <strong>Stop</strong>: HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stops the current 'Find' session and hides the Find bar. If called with no Find session active, it will silently do nothing.
+
+<p>\snippet AppWindow.cpp Stop </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+</span>
+</body></html>

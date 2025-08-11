@@ -41,7 +41,7 @@ uses
   uWVCoreWebView2ExecuteScriptResult, uWVCoreWebView2ScriptException, 
   uWVCoreWebView2RegionRectCollectionView, uWVCoreWebView2ObjectCollection, 
   uWVCoreWebView2FileSystemHandle, uWVCoreWebView2Notification, 
-  LazarusPackageIntf;
+  uWVCoreWebView2Find, uWVCoreWebView2FindOptions, LazarusPackageIntf;
 
 implementation
 

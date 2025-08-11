@@ -142,6 +142,9 @@ type
       property OnScreenCaptureStarting;
       property OnFrameScreenCaptureStarting;
       property OnFrameChildFrameCreated;
+      property OnFindActiveMatchIndexChanged;
+      property OnFindMatchCountChanged;
+      property OnFindStartCompleted;
   end;
 
 {$IFDEF FPC}

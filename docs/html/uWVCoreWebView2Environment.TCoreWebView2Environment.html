@@ -87,13 +87,17 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FNewBrowserVersionAvailableEventToken">FNewBrowserVersionAvailableEventToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf15">FBaseIntf15</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2Environment15.html">ICoreWebView2Environment15</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBrowserProcessExitedEventToken">FBrowserProcessExitedEventToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FNewBrowserVersionAvailableEventToken">FNewBrowserVersionAvailableEventToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBrowserProcessExitedEventToken">FBrowserProcessExitedEventToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FProcessInfosChangedEventToken">FProcessInfosChangedEventToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
@@ -239,6 +243,10 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateObjectCollection-cardinal-IUnknown-ICoreWebView2ObjectCollection-">CreateObjectCollection</a></strong>( aLength : cardinal; var aItems : IUnknown; var aObjectCollection : <a href="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">ICoreWebView2ObjectCollection</a>): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateFindOptions-ICoreWebView2FindOptions-">CreateFindOptions</a></strong>(var aFindOptions : <a href="uWVTypeLibrary.ICoreWebView2FindOptions.html">ICoreWebView2FindOptions</a>): boolean;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
@@ -386,6 +394,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FBaseIntf14"></span><code><strong>FBaseIntf14</strong>: <a href="uWVTypeLibrary.ICoreWebView2Environment14.html">ICoreWebView2Environment14</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf15"></span><code><strong>FBaseIntf15</strong>: <a href="uWVTypeLibrary.ICoreWebView2Environment15.html">ICoreWebView2Environment15</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -1100,6 +1116,20 @@
 <p class="return">True if successfull.&lt;/return&gt;
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment14#createobjectcollection">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment14#createobjectcollection</a>&quot;&gt;See the ICoreWebView2Environment14 article.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateFindOptions-ICoreWebView2FindOptions-"></span><code>function <strong>CreateFindOptions</strong>(var aFindOptions : <a href="uWVTypeLibrary.ICoreWebView2FindOptions.html">ICoreWebView2FindOptions</a>): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Creates a new instance of a CoreWebView2FindOptions object. This find options object can be used to define parameters for a find session. Returns the newly created FindOptions object. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment15#createfindoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment15#createfindoptions</a>&quot;&gt;See the ICoreWebView2Environment15 article.)</p>
+</td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">

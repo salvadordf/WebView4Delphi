@@ -106,6 +106,9 @@ type
   TOnScreenCaptureStartingEvent                            = procedure(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs) of object;
   TOnFrameScreenCaptureStartingEvent                       = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs; aFrameID: cardinal) of object;
   TOnFrameChildFrameCreatedEvent                           = procedure(Sender: TObject; const aFrame: ICoreWebView2Frame; const aArgs: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal) of object;
+  TOnFindActiveMatchIndexChangedEvent                      = procedure(Sender: TObject; const aFindSession: ICoreWebView2Find; const aArgs: IUnknown) of object;
+  TOnFindMatchCountChangedEvent                            = procedure(Sender: TObject; const aFindSession: ICoreWebView2Find; const aArgs: IUnknown) of object;
+  TOnFindStartCompletedEvent                               = procedure(Sender: TObject; aErrorCode: HResult) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

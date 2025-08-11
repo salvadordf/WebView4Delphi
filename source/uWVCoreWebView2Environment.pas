@@ -41,6 +41,7 @@ type
       FBaseIntf12                           : ICoreWebView2Environment12;
       FBaseIntf13                           : ICoreWebView2Environment13;
       FBaseIntf14                           : ICoreWebView2Environment14;
+      FBaseIntf15                           : ICoreWebView2Environment15;
       FNewBrowserVersionAvailableEventToken : EventRegistrationToken;
       FBrowserProcessExitedEventToken       : EventRegistrationToken;
       FProcessInfosChangedEventToken        : EventRegistrationToken;
@@ -399,6 +400,15 @@ type
       function   CreateObjectCollection(    aLength           : cardinal;
                                         var aItems            : IUnknown;
                                         var aObjectCollection : ICoreWebView2ObjectCollection): boolean;
+      /// <summary>
+      /// Creates a new instance of a CoreWebView2FindOptions object.
+      /// This find options object can be used to define parameters for a find session.
+      /// Returns the newly created FindOptions object.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment15#createfindoptions">See the ICoreWebView2Environment15 article.</see></para>
+      /// </remarks>
+      function   CreateFindOptions(var aFindOptions : ICoreWebView2FindOptions): boolean;
 
       /// <summary>
       /// Returns true when the interface implemented by this class is fully initialized.
@@ -493,8 +503,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment10, FBaseIntf10) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment11, FBaseIntf11) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment12, FBaseIntf12) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment13, FBaseIntf13) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment14, FBaseIntf14);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment13, FBaseIntf13) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment14, FBaseIntf14) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2Environment15, FBaseIntf15);
 end;
 
 destructor TCoreWebView2Environment.Destroy;
@@ -523,6 +534,7 @@ begin
   FBaseIntf12 := nil;
   FBaseIntf13 := nil;
   FBaseIntf14 := nil;
+  FBaseIntf15 := nil;
 
   InitializeTokens;
 end;
@@ -742,7 +754,8 @@ end;
 function TCoreWebView2Environment.CreateCoreWebView2PointerInfo(var aPointerInfo: ICoreWebView2PointerInfo) : boolean;
 begin
   Result := assigned(FBaseIntf3) and
-            succeeded(FBaseIntf3.CreateCoreWebView2PointerInfo(aPointerInfo));
+            succeeded(FBaseIntf3.CreateCoreWebView2PointerInfo(aPointerInfo)) and
+            assigned(aPointerInfo);
 end;
 
 function TCoreWebView2Environment.GetAutomationProviderForWindow(aHandle : THandle; var aProvider: IUnknown) : boolean;
@@ -888,6 +901,13 @@ begin
   Result            := assigned(FBaseIntf14) and
                        succeeded(FBaseIntf14.CreateObjectCollection(aLength, aItems, aObjectCollection)) and
                        assigned(aObjectCollection);
+end;
+
+function TCoreWebView2Environment.CreateFindOptions(var aFindOptions : ICoreWebView2FindOptions): boolean;
+begin
+  Result := assigned(FBaseIntf15) and
+            succeeded(FBaseIntf15.CreateFindOptions(aFindOptions)) and
+            assigned(aFindOptions);
 end;
 
 function TCoreWebView2Environment.GetUserDataFolder : wvstring;

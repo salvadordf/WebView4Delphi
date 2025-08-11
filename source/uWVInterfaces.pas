@@ -291,6 +291,15 @@ type
 
     // ICoreWebView2FrameChildFrameCreatedEventHandler
     function FrameChildFrameCreatedEventHandler_Invoke(const sender: ICoreWebView2Frame; const args: ICoreWebView2FrameCreatedEventArgs; aFrameID: cardinal): HResult;
+
+    // ICoreWebView2FindActiveMatchIndexChangedEventHandler
+    function FindActiveMatchIndexChangedEventHandler_Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult;
+
+    // ICoreWebView2FindMatchCountChangedEventHandler
+    function FindMatchCountChangedEventHandler_Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult;
+
+    // ICoreWebView2FindStartCompletedHandler
+    function FindStartCompletedHandler_Invoke(errorCode: HResult): HResult;
   end;
 
 implementation

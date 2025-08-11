@@ -99,6 +99,8 @@ contains
   uWVCoreWebView2RegionRectCollectionView in '..\source\uWVCoreWebView2RegionRectCollectionView.pas',
   uWVCoreWebView2ObjectCollection in '..\source\uWVCoreWebView2ObjectCollection.pas',
   uWVCoreWebView2FileSystemHandle in '..\source\uWVCoreWebView2FileSystemHandle.pas',
-  uWVCoreWebView2Notification in '..\source\uWVCoreWebView2Notification.pas';
+  uWVCoreWebView2Notification in '..\source\uWVCoreWebView2Notification.pas',
+  uWVCoreWebView2FindOptions in '..\source\uWVCoreWebView2FindOptions.pas',
+  uWVCoreWebView2Find in '..\source\uWVCoreWebView2Find.pas';
 
 end.

@@ -465,6 +465,18 @@
 <param name="Name" value="OnFrameChildFrameCreated">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFrameChildFrameCreated">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindStartCompleted">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -560,6 +572,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FCoreWebView2Profile">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Profile">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FCoreWebView2FindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2FindOptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FCoreWebView2Find">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Find">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FWindowParentHandle">
@@ -1145,6 +1165,18 @@
 <param name="Name" value="FOnFrameChildFrameCreated">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFrameChildFrameCreated">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindMatchCountChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindStartCompleted">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -1522,6 +1554,14 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FrameId">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FrameId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindOptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindSession">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindSession">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnBrowserProcessExited">
@@ -1930,6 +1970,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameChildFrameCreated">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFrameChildFrameCreated">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindStartCompleted">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -2390,6 +2442,14 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyProfile">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DestroyFindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyFindOptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="DestroyFind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyFind">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="DestroySettings">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroySettings">
 </object>
@@ -2806,6 +2866,18 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FrameChildFrameCreatedEventHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FindActiveMatchIndexChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindActiveMatchIndexChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindMatchCountChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindMatchCountChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStartCompletedHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStartCompletedHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="doOnInitializationError">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError">
 </object>
@@ -3196,6 +3268,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFrameChildFrameCreatedEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFrameChildFrameCreatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindActiveMatchIndexChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindActiveMatchIndexChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindMatchCountChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindMatchCountChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindStartCompletedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindStartCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
@@ -3596,6 +3680,22 @@
 <li><object type="text/sitemap">
 <param name="Name" value="ShowSaveAsUI">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ShowSaveAsUI">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStart">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStart">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStop">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStop">
 </object>
 </ul>
 </ul>
@@ -4004,6 +4104,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf27">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf28">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf28">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FContainsFullScreenElementChangedToken">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FContainsFullScreenElementChangedToken">
 </object>
@@ -4245,6 +4349,10 @@
 <param name="Name" value="FrameId">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FrameId">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="Find">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#Find">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -4334,6 +4442,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetFrameID">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#GetFrameID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFind">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#GetFind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="SetIsMuted">
@@ -12449,6 +12561,108 @@
 </object>
 </ul>
 </ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindActiveMatchIndexChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Destroy">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindMatchCountChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Destroy">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindStartCompletedHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Destroy">
+</object>
+</ul>
+</ul>
 </ul>
 </ul>
 <li><object type="text/sitemap">
@@ -12728,6 +12942,10 @@
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf14">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf15">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf15">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FNewBrowserVersionAvailableEventToken">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FNewBrowserVersionAvailableEventToken">
 </object>
@@ -12922,6 +13140,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="CreateObjectCollection">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateObjectCollection">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateFindOptions">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateFindOptions">
 </object>
 </ul>
 </ul>
@@ -13348,6 +13570,250 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Destroy">
 <param name="Local" value="uWVCoreWebView2FileSystemHandle.TCoreWebView2FileSystemHandle.html#Destroy">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2Find">
+<param name="Local" value="uWVCoreWebView2Find.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2Find.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2Find">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FActiveMatchIndexChangedToken">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FActiveMatchIndexChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FMatchCountChangedToken">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FMatchCountChangedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ActiveMatchIndex">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#ActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="MatchCount">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#MatchCount">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetActiveMatchIndex">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetMatchCount">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetMatchCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddActiveMatchIndexChangedEvent">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddActiveMatchIndexChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddMatchCountChangedEvent">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddMatchCountChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Start">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Start">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Stop">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Stop">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2FindOptions">
+<param name="Local" value="uWVCoreWebView2FindOptions.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2FindOptions.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindOptions">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SuppressDefaultFindDialog">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetFindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetIsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetIsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetSuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetSuppressDefaultFindDialog">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetFindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetFindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetIsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetSuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetSuppressDefaultFindDialog">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Destroy">
 </object>
 </ul>
 </ul>
@@ -17372,6 +17838,18 @@
 <param name="Local" value="uWVEvents.html#TOnFrameChildFrameCreatedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnFindActiveMatchIndexChangedEvent">
+<param name="Local" value="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TOnFindMatchCountChangedEvent">
+<param name="Local" value="uWVEvents.html#TOnFindMatchCountChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TOnFindStartCompletedEvent">
+<param name="Local" value="uWVEvents.html#TOnFindStartCompletedEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnCompMsgEvent">
 <param name="Local" value="uWVEvents.html#TOnCompMsgEvent">
 </object>
@@ -17832,6 +18310,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameChildFrameCreated">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFrameChildFrameCreated">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindStartCompleted">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -18366,6 +18856,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FrameChildFrameCreatedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FrameChildFrameCreatedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindActiveMatchIndexChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindActiveMatchIndexChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindMatchCountChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindMatchCountChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStartCompletedHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindStartCompletedHandler_Invoke">
 </object>
 </ul>
 </ul>
@@ -23722,6 +24224,174 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_28">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Find">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html#Get_Find">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Find">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ActiveMatchIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Get_ActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_MatchCount">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Get_MatchCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_ActiveMatchIndexChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#add_ActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_ActiveMatchIndexChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#remove_ActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_MatchCountChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#add_MatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_MatchCountChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#remove_MatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Start">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Start">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Stop">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Stop">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindActiveMatchIndexChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindMatchCountChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindOptions">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FindTerm">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_FindTerm">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_IsCaseSensitive">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_IsCaseSensitive">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ShouldHighlightAllMatches">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ShouldHighlightAllMatches">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ShouldMatchWord">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ShouldMatchWord">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_SuppressDefaultFindDialog">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_SuppressDefaultFindDialog">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_SuppressDefaultFindDialog">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_SuppressDefaultFindDialog">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindStartCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2BrowserProcessExitedEventArgs">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">
 </object>
@@ -26230,6 +26900,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Environment15">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateFindOptions">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html#CreateFindOptions">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2WebMessageReceivedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs2.html">
 </object>
@@ -27070,6 +27756,30 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FrameInfo">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2_28">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2_28">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Find">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Find">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FindActiveMatchIndexChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FindActiveMatchIndexChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FindMatchCountChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FindMatchCountChangedEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FindOptions">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FindOptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2FindStartCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2FindStartCompletedHandler">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2AcceleratorKeyPressedEventArgs2">
 </object>
@@ -27268,6 +27978,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ObjectCollection">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ObjectCollection">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2Environment15">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2Environment15">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2EnvironmentOptions">
@@ -31484,6 +32198,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Environment15">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateFindOptions">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment15.html#CreateFindOptions">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Environment2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Environment2.html">
 </object>
@@ -31948,6 +32678,158 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_Permission">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2FileSystemHandle.html#Get_Permission">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2Find">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="add_ActiveMatchIndexChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#add_ActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_MatchCountChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#add_MatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ActiveMatchIndex">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Get_ActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_MatchCount">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Get_MatchCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_ActiveMatchIndexChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#remove_ActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_MatchCountChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#remove_MatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Start">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Start">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Stop">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2Find.html#Stop">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindActiveMatchIndexChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindMatchCountChangedEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindOptions">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FindTerm">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_IsCaseSensitive">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ShouldHighlightAllMatches">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ShouldMatchWord">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_SuppressDefaultFindDialog">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Get_SuppressDefaultFindDialog">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_FindTerm">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_IsCaseSensitive">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ShouldHighlightAllMatches">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_ShouldMatchWord">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_SuppressDefaultFindDialog">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindOptions.html#Set_SuppressDefaultFindDialog">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2FindStartCompletedHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html#Invoke">
 </object>
 </ul>
 </ul>
@@ -35812,6 +36694,22 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2_28">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Find">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2_28.html#Get_Find">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2_3">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2_3.html">
 </object>
@@ -36132,6 +37030,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FaviconChangedEventHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FaviconChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindActiveMatchIndexChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindActiveMatchIndexChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindMatchCountChangedEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindMatchCountChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStartCompletedHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindStartCompletedHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameChildFrameCreatedEventHandler_Invoke">
@@ -36486,6 +37396,10 @@
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf27">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf28">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf28">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FBaseIntf3">
 </object>
@@ -36710,6 +37624,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FaviconURI">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#FaviconURI">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Find">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#Find">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameId">
@@ -37108,6 +38026,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetFaviconURI">
 <param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#GetFaviconURI">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFind">
+<param name="Local" value="uWVCoreWebView2.TCoreWebView2.html#GetFind">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetFrameID">
@@ -40924,6 +41846,10 @@
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf14">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf15">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf15">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FBaseIntf2">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#FBaseIntf2">
 </object>
@@ -41054,6 +41980,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="CreateCoreWebView2PointerInfo">
 <param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateCoreWebView2PointerInfo">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CreateFindOptions">
+<param name="Local" value="uWVCoreWebView2Environment.TCoreWebView2Environment.html#CreateFindOptions">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="CreateObjectCollection">
@@ -41718,6 +42648,328 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetPermission">
 <param name="Local" value="uWVCoreWebView2FileSystemHandle.TCoreWebView2FileSystemHandle.html#GetPermission">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2Find">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FActiveMatchIndexChangedToken">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FActiveMatchIndexChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FMatchCountChangedToken">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FMatchCountChangedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ActiveMatchIndex">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#ActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="MatchCount">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#MatchCount">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Start">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Start">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Stop">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#Stop">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddActiveMatchIndexChangedEvent">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddActiveMatchIndexChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddMatchCountChangedEvent">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#AddMatchCountChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetActiveMatchIndex">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetActiveMatchIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetMatchCount">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#GetMatchCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2Find.TCoreWebView2Find.html#RemoveAllEvents">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindActiveMatchIndexChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindMatchCountChangedEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindOptions">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#FindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#IsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#ShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#ShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SuppressDefaultFindDialog">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetFindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetIsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetIsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetSuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#GetSuppressDefaultFindDialog">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetFindTerm">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetFindTerm">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetIsCaseSensitive">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetIsCaseSensitive">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetShouldHighlightAllMatches">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetShouldHighlightAllMatches">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetShouldMatchWord">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetShouldMatchWord">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetSuppressDefaultFindDialog">
+<param name="Local" value="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html#SetSuppressDefaultFindDialog">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2FindStartCompletedHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Invoke">
 </object>
 </ul>
 </ul>
@@ -49062,6 +50314,18 @@
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFaviconChanged">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnFindStartCompleted">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="OnFrameChildFrameCreated">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnFrameChildFrameCreated">
 </object>
@@ -49440,6 +50704,14 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Environment">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FCoreWebView2Find">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Find">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FCoreWebView2FindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2FindOptions">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCoreWebView2PrintSettings">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2PrintSettings">
 </object>
@@ -49646,6 +50918,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FOnFaviconChanged">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindMatchCountChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnFindStartCompleted">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FOnFrameChildFrameCreated">
@@ -50174,6 +51458,14 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FaviconURI">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindOptions">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindSession">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindSession">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FrameId">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FrameId">
 </object>
@@ -50380,6 +51672,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFaviconChanged">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindStartCompleted">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameChildFrameCreated">
@@ -50956,6 +52260,22 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#ExecuteScriptWithResult">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FindNext">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindNext">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindPrevious">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindPrevious">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStart">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStart">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStop">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStop">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FocusNext">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FocusNext">
 </object>
@@ -51286,6 +52606,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FaviconChangedEventHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FaviconChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindActiveMatchIndexChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindActiveMatchIndexChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindMatchCountChangedEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindMatchCountChangedEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FindStartCompletedHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStartCompletedHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FrameChildFrameCreatedEventHandler_Invoke">
@@ -51848,6 +53180,14 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyEnvironment">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DestroyFind">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyFind">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="DestroyFindOptions">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyFindOptions">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="DestroyPrintSettings">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DestroyPrintSettings">
 </object>
@@ -51982,6 +53322,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFaviconChangedEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFaviconChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindActiveMatchIndexChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindActiveMatchIndexChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindMatchCountChangedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindMatchCountChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnFindStartCompletedEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindStartCompletedEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFrameChildFrameCreatedEvent">
@@ -52646,6 +53998,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFaviconChanged">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFaviconChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindActiveMatchIndexChanged">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindActiveMatchIndexChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindMatchCountChanged">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindMatchCountChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnFindStartCompleted">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnFindStartCompleted">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnFrameChildFrameCreated">

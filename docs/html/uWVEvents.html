@@ -280,6 +280,15 @@
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnFrameChildFrameCreatedEvent">TOnFrameChildFrameCreatedEvent</a></strong> = procedure(Sender: TObject; const aFrame: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const aArgs: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>; aFrameID: cardinal) of object;</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">TOnFindActiveMatchIndexChangedEvent</a></strong> = procedure(Sender: TObject; const aFindSession: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const aArgs: IUnknown) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnFindMatchCountChangedEvent">TOnFindMatchCountChangedEvent</a></strong> = procedure(Sender: TObject; const aFindSession: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const aArgs: IUnknown) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uWVEvents.html#TOnFindStartCompletedEvent">TOnFindStartCompletedEvent</a></strong> = procedure(Sender: TObject; aErrorCode: HResult) of object;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="uWVEvents.html#TOnCompMsgEvent">TOnCompMsgEvent</a></strong> = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;</code></td>
 </tr>
 </table>
@@ -901,6 +910,27 @@ Browser events</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="TOnFrameChildFrameCreatedEvent"></span><code><strong>TOnFrameChildFrameCreatedEvent</strong> = procedure(Sender: TObject; const aFrame: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const aArgs: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>; aFrameID: cardinal) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnFindActiveMatchIndexChangedEvent"></span><code><strong>TOnFindActiveMatchIndexChangedEvent</strong> = procedure(Sender: TObject; const aFindSession: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const aArgs: IUnknown) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnFindMatchCountChangedEvent"></span><code><strong>TOnFindMatchCountChangedEvent</strong> = procedure(Sender: TObject; const aFindSession: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const aArgs: IUnknown) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnFindStartCompletedEvent"></span><code><strong>TOnFindStartCompletedEvent</strong> = procedure(Sender: TObject; aErrorCode: HResult) of object;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p></td></tr>

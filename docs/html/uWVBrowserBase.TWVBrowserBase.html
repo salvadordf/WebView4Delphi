@@ -57,6 +57,14 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2FindOptions">FCoreWebView2FindOptions</a></strong>: <a href="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">TCoreWebView2FindOptions</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Find">FCoreWebView2Find</a></strong>: <a href="uWVCoreWebView2Find.TCoreWebView2Find.html">TCoreWebView2Find</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FWindowParentHandle">FWindowParentHandle</a></strong>: THandle;</code></td>
 </tr>
 <tr class="list">
@@ -639,6 +647,18 @@
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameChildFrameCreated">FOnFrameChildFrameCreated</a></strong>: <a href="uWVEvents.html#TOnFrameChildFrameCreatedEvent">TOnFrameChildFrameCreatedEvent</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">FOnFindActiveMatchIndexChanged</a></strong>: <a href="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">TOnFindActiveMatchIndexChangedEvent</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">FOnFindMatchCountChanged</a></strong>: <a href="uWVEvents.html#TOnFindMatchCountChangedEvent">TOnFindMatchCountChangedEvent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">FOnFindStartCompleted</a></strong>: <a href="uWVEvents.html#TOnFindStartCompletedEvent">TOnFindStartCompletedEvent</a>;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
@@ -1096,6 +1116,14 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#DestroyFindOptions">DestroyFindOptions</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#DestroyFind">DestroyFind</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#DestroySettings">DestroySettings</a></strong>;</code></td>
 </tr>
 <tr class="list">
@@ -1512,395 +1540,419 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError-HRESULT-wvstring-">doOnInitializationError</a></strong>(aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindActiveMatchIndexChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-">FindActiveMatchIndexChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown): HRESULT;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindMatchCountChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-">FindMatchCountChangedEventHandler_Invoke</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindStartCompletedHandler_Invoke-HResult-">FindStartCompletedHandler_Invoke</a></strong>(errorCode: HResult): HRESULT;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError-HRESULT-wvstring-">doOnInitializationError</a></strong>(aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnEnvironmentCompleted">doOnEnvironmentCompleted</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnControllerCompleted">doOnControllerCompleted</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnAfterCreated">doOnAfterCreated</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnExecuteScriptCompleted-HRESULT-wvstring-integer-">doOnExecuteScriptCompleted</a></strong>(aErrorCode: HRESULT; const aResultObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doCapturePreviewCompleted-HRESULT-">doCapturePreviewCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNavigationStarting-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-">doOnNavigationStarting</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNavigationCompleted-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-">doOnNavigationCompleted</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameNavigationStarting-ICoreWebView2-ICoreWebView2NavigationStartingEventArgs-">doOnFrameNavigationStarting</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameNavigationCompleted-ICoreWebView2-ICoreWebView2NavigationCompletedEventArgs-">doOnFrameNavigationCompleted</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSourceChanged-ICoreWebView2-ICoreWebView2SourceChangedEventArgs-">doOnSourceChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SourceChangedEventArgs.html">ICoreWebView2SourceChangedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnHistoryChanged-ICoreWebView2-">doOnHistoryChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnContentLoading-ICoreWebView2-ICoreWebView2ContentLoadingEventArgs-">doOnContentLoading</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnDocumentTitleChanged-ICoreWebView2-">doOnDocumentTitleChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNewWindowRequested-ICoreWebView2-ICoreWebView2NewWindowRequestedEventArgs-">doOnNewWindowRequested</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NewWindowRequestedEventArgs.html">ICoreWebView2NewWindowRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnWebResourceRequested-ICoreWebView2-ICoreWebView2WebResourceRequestedEventArgs-">doOnWebResourceRequested</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs.html">ICoreWebView2WebResourceRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnScriptDialogOpening-ICoreWebView2-ICoreWebView2ScriptDialogOpeningEventArgs-">doOnScriptDialogOpening</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScriptDialogOpeningEventArgs.html">ICoreWebView2ScriptDialogOpeningEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnPermissionRequested-ICoreWebView2-ICoreWebView2PermissionRequestedEventArgs-">doOnPermissionRequested</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs.html">ICoreWebView2PermissionRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnProcessFailed-ICoreWebView2-ICoreWebView2ProcessFailedEventArgs-">doOnProcessFailed</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs.html">ICoreWebView2ProcessFailedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnWebMessageReceived-ICoreWebView2-ICoreWebView2WebMessageReceivedEventArgs-">doOnWebMessageReceived</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnContainsFullScreenElementChanged-ICoreWebView2-">doOnContainsFullScreenElementChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnWindowCloseRequested-ICoreWebView2-">doOnWindowCloseRequested</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnDevToolsProtocolEventReceived-ICoreWebView2-ICoreWebView2DevToolsProtocolEventReceivedEventArgs-wvstring-integer-">doOnDevToolsProtocolEventReceived</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventArgs.html">ICoreWebView2DevToolsProtocolEventReceivedEventArgs</a>; const aEventName : <a href="uWVTypes.html#wvstring">wvstring</a>; aEventID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnZoomFactorChanged-ICoreWebView2Controller-">doOnZoomFactorChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnMoveFocusRequested-ICoreWebView2Controller-ICoreWebView2MoveFocusRequestedEventArgs-">doOnMoveFocusRequested</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventArgs.html">ICoreWebView2MoveFocusRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnAcceleratorKeyPressed-ICoreWebView2Controller-ICoreWebView2AcceleratorKeyPressedEventArgs-">doOnAcceleratorKeyPressed</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2AcceleratorKeyPressedEventArgs.html">ICoreWebView2AcceleratorKeyPressedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGotFocus-ICoreWebView2Controller-">doOnGotFocus</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnLostFocus-ICoreWebView2Controller-">doOnLostFocus</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnCompositionControllerCompleted">doOnCompositionControllerCompleted</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnCursorChangedEvent-ICoreWebView2CompositionController-">doOnCursorChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnBrowserProcessExitedEvent-ICoreWebView2Environment-ICoreWebView2BrowserProcessExitedEventArgs-">doOnBrowserProcessExitedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnRasterizationScaleChangedEvent-ICoreWebView2Controller-">doOnRasterizationScaleChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnWebResourceResponseReceivedEvent-ICoreWebView2-ICoreWebView2WebResourceResponseReceivedEventArgs-">doOnWebResourceResponseReceivedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebResourceResponseReceivedEventArgs.html">ICoreWebView2WebResourceResponseReceivedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnDOMContentLoadedEvent-ICoreWebView2-ICoreWebView2DOMContentLoadedEventArgs-">doOnDOMContentLoadedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnWebResourceResponseViewGetContentCompletedEvent-HResult-IStream-integer-">doOnWebResourceResponseViewGetContentCompletedEvent</a></strong>(errorCode: HResult; const result_: IStream; aResourceID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGetCookiesCompletedEvent-HResult-ICoreWebView2CookieList-">doOnGetCookiesCompletedEvent</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2CookieList.html">ICoreWebView2CookieList</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnTrySuspendCompletedEvent-HResult-Integer-">doOnTrySuspendCompletedEvent</a></strong>(errorCode: HResult; result_: Integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameCreatedEvent-ICoreWebView2-ICoreWebView2FrameCreatedEventArgs-">doOnFrameCreatedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnDownloadStartingEvent-ICoreWebView2-ICoreWebView2DownloadStartingEventArgs-">doOnDownloadStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventArgs.html">ICoreWebView2DownloadStartingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnClientCertificateRequestedEvent-ICoreWebView2-ICoreWebView2ClientCertificateRequestedEventArgs-">doOnClientCertificateRequestedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventArgs.html">ICoreWebView2ClientCertificateRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnPrintToPdfCompletedEvent-HResult-Integer-">doOnPrintToPdfCompletedEvent</a></strong>(errorCode: HResult; result_: Integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnBytesReceivedChangedEventEvent-ICoreWebView2DownloadOperation-IUnknown-integer-">doOnBytesReceivedChangedEventEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnEstimatedEndTimeChangedEvent-ICoreWebView2DownloadOperation-IUnknown-integer-">doOnEstimatedEndTimeChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnStateChangedEvent-ICoreWebView2DownloadOperation-IUnknown-integer-">doOnStateChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2DownloadOperation.html">ICoreWebView2DownloadOperation</a>; const args: IUnknown; aDownloadID : integer); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameNameChangedEvent-ICoreWebView2Frame-IUnknown-cardinal-">doOnFrameNameChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameDestroyedEvent-ICoreWebView2Frame-IUnknown-cardinal-">doOnFrameDestroyedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: IUnknown; aFrameID : cardinal); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnCallDevToolsProtocolMethodCompletedEvent-HRESULT-wvstring-integer-">doOnCallDevToolsProtocolMethodCompletedEvent</a></strong>(aErrorCode: HRESULT; const aResult: <a href="uWVTypes.html#wvstring">wvstring</a>; aExecutionID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent-HRESULT-wvstring-">doOnAddScriptToExecuteOnDocumentCreatedCompletedEvent</a></strong>(aErrorCode: HRESULT; const aResult : <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnRetrieveHTMLCompleted-HRESULT-wvstring-">doOnRetrieveHTMLCompleted</a></strong>(aErrorCode: HRESULT; const aResultObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnRetrieveTextCompleted-HRESULT-wvstring-">doOnRetrieveTextCompleted</a></strong>(aErrorCode: HRESULT; const aResultObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnRetrieveMHTMLCompleted-HRESULT-wvstring-">doOnRetrieveMHTMLCompleted</a></strong>(aErrorCode: HRESULT; const aReturnObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnClearCacheCompleted-HRESULT-">doOnClearCacheCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnClearDataForOriginCompleted-HRESULT-">doOnClearDataForOriginCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnOfflineCompleted-HRESULT-">doOnOfflineCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnIgnoreCertificateErrorsCompleted-HRESULT-">doOnIgnoreCertificateErrorsCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnRefreshIgnoreCacheCompleted-HRESULT-wvstring-">doOnRefreshIgnoreCacheCompleted</a></strong>(aErrorCode: HRESULT; const aResultObjectAsJson: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSimulateKeyEventCompleted-HRESULT-">doOnSimulateKeyEventCompleted</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnIsMutedChanged-ICoreWebView2-">doOnIsMutedChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnIsDocumentPlayingAudioChanged-ICoreWebView2-">doOnIsDocumentPlayingAudioChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnIsDefaultDownloadDialogOpenChanged-ICoreWebView2-">doOnIsDefaultDownloadDialogOpenChanged</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnProcessInfosChangedEvent-ICoreWebView2Environment-">doOnProcessInfosChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameNavigationStarting2-ICoreWebView2Frame-ICoreWebView2NavigationStartingEventArgs-cardinal-">doOnFrameNavigationStarting2</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationStartingEventArgs.html">ICoreWebView2NavigationStartingEventArgs</a>; aFrameID : cardinal); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameNavigationCompleted2-ICoreWebView2Frame-ICoreWebView2NavigationCompletedEventArgs-cardinal-">doOnFrameNavigationCompleted2</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NavigationCompletedEventArgs.html">ICoreWebView2NavigationCompletedEventArgs</a>; aFrameID : cardinal); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameContentLoadingEvent-ICoreWebView2Frame-ICoreWebView2ContentLoadingEventArgs-cardinal-">doOnFrameContentLoadingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventArgs.html">ICoreWebView2ContentLoadingEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameDOMContentLoadedEvent-ICoreWebView2Frame-ICoreWebView2DOMContentLoadedEventArgs-cardinal-">doOnFrameDOMContentLoadedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2DOMContentLoadedEventArgs.html">ICoreWebView2DOMContentLoadedEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameWebMessageReceivedEvent-ICoreWebView2Frame-ICoreWebView2WebMessageReceivedEventArgs-cardinal-">doOnFrameWebMessageReceivedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnBasicAuthenticationRequestedEvent-ICoreWebView2-ICoreWebView2BasicAuthenticationRequestedEventArgs-">doOnBasicAuthenticationRequestedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventArgs.html">ICoreWebView2BasicAuthenticationRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnContextMenuRequestedEvent-ICoreWebView2-ICoreWebView2ContextMenuRequestedEventArgs-">doOnContextMenuRequestedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuRequestedEventArgs.html">ICoreWebView2ContextMenuRequestedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnCustomItemSelectedEvent-ICoreWebView2ContextMenuItem-IUnknown-">doOnCustomItemSelectedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a>; const args: IUnknown); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnStatusBarTextChangedEvent-ICoreWebView2-IUnknown-">doOnStatusBarTextChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFramePermissionRequestedEvent-ICoreWebView2Frame-ICoreWebView2PermissionRequestedEventArgs2-cardinal-">doOnFramePermissionRequestedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2PermissionRequestedEventArgs2.html">ICoreWebView2PermissionRequestedEventArgs2</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnClearBrowsingDataCompletedEvent-HRESULT-">doOnClearBrowsingDataCompletedEvent</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnServerCertificateErrorActionsCompletedEvent-HRESULT-">doOnServerCertificateErrorActionsCompletedEvent</a></strong>(aErrorCode: HRESULT); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnServerCertificateErrorDetectedEvent-ICoreWebView2-ICoreWebView2ServerCertificateErrorDetectedEventArgs-">doOnServerCertificateErrorDetectedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventArgs.html">ICoreWebView2ServerCertificateErrorDetectedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFaviconChangedEvent-ICoreWebView2-IUnknown-">doOnFaviconChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: IUnknown); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGetFaviconCompletedEvent-HResult-IStream-">doOnGetFaviconCompletedEvent</a></strong>(errorCode: HResult; const result_: IStream); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnPrintCompletedEvent-HResult-COREWEBVIEW2_PRINT_STATUS-">doOnPrintCompletedEvent</a></strong>(errorCode: HResult; result_: <a href="uWVTypeLibrary.html#COREWEBVIEW2_PRINT_STATUS">COREWEBVIEW2_PRINT_STATUS</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnPrintToPdfStreamCompletedEvent-HResult-IStream-">doOnPrintToPdfStreamCompletedEvent</a></strong>(errorCode: HResult; const result_: IStream); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGetCustomSchemes-TWVCustomSchemeRegistrationArray-">doOnGetCustomSchemes</a></strong>(var aSchemeRegistrations : <a href="uWVTypes.html#TWVCustomSchemeRegistrationArray">TWVCustomSchemeRegistrationArray</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGetNonDefaultPermissionSettingsCompleted-HResult-ICoreWebView2PermissionSettingCollectionView-">doOnGetNonDefaultPermissionSettingsCompleted</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2PermissionSettingCollectionView.html">ICoreWebView2PermissionSettingCollectionView</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSetPermissionStateCompleted-HResult-">doOnSetPermissionStateCompleted</a></strong>(errorCode: HResult); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnLaunchingExternalUriSchemeEvent-ICoreWebView2-ICoreWebView2LaunchingExternalUriSchemeEventArgs-">doOnLaunchingExternalUriSchemeEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html">ICoreWebView2LaunchingExternalUriSchemeEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnGetProcessExtendedInfosCompletedEvent-HResult-ICoreWebView2ProcessExtendedInfoCollection-">doOnGetProcessExtendedInfosCompletedEvent</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnBrowserExtensionRemoveCompletedEvent-HResult-wvstring-">doOnBrowserExtensionRemoveCompletedEvent</a></strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnBrowserExtensionEnableCompletedEvent-HResult-wvstring-">doOnBrowserExtensionEnableCompletedEvent</a></strong>(errorCode: HResult; const aExtensionID: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnProfileAddBrowserExtensionCompletedEvent-HResult-ICoreWebView2BrowserExtension-">doOnProfileAddBrowserExtensionCompletedEvent</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtension.html">ICoreWebView2BrowserExtension</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnProfileGetBrowserExtensionsCompletedEvent-HResult-ICoreWebView2BrowserExtensionList-">doOnProfileGetBrowserExtensionsCompletedEvent</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnProfileDeletedEvent-ICoreWebView2Profile-IUnknown-">doOnProfileDeletedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a>; const args: IUnknown); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnExecuteScriptWithResultCompletedEvent-HResult-ICoreWebView2ExecuteScriptResult-integer-">doOnExecuteScriptWithResultCompletedEvent</a></strong>(errorCode: HResult; const result_: <a href="uWVTypeLibrary.ICoreWebView2ExecuteScriptResult.html">ICoreWebView2ExecuteScriptResult</a>; aExecutionID : integer); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNonClientRegionChangedEvent-ICoreWebView2CompositionController-ICoreWebView2NonClientRegionChangedEventArgs-">doOnNonClientRegionChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventArgs.html">ICoreWebView2NonClientRegionChangedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNotificationReceivedEvent-ICoreWebView2-ICoreWebView2NotificationReceivedEventArgs-">doOnNotificationReceivedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2NotificationReceivedEventArgs.html">ICoreWebView2NotificationReceivedEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnNotificationCloseRequestedEvent-ICoreWebView2Notification-IUnknown-">doOnNotificationCloseRequestedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a>; const args: IUnknown); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSaveAsUIShowingEvent-ICoreWebView2-ICoreWebView2SaveAsUIShowingEventArgs-">doOnSaveAsUIShowingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveAsUIShowingEventArgs.html">ICoreWebView2SaveAsUIShowingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnShowSaveAsUICompletedEvent-HResult-COREWEBVIEW2_SAVE_AS_UI_RESULT-">doOnShowSaveAsUICompletedEvent</a></strong>(errorCode: HResult; result_: <a href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnSaveFileSecurityCheckStartingEvent-ICoreWebView2-ICoreWebView2SaveFileSecurityCheckStartingEventArgs-">doOnSaveFileSecurityCheckStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html">ICoreWebView2SaveFileSecurityCheckStartingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnScreenCaptureStartingEvent-ICoreWebView2-ICoreWebView2ScreenCaptureStartingEventArgs-">doOnScreenCaptureStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2.html">ICoreWebView2</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameScreenCaptureStartingEvent-ICoreWebView2Frame-ICoreWebView2ScreenCaptureStartingEventArgs-cardinal-">doOnFrameScreenCaptureStartingEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFrameChildFrameCreatedEvent-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-cardinal-">doOnFrameChildFrameCreatedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFindActiveMatchIndexChangedEvent-ICoreWebView2Find-IUnknown-">doOnFindActiveMatchIndexChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFindMatchCountChangedEvent-ICoreWebView2Find-IUnknown-">doOnFindMatchCountChangedEvent</a></strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVBrowserBase.TWVBrowserBase.html#doOnFindStartCompletedEvent-HResult-">doOnFindStartCompletedEvent</a></strong>(errorCode: HResult); virtual;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -2302,6 +2354,22 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#ShowSaveAsUI">ShowSaveAsUI</a></strong>: boolean;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindStart-wvstring-">FindStart</a></strong>(const aFindTerm : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindNext">FindNext</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindPrevious">FindPrevious</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindStop">FindStop</a></strong>: boolean;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
@@ -2676,6 +2744,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FrameId">FrameId</a></strong>                                        : cardinal                                               read <a href="uWVBrowserBase.TWVBrowserBase.html#GetFrameID">GetFrameID</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindOptions">FindOptions</a></strong>                                    : <a href="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">TCoreWebView2FindOptions</a>                               read <a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2FindOptions">FCoreWebView2FindOptions</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#FindSession">FindSession</a></strong>                                    : <a href="uWVCoreWebView2Find.TCoreWebView2Find.html">TCoreWebView2Find</a>                                      read <a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Find">FCoreWebView2Find</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -3085,6 +3161,18 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnFrameChildFrameCreated">OnFrameChildFrameCreated</a></strong>                       : <a href="uWVEvents.html#TOnFrameChildFrameCreatedEvent">TOnFrameChildFrameCreatedEvent</a>                         read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameChildFrameCreated">FOnFrameChildFrameCreated</a>                        write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFrameChildFrameCreated">FOnFrameChildFrameCreated</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnFindActiveMatchIndexChanged">OnFindActiveMatchIndexChanged</a></strong>                  : <a href="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">TOnFindActiveMatchIndexChangedEvent</a>                    read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">FOnFindActiveMatchIndexChanged</a>                   write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">FOnFindActiveMatchIndexChanged</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnFindMatchCountChanged">OnFindMatchCountChanged</a></strong>                        : <a href="uWVEvents.html#TOnFindMatchCountChangedEvent">TOnFindMatchCountChangedEvent</a>                          read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">FOnFindMatchCountChanged</a>                         write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">FOnFindMatchCountChanged</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowserBase.TWVBrowserBase.html#OnFindStartCompleted">OnFindStartCompleted</a></strong>                           : <a href="uWVEvents.html#TOnFindStartCompletedEvent">TOnFindStartCompletedEvent</a>                             read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">FOnFindStartCompleted</a>                            write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">FOnFindStartCompleted</a>;</code></td>
+</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
@@ -3140,6 +3228,22 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FCoreWebView2Profile"></span><code><strong>FCoreWebView2Profile</strong>: <a href="uWVCoreWebView2Profile.TCoreWebView2Profile.html">TCoreWebView2Profile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCoreWebView2FindOptions"></span><code><strong>FCoreWebView2FindOptions</strong>: <a href="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">TCoreWebView2FindOptions</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCoreWebView2Find"></span><code><strong>FCoreWebView2Find</strong>: <a href="uWVCoreWebView2Find.TCoreWebView2Find.html">TCoreWebView2Find</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -4314,6 +4418,30 @@ Fields used to create the environment</p>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
 </table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnFindActiveMatchIndexChanged"></span><code><strong>FOnFindActiveMatchIndexChanged</strong>: <a href="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">TOnFindActiveMatchIndexChangedEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnFindMatchCountChanged"></span><code><strong>FOnFindMatchCountChanged</strong>: <a href="uWVEvents.html#TOnFindMatchCountChangedEvent">TOnFindMatchCountChangedEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnFindStartCompleted"></span><code><strong>FOnFindStartCompleted</strong>: <a href="uWVEvents.html#TOnFindStartCompletedEvent">TOnFindStartCompletedEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -5215,6 +5343,22 @@ Fields used to create the environment</p>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="DestroyProfile"></span><code>procedure <strong>DestroyProfile</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DestroyFindOptions"></span><code>procedure <strong>DestroyFindOptions</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DestroyFind"></span><code>procedure <strong>DestroyFind</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -6226,6 +6370,36 @@ ICoreWebView2FrameChildFrameCreatedEventHandler</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindActiveMatchIndexChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-"></span><code>function <strong>FindActiveMatchIndexChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVBrowserEvents.html#FindActiveMatchIndexChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-">IWVBrowserEvents.FindActiveMatchIndexChangedEventHandler_Invoke</a>.</p><p>
+ICoreWebView2FindActiveMatchIndexChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindMatchCountChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-"></span><code>function <strong>FindMatchCountChangedEventHandler_Invoke</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVBrowserEvents.html#FindMatchCountChangedEventHandler_Invoke-ICoreWebView2Find-IUnknown-">IWVBrowserEvents.FindMatchCountChangedEventHandler_Invoke</a>.</p><p>
+ICoreWebView2FindMatchCountChangedEventHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindStartCompletedHandler_Invoke-HResult-"></span><code>function <strong>FindStartCompletedHandler_Invoke</strong>(errorCode: HResult): HRESULT;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVInterfaces.IWVBrowserEvents.html#FindStartCompletedHandler_Invoke-HResult-">IWVBrowserEvents.FindStartCompletedHandler_Invoke</a>.</p><p>
+ICoreWebView2FindStartCompletedHandler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="doOnInitializationError-HRESULT-wvstring-"></span><code>procedure <strong>doOnInitializationError</strong>(aErrorCode: HRESULT; const aErrorMessage: <a href="uWVTypes.html#wvstring">wvstring</a>); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -7003,6 +7177,30 @@ ICoreWebView2FrameChildFrameCreatedEventHandler</p>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="doOnFrameChildFrameCreatedEvent-ICoreWebView2Frame-ICoreWebView2FrameCreatedEventArgs-cardinal-"></span><code>procedure <strong>doOnFrameChildFrameCreatedEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a>; const args: <a href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a>; aFrameID: cardinal); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnFindActiveMatchIndexChangedEvent-ICoreWebView2Find-IUnknown-"></span><code>procedure <strong>doOnFindActiveMatchIndexChangedEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnFindMatchCountChangedEvent-ICoreWebView2Find-IUnknown-"></span><code>procedure <strong>doOnFindMatchCountChangedEvent</strong>(const sender: <a href="uWVTypeLibrary.ICoreWebView2Find.html">ICoreWebView2Find</a>; const args: IUnknown); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doOnFindStartCompletedEvent-HResult-"></span><code>procedure <strong>doOnFindStartCompletedEvent</strong>(errorCode: HResult); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -9026,6 +9224,62 @@ Options property | Details
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui</a>&quot;&gt;See the ICoreWebView2_25 article.</p></td></tr>
 </table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindStart-wvstring-"></span><code>function <strong>FindStart</strong>(const aFindTerm : <a href="uWVTypes.html#wvstring">wvstring</a>) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Initiates a find using the specified find options asynchronously. Displays the Find bar and starts the find session. If a find session was already ongoing, it will be stopped and replaced with this new instance. If called with an empty string, the Find bar is displayed but no finding occurs. Changing the FindOptions object after initiation won't affect the ongoing find session. To change the ongoing find session, Start must be called again with a new or modified FindOptions object. Start supports HTML and TXT document queries. In general, this API is designed for text-based find sessions. If you start a find session programmatically on another file format that doesn't have text fields, the find session will try to execute but will fail to find any matches. (It will silently fail) Note: The asynchronous action completes when the UI has been displayed with the find term in the UI bar, and the matches have populated on the counter on the find bar. There may be a slight latency between the UI display and the matches populating in the counter. The MatchCountChanged and ActiveMatchIndexChanged events are only raised after Start has completed; otherwise, they will have their default values (-1 for active match index and 0 for match count). To start a new find session (beginning the search from the first match), call `Stop` before invoking `Start`. If `Start` is called consecutively with the same options and without calling `Stop`, the find session will continue from the current position in the existing session. Calling `Start` without altering its parameters will behave either as `FindNext` or `FindPrevious`, depending on the most recent search action performed. Start will default to forward if neither have been called. However, calling Start again during an ongoing find session does not resume from the point of the current active match. For example, given the text &quot;1 1 A 1 1&quot; and initiating a find session for &quot;A&quot;, then starting another find session for &quot;1&quot;, it will start searching from the beginning of the document, regardless of the previous active match. This behavior indicates that changing the find query initiates a completely new find session, rather than continuing from the previous match index. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindNext"></span><code>function <strong>FindNext</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Navigates to the next match in the document. If there are no matches to find, FindNext will wrap around to the first match's index. If called when there is no find session active, FindNext will silently fail. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#findnext">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#findnext</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindPrevious"></span><code>function <strong>FindPrevious</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Navigates to the previous match in the document. If there are no matches to find, FindPrevious will wrap around to the last match's index. If called when there is no find session active, FindPrevious will silently fail. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#findprevious">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#findprevious</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindStop"></span><code>function <strong>FindStop</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stops the current 'Find' session and hides the Find bar. If called with no Find session active, it will silently do nothing. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#stopt">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#stopt</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -10555,6 +10809,34 @@ Properties used in the ICoreWebView2Environment creation</p>
 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid</a>&quot;&gt;See the ICoreWebView2_20 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindOptions"></span><code>property <strong>FindOptions</strong>                                    : <a href="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">TCoreWebView2FindOptions</a>                               read <a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2FindOptions">FCoreWebView2FindOptions</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Options used to configure a find session. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findoptions">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findoptions</a>&quot;&gt;See the ICoreWebView2FindOptions article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindSession"></span><code>property <strong>FindSession</strong>                                    : <a href="uWVCoreWebView2Find.TCoreWebView2Find.html">TCoreWebView2Find</a>                                      read <a href="uWVBrowserBase.TWVBrowserBase.html#FCoreWebView2Find">FCoreWebView2Find</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ FindSession allows for finding text, navigation between matches, and customization of the find UI. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -12106,6 +12388,50 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7</a>&quot;&gt;See the ICoreWebView2Frame7 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnFindActiveMatchIndexChanged"></span><code>property <strong>OnFindActiveMatchIndexChanged</strong>                  : <a href="uWVEvents.html#TOnFindActiveMatchIndexChangedEvent">TOnFindActiveMatchIndexChangedEvent</a>                    read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">FOnFindActiveMatchIndexChanged</a>                   write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindActiveMatchIndexChanged">FOnFindActiveMatchIndexChanged</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This event is raised when the index of the currently active match changes. This can happen when the user navigates to a different match or when the active match is changed programmatically. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_activematchindexchanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_activematchindexchanged</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnFindMatchCountChanged"></span><code>property <strong>OnFindMatchCountChanged</strong>                        : <a href="uWVEvents.html#TOnFindMatchCountChangedEvent">TOnFindMatchCountChangedEvent</a>                          read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">FOnFindMatchCountChanged</a>                         write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindMatchCountChanged">FOnFindMatchCountChanged</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This event is raised when the total count of matches in the document changes due to a new find session or changes in the document. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_matchcountchanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_matchcountchanged</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnFindStartCompleted"></span><code>property <strong>OnFindStartCompleted</strong>                           : <a href="uWVEvents.html#TOnFindStartCompletedEvent">TOnFindStartCompletedEvent</a>                             read <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">FOnFindStartCompleted</a>                            write <a href="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">FOnFindStartCompleted</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ This event receives the result of the FindStart method. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start</a>&quot;&gt;See the ICoreWebView2Find article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler</a>&quot;&gt;See the ICoreWebView2FindStartCompletedHandler article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

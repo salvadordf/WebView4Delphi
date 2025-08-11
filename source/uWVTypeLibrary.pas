@@ -177,6 +177,12 @@ const
   IID_ICoreWebView2ScreenCaptureStartingEventHandler: TGUID = '{E24FF05A-1DB5-59D9-89F3-3C864268DB4A}';
   IID_ICoreWebView2ScreenCaptureStartingEventArgs: TGUID = '{892C03FD-AEE3-5EBA-A1FA-6FD2F6484B2B}';
   IID_ICoreWebView2FrameInfo: TGUID = '{DA86B8A1-BDF3-4F11-9955-528CEFA59727}';
+  IID_ICoreWebView2_28: TGUID = '{62E50381-5BF5-51A8-AAE0-F20A3A9C8A90}';
+  IID_ICoreWebView2Find: TGUID = '{A3EC0F5F-DDBC-54ED-8546-AF75A785B9A6}';
+  IID_ICoreWebView2FindActiveMatchIndexChangedEventHandler: TGUID = '{0054F514-9A8E-5876-AED5-30B37F8C86A5}';
+  IID_ICoreWebView2FindMatchCountChangedEventHandler: TGUID = '{DA0D6827-4254-5B10-A6D9-412076AFC9F3}';
+  IID_ICoreWebView2FindOptions: TGUID = '{E82E3B2B-A4AF-5BC6-94C6-18B44157A16C}';
+  IID_ICoreWebView2FindStartCompletedHandler: TGUID = '{6A90ECAF-44B0-5BD9-8F07-1967E17BE9FB}';
   IID_ICoreWebView2AcceleratorKeyPressedEventArgs2: TGUID = '{03B2C8C8-7799-4E34-BD66-ED26AA85F2BF}';
   IID_ICoreWebView2BrowserExtension: TGUID = '{7EF7FFA0-FAC5-462C-B189-3D9EDBE575DA}';
   IID_ICoreWebView2BrowserExtensionRemoveCompletedHandler: TGUID = '{8E41909A-9B18-4BB1-8CDF-930F467A50BE}';
@@ -227,6 +233,7 @@ const
   IID_ICoreWebView2Environment14: TGUID = '{A5E9FAD9-C875-59DA-9BD7-473AA5CA1CEF}';
   IID_ICoreWebView2FileSystemHandle: TGUID = '{C65100AC-0DE2-5551-A362-23D9BD1D0E1F}';
   IID_ICoreWebView2ObjectCollection: TGUID = '{5CFEC11C-25BD-4E8D-9E1A-7ACDAEEEC047}';
+  IID_ICoreWebView2Environment15: TGUID = '{2AC5EBFB-E654-5961-A667-7971885C7B27}';
   IID_ICoreWebView2EnvironmentOptions: TGUID = '{2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5}';
   IID_ICoreWebView2EnvironmentOptions2: TGUID = '{FF85C98A-1BA7-4A6B-90C8-2B752C89E9E2}';
   IID_ICoreWebView2EnvironmentOptions3: TGUID = '{4A5C436E-A9E3-4A2E-89C3-910D3513F5CC}';
@@ -3267,6 +3274,12 @@ type
   ICoreWebView2ScreenCaptureStartingEventHandler = interface;
   ICoreWebView2ScreenCaptureStartingEventArgs = interface;
   ICoreWebView2FrameInfo = interface;
+  ICoreWebView2_28 = interface;
+  ICoreWebView2Find = interface;
+  ICoreWebView2FindActiveMatchIndexChangedEventHandler = interface;
+  ICoreWebView2FindMatchCountChangedEventHandler = interface;
+  ICoreWebView2FindOptions = interface;
+  ICoreWebView2FindStartCompletedHandler = interface;
   ICoreWebView2AcceleratorKeyPressedEventArgs2 = interface;
   ICoreWebView2BrowserExtension = interface;
   ICoreWebView2BrowserExtensionRemoveCompletedHandler = interface;
@@ -3317,6 +3330,7 @@ type
   ICoreWebView2Environment14 = interface;
   ICoreWebView2FileSystemHandle = interface;
   ICoreWebView2ObjectCollection = interface;
+  ICoreWebView2Environment15 = interface;
   ICoreWebView2EnvironmentOptions = interface;
   ICoreWebView2EnvironmentOptions2 = interface;
   ICoreWebView2EnvironmentOptions3 = interface;
@@ -9911,6 +9925,240 @@ type
   end;
 
   /// <summary>
+  /// Interface providing methods to access the find session functionalities in the CoreWebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_28">See the ICoreWebView2_28 article.</see></para>
+  /// </remarks>
+  ICoreWebView2_28 = interface(ICoreWebView2_27)
+    ['{62E50381-5BF5-51A8-AAE0-F20A3A9C8A90}']
+    /// <summary>
+    /// Retrieves the find session interface for the current web view.
+    /// </summary>
+    function Get_Find(out value: ICoreWebView2Find): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Interface providing methods and properties for finding and navigating through text in the web view.
+  /// This interface allows for finding text, navigation between matches, and customization of the find UI.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find">See the ICoreWebView2Find article.</see></para>
+  /// </remarks>
+  ICoreWebView2Find = interface(IUnknown)
+    ['{A3EC0F5F-DDBC-54ED-8546-AF75A785B9A6}']
+    /// <summary>
+    /// Retrieves the index of the currently active match in the find session. Returns the index of the currently active match, or -1 if there is no active match.
+    /// The index starts at 1 for the first match.
+    ///
+    /// \snippet AppWindow.cpp ActiveMatchIndex
+    /// </summary>
+    function Get_ActiveMatchIndex(out value: SYSINT): HResult; stdcall;
+    /// <summary>
+    /// Gets the total count of matches found in the current document based on the last find sessions criteria. Returns the total count of matches.
+    ///
+    /// \snippet AppWindow.cpp MatchCount
+    /// </summary>
+    function Get_MatchCount(out value: SYSINT): HResult; stdcall;
+    /// <summary>
+    /// Adds an event handler for the `ActiveMatchIndexChanged` event.
+    /// Registers an event handler for the ActiveMatchIndexChanged event. This event is raised when the index of the currently active match changes.
+    /// This can happen when the user navigates to a different match or when the active match is changed programmatically.
+    /// The parameter is the event handler to be added. Returns a token representing the added event handler.
+    /// This token can be used to unregister the event handler.
+    /// </summary>
+    function add_ActiveMatchIndexChanged(const eventHandler: ICoreWebView2FindActiveMatchIndexChangedEventHandler;
+                                         out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_ActiveMatchIndexChanged`.
+    /// </summary>
+    function remove_ActiveMatchIndexChanged(token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Adds an event handler for the `MatchCountChanged` event.
+    /// Registers an event handler for the MatchCountChanged event.
+    /// This event is raised when the total count of matches in the document changes due to a new find session or changes in the document.
+    /// The parameter is the event handler to be added. Returns a token representing the added event handler. This token can be used to unregister the event handler.
+    /// </summary>
+    function add_MatchCountChanged(const eventHandler: ICoreWebView2FindMatchCountChangedEventHandler;
+                                   out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_MatchCountChanged`.
+    /// </summary>
+    function remove_MatchCountChanged(token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Initiates a find using the specified find options asynchronously.
+    /// Displays the Find bar and starts the find session. If a find session was already ongoing, it will be stopped and replaced with this new instance.
+    /// If called with an empty string, the Find bar is displayed but no finding occurs. Changing the FindOptions object after initiation won't affect the ongoing find session.
+    /// To change the ongoing find session, Start must be called again with a new or modified FindOptions object.
+    /// Start supports HTML and TXT document queries. In general, this API is designed for text-based find sessions.
+    /// If you start a find session programmatically on another file format that doesn't have text fields, the find session will try to execute but will fail to find any matches. (It will silently fail)
+    /// Note: The asynchronous action completes when the UI has been displayed with the find term in the UI bar, and the matches have populated on the counter on the find bar.
+    /// There may be a slight latency between the UI display and the matches populating in the counter.
+    /// The MatchCountChanged and ActiveMatchIndexChanged events are only raised after Start has completed; otherwise, they will have their default values (-1 for active match index and 0 for match count).
+    /// To start a new find session (beginning the search from the first match), call `Stop` before invoking `Start`.
+    /// If `Start` is called consecutively with the same options and without calling `Stop`, the find session
+    /// will continue from the current position in the existing session.
+    /// Calling `Start` without altering its parameters will behave either as `FindNext` or `FindPrevious`, depending on the most recent search action performed.
+    /// Start will default to forward if neither have been called.
+    /// However, calling Start again during an ongoing find session does not resume from the point
+    /// of the current active match. For example, given the text "1 1 A 1 1" and initiating a find session for "A",
+    /// then starting another find session for "1", it will start searching from the beginning of the document,
+    /// regardless of the previous active match. This behavior indicates that changing the find query initiates a
+    /// completely new find session, rather than continuing from the previous match index.
+    ///
+    /// \snippet AppWindow.cpp Start
+    /// </summary>
+    function Start(const options: ICoreWebView2FindOptions;
+                   const handler: ICoreWebView2FindStartCompletedHandler): HResult; stdcall;
+    /// <summary>
+    /// Navigates to the next match in the document.
+    /// If there are no matches to find, FindNext will wrap around to the first match's index.
+    /// If called when there is no find session active, FindNext will silently fail.
+    ///
+    /// \snippet AppWindow.cpp FindNext
+    /// </summary>
+    function FindNext: HResult; stdcall;
+    /// <summary>
+    /// Navigates to the previous match in the document.
+    /// If there are no matches to find, FindPrevious will wrap around to the last match's index.
+    /// If called when there is no find session active, FindPrevious will silently fail.
+    ///
+    /// \snippet AppWindow.cpp FindPrevious
+    /// </summary>
+    function FindPrevious: HResult; stdcall;
+    /// <summary>
+    /// Stops the current 'Find' session and hides the Find bar.
+    /// If called with no Find session active, it will silently do nothing.
+    ///
+    /// \snippet AppWindow.cpp Stop
+    /// </summary>
+    function Stop: HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `ActiveMatchIndexChanged` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findactivematchindexchangedeventhandler">See the ICoreWebView2FindActiveMatchIndexChangedEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2FindActiveMatchIndexChangedEventHandler = interface(IUnknown)
+    ['{0054F514-9A8E-5876-AED5-30B37F8C86A5}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `MatchCountChanged` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findmatchcountchangedeventhandler">See the ICoreWebView2FindMatchCountChangedEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2FindMatchCountChangedEventHandler = interface(IUnknown)
+    ['{DA0D6827-4254-5B10-A6D9-412076AFC9F3}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Interface defining the find options.
+  /// This interface provides the necessary methods and properties to configure a find session.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findoptions">See the ICoreWebView2FindOptions article.</see></para>
+  /// </remarks>
+  ICoreWebView2FindOptions = interface(IUnknown)
+    ['{E82E3B2B-A4AF-5BC6-94C6-18B44157A16C}']
+    /// <summary>
+    /// Gets the `FindTerm` property.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FindTerm(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Gets or sets the word or phrase to be searched in the current page.
+    /// You can set `FindTerm` to any text you want to find on the page.
+    /// This will take effect the next time you call the `Start()` method.
+    ///
+    /// \snippet AppWindow.cpp FindTerm
+    /// </summary>
+    function Set_FindTerm(value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Gets the `IsCaseSensitive` property.
+    /// </summary>
+    function Get_IsCaseSensitive(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Determines if the find session is case sensitive. Returns TRUE if the find is case sensitive, FALSE otherwise.
+    /// When toggling case sensitivity, the behavior can vary by locale, which may be influenced by both the browser's UI locale and the document's language settings. The browser's UI locale
+    /// typically provides a default handling approach, while the document's language settings (e.g., specified using the HTML lang attribute) can override these defaults to apply locale-specific rules. This dual consideration
+    /// ensures that text is processed in a manner consistent with user expectations and the linguistic context of the content.
+    ///
+    /// \snippet AppWindow.cpp IsCaseSensitive
+    /// </summary>
+    function Set_IsCaseSensitive(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Gets the `ShouldHighlightAllMatches` property.
+    /// </summary>
+    function Get_ShouldHighlightAllMatches(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Gets or sets the state of whether all matches are highlighted.
+    /// Returns TRUE if all matches are highlighted, FALSE otherwise.
+    /// Note: Changes to this property take effect only when Start, FindNext, or FindPrevious is called.
+    /// Preferences for the session cannot be updated unless another call to the Start function on the server-side is made.
+    /// Therefore, changes will not take effect until one of these functions is called.
+    ///
+    /// \snippet AppWindow.cpp ShouldHighlightAllMatches
+    /// </summary>
+    function Set_ShouldHighlightAllMatches(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Gets the `ShouldMatchWord` property.
+    /// </summary>
+    function Get_ShouldMatchWord(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Similar to case sensitivity, word matching also can vary by locale, which may be influenced by both the browser's UI locale and the document's language settings. The browser's UI locale
+    /// typically provides a default handling approach, while the document's language settings (e.g., specified using the HTML lang attribute) can override these defaults to apply locale-specific rules. This dual consideration
+    /// ensures that text is processed in a manner consistent with user expectations and the linguistic context of the content.
+    /// ShouldMatchWord determines if only whole words should be matched during the find session. Returns TRUE if only whole words should be matched, FALSE otherwise.
+    ///
+    /// \snippet AppWindow.cpp ShouldMatchWord
+    /// </summary>
+    function Set_ShouldMatchWord(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Gets the `SuppressDefaultFindDialog` property.
+    /// </summary>
+    function Get_SuppressDefaultFindDialog(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Sets this property to hide the default Find UI.
+    /// You can use this to hide the default UI so that you can show your own custom UI or programmatically interact with the Find API while showing no Find UI.
+    /// Returns TRUE if hiding the default Find UI and FALSE if using showing the default Find UI.
+    /// Note: Changes to this property take effect only when Start, FindNext, or FindPrevious is called.
+    /// Preferences for the session cannot be updated unless another call to the Start function on the server-side is made.
+    /// Therefore, changes will not take effect until one of these functions is called.
+    ///
+    /// \snippet AppWindow.cpp SuppressDefaultFindDialog
+    /// </summary>
+    function Set_SuppressDefaultFindDialog(value: Integer): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives the result of the `Start` method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">See the ICoreWebView2FindStartCompletedHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2FindStartCompletedHandler = interface(IUnknown)
+    ['{6A90ECAF-44B0-5BD9-8F07-1967E17BE9FB}']
+    /// <summary>
+    /// Provides the result of the corresponding asynchronous method.
+    /// </summary>
+    function Invoke(errorCode: HResult): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Event args for the BrowserProcessExited event.
   /// </summary>
   /// <remarks>
@@ -14152,6 +14400,23 @@ type
     /// Inserts the object at the specified index.
     /// </summary>
     function InsertValueAtIndex(index: SYSUINT; const value: IUnknown): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Interface that provides methods related to the environment settings of CoreWebView2.
+  /// This interface allows for the creation of new `FindOptions` objects.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment15">See the ICoreWebView2Environment15 article.</see></para>
+  /// </remarks>
+  ICoreWebView2Environment15 = interface(ICoreWebView2Environment14)
+    ['{2AC5EBFB-E654-5961-A667-7971885C7B27}']
+    /// <summary>
+    /// Creates a new instance of a CoreWebView2FindOptions object.
+    /// This find options object can be used to define parameters for a find session.
+    /// Returns the newly created FindOptions object.
+    /// </summary>
+    function CreateFindOptions(out value: ICoreWebView2FindOptions): HResult; stdcall;
   end;
 
   /// <summary>

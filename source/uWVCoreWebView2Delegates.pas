@@ -1583,6 +1583,57 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives `ActiveMatchIndexChanged` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findactivematchindexchangedeventhandler">See the ICoreWebView2FindActiveMatchIndexChangedEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2FindActiveMatchIndexChangedEventHandler = class(TInterfacedObject, ICoreWebView2FindActiveMatchIndexChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// Receives `MatchCountChanged` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findmatchcountchangedeventhandler">See the ICoreWebView2FindMatchCountChangedEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2FindMatchCountChangedEventHandler = class(TInterfacedObject, ICoreWebView2FindMatchCountChangedEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+  /// <summary>
+  /// Receives the result of the `Start` method.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">See the ICoreWebView2FindStartCompletedHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2FindStartCompletedHandler = class(TInterfacedObject, ICoreWebView2FindStartCompletedHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(errorCode: HResult): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
 implementation
 
 
@@ -3839,6 +3890,81 @@ function TCoreWebView2FrameChildFrameCreatedEventHandler.Invoke(const sender: IC
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).FrameChildFrameCreatedEventHandler_Invoke(sender, args, FFrameID)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FindActiveMatchIndexChangedEventHandler
+
+constructor TCoreWebView2FindActiveMatchIndexChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2FindActiveMatchIndexChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FindActiveMatchIndexChangedEventHandler.Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FindActiveMatchIndexChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FindMatchCountChangedEventHandler
+
+constructor TCoreWebView2FindMatchCountChangedEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2FindMatchCountChangedEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FindMatchCountChangedEventHandler.Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FindMatchCountChangedEventHandler_Invoke(sender, args)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2FindStartCompletedHandler
+
+constructor TCoreWebView2FindStartCompletedHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents  := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2FindStartCompletedHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2FindStartCompletedHandler.Invoke(errorCode: HResult): HResult; stdcall;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).FindStartCompletedHandler_Invoke(errorCode)
    else
     Result := E_FAIL;
 end;

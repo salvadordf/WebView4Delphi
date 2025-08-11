@@ -495,6 +495,18 @@
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code>property <strong><a href="uWVBrowser.TWVBrowser.html#OnFrameChildFrameCreated">OnFrameChildFrameCreated</a></strong>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowser.TWVBrowser.html#OnFindActiveMatchIndexChanged">OnFindActiveMatchIndexChanged</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowser.TWVBrowser.html#OnFindMatchCountChanged">OnFindMatchCountChanged</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="uWVBrowser.TWVBrowser.html#OnFindStartCompleted">OnFindStartCompleted</a></strong>;</code></td>
+</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
@@ -2024,6 +2036,44 @@ Unresponsiveness | The process indicated by the event args has become unresponsi
  Raised when a new direct descendant iframe is created. Handle this event to get access to ICoreWebView2Frame objects. Use `OnFrameDestroyed` to listen for when this iframe goes away. 
 
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7</a>&quot;&gt;See the ICoreWebView2Frame7 article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnFindActiveMatchIndexChanged"></span><code>property <strong>OnFindActiveMatchIndexChanged</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnFindActiveMatchIndexChanged">TWVBrowserBase.OnFindActiveMatchIndexChanged</a>.</p><p>
+ This event is raised when the index of the currently active match changes. This can happen when the user navigates to a different match or when the active match is changed programmatically. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_activematchindexchanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_activematchindexchanged</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnFindMatchCountChanged"></span><code>property <strong>OnFindMatchCountChanged</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnFindMatchCountChanged">TWVBrowserBase.OnFindMatchCountChanged</a>.</p><p>
+ This event is raised when the total count of matches in the document changes due to a new find session or changes in the document. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_matchcountchanged">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#add_matchcountchanged</a>&quot;&gt;See the ICoreWebView2Find article.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnFindStartCompleted"></span><code>property <strong>OnFindStartCompleted</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVBrowserBase.TWVBrowserBase.html#OnFindStartCompleted">TWVBrowserBase.OnFindStartCompleted</a>.</p><p>
+ This event receives the result of the FindStart method. 
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2find#start</a>&quot;&gt;See the ICoreWebView2Find article.)
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler</a>&quot;&gt;See the ICoreWebView2FindStartCompletedHandler article.)</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>

@@ -397,6 +397,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
       Caption = 'Test RecreateWnd'
       OnClick = estRecreateWnd1Click
     end
+    object Find1: TMenuItem
+      Caption = 'Find...'
+      OnClick = Find1Click
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 48

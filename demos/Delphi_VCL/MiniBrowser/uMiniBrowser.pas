@@ -66,6 +66,7 @@ type
     Addbrowserextension1: TMenuItem;
     ExecuteJavaScript1: TMenuItem;
     estRecreateWnd1: TMenuItem;
+    Find1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -139,6 +140,7 @@ type
     procedure WVBrowser1ExecuteScriptWithResultCompleted(Sender: TObject; errorCode: HRESULT; const result_: ICoreWebView2ExecuteScriptResult; aExecutionID: Integer);
     procedure WVBrowser1ScreenCaptureStarting(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2ScreenCaptureStartingEventArgs);
     procedure estRecreateWnd1Click(Sender: TObject);
+    procedure Find1Click(Sender: TObject);
 
   protected
     FDownloadOperation : TCoreWebView2DownloadOperation;
@@ -355,6 +357,16 @@ begin
 
   if (TempJavaScript <> '') then
     WVBrowser1.ExecuteScriptWithResult(TempJavaScript);
+end;
+
+procedure TMiniBrowserFrm.Find1Click(Sender: TObject);
+var
+  TempTerm : string;
+begin
+  TempTerm := InputBox('Find text in this web page', 'Search term :', '');
+
+  if (length(TempTerm) > 0) then
+    WVBrowser1.FindStart(TempTerm);
 end;
 
 procedure TMiniBrowserFrm.FormCreate(Sender: TObject);

@@ -24,6 +24,7 @@ type
     Cleatallstorage1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
     SmartScreen1: TMenuItem;
     MenuItem4: TMenuItem;
     Muted1: TMenuItem;
@@ -70,6 +71,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
     procedure SmartScreen1Click(Sender: TObject);
 
     procedure Timer1Timer(Sender: TObject);
@@ -249,6 +251,16 @@ end;
 procedure TMiniBrowserFrm.MenuItem5Click(Sender: TObject);
 begin
   PostMessage(WVWindowParent1.Handle, CM_RECREATEWND, 0, 0);
+end;
+
+procedure TMiniBrowserFrm.MenuItem6Click(Sender: TObject);
+var
+  TempTerm : string;
+begin
+  TempTerm := InputBox('Find text in this web page', 'Search term :', '');
+
+  if (length(TempTerm) > 0) then
+    WVBrowser1.FindStart(UTF8Decode(TempTerm));
 end;
 
 procedure TMiniBrowserFrm.MenuItem2Click(Sender: TObject);

@@ -44,6 +44,7 @@ type
       FBaseIntf25                              : ICoreWebView2_25;
       FBaseIntf26                              : ICoreWebView2_26;
       FBaseIntf27                              : ICoreWebView2_27;
+      FBaseIntf28                              : ICoreWebView2_28;
       FContainsFullScreenElementChangedToken   : EventRegistrationToken;
       FContentLoadingToken                     : EventRegistrationToken;
       FDocumentTitleChangedToken               : EventRegistrationToken;
@@ -103,6 +104,7 @@ type
       function  GetFaviconURI : wvstring;
       function  GetMemoryUsageTargetLevel : TWVMemoryUsageTargetLevel;
       function  GetFrameID : cardinal;
+      function  GetFind : ICoreWebView2Find;
 
       procedure SetIsMuted(aValue : boolean);
       procedure SetDefaultDownloadDialogCornerAlignment(aValue : TWVDefaultDownloadDialogCornerAlignment);
@@ -1089,6 +1091,13 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid">See the ICoreWebView2_20 article.</see></para>
       /// </remarks>
       property FrameId                              : cardinal                                  read GetFrameID;
+      /// <summary>
+      /// Retrieves the find session interface for the current web view.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_28#get_find">See the ICoreWebView2_28 article.</see></para>
+      /// </remarks>
+      property Find                                 : ICoreWebView2Find                         read GetFind;
   end;
 
 implementation
@@ -1129,8 +1138,9 @@ begin
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_23, FBaseIntf23) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_24, FBaseIntf24) and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_25, FBaseIntf25) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_26, FBaseIntf26) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_27, FBaseIntf27);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_26, FBaseIntf26) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_27, FBaseIntf27) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2_28, FBaseIntf28);
 end;
 
 destructor TCoreWebView2.Destroy;
@@ -1189,6 +1199,7 @@ begin
   FBaseIntf25          := nil;
   FBaseIntf26          := nil;
   FBaseIntf27          := nil;
+  FBaseIntf28          := nil;
   FDevToolsEventTokens := nil;
   FDevToolsEventNames  := nil;
   FFrameIDCopy         := WEBVIEW4DELPHI_INVALID_FRAMEID;
@@ -2568,6 +2579,19 @@ begin
     end
    else
     Result := FFrameIDCopy;
+end;
+
+function TCoreWebView2.GetFind : ICoreWebView2Find;
+var
+  TempResult : ICoreWebView2Find;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf28) and
+     succeeded(FBaseIntf28.Get_Find(TempResult)) and
+     assigned(TempResult) then
+    Result := TempResult;
 end;
 
 procedure TCoreWebView2.SetIsMuted(aValue : boolean);

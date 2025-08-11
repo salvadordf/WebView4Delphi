@@ -10,10 +10,11 @@ object MiniBrowserFrm: TMiniBrowserFrm
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
+  Position = poScreenCenter
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  Position = poScreenCenter
   object NavControlPnl: TPanel
     Left = 0
     Height = 25
@@ -358,6 +359,10 @@ object MiniBrowserFrm: TMiniBrowserFrm
     object MenuItem5: TMenuItem
       Caption = 'Test RecreateWnd'
       OnClick = MenuItem5Click
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Find...'
+      OnClick = MenuItem6Click
     end
   end
   object OpenDialog1: TOpenDialog
