@@ -665,8 +665,10 @@ type
   /// <summary>
   /// Used by TWVBrowserBase.ClearDataForOrigin to clear the storage
   /// </summary>
-  TWVClearDataStorageTypes = (cdstAppCache,
-                              cdstCookies,
+  /// <remarks>
+  /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#type-StorageType">See the documentation for the Storage.StorageType type.</see></para>
+  /// </remarks>
+  TWVClearDataStorageTypes = (cdstCookies,
                               cdstFileSystems,
                               cdstIndexeddb,
                               cdstLocalStorage,
@@ -674,7 +676,11 @@ type
                               cdstWebsql,
                               cdstServiceWorkers,
                               cdstCacheStorage,
-                              cdstAll);
+                              cdstInterestGroups,
+                              cdstSharedStorage,
+                              cdstStorageBuckets,
+                              cdstAll,
+                              cdstOther);
 
   /// <summary>
   /// Represents the state of a setting.

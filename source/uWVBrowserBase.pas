@@ -1724,7 +1724,8 @@ type
       /// Clears the storage for origin. This function is asynchronous and it triggers the TWVBrowserBase.OnClearDataForOriginCompleted event when it finishes executing.
       /// </summary>
       /// <remarks>
-      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-clearDataForOrigin">See the Chrome DevTools Protocol page about the Storage.clearDataForOrigin method.</see></para>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-clearDataForOrigin">See the documentation for the Storage.clearDataForOrigin DevTools method.</see></para>
+      /// <para><see href="https://chromedevtools.github.io/devtools-protocol/tot/Storage/#type-StorageType">See the documentation for the Storage.StorageType type.</see></para>
       /// </remarks>
       function    ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes = cdstAll) : boolean;
       /// <summary>
@@ -7175,7 +7176,6 @@ begin
   TempParams := '{"origin": "' + aOrigin + '", ';
 
   case aStorageTypes of
-    cdstAppCache        : TempParams := TempParams + '"storageTypes": "appcache"}';
     cdstCookies         : TempParams := TempParams + '"storageTypes": "cookies"}';
     cdstFileSystems     : TempParams := TempParams + '"storageTypes": "file_systems"}';
     cdstIndexeddb       : TempParams := TempParams + '"storageTypes": "indexeddb"}';
@@ -7184,6 +7184,10 @@ begin
     cdstWebsql          : TempParams := TempParams + '"storageTypes": "websql"}';
     cdstServiceWorkers  : TempParams := TempParams + '"storageTypes": "service_workers"}';
     cdstCacheStorage    : TempParams := TempParams + '"storageTypes": "cache_storage"}';
+    cdstInterestGroups  : TempParams := TempParams + '"storageTypes": "interest_groups"}';
+    cdstSharedStorage   : TempParams := TempParams + '"storageTypes": "shared_storage"}';
+    cdstStorageBuckets  : TempParams := TempParams + '"storageTypes": "storage_buckets"}';
+    cdstOther           : TempParams := TempParams + '"storageTypes": "other"}';
     else                  TempParams := TempParams + '"storageTypes": "all"}';
   end;
 
