@@ -1,11 +1,9 @@
 object MainForm: TMainForm
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
   Caption = 'NavigateWithWebResourceRequestBrowser'
-  ClientHeight = 205
-  ClientWidth = 682
+  ClientHeight = 720
+  ClientWidth = 1256
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,24 +18,24 @@ object MainForm: TMainForm
   object WVWindowParent1: TWVWindowParent
     Left = 0
     Top = 95
-    Width = 682
-    Height = 110
+    Width = 1256
+    Height = 625
     Align = alClient
     TabOrder = 1
     Browser = WVBrowser1
-    ExplicitWidth = 678
-    ExplicitHeight = 109
+    ExplicitWidth = 682
+    ExplicitHeight = 110
   end
   object AddressPnl: TPanel
     Left = 0
     Top = 0
-    Width = 682
+    Width = 1256
     Height = 95
     Align = alTop
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 0
-    ExplicitWidth = 678
+    ExplicitWidth = 682
     object Label1: TLabel
       Left = 8
       Top = 39
@@ -119,12 +117,14 @@ object MainForm: TMainForm
       Top = 8
       Width = 360
       Height = 23
-      ItemIndex = 0
+      ItemIndex = 1
       TabOrder = 5
-      Text = 'https://httpbin.org/post'
+      Text = 'https://echo.free.beeceptor.com'
       Items.Strings = (
-        'https://ptsv2.com/t/cef4delphi/post'
-        '')
+        'https://webview2.requestcatcher.com/test'
+        'https://echo.free.beeceptor.com'
+        'https://httpbin.org/post'
+        'http://127.0.0.1:8099')
     end
     object SendCustomHTTPHeaderChk: TCheckBox
       Left = 432
