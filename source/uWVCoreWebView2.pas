@@ -8,9 +8,9 @@ interface
 
 uses
   {$IFDEF DELPHI16_UP}
-  System.Classes, WinApi.Windows, Winapi.ActiveX, System.SysUtils, System.Types,
+  System.Classes, Winapi.ActiveX, System.SysUtils, System.Types,
   {$ELSE}
-  Classes, Windows, ActiveX, SysUtils, Types,
+  Classes, ActiveX, SysUtils, Types,
   {$ENDIF}
   uWVTypeLibrary, uWVTypes;
 

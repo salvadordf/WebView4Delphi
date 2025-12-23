@@ -211,7 +211,7 @@ uses
   {$ELSE}
   DateUtils, ActiveX,
   {$ENDIF}
-  uWVMiscFunctions, uWVBrowserBase, uWVCoreWebView2Delegates, uWVConstants;
+  uWVBrowserBase, uWVCoreWebView2Delegates;
 
 constructor TCoreWebView2Notification.Create(const aBaseIntf: ICoreWebView2Notification);
 begin

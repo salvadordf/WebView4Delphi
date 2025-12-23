@@ -7,7 +7,7 @@ unit uWVCoreWebView2PermissionSettingCollectionView;
 interface
 
 uses
-  uWVTypeLibrary, uWVTypes;
+  uWVTypeLibrary;
 
 type
   /// <summary>
@@ -60,12 +60,10 @@ implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  Winapi.ActiveX,
+  Winapi.ActiveX;
   {$ELSE}
-  ActiveX,
+  ActiveX;
   {$ENDIF}
-  uWVMiscFunctions;
-
 
 constructor TCoreWebView2PermissionSettingCollectionView.Create(const aBaseIntf : ICoreWebView2PermissionSettingCollectionView);
 begin

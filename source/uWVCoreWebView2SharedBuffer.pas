@@ -12,7 +12,7 @@ uses
   {$ELSE}
     {$IFDEF FPC}Windows,{$ENDIF} ActiveX,
   {$ENDIF}
-  uWVTypeLibrary, uWVTypes;
+  uWVTypeLibrary;
 
 type
   /// <summary>
@@ -112,10 +112,6 @@ type
   end;
 
 implementation
-
-uses
-  uWVMiscFunctions;
-
 
 constructor TCoreWebView2SharedBuffer.Create(const aBaseIntf : ICoreWebView2SharedBuffer);
 begin

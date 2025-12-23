@@ -191,7 +191,11 @@ type
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions;
+  uWVBrowserBase,
+  {$IFNDEF DELPHI20_UP}{$IFNDEF FPC}
+  uWVMiscFunctions,
+  {$ENDIF}{$ENDIF}
+  uWVCoreWebView2Delegates;
 
 constructor TCoreWebView2DownloadOperation.Create(const aBaseIntf: ICoreWebView2DownloadOperation; aDownloadID : integer);
 begin

@@ -4579,6 +4579,7 @@ begin
   TempSettings      := nil;
   TempCoreWebView2  := nil;
   TempPrintSettings := nil;
+  TempFindOptions   := nil;
 
   try
     if succeeded(errorCode) and assigned(result_) then
@@ -5898,9 +5899,10 @@ var
   TempOptionsIntf : ICoreWebView2ControllerOptions;
   TempOldWinVer   : boolean;
 begin
-  Result        := False;
-  TempOldWinVer := False;
-  TempHResult   := S_OK;
+  Result          := False;
+  TempOldWinVer   := False;
+  TempHResult     := S_OK;
+  TempOptionsIntf := nil;
 
   if (Win32MajorVersion < 10) then
     TempOldWinVer := True
@@ -5973,7 +5975,9 @@ var
   TempOptions     : TCoreWebView2ControllerOptions;
   TempOptionsIntf : ICoreWebView2ControllerOptions;
 begin
-  Result := False;
+  Result          := False;    
+  TempHResult     := S_OK;
+  TempOptionsIntf := nil;
 
   if FCoreWebView2Environment.CreateCoreWebView2ControllerOptions(TempOptionsIntf, TempHResult) then
     try

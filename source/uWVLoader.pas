@@ -1058,6 +1058,7 @@ var
 begin
   Result     := 0;
   TempBuffer := nil;
+  TempInfo   := nil;
   TempHandle := 0;
   TempLen    := 0;
 

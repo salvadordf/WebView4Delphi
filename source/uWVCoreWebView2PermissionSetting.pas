@@ -67,12 +67,10 @@ implementation
 
 uses
   {$IFDEF DELPHI16_UP}
-  Winapi.ActiveX,
+  Winapi.ActiveX;
   {$ELSE}
-  ActiveX,
+  ActiveX;
   {$ENDIF}
-  uWVMiscFunctions;
-
 
 constructor TCoreWebView2PermissionSetting.Create(const aBaseIntf : ICoreWebView2PermissionSetting);
 begin

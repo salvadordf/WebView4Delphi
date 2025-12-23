@@ -142,7 +142,7 @@ type
 implementation
 
 uses
-  uWVBrowserBase, uWVCoreWebView2Delegates, uWVMiscFunctions;
+  uWVBrowserBase, uWVCoreWebView2Delegates;
 
 constructor TCoreWebView2ContextMenuItem.Create(const aBaseIntf: ICoreWebView2ContextMenuItem);
 begin

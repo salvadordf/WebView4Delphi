@@ -7,7 +7,7 @@ unit uWVCoreWebView2ProcessExtendedInfo;
 interface
 
 uses
-  uWVTypeLibrary, uWVTypes;
+  uWVTypeLibrary;
 
 type
   /// <summary>
