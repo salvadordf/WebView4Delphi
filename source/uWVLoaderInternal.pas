@@ -512,7 +512,7 @@ begin
       if TempReg.KeyExists(aSubKey) and
          TempReg.OpenKey(aSubKey, False) then
         begin
-          aClientPath := TempReg.ReadString('EBWebView');
+          aClientPath := {$IFDEF FPC}UTF8Decode({$ENDIF}TempReg.ReadString('EBWebView'){$IFDEF FPC}){$ENDIF};
 
           if (aClientPath <> '') then
             begin
@@ -653,7 +653,7 @@ begin
 
       if CheckVersionAndFindClientDllInFolder(version, clientPath) then
         begin
-          versionStr := format('%d.%d.%d.%d', [version[0], version[1], version[2], version[3]]);
+          versionStr := {$IFDEF FPC}UTF8Decode({$ENDIF}format('%d.%d.%d.%d', [version[0], version[1], version[2], version[3]]){$IFDEF FPC}){$ENDIF};
           break;
         end;
     end;

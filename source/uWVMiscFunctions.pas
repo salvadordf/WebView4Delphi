@@ -347,7 +347,7 @@ begin
 
         else
           if (ord(Source[i]) < 32) or (ord(Source[i]) > 126) then
-            Result := Result + '\u' + IntToHex(ord(Source[i]), 4)
+            Result := Result + '\u' + {$IFDEF FPC}UTF8Decode({$ENDIF}IntToHex(ord(Source[i]), 4){$IFDEF FPC}){$ENDIF}
            else
             Result := Result + Source[i];
       end;
@@ -582,7 +582,8 @@ begin
 
   if not(Result) then
     begin
-      TempMessage := 'The QueryInterface call for ' + GUIDToString(aGUID) + ' failed. ' +
+      TempMessage := 'The QueryInterface call for ' + {$IFDEF FPC}UTF8Decode({$ENDIF}GUIDToString(aGUID){$IFDEF FPC}){$ENDIF} +
+                     ' failed. ' +
                      'Error code : 0x' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttohex(cardinal(TempResult), 8){$IFDEF FPC}){$ENDIF};
       GlobalWebView2Loader.AppendErrorLog(TempMessage);
     end;
@@ -662,7 +663,8 @@ const
 var
   i : integer;
 begin
-  i := 1;
+  i      := 1;
+  Result := '';
 
   while (i <= length(aParameter)) do
     begin

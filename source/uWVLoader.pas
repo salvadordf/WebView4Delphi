@@ -1368,7 +1368,9 @@ begin
                       WEBVIEW2LOADERLIB_VERSION_RELEASE,
                       WEBVIEW2LOADERLIB_VERSION_BUILD) then
     begin
-      if GetDLLHeaderMachine(TempLoaderLibPath, TempMachine) then
+      TempMachine := 0;
+
+      if GetDLLHeaderMachine({$IFDEF FPC}UTF8Encode({$ENDIF}TempLoaderLibPath{$IFDEF FPC}){$ENDIF}, TempMachine) then
         case TempMachine of
           WV2_IMAGE_FILE_MACHINE_I386 :
             if Is32BitProcess then
@@ -1415,10 +1417,11 @@ begin
           AppendErrorLog('Unsupported WebView2Loader.dll version !');
           AppendErrorLog('Expected WebView2Loader.dll version : ' + LowestLoaderDLLVersion);
           AppendErrorLog('Found WebView2Loader.dll version : ' +
+                         {$IFDEF FPC}UTF8Decode({$ENDIF}
                          IntToStr(TempVersionInfo.MajorVer) + '.' +
                          IntToStr(TempVersionInfo.MinorVer) + '.' +
                          IntToStr(TempVersionInfo.Release)  + '.' +
-                         IntToStr(TempVersionInfo.Build));
+                         IntToStr(TempVersionInfo.Build){$IFDEF FPC}){$ENDIF});
         end
        else
         AppendErrorLog('WebView2Loader.dll file not found !');
@@ -1753,7 +1756,7 @@ begin
     end;
 
   if (FRemoteDebuggingPort > 0) then
-    Result := Result + '--remote-debugging-port=' + inttostr(FRemoteDebuggingPort) + ' ';
+    Result := Result + '--remote-debugging-port=' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(FRemoteDebuggingPort){$IFDEF FPC}){$ENDIF} + ' ';
 
   if (length(FRemoteAllowOrigins) > 0) then
     Result := Result + '--remote-allow-origins=' + FRemoteAllowOrigins + ' ';
@@ -1849,7 +1852,7 @@ end;
 function TWVLoader.GetErrorMessage : wvstring;
 begin
   if assigned(FErrorLog) then
-    Result := FErrorLog.Text
+    Result := {$IFDEF FPC}UTF8Decode({$ENDIF}FErrorLog.Text{$IFDEF FPC}){$ENDIF}
    else
     Result := '';
 end;
@@ -2073,9 +2076,9 @@ end;
 
 procedure TWVLoader.AppendErrorLog(const aText : wvstring);
 begin
-  OutputDebugMessage(aText);
+  OutputDebugMessage({$IFDEF FPC}UTF8Encode({$ENDIF}aText{$IFDEF FPC}){$ENDIF});
   if assigned(FErrorLog) then
-    FErrorLog.Add(aText);
+    FErrorLog.Add({$IFDEF FPC}UTF8Encode({$ENDIF}aText{$IFDEF FPC}){$ENDIF});
 end;
 
 procedure TWVLoader.UpdateDeviceScaleFactor;

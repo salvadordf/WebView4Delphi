@@ -7805,10 +7805,10 @@ begin
   end;
 
   if (modifiers <> 0) then
-    TempParams := TempParams + ', "modifiers": ' + inttostr(modifiers);
+    TempParams := TempParams + ', "modifiers": ' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(modifiers){$IFDEF FPC}){$ENDIF};
 
   if (timestamp <> 0) then
-    TempParams := TempParams + ', "timestamp": ' + inttostr(timestamp);
+    TempParams := TempParams + ', "timestamp": ' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(timestamp){$IFDEF FPC}){$ENDIF};
 
   if (length(text) > 0) then
     TempParams := TempParams + ', "text": "' + JSONEscape(text) + '"';
@@ -7826,10 +7826,10 @@ begin
     TempParams := TempParams + ', "key": "' + JSONEscape(key) + '"';
 
   if (windowsVirtualKeyCode <> 0) then
-    TempParams := TempParams + ', "windowsVirtualKeyCode": ' + inttostr(windowsVirtualKeyCode);
+    TempParams := TempParams + ', "windowsVirtualKeyCode": ' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(windowsVirtualKeyCode){$IFDEF FPC}){$ENDIF};
 
   if (nativeVirtualKeyCode <> 0) then
-    TempParams := TempParams + ', "nativeVirtualKeyCode": ' + inttostr(nativeVirtualKeyCode);
+    TempParams := TempParams + ', "nativeVirtualKeyCode": ' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(nativeVirtualKeyCode){$IFDEF FPC}){$ENDIF};
 
   if autoRepeat then
     TempParams := TempParams + ', "autoRepeat": true';
@@ -7841,7 +7841,7 @@ begin
     TempParams := TempParams + ', "isSystemKey": true';
 
   if (location <> 0) then
-    TempParams := TempParams + ', "location": ' + inttostr(location);
+    TempParams := TempParams + ', "location": ' + {$IFDEF FPC}UTF8Decode({$ENDIF}inttostr(location){$IFDEF FPC}){$ENDIF};
 
   TempParams := TempParams + '}';
 
