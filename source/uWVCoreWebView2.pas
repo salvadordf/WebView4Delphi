@@ -2502,9 +2502,10 @@ begin
     Result := 0;
 end;
 
+{$WARN SYMBOL_DEPRECATED OFF}
 function TCoreWebView2.GetDefaultDownloadDialogMargin : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2_9 uses tagPoint. We ignore the warning.
 begin
   if assigned(FBaseIntf9) and
      succeeded(FBaseIntf9.Get_DefaultDownloadDialogMargin(TempResult)) then
@@ -2512,6 +2513,7 @@ begin
    else
     Result := point(0, 0);
 end;
+{$WARN SYMBOL_DEPRECATED ON}
 
 function TCoreWebView2.GetStatusBarText : wvstring;
 var
@@ -2608,8 +2610,11 @@ end;
 
 procedure TCoreWebView2.SetDefaultDownloadDialogMargin(aValue : TPoint);
 begin
+  {$WARN SYMBOL_DEPRECATED OFF}
+  // ICoreWebView2_9 uses tagPoint. We ignore the warning.
   if assigned(FBaseIntf9) then
     FBaseIntf9.Set_DefaultDownloadDialogMargin(tagPOINT(aValue));
+  {$WARN SYMBOL_DEPRECATED ON}
 end;
 
 procedure TCoreWebView2.SetMemoryUsageTargetLevel(aValue : TWVMemoryUsageTargetLevel);

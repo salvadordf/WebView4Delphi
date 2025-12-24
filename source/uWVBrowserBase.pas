@@ -7874,11 +7874,20 @@ begin
   Result := FUseCompositionController and
             Initialized and
             FCoreWebView2CompositionController.SendPointerInput(aEventKind, aPointerInfo);
+end;       
+
+function TWVBrowserBase.DragLeave : HResult;
+begin
+  Result := S_OK;
+
+  if FUseCompositionController and Initialized then
+    Result := FCoreWebView2CompositionController.DragLeave;
 end;
 
+{$WARN SYMBOL_DEPRECATED OFF}
 function TWVBrowserBase.DragEnter(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
 var
-  TempPoint : tagPoint;
+  TempPoint : tagPoint; // ICoreWebView2CompositionController3 uses tagPoint. We ignore the warning.
 begin
   Result := S_OK;
   effect := DROPEFFECT_NONE;
@@ -7890,17 +7899,9 @@ begin
     Result := FCoreWebView2CompositionController.DragEnter(dataObject, keyState, TempPoint, effect);
 end;
 
-function TWVBrowserBase.DragLeave : HResult;
-begin
-  Result := S_OK;
-
-  if FUseCompositionController and Initialized then
-    Result := FCoreWebView2CompositionController.DragLeave;
-end;
-
 function TWVBrowserBase.DragOver(keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
 var
-  TempPoint : tagPoint;
+  TempPoint : tagPoint; // ICoreWebView2CompositionController3 uses tagPoint. We ignore the warning.
 begin
   Result := S_OK;
   effect := DROPEFFECT_NONE;
@@ -7914,7 +7915,7 @@ end;
 
 function TWVBrowserBase.Drop(const dataObject: IDataObject; keyState: LongWord; point: TPoint; out effect: LongWord) : HResult;
 var
-  TempPoint : tagPoint;
+  TempPoint : tagPoint; // ICoreWebView2CompositionController3 uses tagPoint. We ignore the warning.
 begin
   Result := S_OK;
   effect := DROPEFFECT_NONE;
@@ -7926,6 +7927,7 @@ begin
       Result      := FCoreWebView2CompositionController.Drop(dataObject, keyState, TempPoint, effect);
     end;
 end;
+{$WARN SYMBOL_DEPRECATED ON}
 
 function TWVBrowserBase.GetNonClientRegionAtPoint(point: TPoint) : TWVNonClientRegionKind;
 begin

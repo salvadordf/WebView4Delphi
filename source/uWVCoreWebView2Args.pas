@@ -4014,9 +4014,10 @@ begin
     Result := TempResult;
 end;
 
+{$WARN SYMBOL_DEPRECATED OFF}
 function TCoreWebView2ContextMenuRequestedEventArgs.GetLocation : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2ContextMenuRequestedEventArgs uses tagPoint. We ignore the warning.
 begin
   Result.x := low(integer);
   Result.y := low(integer);
@@ -4028,6 +4029,7 @@ begin
       Result.y := TempResult.y;
     end;
 end;
+{$WARN SYMBOL_DEPRECATED ON}
 
 function TCoreWebView2ContextMenuRequestedEventArgs.GetSelectedCommandId : Integer;
 var

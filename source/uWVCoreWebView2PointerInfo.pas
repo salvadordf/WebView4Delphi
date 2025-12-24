@@ -460,9 +460,10 @@ begin
     Result := rect(0, 0, 0, 0);
 end;
 
+{$WARN SYMBOL_DEPRECATED OFF}
 function TCoreWebView2PointerInfo.GetPixelLocation : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_PixelLocation(TempResult)) then
@@ -473,7 +474,7 @@ end;
 
 function TCoreWebView2PointerInfo.GetHimetricLocation : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_HimetricLocation(TempResult)) then
@@ -484,7 +485,7 @@ end;
 
 function TCoreWebView2PointerInfo.GetPixelLocationRaw : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_PixelLocationRaw(TempResult)) then
@@ -495,14 +496,15 @@ end;
 
 function TCoreWebView2PointerInfo.GetHimetricLocationRaw : TPoint;
 var
-  TempResult : tagPOINT;
+  TempResult : tagPOINT; // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
 begin
   if Initialized and
      succeeded(FBaseIntf.Get_HimetricLocationRaw(TempResult)) then
     Result := TPoint(TempResult)
    else
     Result := point(0, 0);
-end;
+end;             
+{$WARN SYMBOL_DEPRECATED ON}
 
 function TCoreWebView2PointerInfo.GetTime : cardinal;
 var
@@ -738,29 +740,35 @@ begin
     FBaseIntf.Set_DisplayRect(tagRECT(aValue));
 end;
 
+{$WARN SYMBOL_DEPRECATED OFF}
 procedure TCoreWebView2PointerInfo.SetPixelLocation(aValue : TPoint);
 begin
+  // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
   if Initialized then
     FBaseIntf.Set_PixelLocation(tagPOINT(aValue));
 end;
 
 procedure TCoreWebView2PointerInfo.SetHimetricLocation(aValue : TPoint);
 begin
+  // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
   if Initialized then
     FBaseIntf.Set_HimetricLocation(tagPOINT(aValue));
 end;
 
 procedure TCoreWebView2PointerInfo.SetPixelLocationRaw(aValue : TPoint);
 begin
+  // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
   if Initialized then
     FBaseIntf.Set_PixelLocationRaw(tagPOINT(aValue));
 end;
 
 procedure TCoreWebView2PointerInfo.SetHimetricLocationRaw(aValue : TPoint);
 begin
+  // ICoreWebView2PointerInfo uses tagPoint. We ignore the warning.
   if Initialized then
     FBaseIntf.Set_HimetricLocationRaw(tagPOINT(aValue));
 end;
+{$WARN SYMBOL_DEPRECATED ON}
 
 procedure TCoreWebView2PointerInfo.SetTime(aValue : cardinal);
 begin

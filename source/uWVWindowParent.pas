@@ -10,7 +10,7 @@ uses
   {$IFDEF DELPHI16_UP}
   WinApi.Windows, System.Classes, Vcl.Controls, WinApi.Messages,
   {$ELSE}
-  Windows, Classes, Controls, {$IFDEF FPC}LMessages, LResources,{$ELSE} Messages,{$ENDIF}
+  Windows, Classes, Controls, {$IFDEF FPC}LResources,{$ELSE} Messages,{$ENDIF}
   {$ENDIF}
   uWVWinControl, uWVBrowserBase;
 
@@ -104,8 +104,10 @@ begin
 end;
 
 procedure TWVWindowParent.WndProc(var aMessage: TMessage);
+{$IFNDEF FPC}
 var
   tmpVisible: boolean;
+{$ENDIF}
 begin
   case aMessage.Msg of
     WM_SETFOCUS:
@@ -120,6 +122,8 @@ begin
       if (ChildWindowHandle = 0) then
         inherited WndProc(aMessage);
 
+    {$IFNDEF FPC}
+    //CM_RECREATEWND is not implemented in Lazarus/FPC
     CM_RECREATEWND:  // #75: this VCL quirk kills CEF/WebView2 instantly
       begin
         if (FBrowser <> nil) then
@@ -141,6 +145,7 @@ begin
             end;
         end;
       end;
+    {$ENDIF}
 
     else inherited WndProc(aMessage);
   end;
