@@ -36,6 +36,7 @@ You can also support this project with Liberapay.
 ## Related projects 
 * [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) 
 * [OldCEF4Delphi](https://github.com/salvadordf/OldCEF4Delphi) 
+* [VirtualTouchKeyboard4Delphi](https://github.com/salvadordf/VirtualTouchKeyboard4Delphi)
 * [Chromium](https://chromium.googlesource.com/chromium/src/)
 * [MfPack](https://github.com/FactoryXCode/MfPack)
 * [PasDoc](https://pasdoc.github.io/)
