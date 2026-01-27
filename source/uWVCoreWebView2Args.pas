@@ -2203,6 +2203,72 @@ type
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
   end;
 
+  /// <summary>
+  /// Event args for the `DragStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventargs">See the ICoreWebView2DragStartingEventArgs article.</see></para>
+  /// </remarks>
+  TCoreWebView2DragStartingEventArgs = class
+    protected
+      FBaseIntf : ICoreWebView2DragStartingEventArgs;
+
+      function  GetInitialized : boolean;
+      function  GetAllowedDropEffects : cardinal;
+      function  GetData : IDataObject;
+      function  GetHandled : boolean;
+      function  GetPosition : TPoint;
+      function  GetDeferral : ICoreWebView2Deferral;
+
+      procedure SetHandled(aValue: boolean);
+
+    public
+      constructor Create(const aArgs: ICoreWebView2DragStartingEventArgs); reintroduce;
+      destructor  Destroy; override;
+
+      /// <summary>
+      /// Returns true when the interface implemented by this class is fully initialized.
+      /// </summary>
+      property Initialized                   : boolean                                           read GetInitialized;
+      /// <summary>
+      /// Returns the interface implemented by this class.
+      /// </summary>
+      property BaseIntf                      : ICoreWebView2DragStartingEventArgs                read FBaseIntf;
+      /// <summary>
+      /// The [OLE DROPEFFECT](/windows/win32/com/dropeffect-constants)
+      /// values this drag data supports.
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/windows/win32/com/dropeffect-constants">See the DROPEFFECT Constants article.</see></para>
+      /// </remarks>
+      property AllowedDropEffects            : cardinal                                           read GetAllowedDropEffects;
+      /// <summary>
+      /// The data to be dragged.
+      /// </summary>
+      property Data                          : IDataObject                                        read GetData;
+      /// <summary>
+      /// Indicates whether this event has been handled by the app.  If the
+      /// app handles this event, WebView2 will not initiate drag drop.  If
+      /// the app does not handle the event, WebView2 will initiate its own
+      /// drag drop logic.
+      /// </summary>
+      property Handled                       : boolean                                           read GetHandled                 write SetHandled;
+      /// <summary>
+      /// The position at which drag was detected given in WebView2 relative
+      /// coordinates.
+      /// </summary>
+      property Position                      : TPoint                                            read GetPosition;
+      /// <summary>
+      /// <para>Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+      /// the CoreWebView2DragStartingEventArgs.</para>
+      ///
+      /// <para>Until the deferral is completed, subsequent attempts to initiate drag
+      /// in the WebView2 will fail and if the cursor was changed as part of
+      /// drag it will not restore.</para>
+      /// </summary>
+      property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
+  end;
+
 implementation
 
 uses
@@ -4684,6 +4750,93 @@ begin
 end;
 
 procedure TCoreWebView2ScreenCaptureStartingEventArgs.SetHandled(aValue : boolean);
+begin
+  if Initialized then
+    FBaseIntf.Set_Handled(ord(aValue));
+end;
+
+
+// TCoreWebView2DragStartingEventArgs
+
+constructor TCoreWebView2DragStartingEventArgs.Create(const aArgs: ICoreWebView2DragStartingEventArgs);
+begin
+  inherited Create;
+
+  FBaseIntf := aArgs;
+end;
+
+destructor TCoreWebView2DragStartingEventArgs.Destroy;
+begin
+  FBaseIntf := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2DragStartingEventArgs.GetInitialized : boolean;
+begin
+  Result := assigned(FBaseIntf);
+end;
+
+function TCoreWebView2DragStartingEventArgs.GetAllowedDropEffects : cardinal;
+var
+  TempResult : LongWord;
+begin
+  if Initialized and
+     succeeded(FBaseIntf.Get_AllowedDropEffects(TempResult)) then
+    Result := TempResult
+   else
+    Result := DROPEFFECT_NONE;
+end;
+
+function TCoreWebView2DragStartingEventArgs.GetData : IDataObject;
+var
+  TempResult : IDataObject;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.Get_Data(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+function TCoreWebView2DragStartingEventArgs.GetHandled : boolean;
+var
+  TempInt : integer;
+begin
+  Result := Initialized and
+            succeeded(FBaseIntf.Get_Handled(TempInt)) and
+            (TempInt <> 0);
+end;
+
+{$WARN SYMBOL_DEPRECATED OFF}
+function TCoreWebView2DragStartingEventArgs.GetPosition : TPoint;
+var
+  TempResult : tagPOINT; // ICoreWebView2DragStartingEventArgs uses tagPoint. We ignore the warning.
+begin
+  if Initialized and
+     succeeded(FBaseIntf.Get_Position(TempResult)) then
+    Result := TPoint(TempResult)
+   else
+    Result := point(0, 0);
+end;
+{$WARN SYMBOL_DEPRECATED ON}
+
+function TCoreWebView2DragStartingEventArgs.GetDeferral : ICoreWebView2Deferral;
+var
+  TempResult : ICoreWebView2Deferral;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if Initialized and
+     succeeded(FBaseIntf.GetDeferral(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
+end;
+
+procedure TCoreWebView2DragStartingEventArgs.SetHandled(aValue: boolean);
 begin
   if Initialized then
     FBaseIntf.Set_Handled(ord(aValue));

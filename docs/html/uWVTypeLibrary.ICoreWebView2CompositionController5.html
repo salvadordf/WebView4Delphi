@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CompositionController5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<span id="ICoreWebView2CompositionController5"></span><h1 class="cio">Interface ICoreWebView2CompositionController5</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CompositionController5 = interface(<a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController4.html">ICoreWebView2CompositionController4</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ A continuation of the ICoreWebView2CompositionController4 interface. This interface includes an API which exposes the DragStarting event. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5</a>&quot;&gt;See the ICoreWebView2CompositionController5 article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController2.html">ICoreWebView2CompositionController2</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController3.html">ICoreWebView2CompositionController3</a></li>
+<li class="ancestor"><a class="normal" href="uWVTypeLibrary.ICoreWebView2CompositionController4.html">ICoreWebView2CompositionController4</a></li>
+<li class="thisitem">ICoreWebView2CompositionController5</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController5.html#add_DragStarting-ICoreWebView2DragStartingEventHandler-EventRegistrationToken-">add_DragStarting</a></strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html">ICoreWebView2DragStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CompositionController5.html#remove_DragStarting-EventRegistrationToken-">remove_DragStarting</a></strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="add_DragStarting-ICoreWebView2DragStartingEventHandler-EventRegistrationToken-"></span><code>function <strong>add_DragStarting</strong>(const eventHandler: <a href="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html">ICoreWebView2DragStartingEventHandler</a>; out token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds an event handler for the `DragStarting` event. `DragStarting` is a deferrable event that is raised when the WebView2 detects a drag started within the WebView2. WebView2's default drag behavior is to synchronously call DoDragDrop when it detects drag. This event's args expose the data WebView2 uses to call DoDragDrop to allow users to implement their own drag logic and override WebView2's. Handlers of this event must set the `Handled` event to true in order to override WebView2's default logic. When invoking drag logic asynchronously using a deferral, handlers must take care to follow these steps in order: * Invoke asynchronous drag logic * Set the event args `Handled` property true * Complete the deferral In the asynchronous case, WebView2 decides whether or not to invoke its default drag logic when the deferral completes. So the event args' `Handled` property must be true when the deferral is completed. \snippet ScenarioDragDropOverride.cpp DragStarting </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#add_dragstarting">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#add_dragstarting</a>&quot;&gt;See the ICoreWebView2CompositionController5 article.)</p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{8D0F82EB-7C33-5A4C-9108-84CA28CCC3B4}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="remove_DragStarting-EventRegistrationToken-"></span><code>function <strong>remove_DragStarting</strong>(token: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Removes an event handler previously added with `add_DragStarting`. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#remove_dragstarting">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#remove_dragstarting</a>&quot;&gt;See the ICoreWebView2CompositionController5 article.)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+</span>
+</body></html>

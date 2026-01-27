@@ -109,6 +109,7 @@ type
   TOnFindActiveMatchIndexChangedEvent                      = procedure(Sender: TObject; const aFindSession: ICoreWebView2Find; const aArgs: IUnknown) of object;
   TOnFindMatchCountChangedEvent                            = procedure(Sender: TObject; const aFindSession: ICoreWebView2Find; const aArgs: IUnknown) of object;
   TOnFindStartCompletedEvent                               = procedure(Sender: TObject; aErrorCode: HResult) of object;
+  TOnDragStartingEvent                                     = procedure(Sender: TObject; const aController: ICoreWebView2CompositionController; const aArgs: ICoreWebView2DragStartingEventArgs) of object;
 
   // Custom events
   TOnCompMsgEvent                                          = procedure(Sender: TObject; var aMessage: TMessage; var aHandled: Boolean) of object;

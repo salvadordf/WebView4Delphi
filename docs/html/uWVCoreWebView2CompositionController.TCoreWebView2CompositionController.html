@@ -3,7 +3,7 @@
 <head>
 <title>WebView4Delphi: uWVCoreWebView2CompositionController: Class TCoreWebView2CompositionController</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0-snapshot">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
@@ -47,11 +47,19 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">FCursorChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf5">FBaseIntf5</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2CompositionController5.html">ICoreWebView2CompositionController5</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">FCursorChangedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">FNonClientRegionChanged</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FDragStartingToken">FDragStartingToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -101,46 +109,50 @@
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent-TComponent-">AddNonClientRegionChangedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddDragStartingEvent-TComponent-">AddDragStartingEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Create-ICoreWebView2CompositionController-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a>); reintroduce;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#SendMouseInput-TWVMouseEventKind-TWVMouseEventVirtualKeys-cardinal-TPoint-">SendMouseInput</a></strong>(aEventKind : <a href="uWVTypes.html#TWVMouseEventKind">TWVMouseEventKind</a>; aVirtualKeys : <a href="uWVTypes.html#TWVMouseEventVirtualKeys">TWVMouseEventVirtualKeys</a>; aMouseData : cardinal; aPoint : TPoint) : boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#SendPointerInput-TWVPointerEventKind-ICoreWebView2PointerInfo-">SendPointerInput</a></strong>(aEventKind : <a href="uWVTypes.html#TWVPointerEventKind">TWVPointerEventKind</a>; const aPointerInfo : <a href="uWVTypeLibrary.ICoreWebView2PointerInfo.html">ICoreWebView2PointerInfo</a>) : boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragEnter-IDataObject-LongWord-tagPOINT-LongWord-">DragEnter</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragLeave">DragLeave</a></strong>: HResult;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#DragOver-LongWord-tagPOINT-LongWord-">DragOver</a></strong>(keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#Drop-IDataObject-LongWord-tagPOINT-LongWord-">Drop</a></strong>(const dataObject: IDataObject; keyState: LongWord; point: tagPOINT; out effect: LongWord) : HResult;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#GetNonClientRegionAtPoint-TPoint-">GetNonClientRegionAtPoint</a></strong>(point: TPoint) : <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#QueryNonClientRegion-TWVNonClientRegionKind-">QueryNonClientRegion</a></strong>(Kind: <a href="uWVTypes.html#TWVNonClientRegionKind">TWVNonClientRegionKind</a>): <a href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a>;</code></td>
 </tr>
@@ -209,6 +221,14 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBaseIntf5"></span><code><strong>FBaseIntf5</strong>: <a href="uWVTypeLibrary.ICoreWebView2CompositionController5.html">ICoreWebView2CompositionController5</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FCursorChangedToken"></span><code><strong>FCursorChangedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -218,6 +238,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="FNonClientRegionChanged"></span><code><strong>FNonClientRegionChanged</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDragStartingToken"></span><code><strong>FDragStartingToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -307,6 +335,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="AddNonClientRegionChangedEvent-TComponent-"></span><code>function <strong>AddNonClientRegionChangedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AddDragStartingEvent-TComponent-"></span><code>function <strong>AddDragStartingEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -529,6 +565,6 @@
 <p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller2#get_automationprovider">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller2#get_automationprovider</a>&quot;&gt;See the ICoreWebView2CompositionController2 article.)</p>
 </td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0-snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
 </body></html>

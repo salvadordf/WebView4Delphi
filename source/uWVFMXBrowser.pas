@@ -145,6 +145,7 @@ type
       property OnFindActiveMatchIndexChanged;
       property OnFindMatchCountChanged;
       property OnFindStartCompleted;
+      property OnDragStarting;
   end;
 
 implementation

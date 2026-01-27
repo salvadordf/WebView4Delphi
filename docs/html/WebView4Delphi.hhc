@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
-<meta name="GENERATOR" content="PasDoc 0.16.0-snapshot">
+<meta name="GENERATOR" content="PasDoc 0.17.0.snapshot">
 </head><body>
 <ul>
 <li><object type="text/sitemap">
@@ -1177,6 +1177,10 @@
 <param name="Name" value="FOnFindStartCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnFindStartCompleted">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FOnDragStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnDragStarting">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -1982,6 +1986,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnFindStartCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnFindStartCompleted">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnDragStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnDragStarting">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -2878,6 +2886,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FindStartCompletedHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DragStartingEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DragStartingEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="doOnInitializationError">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnInitializationError">
 </object>
@@ -3280,6 +3292,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnFindStartCompletedEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnFindStartCompletedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnDragStartingEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnDragStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
@@ -7409,6 +7425,98 @@
 </object>
 </ul>
 </ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DragStartingEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowedDropEffects">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#AllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Data">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Data">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Handled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Position">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Position">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Deferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Deferral">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAllowedDropEffects">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetAllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetData">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetData">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetHandled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetPosition">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetPosition">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetDeferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#SetHandled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Destroy">
+</object>
+</ul>
+</ul>
 </ul>
 </ul>
 <li><object type="text/sitemap">
@@ -8024,12 +8132,20 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf5">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf5">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCursorChangedToken">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FNonClientRegionChanged">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FNonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDragStartingToken">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FDragStartingToken">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -8110,6 +8226,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AddNonClientRegionChangedEvent">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddNonClientRegionChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDragStartingEvent">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddDragStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
@@ -12660,6 +12780,40 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Destroy">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html#Destroy">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DragStartingEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Destroy">
 </object>
 </ul>
 </ul>
@@ -17850,6 +18004,10 @@
 <param name="Local" value="uWVEvents.html#TOnFindStartCompletedEvent">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="TOnDragStartingEvent">
+<param name="Local" value="uWVEvents.html#TOnDragStartingEvent">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="TOnCompMsgEvent">
 <param name="Local" value="uWVEvents.html#TOnCompMsgEvent">
 </object>
@@ -18868,6 +19026,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="FindStartCompletedHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#FindStartCompletedHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="DragStartingEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#DragStartingEventHandler_Invoke">
 </object>
 </ul>
 </ul>
@@ -24768,6 +24930,34 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetNonClientRegionAtPoint">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="QueryNonClientRegion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="add_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_NonClientRegionChanged">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2Controller2">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2Controller2.html">
 </object>
@@ -26796,6 +26986,78 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController5">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="add_DragStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#add_DragStarting">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_DragStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#remove_DragStarting">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2DragStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2DragStartingEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_AllowedDropEffects">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_AllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Data">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Data">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Set_Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Position">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Position">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#GetDeferral">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2RegionRectCollectionView">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">
 </object>
@@ -26812,34 +27074,6 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetValueAtIndex">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html#GetValueAtIndex">
-</object>
-</ul>
-</ul>
-<li><object type="text/sitemap">
-<param name="Name" value="ICoreWebView2CompositionController4">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html">
-</object>
-<ul>
-<li><object type="text/sitemap">
-<param name="Name" value="Methods">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#@Methods">
-</object>
-<ul>
-<li><object type="text/sitemap">
-<param name="Name" value="GetNonClientRegionAtPoint">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#GetNonClientRegionAtPoint">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="QueryNonClientRegion">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#QueryNonClientRegion">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="add_NonClientRegionChanged">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#add_NonClientRegionChanged">
-</object>
-<li><object type="text/sitemap">
-<param name="Name" value="remove_NonClientRegionChanged">
-<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController4.html#remove_NonClientRegionChanged">
 </object>
 </ul>
 </ul>
@@ -27834,6 +28068,18 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2NonClientRegionChangedEventArgs">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2NonClientRegionChangedEventArgs">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CompositionController5">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CompositionController5">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2DragStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2DragStartingEventHandler">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2DragStartingEventArgs">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2DragStartingEventArgs">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Controller2">
@@ -30994,6 +31240,26 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CompositionController5">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="add_DragStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#add_DragStarting">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="remove_DragStarting">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CompositionController5.html#remove_DragStarting">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ContainsFullScreenElementChangedEventHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ContainsFullScreenElementChangedEventHandler.html">
 </object>
@@ -32066,6 +32332,58 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2DownloadStartingEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2DragStartingEventArgs">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#GetDeferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_AllowedDropEffects">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_AllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Data">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Data">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_Position">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Get_Position">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Set_Handled">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html#Set_Handled">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2DragStartingEventHandler">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html#Invoke">
 </object>
 </ul>
 </ul>
@@ -37012,6 +37330,10 @@
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#DownloadStartingEventHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DragStartingEventHandler_Invoke">
+<param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#DragStartingEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="EnvironmentCompletedHandler_Invoke">
 <param name="Local" value="uWVInterfaces.IWVBrowserEvents.html#EnvironmentCompletedHandler_Invoke">
 </object>
@@ -39516,8 +39838,16 @@
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf4">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf5">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FBaseIntf5">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FCursorChangedToken">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FCursorChangedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDragStartingToken">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#FDragStartingToken">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="FNonClientRegionChanged">
@@ -39606,6 +39936,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="AddCursorChangedEvent">
 <param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddCursorChangedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDragStartingEvent">
+<param name="Local" value="uWVCoreWebView2CompositionController.TCoreWebView2CompositionController.html#AddDragStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="AddNonClientRegionChangedEvent">
@@ -41808,6 +42142,132 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DownloadStartingEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DragStartingEventArgs">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="AllowedDropEffects">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#AllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Data">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Data">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Deferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Deferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Handled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Handled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Position">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Position">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetAllowedDropEffects">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetAllowedDropEffects">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetData">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetData">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetDeferral">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetDeferral">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetHandled">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetPosition">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#GetPosition">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="SetHandled">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html#SetHandled">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DragStartingEventHandler">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FEvents">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#FEvents">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Invoke">
+<param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html#Invoke">
 </object>
 </ul>
 </ul>
@@ -50900,6 +51360,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnDownloadStateChanged">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="FOnDragStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnDragStarting">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="FOnEnvironmentCompleted">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#FOnEnvironmentCompleted">
 </object>
@@ -51652,6 +52116,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnDownloadStateChanged">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnDownloadStateChanged">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnDragStarting">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#OnDragStarting">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnEnvironmentCompleted">
@@ -52580,6 +53048,10 @@
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DownloadStartingEventHandler_Invoke">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="DragStartingEventHandler_Invoke">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#DragStartingEventHandler_Invoke">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="EnvironmentCompletedHandler_Invoke">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#EnvironmentCompletedHandler_Invoke">
 </object>
@@ -53302,6 +53774,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="doOnDownloadStartingEvent">
 <param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnDownloadStartingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="doOnDragStartingEvent">
+<param name="Local" value="uWVBrowserBase.TWVBrowserBase.html#doOnDragStartingEvent">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="doOnEnvironmentCompleted">

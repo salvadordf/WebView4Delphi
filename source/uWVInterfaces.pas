@@ -300,6 +300,9 @@ type
 
     // ICoreWebView2FindStartCompletedHandler
     function FindStartCompletedHandler_Invoke(errorCode: HResult): HResult;
+
+    // ICoreWebView2DragStartingEventHandler
+    function DragStartingEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2DragStartingEventArgs): HResult;
   end;
 
 implementation

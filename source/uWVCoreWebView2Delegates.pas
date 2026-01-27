@@ -1634,6 +1634,25 @@ type
       destructor  Destroy; override;
   end;
 
+  /// <summary>
+  /// Receives `DragStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventhandler">See the ICoreWebView2DragStartingEventHandler article.</see></para>
+  /// </remarks>
+  TCoreWebView2DragStartingEventHandler = class(TInterfacedObject, ICoreWebView2DragStartingEventHandler)
+    protected
+      FEvents : Pointer;
+
+      function Invoke(const sender: ICoreWebView2CompositionController;
+                      const args: ICoreWebView2DragStartingEventArgs): HResult; stdcall;
+
+    public
+      constructor Create(const aEvents: IWVBrowserEvents); reintroduce;
+      destructor  Destroy; override;
+  end;
+
+
 implementation
 
 
@@ -3965,6 +3984,32 @@ function TCoreWebView2FindStartCompletedHandler.Invoke(errorCode: HResult): HRes
 begin
   if (FEvents <> nil) then
     Result := IWVBrowserEvents(FEvents).FindStartCompletedHandler_Invoke(errorCode)
+   else
+    Result := E_FAIL;
+end;
+
+
+// TCoreWebView2DragStartingEventHandler
+
+constructor TCoreWebView2DragStartingEventHandler.Create(const aEvents: IWVBrowserEvents);
+begin
+  inherited Create;
+
+  FEvents := Pointer(aEvents);
+end;
+
+destructor TCoreWebView2DragStartingEventHandler.Destroy;
+begin
+  FEvents := nil;
+
+  inherited Destroy;
+end;
+
+function TCoreWebView2DragStartingEventHandler.Invoke(const sender: ICoreWebView2CompositionController;
+                                                      const args: ICoreWebView2DragStartingEventArgs): HResult;
+begin
+  if (FEvents <> nil) then
+    Result := IWVBrowserEvents(FEvents).DragStartingEventHandler_Invoke(sender, args)
    else
     Result := E_FAIL;
 end;

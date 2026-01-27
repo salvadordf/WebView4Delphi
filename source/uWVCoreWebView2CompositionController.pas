@@ -33,9 +33,11 @@ type
       FBaseIntf2          : ICoreWebView2CompositionController2;
       FBaseIntf3          : ICoreWebView2CompositionController3;
       FBaseIntf4          : ICoreWebView2CompositionController4;
+      FBaseIntf5          : ICoreWebView2CompositionController5;
 
       FCursorChangedToken     : EventRegistrationToken;
       FNonClientRegionChanged : EventRegistrationToken;
+      FDragStartingToken      : EventRegistrationToken;
 
       function  GetInitialized : boolean;
       function  GetRootVisualTarget : IUnknown;
@@ -51,6 +53,7 @@ type
 
       function  AddCursorChangedEvent(const aBrowserComponent : TComponent) : boolean;
       function  AddNonClientRegionChangedEvent(const aBrowserComponent : TComponent) : boolean;
+      function  AddDragStartingEvent(const aBrowserComponent : TComponent) : boolean;
 
     public
       constructor Create(const aBaseIntf : ICoreWebView2CompositionController); reintroduce;
@@ -251,8 +254,9 @@ begin
 
   if Initialized and
      LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController2, FBaseIntf2) and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController3, FBaseIntf3) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController4, FBaseIntf4);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController3, FBaseIntf3) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController4, FBaseIntf4) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2CompositionController5, FBaseIntf5);
 end;
 
 destructor TCoreWebView2CompositionController.Destroy;
@@ -271,6 +275,7 @@ begin
   FBaseIntf2 := nil;
   FBaseIntf3 := nil;
   FBaseIntf4 := nil;
+  FBaseIntf5 := nil;
 
   InitializeTokens;
 end;
@@ -279,6 +284,7 @@ procedure TCoreWebView2CompositionController.InitializeTokens;
 begin
   FCursorChangedToken.value     := 0;
   FNonClientRegionChanged.value := 0;
+  FDragStartingToken.value      := 0;
 end;
 
 function TCoreWebView2CompositionController.GetInitialized : boolean;
@@ -350,6 +356,9 @@ begin
       if (FNonClientRegionChanged.value <> 0) then
         FBaseIntf4.remove_NonClientRegionChanged(FNonClientRegionChanged);
 
+      if (FDragStartingToken.value <> 0) then
+        FBaseIntf5.remove_DragStarting(FDragStartingToken);
+
       InitializeTokens;
     end;
 end;
@@ -357,7 +366,8 @@ end;
 function TCoreWebView2CompositionController.AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
 begin
   Result := AddCursorChangedEvent(aBrowserComponent) and
-            AddNonClientRegionChangedEvent(aBrowserComponent);
+            AddNonClientRegionChangedEvent(aBrowserComponent) and
+            AddDragStartingEvent(aBrowserComponent);
 end;
 
 function TCoreWebView2CompositionController.AddCursorChangedEvent(const aBrowserComponent : TComponent) : boolean;
@@ -385,6 +395,21 @@ begin
     try
       TempHandler := TCoreWebView2NonClientRegionChangedEventHandler.Create(TWVBrowserBase(aBrowserComponent));
       Result      := succeeded(FBaseIntf4.add_NonClientRegionChanged(TempHandler, FNonClientRegionChanged));
+    finally
+      TempHandler := nil;
+    end;
+end;
+
+function TCoreWebView2CompositionController.AddDragStartingEvent(const aBrowserComponent : TComponent) : boolean;
+var
+  TempHandler : ICoreWebView2DragStartingEventHandler;
+begin
+  Result := False;
+
+  if assigned(FBaseIntf5) and (FDragStartingToken.value = 0) then
+    try
+      TempHandler := TCoreWebView2DragStartingEventHandler.Create(TWVBrowserBase(aBrowserComponent));
+      Result      := succeeded(FBaseIntf5.add_DragStarting(TempHandler, FDragStartingToken));
     finally
       TempHandler := nil;
     end;

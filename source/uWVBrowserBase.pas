@@ -191,6 +191,7 @@ type
       FOnFindActiveMatchIndexChanged                  : TOnFindActiveMatchIndexChangedEvent;
       FOnFindMatchCountChanged                        : TOnFindMatchCountChangedEvent;
       FOnFindStartCompleted                           : TOnFindStartCompletedEvent;
+      FOnDragStarting                                 : TOnDragStartingEvent;
 
       function  GetBrowserProcessID : cardinal;
       function  GetBrowserVersionInfo : wvstring;
@@ -421,6 +422,7 @@ type
       function FindActiveMatchIndexChangedEventHandler_Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HRESULT;
       function FindMatchCountChangedEventHandler_Invoke(const sender: ICoreWebView2Find; const args: IUnknown): HRESULT;
       function FindStartCompletedHandler_Invoke(errorCode: HResult): HRESULT;
+      function DragStartingEventHandler_Invoke(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2DragStartingEventArgs): HRESULT;
 
       procedure doOnInitializationError(aErrorCode: HRESULT; const aErrorMessage: wvstring); virtual;
       procedure doOnEnvironmentCompleted; virtual;
@@ -523,6 +525,7 @@ type
       procedure doOnFindActiveMatchIndexChangedEvent(const sender: ICoreWebView2Find; const args: IUnknown); virtual;
       procedure doOnFindMatchCountChangedEvent(const sender: ICoreWebView2Find; const args: IUnknown); virtual;
       procedure doOnFindStartCompletedEvent(errorCode: HResult); virtual;
+      procedure doOnDragStartingEvent(const sender: ICoreWebView2CompositionController; const args: ICoreWebView2DragStartingEventArgs); virtual;
 
     public
       constructor Create(AOwner: TComponent); override;
@@ -4003,6 +4006,29 @@ type
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">See the ICoreWebView2FindStartCompletedHandler article.</see></para>
       /// </remarks>
       property OnFindStartCompleted                           : TOnFindStartCompletedEvent                             read FOnFindStartCompleted                            write FOnFindStartCompleted;
+      /// <summary>
+      /// <para>`DragStarting` is a deferrable event that is raised when the WebView2
+      /// detects a drag started within the WebView2.</para>
+      /// <para>WebView2's default drag behavior is to synchronously call DoDragDrop when
+      /// it detects drag. This event's args expose the data WebView2 uses to call
+      /// DoDragDrop to allow users to implement their own drag logic and override
+      /// WebView2's.</para>
+      /// <para>Handlers of this event must set the `Handled` event to true in order to
+      /// override WebView2's default logic. When invoking drag logic asynchronously
+      /// using a deferral, handlers must take care to follow these steps in order:</para>
+      /// <code>
+      ///   * Invoke asynchronous drag logic
+      ///   * Set the event args `Handled` property true
+      ///   * Complete the deferral
+      /// </code>
+      /// <para>In the asynchronous case, WebView2 decides whether or not to invoke its
+      /// default drag logic when the deferral completes. So the event args'
+      /// `Handled` property must be true when the deferral is completed.</para>
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#add_dragstarting">See the ICoreWebView2CompositionController5 article.</see></para>
+      /// </remarks>
+      property OnDragStarting                                 : TOnDragStartingEvent                                   read FOnDragStarting                                  write FOnDragStarting;
   end;
 
 implementation
@@ -4175,6 +4201,7 @@ begin
   FOnFindActiveMatchIndexChanged                   := nil;
   FOnFindMatchCountChanged                         := nil;
   FOnFindStartCompleted                            := nil;
+  FOnDragStarting                                  := nil;
 end;
 
 destructor TWVBrowserBase.Destroy;
@@ -5398,6 +5425,13 @@ begin
     FOnFindStartCompleted(self, errorCode);
 end;
 
+procedure TWVBrowserBase.doOnDragStartingEvent(const sender : ICoreWebView2CompositionController;
+                                               const args   : ICoreWebView2DragStartingEventArgs);
+begin
+  if assigned(FOnDragStarting) then
+    FOnDragStarting(self, sender, args);
+end;
+
 procedure TWVBrowserBase.doOnRetrieveMHTMLCompleted(      aErrorCode          : HRESULT;
                                                     const aReturnObjectAsJson : wvstring);
 var
@@ -5809,6 +5843,13 @@ function TWVBrowserBase.FindStartCompletedHandler_Invoke(errorCode: HResult): HR
 begin
   Result := S_OK;
   doOnFindStartCompletedEvent(errorCode);
+end;
+
+function TWVBrowserBase.DragStartingEventHandler_Invoke(const sender : ICoreWebView2CompositionController;
+                                                        const args   : ICoreWebView2DragStartingEventArgs): HRESULT;
+begin
+  Result := S_OK;
+  doOnDragStartingEvent(sender, args);
 end;
 
 function TWVBrowserBase.ExecuteScriptCompletedHandler_Invoke(errorCode: HRESULT; result_: PWideChar; aExecutionID : integer): HRESULT;

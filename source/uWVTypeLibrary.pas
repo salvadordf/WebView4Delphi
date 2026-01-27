@@ -197,6 +197,9 @@ const
   IID_ICoreWebView2RegionRectCollectionView: TGUID = '{333353B8-48BF-4449-8FCC-22697FAF5753}';
   IID_ICoreWebView2NonClientRegionChangedEventHandler: TGUID = '{4A794E66-AA6C-46BD-93A3-382196837680}';
   IID_ICoreWebView2NonClientRegionChangedEventArgs: TGUID = '{AB71D500-0820-4A52-809C-48DB04FF93BF}';
+  IID_ICoreWebView2CompositionController5: TGUID = '{8D0F82EB-7C33-5A4C-9108-84CA28CCC3B4}';
+  IID_ICoreWebView2DragStartingEventHandler: TGUID = '{3B149321-83C3-5D1F-B03F-A42899BC1C15}';
+  IID_ICoreWebView2DragStartingEventArgs: TGUID = '{8B8D9C7E-2F1A-4E6B-9D5A-3C8F7B9E1A2D}';
   IID_ICoreWebView2Controller2: TGUID = '{C979903E-D4CA-4228-92EB-47EE3FA96EAB}';
   IID_ICoreWebView2Controller3: TGUID = '{F9614724-5D2B-41DC-AEF7-73D62B51543B}';
   IID_ICoreWebView2RasterizationScaleChangedEventHandler: TGUID = '{9C98C8B1-AC53-427E-A345-3049B5524BBE}';
@@ -3294,6 +3297,9 @@ type
   ICoreWebView2RegionRectCollectionView = interface;
   ICoreWebView2NonClientRegionChangedEventHandler = interface;
   ICoreWebView2NonClientRegionChangedEventArgs = interface;
+  ICoreWebView2CompositionController5 = interface;
+  ICoreWebView2DragStartingEventHandler = interface;
+  ICoreWebView2DragStartingEventArgs = interface;
   ICoreWebView2Controller2 = interface;
   ICoreWebView2Controller3 = interface;
   ICoreWebView2RasterizationScaleChangedEventHandler = interface;
@@ -10835,6 +10841,65 @@ type
   end;
 
   /// <summary>
+  /// This Interface includes an API which enables non-client hit-testing support for WebView2.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4">See the ICoreWebView2CompositionController4 article.</see></para>
+  /// </remarks>
+  ICoreWebView2CompositionController4 = interface(ICoreWebView2CompositionController3)
+    ['{7C367B9B-3D2B-450F-9E58-D61A20F486AA}']
+    /// <summary>
+    /// If you are hosting a WebView2 using CoreWebView2CompositionController, you can call
+    /// this method in your Win32 WndProc to determine if the mouse is moving over or
+    /// clicking on WebView2 web content that should be considered part of a non-client region.
+
+    /// The point parameter is expected to be in the client coordinate space of WebView2.
+    /// The method sets the out parameter value as follows:
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
+    ///         a region (HTML element) within the WebView2 with
+    ///         `-webkit-app-region: drag` CSS style set.
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
+    ///         a region (HTML element) within the WebView2 without
+    ///         `-webkit-app-region: drag` CSS style set.
+    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
+    ///
+    /// NOTE: in order for WebView2 to properly handle the title bar system menu,
+    /// the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput.
+    /// See sample code below.
+    /// \snippet ViewComponent.cpp DraggableRegions2
+    ///
+    /// \snippet ViewComponent.cpp DraggableRegions1
+    /// </summary>
+    function GetNonClientRegionAtPoint(point: tagPOINT;
+                                       out value: COREWEBVIEW2_NON_CLIENT_REGION_KIND): HResult; stdcall;
+    /// <summary>
+    /// This method is used to get the collection of rects that correspond
+    /// to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in
+    /// the callback of add_NonClientRegionChanged whose event args object contains
+    /// a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
+    ///
+    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
+    /// </summary>
+    function QueryNonClientRegion(Kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND;
+                                  out rects: ICoreWebView2RegionRectCollectionView): HResult; stdcall;
+    /// <summary>
+    /// This method is used to add a listener for NonClientRegionChanged.
+    /// The event is fired when regions which are marked as non-client in the
+    /// app html have changed. So either when new regions have been marked,
+    /// or unmarked, or the region(s) have been changed to a different kind.
+    ///
+    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
+    /// </summary>
+    function add_NonClientRegionChanged(const eventHandler: ICoreWebView2NonClientRegionChangedEventHandler;
+                                        out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// This method is used to remove an event handler previously added with
+    /// add_NonClientRegionChanged
+    /// </summary>
+    function remove_NonClientRegionChanged(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// A continuation of the ICoreWebView2Controller interface.
   /// </summary>
   /// <remarks>
@@ -14269,6 +14334,107 @@ type
   end;
 
   /// <summary>
+  /// A continuation of the ICoreWebView2CompositionController4 interface.
+  /// This interface includes an API which exposes the DragStarting event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5">See the ICoreWebView2CompositionController5 article.</see></para>
+  /// </remarks>
+  ICoreWebView2CompositionController5 = interface(ICoreWebView2CompositionController4)
+    ['{8D0F82EB-7C33-5A4C-9108-84CA28CCC3B4}']
+    /// <summary>
+    /// Adds an event handler for the `DragStarting` event.
+    /// `DragStarting` is a deferrable event that is raised when the WebView2
+    /// detects a drag started within the WebView2.
+    /// WebView2's default drag behavior is to synchronously call DoDragDrop when
+    /// it detects drag. This event's args expose the data WebView2 uses to call
+    /// DoDragDrop to allow users to implement their own drag logic and override
+    /// WebView2's.
+    /// Handlers of this event must set the `Handled` event to true in order to
+    /// override WebView2's default logic. When invoking drag logic asynchronously
+    /// using a deferral, handlers must take care to follow these steps in order:
+    ///   * Invoke asynchronous drag logic
+    ///   * Set the event args `Handled` property true
+    ///   * Complete the deferral
+    /// In the asynchronous case, WebView2 decides whether or not to invoke its
+    /// default drag logic when the deferral completes. So the event args'
+    /// `Handled` property must be true when the deferral is completed.
+    /// \snippet ScenarioDragDropOverride.cpp DragStarting
+    /// </summary>
+    /// <remarks>
+    /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#add_dragstarting">See the ICoreWebView2CompositionController5 article.</see></para>
+    /// </remarks>
+    function add_DragStarting(const eventHandler: ICoreWebView2DragStartingEventHandler;
+                              out token: EventRegistrationToken): HResult; stdcall;
+    /// <summary>
+    /// Removes an event handler previously added with `add_DragStarting`.
+    /// </summary>
+    /// <remarks>
+    /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#remove_dragstarting">See the ICoreWebView2CompositionController5 article.</see></para>
+    /// </remarks>
+    function remove_DragStarting(token: EventRegistrationToken): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Receives `DragStarting` events.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventhandler">See the ICoreWebView2DragStartingEventHandler article.</see></para>
+  /// </remarks>
+  ICoreWebView2DragStartingEventHandler = interface(IUnknown)
+    ['{3B149321-83C3-5D1F-B03F-A42899BC1C15}']
+    /// <summary>
+    /// Provides the event args for the corresponding event.
+    /// </summary>
+    function Invoke(const sender: ICoreWebView2CompositionController;
+                    const args: ICoreWebView2DragStartingEventArgs): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// Event args for the `DragStarting` event.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventargs">See the ICoreWebView2DragStartingEventArgs article.</see></para>
+  /// </remarks>
+  ICoreWebView2DragStartingEventArgs = interface(IUnknown)
+    ['{8B8D9C7E-2F1A-4E6B-9D5A-3C8F7B9E1A2D}']
+    /// <summary>
+    /// The [OLE DROPEFFECT](/windows/win32/com/dropeffect-constants)
+    /// values this drag data supports.
+    /// </summary>
+    function Get_AllowedDropEffects(out value: LongWord): HResult; stdcall;
+    /// <summary>
+    /// The data to be dragged.
+    /// </summary>
+    function Get_Data(out value: IDataObject): HResult; stdcall;
+    /// <summary>
+    /// Gets the `Handled` property.
+    /// </summary>
+    function Get_Handled(out value: Integer): HResult; stdcall;
+    /// <summary>
+    /// Indicates whether this event has been handled by the app.  If the
+    /// app handles this event, WebView2 will not initiate drag drop.  If
+    /// the app does not handle the event, WebView2 will initiate its own
+    /// drag drop logic.
+    /// </summary>
+    function Set_Handled(value: Integer): HResult; stdcall;
+    /// <summary>
+    /// The position at which drag was detected given in WebView2 relative
+    /// coordinates.
+    /// </summary>
+    function Get_Position(out value: tagPOINT): HResult; stdcall;
+    /// <summary>
+    /// Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+    /// the CoreWebView2DragStartingEventArgs.
+    ///
+    /// Until the deferral is completed, subsequent attempts to initiate drag
+    /// in the WebView2 will fail and if the cursor was changed as part of
+    /// drag it will not restore.
+    /// </summary>
+    function GetDeferral(out value: ICoreWebView2Deferral): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// A collection of RECT.
   /// </summary>
   /// <remarks>
@@ -14284,65 +14450,6 @@ type
     /// Gets the element at the given index.
     /// </summary>
     function GetValueAtIndex(index: SYSUINT; out value: tagRECT): HResult; stdcall;
-  end;
-
-  /// <summary>
-  /// This Interface includes an API which enables non-client hit-testing support for WebView2.
-  /// </summary>
-  /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller4">See the ICoreWebView2CompositionController4 article.</see></para>
-  /// </remarks>
-  ICoreWebView2CompositionController4 = interface(ICoreWebView2CompositionController3)
-    ['{7C367B9B-3D2B-450F-9E58-D61A20F486AA}']
-    /// <summary>
-    /// If you are hosting a WebView2 using CoreWebView2CompositionController, you can call
-    /// this method in your Win32 WndProc to determine if the mouse is moving over or
-    /// clicking on WebView2 web content that should be considered part of a non-client region.
-
-    /// The point parameter is expected to be in the client coordinate space of WebView2.
-    /// The method sets the out parameter value as follows:
-    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
-    ///         a region (HTML element) within the WebView2 with
-    ///         `-webkit-app-region: drag` CSS style set.
-    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
-    ///         a region (HTML element) within the WebView2 without
-    ///         `-webkit-app-region: drag` CSS style set.
-    ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
-    ///
-    /// NOTE: in order for WebView2 to properly handle the title bar system menu,
-    /// the app needs to send WM_NCRBUTTONDOWN and WM_NCRBUTTONUP to SendMouseInput.
-    /// See sample code below.
-    /// \snippet ViewComponent.cpp DraggableRegions2
-    ///
-    /// \snippet ViewComponent.cpp DraggableRegions1
-    /// </summary>
-    function GetNonClientRegionAtPoint(point: tagPOINT;
-                                       out value: COREWEBVIEW2_NON_CLIENT_REGION_KIND): HResult; stdcall;
-    /// <summary>
-    /// This method is used to get the collection of rects that correspond
-    /// to a particular COREWEBVIEW2_NON_CLIENT_REGION_KIND. This is to be used in
-    /// the callback of add_NonClientRegionChanged whose event args object contains
-    /// a region property of type COREWEBVIEW2_NON_CLIENT_REGION_KIND.
-    ///
-    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
-    /// </summary>
-    function QueryNonClientRegion(Kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND;
-                                  out rects: ICoreWebView2RegionRectCollectionView): HResult; stdcall;
-    /// <summary>
-    /// This method is used to add a listener for NonClientRegionChanged.
-    /// The event is fired when regions which are marked as non-client in the
-    /// app html have changed. So either when new regions have been marked,
-    /// or unmarked, or the region(s) have been changed to a different kind.
-    ///
-    /// \snippet ScenarioNonClientRegionSupport.cpp AddChangeListener
-    /// </summary>
-    function add_NonClientRegionChanged(const eventHandler: ICoreWebView2NonClientRegionChangedEventHandler;
-                                        out token: EventRegistrationToken): HResult; stdcall;
-    /// <summary>
-    /// This method is used to remove an event handler previously added with
-    /// add_NonClientRegionChanged
-    /// </summary>
-    function remove_NonClientRegionChanged(token: EventRegistrationToken): HResult; stdcall;
   end;
 
   /// <summary>
