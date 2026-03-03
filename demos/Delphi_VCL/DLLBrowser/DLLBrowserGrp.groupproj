@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7F8601F8-C8DE-4801-93F8-8FE3431C2B37}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="WebView4DelphiLoader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DLLBrowser.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="WebView4DelphiLoader">
+        <MSBuild Projects="WebView4DelphiLoader.dproj"/>
+    </Target>
+    <Target Name="WebView4DelphiLoader:Clean">
+        <MSBuild Projects="WebView4DelphiLoader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebView4DelphiLoader:Make">
+        <MSBuild Projects="WebView4DelphiLoader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DLLBrowser">
+        <MSBuild Projects="DLLBrowser.dproj"/>
+    </Target>
+    <Target Name="DLLBrowser:Clean">
+        <MSBuild Projects="DLLBrowser.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DLLBrowser:Make">
+        <MSBuild Projects="DLLBrowser.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="WebView4DelphiLoader;DLLBrowser"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="WebView4DelphiLoader:Clean;DLLBrowser:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="WebView4DelphiLoader:Make;DLLBrowser:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
