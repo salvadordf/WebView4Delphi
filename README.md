@@ -6,7 +6,7 @@ WebView4Delphi only supports Windows. If you need to embed a web browser in Linu
 WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.3800.47](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser.
 
 WebView4Delphi was developed and tested on Delphi 13, Delphi XE2, Delphi 7 and Lazarus 4.6/FPC 3.2.2. 
-Delphi 6 support needs to be tested and it requires installing the second Delphi 6 patch.
+Delphi 6 requires installing the second Delphi 6 patch.
 
 WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.
 
