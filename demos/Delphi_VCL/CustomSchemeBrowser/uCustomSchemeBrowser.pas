@@ -100,7 +100,9 @@ begin
   AddressPnl.Enabled := True;
 
   // Filter all requests to the custom scheme
-  WVBrowser1.AddWebResourceRequestedFilter(MY_CUSTOM_SCHEME + '*', COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL);
+  WVBrowser1.AddWebResourceRequestedFilterWithRequestSourceKinds(MY_CUSTOM_SCHEME + '*',
+                                                                 COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL,
+                                                                 COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL);
 end;
 
 procedure TMainForm.WVBrowser1DocumentTitleChanged(Sender: TObject);

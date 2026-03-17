@@ -26,8 +26,9 @@ type
     GoBtn: TButton;
 
     procedure Timer1Timer(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure GoBtnClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
     procedure WVBrowser1AfterCreated(Sender: TObject);
     procedure WVBrowser1DocumentTitleChanged(Sender: TObject);
@@ -70,6 +71,11 @@ implementation
 // GlobalWebView2Loader will be destroyed automatically in the "finalization" section of
 // uWVLoader.pas. All browsers should be already destroyed before GlobalWebView2Loader
 // is destroyed.
+
+procedure TWebBrowserForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
 
 procedure TWebBrowserForm.FormShow(Sender: TObject);
 begin

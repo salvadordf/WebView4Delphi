@@ -11,6 +11,7 @@ object WebBrowserForm: TWebBrowserForm
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnClose = FormClose
   OnShow = FormShow
   TextHeight = 15
   object WVWindowParent1: TWVWindowParent
