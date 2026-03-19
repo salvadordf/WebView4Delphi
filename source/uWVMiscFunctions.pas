@@ -580,7 +580,7 @@ begin
   TempResult := aBaseIntf.QueryInterface(aGUID, Obj);
   Result     := succeeded(TempResult);
 
-  if not(Result) then
+  if not(Result) and assigned(GlobalWebView2Loader) then
     begin
       TempMessage := 'The QueryInterface call for ' + {$IFDEF FPC}UTF8Decode({$ENDIF}GUIDToString(aGUID){$IFDEF FPC}){$ENDIF} +
                      ' failed. ' +

@@ -157,7 +157,10 @@ begin
   if (FBrowser <> nil) then
     TempScale := FBrowser.ScreenScale
    else
-    TempScale := GlobalWebView2Loader.DeviceScaleFactor;
+    if (GlobalWebView2Loader <> nil) then
+      TempScale := GlobalWebView2Loader.DeviceScaleFactor
+     else
+      TempScale := 1;
 
   TempClientRect  := ClientRect;
   TempRect.Left   := round(TempClientRect.Left);
