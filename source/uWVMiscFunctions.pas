@@ -152,7 +152,8 @@ end;
 function ControllerCreationErrorToString(aErrorCode : HRESULT) : wvstring;
 const
   // Undefined GetLastError error values
-  ERROR_INVALID_STATE       = 5023;
+  ERROR_INVALID_STATE = 5023;
+  ERROR_CORRUPTED_CBS = $0490;
 begin
   case aErrorCode of
     E_ABORT      : Result := 'The parent window was destroyed before the controller creation was finished.';
@@ -168,7 +169,10 @@ begin
           if (aErrorCode = HResultFromWin32(ERROR_FILE_NOT_FOUND)) then
             Result := 'The system cannot find the file specified.'
            else
-            Result := 'Unexpected error result.';
+            if (aErrorCode = HResultFromWin32(ERROR_CORRUPTED_CBS)) then
+              Result := 'Not found. A corrupted Component-Based Servicing (CBS) manifest or corrupted system files that prevent Windows from locating necessary update components.'
+             else
+              Result := 'Unexpected error result.';
   end;
 end;
 
