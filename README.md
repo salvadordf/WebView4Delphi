@@ -3,9 +3,9 @@ WebView4Delphi is an open source project created by Salvador Díaz Fau to embed 
 
 WebView4Delphi only supports Windows. If you need to embed a web browser in Linux, Windows or MacOS consider using [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) instead. 
 
-WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.3856.49](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser.
+WebView4Delphi uses the [Microsoft Edge WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and [Microsoft.Web.WebView2 NuGet package version 1.0.3912.50](https://www.nuget.org/packages/Microsoft.Web.WebView2) to embed a web browser.
 
-WebView4Delphi was developed and tested on Delphi 13, Delphi XE2, Delphi 7 and Lazarus 4.6/FPC 3.2.2. 
+WebView4Delphi was developed and tested on Delphi 13.1, Delphi XE2, Delphi 7 and Lazarus 4.6/FPC 3.2.2. 
 Delphi 6 requires installing the [second Delphi 6 patch](https://support.embarcadero.com/kr/article/38607).
 
 WebView4Delphi includes VCL, FireMonkey (FMX) and Lazarus components.

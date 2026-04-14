@@ -694,7 +694,17 @@ const
   /// <para>This is one of the COREWEBVIEW2_PERMISSION_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT = $0000000C;
-
+  /// <summary>
+  /// Indicates permission to persist storage created by the Storage APIs,
+  /// service workers, etc. If the persistent storage permission is granted,
+  /// the browser will not evict data in case of low disk space. Permission
+  /// for a site can be checked using Storage Manager API.
+  /// </summary>
+  /// <remarks>
+  /// <para>This is one of the COREWEBVIEW2_PERMISSION_KIND values.</para>
+  /// <para><see href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persisted">See the Storage Manager API article.</see></para>
+  /// </remarks>
+  COREWEBVIEW2_PERMISSION_KIND_PERSISTENT_STORAGE = $0000000D;
 type
   /// <summary>
   /// Specifies the response to a permission request.
