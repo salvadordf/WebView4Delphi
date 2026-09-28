@@ -257,7 +257,7 @@ object MainForm: TMainForm
             MaxValue = 10000000
             MinValue = 0
             TabOrder = 0
-            Value = 0
+            Value = 600
           end
         end
         object Panel7: TPanel
@@ -288,7 +288,7 @@ object MainForm: TMainForm
             MaxValue = 10000000
             MinValue = 0
             TabOrder = 0
-            Value = 0
+            Value = 800
           end
         end
         object OverrideDeviceMetricsBtn: TButton

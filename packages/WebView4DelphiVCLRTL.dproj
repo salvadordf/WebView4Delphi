@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{DE8B4A26-5C97-4F34-974E-E3EE0CCF67E9}</ProjectGuid>
         <MainSource>WebView4DelphiVCLRTL.dpk</MainSource>
-        <ProjectVersion>20.4</ProjectVersion>
+        <ProjectVersion>20.5</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>

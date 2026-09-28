@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{BB9E393E-A00B-454B-9785-0537BF04F1F4}</ProjectGuid>
         <MainSource>WebView4DelphiFMX_designtime.dpk</MainSource>
-        <ProjectVersion>20.4</ProjectVersion>
+        <ProjectVersion>20.5</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>

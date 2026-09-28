@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{743A55F3-84E0-4F60-9E40-1E66F3CC880A}</ProjectGuid>
         <MainSource>WebView4DelphiFMXRTL.dpk</MainSource>
-        <ProjectVersion>20.4</ProjectVersion>
+        <ProjectVersion>20.5</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
