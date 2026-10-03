@@ -1,4 +1,4 @@
-ï»¿unit uWVTypeLibrary;
+unit uWVTypeLibrary;
 
 {$IFDEF FPC}{$MODE Delphi}{$ENDIF}
 
@@ -10350,7 +10350,7 @@ type
     /// The same process applies to the `scriptURL` when a worker is created from DOM API.
     /// The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example,
     /// `HTTPS://EXAMPLE.COM/worker.js` is canonicalized to `https://example.com/worker.js`;
-    /// `https://bÃ¼cher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
+    /// `https://bücher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
@@ -14472,7 +14472,7 @@ type
     /// script resides, for example, https://example.com/app/.
     ///
     /// Refer to the Host Name Canonicalization for
-    /// details on how provided `scriptUri` normalization is performed. For example, `HTTPS://mÃ¼nchen.de/`
+    /// details on how provided `scriptUri` normalization is performed. For example, `HTTPS://münchen.de/`
     /// will be normalized to `https://www.xn--kfk.com` for comparison.
     ///
     /// This corresponds to the `getRegistration` method of the `ServiceWorkerContainer`
@@ -14568,7 +14568,7 @@ type
     /// The same process applies to the `Scope` when a service worker is registered from DOM API.
     /// The `scopeUri` property reflects this normalization, ensuring that the URI is standardized. For example,
     /// `HTTPS://EXAMPLE.COM/app/` is canonicalized to `https://example.com/app/`;
-    /// `https://bÃ¼cher.de/` is canonicalized to `https://xn--bcher-kva.de/`.
+    /// `https://bücher.de/` is canonicalized to `https://xn--bcher-kva.de/`.
     ///
     /// The `scope` property of the `ServiceWorkerRegistration` object in the DOM returns
     /// the relative URL based on the application's base URI, while this property always
@@ -14662,7 +14662,7 @@ type
     /// The same process applies to the `scriptURL` when a worker is registered from DOM API.
     /// The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example,
     /// `HTTPS://EXAMPLE.COM/worker.js` is canonicalized to `https://example.com/worker.js`;
-    /// `https://bÃ¼cher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
+    /// `https://bücher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
@@ -14966,7 +14966,7 @@ type
     /// The same process applies to the `scriptURL` when a worker is created from DOM API.
     /// The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example,
     /// `HTTPS://EXAMPLE.COM/worker.js` is canonicalized to `https://example.com/worker.js`;
-    /// `https://bÃ¼cher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
+    /// `https://bücher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.
     ///
     /// The caller must free the returned string with `CoTaskMemFree`.  See
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
