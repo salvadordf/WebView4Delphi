@@ -35,6 +35,7 @@ You can also support this project with Liberapay.
 
 ## Related projects 
 * [CEF4Delphi](https://github.com/salvadordf/CEF4Delphi) 
+* [Python4Pascal](https://github.com/salvadordf/Python4Pascal)
 * [Tesseract4Delphi](https://github.com/salvadordf/Tesseract4Delphi)
 * [VirtualTouchKeyboard4Delphi](https://github.com/salvadordf/VirtualTouchKeyboard4Delphi)
 * [OldCEF4Delphi](https://github.com/salvadordf/OldCEF4Delphi) 
