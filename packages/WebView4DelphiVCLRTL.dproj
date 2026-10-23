@@ -188,6 +188,7 @@
         <DCCReference Include="..\source\uWVCoreWebView2SharedWorkerManager.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2SharedWorkerCollectionView.pas"/>
         <DCCReference Include="..\source\uWVCoreWebView2SharedWorker.pas"/>
+        <DCCReference Include="..\source\uWVCoreWebView2CrashReport.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

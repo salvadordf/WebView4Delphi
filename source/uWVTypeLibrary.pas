@@ -215,6 +215,7 @@ const
   IID_ICoreWebView2ControllerOptions2: TGUID = '{06C991D8-9E7E-11ED-A8FC-0242AC120002}';
   IID_ICoreWebView2ControllerOptions3: TGUID = '{B32B191A-8998-57CA-B7CB-E04617E4CE4A}';
   IID_ICoreWebView2ControllerOptions4: TGUID = '{21EB052F-AD39-555E-824A-C87B091D4D36}';
+  IID_ICoreWebView2CrashReport: TGUID = '{74128FE8-5080-5F46-941D-FB747B0BCD62}';
   IID_ICoreWebView2CustomSchemeRegistration: TGUID = '{D60AC92C-37A6-4B26-A39E-95CFE59047BB}';
   IID_ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: TGUID = '{2DC4959D-1494-4393-95BA-BEA4CB9EBD1B}';
   IID_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: TGUID = '{4E8A3389-C9D8-4BD2-B6B5-124FEE6CC14D}';
@@ -281,6 +282,7 @@ const
   IID_ICoreWebView2PrintSettings2: TGUID = '{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}';
   IID_ICoreWebView2ProcessFailedEventArgs2: TGUID = '{4DAB9422-46FA-4C3E-A5D2-41D2071D3680}';
   IID_ICoreWebView2ProcessFailedEventArgs3: TGUID = '{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}';
+  IID_ICoreWebView2ProcessFailedEventArgs4: TGUID = '{E00E3C7F-D6D3-5E64-B7AB-581B6316B227}';
   IID_ICoreWebView2Profile2: TGUID = '{FA740D4B-5EAE-4344-A8AD-74BE31925397}';
   IID_ICoreWebView2ClearBrowsingDataCompletedHandler: TGUID = '{E9710A06-1D1D-49B2-8234-226F35846AE5}';
   IID_ICoreWebView2Profile3: TGUID = '{B188E659-5685-4E05-BDBA-FC640E0F1992}';
@@ -862,22 +864,14 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED = $00000006;
   /// <summary>
-  /// Indicates that a PPAPI plugin process ended unexpectedly. This failure
-  /// is not fatal. Your application does **not** need to handle recovery for
-  /// this event, but can use `ICoreWebView2ProcessFailedEventArgs` and
-  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
-  /// the failure, including `ProcessDescription`.
+  /// Deprecated. This value is unused.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_PLUGIN_PROCESS_EXITED = $00000007;
   /// <summary>
-  /// Indicates that a PPAPI plugin broker process ended unexpectedly. This failure
-  /// is not fatal. Your application does **not** need to handle recovery for
-  /// this event, but can use `ICoreWebView2ProcessFailedEventArgs` and
-  /// `ICoreWebView2ProcessFailedEventArgs2` to collect information about
-  /// the failure.
+  /// Deprecated. This value is unused.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_FAILED_KIND values.</para>
@@ -2258,14 +2252,14 @@ const
   /// </remarks>
   COREWEBVIEW2_PROCESS_KIND_GPU = $00000004;
   /// <summary>
-  /// Indicates the PPAPI plugin process kind.
+  /// Deprecated. This value is unused.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_KIND values.</para>
   /// </remarks>
   COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN = $00000005;
   /// <summary>
-  /// Indicates the PPAPI plugin broker process kind.
+  /// Deprecated. This value is unused.
   /// </summary>
   /// <remarks>
   /// <para>This is one of the COREWEBVIEW2_PROCESS_KIND values.</para>
@@ -3378,6 +3372,7 @@ type
   ICoreWebView2ControllerOptions2 = interface;
   ICoreWebView2ControllerOptions3 = interface;
   ICoreWebView2ControllerOptions4 = interface;
+  ICoreWebView2CrashReport = interface;
   ICoreWebView2CustomSchemeRegistration = interface;
   ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 = interface;
   ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = interface;
@@ -3444,6 +3439,7 @@ type
   ICoreWebView2PrintSettings2 = interface;
   ICoreWebView2ProcessFailedEventArgs2 = interface;
   ICoreWebView2ProcessFailedEventArgs3 = interface;
+  ICoreWebView2ProcessFailedEventArgs4 = interface;
   ICoreWebView2Profile2 = interface;
   ICoreWebView2ClearBrowsingDataCompletedHandler = interface;
   ICoreWebView2Profile3 = interface;
@@ -9245,13 +9241,17 @@ type
     /// [COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_request_source_kinds).
     ///
     /// Because service workers and shared workers run separately from any one
-    /// HTML document their WebResourceRequested will be raised for all
-    /// CoreWebView2s that have appropriate filters added in the corresponding
-    /// CoreWebView2Environment. You should only add a WebResourceRequested filter
-    /// for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or
+    /// HTML document their WebResourceRequested may be raised for any
+    /// CoreWebView2 that has appropriate filters added in the same
+    /// CoreWebView2Profile. WebResourceRequested is not raised for requests
+    /// from service workers or shared workers that belong to a different
+    /// CoreWebView2Profile, including an InPrivate profile, even if both
+    /// profiles share the same CoreWebView2Environment. You should only add
+    /// a WebResourceRequested filter for
+    /// COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or
     /// COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER on
-    /// one CoreWebView2 to avoid handling the same WebResourceRequested
-    /// event multiple times.
+    /// one CoreWebView2 per CoreWebView2Profile to avoid handling the same
+    /// WebResourceRequested event multiple times.
     ///
     /// | URI Filter String | Request URI | Match | Notes |
     /// | ---- | ---- | ---- | ---- |
@@ -11603,6 +11603,72 @@ type
   end;
 
   /// <summary>
+  /// Provides crash signature data captured at the moment of process failure.
+  ///
+  /// CrashReport is null when the failure did not produce a crash report
+  /// (normal exit, external kill, launch failure, hang). CrashReport may be
+  /// null for certain crash-type failures where no crash report was produced;
+  /// host apps should always check for null before accessing properties.
+  ///
+  /// \snippet ProcessComponent.cpp CrashReport
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2crashreport">See the ICoreWebView2CrashReport article.</see></para>
+  /// </remarks>
+  ICoreWebView2CrashReport = interface(IUnknown)
+    ['{74128FE8-5080-5F46-941D-FB747B0BCD62}']
+    /// <summary>
+    /// Crash bucket identifier assigned by Microsoft's crash telemetry
+    /// service. Returned as a 32-character hex string. Empty when no bucket
+    /// was assigned: crash data was not uploaded to Microsoft's telemetry
+    /// service (custom crash reporting enabled), or no response was received
+    /// from the telemetry service (network throttled or unavailable).
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_BucketId(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// The unique identifier (UUID) for this crash report. Use this to locate the
+    /// corresponding dump file in `FailureReportFolderPath`.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_CrashReportId(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// The Windows exception code for the failure, e.g. `0xC0000005` for
+    /// `STATUS_ACCESS_VIOLATION`. `0` if not available.
+    /// </summary>
+    function Get_ExceptionCode(out value: SYSUINT): HResult; stdcall;
+    /// <summary>
+    /// Relative virtual address (RVA) of the faulting instruction within
+    /// `FaultingModuleName`. `0` if not available.
+    /// </summary>
+    function Get_FaultOffset(out value: Largeuint): HResult; stdcall;
+    /// <summary>
+    /// Basename of the module containing the faulting instruction,
+    /// e.g. `renderer.dll`.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FaultingModuleName(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Version of the faulting module, e.g. `128.0.2739.42`.
+    ///
+    /// The caller must free the returned string with `CoTaskMemFree`.  See
+    /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+    /// </summary>
+    function Get_FaultingModuleVersion(out value: PWideChar): HResult; stdcall;
+    /// <summary>
+    /// Time the crash report was recorded, as a Windows FILETIME value
+    /// (100-nanosecond intervals since Jan 1 1601 UTC). `0` if unavailable.
+    /// </summary>
+    function Get_ReportTime(out value: Largeuint): HResult; stdcall;
+  end;
+
+  /// <summary>
   /// Receives the result of the `ClearBrowsingData` method.
   /// </summary>
   /// <remarks>
@@ -13864,7 +13930,7 @@ type
   /// for getting blocked file for code integrity process failures.
   /// </summary>
   /// <remarks>
-  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs3">See the icorewebview2processfailedeventargs3 article.</see></para>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs3">See the ICoreWebView2ProcessFailedEventArgs3 article.</see></para>
   /// </remarks>
   ICoreWebView2ProcessFailedEventArgs3 = interface(ICoreWebView2ProcessFailedEventArgs2)
     ['{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}']
@@ -13896,6 +13962,23 @@ type
     /// [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
     /// </summary>
     function Get_FailureSourceModulePath(out value: PWideChar): HResult; stdcall;
+  end;
+
+  /// <summary>
+  /// A continuation of the ICoreWebView2ProcessFailedEventArgs3 interface
+  /// for getting the crash report associated with the process failure.
+  /// </summary>
+  /// <remarks>
+  /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs4">See the ICoreWebView2ProcessFailedEventArgs4 article.</see></para>
+  /// </remarks>
+  ICoreWebView2ProcessFailedEventArgs4 = interface(ICoreWebView2ProcessFailedEventArgs3)
+    ['{E00E3C7F-D6D3-5E64-B7AB-581B6316B227}']
+    /// <summary>
+    /// The crash report for this process failure, or 'nil' if no crash
+    /// report is available (normal exit, external kill, launch failure,
+    /// hang, or crash-type failure that produced no report).
+    /// </summary>
+    function Get_CrashReport(out value: ICoreWebView2CrashReport): HResult; stdcall;
   end;
 
   /// <summary>

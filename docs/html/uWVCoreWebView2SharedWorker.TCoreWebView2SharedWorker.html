@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2SharedWorker: Class TCoreWebView2SharedWorker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.5.snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style type="text/css">
+body { margin: 0.5em; }
+.badge { padding: 0.1em 0.5em; color: white; }
+</style></head>
+<body>
+<span id="TCoreWebView2SharedWorker"></span><h1 class="cio">Class TCoreWebView2SharedWorker</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2SharedWorker.html">uWVCoreWebView2SharedWorker</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2SharedWorker = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p class="nodescription">This item has no description.</p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2SharedWorker</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FWorkerID">FWorkerID</a></strong>: cardinal;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FDestroyingToken">FDestroyingToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetScriptUri">GetScriptUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetOrigin">GetOrigin</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetTopLevelOrigin">GetTopLevelOrigin</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddSharedWorkerDestroyingEvent-TComponent-">AddSharedWorkerDestroyingEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Create-ICoreWebView2SharedWorker-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Initialized">Initialized</a></strong>         : boolean                         read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#BaseIntf">BaseIntf</a></strong>            : <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>       read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#WorkerID">WorkerID</a></strong>            : cardinal                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FWorkerID">FWorkerID</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#ScriptUri">ScriptUri</a></strong>           : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetScriptUri">GetScriptUri</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Origin">Origin</a></strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetOrigin">GetOrigin</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#TopLevelOrigin">TopLevelOrigin</a></strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetTopLevelOrigin">GetTopLevelOrigin</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FWorkerID"></span><code><strong>FWorkerID</strong>: cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FDestroyingToken"></span><code><strong>FDestroyingToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetScriptUri"></span><code>function <strong>GetScriptUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetOrigin"></span><code>function <strong>GetOrigin</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetTopLevelOrigin"></span><code>function <strong>GetTopLevelOrigin</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="AddSharedWorkerDestroyingEvent-TComponent-"></span><code>function <strong>AddSharedWorkerDestroyingEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-ICoreWebView2SharedWorker-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Constructor of the ICoreWebView2SharedWorker wrapper. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBaseIntf</dt>
+<dd>The ICoreWebView2SharedWorker instance.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBrowserComponent</dt>
+<dd>The TWVBrowserBase instance.</dd>
+</dl>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>         : boolean                         read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>            : <a href="uWVTypeLibrary.ICoreWebView2SharedWorker.html">ICoreWebView2SharedWorker</a>       read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="WorkerID"></span><code>property <strong>WorkerID</strong>            : cardinal                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FWorkerID">FWorkerID</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Custom unique identifier of the current dedicated worker. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ScriptUri"></span><code>property <strong>ScriptUri</strong>           : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetScriptUri">GetScriptUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>A string representing the Uri of the script that the worker is executing.
+
+<p>The `scriptUri` is a fully qualified URI, including the scheme, host, and path. In contrast, the `scriptURL` property of the `Worker` object in the DOM returns the relative URL of the script being executed by the worker. For more details on DOM API, see the [DOM API documentation](<a href="https://developer.mozilla.org/docs/Web/API/Worker/scriptURL">https://developer.mozilla.org/docs/Web/API/Worker/scriptURL</a>).
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p>The same process applies to the `scriptURL` when a worker is created from DOM API.
+
+<p>The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/worker.js">HTTPS://EXAMPLE.COM/worker.js</a>` is canonicalized to `<a href="https://example.com/worker.js">https://example.com/worker.js</a>`; `<a href="https://b">https://b</a>ücher.de/worker.js` is canonicalized to `<a href="https://xn--bcher-kva.de/worker.js">https://xn--bcher-kva.de/worker.js</a>`.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Origin"></span><code>property <strong>Origin</strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetOrigin">GetOrigin</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>A string representing the URI of the origin where the worker is executing.
+
+<p>If a worker created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="TopLevelOrigin"></span><code>property <strong>TopLevelOrigin</strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                        read <a href="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetTopLevelOrigin">GetTopLevelOrigin</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>A string representing the URI of the top-level document that the worker is associated with.
+
+<p>If a worker is created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be <a href="https://guid.invalid/">https://guid.invalid/</a>.
+
+<p>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>
+</span>
+</body></html>

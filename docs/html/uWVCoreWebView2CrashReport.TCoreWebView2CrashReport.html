@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2CrashReport: Class TCoreWebView2CrashReport</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.5.snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style type="text/css">
+body { margin: 0.5em; }
+.badge { padding: 0.1em 0.5em; color: white; }
+</style></head>
+<body>
+<span id="TCoreWebView2CrashReport"></span><h1 class="cio">Class TCoreWebView2CrashReport</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2CrashReport.html">uWVCoreWebView2CrashReport</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2CrashReport = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+
+
+<p>Provides crash signature data captured at the moment of process failure.
+
+<p>CrashReport is nil when the failure did not produce a crash report (normal exit, external kill, launch failure, hang). CrashReport may be nil for certain crash-type failures where no crash report was produced; host apps should always check for null before accessing properties.
+
+<p></p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2crashreport">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2crashreport</a>&quot;&gt;See the ICoreWebView2CrashReport article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2CrashReport</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetBucketId">GetBucketId</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetCrashReportId">GetCrashReportId</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetExceptionCode">GetExceptionCode</a></strong>: LongWord;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultOffset">GetFaultOffset</a></strong>: uint64;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleName">GetFaultingModuleName</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleVersion">GetFaultingModuleVersion</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetReportTime">GetReportTime</a></strong>: uint64;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Create-ICoreWebView2CrashReport-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Initialized">Initialized</a></strong>           : boolean                    read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BaseIntf">BaseIntf</a></strong>              : <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BucketId">BucketId</a></strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetBucketId">GetBucketId</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#CrashReportId">CrashReportId</a></strong>         : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetCrashReportId">GetCrashReportId</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ExceptionCode">ExceptionCode</a></strong>         : LongWord                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetExceptionCode">GetExceptionCode</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultOffset">FaultOffset</a></strong>           : uint64                     read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultOffset">GetFaultOffset</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleName">FaultingModuleName</a></strong>    : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleName">GetFaultingModuleName</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleVersion">FaultingModuleVersion</a></strong> : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleVersion">GetFaultingModuleVersion</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ReportTime">ReportTime</a></strong>            : uint64                     read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetReportTime">GetReportTime</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetBucketId"></span><code>function <strong>GetBucketId</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetCrashReportId"></span><code>function <strong>GetCrashReportId</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetExceptionCode"></span><code>function <strong>GetExceptionCode</strong>: LongWord;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetFaultOffset"></span><code>function <strong>GetFaultOffset</strong>: uint64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetFaultingModuleName"></span><code>function <strong>GetFaultingModuleName</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetFaultingModuleVersion"></span><code>function <strong>GetFaultingModuleVersion</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetReportTime"></span><code>function <strong>GetReportTime</strong>: uint64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-ICoreWebView2CrashReport-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>           : boolean                    read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Returns true when the interface implemented by this class is fully initialized.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>              : <a href="uWVTypeLibrary.ICoreWebView2CrashReport.html">ICoreWebView2CrashReport</a>   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Returns the interface implemented by this class.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BucketId"></span><code>property <strong>BucketId</strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetBucketId">GetBucketId</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Crash bucket identifier assigned by Microsoft's crash telemetry service. Returned as a 32-character hex string. Empty when no bucket was assigned: crash data was not uploaded to Microsoft's telemetry service (custom crash reporting enabled), or no response was received from the telemetry service (network throttled or unavailable).
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="CrashReportId"></span><code>property <strong>CrashReportId</strong>         : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetCrashReportId">GetCrashReportId</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The unique identifier (UUID) for this crash report. Use this to locate the corresponding dump file in `FailureReportFolderPath`.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ExceptionCode"></span><code>property <strong>ExceptionCode</strong>         : LongWord                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetExceptionCode">GetExceptionCode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The Windows exception code for the failure, e.g. `0xC0000005` for `STATUS_ACCESS_VIOLATION`. `0` if not available.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FaultOffset"></span><code>property <strong>FaultOffset</strong>           : uint64                     read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultOffset">GetFaultOffset</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Relative virtual address (RVA) of the faulting instruction within `FaultingModuleName`. `0` if not available.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FaultingModuleName"></span><code>property <strong>FaultingModuleName</strong>    : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleName">GetFaultingModuleName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Basename of the module containing the faulting instruction, e.g. `renderer.dll`.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FaultingModuleVersion"></span><code>property <strong>FaultingModuleVersion</strong> : <a href="uWVTypes.html#wvstring">wvstring</a>                   read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleVersion">GetFaultingModuleVersion</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Version of the faulting module, e.g. `128.0.2739.42`.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ReportTime"></span><code>property <strong>ReportTime</strong>            : uint64                     read <a href="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetReportTime">GetReportTime</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>Time the crash report was recorded, as a Windows FILETIME value (100-nanosecond intervals since Jan 1 1601 UTC). `0` if unavailable.
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>
+</span>
+</body></html>

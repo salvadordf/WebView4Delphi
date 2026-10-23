@@ -790,6 +790,7 @@ type
       FBaseIntf  : ICoreWebView2ProcessFailedEventArgs;
       FBaseIntf2 : ICoreWebView2ProcessFailedEventArgs2;
       FBaseIntf3 : ICoreWebView2ProcessFailedEventArgs3;
+      FBaseIntf4 : ICoreWebView2ProcessFailedEventArgs4;
 
       function GetInitialized : boolean;
       function GetProcessFailedKind : TWVProcessFailedKind;
@@ -798,6 +799,7 @@ type
       function GetProcessDescription : wvstring;
       function GetFrameInfosForFailedProcess : ICoreWebView2FrameInfoCollection;
       function GetFailureSourceModulePath : wvstring;
+      function GetCrashReport: ICoreWebView2CrashReport;
 
       procedure InitializeFields;
 
@@ -908,6 +910,15 @@ type
       /// STATUS_INVALID_IMAGE_HASH.</para>
       /// </summary>
       property FailureSourceModulePath    : wvstring                             read GetFailureSourceModulePath;
+      /// <summary>
+      /// The crash report for this process failure, or 'nil' if no crash
+      /// report is available (normal exit, external kill, launch failure,
+      /// hang, or crash-type failure that produced no report).
+      /// </summary>
+      /// <remarks>
+      /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs4#get_crashreport">See the ICoreWebView2ProcessFailedEventArgs4 article.</see></para>
+      /// </remarks>
+      property CrashReport                : ICoreWebView2CrashReport             read GetCrashReport;
   end;
 
   /// <summary>
@@ -3221,8 +3232,9 @@ begin
   FBaseIntf := aArgs;
 
   if Initialized and
-     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs2, FBaseIntf2) then
-    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs3, FBaseIntf3);
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs2, FBaseIntf2) and
+     LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs3, FBaseIntf3) then
+    LoggedQueryInterface(FBaseIntf, IID_ICoreWebView2ProcessFailedEventArgs4, FBaseIntf4);
 end;
 
 destructor TCoreWebView2ProcessFailedEventArgs.Destroy;
@@ -3237,6 +3249,7 @@ begin
   FBaseIntf  := nil;
   FBaseIntf2 := nil;
   FBaseIntf3 := nil;
+  FBaseIntf4 := nil;
 end;
 
 function TCoreWebView2ProcessFailedEventArgs.GetInitialized : boolean;
@@ -3322,6 +3335,19 @@ begin
       Result := TempString;
       CoTaskMemFree(TempString);
     end;
+end;
+
+function TCoreWebView2ProcessFailedEventArgs.GetCrashReport: ICoreWebView2CrashReport;
+var
+  TempResult : ICoreWebView2CrashReport;
+begin
+  Result     := nil;
+  TempResult := nil;
+
+  if assigned(FBaseIntf4) and
+     succeeded(FBaseIntf4.Get_CrashReport(TempResult)) and
+     (TempResult <> nil) then
+    Result := TempResult;
 end;
 
 

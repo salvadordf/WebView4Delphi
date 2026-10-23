@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
-<meta name="GENERATOR" content="PasDoc 1.0.4">
+<meta name="GENERATOR" content="PasDoc 1.0.5.snapshot">
 </head><body>
 <ul>
 <li><object type="text/sitemap">
@@ -532,6 +532,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnGetSharedWorkersCompleted">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnGetSharedWorkersCompleted">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnSharedWorkerDestroying">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnSharedWorkerDestroying">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -6003,6 +6007,10 @@
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf3">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf4">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -6041,6 +6049,10 @@
 <param name="Name" value="FailureSourceModulePath">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FailureSourceModulePath">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="CrashReport">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#CrashReport">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Methods">
@@ -6074,6 +6086,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="GetFailureSourceModulePath">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetFailureSourceModulePath">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCrashReport">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetCrashReport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="InitializeFields">
@@ -9996,6 +10012,122 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2CrashReport">
+<param name="Local" value="uWVCoreWebView2CrashReport.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2CrashReport.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2CrashReport">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BucketId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CrashReportId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#CrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ExceptionCode">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultOffset">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultingModuleName">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultingModuleVersion">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReportTime">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ReportTime">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetBucketId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetBucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCrashReportId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetCrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetExceptionCode">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultOffset">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultingModuleName">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultingModuleVersion">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetReportTime">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetReportTime">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Destroy">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="uWVCoreWebView2CustomSchemeRegistration">
 <param name="Local" value="uWVCoreWebView2CustomSchemeRegistration.html">
 </object>
@@ -10060,6 +10192,130 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Create">
 <param name="Local" value="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Create">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2DedicatedWorker">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DedicatedWorker">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FWorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FDestroyingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDedicatedWorkerCreatedToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FDedicatedWorkerCreatedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWebMessageReceivedToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FWebMessageReceivedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#WorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#ScriptUri">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDedicatedWorkerCreatedEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddDedicatedWorkerCreatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDedicatedWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddDedicatedWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebMessageReceivedEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddWebMessageReceivedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJson">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#PostWebMessageAsJson">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsString">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#PostWebMessageAsString">
 </object>
 </ul>
 </ul>
@@ -17726,6 +17982,414 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2ServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FWorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FDestroyingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWebMessageReceivedToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FWebMessageReceivedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#WorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#ScriptUri">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddServiceWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebMessageReceivedEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddWebMessageReceivedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJson">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#PostWebMessageAsJson">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsString">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#PostWebMessageAsString">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2ServiceWorkerManager">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerManager">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FServiceWorkerRegisteredToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#FServiceWorkerRegisteredToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#BaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerRegisteredEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#AddServiceWorkerRegisteredEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetServiceWorkerRegistrations">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetServiceWorkerRegistrations">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetServiceWorkerRegistrationsForScope">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetServiceWorkerRegistrationsForScope">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2ServiceWorkerRegistration">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerRegistration">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FServiceWorkerActivatedToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FServiceWorkerActivatedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FUnregisteringToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FUnregisteringToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ActiveServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ActiveServiceWorker">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Origin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Origin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScopeUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ScopeUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#TopLevelOrigin">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetActiveServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetActiveServiceWorker">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScopeUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetScopeUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetTopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetTopLevelOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerActivatedEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddServiceWorkerActivatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddUnregisteringEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddUnregisteringEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddAllBrowserEvents">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerRegistrationCollectionView">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Destroy">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="uWVCoreWebView2Settings">
 <param name="Local" value="uWVCoreWebView2Settings.html">
 </object>
@@ -18132,6 +18796,286 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Close">
 <param name="Local" value="uWVCoreWebView2SharedBuffer.TCoreWebView2SharedBuffer.html#Close">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2SharedWorker">
+<param name="Local" value="uWVCoreWebView2SharedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2SharedWorker.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorker">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FWorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FDestroyingToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#WorkerID">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#ScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Origin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Origin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#TopLevelOrigin">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetTopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetTopLevelOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddSharedWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddSharedWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddAllBrowserEvents">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2SharedWorkerCollectionView">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorkerCollectionView">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetValueAtIndex">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Destroy">
+</object>
+</ul>
+</ul>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="uWVCoreWebView2SharedWorkerManager">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Classes">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.html#@Classes">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorkerManager">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FSharedWorkerCreatedToken">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#FSharedWorkerCreatedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#BaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#RemoveAllEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddSharedWorkerCreatedEvent">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#AddSharedWorkerCreatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetSharedWorkers">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#GetSharedWorkers">
 </object>
 </ul>
 </ul>
@@ -19692,6 +20636,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnGetSharedWorkersCompleted">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnGetSharedWorkersCompleted">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnSharedWorkerDestroying">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnSharedWorkerDestroying">
 </object>
 </ul>
 <li><object type="text/sitemap">
@@ -26586,6 +27534,46 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CrashReport">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_BucketId">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_BucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_CrashReportId">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_CrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ExceptionCode">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultOffset">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultingModuleName">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultingModuleVersion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReportTime">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ReportTime">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2ClearBrowsingDataCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">
 </object>
@@ -27942,6 +28930,22 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_FailureSourceModulePath">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#Get_FailureSourceModulePath">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ProcessFailedEventArgs4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_CrashReport">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html#Get_CrashReport">
 </object>
 </ul>
 </ul>
@@ -30046,6 +31050,10 @@
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ControllerOptions4">
 </object>
 <li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2CrashReport">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CrashReport">
+</object>
+<li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2CustomSchemeRegistration">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2CustomSchemeRegistration">
 </object>
@@ -30308,6 +31316,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2ProcessFailedEventArgs3">
 <param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs3">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="IID_ICoreWebView2ProcessFailedEventArgs4">
+<param name="Local" value="uWVTypeLibrary.html#IID_ICoreWebView2ProcessFailedEventArgs4">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="IID_ICoreWebView2Profile2">
@@ -33972,6 +34984,46 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2CrashReport">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_BucketId">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_BucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_CrashReportId">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_CrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ExceptionCode">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultingModuleName">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultingModuleVersion">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_FaultOffset">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_ReportTime">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ReportTime">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html">
 </object>
@@ -37376,6 +38428,22 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Get_FailureSourceModulePath">
 <param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs3.html#Get_FailureSourceModulePath">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ICoreWebView2ProcessFailedEventArgs4">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Get_CrashReport">
+<param name="Local" value="uWVTypeLibrary.ICoreWebView2ProcessFailedEventArgs4.html#Get_CrashReport">
 </object>
 </ul>
 </ul>
@@ -44042,6 +45110,110 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2CrashReport">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BucketId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#BucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CrashReportId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#CrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ExceptionCode">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultingModuleName">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultingModuleVersion">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FaultOffset">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#FaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ReportTime">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#ReportTime">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetBucketId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetBucketId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCrashReportId">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetCrashReportId">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetExceptionCode">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetExceptionCode">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultingModuleName">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleName">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultingModuleVersion">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultingModuleVersion">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetFaultOffset">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetFaultOffset">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetReportTime">
+<param name="Local" value="uWVCoreWebView2CrashReport.TCoreWebView2CrashReport.html#GetReportTime">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html">
 </object>
@@ -44232,6 +45404,118 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Set_TreatAsSecure">
 <param name="Local" value="uWVCoreWebView2CustomSchemeRegistration.TCoreWebView2CustomSchemeRegistration.html#Set_TreatAsSecure">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2DedicatedWorker">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDedicatedWorkerCreatedToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FDedicatedWorkerCreatedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FDestroyingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWebMessageReceivedToken">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FWebMessageReceivedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#FWorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#ScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#WorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJson">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#PostWebMessageAsJson">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsString">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#PostWebMessageAsString">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDedicatedWorkerCreatedEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddDedicatedWorkerCreatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddDedicatedWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddDedicatedWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebMessageReceivedEvent">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#AddWebMessageReceivedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2DedicatedWorker.TCoreWebView2DedicatedWorker.html#RemoveAllEvents">
 </object>
 </ul>
 </ul>
@@ -50501,6 +51785,10 @@
 <param name="Name" value="FBaseIntf3">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf3">
 </object>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf4">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#FBaseIntf4">
+</object>
 </ul>
 <li><object type="text/sitemap">
 <param name="Name" value="Properties">
@@ -50510,6 +51798,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="BaseIntf">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="CrashReport">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#CrashReport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="ExtiCode">
@@ -50552,6 +51844,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Destroy">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCrashReport">
+<param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ProcessFailedEventArgs.html#GetCrashReport">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="GetExtiCode">
@@ -52022,6 +53318,110 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FDestroyingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWebMessageReceivedToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FWebMessageReceivedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#FWorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#ScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#WorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsJson">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#PostWebMessageAsJson">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="PostWebMessageAsString">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#PostWebMessageAsString">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddServiceWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddWebMessageReceivedEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#AddWebMessageReceivedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorker.TCoreWebView2ServiceWorker.html#RemoveAllEvents">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ServiceWorkerActivatedEventArgs">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ServiceWorkerActivatedEventArgs.html">
 </object>
@@ -52150,6 +53550,86 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerManager">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FServiceWorkerRegisteredToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#FServiceWorkerRegisteredToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Initialized">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetServiceWorkerRegistrations">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetServiceWorkerRegistrations">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetServiceWorkerRegistrationsForScope">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetServiceWorkerRegistrationsForScope">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerRegisteredEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#AddServiceWorkerRegisteredEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html#RemoveAllEvents">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2ServiceWorkerRegisteredEventArgs">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2ServiceWorkerRegisteredEventArgs.html">
 </object>
@@ -52236,6 +53716,182 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerRegisteredEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerRegistration">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FServiceWorkerActivatedToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FServiceWorkerActivatedToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FUnregisteringToken">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FUnregisteringToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="ActiveServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ActiveServiceWorker">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Origin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Origin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScopeUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ScopeUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#TopLevelOrigin">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddServiceWorkerActivatedEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddServiceWorkerActivatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddUnregisteringEvent">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddUnregisteringEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetActiveServiceWorker">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetActiveServiceWorker">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScopeUri">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetScopeUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetTopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetTopLevelOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#RemoveAllEvents">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2ServiceWorkerRegistrationCollectionView">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2ServiceWorkerRegistrationCollectionView.TCoreWebView2ServiceWorkerRegistrationCollectionView.html#GetValueAtIndex">
 </object>
 </ul>
 </ul>
@@ -52734,6 +54390,174 @@
 </ul>
 </ul>
 <li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorker">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FDestroyingToken">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FDestroyingToken">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FWorkerID">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#FWorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Origin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Origin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="ScriptUri">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#ScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="TopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#TopLevelOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="WorkerID">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#WorkerID">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddSharedWorkerDestroyingEvent">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#AddSharedWorkerDestroyingEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetScriptUri">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetScriptUri">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetTopLevelOrigin">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#GetTopLevelOrigin">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorker.TCoreWebView2SharedWorker.html#RemoveAllEvents">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorkerCollectionView">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#FBaseIntf">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Count">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Count">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Initialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Items">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Items">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetCount">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetCount">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetValueAtIndex">
+<param name="Local" value="uWVCoreWebView2SharedWorkerCollectionView.TCoreWebView2SharedWorkerCollectionView.html#GetValueAtIndex">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
 <param name="Name" value="TCoreWebView2SharedWorkerCreatedEventArgs">
 <param name="Local" value="uWVCoreWebView2Args.TCoreWebView2SharedWorkerCreatedEventArgs.html">
 </object>
@@ -52858,6 +54682,82 @@
 <li><object type="text/sitemap">
 <param name="Name" value="Invoke">
 <param name="Local" value="uWVCoreWebView2Delegates.TCoreWebView2SharedWorkerDestroyingEventHandler.html#Invoke">
+</object>
+</ul>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="TCoreWebView2SharedWorkerManager">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Fields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Fields">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="FBaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#FBaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="FSharedWorkerCreatedToken">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#FSharedWorkerCreatedToken">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Properties">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Properties">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="BaseIntf">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#BaseIntf">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Initialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Initialized">
+</object>
+</ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Methods">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#@Methods">
+</object>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="Create">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Create">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="Destroy">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#Destroy">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddAllBrowserEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#AddAllBrowserEvents">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetSharedWorkers">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#GetSharedWorkers">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="AddSharedWorkerCreatedEvent">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#AddSharedWorkerCreatedEvent">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="GetInitialized">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#GetInitialized">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeFields">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#InitializeFields">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="InitializeTokens">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#InitializeTokens">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="RemoveAllEvents">
+<param name="Local" value="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html#RemoveAllEvents">
 </object>
 </ul>
 </ul>
@@ -54568,6 +56468,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnSharedWorkerCreated">
 <param name="Local" value="uWVBrowser.TWVBrowser.html#OnSharedWorkerCreated">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnSharedWorkerDestroying">
+<param name="Local" value="uWVBrowser.TWVBrowser.html#OnSharedWorkerDestroying">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnShowSaveAsUICompleted">
@@ -58578,6 +60482,10 @@
 <li><object type="text/sitemap">
 <param name="Name" value="OnSharedWorkerCreated">
 <param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnSharedWorkerCreated">
+</object>
+<li><object type="text/sitemap">
+<param name="Name" value="OnSharedWorkerDestroying">
+<param name="Local" value="uWVFMXBrowser.TWVFMXBrowser.html#OnSharedWorkerDestroying">
 </object>
 <li><object type="text/sitemap">
 <param name="Name" value="OnShowSaveAsUICompleted">

@@ -45,7 +45,7 @@ uses
   uWVCoreWebView2WebResourceResponseView, uWVCoreWebView2WindowFeatures, 
   uWVEvents, uWVInterfaces, uWVLibFunctions, uWVLoader, uWVLoaderInternal, 
   uWVMiscFunctions, uWVTypeLibrary, uWVTypes, uWVWinControl, uWVWindowParent, 
-  LazarusPackageIntf;
+  uWVCoreWebView2CrashReport, LazarusPackageIntf;
 
 implementation
 

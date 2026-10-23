@@ -1194,14 +1194,18 @@ type
       /// `requestSourceKinds` equals to zero. For more information about request
       /// source kinds, navigate to
       /// [COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_request_source_kinds).</para>
-      /// <para>Because service workers and shared workers run separately from any one
-      /// HTML document their WebResourceRequested will be raised for all
-      /// CoreWebView2s that have appropriate filters added in the corresponding
-      /// CoreWebView2Environment. You should only add a WebResourceRequested filter
-      /// for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or
+      /// <para>Because service workers and shared workers run separately from
+      /// any one HTML document their WebResourceRequested may be raised for any
+      /// CoreWebView2 that has appropriate filters added in the same
+      /// CoreWebView2Profile. WebResourceRequested is not raised for requests
+      /// from service workers or shared workers that belong to a different
+      /// CoreWebView2Profile, including an InPrivate profile, even if both
+      /// profiles share the same CoreWebView2Environment. You should only add
+      /// a WebResourceRequested filter for
+      /// COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER or
       /// COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER on
-      /// one CoreWebView2 to avoid handling the same WebResourceRequested
-      /// event multiple times.</para>
+      /// one CoreWebView2 per CoreWebView2Profile to avoid handling the same
+      /// WebResourceRequested event multiple times.</para>
       /// <code>
       /// | URI Filter String | Request URI | Match | Notes |
       /// | ---- | ---- | ---- | ---- |

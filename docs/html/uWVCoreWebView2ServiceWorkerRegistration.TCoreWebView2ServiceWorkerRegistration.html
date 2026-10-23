@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVCoreWebView2ServiceWorkerRegistration: Class TCoreWebView2ServiceWorkerRegistration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.5.snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style type="text/css">
+body { margin: 0.5em; }
+.badge { padding: 0.1em 0.5em; color: white; }
+</style></head>
+<body>
+<span id="TCoreWebView2ServiceWorkerRegistration"></span><h1 class="cio">Class TCoreWebView2ServiceWorkerRegistration</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVCoreWebView2ServiceWorkerRegistration.html">uWVCoreWebView2ServiceWorkerRegistration</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TCoreWebView2ServiceWorkerRegistration = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ This class represents a service worker registration in WebView2 and provides methods and properties for interacting with it, such as getting the scope uri, active service worker, listening for service worker activation, unregistering events etc. </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregistration">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregistration</a>&quot;&gt;See the ICoreWebView2ServiceWorkerRegistration article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCoreWebView2ServiceWorkerRegistration</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FBaseIntf">FBaseIntf</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FServiceWorkerActivatedToken">FServiceWorkerActivatedToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FUnregisteringToken">FUnregisteringToken</a></strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetInitialized">GetInitialized</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetActiveServiceWorker">GetActiveServiceWorker</a></strong>: <a href="uWVTypeLibrary.ICoreWebView2ServiceWorker.html">ICoreWebView2ServiceWorker</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetOrigin">GetOrigin</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetScopeUri">GetScopeUri</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetTopLevelOrigin">GetTopLevelOrigin</a></strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeFields">InitializeFields</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#InitializeTokens">InitializeTokens</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#RemoveAllEvents">RemoveAllEvents</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddServiceWorkerActivatedEvent-TComponent-">AddServiceWorkerActivatedEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddUnregisteringEvent-TComponent-">AddUnregisteringEvent</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Create-ICoreWebView2ServiceWorkerRegistration-">Create</a></strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>); reintroduce;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#AddAllBrowserEvents-TComponent-">AddAllBrowserEvents</a></strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Initialized">Initialized</a></strong>         : boolean                                     read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#BaseIntf">BaseIntf</a></strong>            : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>      read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ActiveServiceWorker">ActiveServiceWorker</a></strong> : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorker.html">ICoreWebView2ServiceWorker</a>                  read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetActiveServiceWorker">GetActiveServiceWorker</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#Origin">Origin</a></strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetOrigin">GetOrigin</a>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#ScopeUri">ScopeUri</a></strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetScopeUri">GetScopeUri</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#TopLevelOrigin">TopLevelOrigin</a></strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetTopLevelOrigin">GetTopLevelOrigin</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FBaseIntf"></span><code><strong>FBaseIntf</strong>: <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FServiceWorkerActivatedToken"></span><code><strong>FServiceWorkerActivatedToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FUnregisteringToken"></span><code><strong>FUnregisteringToken</strong>: <a href="uWVTypeLibrary.EventRegistrationToken.html">EventRegistrationToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetInitialized"></span><code>function <strong>GetInitialized</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetActiveServiceWorker"></span><code>function <strong>GetActiveServiceWorker</strong>: <a href="uWVTypeLibrary.ICoreWebView2ServiceWorker.html">ICoreWebView2ServiceWorker</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetOrigin"></span><code>function <strong>GetOrigin</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetScopeUri"></span><code>function <strong>GetScopeUri</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="GetTopLevelOrigin"></span><code>function <strong>GetTopLevelOrigin</strong>: <a href="uWVTypes.html#wvstring">wvstring</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="InitializeFields"></span><code>procedure <strong>InitializeFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="InitializeTokens"></span><code>procedure <strong>InitializeTokens</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="RemoveAllEvents"></span><code>procedure <strong>RemoveAllEvents</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="AddServiceWorkerActivatedEvent-TComponent-"></span><code>function <strong>AddServiceWorkerActivatedEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="AddUnregisteringEvent-TComponent-"></span><code>function <strong>AddUnregisteringEvent</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-ICoreWebView2ServiceWorkerRegistration-"></span><code>constructor <strong>Create</strong>(const aBaseIntf : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>); reintroduce;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Constructor of the ICoreWebView2ServiceWorkerRegistration wrapper. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBaseIntf</dt>
+<dd>The ICoreWebView2ServiceWorkerRegistration instance.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddAllBrowserEvents-TComponent-"></span><code>function <strong>AddAllBrowserEvents</strong>(const aBrowserComponent : TComponent) : boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adds all the events of this class to an existing TWVBrowserBase instance. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aBrowserComponent</dt>
+<dd>The TWVBrowserBase instance.</dd>
+</dl>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Initialized"></span><code>property <strong>Initialized</strong>         : boolean                                     read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetInitialized">GetInitialized</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns true when the interface implemented by this class is fully initialized. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BaseIntf"></span><code>property <strong>BaseIntf</strong>            : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a>      read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#FBaseIntf">FBaseIntf</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Returns the interface implemented by this class. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ActiveServiceWorker"></span><code>property <strong>ActiveServiceWorker</strong> : <a href="uWVTypeLibrary.ICoreWebView2ServiceWorker.html">ICoreWebView2ServiceWorker</a>                  read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetActiveServiceWorker">GetActiveServiceWorker</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The active service worker that was created. If there is no active service worker, it returns a null pointer.
+
+<p>The active service worker is the service worker that controls the pages within the scope of the registration. See the [Service Worker] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorker">https://developer.mozilla.org/docs/Web/API/ServiceWorker</a>) for more information.
+
+<p>This corresponds to the `active` property of the `ServiceWorkerRegistration` object in the DOM. For more information, see the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active</a>).
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Origin"></span><code>property <strong>Origin</strong>              : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetOrigin">GetOrigin</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>A string representing the URI of the origin where the worker is executing.
+
+<p>If a worker created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ScopeUri"></span><code>property <strong>ScopeUri</strong>            : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetScopeUri">GetScopeUri</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>The `scopeUri` is a fully qualified URI, including the scheme, host and path, that specifies the range of URLs a service worker can control.
+
+<p>When registering a service worker, if no scope is specified, it defaults to the directory where the service worker script resides. For example, if the script is located at <a href="https://example.com/app/sw.js">https://example.com/app/sw.js</a>, the default `scopeUri` would be <a href="https://example.com/app/">https://example.com/app/</a>. However, if a scope is provided, it is defined relative to the application's base URI. For instance, if an application at <a href="https://example.com/">https://example.com/</a> registers a service worker with a scope of /app/, the resulting `scopeUri` is <a href="https://example.com/app/">https://example.com/app/</a>.
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p>The same process applies to the `Scope` when a service worker is registered from DOM API.
+
+<p>The `scopeUri` property reflects this normalization, ensuring that the URI is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/app/">HTTPS://EXAMPLE.COM/app/</a>` is canonicalized to `<a href="https://example.com/app/">https://example.com/app/</a>`; `<a href="https://b">https://b</a>ücher.de/` is canonicalized to `<a href="https://xn--bcher-kva.de/">https://xn--bcher-kva.de/</a>`.
+
+<p>The `scope` property of the `ServiceWorkerRegistration` object in the DOM returns the relative URL based on the application's base URI, while this property always returns a fully qualified URI. For more information on DOM API, see the [MDN documentation](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope</a>).
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="TopLevelOrigin"></span><code>property <strong>TopLevelOrigin</strong>      : <a href="uWVTypes.html#wvstring">wvstring</a>                                    read <a href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html#GetTopLevelOrigin">GetTopLevelOrigin</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p>A string representing the URI of the top-level document that the worker is associated with.
+
+<p>If a worker is created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
+
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed.
+
+<p>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be `<a href="https://guid.invalid/">https://guid.invalid/</a>`.
+
+<p>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>
+</span>
+</body></html>

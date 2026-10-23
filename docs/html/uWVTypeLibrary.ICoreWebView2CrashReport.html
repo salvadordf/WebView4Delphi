@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WebView4Delphi: uWVTypeLibrary: Interface ICoreWebView2CrashReport</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.5.snapshot">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style type="text/css">
+body { margin: 0.5em; }
+.badge { padding: 0.1em 0.5em; color: white; }
+</style></head>
+<body>
+<span id="ICoreWebView2CrashReport"></span><h1 class="cio">Interface ICoreWebView2CrashReport</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="uWVTypeLibrary.html">uWVTypeLibrary</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ICoreWebView2CrashReport = interface(IUnknown)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Provides crash signature data captured at the moment of process failure.
+
+<p>CrashReport is null when the failure did not produce a crash report (normal exit, external kill, launch failure, hang). CrashReport may be null for certain crash-type failures where no crash report was produced; host apps should always check for null before accessing properties.
+
+<p>\snippet ProcessComponent.cpp CrashReport </p>
+<p>
+
+
+<p>&lt;see href=&quot;<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2crashreport">https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2crashreport</a>&quot;&gt;See the ICoreWebView2CrashReport article.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">IUnknown</li>
+<li class="thisitem">ICoreWebView2CrashReport</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_BucketId-PWideChar-">Get_BucketId</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_CrashReportId-PWideChar-">Get_CrashReportId</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ExceptionCode-SYSUINT-">Get_ExceptionCode</a></strong>(out value: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultOffset-Largeuint-">Get_FaultOffset</a></strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleName-PWideChar-">Get_FaultingModuleName</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_FaultingModuleVersion-PWideChar-">Get_FaultingModuleVersion</a></strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="uWVTypeLibrary.ICoreWebView2CrashReport.html#Get_ReportTime-Largeuint-">Get_ReportTime</a></strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_BucketId-PWideChar-"></span><code>function <strong>Get_BucketId</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Crash bucket identifier assigned by Microsoft's crash telemetry service. Returned as a 32-character hex string. Empty when no bucket was assigned: crash data was not uploaded to Microsoft's telemetry service (custom crash reporting enabled), or no response was received from the telemetry service (network throttled or unavailable).
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt>GUID['{74128FE8-5080-5F46-941D-FB747B0BCD62}']</dt>
+  <dd></dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_CrashReportId-PWideChar-"></span><code>function <strong>Get_CrashReportId</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The unique identifier (UUID) for this crash report. Use this to locate the corresponding dump file in `FailureReportFolderPath`.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_ExceptionCode-SYSUINT-"></span><code>function <strong>Get_ExceptionCode</strong>(out value: SYSUINT): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ The Windows exception code for the failure, e.g. `0xC0000005` for `STATUS_ACCESS_VIOLATION`. `0` if not available. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_FaultOffset-Largeuint-"></span><code>function <strong>Get_FaultOffset</strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Relative virtual address (RVA) of the faulting instruction within `FaultingModuleName`. `0` if not available. </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_FaultingModuleName-PWideChar-"></span><code>function <strong>Get_FaultingModuleName</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Basename of the module containing the faulting instruction, e.g. `renderer.dll`.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_FaultingModuleVersion-PWideChar-"></span><code>function <strong>Get_FaultingModuleVersion</strong>(out value: PWideChar): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Version of the faulting module, e.g. `128.0.2739.42`.
+
+<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Get_ReportTime-Largeuint-"></span><code>function <strong>Get_ReportTime</strong>(out value: Largeuint): HResult; stdcall;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Time the crash report was recorded, as a Windows FILETIME value (100-nanosecond intervals since Jan 1 1601 UTC). `0` if unavailable. </p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>
+</span>
+</body></html>

@@ -109,6 +109,7 @@ contains
   uWVCoreWebView2ServiceWorkerRegistrationCollectionView in '..\source\uWVCoreWebView2ServiceWorkerRegistrationCollectionView.pas',
   uWVCoreWebView2SharedWorkerManager in '..\source\uWVCoreWebView2SharedWorkerManager.pas',
   uWVCoreWebView2SharedWorkerCollectionView in '..\source\uWVCoreWebView2SharedWorkerCollectionView.pas',
-  uWVCoreWebView2SharedWorker in '..\source\uWVCoreWebView2SharedWorker.pas';
+  uWVCoreWebView2SharedWorker in '..\source\uWVCoreWebView2SharedWorker.pas',
+  uWVCoreWebView2CrashReport in '..\source\uWVCoreWebView2CrashReport.pas';
 
 end.
