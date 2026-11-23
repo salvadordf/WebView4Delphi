@@ -86,7 +86,7 @@ type
 
       /// <summary>
       /// The orientation can be portrait or landscape. The default orientation is
-      /// portrait. See `COREWEBVIEW2_PRINT_ORIENTATION`.
+      /// portrait. See 'COREWEBVIEW2_PRINT_ORIENTATION'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_orientation">See the ICoreWebView2PrintSettings article.</see></para>
@@ -142,23 +142,23 @@ type
       /// </remarks>
       property MarginRight                : double                          read GetMarginRight                   write SetMarginRight;
       /// <summary>
-      /// `TRUE` if background colors and images should be printed. The default value
-      /// is `FALSE`.
+      /// 'TRUE' if background colors and images should be printed. The default value
+      /// is 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_shouldprintbackgrounds">See the ICoreWebView2PrintSettings article.</see></para>
       /// </remarks>
       property ShouldPrintBackgrounds     : boolean                         read GetShouldPrintBackgrounds        write SetShouldPrintBackgrounds;
       /// <summary>
-      /// `TRUE` if only the current end user's selection of HTML in the document
-      /// should be printed. The default value is `FALSE`.
+      /// 'TRUE' if only the current end user's selection of HTML in the document
+      /// should be printed. The default value is 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2printsettings#get_shouldprintselectiononly">See the ICoreWebView2PrintSettings article.</see></para>
       /// </remarks>
       property ShouldPrintSelectionOnly   : boolean                         read GetShouldPrintSelectionOnly      write SetShouldPrintSelectionOnly;
       /// <summary>
-      /// `TRUE` if header and footer should be printed. The default value is `FALSE`.
+      /// 'TRUE' if header and footer should be printed. The default value is 'FALSE'.
       /// The header consists of the date and time of printing, and the title of the
       /// page. The footer consists of the URI and page number. The height of the
       /// header and footer is 0.5 cm, or ~0.2 inches.
@@ -168,7 +168,7 @@ type
       /// </remarks>
       property ShouldPrintHeaderAndFooter : boolean                         read GetShouldPrintHeaderAndFooter    write SetShouldPrintHeaderAndFooter;
       /// <summary>
-      /// The title in the header if `ShouldPrintHeaderAndFooter` is `TRUE`. The
+      /// The title in the header if 'ShouldPrintHeaderAndFooter' is 'TRUE'. The
       /// default value is the title of the current document.
       /// </summary>
       /// <remarks>
@@ -176,7 +176,7 @@ type
       /// </remarks>
       property HeaderTitle                : wvstring                        read GetHeaderTitle                   write SetHeaderTitle;
       /// <summary>
-      /// The URI in the footer if `ShouldPrintHeaderAndFooter` is `TRUE`. The
+      /// The URI in the footer if 'ShouldPrintHeaderAndFooter' is 'TRUE'. The
       /// default value is the current URI.
       /// </summary>
       /// <remarks>
@@ -199,7 +199,7 @@ type
       /// </remarks>
       property PagesPerSide               : integer                         read GetPagesPerSide                  write SetPagesPerSide;
       /// <summary>
-      /// Number of copies to print. Minimum value is `1` and the maximum copies count is `999`.
+      /// Number of copies to print. Minimum value is '1' and the maximum copies count is '999'.
       /// The default value is 1.
       /// This value is ignored in PrintToPdfStream method.
       /// </summary>
@@ -208,8 +208,8 @@ type
       /// </remarks>
       property Copies                     : integer                         read GetCopies                        write SetCopies;
       /// <summary>
-      /// <para>Printer collation. See `COREWEBVIEW2_PRINT_COLLATION` for descriptions of
-      /// collation. The default value is `COREWEBVIEW2_PRINT_COLLATION_DEFAULT`.</para>
+      /// <para>Printer collation. See 'COREWEBVIEW2_PRINT_COLLATION' for descriptions of
+      /// collation. The default value is 'COREWEBVIEW2_PRINT_COLLATION_DEFAULT'.</para>
       /// <para>Printing uses default value of printer's collation if an invalid value is provided
       /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
       /// </summary>
@@ -218,8 +218,8 @@ type
       /// </remarks>
       property Collation                  : TWVPrintCollation               read GetCollation                     write SetCollation;
       /// <summary>
-      /// <para>Printer color mode. See `COREWEBVIEW2_PRINT_COLOR_MODE` for descriptions
-      /// of color modes. The default value is `COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT`.</para>
+      /// <para>Printer color mode. See 'COREWEBVIEW2_PRINT_COLOR_MODE' for descriptions
+      /// of color modes. The default value is 'COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT'.</para>
       /// <para>Printing uses default value of printer supported color if an invalid value is provided
       /// for the specific printer.</para>
       /// </summary>
@@ -228,8 +228,8 @@ type
       /// </remarks>
       property ColorMode                  : TWVPrintColorMode               read GetColorMode                     write SetColorMode;
       /// <summary>
-      /// <para>Printer duplex settings. See `COREWEBVIEW2_PRINT_DUPLEX` for descriptions of duplex.
-      /// The default value is `COREWEBVIEW2_PRINT_DUPLEX_DEFAULT`.</para>
+      /// <para>Printer duplex settings. See 'COREWEBVIEW2_PRINT_DUPLEX' for descriptions of duplex.
+      /// The default value is 'COREWEBVIEW2_PRINT_DUPLEX_DEFAULT'.</para>
       /// <para>Printing uses default value of printer's duplex if an invalid value is provided
       /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
       /// </summary>
@@ -238,10 +238,10 @@ type
       /// </remarks>
       property Duplex                     : TWVPrintDuplex                  read GetDuplex                        write SetDuplex;
       /// <summary>
-      /// <para>Printer media size. See `COREWEBVIEW2_PRINT_MEDIA_SIZE` for descriptions of media size.
-      /// The default value is `COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT`.</para>
-      /// <para>If media size is `COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM`, you should set the `PageWidth`
-      /// and `PageHeight`.</para>
+      /// <para>Printer media size. See 'COREWEBVIEW2_PRINT_MEDIA_SIZE' for descriptions of media size.
+      /// The default value is 'COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT'.</para>
+      /// <para>If media size is 'COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM', you should set the 'PageWidth'
+      /// and 'PageHeight'.</para>
       /// <para>Printing uses default value of printer supported media size if an invalid value is provided
       /// for the specific printer. This value is ignored in PrintToPdfStream method.</para>
       /// </summary>

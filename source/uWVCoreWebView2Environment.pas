@@ -157,7 +157,7 @@ type
       /// </remarks>
       function    GetAutomationProviderForWindow(aHandle : THandle; var aProvider : IUnknown) : boolean;
       /// <summary>
-      /// Creates the `ICoreWebView2PrintSettings` used by the `PrintToPdf` method.
+      /// Creates the 'ICoreWebView2PrintSettings' used by the 'PrintToPdf' method.
       /// </summary>
       /// <param name="aPrintSettings">The new ICoreWebView2PrintSettings instance.</param>
       /// <returns>True if successfull.</return>
@@ -166,15 +166,15 @@ type
       /// </remarks>
       function    CreatePrintSettings(var aPrintSettings : ICoreWebView2PrintSettings) : boolean;
       /// <summary>
-      /// <para>Create a custom `ContextMenuItem` object to insert into the WebView context menu.
+      /// <para>Create a custom 'ContextMenuItem' object to insert into the WebView context menu.
       /// CoreWebView2 will rewind the icon stream before decoding.</para>
       /// <para>There is a limit of 1000 active custom context menu items at a given time.
       /// Attempting to create more before deleting existing ones will fail with
       /// ERROR_NOT_ENOUGH_QUOTA.</para>
       /// <para>It is recommended to reuse ContextMenuItems across ContextMenuRequested events
       /// for performance.</para>
-      /// <para>The returned ContextMenuItem object's `IsEnabled` property will default to `TRUE`
-      /// and `IsChecked` property will default to `FALSE`. A `CommandId` will be assigned
+      /// <para>The returned ContextMenuItem object's 'IsEnabled' property will default to 'TRUE'
+      /// and 'IsChecked' property will default to 'FALSE'. A 'CommandId' will be assigned
       /// to the ContextMenuItem object that's unique across active custom context menu items,
       /// but command ID values of deleted ContextMenuItems can be reassigned.</para>
       /// </summary>
@@ -228,7 +228,7 @@ type
       /// <summary>
       /// Create a shared memory based buffer with the specified size in bytes.
       /// The buffer can be shared with web contents in WebView by calling
-      /// `PostSharedBufferToScript` on `CoreWebView2` or `CoreWebView2Frame` object.
+      /// 'PostSharedBufferToScript' on 'CoreWebView2' or 'CoreWebView2Frame' object.
       /// Once shared, the same content of the buffer will be accessible from both
       /// the app process and script in WebView. Modification to the content will be visible
       /// to all parties that have access to the buffer.
@@ -244,13 +244,13 @@ type
       /// </remarks>
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
       /// <summary>
-      /// Gets a snapshot collection of `ProcessExtendedInfo`s corresponding to all
-      /// currently running processes associated with this `ICoreWebView2Environment`
+      /// Gets a snapshot collection of 'ProcessExtendedInfo's corresponding to all
+      /// currently running processes associated with this 'ICoreWebView2Environment'
       /// excludes crashpad process.
-      /// This provides the same list of `ProcessInfo`s as what's provided in
-      /// `GetProcessInfos`, but additionally provides a list of associated `FrameInfo`s
+      /// This provides the same list of 'ProcessInfo's as what's provided in
+      /// 'GetProcessInfos', but additionally provides a list of associated 'FrameInfo's
       /// which are actively running (showing or hiding UI elements) in the renderer
-      /// process. See `AssociatedFrameInfos` for more information.
+      /// process. See 'AssociatedFrameInfos' for more information.
       /// </summary>
       /// <param name="aBrowserEvents">The TWVBrowserBase instance that will receive all the events.</param>
       /// <returns>True if successfull.</return>
@@ -259,10 +259,10 @@ type
       /// </remarks>
       function    GetProcessExtendedInfos(const aBrowserEvents : IWVBrowserEvents) : boolean;
       /// <summary>
-      /// <para>Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web
+      /// <para>Create a 'ICoreWebView2FileSystemHandle' object from a path that represents a Web
       /// [FileSystemFileHandle](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle).</para>
       ///
-      /// <para>The `path` is the path pointed by the file and must be a syntactically correct fully qualified
+      /// <para>The 'path' is the path pointed by the file and must be a syntactically correct fully qualified
       /// path, but it is not checked here whether it currently points to a file. If an invalid path is
       /// passed, an E_INVALIDARG will be returned and the object will fail to create. Any other state
       /// validation will be done when this handle is accessed from web content
@@ -270,8 +270,8 @@ type
       /// [FileSystemFileHandle methods](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle#instance_methods)
       /// if access operations fail.</para>
       ///
-      /// <para>`Permission` property is used to specify whether the Handle should be created with a Read-only or
-      /// Read-and-write web permission. For the `permission` value specified here, the DOM
+      /// <para>'Permission' property is used to specify whether the Handle should be created with a Read-only or
+      /// Read-and-write web permission. For the 'permission' value specified here, the DOM
       /// [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus) property
       /// will be [granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)
       /// and the unspecified permission will be
@@ -282,8 +282,8 @@ type
       /// but if it does, the promise will immediately be resolved
       /// with 'granted' PermissionStatus without firing the WebView2
       /// [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs)
-      /// event or prompting the user for permission. Otherwise, `requestPermission` will behave as the
-      /// status of permission is currently `prompt`, which means the `PermissionRequested` event will fire
+      /// event or prompting the user for permission. Otherwise, 'requestPermission' will behave as the
+      /// status of permission is currently 'prompt', which means the 'PermissionRequested' event will fire
       /// or the user will be prompted.</para>
       /// <para>Additionally, the app must have the same OS permissions that have propagated to the
       /// [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model)
@@ -294,9 +294,9 @@ type
       /// <para>Note: An exception to this is, if there is a parent directory handle that
       /// has broader permissions in the same page context than specified in here, the handle will automatically
       /// inherit the most permissive permission of the parent handle when posted to that page context.
-      /// i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on
-      /// a page, even though a WebFileSystemHandle to file `C:\example\file.txt` is created with
-      /// `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission
+      /// i.e. If there is already a 'FileSystemDirectoryHandle' to 'C:\example' that has write permission on
+      /// a page, even though a WebFileSystemHandle to file 'C:\example\file.txt' is created with
+      /// 'COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY' permission, when posted to that page, write permission
       /// will be automatically granted to the created handle.</para>
       ///
       /// <para>An app needs to be mindful that this object, when posted to the web content, provides it with unusual
@@ -310,7 +310,7 @@ type
       /// [open file picker](https://developer.mozilla.org/docs/Web/API/Window/showOpenFilePicker),
       /// otherwise the read operation will
       /// [throw a DOM exception](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile#exceptions).
-      /// For write operations, the file does not need to exist as `FileSystemFileHandle` will behave
+      /// For write operations, the file does not need to exist as 'FileSystemFileHandle' will behave
       /// as a file path chosen by
       /// [save file picker](https://developer.mozilla.org/docs/Web/API/Window/showSaveFilePicker)
       /// and will create or overwrite the file, but the parent directory structure pointed
@@ -329,17 +329,17 @@ type
                                                       aPermission : TWVFileSystemHandlePermission;
                                                 var   aValue      : ICoreWebView2FileSystemHandle): boolean;
       /// <summary>
-      /// <para>Create a `ICoreWebView2FileSystemHandle` object from a path that represents a Web
+      /// <para>Create a 'ICoreWebView2FileSystemHandle' object from a path that represents a Web
       /// [FileSystemDirectoryHandle](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle).</para>
       ///
-      /// <para>The `path` is the path pointed by the directory and must be a syntactically correct fully qualified
+      /// <para>The 'path' is the path pointed by the directory and must be a syntactically correct fully qualified
       /// path, but it is not checked here whether it currently points to a directory. Any other state
       /// validation will be done when this handle is accessed from web content
       /// and will cause DOM exceptions if access operations fail. If an invalid path is
       /// passed, an E_INVALIDARG will be returned and the object will fail to create.</para>
       ///
-      /// <para>`Permission` property is used to specify whether the Handle should be created with a Read-only or
-      /// Read-and-write web permission. For the `permission` value specified here, the Web
+      /// <para>'Permission' property is used to specify whether the Handle should be created with a Read-only or
+      /// Read-and-write web permission. For the 'permission' value specified here, the Web
       /// [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus)
       /// will be [granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)
       /// and the unspecified permission will be
@@ -350,8 +350,8 @@ type
       /// but if it does, the promise will immediately be resolved
       /// with 'granted' PermissionStatus without firing the WebView2
       /// [PermissionRequested](/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs)
-      /// event or prompting the user for permission. Otherwise, `requestPermission` will behave as the
-      /// status of permission is currently `Prompt`, which means the `PermissionRequested` event will fire
+      /// event or prompting the user for permission. Otherwise, 'requestPermission' will behave as the
+      /// status of permission is currently 'Prompt', which means the 'PermissionRequested' event will fire
       /// or the user will be prompted.</para>
       /// <para>Additionally, the app must have the same OS permissions that have propagated to the
       /// [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model)
@@ -362,9 +362,9 @@ type
       /// <para>Note: An exception to this is, if there is a parent directory handle that
       /// has broader permissions in the same page context than specified in here, the handle will automatically
       /// inherit the most permissive permission of the parent handle when posted to that page context.
-      /// i.e. If there is already a `FileSystemDirectoryHandle` to `C:\example` that has write permission on
-      /// a page, even though a WebFileSystemHandle to directory `C:\example\directory` is created with
-      /// `COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY` permission, when posted to that page, write permission
+      /// i.e. If there is already a 'FileSystemDirectoryHandle' to 'C:\example' that has write permission on
+      /// a page, even though a WebFileSystemHandle to directory 'C:\example\directory' is created with
+      /// 'COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY' permission, when posted to that page, write permission
       /// will be automatically granted to the created handle.</para>
       ///
       /// <para>An app needs to be mindful that this object, when posted to the web content, provides it with unusual
@@ -375,7 +375,7 @@ type
       ///
       /// <para>Once the object is passed to web content, the path must point to a directory as if it was chosen via
       /// [directory picker](https://developer.mozilla.org/docs/Web/API/Window/showDirectoryPicker)
-      /// otherwise any IO operation done on the `FileSystemDirectoryHandle` will throw a DOM exception.</para>
+      /// otherwise any IO operation done on the 'FileSystemDirectoryHandle' will throw a DOM exception.</para>
       /// </summary>
       /// <param name="aPath">The path pointed by the directory.</param>
       /// <param name="aPermission">Used to specify whether the Handle should be created with a Read-only or Read-and-write web permission.</param>
@@ -419,10 +419,10 @@ type
       /// </summary>
       property    BaseIntf                      : ICoreWebView2Environment            read FBaseIntf;
       /// <summary>
-      /// The browser version info of the current `ICoreWebView2Environment`,
+      /// The browser version info of the current 'ICoreWebView2Environment',
       /// including channel name if it is not the WebView2 Runtime.  It matches the
-      /// format of the `GetAvailableCoreWebView2BrowserVersionString` API.
-      /// Channel names are `beta`, `dev`, and `canary`.
+      /// format of the 'GetAvailableCoreWebView2BrowserVersionString' API.
+      /// Channel names are 'beta', 'dev', and 'canary'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#get_browserversionstring">See the ICoreWebView2Environment article.</see></para>
@@ -454,7 +454,7 @@ type
       /// </remarks>
       property    UserDataFolder                : wvstring                            read GetUserDataFolder;
       /// <summary>
-      /// Returns the `ICoreWebView2ProcessInfoCollection`. Provide a list of all
+      /// Returns the 'ICoreWebView2ProcessInfoCollection'. Provide a list of all
       /// process using same user data folder except for crashpad process.
       /// </summary>
       /// <remarks>
@@ -462,15 +462,15 @@ type
       /// </remarks>
       property    ProcessInfos                  : ICoreWebView2ProcessInfoCollection  read GetProcessInfos;
       /// <summary>
-      /// `FailureReportFolderPath` returns the path of the folder where minidump files are written.
+      /// 'FailureReportFolderPath' returns the path of the folder where minidump files are written.
       /// Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder.
       /// The crash dump format is minidump files. Please see
       /// [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.
       /// Normally when a single child process fails, a minidump will be generated and written to disk,
-      /// then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated
-      /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
-      /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
-      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.
+      /// then the 'ProcessFailed' event is raised. But for unexpected crashes, a minidump file might not be generated
+      /// at all, despite whether 'ProcessFailed' event is raised. If there are multiple
+      /// process failures at once, multiple minidump files could be generated. Thus 'FailureReportFolderPath'
+      /// could contain old minidump files that are not associated with a specific 'ProcessFailed' event.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>

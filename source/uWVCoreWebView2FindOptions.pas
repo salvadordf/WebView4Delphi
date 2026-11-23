@@ -53,8 +53,8 @@ type
       property BaseIntf                   : ICoreWebView2FindOptions       read FBaseIntf;
       /// <summary>
       /// Gets or sets the word or phrase to be searched in the current page.
-      /// You can set `FindTerm` to any text you want to find on the page.
-      /// This will take effect the next time you call the `Start()` method.
+      /// You can set 'FindTerm' to any text you want to find on the page.
+      /// This will take effect the next time you call the 'Start()' method.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findoptions#put_findterm">See the ICoreWebView2FindOptions article.</see></para>

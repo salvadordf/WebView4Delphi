@@ -92,7 +92,7 @@ type
       /// Constructor of the ICoreWebView2EnvironmentOptions wrapper.
       /// </summary>
       /// <param name="aAdditionalBrowserArguments">Additional command line switches.</param>
-      /// <param name="aLanguage">The default display language for WebView.  It applies to browser UI such as context menu and dialogs.  It also applies to the `accept-languages` HTTP header that WebView sends to websites.</param>
+      /// <param name="aLanguage">The default display language for WebView.  It applies to browser UI such as context menu and dialogs.  It also applies to the 'accept-languages' HTTP header that WebView sends to websites.</param>
       /// <param name="aTargetCompatibleBrowserVersion">Specifies the version of the WebView2 Runtime binaries required to be compatible with your app.</param>
       /// <param name="aAllowSingleSignOnUsingOSPrimaryAccount">Used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft Account (MSA) resources inside WebView.</param>
       /// <param name="aExclusiveUserDataFolderAccess">Whether other processes can create WebView2 from WebView2Environment created with the same user data folder and therefore sharing the same WebView browser process instance.</param>

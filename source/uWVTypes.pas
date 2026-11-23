@@ -71,7 +71,7 @@ type
   TWVPermissionKind                       = type COREWEBVIEW2_PERMISSION_KIND;
   /// <summary>
   /// Specifies the process failure type used in the
-  /// `ICoreWebView2ProcessFailedEventArgs` interface. The values in this enum
+  /// 'ICoreWebView2ProcessFailedEventArgs' interface. The values in this enum
   /// make reference to the process kinds in the Chromium architecture. For more
   /// information about what these processes are and what they do, see
   /// [Browser Architecture - Inside look at modern web browser](https://developers.google.com/web/updates/2018/09/inside-browser-part1).
@@ -233,7 +233,7 @@ type
   TWVMenuItemKind                         = type COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND;
   /// <summary>
   /// Indicates the kind of context for which the context menu was created
-  /// for the `ICoreWebView2ContextMenuTarget::get_Kind` method.
+  /// for the 'ICoreWebView2ContextMenuTarget::get_Kind' method.
   /// This enum will always represent the active element that caused the context menu request.
   /// If there is a selection with multiple images, audio and text, for example, the element that
   /// the end user right clicks on within this selection will be the option represented by this enum.
@@ -352,14 +352,14 @@ type
   /// </remarks>
   TWVNavigationKind                       = type COREWEBVIEW2_NAVIGATION_KIND;
   /// <summary>
-  /// Indicates the frame type used in the `ICoreWebView2FrameInfo` interface.
+  /// Indicates the frame type used in the 'ICoreWebView2FrameInfo' interface.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_FRAME_KIND type.</para>
   /// </remarks>
   TWVFrameKind                            = type COREWEBVIEW2_FRAME_KIND;
   /// <summary>
-  /// Specifies the source of `WebResourceRequested` event.
+  /// Specifies the source of 'WebResourceRequested' event.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS type.</para>
@@ -380,15 +380,15 @@ type
   /// for and use the most stable channel found on the device. The order from most
   /// to least stable is: WebView2 Runtime -> Beta -> Dev -> Canary. Switch the
   /// order to prefer the least stable channel in order to perform pre-release
-  /// testing. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of channels.
+  /// testing. See 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of channels.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_CHANNEL_SEARCH_KIND type.</para>
   /// </remarks>
   TWVChannelSearchKind                    = type COREWEBVIEW2_CHANNEL_SEARCH_KIND;
   /// <summary>
-  /// <para>The WebView2 release channels. Use `ReleaseChannels` and `ChannelSearchKind`
-  /// on `ICoreWebView2EnvironmentOptions` to control which channel is searched
+  /// <para>The WebView2 release channels. Use 'ReleaseChannels' and 'ChannelSearchKind'
+  /// on 'ICoreWebView2EnvironmentOptions' to control which channel is searched
   /// for during environment creation.</para>
   /// <code>
   /// |Channel|Primary purpose|How often updated with new features|
@@ -404,7 +404,7 @@ type
   /// </remarks>
   TWVReleaseChannels                      = type COREWEBVIEW2_RELEASE_CHANNELS;
   /// <summary>
-  /// Set ScrollBar style on `ICoreWebView2EnvironmentOptions` during environment creation.
+  /// Set ScrollBar style on 'ICoreWebView2EnvironmentOptions' during environment creation.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_SCROLLBAR_STYLE type.</para>
@@ -435,11 +435,11 @@ type
   TWVTextDirectionKind                    = type COREWEBVIEW2_TEXT_DIRECTION_KIND;
   /// <summary>
   /// Specifies Save As kind selection options for
-  /// `ICoreWebView2SaveAsUIShowingEventArgs`.
+  /// 'ICoreWebView2SaveAsUIShowingEventArgs'.
   ///
   /// For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and
-  /// COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of `text/html` and
-  /// `application/xhtml+xml` are considered HTML documents.
+  /// COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of 'text/html' and
+  /// 'application/xhtml+xml' are considered HTML documents.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_SAVE_AS_KIND type.</para>
@@ -447,7 +447,7 @@ type
   TWVSaveAsKind                           = type COREWEBVIEW2_SAVE_AS_KIND;
   /// <summary>
   /// Status of a programmatic Save As call. Indicates the result
-  /// of the `ShowSaveAsUI` method.
+  /// of the 'ShowSaveAsUI' method.
   /// </summary>
   /// <remarks>
   /// <para>Renamed COREWEBVIEW2_SAVE_AS_UI_RESULT type.</para>

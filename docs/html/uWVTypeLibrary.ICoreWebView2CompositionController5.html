@@ -55,7 +55,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `DragStarting` event. `DragStarting` is a deferrable event that is raised when the WebView2 detects a drag started within the WebView2. WebView2's default drag behavior is to synchronously call DoDragDrop when it detects drag. This event's args expose the data WebView2 uses to call DoDragDrop to allow users to implement their own drag logic and override WebView2's. Handlers of this event must set the `Handled` event to true in order to override WebView2's default logic. When invoking drag logic asynchronously using a deferral, handlers must take care to follow these steps in order: * Invoke asynchronous drag logic * Set the event args `Handled` property true * Complete the deferral In the asynchronous case, WebView2 decides whether or not to invoke its default drag logic when the deferral completes. So the event args' `Handled` property must be true when the deferral is completed. \snippet ScenarioDragDropOverride.cpp DragStarting </p>
+ Adds an event handler for the 'DragStarting' event. 'DragStarting' is a deferrable event that is raised when the WebView2 detects a drag started within the WebView2. WebView2's default drag behavior is to synchronously call DoDragDrop when it detects drag. This event's args expose the data WebView2 uses to call DoDragDrop to allow users to implement their own drag logic and override WebView2's. Handlers of this event must set the 'Handled' event to true in order to override WebView2's default logic. When invoking drag logic asynchronously using a deferral, handlers must take care to follow these steps in order: * Invoke asynchronous drag logic * Set the event args 'Handled' property true * Complete the deferral In the asynchronous case, WebView2 decides whether or not to invoke its default drag logic when the deferral completes. So the event args' 'Handled' property must be true when the deferral is completed. \snippet ScenarioDragDropOverride.cpp DragStarting </p>
 <p>
 
 
@@ -74,7 +74,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_DragStarting`. </p>
+ Removes an event handler previously added with 'add_DragStarting'. </p>
 <p>
 
 

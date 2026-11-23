@@ -343,7 +343,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets whether the `NewWindowRequested` event is handled by host. </p>
+ Gets whether the 'NewWindowRequested' event is handled by host. </p>
 <p>
 
 
@@ -359,7 +359,7 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>`TRUE` when the new window request was initiated through a user gesture. Examples of user initiated requests are:
+<p>'TRUE' when the new window request was initiated through a user gesture. Examples of user initiated requests are:
 
 <p>- Selecting an anchor tag with target
 
@@ -383,7 +383,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Obtain an `ICoreWebView2Deferral` object and put the event into a deferred state. Use the `ICoreWebView2Deferral` object to complete the window open request at a later time. While this event is deferred the opener window returns a `WindowProxy` to an un-navigated window, which navigates when the deferral is complete. </p>
+ Obtain an 'ICoreWebView2Deferral' object and put the event into a deferred state. Use the 'ICoreWebView2Deferral' object to complete the window open request at a later time. While this event is deferred the opener window returns a 'WindowProxy' to an un-navigated window, which navigates when the deferral is complete. </p>
 <p>
 
 
@@ -397,7 +397,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Window features specified by the `window.open`. The features should be considered for positioning and sizing of new webview windows. </p>
+ Window features specified by the 'window.open'. The features should be considered for positioning and sizing of new webview windows. </p>
 <p>
 
 
@@ -413,11 +413,11 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>Gets the name of the new window. This window can be created via `window.open(url, windowName)`, where the windowName parameter corresponds to `Name` property.
+<p>Gets the name of the new window. This window can be created via 'window.open(url, windowName)', where the windowName parameter corresponds to 'Name' property.
 
-<p>If no windowName is passed to `window.open`, then the `Name` property will be set to an empty string. Additionally, if window is opened through other means, such as `&lt;a target=&quot;windowName&quot;&gt;...&lt;/a&gt;` or `&lt;iframe name=&quot;windowName&quot;&gt;...&lt;/iframe&gt;`, then the `Name` property will be set accordingly. In the case of target=_blank, the `Name` property will be an empty string.
+<p>If no windowName is passed to 'window.open', then the 'Name' property will be set to an empty string. Additionally, if window is opened through other means, such as '&lt;a target=&quot;windowName&quot;&gt;...&lt;/a&gt;' or '&lt;iframe name=&quot;windowName&quot;&gt;...&lt;/iframe&gt;', then the 'Name' property will be set accordingly. In the case of target=_blank, the 'Name' property will be an empty string.
 
-<p>Opening a window via ctrl+clicking a link would result in the `Name` property being set to an empty string.
+<p>Opening a window via ctrl+clicking a link would result in the 'Name' property being set to an empty string.
 
 <p></p>
 <p>
@@ -433,7 +433,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The frame info of the frame where the new window request originated. The `OriginalSourceFrameInfo` is a snapshot of frame information at the time when the new window was requested. See `ICoreWebView2FrameInfo` for details on frame properties. </p>
+ The frame info of the frame where the new window request originated. The 'OriginalSourceFrameInfo' is a snapshot of frame information at the time when the new window was requested. See 'ICoreWebView2FrameInfo' for details on frame properties. </p>
 <p>
 
 

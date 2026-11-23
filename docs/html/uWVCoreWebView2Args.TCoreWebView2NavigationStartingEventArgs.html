@@ -329,7 +329,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `TRUE` when the navigation was initiated through a user gesture as opposed to programmatic navigation by page script. Navigations initiated via WebView2 APIs are considered as user initiated. </p>
+ 'TRUE' when the navigation was initiated through a user gesture as opposed to programmatic navigation by page script. Navigations initiated via WebView2 APIs are considered as user initiated. </p>
 <p>
 
 
@@ -343,7 +343,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `TRUE` when the navigation is redirected. </p>
+ 'TRUE' when the navigation is redirected. </p>
 <p>
 
 
@@ -357,7 +357,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The host may set this flag to cancel the navigation. If set, the navigation is not longer present and the content of the current page is intact. For performance reasons, `GET` HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless `msWebView2CancellableAboutNavigations` feature flag is disabled. Cancellation of frame navigation to `srcdoc` is not supported and wil be ignored. A cancelled navigation will fire a `NavigationCompleted` event with a `WebErrorStatus` of `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`. </p>
+ The host may set this flag to cancel the navigation. If set, the navigation is not longer present and the content of the current page is intact. For performance reasons, 'GET' HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless 'msWebView2CancellableAboutNavigations' feature flag is disabled. Cancellation of frame navigation to 'srcdoc' is not supported and wil be ignored. A cancelled navigation will fire a 'NavigationCompleted' event with a 'WebErrorStatus' of 'COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED'. </p>
 <p>
 
 
@@ -389,7 +389,7 @@ body { margin: 0.5em; }
 
 <p>The HTTP request headers for the navigation.
 
-<p>\&gt;NOTE: You are not able to modify the HTTP request headers in a `NavigationStarting` event.
+<p>\&gt;NOTE: You are not able to modify the HTTP request headers in a 'NavigationStarting' event.
 
 <p></p>
 <p>

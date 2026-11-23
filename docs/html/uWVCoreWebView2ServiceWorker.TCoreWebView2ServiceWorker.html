@@ -264,7 +264,7 @@ body { margin: 0.5em; }
 
 <p>Posts the specified webMessageAsJson to this worker.
 
-<p>The worker receives the message by subscribing to the `message` event of the `self.chrome.webview` of the worker.
+<p>The worker receives the message by subscribing to the 'message' event of the 'self.chrome.webview' of the worker.
 
 <p></p>
 
@@ -274,7 +274,7 @@ self.chrome.webview.removeEventListener('message', handler)</pre>
 
 <p>
 
-<p>The event args is an instance of `MessageEvent`. Both the `ICoreWebView2Profile.AreWebViewScriptApisEnabledForServiceWorkers` and `ICoreWebView2Settings.IsWebMessageEnabled` settings must be `TRUE` or the web message will not be sent. The `data` property of the event arg is the `webMessageAsJson` string parameter parsed as a JSON string into a JS object. The `source` property of the event arg is the path to the worker script. The message is delivered asynchronously.
+<p>The event args is an instance of 'MessageEvent'. Both the 'ICoreWebView2Profile.AreWebViewScriptApisEnabledForServiceWorkers' and 'ICoreWebView2Settings.IsWebMessageEnabled' settings must be 'TRUE' or the web message will not be sent. The 'data' property of the event arg is the 'webMessageAsJson' string parameter parsed as a JSON string into a JS object. The 'source' property of the event arg is the path to the worker script. The message is delivered asynchronously.
 
 <p>If the worker is terminated or destroyed before the message is posted, the message is discarded.
 
@@ -288,7 +288,7 @@ self.chrome.webview.removeEventListener('message', handler)</pre>
 
 <p>
 
-<p>See also the equivalent methods: `ICoreWebView2::PostWebMessageAsJson`, `ICoreWebView2Frame::PostWebMessageAsJson`, `ICoreWebView2DedicatedWorker::PostWebMessageAsJson`.
+<p>See also the equivalent methods: 'ICoreWebView2::PostWebMessageAsJson', 'ICoreWebView2Frame::PostWebMessageAsJson', 'ICoreWebView2DedicatedWorker::PostWebMessageAsJson'.
 
 <p></p>
 </td></tr>
@@ -302,9 +302,9 @@ self.chrome.webview.removeEventListener('message', handler)</pre>
 <p>
 
 
-<p>Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves exactly the same manner as `PostWebMessageAsJson`, but the `data` property of the event arg of the `self.chrome.webview` message is a string with the same value as `webMessageAsString`. Use this instead of `PostWebMessageAsJson` if you want to communicate using simple strings rather than JSON objects. Please see `PostWebMessageAsJson` for additional information.
+<p>Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves exactly the same manner as 'PostWebMessageAsJson', but the 'data' property of the event arg of the 'self.chrome.webview' message is a string with the same value as 'webMessageAsString'. Use this instead of 'PostWebMessageAsJson' if you want to communicate using simple strings rather than JSON objects. Please see 'PostWebMessageAsJson' for additional information.
 
-<p>See also the equivalent methods: `ICoreWebView2::PostWebMessageAsString` `ICoreWebView2Frame::PostWebMessageAsString`, `ICoreWebView2DedicatedWorker::PostWebMessageAsString`.
+<p>See also the equivalent methods: 'ICoreWebView2::PostWebMessageAsString' 'ICoreWebView2Frame::PostWebMessageAsString', 'ICoreWebView2DedicatedWorker::PostWebMessageAsString'.
 
 <p></p>
 </td></tr>
@@ -351,9 +351,9 @@ self.chrome.webview.removeEventListener('message', handler)</pre>
 
 <p>A string representing the Uri of the script that the worker is executing.
 
-<p>The `scriptUri` is a fully qualified URI, including the scheme, host, and path. In contrast, the `scriptURL` property of the `Worker` object in the DOM returns the relative URL of the script being executed by the worker. For more details on DOM API, see the [DOM API documentation](<a href="https://developer.mozilla.org/docs/Web/API/Worker/scriptURL">https://developer.mozilla.org/docs/Web/API/Worker/scriptURL</a>).
+<p>The 'scriptUri' is a fully qualified URI, including the scheme, host, and path. In contrast, the 'scriptURL' property of the 'Worker' object in the DOM returns the relative URL of the script being executed by the worker. For more details on DOM API, see the [DOM API documentation](<a href="https://developer.mozilla.org/docs/Web/API/Worker/scriptURL">https://developer.mozilla.org/docs/Web/API/Worker/scriptURL</a>).
 
-<p>Refer to the Host Name Canonicalization for details on how normalization is performed. The same process applies to the `scriptURL` when a worker is registered from DOM API. The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/worker.js">HTTPS://EXAMPLE.COM/worker.js</a>` is canonicalized to `<a href="https://example.com/worker.js">https://example.com/worker.js</a>`; `<a href="https://b">https://b</a>ücher.de/worker.js` is canonicalized to `<a href="https://xn--bcher-kva.de/worker.js">https://xn--bcher-kva.de/worker.js</a>`.
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed. The same process applies to the 'scriptURL' when a worker is registered from DOM API. The 'scriptUri' property reflects this normalization, ensuring that the URL is standardized. For example, '<a href="HTTPS://EXAMPLE.COM/worker.js">HTTPS://EXAMPLE.COM/worker.js</a>' is canonicalized to '<a href="https://example.com/worker.js">https://example.com/worker.js</a>'; '<a href="https://b">https://b</a>ücher.de/worker.js' is canonicalized to '<a href="https://xn--bcher-kva.de/worker.js">https://xn--bcher-kva.de/worker.js</a>'.
 
 <p></p>
 </td></tr>

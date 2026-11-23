@@ -29,7 +29,7 @@ type
       destructor  Destroy; override;
       /// <summary>
       /// Get the name and value of the current HTTP header of the iterator.  If
-      /// the previous `MoveNext` operation set the `hasNext` parameter to `FALSE`,
+      /// the previous 'MoveNext' operation set the 'hasNext' parameter to 'FALSE',
       /// this method fails.
       /// </summary>
       /// <remarks>
@@ -38,8 +38,8 @@ type
       function    GetCurrentHeader(var aName, aValue: wvstring): boolean;
       /// <summary>
       /// <para>Move the iterator to the next HTTP header in the collection.</para>
-      /// <para>\> [!NOTE]\n \> If no more HTTP headers exist, the `hasNext` parameter is set to
-      /// `FALSE`.  After this occurs the `GetCurrentHeader` method fails.</para>
+      /// <para>\> [!NOTE]\n \> If no more HTTP headers exist, the 'hasNext' parameter is set to
+      /// 'FALSE'.  After this occurs the 'GetCurrentHeader' method fails.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpheaderscollectioniterator#movenext">See the ICoreWebView2HttpHeadersCollectionIterator article.</see></para>
@@ -55,9 +55,9 @@ type
       /// </summary>
       property BaseIntf          : ICoreWebView2HttpHeadersCollectionIterator   read FBaseIntf;
       /// <summary>
-      /// `TRUE` when the iterator has not run out of headers.  If the collection
+      /// 'TRUE' when the iterator has not run out of headers.  If the collection
       /// over which the iterator is iterating is empty or if the iterator has gone
-      ///  past the end of the collection then this is `FALSE`.
+      ///  past the end of the collection then this is 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2httpheaderscollectioniterator#get_hascurrentheader">See the ICoreWebView2HttpHeadersCollectionIterator article.</see></para>

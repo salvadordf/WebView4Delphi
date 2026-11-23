@@ -158,7 +158,7 @@ body { margin: 0.5em; }
 
 <p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, setting the bounds property will set the size of the WebView in raw screen pixels. Changing the rasterization scale in this mode won't change the raw pixel size of the WebView and will only change the rasterization scale.
 
-<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the bounds property will change the logical size of the WebView which can be described by the following equation: ```text Logical size * rasterization scale = Raw Pixel size ``` In this case, changing the rasterization scale will keep the logical size the same and change the raw pixel size.
+<p>When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the bounds property will change the logical size of the WebView which can be described by the following equation: '''text Logical size * rasterization scale = Raw Pixel size ''' In this case, changing the rasterization scale will keep the logical size the same and change the raw pixel size.
 
 <p>\snippet ViewComponent.cpp BoundsMode </p>
 </td></tr>

@@ -110,21 +110,21 @@ body { margin: 0.5em; }
 <p>
  Page range to print. Defaults to empty string, which means print all pages. If the Page range is empty string or null, then it applies the default.
 
-<p>The PageRanges property is a list of page ranges specifying one or more pages that should be printed separated by commas. Any whitespace between page ranges is ignored. A valid page range is either a single integer identifying the page to print, or a range in the form `[start page]-[last page]` where `start page` and `last page` are integers identifying the first and last inclusive pages respectively to print. Every page identifier is an integer greater than 0 unless wildcards are used (see below examples). The first page is 1.
+<p>The PageRanges property is a list of page ranges specifying one or more pages that should be printed separated by commas. Any whitespace between page ranges is ignored. A valid page range is either a single integer identifying the page to print, or a range in the form '[start page]-[last page]' where 'start page' and 'last page' are integers identifying the first and last inclusive pages respectively to print. Every page identifier is an integer greater than 0 unless wildcards are used (see below examples). The first page is 1.
 
-<p>In a page range of the form `[start page]-[last page]` the start page number must be larger than 0 and less than or equal to the document's total page count. If the `start page` is not present, then 1 is used as the `start page`. The `last page` must be larger than the `start page`. If the `last page` is not present, then the document total page count is used as the `last page`.
+<p>In a page range of the form '[start page]-[last page]' the start page number must be larger than 0 and less than or equal to the document's total page count. If the 'start page' is not present, then 1 is used as the 'start page'. The 'last page' must be larger than the 'start page'. If the 'last page' is not present, then the document total page count is used as the 'last page'.
 
-<p>Repeating a page does not print it multiple times. To print multiple times, use the `Copies` property.
+<p>Repeating a page does not print it multiple times. To print multiple times, use the 'Copies' property.
 
 <p>The pages are always printed in ascending order, even if specified in non-ascending order.
 
-<p>If page range is not valid or if a page is greater than document total page count, `ICoreWebView2PrintCompletedHandler` or `ICoreWebView2PrintToPdfStreamCompletedHandler` handler will return `E_INVALIDARG`.
+<p>If page range is not valid or if a page is greater than document total page count, 'ICoreWebView2PrintCompletedHandler' or 'ICoreWebView2PrintToPdfStreamCompletedHandler' handler will return 'E_INVALIDARG'.
 
 <p>The following examples assume a document with 20 total pages.
 
 <p>| Example | Result | Notes | | &mdash; | &mdash; | &mdash; | | &quot;2&quot; | Page 2 | | | &quot;1-4, 9, 3-6, 10, 11&quot; | Pages 1-6, 9-11 | | | &quot;1-4, -6&quot; | Pages 1-6 | The &quot;-6&quot; is interpreted as &quot;1-6&quot;. | | &quot;2-&quot; | Pages 2-20 | The &quot;2-&quot; is interpreted as &quot;pages 2 to the end of the document&quot;. | | &quot;4-2, 11, -6&quot; | Invalid | &quot;4-2&quot; is an invalid range. | | &quot;-&quot; | Pages 1-20 | The &quot;-&quot; is interpreted as &quot;page 1 to the end of the document&quot;. | | &quot;1-4dsf, 11&quot; | Invalid | | | &quot;2-2&quot; | Page 2 | |
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings) </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings) </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{CA7F0E1F-3484-41D1-8C1A-65CD44A63F8D}']</dt>
@@ -139,7 +139,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `PageRanges` property. </p>
+ Set the 'PageRanges' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -159,7 +159,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `PagesPerSide` property. Returns `E_INVALIDARG` if an invalid value is provided, and the current value is not changed.
+ Set the 'PagesPerSide' property. Returns 'E_INVALIDARG' if an invalid value is provided, and the current value is not changed.
 
 <p>Below examples shows print output for PagesPerSide and Duplex.
 
@@ -173,7 +173,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Number of copies to print. Minimum value is `1` and the maximum copies count is `999`. The default value is 1.
+ Number of copies to print. Minimum value is '1' and the maximum copies count is '999'. The default value is 1.
 
 <p>This value is ignored in PrintToPdfStream method. </p>
 </td></tr>
@@ -185,7 +185,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `Copies` property. Returns `E_INVALIDARG` if an invalid value is provided and the current value is not changed. </p>
+ Set the 'Copies' property. Returns 'E_INVALIDARG' if an invalid value is provided and the current value is not changed. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -195,7 +195,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Printer collation. See `COREWEBVIEW2_PRINT_COLLATION` for descriptions of collation. The default value is `COREWEBVIEW2_PRINT_COLLATION_DEFAULT`.
+ Printer collation. See 'COREWEBVIEW2_PRINT_COLLATION' for descriptions of collation. The default value is 'COREWEBVIEW2_PRINT_COLLATION_DEFAULT'.
 
 <p>Printing uses default value of printer's collation if an invalid value is provided for the specific printer.
 
@@ -209,7 +209,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `Collation` property. </p>
+ Set the 'Collation' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -219,7 +219,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Printer color mode. See `COREWEBVIEW2_PRINT_COLOR_MODE` for descriptions of color modes. The default value is `COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT`.
+ Printer color mode. See 'COREWEBVIEW2_PRINT_COLOR_MODE' for descriptions of color modes. The default value is 'COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT'.
 
 <p>Printing uses default value of printer supported color if an invalid value is provided for the specific printer. </p>
 </td></tr>
@@ -231,7 +231,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `ColorMode` property. </p>
+ Set the 'ColorMode' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -241,7 +241,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Printer duplex settings. See `COREWEBVIEW2_PRINT_DUPLEX` for descriptions of duplex. The default value is `COREWEBVIEW2_PRINT_DUPLEX_DEFAULT`.
+ Printer duplex settings. See 'COREWEBVIEW2_PRINT_DUPLEX' for descriptions of duplex. The default value is 'COREWEBVIEW2_PRINT_DUPLEX_DEFAULT'.
 
 <p>Printing uses default value of printer's duplex if an invalid value is provided for the specific printer.
 
@@ -255,7 +255,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `Duplex` property. </p>
+ Set the 'Duplex' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -265,9 +265,9 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Printer media size. See `COREWEBVIEW2_PRINT_MEDIA_SIZE` for descriptions of media size. The default value is `COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT`.
+ Printer media size. See 'COREWEBVIEW2_PRINT_MEDIA_SIZE' for descriptions of media size. The default value is 'COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT'.
 
-<p>If media size is `COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM`, you should set the `PageWidth` and `PageHeight`.
+<p>If media size is 'COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM', you should set the 'PageWidth' and 'PageHeight'.
 
 <p>Printing uses default value of printer supported media size if an invalid value is provided for the specific printer.
 
@@ -281,7 +281,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `MediaSize` property. </p>
+ Set the 'MediaSize' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -295,7 +295,7 @@ body { margin: 0.5em; }
 
 <p>This value is ignored in PrintToPdfStream method.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings) </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings) </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -305,7 +305,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Set the `PrinterName` property. If provided printer name doesn't match with the name of any installed printers on the user OS, `ICoreWebView2PrintCompletedHandler` handler will return `errorCode` as `S_OK` and `printStatus` as COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE.
+ Set the 'PrinterName' property. If provided printer name doesn't match with the name of any installed printers on the user OS, 'ICoreWebView2PrintCompletedHandler' handler will return 'errorCode' as 'S_OK' and 'printStatus' as COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE.
 
 <p>Use [Enum Printers](/windows/win32/printdocs/enumprinters) to enumerate available printers. </p>
 </td></tr>

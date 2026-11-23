@@ -63,7 +63,7 @@ type
       /// </summary>
       property BaseIntf                 : ICoreWebView2ContextMenuItem             read FBaseIntf                     write FBaseIntf;
       /// <summary>
-      /// Gets the unlocalized name for the `ContextMenuItem`. Use this to
+      /// Gets the unlocalized name for the 'ContextMenuItem'. Use this to
       /// distinguish between context menu item types. This will be the English
       /// label of the menu item in lower camel case. For example, the "Save as"
       /// menu item will be "saveAs". Extension menu items will be "extension",
@@ -75,7 +75,7 @@ type
       /// </remarks>
       property Name                     : wvstring                                 read GetName;
       /// <summary>
-      /// Gets the localized label for the `ContextMenuItem`. Will contain an
+      /// Gets the localized label for the 'ContextMenuItem'. Will contain an
       /// ampersand for characters to be used as keyboard accelerator.
       /// </summary>
       /// <remarks>
@@ -83,8 +83,8 @@ type
       /// </remarks>
       property Label_                   : wvstring                                 read GetLabel;
       /// <summary>
-      /// Gets the Command ID for the `ContextMenuItem`. Use this to report the
-      /// `SelectedCommandId` in `ContextMenuRequested` event.
+      /// Gets the Command ID for the 'ContextMenuItem'. Use this to report the
+      /// 'SelectedCommandId' in 'ContextMenuRequested' event.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#get_commandid">See the ICoreWebView2ContextMenuItem article.</see></para>
@@ -94,14 +94,14 @@ type
       /// Gets the localized keyboard shortcut for this ContextMenuItem. It will be
       /// the empty string if there is no keyboard shortcut. This is text intended
       /// to be displayed to the end user to show the keyboard shortcut. For example
-      /// this property is Ctrl+Shift+I for the "Inspect" `ContextMenuItem`.
+      /// this property is Ctrl+Shift+I for the "Inspect" 'ContextMenuItem'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#get_shortcutkeydescription">See the ICoreWebView2ContextMenuItem article.</see></para>
       /// </remarks>
       property ShortcutKeyDescription   : wvstring                                 read GetShortcutKeyDescription;
       /// <summary>
-      /// Gets the Icon for the `ContextMenuItem` in PNG, Bitmap or SVG formats in the form of an IStream.
+      /// Gets the Icon for the 'ContextMenuItem' in PNG, Bitmap or SVG formats in the form of an IStream.
       /// Stream will be rewound to the start of the image data.
       /// </summary>
       /// <remarks>
@@ -109,28 +109,28 @@ type
       /// </remarks>
       property Icon                     : IStream                                  read GetIcon;
       /// <summary>
-      /// Gets the `ContextMenuItem` kind.
+      /// Gets the 'ContextMenuItem' kind.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#get_kind">See the ICoreWebView2ContextMenuItem article.</see></para>
       /// </remarks>
       property Kind                     : TWVMenuItemKind                          read GetKind;
       /// <summary>
-      /// Gets the enabled property of the `ContextMenuItem`.
+      /// Gets the enabled property of the 'ContextMenuItem'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#get_isenabled">See the ICoreWebView2ContextMenuItem article.</see></para>
       /// </remarks>
       property IsEnabled                : boolean                                  read GetIsEnabled                  write SetIsEnabled;
       /// <summary>
-      /// Gets the checked property of the `ContextMenuItem`, used if the kind is Check box or Radio.
+      /// Gets the checked property of the 'ContextMenuItem', used if the kind is Check box or Radio.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitem#get_ischecked">See the ICoreWebView2ContextMenuItem article.</see></para>
       /// </remarks>
       property IsChecked                : boolean                                  read GetIsChecked                  write SetIsChecked;
       /// <summary>
-      /// Gets the list of children menu items through a `ContextMenuItemCollection`
+      /// Gets the list of children menu items through a 'ContextMenuItemCollection'
       /// if the kind is Submenu. If the kind is not submenu, will return null.
       /// </summary>
       /// <remarks>

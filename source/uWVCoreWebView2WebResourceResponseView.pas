@@ -40,7 +40,7 @@ type
       /// response content stream.</para>
       /// <para>This method returns null if content size is more than 123MB or for navigations that become downloads
       /// or if response is downloadable content type (e.g., application/octet-stream).
-      /// See `add_DownloadStarting` event to handle the response.</para>
+      /// See 'add_DownloadStarting' event to handle the response.</para>
       /// <para>If this method is being called again before a first call has completed,
       /// the handler will be invoked at the same time the handlers from prior calls
       /// are invoked.</para>

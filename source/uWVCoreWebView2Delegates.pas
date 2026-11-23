@@ -68,7 +68,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ContentLoading` events.
+  /// Receives 'ContentLoading' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contentloadingeventhandler">See the ICoreWebView2ContentLoadingEventHandler article.</see></para>
@@ -1297,9 +1297,9 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the `GetProcessExtendedInfos` method.
-  /// The result is written to the collection of `ProcessExtendedInfo`s provided
-  /// in the `GetProcessExtendedInfos` method call.
+  /// Receives the result of the 'GetProcessExtendedInfos' method.
+  /// The result is written to the collection of 'ProcessExtendedInfo's provided
+  /// in the 'GetProcessExtendedInfos' method call.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getprocessextendedinfoscompletedhandler">See the ICoreWebView2GetProcessExtendedInfosCompletedHandler article.</see></para>
@@ -1391,7 +1391,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the `CoreWebView2Profile.Deleted` event.
+  /// Receives the 'CoreWebView2Profile.Deleted' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profiledeletedeventhandler">See the ICoreWebView2ProfileDeletedEventHandler article.</see></para>
@@ -1426,7 +1426,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `NonClientRegionChanged` events.
+  /// Receives 'NonClientRegionChanged' events.
   /// event.
   /// </summary>
   /// <remarks>
@@ -1445,7 +1445,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `NotificationReceived` events.
+  /// Receives 'NotificationReceived' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notificationreceivedeventhandler">See the ICoreWebView2NotificationReceivedEventHandler article.</see></para>
@@ -1463,7 +1463,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `CloseRequested` events.
+  /// Receives 'CloseRequested' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notificationcloserequestedeventhandler">See the ICoreWebView2NotificationCloseRequestedEventHandler article.</see></para>
@@ -1480,7 +1480,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `SaveAsUIShowing` events.
+  /// Receives 'SaveAsUIShowing' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2saveasuishowingeventhandler">See the ICoreWebView2SaveAsUIShowingEventHandler article.</see></para>
@@ -1497,7 +1497,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the `ShowSaveAsUI` method.
+  /// Receives the result of the 'ShowSaveAsUI' method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2showsaveasuicompletedhandler">See the ICoreWebView2ShowSaveAsUICompletedHandler article.</see></para>
@@ -1514,7 +1514,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `SaveFileSecurityCheckStarting` events.
+  /// Receives 'SaveFileSecurityCheckStarting' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventhandler">See the ICoreWebView2SaveFileSecurityCheckStartingEventHandler article.</see></para>
@@ -1531,7 +1531,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ScreenCaptureStarting` events.
+  /// Receives 'ScreenCaptureStarting' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2screencapturestartingeventhandler">See the ICoreWebView2ScreenCaptureStartingEventHandler article.</see></para>
@@ -1548,7 +1548,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ScreenCaptureStarting` events.
+  /// Receives 'ScreenCaptureStarting' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framescreencapturestartingeventhandler">See the ICoreWebView2FrameScreenCaptureStartingEventHandler article.</see></para>
@@ -1566,7 +1566,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `FrameCreated` events.
+  /// Receives 'FrameCreated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framechildframecreatedeventhandler">See the ICoreWebView2FrameChildFrameCreatedEventHandler article.</see></para>
@@ -1584,7 +1584,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ActiveMatchIndexChanged` events.
+  /// Receives 'ActiveMatchIndexChanged' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findactivematchindexchangedeventhandler">See the ICoreWebView2FindActiveMatchIndexChangedEventHandler article.</see></para>
@@ -1601,7 +1601,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `MatchCountChanged` events.
+  /// Receives 'MatchCountChanged' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findmatchcountchangedeventhandler">See the ICoreWebView2FindMatchCountChangedEventHandler article.</see></para>
@@ -1618,7 +1618,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the `Start` method.
+  /// Receives the result of the 'Start' method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2findstartcompletedhandler">See the ICoreWebView2FindStartCompletedHandler article.</see></para>
@@ -1635,7 +1635,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `DragStarting` events.
+  /// Receives 'DragStarting' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventhandler">See the ICoreWebView2DragStartingEventHandler article.</see></para>
@@ -1653,7 +1653,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `DedicatedWorkerCreated` events.
+  /// Receives 'DedicatedWorkerCreated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworkercreatedeventhandler">See the ICoreWebView2DedicatedWorkerCreatedEventHandler article.</see></para>
@@ -1671,7 +1671,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `DedicatedWorkerCreated` events.
+  /// Receives 'DedicatedWorkerCreated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworkerdedicatedworkercreatedeventhandler">See the ICoreWebView2DedicatedWorkerDedicatedWorkerCreatedEventHandler article.</see></para>
@@ -1690,7 +1690,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `Destroying` events.
+  /// Receives 'Destroying' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworkerdestroyingeventhandler">See the ICoreWebView2DedicatedWorkerDestroyingEventHandler article.</see></para>
@@ -1708,7 +1708,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `WebMessageReceived` events.
+  /// Receives 'WebMessageReceived' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworkerwebmessagereceivedeventhandler">See the ICoreWebView2DedicatedWorkerWebMessageReceivedEventHandler article.</see></para>
@@ -1726,7 +1726,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `DedicatedWorkerCreated` events.
+  /// Receives 'DedicatedWorkerCreated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2framededicatedworkercreatedeventhandler">See the ICoreWebView2FrameDedicatedWorkerCreatedEventHandler article.</see></para>
@@ -1744,7 +1744,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `Destroying` events.
+  /// Receives 'Destroying' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerdestroyingeventhandler">See the ICoreWebView2ServiceWorkerDestroyingEventHandler article.</see></para>
@@ -1762,7 +1762,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `WebMessageReceived` events.
+  /// Receives 'WebMessageReceived' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerwebmessagereceivedeventhandler">See the ICoreWebView2ServiceWorkerWebMessageReceivedEventHandler article.</see></para>
@@ -1780,7 +1780,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ServiceWorkerRegistered` events.
+  /// Receives 'ServiceWorkerRegistered' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregisteredeventhandler">See the ICoreWebView2ServiceWorkerRegisteredEventHandler article.</see></para>
@@ -1797,7 +1797,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the `GetServiceWorkerRegistrations` method.
+  /// Receives the result of the 'GetServiceWorkerRegistrations' method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getserviceworkerregistrationscompletedhandler">See the ICoreWebView2GetServiceWorkerRegistrationsCompletedHandler article.</see></para>
@@ -1814,7 +1814,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `ServiceWorkerActivated` events.
+  /// Receives 'ServiceWorkerActivated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkeractivatedeventhandler">See the ICoreWebView2ServiceWorkerActivatedEventHandler article.</see></para>
@@ -1831,7 +1831,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `Unregistering` events.
+  /// Receives 'Unregistering' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregistrationunregisteringeventhandler">See the ICoreWebView2ServiceWorkerRegistrationUnregisteringEventHandler article.</see></para>
@@ -1848,7 +1848,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `SharedWorkerCreated` events.
+  /// Receives 'SharedWorkerCreated' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedworkercreatedeventhandler">See the ICoreWebView2SharedWorkerCreatedEventHandler article.</see></para>
@@ -1865,7 +1865,7 @@ type
   end;
 
   /// <summary>
-  /// Receives the result of the `GetSharedWorkers` method.
+  /// Receives the result of the 'GetSharedWorkers' method.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2getsharedworkerscompletedhandler">See the ICoreWebView2GetSharedWorkersCompletedHandler article.</see></para>
@@ -1882,7 +1882,7 @@ type
   end;
 
   /// <summary>
-  /// Receives `Destroying` events.
+  /// Receives 'Destroying' events.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedworkerdestroyingeventhandler">See the ICoreWebView2SharedWorkerDestroyingEventHandler article.</see></para>

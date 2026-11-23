@@ -65,7 +65,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- An app may call the `TrySuspend` API to have the WebView2 consume less memory. This is useful when a Win32 app becomes invisible, or when a Universal Windows Platform app is being suspended, during the suspended event handler before completing the suspended event. The CoreWebView2Controller's IsVisible property must be false when the API is called. Otherwise, the API fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses WebView script timers and animations, minimizes CPU usage for the associated browser renderer process and allows the operating system to reuse the memory that was used by the renderer process for other processes. Note that Suspend is best effort and considered completed successfully once the request is sent to browser renderer process. If there is a running script, the script will continue to run and the renderer process will be suspended after that script is done. See [Sleeping Tabs FAQ](<a href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434</a>) for conditions that might prevent WebView from being suspended. In those situations, the completed handler will be invoked with isSuccessful as false and errorCode as S_OK. The WebView will be automatically resumed when it becomes visible. Therefore, the app normally does not have to call `Resume` explicitly. The app can call `Resume` and then `TrySuspend` periodically for an invisible WebView so that the invisible WebView can sync up with latest data and the page ready to show fresh content when it becomes visible. All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property before calling APIs that might change WebView state.
+ An app may call the 'TrySuspend' API to have the WebView2 consume less memory. This is useful when a Win32 app becomes invisible, or when a Universal Windows Platform app is being suspended, during the suspended event handler before completing the suspended event. The CoreWebView2Controller's IsVisible property must be false when the API is called. Otherwise, the API fails with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'. Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses WebView script timers and animations, minimizes CPU usage for the associated browser renderer process and allows the operating system to reuse the memory that was used by the renderer process for other processes. Note that Suspend is best effort and considered completed successfully once the request is sent to browser renderer process. If there is a running script, the script will continue to run and the renderer process will be suspended after that script is done. See [Sleeping Tabs FAQ](<a href="https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434">https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434</a>) for conditions that might prevent WebView from being suspended. In those situations, the completed handler will be invoked with isSuccessful as false and errorCode as S_OK. The WebView will be automatically resumed when it becomes visible. Therefore, the app normally does not have to call 'Resume' explicitly. The app can call 'Resume' and then 'TrySuspend' periodically for an invisible WebView so that the invisible WebView can sync up with latest data and the page ready to show fresh content when it becomes visible. All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate will auto resume the WebView. To avoid unexpected auto resume, check 'IsSuspended' property before calling APIs that might change WebView state.
 
 <p>\snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
 
@@ -84,7 +84,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Resumes the WebView so that it resumes activities on the web page. This API can be called while the WebView2 controller is invisible. The app can interact with the WebView immediately after `Resume`. WebView will be automatically resumed when it becomes visible.
+ Resumes the WebView so that it resumes activities on the web page. This API can be called while the WebView2 controller is invisible. The app can interact with the WebView immediately after 'Resume'. WebView will be automatically resumed when it becomes visible.
 
 <p>\snippet ViewComponent.cpp ToggleIsVisibleOnMinimize
 
@@ -98,7 +98,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Whether WebView is suspended. `TRUE` when WebView is suspended, from the time when TrySuspend has completed successfully until WebView is resumed. </p>
+ Whether WebView is suspended. 'TRUE' when WebView is suspended, from the time when TrySuspend has completed successfully until WebView is resumed. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -122,23 +122,23 @@ body { margin: 0.5em; }
 
 <p>accessKind specifies the level of access to resources under the virtual host from other sites.
 
-<p>For example, after calling ```cpp SetVirtualHostNameToFolderMapping( L&quot;appassets.example&quot;, L&quot;assets&quot;, COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY); ``` navigating to `<a href="https://appassets.example/my-local-file.html">https://appassets.example/my-local-file.html</a>` will show the content from my-local-file.html in the assets subfolder located on disk under the same path as the app's executable file.
+<p>For example, after calling '''cpp SetVirtualHostNameToFolderMapping( L&quot;appassets.example&quot;, L&quot;assets&quot;, COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY); ''' navigating to '<a href="https://appassets.example/my-local-file.html">https://appassets.example/my-local-file.html</a>' will show the content from my-local-file.html in the assets subfolder located on disk under the same path as the app's executable file.
 
-<p>DOM elements that want to reference local files will have their host reference virtual host in the source. If there are multiple folders being used, define one unique virtual host per folder. For example, you can embed a local image like this ```cpp WCHAR c_navString[] = L&quot;&lt;img src=\&quot;<a href="http://appassets.example/wv2.png">http://appassets.example/wv2.png</a>\&quot;/&gt;&quot;; m_webView-&gt;NavigateToString(c_navString); ``` The example above shows the image wv2.png by resolving the folder mapping above.
+<p>DOM elements that want to reference local files will have their host reference virtual host in the source. If there are multiple folders being used, define one unique virtual host per folder. For example, you can embed a local image like this '''cpp WCHAR c_navString[] = L&quot;&lt;img src=\&quot;<a href="http://appassets.example/wv2.png">http://appassets.example/wv2.png</a>\&quot;/&gt;&quot;; m_webView-&gt;NavigateToString(c_navString); ''' The example above shows the image wv2.png by resolving the folder mapping above.
 
 <p>You should typically choose virtual host names that are never used by real sites. If you own a domain such as example.com, another option is to use a subdomain reserved for the app (like my-app.example.com).
 
 <p>[RFC 6761](<a href="https://tools.ietf.org/html/rfc6761">https://tools.ietf.org/html/rfc6761</a>) has reserved several special-use domain names that are guaranteed to not be used by real sites (for example, .example, .test, and .invalid.)
 
-<p>Note that using `.local` as the top-level domain name will work but can cause a delay during navigations. You should avoid using `.local` if you can.
+<p>Note that using '.local' as the top-level domain name will work but can cause a delay during navigations. You should avoid using '.local' if you can.
 
 <p>Apps should use distinct domain names when mapping folder from different sources that should be isolated from each other. For instance, the app might use app-file.example for files that ship as part of the app, and book1.example might be used for files containing books from a less trusted source that were previously downloaded and saved to the disk by the app.
 
 <p>The host name used in the APIs is canonicalized using Chromium's host name parsing logic before being used internally. For more information see [HTML5 2.6 URLs](<a href="https://dev.w3.org/html5/spec-LC/urls.html">https://dev.w3.org/html5/spec-LC/urls.html</a>).
 
-<p>All host names that are canonicalized to the same string are considered identical. For example, `EXAMPLE.COM` and `example.com` are treated as the same host name. An international host name and its Punycode-encoded host name are considered the same host name. There is no DNS resolution for host name and the trailing '.' is not normalized as part of canonicalization.
+<p>All host names that are canonicalized to the same string are considered identical. For example, 'EXAMPLE.COM' and 'example.com' are treated as the same host name. An international host name and its Punycode-encoded host name are considered the same host name. There is no DNS resolution for host name and the trailing '.' is not normalized as part of canonicalization.
 
-<p>Therefore `example.com` and `example.com.` are treated as different host names. Similarly, `virtual-host-name` and `virtual-host-name.example.com` are treated as different host names even if the machine has a DNS suffix of `example.com`.
+<p>Therefore 'example.com' and 'example.com.' are treated as different host names. Similarly, 'virtual-host-name' and 'virtual-host-name.example.com' are treated as different host names even if the machine has a DNS suffix of 'example.com'.
 
 <p>Specify the minimal cross-origin access necessary to run the app. If there is not a need to access local resources from other origins, use COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY.
 
@@ -154,7 +154,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`. </p>
+ Clears a host name mapping for local folder that was added by 'SetVirtualHostNameToFolderMapping'. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

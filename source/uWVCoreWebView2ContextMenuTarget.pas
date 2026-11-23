@@ -77,7 +77,7 @@ type
       /// </remarks>
       property PageUri                  : wvstring                               read GetPageUri;
       /// <summary>
-      /// Gets the uri of the frame. Will match the PageUri if `IsRequestedForMainFrame` is TRUE.
+      /// Gets the uri of the frame. Will match the PageUri if 'IsRequestedForMainFrame' is TRUE.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_frameuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
@@ -91,7 +91,7 @@ type
       /// </remarks>
       property HasLinkUri               : boolean                                read GetHasLinkUri;
       /// <summary>
-      /// Gets the uri of the link (if `HasLinkUri` is TRUE, null otherwise).
+      /// Gets the uri of the link (if 'HasLinkUri' is TRUE, null otherwise).
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_linkuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
@@ -105,7 +105,7 @@ type
       /// </remarks>
       property HasLinkText              : boolean                                read GetHasLinkText;
       /// <summary>
-      /// Gets the text of the link (if `HasLinkText` is TRUE, null otherwise).
+      /// Gets the text of the link (if 'HasLinkText' is TRUE, null otherwise).
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_linktext">See the ICoreWebView2ContextMenuTarget article.</see></para>
@@ -119,7 +119,7 @@ type
       /// </remarks>
       property HasSourceUri             : boolean                                read GetHasSourceUri;
       /// <summary>
-      /// Gets the active source uri of element (if `HasSourceUri` is TRUE, null otherwise).
+      /// Gets the active source uri of element (if 'HasSourceUri' is TRUE, null otherwise).
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_sourceuri">See the ICoreWebView2ContextMenuTarget article.</see></para>
@@ -133,7 +133,7 @@ type
       /// </remarks>
       property HasSelection             : boolean                                read GetHasSelection;
       /// <summary>
-      /// Gets the selected text (if `HasSelection` is TRUE, null otherwise).
+      /// Gets the selected text (if 'HasSelection' is TRUE, null otherwise).
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenutarget#get_selectiontext">See the ICoreWebView2ContextMenuTarget article.</see></para>

@@ -65,11 +65,11 @@ body { margin: 0.5em; }
 <p>
  Asynchronously create a new WebView.
 
-<p>`parentWindow` is the `HWND` in which the WebView should be displayed and from which receive input. The WebView adds a child window to the provided window before this function returns. Z-order and other things impacted by sibling window order are affected accordingly. If you want to move the WebView to a different parent after it has been created, you must call put_ParentWindow to update tooltip positions, accessibility trees, and such.
+<p>'parentWindow' is the 'HWND' in which the WebView should be displayed and from which receive input. The WebView adds a child window to the provided window before this function returns. Z-order and other things impacted by sibling window order are affected accordingly. If you want to move the WebView to a different parent after it has been created, you must call put_ParentWindow to update tooltip positions, accessibility trees, and such.
 
-<p>HWND_MESSAGE is a valid parameter for `parentWindow` for an invisible WebView for Windows 8 and above. In this case the window will never become visible. You are not able to reparent the window after you have created the WebView. This is not supported in Windows 7 or below. Passing this parameter in Windows 7 or below will return ERROR_INVALID_WINDOW_HANDLE in the controller callback.
+<p>HWND_MESSAGE is a valid parameter for 'parentWindow' for an invisible WebView for Windows 8 and above. In this case the window will never become visible. You are not able to reparent the window after you have created the WebView. This is not supported in Windows 7 or below. Passing this parameter in Windows 7 or below will return ERROR_INVALID_WINDOW_HANDLE in the controller callback.
 
-<p>It is recommended that the app set Application User Model ID for the process or the app window. If none is set, during WebView creation a generated Application User Model ID is set to root window of `parentWindow`.
+<p>It is recommended that the app set Application User Model ID for the process or the app window. If none is set, during WebView creation a generated Application User Model ID is set to root window of 'parentWindow'.
 
 <p>\snippet AppWindow.cpp CreateCoreWebView2Controller
 
@@ -77,13 +77,13 @@ body { margin: 0.5em; }
 
 <p>\snippet AppWindow.cpp RestartManager
 
-<p>The app should retry `CreateCoreWebView2Controller` upon failure, unless the error code is `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. When the app retries `CreateCoreWebView2Controller` upon failure, it is recommended that the app restarts from creating a new WebView2 Environment. If a WebView2 Runtime update happens, the version associated with a WebView2 Environment may have been removed and causing the object to no longer work. Creating a new WebView2 Environment works since it uses the latest version.
+<p>The app should retry 'CreateCoreWebView2Controller' upon failure, unless the error code is 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'. When the app retries 'CreateCoreWebView2Controller' upon failure, it is recommended that the app restarts from creating a new WebView2 Environment. If a WebView2 Runtime update happens, the version associated with a WebView2 Environment may have been removed and causing the object to no longer work. Creating a new WebView2 Environment works since it uses the latest version.
 
-<p>WebView creation fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if a running instance using the same user data folder exists, and the Environment objects have different `EnvironmentOptions`. For example, if a WebView was created with one language, an attempt to create a WebView with a different language using the same user data folder will fail.
+<p>WebView creation fails with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if a running instance using the same user data folder exists, and the Environment objects have different 'EnvironmentOptions'. For example, if a WebView was created with one language, an attempt to create a WebView with a different language using the same user data folder will fail.
 
-<p>The creation will fail with `E_ABORT` if `parentWindow` is destroyed before the creation is finished. If this is caused by a call to `DestroyWindow`, the creation completed handler will be invoked before `DestroyWindow` returns, so you can use this to cancel creation and clean up resources synchronously when quitting a thread.
+<p>The creation will fail with 'E_ABORT' if 'parentWindow' is destroyed before the creation is finished. If this is caused by a call to 'DestroyWindow', the creation completed handler will be invoked before 'DestroyWindow' returns, so you can use this to cancel creation and clean up resources synchronously when quitting a thread.
 
-<p>In rare cases the creation can fail with `E_UNEXPECTED` if runtime does not have permissions to the user data folder. </p>
+<p>In rare cases the creation can fail with 'E_UNEXPECTED' if runtime does not have permissions to the user data folder. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{B96D755E-0319-4E92-A296-23436F46A1FC}']</dt>
@@ -98,7 +98,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Create a new web resource response object. The `headers` parameter is the raw response header string delimited by newline. It is also possible to create this object with null headers string and then use the `ICoreWebView2HttpResponseHeaders` to construct the headers line by line. For more information about other parameters, navigate to [ICoreWebView2WebResourceResponse](/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse).
+ Create a new web resource response object. The 'headers' parameter is the raw response header string delimited by newline. It is also possible to create this object with null headers string and then use the 'ICoreWebView2HttpResponseHeaders' to construct the headers line by line. For more information about other parameters, navigate to [ICoreWebView2WebResourceResponse](/microsoft-edge/webview2/reference/win32/icorewebview2webresourceresponse).
 
 <p>\snippet SettingsComponent.cpp WebResourceRequested0 \snippet SettingsComponent.cpp WebResourceRequested1 </p>
 </td></tr>
@@ -110,9 +110,9 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The browser version info of the current `ICoreWebView2Environment`, including channel name if it is not the WebView2 Runtime. It matches the format of the `GetAvailableCoreWebView2BrowserVersionString` API. Channel names are `beta`, `dev`, and `canary`.
+ The browser version info of the current 'ICoreWebView2Environment', including channel name if it is not the WebView2 Runtime. It matches the format of the 'GetAvailableCoreWebView2BrowserVersionString' API. Channel names are 'beta', 'dev', and 'canary'.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
 
 <p>\snippet AppWindow.cpp GetBrowserVersionString </p>
 </td></tr>
@@ -124,7 +124,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `NewBrowserVersionAvailable` event. `NewBrowserVersionAvailable` runs when a newer version of the WebView2 Runtime is installed and available using WebView2. To use the newer version of the browser you must create a new environment and WebView. The event only runs for new version from the same WebView2 Runtime from which the code is running. When not running with installed WebView2 Runtime, no event is run.
+ Add an event handler for the 'NewBrowserVersionAvailable' event. 'NewBrowserVersionAvailable' runs when a newer version of the WebView2 Runtime is installed and available using WebView2. To use the newer version of the browser you must create a new environment and WebView. The event only runs for new version from the same WebView2 Runtime from which the code is running. When not running with installed WebView2 Runtime, no event is run.
 
 <p>Because a user data folder is only able to be used by one browser process at a time, if you want to use the same user data folder in the WebView using the new version of the browser, you must close the environment and instance of WebView that are using the older version of the browser first. Or simply prompt the user to restart the app.
 
@@ -138,7 +138,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_NewBrowserVersionAvailable`. </p>
+ Remove an event handler previously added with 'add_NewBrowserVersionAvailable'. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

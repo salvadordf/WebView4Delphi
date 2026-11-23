@@ -337,7 +337,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The status of a permission request, (for example is the request is granted). The default value is `COREWEBVIEW2_PERMISSION_STATE_DEFAULT`. </p>
+ The status of a permission request, (for example is the request is granted). The default value is 'COREWEBVIEW2_PERMISSION_STATE_DEFAULT'. </p>
 <p>
 
 
@@ -367,7 +367,7 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>`TRUE` when the permission request was initiated through a user gesture.
+<p>'TRUE' when the permission request was initiated through a user gesture.
 
 <p>NOTE: Being initiated through a user gesture does not mean that user intended to access the associated resource.
 
@@ -385,7 +385,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets an `ICoreWebView2Deferral` object. Use the deferral object to make the permission decision at a later time. The deferral only applies to the current request, and does not prevent the `OnPermissionRequested` event from getting raised for new requests. However, for some permission kinds the WebView will avoid creating a new request if there is a pending request of the same kind. </p>
+ Gets an 'ICoreWebView2Deferral' object. Use the deferral object to make the permission decision at a later time. The deferral only applies to the current request, and does not prevent the 'OnPermissionRequested' event from getting raised for new requests. However, for some permission kinds the WebView will avoid creating a new request if there is a pending request of the same kind. </p>
 <p>
 
 
@@ -401,9 +401,9 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>By default, both the `OnPermissionRequested` event handlers on the `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the `CoreWebView2Frame` event handlers invoked first. The host may set this flag to `TRUE` within the `CoreWebView2Frame` event handlers to prevent the remaining `CoreWebView2` event handlers from being invoked.
+<p>By default, both the 'OnPermissionRequested' event handlers on the 'CoreWebView2Frame' and the 'CoreWebView2' will be invoked, with the 'CoreWebView2Frame' event handlers invoked first. The host may set this flag to 'TRUE' within the 'CoreWebView2Frame' event handlers to prevent the remaining 'CoreWebView2' event handlers from being invoked.
 
-<p>If a deferral is taken on the event args, then you must synchronously set `Handled` to TRUE prior to taking your deferral to prevent the `CoreWebView2`s event handlers from being invoked.
+<p>If a deferral is taken on the event args, then you must synchronously set 'Handled' to TRUE prior to taking your deferral to prevent the 'CoreWebView2's event handlers from being invoked.
 
 <p></p>
 <p>
@@ -419,7 +419,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The permission state set from the `PermissionRequested` event is saved in the profile by default; it persists across sessions and becomes the new default behavior for future `PermissionRequested` events. Browser heuristics can affect whether the event continues to be raised when the state is saved in the profile. Set the `SavesInProfile` property to `FALSE` to not persist the state beyond the current request, and to continue to receive `PermissionRequested` events for this origin and permission kind. </p>
+ The permission state set from the 'PermissionRequested' event is saved in the profile by default; it persists across sessions and becomes the new default behavior for future 'PermissionRequested' events. Browser heuristics can affect whether the event continues to be raised when the state is saved in the profile. Set the 'SavesInProfile' property to 'FALSE' to not persist the state beyond the current request, and to continue to receive 'PermissionRequested' events for this origin and permission kind. </p>
 <p>
 
 

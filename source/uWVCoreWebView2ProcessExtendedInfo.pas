@@ -11,7 +11,7 @@ uses
 
 type
   /// <summary>
-  /// Provides process with associated extended information in the `ICoreWebView2Environment`.
+  /// Provides process with associated extended information in the 'ICoreWebView2Environment'.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processextendedinfo">See the ICoreWebView2ProcessExtendedInfo article.</see></para>
@@ -41,11 +41,11 @@ type
       /// </summary>
       property ProcessInfo                         : ICoreWebView2ProcessInfo          read GetProcessInfo;
       /// <summary>
-      /// The collection of associated `FrameInfo`s which are actively running
-      /// (showing or hiding UI elements) in this renderer process. `AssociatedFrameInfos`
-      /// will only be populated when this `ICoreWebView2ProcessExtendedInfo`
+      /// The collection of associated 'FrameInfo's which are actively running
+      /// (showing or hiding UI elements) in this renderer process. 'AssociatedFrameInfos'
+      /// will only be populated when this 'ICoreWebView2ProcessExtendedInfo'
       /// corresponds to a renderer process. Non-renderer processes will always
-      /// have an empty `AssociatedFrameInfos`. The `AssociatedFrameInfos` may
+      /// have an empty 'AssociatedFrameInfos'. The 'AssociatedFrameInfos' may
       /// also be empty for renderer processes that have no active frames.
       /// </summary>
       property AssociatedFrameInfos                : ICoreWebView2FrameInfoCollection  read GetAssociatedFrameInfos;

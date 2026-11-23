@@ -65,17 +65,17 @@ type
       property KeyEventKind                   : TWVKeyEventKind                              read GetKeyEventKind;
       /// <summary>
       /// The Win32 virtual key code of the key that was pressed or released.  It
-      /// is one of the Win32 virtual key constants such as `VK_RETURN` or an
-      /// (uppercase) ASCII value such as `A`.  Verify whether Ctrl or Alt
-      /// are pressed by running `GetKeyState(VK_CONTROL)` or
-      /// `GetKeyState(VK_MENU)`.
+      /// is one of the Win32 virtual key constants such as 'VK_RETURN' or an
+      /// (uppercase) ASCII value such as 'A'.  Verify whether Ctrl or Alt
+      /// are pressed by running 'GetKeyState(VK_CONTROL)' or
+      /// 'GetKeyState(VK_MENU)'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2acceleratorkeypressedeventargs#get_virtualkey">See the ICoreWebView2AcceleratorKeyPressedEventArgs article.</see></para>
       /// </remarks>
       property VirtualKey                     : LongWord                                     read GetVirtualKey;
       /// <summary>
-      /// The `LPARAM` value that accompanied the window message.  For more
+      /// The 'LPARAM' value that accompanied the window message.  For more
       /// information, navigate to [WM_KEYDOWN](/windows/win32/inputdev/wm-keydown)
       /// and [WM_KEYUP](/windows/win32/inputdev/wm-keyup).
       /// </summary>
@@ -132,9 +132,9 @@ type
       /// </remarks>
       property IsKeyReleased                  : boolean                                      read GetIsKeyReleased;
       /// <summary>
-      /// During `AcceleratorKeyPressedEvent` handler invocation the WebView is
+      /// During 'AcceleratorKeyPressedEvent' handler invocation the WebView is
       /// blocked waiting for the decision of if the accelerator is handled by the
-      /// host (or not).  If the `Handled` property is set to `TRUE` then this
+      /// host (or not).  If the 'Handled' property is set to 'TRUE' then this
       /// prevents the WebView from performing the default action for this
       /// accelerator key.  Otherwise the WebView performs the default action for
       /// the accelerator key.
@@ -164,18 +164,18 @@ type
       ///  - Ctrl-A for Select All
       ///  - Ctrl-Z for Undo
       /// </code>
-      /// <para>The `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` API is a convenient setting
+      /// <para>The 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' API is a convenient setting
       /// for developers to disable all the browser accelerator keys together, and sets the default
-      /// value for the `IsBrowserAcceleratorKeyEnabled` property.</para>
-      /// <para>By default, `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` is `TRUE` and
-      /// `IsBrowserAcceleratorKeyEnabled` is `TRUE`.</para>
-      /// <para>When developers change `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`,
-      /// this will change default value for `IsBrowserAcceleratorKeyEnabled` to `FALSE`.</para>
+      /// value for the 'IsBrowserAcceleratorKeyEnabled' property.</para>
+      /// <para>By default, 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' is 'TRUE' and
+      /// 'IsBrowserAcceleratorKeyEnabled' is 'TRUE'.</para>
+      /// <para>When developers change 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting to 'FALSE',
+      /// this will change default value for 'IsBrowserAcceleratorKeyEnabled' to 'FALSE'.</para>
       /// <para>If developers want specific keys to be handled by the browser after changing the
-      /// `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, they need to enable
-      /// these keys by setting `IsBrowserAcceleratorKeyEnabled` to `TRUE`.</para>
+      /// 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting to 'FALSE', they need to enable
+      /// these keys by setting 'IsBrowserAcceleratorKeyEnabled' to 'TRUE'.</para>
       /// <para>This API will give the event arg higher priority over the
-      /// `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting when we handle the keys.</para>
+      /// 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting when we handle the keys.</para>
       /// <para>For browser accelerator keys, when an accelerator key is pressed, the propagation and
       /// processing order is:</para>
       /// <code>
@@ -185,11 +185,11 @@ type
       /// the key event propagates to the web content, where JavaScript event listeners can
       /// capture and respond to it.
       /// </code>
-      /// <para>`ICoreWebView2AcceleratorKeyPressedEventArgs` has a `Handled` property, that developers
+      /// <para>'ICoreWebView2AcceleratorKeyPressedEventArgs' has a 'Handled' property, that developers
       /// can use to mark a key as handled. When the key is marked as handled anywhere along
       /// the path, the event propagation stops, and web content will not receive the key.
-      /// With `IsBrowserAcceleratorKeyEnabled` property, if developers mark
-      /// `IsBrowserAcceleratorKeyEnabled` as `FALSE`, the browser will skip the WebView2
+      /// With 'IsBrowserAcceleratorKeyEnabled' property, if developers mark
+      /// 'IsBrowserAcceleratorKeyEnabled' as 'FALSE', the browser will skip the WebView2
       /// browser feature accelerator key handling process, but the event propagation
       /// continues, and web content will receive the key combination.</para>
       /// </summary>
@@ -226,7 +226,7 @@ type
       /// </summary>
       property BaseIntf     : ICoreWebView2ContentLoadingEventArgs  read FBaseIntf;
       /// <summary>
-      /// `TRUE` if the loaded content is an error page.
+      /// 'TRUE' if the loaded content is an error page.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contentloadingeventargs#get_iserrorpage">See the ICoreWebView2ContentLoadingEventArgs article.</see></para>
@@ -271,7 +271,7 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2DevToolsProtocolEventReceivedEventArgs  read FBaseIntf;
       /// <summary>
-      /// The parameter object of the corresponding `DevToolsProtocol` event
+      /// The parameter object of the corresponding 'DevToolsProtocol' event
       /// represented as a JSON string.
       /// </summary>
       /// <remarks>
@@ -318,7 +318,7 @@ type
       /// </summary>
       property BaseIntf    : ICoreWebView2MoveFocusRequestedEventArgs  read FBaseIntf;
       /// <summary>
-      /// The reason for WebView to run the `MoveFocusRequested` event.
+      /// The reason for WebView to run the 'MoveFocusRequested' event.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2movefocusrequestedeventargs#get_reason">See the ICoreWebView2MoveFocusRequestedEventArgs article.</see></para>
@@ -326,8 +326,8 @@ type
       property Reason      : TWVMoveFocusReason                        read GetReason;
       /// <summary>
       /// Indicates whether the event has been handled by the app.  If the app has
-      /// moved the focus to another desired location, it should set the `Handled`
-      /// property to `TRUE`.  When the `Handled` property is `FALSE` after the
+      /// moved the focus to another desired location, it should set the 'Handled'
+      /// property to 'TRUE'.  When the 'Handled' property is 'FALSE' after the
       /// event handler returns, default action is taken.  The default action is to
       /// try to find the next tab stop child window in the app and try to move
       /// focus to that window.  If no other window exists to move focus, focus is
@@ -371,10 +371,10 @@ type
       /// </summary>
       property BaseIntf       : ICoreWebView2NavigationCompletedEventArgs  read FBaseIntf;
       /// <summary>
-      /// <para>`TRUE` when the navigation is successful.  `FALSE` for a navigation that
+      /// <para>'TRUE' when the navigation is successful.  'FALSE' for a navigation that
       /// ended up in an error page (failures due to no network, DNS lookup
-      /// failure, HTTP server responds with 4xx), but may also be `FALSE` for
-      /// additional scenarios such as `window.stop()` run on navigated page.</para>
+      /// failure, HTTP server responds with 4xx), but may also be 'FALSE' for
+      /// additional scenarios such as 'window.stop()' run on navigated page.</para>
       /// <para>Note that WebView2 will report the navigation as 'unsuccessful' if the load
       /// for the navigation did not reach the expected completion for any reason. Such
       /// reasons include potentially catastrophic issues such network and certificate
@@ -411,20 +411,20 @@ type
       /// if a page was not found, etc.  See
       /// https://developer.mozilla.org/docs/Web/HTTP/Status for a list of
       /// common status codes.</para>
-      /// <para>The `HttpStatusCode` property will be 0 in the following cases:</para>
+      /// <para>The 'HttpStatusCode' property will be 0 in the following cases:</para>
       /// <para>* The navigation did not involve an HTTP request.  For instance, if it was
       ///   a navigation to a file:// URL, or if it was a same-document navigation.</para>
       /// <para>* The navigation failed before a response was received.  For instance, if
       ///   the hostname was not found, or if there was a network error.</para>
-      /// <para>In those cases, you can get more information from the `IsSuccess` and
-      /// `WebErrorStatus` properties.</para>
+      /// <para>In those cases, you can get more information from the 'IsSuccess' and
+      /// 'WebErrorStatus' properties.</para>
       /// <para>If the navigation receives a successful HTTP response, but the navigated
-      /// page calls `window.stop()` before it finishes loading, then
-      /// `HttpStatusCode` may contain a success code like 200, but `IsSuccess` will
-      /// be FALSE and `WebErrorStatus` will be
-      /// `COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED`.</para>
+      /// page calls 'window.stop()' before it finishes loading, then
+      /// 'HttpStatusCode' may contain a success code like 200, but 'IsSuccess' will
+      /// be FALSE and 'WebErrorStatus' will be
+      /// 'COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED'.</para>
       /// <para>Since WebView2 handles HTTP continuations and redirects automatically, it
-      /// is unlikely for `HttpStatusCode` to ever be in the 1xx or 3xx ranges.</para>
+      /// is unlikely for 'HttpStatusCode' to ever be in the 1xx or 3xx ranges.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationcompletedeventargs2#get_httpstatuscode">See the ICoreWebView2NavigationCompletedEventArgs2 article.</see></para>
@@ -479,7 +479,7 @@ type
       /// </remarks>
       property URI                               : wvstring                                  read GetURI;
       /// <summary>
-      /// `TRUE` when the navigation was initiated through a user gesture as
+      /// 'TRUE' when the navigation was initiated through a user gesture as
       /// opposed to programmatic navigation by page script. Navigations initiated
       /// via WebView2 APIs are considered as user initiated.
       /// </summary>
@@ -488,7 +488,7 @@ type
       /// </remarks>
       property IsUserInitiated                   : boolean                                   read GetIsUserInitiated;
       /// <summary>
-      /// `TRUE` when the navigation is redirected.
+      /// 'TRUE' when the navigation is redirected.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs#get_isredirected">See the ICoreWebView2NavigationStartingEventArgs article.</see></para>
@@ -497,14 +497,14 @@ type
       /// <summary>
       /// The host may set this flag to cancel the navigation.  If set, the
       /// navigation is not longer present and the content of the current page is
-      /// intact.  For performance reasons, `GET` HTTP requests may happen, while
+      /// intact.  For performance reasons, 'GET' HTTP requests may happen, while
       /// the host is responding.  You may set cookies and use part of a request
       /// for the navigation.  Navigations to about schemes are cancellable, unless
-      /// `msWebView2CancellableAboutNavigations` feature flag is disabled.
-      /// Cancellation of frame navigation to `srcdoc` is not supported and
-      /// wil be ignored.  A cancelled navigation will fire a `NavigationCompleted`
-      /// event with a `WebErrorStatus` of
-      /// `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`.
+      /// 'msWebView2CancellableAboutNavigations' feature flag is disabled.
+      /// Cancellation of frame navigation to 'srcdoc' is not supported and
+      /// wil be ignored.  A cancelled navigation will fire a 'NavigationCompleted'
+      /// event with a 'WebErrorStatus' of
+      /// 'COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs#get_cancel">See the ICoreWebView2NavigationStartingEventArgs article.</see></para>
@@ -520,7 +520,7 @@ type
       /// <summary>
       /// <para>The HTTP request headers for the navigation.</para>
       /// <para>\>NOTE: You are not able to modify the HTTP request headers in a
-      /// `NavigationStarting` event.</para>
+      /// 'NavigationStarting' event.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2navigationstartingeventargs#get_requestheaders">See the ICoreWebView2NavigationStartingEventArgs article.</see></para>
@@ -598,14 +598,14 @@ type
       /// </remarks>
       property NewWindow               : ICoreWebView2                             read GetNewWindow         write SetNewWindow;
       /// <summary>
-      /// Gets whether the `NewWindowRequested` event is handled by host.
+      /// Gets whether the 'NewWindowRequested' event is handled by host.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2newwindowrequestedeventargs#get_handled">See the ICoreWebView2NewWindowRequestedEventArgs article.</see></para>
       /// </remarks>
       property Handled                 : boolean                                   read GetHandled           write SetHandled;
       /// <summary>
-      /// <para>`TRUE` when the new window request was initiated through a user gesture.
+      /// <para>'TRUE' when the new window request was initiated through a user gesture.
       /// Examples of user initiated requests are:</para>
       /// <para>- Selecting an anchor tag with target</para>
       /// <para>- Programmatic window open from a script that directly run as a result of
@@ -621,10 +621,10 @@ type
       /// </remarks>
       property IsUserInitiated         : boolean                                   read GetIsUserInitiated;
       /// <summary>
-      /// Obtain an `ICoreWebView2Deferral` object and put the event into a
-      /// deferred state.  Use the `ICoreWebView2Deferral` object to complete the
+      /// Obtain an 'ICoreWebView2Deferral' object and put the event into a
+      /// deferred state.  Use the 'ICoreWebView2Deferral' object to complete the
       /// window open request at a later time.  While this event is deferred the
-      /// opener window returns a `WindowProxy` to an un-navigated window, which
+      /// opener window returns a 'WindowProxy' to an un-navigated window, which
       /// navigates when the deferral is complete.
       /// </summary>
       /// <remarks>
@@ -632,7 +632,7 @@ type
       /// </remarks>
       property Deferral                : ICoreWebView2Deferral                     read GetDeferral;
       /// <summary>
-      /// Window features specified by the `window.open`.  The features should be
+      /// Window features specified by the 'window.open'.  The features should be
       /// considered for positioning and sizing of new webview windows.
       /// </summary>
       /// <remarks>
@@ -640,14 +640,14 @@ type
       /// </remarks>
       property WindowFeatures          : ICoreWebView2WindowFeatures               read GetWindowFeatures;
       /// <summary>
-      /// <para>Gets the name of the new window. This window can be created via `window.open(url, windowName)`,
-      /// where the windowName parameter corresponds to `Name` property.</para>
-      /// <para>If no windowName is passed to `window.open`, then the `Name` property
+      /// <para>Gets the name of the new window. This window can be created via 'window.open(url, windowName)',
+      /// where the windowName parameter corresponds to 'Name' property.</para>
+      /// <para>If no windowName is passed to 'window.open', then the 'Name' property
       /// will be set to an empty string. Additionally, if window is opened through other means,
-      /// such as `<a target="windowName">...</a>` or `<iframe name="windowName">...</iframe>`,
-      /// then the `Name` property will be set accordingly. In the case of target=_blank,
-      /// the `Name` property will be an empty string.</para>
-      /// <para>Opening a window via ctrl+clicking a link would result in the `Name` property
+      /// such as '<a target="windowName">...</a>' or '<iframe name="windowName">...</iframe>',
+      /// then the 'Name' property will be set accordingly. In the case of target=_blank,
+      /// the 'Name' property will be an empty string.</para>
+      /// <para>Opening a window via ctrl+clicking a link would result in the 'Name' property
       /// being set to an empty string.</para>
       /// </summary>
       /// <remarks>
@@ -656,8 +656,8 @@ type
       property Name                    : wvstring                                  read GetName;
       /// <summary>
       /// The frame info of the frame where the new window request originated. The
-      /// `OriginalSourceFrameInfo` is a snapshot of frame information at the time when the
-      /// new window was requested. See `ICoreWebView2FrameInfo` for details on frame
+      /// 'OriginalSourceFrameInfo' is a snapshot of frame information at the time when the
+      /// new window was requested. See 'ICoreWebView2FrameInfo' for details on frame
       /// properties.
       /// </summary>
       /// <remarks>
@@ -715,7 +715,7 @@ type
       property URI              : wvstring                                   read GetURI;
       /// <summary>
       /// The status of a permission request, (for example is the request is granted).
-      /// The default value is `COREWEBVIEW2_PERMISSION_STATE_DEFAULT`.
+      /// The default value is 'COREWEBVIEW2_PERMISSION_STATE_DEFAULT'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs#get_state">See the ICoreWebView2PermissionRequestedEventArgs article.</see></para>
@@ -729,7 +729,7 @@ type
       /// </remarks>
       property PermissionKind   : TWVPermissionKind                          read GetPermissionKind;
       /// <summary>
-      /// <para>`TRUE` when the permission request was initiated through a user gesture.</para>
+      /// <para>'TRUE' when the permission request was initiated through a user gesture.</para>
       /// <para>NOTE: Being initiated through a user gesture does not mean that user intended
       /// to access the associated resource.</para>
       /// </summary>
@@ -738,9 +738,9 @@ type
       /// </remarks>
       property IsUserInitiated  : boolean                                    read GetIsUserInitiated;
       /// <summary>
-      /// Gets an `ICoreWebView2Deferral` object.  Use the deferral object to make
+      /// Gets an 'ICoreWebView2Deferral' object.  Use the deferral object to make
       /// the permission decision at a later time. The deferral only applies to the
-      /// current request, and does not prevent the `OnPermissionRequested` event from
+      /// current request, and does not prevent the 'OnPermissionRequested' event from
       /// getting raised for new requests. However, for some permission kinds the
       /// WebView will avoid creating a new request if there is a pending request of
       /// the same kind.
@@ -750,27 +750,27 @@ type
       /// </remarks>
       property Deferral         : ICoreWebView2Deferral                      read GetDeferral;
       /// <summary>
-      /// <para>By default, both the `OnPermissionRequested` event handlers on the
-      /// `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the
-      /// `CoreWebView2Frame` event handlers invoked first. The host may
-      /// set this flag to `TRUE` within the `CoreWebView2Frame` event handlers
-      /// to prevent the remaining `CoreWebView2` event handlers from being invoked.</para>
+      /// <para>By default, both the 'OnPermissionRequested' event handlers on the
+      /// 'CoreWebView2Frame' and the 'CoreWebView2' will be invoked, with the
+      /// 'CoreWebView2Frame' event handlers invoked first. The host may
+      /// set this flag to 'TRUE' within the 'CoreWebView2Frame' event handlers
+      /// to prevent the remaining 'CoreWebView2' event handlers from being invoked.</para>
       /// <para>If a deferral is taken on the event args, then you must synchronously
-      /// set `Handled` to TRUE prior to taking your deferral to prevent the
-      /// `CoreWebView2`s event handlers from being invoked.</para>
+      /// set 'Handled' to TRUE prior to taking your deferral to prevent the
+      /// 'CoreWebView2's event handlers from being invoked.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2permissionrequestedeventargs2#get_handled">See the ICoreWebView2PermissionRequestedEventArgs2 article.</see></para>
       /// </remarks>
       property Handled          : boolean                                    read GetHandled           write SetHandled;
       /// <summary>
-      /// The permission state set from the `PermissionRequested` event is saved in
+      /// The permission state set from the 'PermissionRequested' event is saved in
       /// the profile by default; it persists across sessions and becomes the new
-      /// default behavior for future `PermissionRequested` events. Browser
+      /// default behavior for future 'PermissionRequested' events. Browser
       /// heuristics can affect whether the event continues to be raised when the
-      /// state is saved in the profile. Set the `SavesInProfile` property to
-      /// `FALSE` to not persist the state beyond the current request, and to
-      /// continue to receive `PermissionRequested`
+      /// state is saved in the profile. Set the 'SavesInProfile' property to
+      /// 'FALSE' to not persist the state beyond the current request, and to
+      /// continue to receive 'PermissionRequested'
       /// events for this origin and permission kind.
       /// </summary>
       /// <remarks>
@@ -819,10 +819,10 @@ type
       /// The kind of process failure that has occurred. This is a combination of
       /// process kind (for example, browser, renderer, gpu) and failure (exit,
       /// unresponsiveness). Renderer processes are further divided in _main frame_
-      /// renderer (`RenderProcessExited`, `RenderProcessUnresponsive`) and
-      /// _subframe_ renderer (`FrameRenderProcessExited`). To learn about the
+      /// renderer ('RenderProcessExited', 'RenderProcessUnresponsive') and
+      /// _subframe_ renderer ('FrameRenderProcessExited'). To learn about the
       /// conditions under which each failure kind occurs, see
-      /// `COREWEBVIEW2_PROCESS_FAILED_KIND`.
+      /// 'COREWEBVIEW2_PROCESS_FAILED_KIND'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs#get_processfailedkind">See the ICoreWebView2ProcessFailedEventArgs article.</see></para>
@@ -831,8 +831,8 @@ type
       /// <summary>
       /// <para>The reason for the process failure. Some of the reasons are only
       /// applicable to specific values of
-      /// `ICoreWebView2ProcessFailedEventArgs.ProcessFailedKind`, and the
-      /// following `ProcessFailedKind` values always return the indicated reason
+      /// 'ICoreWebView2ProcessFailedEventArgs.ProcessFailedKind', and the
+      /// following 'ProcessFailedKind' values always return the indicated reason
       /// value:</para>
       /// <code>
       /// ProcessFailedKind | Reason
@@ -840,9 +840,9 @@ type
       /// COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED | COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED
       /// COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE | COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE
       /// </code>
-      /// <para>For other `ProcessFailedKind` values, the reason may be any of the reason
+      /// <para>For other 'ProcessFailedKind' values, the reason may be any of the reason
       /// values. To learn about what these values mean, see
-      /// `COREWEBVIEW2_PROCESS_FAILED_REASON`.</para>
+      /// 'COREWEBVIEW2_PROCESS_FAILED_REASON'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2#get_reason">See the ICoreWebView2ProcessFailedEventArgs2 article.</see></para>
@@ -850,8 +850,8 @@ type
       property Reason                     : TWVProcessFailedReason               read GetReason;
       /// <summary>
       /// The exit code of the failing process, for telemetry purposes. The exit
-      /// code is always `STILL_ACTIVE` (`259`) when `ProcessFailedKind` is
-      /// `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE`.
+      /// code is always 'STILL_ACTIVE' ('259') when 'ProcessFailedKind' is
+      /// 'COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2#get_exitcode">See the ICoreWebView2ProcessFailedEventArgs2 article.</see></para>
@@ -862,7 +862,7 @@ type
       /// technical English term appropriate for logging or development purposes,
       /// and not localized for the end user. It applies to utility processes (for
       /// example, "Audio Service", "Video Capture") and plugin processes (for
-      /// example, "Flash"). The returned `processDescription` is empty if the
+      /// example, "Flash"). The returned 'processDescription' is empty if the
       /// WebView2 Runtime did not assign a description to the process.
       /// </summary>
       /// <remarks>
@@ -870,15 +870,15 @@ type
       /// </remarks>
       property ProcessDescription         : wvstring                             read GetProcessDescription;
       /// <summary>
-      /// <para>The collection of `FrameInfo`s for frames in the `ICoreWebView2` that were
+      /// <para>The collection of 'FrameInfo's for frames in the 'ICoreWebView2' that were
       /// being rendered by the failed process. The content in these frames is
       /// replaced with an error page.</para>
-      /// <para>This is only available when `ProcessFailedKind` is
-      /// `COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED`;
-      /// `frames` is `null` for all other process failure kinds, including the case
+      /// <para>This is only available when 'ProcessFailedKind' is
+      /// 'COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED';
+      /// 'frames' is 'null' for all other process failure kinds, including the case
       /// in which the failed process was the renderer for the main frame and
       /// subframes within it, for which the failure kind is
-      /// `COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED`.</para>
+      /// 'COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2processfailedeventargs2#get_frameinfosforfailedprocess">See the ICoreWebView2ProcessFailedEventArgs2 article.</see></para>
@@ -945,12 +945,12 @@ type
       constructor Create(const aArgs: ICoreWebView2ScriptDialogOpeningEventArgs); reintroduce;
       destructor  Destroy; override;
       /// <summary>
-      /// The host may run this to respond with **OK** to `confirm`, `prompt`, and
-      /// `beforeunload` dialogs.  Do not run this method to indicate cancel.
-      /// From JavaScript, this means that the `confirm` and `beforeunload` function
-      /// returns `TRUE` if `Accept` is run.  And for the prompt function it returns
-      /// the value of `ResultText` if `Accept` is run and otherwise returns
-      /// `FALSE`.
+      /// The host may run this to respond with **OK** to 'confirm', 'prompt', and
+      /// 'beforeunload' dialogs.  Do not run this method to indicate cancel.
+      /// From JavaScript, this means that the 'confirm' and 'beforeunload' function
+      /// returns 'TRUE' if 'Accept' is run.  And for the prompt function it returns
+      /// the value of 'ResultText' if 'Accept' is run and otherwise returns
+      /// 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptdialogopeningeventargs#accept">See the ICoreWebView2ScriptDialogOpeningEventArgs article.</see></para>
@@ -973,8 +973,8 @@ type
       /// </remarks>
       property URI         : wvstring                                   read GetURI;
       /// <summary>
-      /// The kind of JavaScript dialog box.  `alert`, `confirm`, `prompt`, or
-      /// `beforeunload`.
+      /// The kind of JavaScript dialog box.  'alert', 'confirm', 'prompt', or
+      /// 'beforeunload'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptdialogopeningeventargs#get_kind">See the ICoreWebView2ScriptDialogOpeningEventArgs article.</see></para>
@@ -982,8 +982,8 @@ type
       property Kind        : TWVScriptDialogKind                        read GetKind;
       /// <summary>
       /// The message of the dialog box.  From JavaScript this is the first
-      /// parameter passed to `alert`, `confirm`, and `prompt` and is empty for
-      /// `beforeunload`.
+      /// parameter passed to 'alert', 'confirm', and 'prompt' and is empty for
+      /// 'beforeunload'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptdialogopeningeventargs#get_message">See the ICoreWebView2ScriptDialogOpeningEventArgs article.</see></para>
@@ -999,16 +999,16 @@ type
       /// </remarks>
       property DefaultText : wvstring                                   read GetDefaultText;
       /// <summary>
-      /// The return value from the JavaScript prompt function if `Accept` is run.
-      ///  This value is ignored for dialog kinds other than prompt.  If `Accept`
-      /// is not run, this value is ignored and `FALSE` is returned from prompt.
+      /// The return value from the JavaScript prompt function if 'Accept' is run.
+      ///  This value is ignored for dialog kinds other than prompt.  If 'Accept'
+      /// is not run, this value is ignored and 'FALSE' is returned from prompt.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2scriptdialogopeningeventargs#get_resulttext">See the ICoreWebView2ScriptDialogOpeningEventArgs article.</see></para>
       /// </remarks>
       property ResultText  : wvstring                                   read GetResultText     write SetResultText;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object.  Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object.  Use this operation to
       /// complete the event at a later time.
       /// </summary>
       /// <remarks>
@@ -1043,7 +1043,7 @@ type
       /// </summary>
       property BaseIntf      : ICoreWebView2SourceChangedEventArgs  read FBaseIntf;
       /// <summary>
-      /// `TRUE` if the page being navigated to is a new document.
+      /// 'TRUE' if the page being navigated to is a new document.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sourcechangedeventargs#get_isnewdocument">See the ICoreWebView2SourceChangedEventArgs article.</see></para>
@@ -1108,13 +1108,13 @@ type
       /// </remarks>
       property WebMessageAsString : wvstring                                  read GetWebMessageAsString;
       /// <summary>
-      /// Additional received WebMessage objects. To pass `additionalObjects` via
+      /// Additional received WebMessage objects. To pass 'additionalObjects' via
       /// WebMessage to the app, use the
-      /// `chrome.webview.postMessageWithAdditionalObjects` content API.
+      /// 'chrome.webview.postMessageWithAdditionalObjects' content API.
       /// Any DOM object type that can be natively representable that has been
-      /// passed in to `additionalObjects` parameter will be accessible here.
-      /// Currently a WebMessage object can be the `ICoreWebView2File` type.
-      /// Entries in the collection can be `nullptr` if `null` or `undefined` was
+      /// passed in to 'additionalObjects' parameter will be accessible here.
+      /// Currently a WebMessage object can be the 'ICoreWebView2File' type.
+      /// Entries in the collection can be 'nullptr' if 'null' or 'undefined' was
       /// passed.
       /// </summary>
       /// <remarks>
@@ -1174,8 +1174,8 @@ type
       /// </remarks>
       property Response            : ICoreWebView2WebResourceResponse            read GetResponse         write SetResponse;
       /// <summary>
-      /// Obtain an `ICoreWebView2Deferral` object and put the event into a
-      /// deferred state.  Use the `ICoreWebView2Deferral` object to complete the
+      /// Obtain an 'ICoreWebView2Deferral' object and put the event into a
+      /// deferred state.  Use the 'ICoreWebView2Deferral' object to complete the
       /// request at a later time.
       /// </summary>
       /// <remarks>
@@ -1388,7 +1388,7 @@ type
       /// </summary>
       property BaseIntf           : ICoreWebView2DownloadStartingEventArgs  read FBaseIntf;
       /// <summary>
-      /// Returns the `ICoreWebView2DownloadOperation` for the download that
+      /// Returns the 'ICoreWebView2DownloadOperation' for the download that
       /// has started.
       /// </summary>
       /// <remarks>
@@ -1398,7 +1398,7 @@ type
       /// <summary>
       /// The host may set this flag to cancel the download. If canceled, the
       /// download save dialog is not displayed regardless of the
-      /// `Handled` property.
+      /// 'Handled' property.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadstartingeventargs#get_cancel">See the ICoreWebView2DownloadStartingEventArgs article.</see></para>
@@ -1415,17 +1415,17 @@ type
       /// </remarks>
       property ResultFilePath     : wvstring                                read GetResultFilePath      write SetResultFilePath;
       /// <summary>
-      /// The host may set this flag to `TRUE` to hide the default download dialog
+      /// The host may set this flag to 'TRUE' to hide the default download dialog
       /// for this download. The download will progress as normal if it is not
       /// canceled, there will just be no default UI shown. By default the value is
-      /// `FALSE` and the default download dialog is shown.
+      /// 'FALSE' and the default download dialog is shown.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadstartingeventargs#get_handled">See the ICoreWebView2DownloadStartingEventArgs article.</see></para>
       /// </remarks>
       property Handled            : boolean                                 read GetHandled             write SetHandled;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object.  Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object.  Use this operation to
       /// complete the event at a later time.
       /// </summary>
       /// <remarks>
@@ -1501,7 +1501,7 @@ type
       /// </remarks>
       property IsProxy                       : boolean                                           read GetIsProxy;
       /// <summary>
-      /// Returns the `ICoreWebView2StringCollection`.
+      /// Returns the 'ICoreWebView2StringCollection'.
       /// The collection contains Base64 encoding of DER encoded distinguished names of
       /// certificate authorities allowed by the server.
       /// </summary>
@@ -1510,7 +1510,7 @@ type
       /// </remarks>
       property AllowedCertificateAuthorities : ICoreWebView2StringCollection                     read GetAllowedCertificateAuthorities;
       /// <summary>
-      /// Returns the `ICoreWebView2ClientCertificateCollection` when client
+      /// Returns the 'ICoreWebView2ClientCertificateCollection' when client
       /// certificate authentication is requested. The collection contains mutually
       /// trusted CA certificates.
       /// </summary>
@@ -1527,27 +1527,27 @@ type
       property SelectedCertificate           : ICoreWebView2ClientCertificate                    read GetSelectedCertificate             write SetSelectedCertificate;
       /// <summary>
       /// You may set this flag to cancel the certificate selection. If canceled,
-      /// the request is aborted regardless of the `Handled` property. By default the
-      /// value is `FALSE`.
+      /// the request is aborted regardless of the 'Handled' property. By default the
+      /// value is 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventargs#get_cancel">See the ICoreWebView2ClientCertificateRequestedEventArgs article.</see></para>
       /// </remarks>
       property Cancel                        : boolean                                           read GetCancel                          write SetCancel;
       /// <summary>
-      /// You may set this flag to `TRUE` to respond to the server with or
-      /// without a certificate. If this flag is `TRUE` with a `SelectedCertificate`
+      /// You may set this flag to 'TRUE' to respond to the server with or
+      /// without a certificate. If this flag is 'TRUE' with a 'SelectedCertificate'
       /// it responds to the server with the selected certificate otherwise respond to the
-      /// server without a certificate. By default the value of `Handled` and `Cancel` are `FALSE`
+      /// server without a certificate. By default the value of 'Handled' and 'Cancel' are 'FALSE'
       /// and display default client certificate selection dialog prompt to allow the user to
-      /// choose a certificate. The `SelectedCertificate` is ignored unless `Handled` is set `TRUE`.
+      /// choose a certificate. The 'SelectedCertificate' is ignored unless 'Handled' is set 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2clientcertificaterequestedeventargs#get_handled">See the ICoreWebView2ClientCertificateRequestedEventArgs article.</see></para>
       /// </remarks>
       property Handled                       : boolean                                           read GetHandled                         write SetHandled;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object. Use this operation to
       /// complete the event at a later time.
       /// </summary>
       /// <remarks>
@@ -1621,7 +1621,7 @@ type
       /// </remarks>
       property Cancel                        : boolean                                             read GetCancel           write SetCancel;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this deferral to
+      /// Returns an 'ICoreWebView2Deferral' object. Use this deferral to
       /// defer the decision to show the Basic Authentication dialog.
       /// </summary>
       /// <remarks>
@@ -1667,8 +1667,8 @@ type
       /// </summary>
       property BaseIntf                      : ICoreWebView2ContextMenuRequestedEventArgs          read FBaseIntf;
       /// <summary>
-      /// Gets the collection of `ContextMenuItem` objects.
-      /// See `ICoreWebView2ContextMenuItemCollection` for more details.
+      /// Gets the collection of 'ContextMenuItem' objects.
+      /// See 'ICoreWebView2ContextMenuItemCollection' for more details.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_menuitems">See the ICoreWebView2ContextMenuRequestedEventArgs article.</see></para>
@@ -1676,7 +1676,7 @@ type
       property MenuItems                     : ICoreWebView2ContextMenuItemCollection              read GetMenuItems;
       /// <summary>
       /// Gets the target information associated with the requested context menu.
-      /// See `ICoreWebView2ContextMenuTarget` for more details.
+      /// See 'ICoreWebView2ContextMenuTarget' for more details.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_contextmenutarget">See the ICoreWebView2ContextMenuRequestedEventArgs article.</see></para>
@@ -1698,14 +1698,14 @@ type
       /// </remarks>
       property SelectedCommandId             : integer                                             read GetSelectedCommandId    write SetSelectedCommandId;
       /// <summary>
-      /// Gets whether the `ContextMenuRequested` event is handled by host.
+      /// Gets whether the 'ContextMenuRequested' event is handled by host.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenurequestedeventargs#get_handled">See the ICoreWebView2ContextMenuRequestedEventArgs article.</see></para>
       /// </remarks>
       property Handled                       : boolean                                             read GetHandled              write SetHandled;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object. Use this operation to
       /// complete the event when the custom context menu is closed.
       /// </summary>
       /// <remarks>
@@ -1768,14 +1768,14 @@ type
       property ServerCertificate             : ICoreWebView2Certificate                             read GetServerCertificate;
       /// <summary>
       /// The action of the server certificate error detection.
-      /// The default value is `COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT`.
+      /// The default value is 'COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2servercertificateerrordetectedeventargs#get_action">See the ICoreWebView2ServerCertificateErrorDetectedEventArgs article.</see></para>
       /// </remarks>
       property Action                        : TWVServerCertificateErrorAction                      read GetAction              write SetAction;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object. Use this operation to
       /// complete the event at a later time.
       /// </summary>
       /// <remarks>
@@ -1825,14 +1825,14 @@ type
       /// <summary>
       /// <para>The origin initiating the external URI scheme launch.</para>
       /// <para>The origin will be an empty string if the request is initiated by calling
-      /// `CoreWebView2.Navigate` on the external URI scheme. If a script initiates
-      /// the navigation, the `InitiatingOrigin` will be the top-level document's
-      /// `Source`, for example, if `window.location` is set to `"calculator://"`, the
-      /// `InitiatingOrigin` will be set to `calculator://`. If the request is initiated
-      ///  from a child frame, the `InitiatingOrigin` will be the source of that child frame.</para>
-      /// <para>If the `InitiatingOrigin` is
+      /// 'CoreWebView2.Navigate' on the external URI scheme. If a script initiates
+      /// the navigation, the 'InitiatingOrigin' will be the top-level document's
+      /// 'Source', for example, if 'window.location' is set to '"calculator://"', the
+      /// 'InitiatingOrigin' will be set to 'calculator://'. If the request is initiated
+      ///  from a child frame, the 'InitiatingOrigin' will be the source of that child frame.</para>
+      /// <para>If the 'InitiatingOrigin' is
       /// [opaque](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque),
-      /// the `InitiatingOrigin` reported in the event args will be its precursor origin.
+      /// the 'InitiatingOrigin' reported in the event args will be its precursor origin.
       /// The precursor origin is the origin that created the opaque origin. For example, if
       /// a frame on example.com opens a subframe with a different opaque origin, the subframe's
       /// precursor origin is example.com.</para>
@@ -1842,7 +1842,7 @@ type
       /// </remarks>
       property InitiatingOrigin              : wvstring                                          read GetInitiatingOrigin;
       /// <summary>
-      /// <para>`TRUE` when the external URI scheme request was initiated through a user gesture.</para>
+      /// <para>'TRUE' when the external URI scheme request was initiated through a user gesture.</para>
       /// <para>\>NOTE: Being initiated through a user gesture does not mean that user intended
       /// to access the associated resource.</para>
       /// </summary>
@@ -1851,18 +1851,18 @@ type
       /// </remarks>
       property IsUserInitiated               : boolean                                           read GetIsUserInitiated;
       /// <summary>
-      /// <para>The event handler may set this property to `TRUE` to cancel the external URI scheme
-      /// launch. If set to `TRUE`, the external URI scheme will not be launched, and the default
+      /// <para>The event handler may set this property to 'TRUE' to cancel the external URI scheme
+      /// launch. If set to 'TRUE', the external URI scheme will not be launched, and the default
       /// dialog is not displayed. This property can be used to replace the normal
       /// handling of launching an external URI scheme.</para>
-      /// <para>The initial value of the `Cancel` property is `FALSE`.</para>
+      /// <para>The initial value of the 'Cancel' property is 'FALSE'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2launchingexternalurischemeeventargs#get_cancel">See the ICoreWebView2LaunchingExternalUriSchemeEventArgs article.</see></para>
       /// </remarks>
       property Cancel                        : boolean                                           read GetCancel             write SetCancel;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object.  Use this operation to
+      /// Returns an 'ICoreWebView2Deferral' object.  Use this operation to
       /// complete the event at a later time.
       /// </summary>
       /// <remarks>
@@ -1909,7 +1909,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `NotificationReceived` event.
+  /// Event args for the 'NotificationReceived' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2notificationreceivedeventargs">See the ICoreWebView2NotificationReceivedEventArgs article.</see></para>
@@ -1940,7 +1940,7 @@ type
       property BaseIntf                      : ICoreWebView2NotificationReceivedEventArgs        read FBaseIntf;
       /// <summary>
       /// The origin of the web content that sends the notification, such as
-      /// `https://example.com/` or `https://www.example.com/`.
+      /// 'https://example.com/' or 'https://www.example.com/'.
       /// </summary>
       property SenderOrigin                  : wvstring                                          read GetSenderOrigin;
       /// <summary>
@@ -1949,32 +1949,32 @@ type
       /// </summary>
       property Notification                  : ICoreWebView2Notification                         read GetNotification;
       /// <summary>
-      /// <para>Sets whether the `NotificationReceived` event is handled by the host after
+      /// <para>Sets whether the 'NotificationReceived' event is handled by the host after
       /// the event handler completes or if there is a deferral then after the
       /// deferral is completed.</para>
       ///
-      /// <para>If `Handled` is set to TRUE then WebView will not display the notification
+      /// <para>If 'Handled' is set to TRUE then WebView will not display the notification
       /// with the default UI, and the host will be responsible for handling the
       /// notification and for letting the web content know that the notification
-      /// has been displayed, clicked, or closed. You must set `Handled` to `TRUE`
-      /// before you call `ReportShown`, `ReportClicked`,
-      /// `ReportClickedWithActionIndex` and `ReportClosed`, otherwise they will
-      /// fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. If after the event
-      /// handler or deferral completes `Handled` is set to FALSE then WebView will
+      /// has been displayed, clicked, or closed. You must set 'Handled' to 'TRUE'
+      /// before you call 'ReportShown', 'ReportClicked',
+      /// 'ReportClickedWithActionIndex' and 'ReportClosed', otherwise they will
+      /// fail with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'. If after the event
+      /// handler or deferral completes 'Handled' is set to FALSE then WebView will
       /// display the default notification UI. Note that you cannot un-handle this
-      /// event once you have set `Handled` to be `TRUE`. The initial value is
+      /// event once you have set 'Handled' to be 'TRUE'. The initial value is
       /// FALSE.</para>
       /// </summary>
       property Handled                       : boolean                                           read GetHandled              write SetHandled;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+      /// Returns an 'ICoreWebView2Deferral' object. Use this operation to complete
       /// the event at a later time.
       /// </summary>
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
   end;
 
   /// <summary>
-  /// The event args for `SaveAsUIShowing` event.
+  /// The event args for 'SaveAsUIShowing' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2saveasuishowingeventargs">See the ICoreWebView2SaveAsUIShowingEventArgs article.</see></para>
@@ -2015,65 +2015,65 @@ type
       /// </summary>
       property ContentMimeType               : wvstring                                          read GetContentMimeType;
       /// <summary>
-      /// Sets the `Cancel` property. Set this property to `TRUE` to cancel the Save As action
+      /// Sets the 'Cancel' property. Set this property to 'TRUE' to cancel the Save As action
       /// and prevent the download from starting. ShowSaveAsUI returns
-      /// `COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED` in this case. The default value is `FALSE`.
+      /// 'COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED' in this case. The default value is 'FALSE'.
       /// </summary>
       property Cancel                        : boolean                                           read GetCancel                  write SetCancel;
       /// <summary>
-      /// <para>Sets the `SuppressDefaultDialog` property, which indicates whether the system
-      /// default dialog is suppressed. When `SuppressDefaultDialog` is `FALSE`, the default
-      /// Save As dialog is shown and the values assigned through `SaveAsFilePath`, `AllowReplace`
-      /// and `Kind` are ignored when the event args invoke completed.</para>
+      /// <para>Sets the 'SuppressDefaultDialog' property, which indicates whether the system
+      /// default dialog is suppressed. When 'SuppressDefaultDialog' is 'FALSE', the default
+      /// Save As dialog is shown and the values assigned through 'SaveAsFilePath', 'AllowReplace'
+      /// and 'Kind' are ignored when the event args invoke completed.</para>
       ///
-      /// <para>Set `SuppressDefaultDialog` to `TRUE` to perform a silent Save As. When
-      /// `SuppressDefaultDialog` is `TRUE`, the system dialog is skipped and the
-      /// `SaveAsFilePath`, `AllowReplace` and `Kind` values are used.</para>
+      /// <para>Set 'SuppressDefaultDialog' to 'TRUE' to perform a silent Save As. When
+      /// 'SuppressDefaultDialog' is 'TRUE', the system dialog is skipped and the
+      /// 'SaveAsFilePath', 'AllowReplace' and 'Kind' values are used.</para>
       ///
       /// <para>The default value is FALSE.</para>
       /// </summary>
       property SuppressDefaultDialog         : boolean                                           read GetSuppressDefaultDialog   write SetSuppressDefaultDialog;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. This will defer showing the
+      /// Returns an 'ICoreWebView2Deferral' object. This will defer showing the
       /// default Save As dialog and performing the Save As operation.
       /// </summary>
       property Deferral                      : ICoreWebView2Deferral                             read GetDeferral;
       /// <summary>
-      /// <para>Set the `SaveAsFilePath` property for Save As. `SaveAsFilePath` is an absolute path
-      /// of the location. It includes the file name and extension. If `SaveAsFilePath` is not
+      /// <para>Set the 'SaveAsFilePath' property for Save As. 'SaveAsFilePath' is an absolute path
+      /// of the location. It includes the file name and extension. If 'SaveAsFilePath' is not
       /// valid (for example, the root drive does not exist), Save As is denied and
-      /// `COREWEBVIEW2_SAVE_AS_INVALID_PATH` is returned.</para>
+      /// 'COREWEBVIEW2_SAVE_AS_INVALID_PATH' is returned.</para>
       ///
       /// <para>If the associated download completes successfully, a target file is saved at
-      /// this location. If the Kind property is `COREWEBVIEW2_SAVE_AS_KIND_COMPLETE`,
+      /// this location. If the Kind property is 'COREWEBVIEW2_SAVE_AS_KIND_COMPLETE',
       /// there will be an additional directory with resources files.</para>
       ///
       /// <para>The default value is a system suggested path, based on users' local environment.</para>
       /// </summary>
       property SaveAsFilePath                : wvstring                                          read GetSaveAsFilePath          write SetSaveAsFilePath;
       /// <summary>
-      /// <para>`AllowReplace` allows user to control what happens when a file already
+      /// <para>'AllowReplace' allows user to control what happens when a file already
       /// exists in the file path to which the Save As operation is saving.</para>
-      /// <para>Setting this property to `TRUE` allows existing files to be replaced.</para>
-      /// <para>Setting this property to `FALSE` will not replace existing files and will return
-      /// `COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS`.</para>
+      /// <para>Setting this property to 'TRUE' allows existing files to be replaced.</para>
+      /// <para>Setting this property to 'FALSE' will not replace existing files and will return
+      /// 'COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS'.</para>
       ///
-      /// <para>The default value is `FALSE`.</para>
+      /// <para>The default value is 'FALSE'.</para>
       /// </summary>
       property AllowReplace                  : boolean                                           read GetAllowReplace           write SetAllowReplace;
       /// <summary>
-      /// <para>Sets the `Kind` property to save documents of different kinds. See the
-      /// `COREWEBVIEW2_SAVE_AS_KIND` enum for a description of the different options.</para>
+      /// <para>Sets the 'Kind' property to save documents of different kinds. See the
+      /// 'COREWEBVIEW2_SAVE_AS_KIND' enum for a description of the different options.</para>
       /// <para>If the kind is not allowed for the current document, ShowSaveAsUI returns
-      /// `COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED`.</para>
+      /// 'COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED'.</para>
       ///
-      /// <para>The default value is `COREWEBVIEW2_SAVE_AS_KIND_DEFAULT`.</para>
+      /// <para>The default value is 'COREWEBVIEW2_SAVE_AS_KIND_DEFAULT'.</para>
       /// </summary>
       property Kind                          : TWVSaveAsKind                                     read GetKind                   write SetKind;
   end;
 
   /// <summary>
-  /// The event args for `SaveFileSecurityCheckStarting` event.
+  /// The event args for 'SaveFileSecurityCheckStarting' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2savefilesecuritycheckstartingeventargs">See the ICoreWebView2SaveFileSecurityCheckStartingEventArgs article.</see></para>
@@ -2106,9 +2106,9 @@ type
       /// </summary>
       property BaseIntf                      : ICoreWebView2SaveFileSecurityCheckStartingEventArgs        read FBaseIntf;
       /// <summary>
-      /// Set if cancel the upcoming save/download. `TRUE` means the action
+      /// Set if cancel the upcoming save/download. 'TRUE' means the action
       /// will be cancelled before validations in default policy.
-      /// The default value is `FALSE`.
+      /// The default value is 'FALSE'.
       /// </summary>
       property CancelSave                    : boolean                                                    read GetCancelSave             write SetCancelSave;
       /// <summary>
@@ -2135,12 +2135,12 @@ type
       property FilePath                      : wvstring                                                   read GetFilePath;
       /// <summary>
       /// Set if the default policy checking and security warning will be
-      /// suppressed. `TRUE` means it will be suppressed.
-      /// The default value is `FALSE`.
+      /// suppressed. 'TRUE' means it will be suppressed.
+      /// The default value is 'FALSE'.
       /// </summary>
       property SuppressDefaultPolicy         : boolean                                                    read GetSuppressDefaultPolicy  write SetSuppressDefaultPolicy;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+      /// Returns an 'ICoreWebView2Deferral' object. Use this operation to complete
       /// the SaveFileSecurityCheckStartingEvent.
       /// The default policy checking and any default UI will be blocked temporarily,
       /// saving file to local won't start, until the deferral is completed.
@@ -2149,7 +2149,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `ScreenCaptureStarting` event.
+  /// Event args for the 'ScreenCaptureStarting' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/tcorewebview2screencapturestartingeventargs">See the TCoreWebView2ScreenCaptureStartingEventArgs article.</see></para>
@@ -2182,22 +2182,22 @@ type
       /// <summary>
       /// <para>The host may set this flag to cancel the screen capture. If canceled,
       /// the screen capture UI is not displayed regardless of the
-      /// `Handled` property.</para>
+      /// 'Handled' property.</para>
       /// <para>On the script side, it will return with a NotAllowedError as Permission denied.</para>
       /// </summary>
       property Cancel                        : boolean                                           read GetCancel                  write SetCancel;
       /// <summary>
-      /// <para>By default, both the `ScreenCaptureStarting` event handlers on the
-      /// `CoreWebView2Frame` and the `CoreWebView2` will be invoked, with the
-      /// `CoreWebView2Frame` event handlers invoked first. The host may
-      /// set this flag to `TRUE` within the `CoreWebView2Frame` event handlers
-      /// to prevent the remaining `CoreWebView2` event handlers from being
-      /// invoked. If the flag is set to `FALSE` within the `CoreWebView2Frame`
-      /// event handlers, downstream handlers can update the `Cancel` property.</para>
+      /// <para>By default, both the 'ScreenCaptureStarting' event handlers on the
+      /// 'CoreWebView2Frame' and the 'CoreWebView2' will be invoked, with the
+      /// 'CoreWebView2Frame' event handlers invoked first. The host may
+      /// set this flag to 'TRUE' within the 'CoreWebView2Frame' event handlers
+      /// to prevent the remaining 'CoreWebView2' event handlers from being
+      /// invoked. If the flag is set to 'FALSE' within the 'CoreWebView2Frame'
+      /// event handlers, downstream handlers can update the 'Cancel' property.</para>
       ///
       /// <para>If a deferral is taken on the event args, then you must synchronously
-      /// set `Handled` to TRUE prior to taking your deferral to prevent the
-      /// `CoreWebView2`s event handlers from being invoked.</para>
+      /// set 'Handled' to TRUE prior to taking your deferral to prevent the
+      /// 'CoreWebView2's event handlers from being invoked.</para>
       /// </summary>
       property Handled                       : boolean                                           read GetHandled                 write SetHandled;
       /// <summary>
@@ -2207,7 +2207,7 @@ type
       /// </summary>
       property OriginalSourceFrameInfo       : ICoreWebView2FrameInfo                            read GetCoreWebView2FrameInfo;
       /// <summary>
-      /// Returns an `ICoreWebView2Deferral` object. Use this deferral to
+      /// Returns an 'ICoreWebView2Deferral' object. Use this deferral to
       /// defer the decision to show the Screen Capture UI. getDisplayMedia()
       /// won't call its callbacks until the deferral is completed.
       /// </summary>
@@ -2215,7 +2215,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `DragStarting` event.
+  /// Event args for the 'DragStarting' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dragstartingeventargs">See the ICoreWebView2DragStartingEventArgs article.</see></para>
@@ -2270,7 +2270,7 @@ type
       /// </summary>
       property Position                      : TPoint                                            read GetPosition;
       /// <summary>
-      /// <para>Returns an `ICoreWebView2Deferral` object. Use this operation to complete
+      /// <para>Returns an 'ICoreWebView2Deferral' object. Use this operation to complete
       /// the CoreWebView2DragStartingEventArgs.</para>
       ///
       /// <para>Until the deferral is completed, subsequent attempts to initiate drag
@@ -2281,7 +2281,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `DedicatedWorkerCreated` event.
+  /// Event args for the 'DedicatedWorkerCreated' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworkercreatedeventargs">See the ICoreWebView2DedicatedWorkerCreatedEventArgs article.</see></para>
@@ -2319,7 +2319,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `ServiceWorkerRegistered` event.
+  /// Event args for the 'ServiceWorkerRegistered' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregisteredeventargs">See the ICoreWebView2ServiceWorkerRegisteredEventArgs article.</see></para>
@@ -2350,7 +2350,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `ServiceWorkerActivated` event.
+  /// Event args for the 'ServiceWorkerActivated' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkeractivatedeventargs">See the ICoreWebView2ServiceWorkerActivatedEventArgs article.</see></para>
@@ -2381,7 +2381,7 @@ type
   end;
 
   /// <summary>
-  /// Event args for the `SharedWorkerCreated` event.
+  /// Event args for the 'SharedWorkerCreated' event.
   /// </summary>
   /// <remarks>
   /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2sharedworkercreatedeventargs">See the ICoreWebView2SharedWorkerCreatedEventArgs article.</see></para>

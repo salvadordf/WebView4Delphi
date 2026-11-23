@@ -55,7 +55,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Create a custom `ContextMenuItem` object to insert into the WebView context menu. CoreWebView2 will rewind the icon stream before decoding. There is a limit of 1000 active custom context menu items at a given time. Attempting to create more before deleting existing ones will fail with ERROR_NOT_ENOUGH_QUOTA. It is recommended to reuse ContextMenuItems across ContextMenuRequested events for performance. The returned ContextMenuItem object's `IsEnabled` property will default to `TRUE` and `IsChecked` property will default to `FALSE`. A `CommandId` will be assigned to the ContextMenuItem object that's unique across active custom context menu items, but command ID values of deleted ContextMenuItems can be reassigned. </p>
+ Create a custom 'ContextMenuItem' object to insert into the WebView context menu. CoreWebView2 will rewind the icon stream before decoding. There is a limit of 1000 active custom context menu items at a given time. Attempting to create more before deleting existing ones will fail with ERROR_NOT_ENOUGH_QUOTA. It is recommended to reuse ContextMenuItems across ContextMenuRequested events for performance. The returned ContextMenuItem object's 'IsEnabled' property will default to 'TRUE' and 'IsChecked' property will default to 'FALSE'. A 'CommandId' will be assigned to the ContextMenuItem object that's unique across active custom context menu items, but command ID values of deleted ContextMenuItems can be reassigned. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{F06F41BF-4B5A-49D8-B9F6-FA16CD29F274}']</dt>

@@ -658,9 +658,9 @@ body { margin: 0.5em; }
 
 <p>Run JavaScript code from the javascript parameter in the current frame. The result of evaluating the provided JavaScript is passed to the completion handler. The result value is a JSON encoded string. If the result is undefined, contains a reference cycle, or otherwise is not able to be encoded into JSON, then the result is considered to be null, which is encoded in JSON as the string &quot;null&quot;.
 
-<p>NOTE: A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before `ContentLoading`, the script will not be executed and the string &quot;null&quot; will be returned.
+<p>NOTE: A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before 'ContentLoading', the script will not be executed and the string &quot;null&quot; will be returned.
 
-<p>This operation executes the script even if `ICoreWebView2Settings::IsScriptEnabled` is set to `FALSE`.
+<p>This operation executes the script even if 'ICoreWebView2Settings::IsScriptEnabled' is set to 'FALSE'.
 
 <p></p>
 <p>
@@ -678,19 +678,19 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>Posts the specified webMessage to the frame. The frame receives the message by subscribing to the `message` event of the `window.chrome.webview` of the frame document.
+<p>Posts the specified webMessage to the frame. The frame receives the message by subscribing to the 'message' event of the 'window.chrome.webview' of the frame document.
 
 <p></p>
 
 <pre class="preformatted">
-```cpp
+'''cpp
 window.chrome.webview.addEventListener('message', handler)
 window.chrome.webview.removeEventListener('message', handler)
-```</pre>
+'''</pre>
 
 <p>
 
-<p>The event args is an instances of `MessageEvent`. The `ICoreWebView2Settings::IsWebMessageEnabled` setting must be `TRUE` or the message will not be sent. The `data` property of the event args is the `webMessage` string parameter parsed as a JSON string into a JavaScript object. The `source` property of the event args is a reference to the `window.chrome.webview` object. For information about sending messages from the HTML document in the WebView to the host, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). The message is delivered asynchronously. If a navigation occurs before the message is posted to the page, the message is discarded.
+<p>The event args is an instances of 'MessageEvent'. The 'ICoreWebView2Settings::IsWebMessageEnabled' setting must be 'TRUE' or the message will not be sent. The 'data' property of the event args is the 'webMessage' string parameter parsed as a JSON string into a JavaScript object. The 'source' property of the event args is a reference to the 'window.chrome.webview' object. For information about sending messages from the HTML document in the WebView to the host, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). The message is delivered asynchronously. If a navigation occurs before the message is posted to the page, the message is discarded.
 
 <p></p>
 <p>
@@ -706,7 +706,7 @@ window.chrome.webview.removeEventListener('message', handler)
 </tr>
 <tr><td colspan="2">
 <p>
- Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves in exactly the same manner as `PostWebMessageAsJson`, but the `data` property of the event args of the `window.chrome.webview` message is a string with the same value as `webMessageAsString`. Use this instead of `PostWebMessageAsJson` if you want to communicate using simple strings rather than JSON objects. </p>
+ Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves in exactly the same manner as 'PostWebMessageAsJson', but the 'data' property of the event args of the 'window.chrome.webview' message is a string with the same value as 'webMessageAsString'. Use this instead of 'PostWebMessageAsJson' if you want to communicate using simple strings rather than JSON objects. </p>
 <p>
 
 
@@ -722,25 +722,25 @@ window.chrome.webview.removeEventListener('message', handler)
 <p>
 
 
-<p>Share a shared buffer object with script of the iframe in the WebView. The script will receive a `sharedbufferreceived` event from chrome.webview. The event arg for that event will have the following methods and properties:
+<p>Share a shared buffer object with script of the iframe in the WebView. The script will receive a 'sharedbufferreceived' event from chrome.webview. The event arg for that event will have the following methods and properties:
 
-<p>`getBuffer()`: return an ArrayBuffer object with the backing content from the shared buffer.
+<p>'getBuffer()': return an ArrayBuffer object with the backing content from the shared buffer.
 
-<p>`additionalData`: an object as the result of parsing `additionalDataAsJson` as JSON string. This property will be `undefined` if `additionalDataAsJson` is nullptr or empty string.
+<p>'additionalData': an object as the result of parsing 'additionalDataAsJson' as JSON string. This property will be 'undefined' if 'additionalDataAsJson' is nullptr or empty string.
 
-<p>`source`: with a value set as `chrome.webview` object.
+<p>'source': with a value set as 'chrome.webview' object.
 
-<p>If a string is provided as `additionalDataAsJson` but it is not a valid JSON string, the API will fail with `E_INVALIDARG`.
+<p>If a string is provided as 'additionalDataAsJson' but it is not a valid JSON string, the API will fail with 'E_INVALIDARG'.
 
-<p>If `access` is COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY, the script will only have read access to the buffer.
+<p>If 'access' is COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY, the script will only have read access to the buffer.
 
 <p>If the script tries to modify the content in a read only buffer, it will cause an access violation in WebView renderer process and crash the renderer process.
 
-<p>If the shared buffer is already closed, the API will fail with `RO_E_CLOSED`.
+<p>If the shared buffer is already closed, the API will fail with 'RO_E_CLOSED'.
 
-<p>The script code should call `chrome.webview.releaseBuffer` with the shared buffer as the parameter to release underlying resources as soon as it does not need access to the shared buffer any more.
+<p>The script code should call 'chrome.webview.releaseBuffer' with the shared buffer as the parameter to release underlying resources as soon as it does not need access to the shared buffer any more.
 
-<p>The application can post the same shared buffer object to multiple web pages or iframes, or post to the same web page or iframe multiple times. Each `PostSharedBufferToScript` will create a separate ArrayBuffer object with its own view of the memory and is separately released. The underlying shared memory will be released when all the views are released.
+<p>The application can post the same shared buffer object to multiple web pages or iframes, or post to the same web page or iframe multiple times. Each 'PostSharedBufferToScript' will create a separate ArrayBuffer object with its own view of the memory and is separately released. The underlying shared memory will be released when all the views are released.
 
 <p>For example, if we want to send data to script for one time read only consumption.
 
@@ -781,7 +781,7 @@ window.chrome.webview.removeEventListener('message', handler)
 </tr>
 <tr><td colspan="2">
 <p>
- The unique identifier of the current frame. It's the same kind of ID as with the `FrameId` in `ICoreWebView2` and via `CoreWebView2FrameInfo`. </p>
+ The unique identifier of the current frame. It's the same kind of ID as with the 'FrameId' in 'ICoreWebView2' and via 'CoreWebView2FrameInfo'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">

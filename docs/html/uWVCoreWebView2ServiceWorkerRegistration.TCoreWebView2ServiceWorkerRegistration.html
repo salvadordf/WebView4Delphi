@@ -311,7 +311,7 @@ body { margin: 0.5em; }
 
 <p>The active service worker is the service worker that controls the pages within the scope of the registration. See the [Service Worker] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorker">https://developer.mozilla.org/docs/Web/API/ServiceWorker</a>) for more information.
 
-<p>This corresponds to the `active` property of the `ServiceWorkerRegistration` object in the DOM. For more information, see the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active</a>).
+<p>This corresponds to the 'active' property of the 'ServiceWorkerRegistration' object in the DOM. For more information, see the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active</a>).
 
 <p></p>
 </td></tr>
@@ -327,7 +327,7 @@ body { margin: 0.5em; }
 
 <p>A string representing the URI of the origin where the worker is executing.
 
-<p>If a worker created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
+<p>If a worker created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
@@ -343,17 +343,17 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>The `scopeUri` is a fully qualified URI, including the scheme, host and path, that specifies the range of URLs a service worker can control.
+<p>The 'scopeUri' is a fully qualified URI, including the scheme, host and path, that specifies the range of URLs a service worker can control.
 
-<p>When registering a service worker, if no scope is specified, it defaults to the directory where the service worker script resides. For example, if the script is located at <a href="https://example.com/app/sw.js">https://example.com/app/sw.js</a>, the default `scopeUri` would be <a href="https://example.com/app/">https://example.com/app/</a>. However, if a scope is provided, it is defined relative to the application's base URI. For instance, if an application at <a href="https://example.com/">https://example.com/</a> registers a service worker with a scope of /app/, the resulting `scopeUri` is <a href="https://example.com/app/">https://example.com/app/</a>.
+<p>When registering a service worker, if no scope is specified, it defaults to the directory where the service worker script resides. For example, if the script is located at <a href="https://example.com/app/sw.js">https://example.com/app/sw.js</a>, the default 'scopeUri' would be <a href="https://example.com/app/">https://example.com/app/</a>. However, if a scope is provided, it is defined relative to the application's base URI. For instance, if an application at <a href="https://example.com/">https://example.com/</a> registers a service worker with a scope of /app/, the resulting 'scopeUri' is <a href="https://example.com/app/">https://example.com/app/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>The same process applies to the `Scope` when a service worker is registered from DOM API.
+<p>The same process applies to the 'Scope' when a service worker is registered from DOM API.
 
-<p>The `scopeUri` property reflects this normalization, ensuring that the URI is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/app/">HTTPS://EXAMPLE.COM/app/</a>` is canonicalized to `<a href="https://example.com/app/">https://example.com/app/</a>`; `<a href="https://b">https://b</a>ücher.de/` is canonicalized to `<a href="https://xn--bcher-kva.de/">https://xn--bcher-kva.de/</a>`.
+<p>The 'scopeUri' property reflects this normalization, ensuring that the URI is standardized. For example, '<a href="HTTPS://EXAMPLE.COM/app/">HTTPS://EXAMPLE.COM/app/</a>' is canonicalized to '<a href="https://example.com/app/">https://example.com/app/</a>'; '<a href="https://b">https://b</a>ücher.de/' is canonicalized to '<a href="https://xn--bcher-kva.de/">https://xn--bcher-kva.de/</a>'.
 
-<p>The `scope` property of the `ServiceWorkerRegistration` object in the DOM returns the relative URL based on the application's base URI, while this property always returns a fully qualified URI. For more information on DOM API, see the [MDN documentation](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope</a>).
+<p>The 'scope' property of the 'ServiceWorkerRegistration' object in the DOM returns the relative URL based on the application's base URI, while this property always returns a fully qualified URI. For more information on DOM API, see the [MDN documentation](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope</a>).
 
 <p></p>
 </td></tr>
@@ -369,13 +369,13 @@ body { margin: 0.5em; }
 
 <p>A string representing the URI of the top-level document that the worker is associated with.
 
-<p>If a worker is created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
+<p>If a worker is created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be `<a href="https://guid.invalid/">https://guid.invalid/</a>`.
+<p>When CustomDataPartitionId is set, the 'TopLevelOrigin' will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be '<a href="https://guid.invalid/">https://guid.invalid/</a>'.
 
-<p>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.
+<p>For more details see 'ICoreWebView2Experimental20::CustomDataPartitionId'.
 
 <p></p>
 </td></tr>

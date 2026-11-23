@@ -70,19 +70,19 @@ body { margin: 0.5em; }
 <p>
  Adds an event handler for the ServerCertificateErrorDetected event. The ServerCertificateErrorDetected event is raised when the WebView2 cannot verify server's digital certificate while loading a web page.
 
-<p>This event will raise for all web resources and follows the `WebResourceRequested` event.
+<p>This event will raise for all web resources and follows the 'WebResourceRequested' event.
 
 <p>If you don't handle the event, WebView2 will show the default TLS interstitial error page to the user for navigations, and for non-navigations the web request is cancelled.
 
-<p>Note that WebView2 before raising `ServerCertificateErrorDetected` raises a `NavigationCompleted` event with `IsSuccess` as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.
+<p>Note that WebView2 before raising 'ServerCertificateErrorDetected' raises a 'NavigationCompleted' event with 'IsSuccess' as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.
 
 <p>- COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_COMMON_NAME_IS_INCORRECT - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_EXPIRED - COREWEBVIEW2_WEB_ERROR_STATUS_CLIENT_CERTIFICATE_CONTAINS_ERRORS - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_REVOKED - COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_IS_INVALID
 
-<p>For more details see `ICoreWebView2NavigationCompletedEventArgs::get_IsSuccess` and handle ServerCertificateErrorDetected event or show the default TLS interstitial error page to the user according to the app needs.
+<p>For more details see 'ICoreWebView2NavigationCompletedEventArgs::get_IsSuccess' and handle ServerCertificateErrorDetected event or show the default TLS interstitial error page to the user according to the app needs.
 
-<p>WebView2 caches the response when action is `COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW` for the RequestUri's host and the server certificate in the session and the `ServerCertificateErrorDetected` event won't be raised again.
+<p>WebView2 caches the response when action is 'COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW' for the RequestUri's host and the server certificate in the session and the 'ServerCertificateErrorDetected' event won't be raised again.
 
-<p>To raise the event again you must clear the cache using `ClearServerCertificateErrorActions`.
+<p>To raise the event again you must clear the cache using 'ClearServerCertificateErrorActions'.
 
 <p>\snippet SettingsComponent.cpp ServerCertificateErrorDetected1 </p>
 <h6 class="description_section">Attributes</h6>

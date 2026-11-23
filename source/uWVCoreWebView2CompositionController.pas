@@ -155,10 +155,10 @@ type
       /// The method sets the out parameter value as follows:
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
       ///         a region (HTML element) within the WebView2 with
-      ///         `-webkit-app-region: drag` CSS style set.
+      ///         '-webkit-app-region: drag' CSS style set.
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
       ///         a region (HTML element) within the WebView2 without
-      ///         `-webkit-app-region: drag` CSS style set.
+      ///         '-webkit-app-region: drag' CSS style set.
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
       ///
       /// NOTE: in order for WebView2 to properly handle the title bar system menu,

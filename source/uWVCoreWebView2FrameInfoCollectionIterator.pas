@@ -30,7 +30,7 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2FrameInfoCollectionIterator); reintroduce;
       destructor  Destroy; override;
       /// <summary>
-      /// Move the iterator to the next `FrameInfo` in the collection.
+      /// Move the iterator to the next 'FrameInfo' in the collection.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#movenext">See the ICoreWebView2FrameInfoCollectionIterator article.</see></para>
@@ -46,18 +46,18 @@ type
       /// </summary>
       property BaseIntf    : ICoreWebView2FrameInfoCollectionIterator   read FBaseIntf;
       /// <summary>
-      /// `TRUE` when the iterator has not run out of `FrameInfo`s.  If the
+      /// 'TRUE' when the iterator has not run out of 'FrameInfo's.  If the
       /// collection over which the iterator is iterating is empty or if the
-      /// iterator has gone past the end of the collection, then this is `FALSE`.
+      /// iterator has gone past the end of the collection, then this is 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#get_hascurrent">See the ICoreWebView2FrameInfoCollectionIterator article.</see></para>
       /// </remarks>
       property HasCurrent  : boolean                                    read GetHasCurrent;
       /// <summary>
-      /// Get the current `ICoreWebView2FrameInfo` of the iterator.
-      /// Returns `HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)` if HasCurrent is
-      /// `FALSE`.
+      /// Get the current 'ICoreWebView2FrameInfo' of the iterator.
+      /// Returns 'HRESULT_FROM_WIN32(ERROR_INVALID_INDEX)' if HasCurrent is
+      /// 'FALSE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollectioniterator#getcurrent">See the ICoreWebView2FrameInfoCollectionIterator article.</see></para>

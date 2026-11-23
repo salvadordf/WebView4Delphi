@@ -53,18 +53,18 @@ type
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       /// <summary>
       /// <para>Posts the specified webMessageAsJson to this worker.</para>
-      /// <para>The worker receives the message by subscribing to the `message` event of the
-      /// `self.chrome.webview` of the worker.</para>
+      /// <para>The worker receives the message by subscribing to the 'message' event of the
+      /// 'self.chrome.webview' of the worker.</para>
       /// <code>
       /// self.chrome.webview.addEventListener('message', handler)
       /// self.chrome.webview.removeEventListener('message', handler)
       /// </code>
-      /// <para>The event args is an instance of `MessageEvent`. Both the
-      /// `ICoreWebView2Profile.AreWebViewScriptApisEnabledForServiceWorkers` and
-      /// `ICoreWebView2Settings.IsWebMessageEnabled` settings must be `TRUE` or
-      /// the web message will not be sent. The `data` property of the event arg
-      /// is the `webMessageAsJson` string parameter parsed as a JSON string into a
-      /// JS object. The `source` property of the event arg is the path
+      /// <para>The event args is an instance of 'MessageEvent'. Both the
+      /// 'ICoreWebView2Profile.AreWebViewScriptApisEnabledForServiceWorkers' and
+      /// 'ICoreWebView2Settings.IsWebMessageEnabled' settings must be 'TRUE' or
+      /// the web message will not be sent. The 'data' property of the event arg
+      /// is the 'webMessageAsJson' string parameter parsed as a JSON string into a
+      /// JS object. The 'source' property of the event arg is the path
       /// to the worker script. The message is delivered asynchronously.</para>
       /// <para>If the worker is terminated or destroyed before the message is posted,
       /// the message is discarded.</para>
@@ -74,23 +74,23 @@ type
       /// self.chrome.webview.addEventListener('message', handler)
       /// self.chrome.webview.removeEventListener('message', handler)
       /// </code>
-      /// <para>See also the equivalent methods: `ICoreWebView2::PostWebMessageAsJson`,
-      /// `ICoreWebView2Frame::PostWebMessageAsJson`,
-      /// `ICoreWebView2DedicatedWorker::PostWebMessageAsJson`.</para>
+      /// <para>See also the equivalent methods: 'ICoreWebView2::PostWebMessageAsJson',
+      /// 'ICoreWebView2Frame::PostWebMessageAsJson',
+      /// 'ICoreWebView2DedicatedWorker::PostWebMessageAsJson'.</para>
       /// </summary>
       function    PostWebMessageAsJson(const aWebMessageAsJson : wvstring) : boolean;
       /// <summary>
       /// <para>Posts a message that is a simple string rather than a JSON string
       /// representation of a JavaScript object. This behaves exactly the same
-      /// manner as `PostWebMessageAsJson`, but the `data` property of the event
-      /// arg of the `self.chrome.webview` message is a string with the same
-      /// value as `webMessageAsString`.  Use this instead of
-      /// `PostWebMessageAsJson` if you want to communicate using simple strings
-      /// rather than JSON objects. Please see `PostWebMessageAsJson` for
+      /// manner as 'PostWebMessageAsJson', but the 'data' property of the event
+      /// arg of the 'self.chrome.webview' message is a string with the same
+      /// value as 'webMessageAsString'.  Use this instead of
+      /// 'PostWebMessageAsJson' if you want to communicate using simple strings
+      /// rather than JSON objects. Please see 'PostWebMessageAsJson' for
       /// additional information.</para>
-      /// <para>See also the equivalent methods: `ICoreWebView2::PostWebMessageAsString`
-      /// `ICoreWebView2Frame::PostWebMessageAsString`,
-      /// `ICoreWebView2DedicatedWorker::PostWebMessageAsString`.</para>
+      /// <para>See also the equivalent methods: 'ICoreWebView2::PostWebMessageAsString'
+      /// 'ICoreWebView2Frame::PostWebMessageAsString',
+      /// 'ICoreWebView2DedicatedWorker::PostWebMessageAsString'.</para>
       /// </summary>
       function    PostWebMessageAsString(const aWebMessageAsString : wvstring) : boolean;
 
@@ -109,17 +109,17 @@ type
       /// <summary>
       /// <para>A string representing the Uri of the script that the worker is executing.</para>
       ///
-      /// <para>The `scriptUri` is a fully qualified URI, including the scheme, host, and path.
-      /// In contrast, the `scriptURL` property of the `Worker` object in the DOM returns the relative
+      /// <para>The 'scriptUri' is a fully qualified URI, including the scheme, host, and path.
+      /// In contrast, the 'scriptURL' property of the 'Worker' object in the DOM returns the relative
       /// URL of the script being executed by the worker. For more details on DOM API, see the
       /// [DOM API documentation](https://developer.mozilla.org/docs/Web/API/Worker/scriptURL).</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
       /// details on how normalization is performed.
-      /// The same process applies to the `scriptURL` when a worker is registered from DOM API.
-      /// The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example,
-      /// `HTTPS://EXAMPLE.COM/worker.js` is canonicalized to `https://example.com/worker.js`;
-      /// `https://bücher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.</para>
+      /// The same process applies to the 'scriptURL' when a worker is registered from DOM API.
+      /// The 'scriptUri' property reflects this normalization, ensuring that the URL is standardized. For example,
+      /// 'HTTPS://EXAMPLE.COM/worker.js' is canonicalized to 'https://example.com/worker.js';
+      /// 'https://bücher.de/worker.js' is canonicalized to 'https://xn--bcher-kva.de/worker.js'.</para>
       /// </summary>
       property ScriptUri           : wvstring                        read GetScriptUri;
   end;

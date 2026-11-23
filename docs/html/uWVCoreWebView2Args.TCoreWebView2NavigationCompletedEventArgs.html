@@ -217,7 +217,7 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>`TRUE` when the navigation is successful. `FALSE` for a navigation that ended up in an error page (failures due to no network, DNS lookup failure, HTTP server responds with 4xx), but may also be `FALSE` for additional scenarios such as `window.stop()` run on navigated page.
+<p>'TRUE' when the navigation is successful. 'FALSE' for a navigation that ended up in an error page (failures due to no network, DNS lookup failure, HTTP server responds with 4xx), but may also be 'FALSE' for additional scenarios such as 'window.stop()' run on navigated page.
 
 <p>Note that WebView2 will report the navigation as 'unsuccessful' if the load for the navigation did not reach the expected completion for any reason. Such reasons include potentially catastrophic issues such network and certificate issues, but can also be the result of intended actions such as the app canceling a navigation or navigating away before the original navigation completed. Applications should not just rely on this flag, but also consider the reported WebErrorStatus to determine whether the failure is indeed catastrophic in their context.
 
@@ -275,17 +275,17 @@ body { margin: 0.5em; }
 
 <p>The HTTP status code of the navigation if it involved an HTTP request. For instance, this will usually be 200 if the request was successful, 404 if a page was not found, etc. See <a href="https://developer.mozilla.org/docs/Web/HTTP/Status">https://developer.mozilla.org/docs/Web/HTTP/Status</a> for a list of common status codes.
 
-<p>The `HttpStatusCode` property will be 0 in the following cases:
+<p>The 'HttpStatusCode' property will be 0 in the following cases:
 
 <p>* The navigation did not involve an HTTP request. For instance, if it was a navigation to a <a href="file://">file://</a> URL, or if it was a same-document navigation.
 
 <p>* The navigation failed before a response was received. For instance, if the hostname was not found, or if there was a network error.
 
-<p>In those cases, you can get more information from the `IsSuccess` and `WebErrorStatus` properties.
+<p>In those cases, you can get more information from the 'IsSuccess' and 'WebErrorStatus' properties.
 
-<p>If the navigation receives a successful HTTP response, but the navigated page calls `window.stop()` before it finishes loading, then `HttpStatusCode` may contain a success code like 200, but `IsSuccess` will be FALSE and `WebErrorStatus` will be `COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED`.
+<p>If the navigation receives a successful HTTP response, but the navigated page calls 'window.stop()' before it finishes loading, then 'HttpStatusCode' may contain a success code like 200, but 'IsSuccess' will be FALSE and 'WebErrorStatus' will be 'COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED'.
 
-<p>Since WebView2 handles HTTP continuations and redirects automatically, it is unlikely for `HttpStatusCode` to ever be in the 1xx or 3xx ranges.
+<p>Since WebView2 handles HTTP continuations and redirects automatically, it is unlikely for 'HttpStatusCode' to ever be in the 1xx or 3xx ranges.
 
 <p></p>
 <p>

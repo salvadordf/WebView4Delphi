@@ -64,11 +64,11 @@ type
       /// <summary>
       /// The HTTP request message body as stream.  POST data should be here.  If a
       /// stream is set, which overrides the message body, the stream must have
-      /// all the content data available by the time the `WebResourceRequested`
+      /// all the content data available by the time the 'WebResourceRequested'
       /// event deferral of this response is completed.  Stream should be agile or
       /// be created from a background STA to prevent performance impact to the UI
-      /// thread.  `Null` means no content data.  `IStream` semantics apply
-      /// (return `S_OK` to `Read` runs until all data is exhausted).
+      /// thread.  'Null' means no content data.  'IStream' semantics apply
+      /// (return 'S_OK' to 'Read' runs until all data is exhausted).
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2webresourcerequest#get_content">See the ICoreWebView2WebResourceRequest article.</see></para>

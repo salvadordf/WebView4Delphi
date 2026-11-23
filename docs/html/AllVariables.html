@@ -26,9 +26,9 @@ body { margin: 0.5em; }
 
 <p>This method is for anyone want to compare version correctly to determine which version is newer, older or same. Use it to determine whether to use webview2 or certain feature based upon version.
 
-<p>Sets the value of result to `-1`, `0` or `1` if `version1` is less than, equal or greater than `version2` respectively. Returns `E_INVALIDARG` if it fails to parse any of the version strings or any input parameter is `null`.
+<p>Sets the value of result to '-1', '0' or '1' if 'version1' is less than, equal or greater than 'version2' respectively. Returns 'E_INVALIDARG' if it fails to parse any of the version strings or any input parameter is 'null'.
 
-<p>Directly use the `versionInfo` obtained from `GetAvailableCoreWebView2BrowserVersionString` with input, channel information is ignored.
+<p>Directly use the 'versionInfo' obtained from 'GetAvailableCoreWebView2BrowserVersionString' with input, channel information is ignored.
 
 <p></p></td>
 </tr>
@@ -37,9 +37,9 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVLibFunctions.html">uWVLibFunctions</a></td>
 <td class="itemdesc"><p>
 
-<p>Creates an evergreen WebView2 Environment using the installed WebView2 Runtime version. This is equivalent to running `CreateCoreWebView2EnvironmentWithOptions` with `nullptr` for `browserExecutableFolder`, `userDataFolder`, `additionalBrowserArguments`.
+<p>Creates an evergreen WebView2 Environment using the installed WebView2 Runtime version. This is equivalent to running 'CreateCoreWebView2EnvironmentWithOptions' with 'nullptr' for 'browserExecutableFolder', 'userDataFolder', 'additionalBrowserArguments'.
 
-<p>For more information, navigate to `CreateCoreWebView2EnvironmentWithOptions`.
+<p>For more information, navigate to 'CreateCoreWebView2EnvironmentWithOptions'.
 
 <p></p></td>
 </tr>
@@ -55,11 +55,11 @@ body { margin: 0.5em; }
 
 <p>Get the browser version info including channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary.
 
-<p>If an override exists for the `browserExecutableFolder` or the channel preference, the override is used. If an override is not specified, then the parameter value passed to `GetAvailableCoreWebView2BrowserVersionString` is used.
+<p>If an override exists for the 'browserExecutableFolder' or the channel preference, the override is used. If an override is not specified, then the parameter value passed to 'GetAvailableCoreWebView2BrowserVersionString' is used.
 
-<p>Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an installed WebView2 runtime or non-stable Microsoft Edge installation.
+<p>Returns 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if it fails to find an installed WebView2 runtime or non-stable Microsoft Edge installation.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
 
 <p></p></td>
 </tr>
@@ -68,11 +68,11 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVLibFunctions.html">uWVLibFunctions</a></td>
 <td class="itemdesc"><p>
 
-<p>This function will tell you the browser version info of the release channel used when creating an environment with the same options. Browser version info includes channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary. The format of the return string matches the format of `BrowserVersionString` on `ICoreWebView2Environment`.
+<p>This function will tell you the browser version info of the release channel used when creating an environment with the same options. Browser version info includes channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary. The format of the return string matches the format of 'BrowserVersionString' on 'ICoreWebView2Environment'.
 
-<p>If an override exists for `browserExecutableFolder`, `releaseChannels`, or `ChannelSearchKind`, the override is used. The presence of an override can result in a different channel used than the one expected based on the environment options object. `browserExecutableFolder` takes precedence over the other options, regardless of whether or not its channel is included in the `releaseChannels`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides. If an override is not specified, then the parameters passed to `GetAvailableCoreWebView2BrowserVersionStringWithOptions` are used. Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an installed WebView2 Runtime or non-stable Microsoft Edge installation. Use `GetAvailableCoreWebView2BrowserVersionString` to get the version info without the environment options.
+<p>If an override exists for 'browserExecutableFolder', 'releaseChannels', or 'ChannelSearchKind', the override is used. The presence of an override can result in a different channel used than the one expected based on the environment options object. 'browserExecutableFolder' takes precedence over the other options, regardless of whether or not its channel is included in the 'releaseChannels'. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides. If an override is not specified, then the parameters passed to 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' are used. Returns 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if it fails to find an installed WebView2 Runtime or non-stable Microsoft Edge installation. Use 'GetAvailableCoreWebView2BrowserVersionString' to get the version info without the environment options.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
 
 <p></p></td>
 </tr>

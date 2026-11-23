@@ -61,31 +61,31 @@ type
       property BucketId              : wvstring                   read GetBucketId;
       /// <summary>
       /// <para>The unique identifier (UUID) for this crash report. Use this to locate the
-      /// corresponding dump file in `FailureReportFolderPath`.</para>
+      /// corresponding dump file in 'FailureReportFolderPath'.</para>
       /// </summary>
       property CrashReportId         : wvstring                   read GetCrashReportId;
       /// <summary>
-      /// <para>The Windows exception code for the failure, e.g. `0xC0000005` for
-      /// `STATUS_ACCESS_VIOLATION`. `0` if not available.</para>
+      /// <para>The Windows exception code for the failure, e.g. '0xC0000005' for
+      /// 'STATUS_ACCESS_VIOLATION'. '0' if not available.</para>
       /// </summary>
       property ExceptionCode         : LongWord                   read GetExceptionCode;
       /// <summary>
       /// <para>Relative virtual address (RVA) of the faulting instruction within
-      /// `FaultingModuleName`. `0` if not available.</para>
+      /// 'FaultingModuleName'. '0' if not available.</para>
       /// </summary>
       property FaultOffset           : uint64                     read GetFaultOffset;
       /// <summary>
       /// <para>Basename of the module containing the faulting instruction,
-      /// e.g. `renderer.dll`.</para>
+      /// e.g. 'renderer.dll'.</para>
       /// </summary>
       property FaultingModuleName    : wvstring                   read GetFaultingModuleName;
       /// <summary>
-      /// <para>Version of the faulting module, e.g. `128.0.2739.42`.</para>
+      /// <para>Version of the faulting module, e.g. '128.0.2739.42'.</para>
       /// </summary>
       property FaultingModuleVersion : wvstring                   read GetFaultingModuleVersion;
       /// <summary>
       /// <para>Time the crash report was recorded, as a Windows FILETIME value
-      /// (100-nanosecond intervals since Jan 1 1601 UTC). `0` if unavailable.</para>
+      /// (100-nanosecond intervals since Jan 1 1601 UTC). '0' if unavailable.</para>
       /// </summary>
       property ReportTime            : uint64                     read GetReportTime;
   end;

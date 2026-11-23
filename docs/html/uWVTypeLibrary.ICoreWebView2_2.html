@@ -97,7 +97,9 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Navigates using a constructed WebResourceRequest object. This lets you provide post data or additional request headers during navigation. The headers in the WebResourceRequest override headers added by WebView2 runtime except for Cookie headers. Method can only be either &quot;GET&quot; or &quot;POST&quot;. Provided post data will only be sent only if the method is &quot;POST&quot; and the uri scheme is HTTP(S). \snippet ScenarioNavigateWithWebResourceRequest.cpp NavigateWithWebResourceRequest </p>
+ Navigates using a constructed WebResourceRequest object. This lets you provide post data or additional request headers during navigation. The headers in the WebResourceRequest override headers added by WebView2 runtime except for Cookie headers. Method can only be either &quot;GET&quot; or &quot;POST&quot;. Provided post data will only be sent only if the method is &quot;POST&quot; and the uri scheme is HTTP(S).
+
+<p>The headers are sent with the initial request and with every redirect, including redirects to a different origin. They are also stored with the navigation history entry, so reload and back or forward navigations send them again. Do not include credentials, such as an 'Authorization' header, unless you trust every server to which the navigation might be redirected. To control which origins receive a header, omit it from the 'WebResourceRequest' and add it for trusted origins in a 'WebResourceRequested' event handler. Alternatively, use 'WebResourceRequested' to remove the header when a redirect targets an untrusted origin. \snippet ScenarioNavigateWithWebResourceRequest.cpp NavigateWithWebResourceRequest </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">

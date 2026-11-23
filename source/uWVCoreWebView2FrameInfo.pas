@@ -49,7 +49,7 @@ type
       property BaseIntf          : ICoreWebView2FrameInfo  read FBaseIntf       write FBaseIntf;
       /// <summary>
       /// The value of iframe's window.name property. The default value equals to
-      /// iframe html tag declaring it, as in `<iframe name="frame-name">...</iframe>`.
+      /// iframe html tag declaring it, as in '<iframe name="frame-name">...</iframe>'.
       /// The returned string is empty when the frame has no name attribute and
       /// no assigned value for window.name.
       /// </summary>
@@ -65,40 +65,40 @@ type
       /// </remarks>
       property Source            : wvstring                read GetSource;
       /// <summary>
-      /// This parent frame's `FrameInfo`. `ParentFrameInfo` will only be
+      /// This parent frame's 'FrameInfo'. 'ParentFrameInfo' will only be
       /// populated when obtained via calling
-      /// `ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
-      /// `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed` will
-      /// always have a `null` `ParentFrameInfo`. This property is also `null` for the
+      /// 'ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'.
+      /// 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed' will
+      /// always have a 'null' 'ParentFrameInfo'. This property is also 'null' for the
       /// main frame in the WebView2 which has no parent frame.
-      /// Note that this `ParentFrameInfo` could be out of date as it's a snapshot.
+      /// Note that this 'ParentFrameInfo' could be out of date as it's a snapshot.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo2#get_parentframeinfo">See the ICoreWebView2FrameInfo2 article.</see></para>
       /// </remarks>
       property ParentFrameInfo   : ICoreWebView2FrameInfo  read GetParentFrameInfo;
       /// <summary>
-      /// The unique identifier of the frame associated with the current `FrameInfo`.
-      /// It's the same kind of ID as with the `FrameId` in `ICoreWebView2` and via
-      /// `ICoreWebView2Frame`. `FrameId` will only be populated (non-zero) when obtained
-      /// calling `CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
-      /// `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed` will
+      /// The unique identifier of the frame associated with the current 'FrameInfo'.
+      /// It's the same kind of ID as with the 'FrameId' in 'ICoreWebView2' and via
+      /// 'ICoreWebView2Frame'. 'FrameId' will only be populated (non-zero) when obtained
+      /// calling 'CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'.
+      /// 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed' will
       /// always have an invalid frame Id 0.
-      /// Note that this `FrameId` could be out of date as it's a snapshot.
-      /// If there's WebView2 created or destroyed or `FrameCreated/FrameDestroyed` events
-      /// after the asynchronous call `CoreWebView2Environment.GetProcessExtendedInfos`
-      /// starts, you may want to call asynchronous method again to get the updated `FrameInfo`s.
+      /// Note that this 'FrameId' could be out of date as it's a snapshot.
+      /// If there's WebView2 created or destroyed or 'FrameCreated/FrameDestroyed' events
+      /// after the asynchronous call 'CoreWebView2Environment.GetProcessExtendedInfos'
+      /// starts, you may want to call asynchronous method again to get the updated 'FrameInfo's.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo2#get_frameid">See the ICoreWebView2FrameInfo2 article.</see></para>
       /// </remarks>
       property FrameId           : cardinal                read GetFrameId;
       /// <summary>
-      /// The frame kind of the frame. `FrameKind` will only be populated when
-      /// obtained calling `ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`.
-      /// `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed`
-      /// will always have the default value `COREWEBVIEW2_FRAME_KIND_UNKNOWN`.
-      /// Note that this `FrameKind` could be out of date as it's a snapshot.
+      /// The frame kind of the frame. 'FrameKind' will only be populated when
+      /// obtained calling 'ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'.
+      /// 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed'
+      /// will always have the default value 'COREWEBVIEW2_FRAME_KIND_UNKNOWN'.
+      /// Note that this 'FrameKind' could be out of date as it's a snapshot.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfo2#get_framekind">See the ICoreWebView2FrameInfo2 article.</see></para>

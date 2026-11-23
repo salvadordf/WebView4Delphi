@@ -50,13 +50,13 @@ body { margin: 0.5em; }
 <p>
  The HTTP status code of the navigation if it involved an HTTP request. For instance, this will usually be 200 if the request was successful, 404 if a page was not found, etc. See <a href="https://developer.mozilla.org/docs/Web/HTTP/Status">https://developer.mozilla.org/docs/Web/HTTP/Status</a> for a list of common status codes.
 
-<p>The `HttpStatusCode` property will be 0 in the following cases: * The navigation did not involve an HTTP request. For instance, if it was a navigation to a <a href="file://">file://</a> URL, or if it was a same-document navigation. * The navigation failed before a response was received. For instance, if the hostname was not found, or if there was a network error.
+<p>The 'HttpStatusCode' property will be 0 in the following cases: * The navigation did not involve an HTTP request. For instance, if it was a navigation to a <a href="file://">file://</a> URL, or if it was a same-document navigation. * The navigation failed before a response was received. For instance, if the hostname was not found, or if there was a network error.
 
-<p>In those cases, you can get more information from the `IsSuccess` and `WebErrorStatus` properties.
+<p>In those cases, you can get more information from the 'IsSuccess' and 'WebErrorStatus' properties.
 
-<p>If the navigation receives a successful HTTP response, but the navigated page calls `window.stop()` before it finishes loading, then `HttpStatusCode` may contain a success code like 200, but `IsSuccess` will be FALSE and `WebErrorStatus` will be `COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED`.
+<p>If the navigation receives a successful HTTP response, but the navigated page calls 'window.stop()' before it finishes loading, then 'HttpStatusCode' may contain a success code like 200, but 'IsSuccess' will be FALSE and 'WebErrorStatus' will be 'COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED'.
 
-<p>Since WebView2 handles HTTP continuations and redirects automatically, it is unlikely for `HttpStatusCode` to ever be in the 1xx or 3xx ranges. </p>
+<p>Since WebView2 handles HTTP continuations and redirects automatically, it is unlikely for 'HttpStatusCode' to ever be in the 1xx or 3xx ranges. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{FDF8B738-EE1E-4DB2-A329-8D7D7B74D792}']</dt>

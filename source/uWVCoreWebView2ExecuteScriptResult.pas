@@ -30,11 +30,11 @@ type
       destructor  Destroy; override;
       /// <summary>
       /// If Succeeded is true and the result of script execution is a string, this method provides the value of the string result,
-      /// and we will get the `FALSE` var value when the js result is not string type.
+      /// and we will get the 'FALSE' var value when the js result is not string type.
       /// The return value description is as follows
       /// 1. S_OK: Execution succeeds.
-      /// 2. E_POINTER: When the `stringResult` or `value` is nullptr.
-      /// NOTE: If the `value` returns `FALSE`, the `stringResult` will be set to a empty string.
+      /// 2. E_POINTER: When the 'stringResult' or 'value' is nullptr.
+      /// NOTE: If the 'value' returns 'FALSE', the 'stringResult' will be set to a empty string.
       /// </summary>
       function TryGetResultAsString(var stringResult: wvstring; var value: boolean): boolean;
 
@@ -58,18 +58,18 @@ type
       /// A function that has no explicit return value returns undefined. If the
       /// script that was run throws an unhandled exception, then the result is
       /// also "null". This method is applied asynchronously. If the method is
-      /// run before `ContentLoading`, the script will not be executed
+      /// run before 'ContentLoading', the script will not be executed
       /// and the string "null" will be returned.
       /// The return value description is as follows
       /// 1. S_OK: Execution succeeds.
-      /// 2. E_POINTER: When the `jsonResult` is nullptr.
+      /// 2. E_POINTER: When the 'jsonResult' is nullptr.
       /// </summary>
       property ResultAsJson          : wvstring                          read GetResultAsJson;
       /// <summary>
       /// If Succeeded is false, you can use this property to get the unhandled exception thrown by script execution
       /// Note that due to the compatibility of the WinRT/.NET interface,
       /// S_OK will be returned even if the acquisition fails.
-      /// We can determine whether the acquisition is successful by judging whether the `exception` is nullptr.
+      /// We can determine whether the acquisition is successful by judging whether the 'exception' is nullptr.
       /// </summary>
       property Exception             : ICoreWebView2ScriptException      read GetException;
   end;

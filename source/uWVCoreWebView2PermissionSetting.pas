@@ -40,7 +40,7 @@ type
       /// </summary>
       property    BaseIntf         : ICoreWebView2PermissionSetting  read FBaseIntf;
       /// <summary>
-      /// The kind of the permission setting. See `COREWEBVIEW2_PERMISSION_KIND` for
+      /// The kind of the permission setting. See 'COREWEBVIEW2_PERMISSION_KIND' for
       /// more details.
       /// </summary>
       /// <remarks>

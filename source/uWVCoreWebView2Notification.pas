@@ -61,8 +61,8 @@ type
       /// will cause the
       /// [show](https://developer.mozilla.org/docs/Web/API/Notification/show_event)
       /// event to be raised for non-persistent notifications. You must not run this
-      /// unless you are handling the `NotificationReceived` event. Returns
-      /// `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` when
+      /// unless you are handling the 'NotificationReceived' event. Returns
+      /// 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' when
       /// this is called.
       /// </summary>
       function ReportShown: boolean;
@@ -72,11 +72,11 @@ type
       /// [click](https://developer.mozilla.org/docs/Web/API/Notification/click_event)
       /// event to be raised for non-persistent notifications and the
       /// [notificationclick](https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)
-      /// event for persistent notifications. Use `ReportClickedWithActionIndex` to
+      /// event for persistent notifications. Use 'ReportClickedWithActionIndex' to
       /// specify an action to activate a persistent notification. You must not run
-      /// this unless you are handling the `NotificationReceived` event. Returns
-      /// `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or
-      /// `ReportShown` has not been run when this is called.
+      /// this unless you are handling the 'NotificationReceived' event. Returns
+      /// 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' or
+      /// 'ReportShown' has not been run when this is called.
       /// </summary>
       function ReportClicked: boolean;
       /// <summary>
@@ -86,9 +86,9 @@ type
       /// event to be raised for non-persistent notifications and the
       /// [notificationclose](https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event)
       /// event for persistent notifications. You must not run this unless you are
-      /// handling the `NotificationReceived` event. Returns
-      /// `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or
-      /// `ReportShown` has not been run when this is called.
+      /// handling the 'NotificationReceived' event. Returns
+      /// 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' or
+      /// 'ReportShown' has not been run when this is called.
       /// </summary>
       function ReportClosed: boolean;
 
@@ -110,12 +110,12 @@ type
       /// This corresponds to
       /// [Notification.dir](https://developer.mozilla.org/docs/Web/API/Notification/dir)
       /// DOM API.
-      /// The default value is `COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT`.
+      /// The default value is 'COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT'.
       /// </summary>
       property Direction                           : TWVTextDirectionKind            read GetDirection;
       /// <summary>
       /// The notification's language, as intended to be specified using a string
-      /// representing a language tag (such as `en-US`) according to
+      /// representing a language tag (such as 'en-US') according to
       /// [BCP47](https://datatracker.ietf.org/doc/html/rfc5646). Note that no
       /// validation is performed on this property and it can be any string the
       /// notification sender specifies.
@@ -162,7 +162,7 @@ type
       /// This corresponds to
       /// [Notification.renotify](https://developer.mozilla.org/docs/Web/API/Notification/renotify)
       /// DOM API.
-      /// The default value is `FALSE`.
+      /// The default value is 'FALSE'.
       /// </summary>
       property ShouldRenotify                      : boolean                         read GetShouldRenotify;
       /// <summary>
@@ -171,7 +171,7 @@ type
       /// This corresponds to
       /// [Notification.requireInteraction](https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction)
       /// DOM API. Note that you may not be able to necessarily implement this due to native API limitations.
-      /// The default value is `FALSE`.
+      /// The default value is 'FALSE'.
       /// </summary>
       property RequiresInteraction                 : boolean                         read GetRequiresInteraction;
       /// <summary>
@@ -180,7 +180,7 @@ type
       /// This corresponds to
       /// [Notification.silent](https://developer.mozilla.org/docs/Web/API/Notification/silent)
       /// DOM API.
-      /// The default value is `FALSE`.
+      /// The default value is 'FALSE'.
       /// </summary>
       property IsSilent                            : boolean                         read GetIsSilent;
       /// <summary>

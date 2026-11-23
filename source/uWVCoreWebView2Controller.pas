@@ -16,10 +16,10 @@ uses
 
 type
   /// <summary>
-  /// The owner of the `CoreWebView2` object that provides support for resizing,
+  /// The owner of the 'CoreWebView2' object that provides support for resizing,
   /// showing and hiding, focusing, and other functionality related to
-  /// windowing and composition.  The `CoreWebView2Controller` owns the
-  /// `CoreWebView2`, and if all references to the `CoreWebView2Controller` go
+  /// windowing and composition.  The 'CoreWebView2Controller' owns the
+  /// 'CoreWebView2', and if all references to the 'CoreWebView2Controller' go
   /// away, the WebView is closed.
   /// </summary>
   /// <remarks>
@@ -83,16 +83,16 @@ type
       /// Moves focus into WebView.  WebView gets focus and focus is set to
       /// correspondent element in the page hosted in the WebView.  For
       /// Programmatic reason, focus is set to previously focused element or the
-      /// default element if no previously focused element exists.  For `Next`
-      /// reason, focus is set to the first element.  For `Previous` reason, focus
+      /// default element if no previously focused element exists.  For 'Next'
+      /// reason, focus is set to the first element.  For 'Previous' reason, focus
       /// is set to the last element.  WebView changes focus through user
       /// interaction including selecting into a WebView or Tab into it.  For
       /// tabbing, the app runs MoveFocus with Next or Previous to align with Tab
       /// and Shift+Tab respectively when it decides the WebView is the next
-      /// element that may exist in a tab.  Or, the app runs `IsDialogMessage`
+      /// element that may exist in a tab.  Or, the app runs 'IsDialogMessage'
       /// as part of the associated message loop to allow the platform to auto
       /// handle tabbing.  The platform rotates through all windows with
-      /// `WS_TABSTOP`.  When the WebView gets focus from `IsDialogMessage`, it is
+      /// 'WS_TABSTOP'.  When the WebView gets focus from 'IsDialogMessage', it is
       /// internally put the focus on the first or last element for tab and
       /// Shift+Tab respectively.
       /// </summary>
@@ -103,39 +103,39 @@ type
       /// WebView.  The browser instance is shut down if no other WebViews are
       /// using it.
       ///
-      /// After running `Close`, most methods will fail and event handlers stop
+      /// After running 'Close', most methods will fail and event handlers stop
       /// running.  Specifically, the WebView releases the associated references to
-      /// any associated event handlers when `Close` is run.
+      /// any associated event handlers when 'Close' is run.
       ///
-      /// `Close` is implicitly run when the `CoreWebView2Controller` loses the
+      /// 'Close' is implicitly run when the 'CoreWebView2Controller' loses the
       /// final reference and is destructed.  But it is best practice to
-      /// explicitly run `Close` to avoid any accidental cycle of references
+      /// explicitly run 'Close' to avoid any accidental cycle of references
       /// between the WebView and the app code.  Specifically, if you capture a
       /// reference to the WebView in an event handler you create a reference cycle
-      /// between the WebView and the event handler.  Run `Close` to break the
+      /// between the WebView and the event handler.  Run 'Close' to break the
       /// cycle by releasing all event handlers.  But to avoid the situation, it is
-      /// best to both explicitly run `Close` on the WebView and to not capture a
+      /// best to both explicitly run 'Close' on the WebView and to not capture a
       /// reference to the WebView to ensure the WebView is cleaned up correctly.
-      /// `Close` is synchronous and won't trigger the `beforeunload` event.
+      /// 'Close' is synchronous and won't trigger the 'beforeunload' event.
       /// </summary>
       function    Close : boolean;
       /// <summary>
-      /// Updates `aBounds` and `aZoomFactor` properties at the same time.  This
+      /// Updates 'aBounds' and 'aZoomFactor' properties at the same time.  This
       /// operation is atomic from the perspective of the host.  After returning
-      /// from this function, the `aBounds` and `aZoomFactor` properties are both
+      /// from this function, the 'aBounds' and 'aZoomFactor' properties are both
       /// updated if the function is successful, or neither is updated if the
-      /// function fails.  If `aBounds` and `aZoomFactor` are both updated by the
-      /// same scale (for example, `aBounds` and `aZoomFactor` are both doubled),
-      /// then the page does not display a change in `window.innerWidth` or
-      /// `window.innerHeight` and the WebView renders the content at the new size
+      /// function fails.  If 'aBounds' and 'aZoomFactor' are both updated by the
+      /// same scale (for example, 'aBounds' and 'aZoomFactor' are both doubled),
+      /// then the page does not display a change in 'window.innerWidth' or
+      /// 'window.innerHeight' and the WebView renders the content at the new size
       /// and zoom without intermediate renderings.  This function also updates
-      /// just one of `aZoomFactor` or `aBounds` by passing in the new value for one
+      /// just one of 'aZoomFactor' or 'aBounds' by passing in the new value for one
       /// and the current value for the other.
       /// </summary>
       function    SetBoundsAndZoomFactor(aBounds: TRect; const aZoomFactor: double) : boolean;
       /// <summary>
-      /// This is a notification separate from `Bounds` that tells WebView that the
-      ///  main WebView parent (or any ancestor) `HWND` moved.  This is needed
+      /// This is a notification separate from 'Bounds' that tells WebView that the
+      ///  main WebView parent (or any ancestor) 'HWND' moved.  This is needed
       /// for accessibility and certain dialogs in WebView to work correctly.
       /// </summary>
       function    NotifyParentWindowPositionChanged : boolean;
@@ -156,18 +156,18 @@ type
       /// </remarks>
       property ZoomFactor                      : double                   read GetZoomFactor                       write SetZoomFactor;
       /// <summary>
-      /// <para>The `IsVisible` property determines whether to show or hide the WebView2.</para>
-      /// <para>If `IsVisible` is set to `FALSE`, the WebView2 is transparent and is
+      /// <para>The 'IsVisible' property determines whether to show or hide the WebView2.</para>
+      /// <para>If 'IsVisible' is set to 'FALSE', the WebView2 is transparent and is
       /// not rendered.   However, this does not affect the window containing the
-      /// WebView2 (the `HWND` parameter that was passed to
-      /// `CreateCoreWebView2Controller`).  If you want that window to disappear
-      /// too, run `ShowWindow` on it directly in addition to modifying the
-      /// `IsVisible` property.  WebView2 as a child window does not get window
+      /// WebView2 (the 'HWND' parameter that was passed to
+      /// 'CreateCoreWebView2Controller').  If you want that window to disappear
+      /// too, run 'ShowWindow' on it directly in addition to modifying the
+      /// 'IsVisible' property.  WebView2 as a child window does not get window
       /// messages when the top window is minimized or restored.  For performance
-      /// reasons, developers should set the `IsVisible` property of the WebView to
-      /// `FALSE` when the app window is minimized and back to `TRUE` when the app
+      /// reasons, developers should set the 'IsVisible' property of the WebView to
+      /// 'FALSE' when the app window is minimized and back to 'TRUE' when the app
       /// window is restored. The app window does this by handling
-      /// `SIZE_MINIMIZED and SIZE_RESTORED` command upon receiving `WM_SIZE`
+      /// 'SIZE_MINIMIZED and SIZE_RESTORED' command upon receiving 'WM_SIZE'
       /// message.</para>
       /// <para>There are CPU and memory benefits when the page is hidden. For instance,
       /// Chromium has code that throttles activities on the page like animations
@@ -179,15 +179,15 @@ type
       /// </remarks>
       property IsVisible                       : boolean                  read GetIsVisible                        write SetIsVisible;
       /// <summary>
-      /// <para>The WebView bounds. Bounds are relative to the parent `HWND`.  The app
+      /// <para>The WebView bounds. Bounds are relative to the parent 'HWND'.  The app
       /// has two ways to position a WebView.</para>
-      /// <para>*   Create a child `HWND` that is the WebView parent `HWND`.  Position
-      ///     the window where the WebView should be.  Use `(0, 0)` for the
-      ///     top-left corner (the offset) of the `Bounds` of the WebView.</para>
+      /// <para>*   Create a child 'HWND' that is the WebView parent 'HWND'.  Position
+      ///     the window where the WebView should be.  Use '(0, 0)' for the
+      ///     top-left corner (the offset) of the 'Bounds' of the WebView.</para>
       /// <para>*   Use the top-most window of the app as the WebView parent HWND.  For
       ///     example, to position WebView correctly in the app, set the top-left
       ///     corner of the Bound of the WebView.</para>
-      /// <para>The values of `Bounds` are limited by the coordinate space of the host.</para>
+      /// <para>The values of 'Bounds' are limited by the coordinate space of the host.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_bounds">See the ICoreWebView2Controller article.</see></para>
@@ -196,47 +196,47 @@ type
       /// <summary>
       /// The parent window provided by the app that this WebView is using to
       /// render content.  This API initially returns the window passed into
-      /// `CreateCoreWebView2Controller`.
+      /// 'CreateCoreWebView2Controller'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property ParentWindow                    : THandle                  read GetParentWindow                     write SetParentWindow;
       /// <summary>
-      /// <para>The `DefaultBackgroundColor` property is the color WebView renders
+      /// <para>The 'DefaultBackgroundColor' property is the color WebView renders
       /// underneath all web content. This means WebView renders this color when
       /// there is no web content loaded such as before the initial navigation or
       /// between navigations. This also means web pages with undefined css
       /// background properties or background properties containing transparent
       /// pixels will render their contents over this color. Web pages with defined
       /// and opaque background properties that span the page will obscure the
-      /// `DefaultBackgroundColor` and display normally. The default value for this
+      /// 'DefaultBackgroundColor' and display normally. The default value for this
       /// property is white to resemble the native browser experience.</para>
       /// <para>The Color is specified by the COREWEBVIEW2_COLOR that represents an RGBA
-      /// value. The `A` represents an Alpha value, meaning
-      /// `DefaultBackgroundColor` can be transparent. In the case of a transparent
-      /// `DefaultBackgroundColor` WebView will render hosting app content as the
-      /// background. This Alpha value is not supported on Windows 7. Any `A` value
+      /// value. The 'A' represents an Alpha value, meaning
+      /// 'DefaultBackgroundColor' can be transparent. In the case of a transparent
+      /// 'DefaultBackgroundColor' WebView will render hosting app content as the
+      /// background. This Alpha value is not supported on Windows 7. Any 'A' value
       /// other than 255 will result in E_INVALIDARG on Windows 7.
       /// It is supported on all other WebView compatible platforms.</para>
       /// <para>Semi-transparent colors are not currently supported by this API and
-      /// setting `DefaultBackgroundColor` to a semi-transparent color will fail
+      /// setting 'DefaultBackgroundColor' to a semi-transparent color will fail
       /// with E_INVALIDARG. The only supported alpha values are 0 and 255, all
       /// other values will result in E_INVALIDARG.
-      /// `DefaultBackgroundColor` can only be an opaque color or transparent.</para>
+      /// 'DefaultBackgroundColor' can only be an opaque color or transparent.</para>
       /// <para>This value may also be set by using the
-      /// `WEBVIEW2_DEFAULT_BACKGROUND_COLOR` environment variable. There is a
+      /// 'WEBVIEW2_DEFAULT_BACKGROUND_COLOR' environment variable. There is a
       /// known issue with background color where setting the color by API can
       /// still leave the app with a white flicker before the
-      /// `DefaultBackgroundColor` takes effect. Setting the color via environment
+      /// 'DefaultBackgroundColor' takes effect. Setting the color via environment
       /// variable solves this issue. The value must be a hex value that can
       /// optionally prepend a 0x. The value must account for the alpha value
       /// which is represented by the first 2 digits. So any hex value fewer than 8
       /// digits will assume a prepended 00 to the hex value and result in a
       /// transparent color.</para>
-      /// <para>`get_DefaultBackgroundColor` will return the result of this environment
+      /// <para>'get_DefaultBackgroundColor' will return the result of this environment
       /// variable if used. This environment variable can only set the
-      /// `DefaultBackgroundColor` once. Subsequent updates to background color
+      /// 'DefaultBackgroundColor' once. Subsequent updates to background color
       /// must be done through API call.</para>
       /// </summary>
       /// <remarks>
@@ -294,14 +294,14 @@ type
       /// </remarks>
       property BoundsMode                      : TWVBoundsMode            read GetBoundsMode                       write SetBoundsMode;
       /// <summary>
-      /// Gets the `CoreWebView2` associated with this `CoreWebView2Controller`.
+      /// Gets the 'CoreWebView2' associated with this 'CoreWebView2Controller'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_corewebview2">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property CoreWebView2                    : ICoreWebView2            read GetCoreWebView2;
       /// <summary>
-      /// Gets the `AllowExternalDrop` property which is used to configure the
+      /// Gets the 'AllowExternalDrop' property which is used to configure the
       /// capability that dragging objects from outside the bounds of webview2 and
       /// dropping into webview2 is allowed or disallowed. The default value is
       /// TRUE.

@@ -73,7 +73,7 @@ body { margin: 0.5em; }
 <p>
  The uri of the requested navigation.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{5B495469-E119-438A-9B18-7604F25F2E49}']</dt>
@@ -88,7 +88,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `TRUE` when the navigation was initiated through a user gesture as opposed to programmatic navigation by page script. Navigations initiated via WebView2 APIs are considered as user initiated. </p>
+ 'TRUE' when the navigation was initiated through a user gesture as opposed to programmatic navigation by page script. Navigations initiated via WebView2 APIs are considered as user initiated. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -98,7 +98,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `TRUE` when the navigation is redirected. </p>
+ 'TRUE' when the navigation is redirected. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -110,7 +110,7 @@ body { margin: 0.5em; }
 <p>
  The HTTP request headers for the navigation.
 
-<p>\&gt; [!NOTE]\n\&gt; You are not able to modify the HTTP request headers in a `NavigationStarting` event. </p>
+<p>\&gt; [!NOTE]\n\&gt; You are not able to modify the HTTP request headers in a 'NavigationStarting' event. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -120,7 +120,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The host may set this flag to cancel the navigation. If set, the navigation is not longer present and the content of the current page is intact. For performance reasons, `GET` HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless `msWebView2CancellableAboutNavigations` feature flag is disabled. Cancellation of frame navigation to `srcdoc` is not supported and wil be ignored. A cancelled navigation will fire a `NavigationCompleted` event with a `WebErrorStatus` of `COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED`. </p>
+ The host may set this flag to cancel the navigation. If set, the navigation is not longer present and the content of the current page is intact. For performance reasons, 'GET' HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless 'msWebView2CancellableAboutNavigations' feature flag is disabled. Cancellation of frame navigation to 'srcdoc' is not supported and wil be ignored. A cancelled navigation will fire a 'NavigationCompleted' event with a 'WebErrorStatus' of 'COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -130,7 +130,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `Cancel` property. </p>
+ Sets the 'Cancel' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">

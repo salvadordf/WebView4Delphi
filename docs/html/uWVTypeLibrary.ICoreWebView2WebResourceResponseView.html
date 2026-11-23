@@ -86,7 +86,7 @@ body { margin: 0.5em; }
 <p>
  The HTTP response reason phrase.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -98,7 +98,7 @@ body { margin: 0.5em; }
 <p>
  Get the response content asynchronously. The handler will receive the response content stream.
 
-<p>This method returns null if content size is more than 123MB or for navigations that become downloads or if response is downloadable content type (e.g., application/octet-stream). See `add_DownloadStarting` event to handle the response.
+<p>This method returns null if content size is more than 123MB or for navigations that become downloads or if response is downloadable content type (e.g., application/octet-stream). See 'add_DownloadStarting' event to handle the response.
 
 <p>If this method is being called again before a first call has completed, the handler will be invoked at the same time the handlers from prior calls are invoked. If this method is being called after a first call has completed, the handler will be invoked immediately. \snippet ScenarioWebViewEventMonitor.cpp GetContent </p>
 </td></tr>

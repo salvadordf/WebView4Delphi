@@ -687,12 +687,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A hit test region in the WebView2 which has the CSS style `-webkit-app-region: drag` set. Web content should use this CSS style to identify regions that should be treated like the app window's title bar. This has the same value as the Win32 HTCAPTION constant. </p></td>
+<td class="itemdesc"><p> A hit test region in the WebView2 which has the CSS style '-webkit-app-region: drag' set. Web content should use this CSS style to identify regions that should be treated like the app window's title bar. This has the same value as the Win32 HTCAPTION constant. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A hit test region in the WebView2 which does not have the CSS style `-webkit-app-region: drag` set. This is normal web content that should not be considered part of the app window's title bar. This has the same value as the Win32 HTCLIENT constant. </p></td>
+<td class="itemdesc"><p> A hit test region in the WebView2 which does not have the CSS style '-webkit-app-region: drag' set. This is normal web content that should not be considered part of the app window's title bar. This has the same value as the Win32 HTCLIENT constant. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE</a></td>
@@ -1017,12 +1017,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a frame-only render process ended unexpectedly. The process exit does not affect the top-level document, only a subset of the subframes within it. The content in these frames is replaced with an error page in the frame. Your application can communicate with the main frame to recover content in the impacted frames, using `ICoreWebView2ProcessFailedEventArgs2.FrameInfosForFailedProcess` to get information about the impacted frames. </p></td>
+<td class="itemdesc"><p> Indicates that a frame-only render process ended unexpectedly. The process exit does not affect the top-level document, only a subset of the subframes within it. The content in these frames is replaced with an error page in the frame. Your application can communicate with the main frame to recover content in the impacted frames, using 'ICoreWebView2ProcessFailedEventArgs2.FrameInfosForFailedProcess' to get information about the impacted frames. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that the GPU process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that the GPU process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED</a></td>
@@ -1037,7 +1037,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that the main frame's render process ended unexpectedly. Any subframes in the WebView will be gone too. A new render process is created automatically and navigated to an error page. You can use the `Reload` method to try to recover from this failure. Alternatively, you can `Close` and recreate the WebView. </p></td>
+<td class="itemdesc"><p> Indicates that the main frame's render process ended unexpectedly. Any subframes in the WebView will be gone too. A new render process is created automatically and navigated to an error page. You can use the 'Reload' method to try to recover from this failure. Alternatively, you can 'Close' and recreate the WebView. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE">COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE</a></td>
@@ -1048,24 +1048,24 @@ body { margin: 0.5em; }
 
 <p>There is a **long-running script** being executed. For example, the web content in your WebView might be performing a synchronous XHR, or have entered an infinite loop. Or, the **system is busy**.
 
-<p>The `ProcessFailed` event will continue to be raised every few seconds until the renderer process has become responsive again. The application can consider taking action if the event keeps being raised. For example, the application might show UI for the user to decide to keep waiting or reload the page, or navigate away.
+<p>The 'ProcessFailed' event will continue to be raised every few seconds until the renderer process has become responsive again. The application can consider taking action if the event keeps being raised. For example, the application might show UI for the user to decide to keep waiting or reload the page, or navigate away.
 
 <p></p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a sandbox helper process ended unexpectedly. This failure is not fatal. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that a sandbox helper process ended unexpectedly. This failure is not fatal. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a process of unspecified kind ended unexpectedly. Your application can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that a process of unspecified kind ended unexpectedly. Your application can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a utility process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure, including `ProcessDescription`. </p></td>
+<td class="itemdesc"><p> Indicates that a utility process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure, including 'ProcessDescription'. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_ABNORMAL_EXIT">COREWEBVIEW2_PROCESS_FAILED_REASON_ABNORMAL_EXIT</a></td>
@@ -1075,7 +1075,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED">COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The process crashed. Most crashes will generate dumps in the location indicated by `ICoreWebView2Environment11.get_FailureReportFolderPath`. </p></td>
+<td class="itemdesc"><p> The process crashed. Most crashes will generate dumps in the location indicated by 'ICoreWebView2Environment11.get_FailureReportFolderPath'. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_INTEGRITY_FAILURE">COREWEBVIEW2_PROCESS_FAILED_REASON_INTEGRITY_FAILURE</a></td>
@@ -1170,7 +1170,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_NONE">COREWEBVIEW2_RELEASE_CHANNELS_NONE</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> No release channel. Passing only this value to `ReleaseChannels` results in HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND). </p></td>
+<td class="itemdesc"><p> No release channel. Passing only this value to 'ReleaseChannels' results in HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND). </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_STABLE">COREWEBVIEW2_RELEASE_CHANNELS_STABLE</a></td>
@@ -1185,7 +1185,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND_DEFAULT">COREWEBVIEW2_SAVE_AS_KIND_DEFAULT</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Default kind to save non-HTML content. If this kind is selected for an HTML page, the behavior is the same as the `HTML_ONLY` kind. </p></td>
+<td class="itemdesc"><p> Default kind to save non-HTML content. If this kind is selected for an HTML page, the behavior is the same as the 'HTML_ONLY' kind. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY">COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY</a></td>
@@ -1200,12 +1200,12 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED">COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Did not perform Save As because the end user cancelled or the `Cancel` property on `ICoreWebView2SaveAsUIShowingEventArgs` was set to TRUE. </p></td>
+<td class="itemdesc"><p> Did not perform Save As because the end user cancelled or the 'Cancel' property on 'ICoreWebView2SaveAsUIShowingEventArgs' was set to TRUE. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS">COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Could not perform Save As because the destination file path already exists and replacing files was not allowed by the `AllowReplace` property. </p></td>
+<td class="itemdesc"><p> Could not perform Save As because the destination file path already exists and replacing files was not allowed by the 'AllowReplace' property. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH">COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH</a></td>
@@ -1217,16 +1217,16 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED">COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Could not perform Save As because the `Kind` property selection is not supported due to content MIME type or system limits.
+<td class="itemdesc"><p> Could not perform Save As because the 'Kind' property selection is not supported due to content MIME type or system limits.
 
-<p>See the `COREWEBVIEW2_SAVE_AS_KIND` enum for MIME type limits.
+<p>See the 'COREWEBVIEW2_SAVE_AS_KIND' enum for MIME type limits.
 
-<p>System limits include when the `HTML_ONLY` kind is selected for an error page at child mode, or when the `COMPLETE` kind is selected and the WebView is running in an App Container. </p></td>
+<p>System limits include when the 'HTML_ONLY' kind is selected for an error page at child mode, or when the 'COMPLETE' kind is selected and the WebView is running in an App Container. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS">COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The ShowSaveAsUI method call completed successfully. By default, the system Save As dialog opens. If `SuppressDefaultDialog` is set to TRUE, the system dialog is skipped. </p></td>
+<td class="itemdesc"><p> The ShowSaveAsUI method call completed successfully. By default, the system Save As dialog opens. If 'SuppressDefaultDialog' is set to TRUE, the system dialog is skipped. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT">COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT</a></td>

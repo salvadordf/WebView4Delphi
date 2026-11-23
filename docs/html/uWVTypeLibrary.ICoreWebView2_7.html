@@ -53,11 +53,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Print the current page to PDF asynchronously with the provided settings. See `ICoreWebView2PrintSettings` for description of settings. Passing nullptr for `printSettings` results in default print settings used.
+ Print the current page to PDF asynchronously with the provided settings. See 'ICoreWebView2PrintSettings' for description of settings. Passing nullptr for 'printSettings' results in default print settings used.
 
-<p>Use `resultFilePath` to specify the path to the PDF file. The host should provide an absolute path, including file name. If the path points to an existing file, the file will be overwritten. If the path is not valid, the method fails with `E_INVALIDARG`.
+<p>Use 'resultFilePath' to specify the path to the PDF file. The host should provide an absolute path, including file name. If the path points to an existing file, the file will be overwritten. If the path is not valid, the method fails with 'E_INVALIDARG'.
 
-<p>The async `PrintToPdf` operation completes when the data has been written to the PDF file. At this time the `ICoreWebView2PrintToPdfCompletedHandler` is invoked. If the application exits before printing is complete, the file is not saved. Only one `Printing` operation can be in progress at a time. If `PrintToPdf` is called while a `PrintToPdf` or `PrintToPdfStream` or `Print` or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `isSuccessful` set to FALSE.
+<p>The async 'PrintToPdf' operation completes when the data has been written to the PDF file. At this time the 'ICoreWebView2PrintToPdfCompletedHandler' is invoked. If the application exits before printing is complete, the file is not saved. Only one 'Printing' operation can be in progress at a time. If 'PrintToPdf' is called while a 'PrintToPdf' or 'PrintToPdfStream' or 'Print' or 'ShowPrintUI' job is in progress, the completed handler is immediately invoked with 'isSuccessful' set to FALSE.
 
 <p>\snippet FileComponent.cpp PrintToPdf </p>
 <h6 class="description_section">Attributes</h6>

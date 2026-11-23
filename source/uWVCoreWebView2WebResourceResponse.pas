@@ -63,11 +63,11 @@ type
       property ReasonPhrase : wvstring                          read GetReasonPhrase  write SetReasonPhrase;
       /// <summary>
       /// <para>HTTP response content as stream.  Stream must have all the content data
-      /// available by the time the `WebResourceRequested` event deferral of this
+      /// available by the time the 'WebResourceRequested' event deferral of this
       /// response is completed.  Stream should be agile or be created from a
-      /// background thread to prevent performance impact to the UI thread.  `Null`
-      ///  means no content data.  `IStream` semantics apply (return `S_OK` to
-      /// `Read` runs until all data is exhausted).</para>
+      /// background thread to prevent performance impact to the UI thread.  'Null'
+      ///  means no content data.  'IStream' semantics apply (return 'S_OK' to
+      /// 'Read' runs until all data is exhausted).</para>
       /// <para>When providing the response data, you should consider relevant HTTP
       /// request headers just like an HTTP server would do. For example, if the
       /// request was for a video resource in a HTML video element, the request may

@@ -38,7 +38,7 @@ type
       /// </summary>
       property BaseIntf    : ICoreWebView2FrameInfoCollection         read FBaseIntf;
       /// <summary>
-      /// Gets an iterator over the collection of `FrameInfo`s.
+      /// Gets an iterator over the collection of 'FrameInfo's.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frameinfocollection#getiterator">See the ICoreWebView2FrameInfoCollection article.</see></para>

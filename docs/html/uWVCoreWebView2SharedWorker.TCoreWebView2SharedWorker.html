@@ -289,13 +289,13 @@ body { margin: 0.5em; }
 
 <p>A string representing the Uri of the script that the worker is executing.
 
-<p>The `scriptUri` is a fully qualified URI, including the scheme, host, and path. In contrast, the `scriptURL` property of the `Worker` object in the DOM returns the relative URL of the script being executed by the worker. For more details on DOM API, see the [DOM API documentation](<a href="https://developer.mozilla.org/docs/Web/API/Worker/scriptURL">https://developer.mozilla.org/docs/Web/API/Worker/scriptURL</a>).
+<p>The 'scriptUri' is a fully qualified URI, including the scheme, host, and path. In contrast, the 'scriptURL' property of the 'Worker' object in the DOM returns the relative URL of the script being executed by the worker. For more details on DOM API, see the [DOM API documentation](<a href="https://developer.mozilla.org/docs/Web/API/Worker/scriptURL">https://developer.mozilla.org/docs/Web/API/Worker/scriptURL</a>).
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>The same process applies to the `scriptURL` when a worker is created from DOM API.
+<p>The same process applies to the 'scriptURL' when a worker is created from DOM API.
 
-<p>The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/worker.js">HTTPS://EXAMPLE.COM/worker.js</a>` is canonicalized to `<a href="https://example.com/worker.js">https://example.com/worker.js</a>`; `<a href="https://b">https://b</a>ücher.de/worker.js` is canonicalized to `<a href="https://xn--bcher-kva.de/worker.js">https://xn--bcher-kva.de/worker.js</a>`.
+<p>The 'scriptUri' property reflects this normalization, ensuring that the URL is standardized. For example, '<a href="HTTPS://EXAMPLE.COM/worker.js">HTTPS://EXAMPLE.COM/worker.js</a>' is canonicalized to '<a href="https://example.com/worker.js">https://example.com/worker.js</a>'; '<a href="https://b">https://b</a>ücher.de/worker.js' is canonicalized to '<a href="https://xn--bcher-kva.de/worker.js">https://xn--bcher-kva.de/worker.js</a>'.
 
 <p></p>
 </td></tr>
@@ -311,7 +311,7 @@ body { margin: 0.5em; }
 
 <p>A string representing the URI of the origin where the worker is executing.
 
-<p>If a worker created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
+<p>If a worker created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
@@ -329,13 +329,13 @@ body { margin: 0.5em; }
 
 <p>A string representing the URI of the top-level document that the worker is associated with.
 
-<p>If a worker is created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
+<p>If a worker is created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be <a href="https://guid.invalid/">https://guid.invalid/</a>.
+<p>When CustomDataPartitionId is set, the 'TopLevelOrigin' will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be <a href="https://guid.invalid/">https://guid.invalid/</a>.
 
-<p>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.
+<p>For more details see 'ICoreWebView2Experimental20::CustomDataPartitionId'.
 
 <p></p>
 </td></tr>

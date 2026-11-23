@@ -60,23 +60,23 @@ type
       /// <summary>
       /// <para>A string representing the Uri of the script that the worker is executing.</para>
       ///
-      /// <para>The `scriptUri` is a fully qualified URI, including the scheme, host, and path.
-      /// In contrast, the `scriptURL` property of the `Worker` object in the DOM returns the relative
+      /// <para>The 'scriptUri' is a fully qualified URI, including the scheme, host, and path.
+      /// In contrast, the 'scriptURL' property of the 'Worker' object in the DOM returns the relative
       /// URL of the script being executed by the worker. For more details on DOM API, see the
       /// [DOM API documentation](https://developer.mozilla.org/docs/Web/API/Worker/scriptURL).</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
       /// details on how normalization is performed.</para>
-      /// <para>The same process applies to the `scriptURL` when a worker is created from DOM API.</para>
-      /// <para>The `scriptUri` property reflects this normalization, ensuring that the URL is standardized. For example,
-      /// `HTTPS://EXAMPLE.COM/worker.js` is canonicalized to `https://example.com/worker.js`;
-      /// `https://bücher.de/worker.js` is canonicalized to `https://xn--bcher-kva.de/worker.js`.</para>
+      /// <para>The same process applies to the 'scriptURL' when a worker is created from DOM API.</para>
+      /// <para>The 'scriptUri' property reflects this normalization, ensuring that the URL is standardized. For example,
+      /// 'HTTPS://EXAMPLE.COM/worker.js' is canonicalized to 'https://example.com/worker.js';
+      /// 'https://bücher.de/worker.js' is canonicalized to 'https://xn--bcher-kva.de/worker.js'.</para>
       /// </summary>
       property ScriptUri           : wvstring                        read GetScriptUri;
       /// <summary>
       /// <para>A string representing the URI of the origin where the worker is executing.</para>
       ///
-      /// <para>If a worker created with `ScriptUri` set to https://example.com/worker.js, the origin
+      /// <para>If a worker created with 'ScriptUri' set to https://example.com/worker.js, the origin
       /// will be https://example.com/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
@@ -86,18 +86,18 @@ type
       /// <summary>
       /// <para>A string representing the URI of the top-level document that the worker is associated with.</para>
       ///
-      /// <para>If a worker is created with `ScriptUri` set to https://example.com/worker.js, the top-level origin
+      /// <para>If a worker is created with 'ScriptUri' set to https://example.com/worker.js, the top-level origin
       /// is https://example.com/. If the same worker is created from a iframe at https://example.com/ which is hosted on
       /// https://example2.com/, the top-level origin is https://example2.com/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
       /// details on how normalization is performed.</para>
       ///
-      /// <para>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated
+      /// <para>When CustomDataPartitionId is set, the 'TopLevelOrigin' will be a generated
       /// site like guid.invalid. For example, if the top-level document is https://example.com/worker.js,
       /// the top-level origin will be https://guid.invalid/.</para>
       ///
-      /// <para>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.</para>
+      /// <para>For more details see 'ICoreWebView2Experimental20::CustomDataPartitionId'.</para>
       /// </summary>
       property TopLevelOrigin      : wvstring                        read GetTopLevelOrigin;
   end;

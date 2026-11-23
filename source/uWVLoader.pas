@@ -309,7 +309,7 @@ type
       property AdditionalBrowserArguments             : wvstring                           read FAdditionalBrowserArguments              write FAdditionalBrowserArguments;
       /// <summary>
       /// The default display language for WebView.  It applies to browser UI such as
-      /// context menu and dialogs.  It also applies to the `accept-languages` HTTP
+      /// context menu and dialogs.  It also applies to the 'accept-languages' HTTP
       /// header that WebView sends to websites.
       /// </summary>
       /// <remarks>
@@ -346,8 +346,8 @@ type
       /// </remarks>
       property ExclusiveUserDataFolderAccess          : boolean                            read FExclusiveUserDataFolderAccess           write FExclusiveUserDataFolderAccess;
       /// <summary>
-      /// When `CustomCrashReportingEnabled` is set to `TRUE`, Windows won't send crash data to Microsoft endpoint.
-      /// `CustomCrashReportingEnabled` is default to be `FALSE`, in this case, WebView will respect OS consent.
+      /// When 'CustomCrashReportingEnabled' is set to 'TRUE', Windows won't send crash data to Microsoft endpoint.
+      /// 'CustomCrashReportingEnabled' is default to be 'FALSE', in this case, WebView will respect OS consent.
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled.</para>
@@ -355,7 +355,7 @@ type
       /// </remarks>
       property CustomCrashReportingEnabled            : boolean                            read FCustomCrashReportingEnabled             write FCustomCrashReportingEnabled;
       /// <summary>
-      /// The `EnableTrackingPrevention` property is used to enable/disable tracking prevention
+      /// The 'EnableTrackingPrevention' property is used to enable/disable tracking prevention
       /// feature in WebView2. This property enable/disable tracking prevention for all the
       /// WebView2's created in the same environment.
       /// </summary>
@@ -365,12 +365,12 @@ type
       /// </remarks>
       property EnableTrackingPrevention               : boolean                            read FEnableTrackingPrevention                write FEnableTrackingPrevention;
       /// <summary>
-      /// <para>When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user
-      /// profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case,
+      /// <para>When 'AreBrowserExtensionsEnabled' is set to 'TRUE', new extensions can be added to user
+      /// profile and used. 'AreBrowserExtensionsEnabled' is default to be 'FALSE', in this case,
       /// new extensions can't be installed, and already installed extension won't be
       /// available to use in user profile.</para>
-      /// <para>If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled`
-      /// property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.</para>
+      /// <para>If connecting to an already running environment with a different value for 'AreBrowserExtensionsEnabled'
+      /// property, it will fail with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions6.Get_AreBrowserExtensionsEnabled.</para>
@@ -379,20 +379,20 @@ type
       /// </remarks>
       property AreBrowserExtensionsEnabled            : boolean                            read FAreBrowserExtensionsEnabled             write FAreBrowserExtensionsEnabled;
       /// <summary>
-      /// <para>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE`
+      /// <para>The 'ChannelSearchKind' property is 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE'
       /// by default; environment creation searches for a release channel on the machine
       /// from most to least stable using the first channel found. The default search order is:
-      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set `ChannelSearchKind` to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set 'ChannelSearchKind' to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order
       /// so that environment creation searches for a channel from least to most stable. If
-      /// `ReleaseChannels` has been provided, the loader will only search
-      /// for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details
+      /// 'ReleaseChannels' has been provided, the loader will only search
+      /// for channels in the set. See 'COREWEBVIEW2_RELEASE_CHANNELS' for more details
       /// on channels.</para>
       /// <para>This property can be overridden by the corresponding
-      /// registry key `ChannelSearchKind` or the environment variable
-      /// `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See
-      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// registry key 'ChannelSearchKind' or the environment variable
+      /// 'WEBVIEW2_CHANNEL_SEARCH_KIND'. Set the value to '1' to set the search kind to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE'. See
+      /// 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ChannelSearchKind.</para>
@@ -400,22 +400,22 @@ type
       /// </remarks>
       property ChannelSearchKind                      : TWVChannelSearchKind               read FChannelSearchKind                       write FChannelSearchKind;
       /// <summary>
-      /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment
+      /// <para>Sets the 'ReleaseChannels', which is a mask of one or more
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' indicating which channels environment
       /// creation should search for. OR operation(s) can be applied to multiple
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' to create a mask. The default value is a
       /// a mask of all the channels. By default, environment creation searches for
       /// channels from most to least stable, using the first channel found on the
-      /// device. When `ReleaseChannels` is provided, environment creation will only
-      /// search for the channels specified in the set. Set `ChannelSearchKind` to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// device. When 'ReleaseChannels' is provided, environment creation will only
+      /// search for the channels specified in the set. Set 'ChannelSearchKind' to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order
       /// so environment creation searches for least stable build first. See
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.</para>
-      /// <para>`CreateCoreWebView2EnvironmentWithOptions` fails with
-      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable
-      /// to find any channel from the `ReleaseChannels` installed on the device.
-      /// Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on
-      /// `ICoreWebView2Environment` to verify which channel is used when this option
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of each channel.</para>
+      /// <para>'CreateCoreWebView2EnvironmentWithOptions' fails with
+      /// 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if environment creation is unable
+      /// to find any channel from the 'ReleaseChannels' installed on the device.
+      /// Use 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' on
+      /// 'ICoreWebView2Environment' to verify which channel is used when this option
       /// is set.</para>
       /// Examples:
       /// <code>
@@ -426,18 +426,18 @@ type
       /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY| Canary | Canary |
       /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |
       /// </code>
-      /// <para>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the
-      /// `BrowserExecutableFolder` takes precedence, regardless of whether or not the
-      /// channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.</para>
-      /// <para>`ReleaseChannels` can be overridden by the corresponding registry override
-      /// `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.</para>
+      /// <para>If both 'BrowserExecutableFolder' and 'ReleaseChannels' are provided, the
+      /// 'BrowserExecutableFolder' takes precedence, regardless of whether or not the
+      /// channel of 'BrowserExecutableFolder' is included in the 'ReleaseChannels'.</para>
+      /// <para>'ReleaseChannels' can be overridden by the corresponding registry override
+      /// 'ReleaseChannels' or the environment variable 'WEBVIEW2_RELEASE_CHANNELS'.</para>
       /// <para>Set the value to a comma-separated string of integers, which map to the
       /// following release channel values: Stable (0), Beta (1), Dev (2), and
       /// Canary (3). For example, the values "0,2" and "2,0" indicate that environment
       /// creation should only search for Dev channel and the WebView2 Runtime, using the
-      /// order indicated by `ChannelSearchKind`. Environment creation attempts to
+      /// order indicated by 'ChannelSearchKind'. Environment creation attempts to
       /// interpret each integer and treats any invalid entry as Stable channel. See
-      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels.</para>
@@ -446,14 +446,14 @@ type
       property ReleaseChannels                        : TWVReleaseChannels                 read FReleaseChannels                         write FReleaseChannels;
       /// <summary>
       /// <para>The ScrollBar style being set on the WebView2 Environment.</para>
-      /// <para>The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT`
+      /// <para>The default value is 'COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT'
       /// which specifies the default browser ScrollBar style.</para>
-      /// <para>The `color-scheme` CSS property needs to be set on the corresponding page
+      /// <para>The 'color-scheme' CSS property needs to be set on the corresponding page
       /// to allow ScrollBar to follow light or dark theme. Please see
       /// [color-scheme](https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
-      /// for how `color-scheme` can be set.</para>
+      /// for how 'color-scheme' can be set.</para>
       /// <para>CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
-      /// that is selected with `ScrollBarStyle`.</para>
+      /// that is selected with 'ScrollBarStyle'.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions8.Get_ScrollBarStyle.</para>
@@ -749,7 +749,7 @@ type
       /// </remarks>
       property SupportsCompositionController          : boolean                            read GetSupportsCompositionController;
       /// <summary>
-      /// Returns the `ICoreWebView2ProcessInfoCollection`
+      /// Returns the 'ICoreWebView2ProcessInfoCollection'
       /// Provide a list of all process using same user data folder except for crashpad process.
       /// </summary>
       /// <remarks>
@@ -764,15 +764,15 @@ type
       /// </remarks>
       property SupportsControllerOptions              : boolean                            read GetSupportsControllerOptions;
       /// <summary>
-      /// <para>`FailureReportFolderPath` returns the path of the folder where minidump files are written.
+      /// <para>'FailureReportFolderPath' returns the path of the folder where minidump files are written.
       /// Whenever a WebView2 process crashes, a crash dump file will be created in the crash dump folder.
       /// The crash dump format is minidump files.</para>
       /// <para>Please see [Minidump Files documentation](/windows/win32/debug/minidump-files) for detailed information.</para>
       /// <para>Normally when a single child process fails, a minidump will be generated and written to disk,
-      /// then the `ProcessFailed` event is raised. But for unexpected crashes, a minidump file might not be generated
-      /// at all, despite whether `ProcessFailed` event is raised. If there are multiple
-      /// process failures at once, multiple minidump files could be generated. Thus `FailureReportFolderPath`
-      /// could contain old minidump files that are not associated with a specific `ProcessFailed` event.</para>
+      /// then the 'ProcessFailed' event is raised. But for unexpected crashes, a minidump file might not be generated
+      /// at all, despite whether 'ProcessFailed' event is raised. If there are multiple
+      /// process failures at once, multiple minidump files could be generated. Thus 'FailureReportFolderPath'
+      /// could contain old minidump files that are not associated with a specific 'ProcessFailed' event.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment11#get_failurereportfolderpath">See the ICoreWebView2Environment11 article.</see></para>

@@ -80,32 +80,32 @@ type
       /// </remarks>
       property HasSize                 : boolean                         read GetHasSize;
       /// <summary>
-      /// Specifies the left position of the window.   If `HasPosition` is set to
-      /// `FALSE`, this field is ignored.
+      /// Specifies the left position of the window.   If 'HasPosition' is set to
+      /// 'FALSE', this field is ignored.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_left">See the ICoreWebView2WindowFeatures article.</see></para>
       /// </remarks>
       property Left                    : cardinal                        read GetLeft;
       /// <summary>
-      /// Specifies the top position of the window.   If `HasPosition` is set to
-      /// `FALSE`, this field is ignored.
+      /// Specifies the top position of the window.   If 'HasPosition' is set to
+      /// 'FALSE', this field is ignored.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_top">See the ICoreWebView2WindowFeatures article.</see></para>
       /// </remarks>
       property Top                     : cardinal                        read GetTop;
       /// <summary>
-      /// Specifies the width of the window.  Minimum value is `100`.  If `HasSize`
-      /// is set to `FALSE`, this field is ignored.
+      /// Specifies the width of the window.  Minimum value is '100'.  If 'HasSize'
+      /// is set to 'FALSE', this field is ignored.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_width">See the ICoreWebView2WindowFeatures article.</see></para>
       /// </remarks>
       property Width                   : cardinal                        read GetWidth;
       /// <summary>
-      /// Specifies the height of the window.  Minimum value is `100`.  If
-      /// `HasSize` is set to `FALSE`, this field is ignored.
+      /// Specifies the height of the window.  Minimum value is '100'.  If
+      /// 'HasSize' is set to 'FALSE', this field is ignored.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2windowfeatures#get_height">See the ICoreWebView2WindowFeatures article.</see></para>

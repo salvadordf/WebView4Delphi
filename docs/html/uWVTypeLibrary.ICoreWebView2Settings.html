@@ -115,7 +115,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Controls if running JavaScript is enabled in all future navigations in the WebView. This only affects scripts in the document. Scripts injected with `ExecuteScript` runs even if script is disabled. The default value is `TRUE`.
+ Controls if running JavaScript is enabled in all future navigations in the WebView. This only affects scripts in the document. Scripts injected with 'ExecuteScript' runs even if script is disabled. The default value is 'TRUE'.
 
 <p>\snippet SettingsComponent.cpp IsScriptEnabled </p>
 <h6 class="description_section">Attributes</h6>
@@ -132,7 +132,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsScriptEnabled` property. </p>
+ Sets the 'IsScriptEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -142,7 +142,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsWebMessageEnabled` property is used when loading a new HTML document. If set to `TRUE`, communication from the host to the top-level HTML document of the WebView is allowed using `PostWebMessageAsJson`, `PostWebMessageAsString`, and message event of `window.chrome.webview`. For more information, navigate to PostWebMessageAsJson. Communication from the top-level HTML document of the WebView to the host is allowed using the postMessage function of `window.chrome.webview` and `add_WebMessageReceived` method. For more information, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). If set to false, then communication is disallowed. `PostWebMessageAsJson` and `PostWebMessageAsString` fails with `E_ACCESSDENIED` and `window.chrome.webview.postMessage` fails by throwing an instance of an `Error` object. The default value is `TRUE`.
+ The 'IsWebMessageEnabled' property is used when loading a new HTML document. If set to 'TRUE', communication from the host to the top-level HTML document of the WebView is allowed using 'PostWebMessageAsJson', 'PostWebMessageAsString', and message event of 'window.chrome.webview'. For more information, navigate to PostWebMessageAsJson. Communication from the top-level HTML document of the WebView to the host is allowed using the postMessage function of 'window.chrome.webview' and 'add_WebMessageReceived' method. For more information, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). If set to false, then communication is disallowed. 'PostWebMessageAsJson' and 'PostWebMessageAsString' fails with 'E_ACCESSDENIED' and 'window.chrome.webview.postMessage' fails by throwing an instance of an 'Error' object. The default value is 'TRUE'.
 
 <p>\snippet ScenarioWebMessage.cpp IsWebMessageEnabled </p>
 </td></tr>
@@ -154,7 +154,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsWebMessageEnabled` property. </p>
+ Sets the 'IsWebMessageEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -164,7 +164,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `AreDefaultScriptDialogsEnabled` is used when loading a new HTML document. If set to `FALSE`, WebView2 does not render the default JavaScript dialog box (Specifically those displayed by the JavaScript alert, confirm, prompt functions and `beforeunload` event). Instead, if an event handler is set using `add_ScriptDialogOpening`, WebView sends an event that contains all of the information for the dialog and allow the host app to show a custom UI. The default value is `TRUE`. </p>
+ 'AreDefaultScriptDialogsEnabled' is used when loading a new HTML document. If set to 'FALSE', WebView2 does not render the default JavaScript dialog box (Specifically those displayed by the JavaScript alert, confirm, prompt functions and 'beforeunload' event). Instead, if an event handler is set using 'add_ScriptDialogOpening', WebView sends an event that contains all of the information for the dialog and allow the host app to show a custom UI. The default value is 'TRUE'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -174,7 +174,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `AreDefaultScriptDialogsEnabled` property. </p>
+ Sets the 'AreDefaultScriptDialogsEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -184,7 +184,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `IsStatusBarEnabled` controls whether the status bar is displayed. The status bar is usually displayed in the lower left of the WebView and shows things such as the URI of a link when the user hovers over it and other information. The default value is `TRUE`. The status bar UI can be altered by web content and should not be considered secure. </p>
+ 'IsStatusBarEnabled' controls whether the status bar is displayed. The status bar is usually displayed in the lower left of the WebView and shows things such as the URI of a link when the user hovers over it and other information. The default value is 'TRUE'. The status bar UI can be altered by web content and should not be considered secure. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -194,7 +194,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsStatusBarEnabled` property. </p>
+ Sets the 'IsStatusBarEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -204,7 +204,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `AreDevToolsEnabled` controls whether the user is able to use the context menu or keyboard shortcuts to open the DevTools window. The default value is `TRUE`. </p>
+ 'AreDevToolsEnabled' controls whether the user is able to use the context menu or keyboard shortcuts to open the DevTools window. The default value is 'TRUE'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -214,7 +214,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `AreDevToolsEnabled` property. </p>
+ Sets the 'AreDevToolsEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -224,7 +224,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `AreDefaultContextMenusEnabled` property is used to prevent default context menus from being shown to user in WebView. The default value is `TRUE`.
+ The 'AreDefaultContextMenusEnabled' property is used to prevent default context menus from being shown to user in WebView. The default value is 'TRUE'.
 
 <p>\snippet SettingsComponent.cpp DisableContextMenu </p>
 </td></tr>
@@ -236,7 +236,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `AreDefaultContextMenusEnabled` property. </p>
+ Sets the 'AreDefaultContextMenusEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -246,7 +246,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `AreHostObjectsAllowed` property is used to control whether host objects are accessible from the page in WebView. The default value is `TRUE`.
+ The 'AreHostObjectsAllowed' property is used to control whether host objects are accessible from the page in WebView. The default value is 'TRUE'.
 
 <p>\snippet SettingsComponent.cpp HostObjectsAccess </p>
 </td></tr>
@@ -258,7 +258,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `AreHostObjectsAllowed` property. </p>
+ Sets the 'AreHostObjectsAllowed' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -268,7 +268,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsZoomControlEnabled` property is used to prevent the user from impacting the zoom of the WebView. When disabled, the user is not able to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom is set using `ZoomFactor` API. The default value is `TRUE`.
+ The 'IsZoomControlEnabled' property is used to prevent the user from impacting the zoom of the WebView. When disabled, the user is not able to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom is set using 'ZoomFactor' API. The default value is 'TRUE'.
 
 <p>\snippet SettingsComponent.cpp DisableZoomControl </p>
 </td></tr>
@@ -280,7 +280,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsZoomControlEnabled` property. </p>
+ Sets the 'IsZoomControlEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -290,7 +290,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsBuiltInErrorPageEnabled` property is used to disable built in error page for navigation failure and render process failure. When disabled, a blank page is displayed when the related error happens. The default value is `TRUE`.
+ The 'IsBuiltInErrorPageEnabled' property is used to disable built in error page for navigation failure and render process failure. When disabled, a blank page is displayed when the related error happens. The default value is 'TRUE'.
 
 <p>\snippet SettingsComponent.cpp BuiltInErrorPageEnabled </p>
 </td></tr>
@@ -302,7 +302,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsBuiltInErrorPageEnabled` property. </p>
+ Sets the 'IsBuiltInErrorPageEnabled' property. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

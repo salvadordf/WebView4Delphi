@@ -65,8 +65,8 @@ type
       function    AddAllBrowserEvents(const aBrowserComponent : TComponent) : boolean;
       /// <summary>
       /// Cancels the download. If canceled, the default download dialog shows
-      /// that the download was canceled. Host should set the `Cancel` property from
-      /// `ICoreWebView2SDownloadStartingEventArgs` if the download should be
+      /// that the download was canceled. Host should set the 'Cancel' property from
+      /// 'ICoreWebView2SDownloadStartingEventArgs' if the download should be
       /// canceled without displaying the default download dialog.
       /// </summary>
       /// <remarks>
@@ -76,8 +76,8 @@ type
       /// <summary>
       /// Pauses the download. If paused, the default download dialog shows that the
       /// download is paused. No effect if download is already paused. Pausing a
-      /// download changes the state to `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED`
-      /// with `InterruptReason` set to `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED`.
+      /// download changes the state to 'COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED'
+      /// with 'InterruptReason' set to 'COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#pause">See the ICoreWebView2DownloadOperation article.</see></para>
@@ -85,9 +85,9 @@ type
       function    Pause : boolean;
       /// <summary>
       /// Resumes a paused download. May also resume a download that was interrupted
-      /// for another reason, if `CanResume` returns true. Resuming a download changes
-      /// the state from `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` to
-      /// `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS`.
+      /// for another reason, if 'CanResume' returns true. Resuming a download changes
+      /// the state from 'COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED' to
+      /// 'COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#resume">See the ICoreWebView2DownloadOperation article.</see></para>
@@ -151,7 +151,7 @@ type
       property EstimatedEndTime    : TDateTime                       read GetEstimatedEndTime;
       /// <summary>
       /// The absolute path to the download file, including file name. Host can change
-      /// this from `ICoreWebView2DownloadStartingEventArgs`.
+      /// this from 'ICoreWebView2DownloadStartingEventArgs'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_resultfilepath">See the ICoreWebView2DownloadOperation article.</see></para>
@@ -159,7 +159,7 @@ type
       property ResultFilePath      : wvstring                        read GetResultFilePath;
       /// <summary>
       /// The state of the download. A download can be in progress, interrupted, or
-      /// completed. See `COREWEBVIEW2_DOWNLOAD_STATE` for descriptions of states.
+      /// completed. See 'COREWEBVIEW2_DOWNLOAD_STATE' for descriptions of states.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2downloadoperation#get_state">See the ICoreWebView2DownloadOperation article.</see></para>
@@ -176,10 +176,10 @@ type
       /// Returns true if an interrupted download can be resumed. Downloads with
       /// the following interrupt reasons may automatically resume without you
       /// calling any methods:
-      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE`,
-      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH`,
-      /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT`.
-      /// In these cases download progress may be restarted with `BytesReceived`
+      /// 'COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE',
+      /// 'COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH',
+      /// 'COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT'.
+      /// In these cases download progress may be restarted with 'BytesReceived'
       /// reset to 0.
       /// </summary>
       /// <remarks>

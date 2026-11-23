@@ -23,7 +23,7 @@ body { margin: 0.5em; }
 <code>type ICoreWebView2EnvironmentOptions7 = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- Additional options used to create the WebView2 Environment that support specifying the `ReleaseChannels` and `ChannelSearchKind`. </p>
+ Additional options used to create the WebView2 Environment that support specifying the 'ReleaseChannels' and 'ChannelSearchKind'. </p>
 <p>
 
 
@@ -59,7 +59,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the `ChannelSearchKind` property. </p>
+ Gets the 'ChannelSearchKind' property. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{C48D539F-E39F-441C-AE68-1F66E570BDC5}']</dt>
@@ -76,9 +76,9 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE` by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so that environment creation searches for a channel from least to most stable. If `ReleaseChannels` has been provided, the loader will only search for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details on channels.
+<p>The 'ChannelSearchKind' property is 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE' by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set 'ChannelSearchKind' to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order so that environment creation searches for a channel from least to most stable. If 'ReleaseChannels' has been provided, the loader will only search for channels in the set. See 'COREWEBVIEW2_RELEASE_CHANNELS' for more details on channels.
 
-<p>This property can be overridden by the corresponding registry key `ChannelSearchKind` or the environment variable `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+<p>This property can be overridden by the corresponding registry key 'ChannelSearchKind' or the environment variable 'WEBVIEW2_CHANNEL_SEARCH_KIND'. Set the value to '1' to set the search kind to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE'. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.
 
 <p></p>
 </td></tr>
@@ -90,7 +90,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the `ReleaseChannels` property. </p>
+ Gets the 'ReleaseChannels' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -102,9 +102,9 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>Sets the `ReleaseChannels`, which is a mask of one or more `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment creation should search for. OR operation(s) can be applied to multiple `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When `ReleaseChannels` is provided, environment creation will only search for the channels specified in the set. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so environment creation searches for least stable build first. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.
+<p>Sets the 'ReleaseChannels', which is a mask of one or more 'COREWEBVIEW2_RELEASE_CHANNELS' indicating which channels environment creation should search for. OR operation(s) can be applied to multiple 'COREWEBVIEW2_RELEASE_CHANNELS' to create a mask. The default value is a a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When 'ReleaseChannels' is provided, environment creation will only search for the channels specified in the set. Set 'ChannelSearchKind' to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order so environment creation searches for least stable build first. See 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of each channel.
 
-<p>`CreateCoreWebView2EnvironmentWithOptions` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable to find any channel from the `ReleaseChannels` installed on the device. Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on `ICoreWebView2Environment` to verify which channel is used when this option is set.
+<p>'CreateCoreWebView2EnvironmentWithOptions' fails with 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if environment creation is unable to find any channel from the 'ReleaseChannels' installed on the device. Use 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' on 'ICoreWebView2Environment' to verify which channel is used when this option is set.
 
 <p>Examples: </p>
 
@@ -118,11 +118,11 @@ body { margin: 0.5em; }
 
 <p>
 
-<p>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the `BrowserExecutableFolder` takes precedence, regardless of whether or not the channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.
+<p>If both 'BrowserExecutableFolder' and 'ReleaseChannels' are provided, the 'BrowserExecutableFolder' takes precedence, regardless of whether or not the channel of 'BrowserExecutableFolder' is included in the 'ReleaseChannels'.
 
-<p>`ReleaseChannels` can be overridden by the corresponding registry override `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.
+<p>'ReleaseChannels' can be overridden by the corresponding registry override 'ReleaseChannels' or the environment variable 'WEBVIEW2_RELEASE_CHANNELS'.
 
-<p>Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by `ChannelSearchKind`. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+<p>Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by 'ChannelSearchKind'. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.
 
 <p></p>
 </td></tr>

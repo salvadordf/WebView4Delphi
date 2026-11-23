@@ -51,7 +51,7 @@ body { margin: 0.5em; }
 <p>
  This property is the full path of the module that caused the crash in cases of Windows Code Integrity failures. [Windows Code Integrity](/mem/intune/user-help/you-need-to-enable-code-integrity) is a feature that verifies the integrity and authenticity of dynamic-link libraries (DLLs) on Windows systems. It ensures that only trusted code can run on the system and prevents unauthorized or malicious modifications. When ProcessFailed occurred due to a failed Code Integrity check, this property returns the full path of the file that was prevented from loading on the system. The webview2 process which tried to load the DLL will fail with exit code STATUS_INVALID_IMAGE_HASH(-1073740760). A file can fail integrity check for various reasons, such as: - It has an invalid or missing signature that does not match the publisher or signer of the file. - It has been tampered with or corrupted by malware or other software. - It has been blocked by an administrator or a security policy. This property always will be the empty string if failure is not caused by STATUS_INVALID_IMAGE_HASH.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{AB667428-094D-5FD1-B480-8B4C0FDBDF2F}']</dt>

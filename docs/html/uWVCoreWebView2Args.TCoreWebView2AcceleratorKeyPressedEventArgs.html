@@ -365,7 +365,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The Win32 virtual key code of the key that was pressed or released. It is one of the Win32 virtual key constants such as `VK_RETURN` or an (uppercase) ASCII value such as `A`. Verify whether Ctrl or Alt are pressed by running `GetKeyState(VK_CONTROL)` or `GetKeyState(VK_MENU)`. </p>
+ The Win32 virtual key code of the key that was pressed or released. It is one of the Win32 virtual key constants such as 'VK_RETURN' or an (uppercase) ASCII value such as 'A'. Verify whether Ctrl or Alt are pressed by running 'GetKeyState(VK_CONTROL)' or 'GetKeyState(VK_MENU)'. </p>
 <p>
 
 
@@ -379,7 +379,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `LPARAM` value that accompanied the window message. For more information, navigate to [WM_KEYDOWN](/windows/win32/inputdev/wm-keydown) and [WM_KEYUP](/windows/win32/inputdev/wm-keyup). </p>
+ The 'LPARAM' value that accompanied the window message. For more information, navigate to [WM_KEYDOWN](/windows/win32/inputdev/wm-keydown) and [WM_KEYUP](/windows/win32/inputdev/wm-keyup). </p>
 <p>
 
 
@@ -489,7 +489,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- During `AcceleratorKeyPressedEvent` handler invocation the WebView is blocked waiting for the decision of if the accelerator is handled by the host (or not). If the `Handled` property is set to `TRUE` then this prevents the WebView from performing the default action for this accelerator key. Otherwise the WebView performs the default action for the accelerator key. </p>
+ During 'AcceleratorKeyPressedEvent' handler invocation the WebView is blocked waiting for the decision of if the accelerator is handled by the host (or not). If the 'Handled' property is set to 'TRUE' then this prevents the WebView from performing the default action for this accelerator key. Otherwise the WebView performs the default action for the accelerator key. </p>
 <p>
 
 
@@ -533,15 +533,15 @@ body { margin: 0.5em; }
 
 <p>
 
-<p>The `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` API is a convenient setting for developers to disable all the browser accelerator keys together, and sets the default value for the `IsBrowserAcceleratorKeyEnabled` property.
+<p>The 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' API is a convenient setting for developers to disable all the browser accelerator keys together, and sets the default value for the 'IsBrowserAcceleratorKeyEnabled' property.
 
-<p>By default, `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` is `TRUE` and `IsBrowserAcceleratorKeyEnabled` is `TRUE`.
+<p>By default, 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' is 'TRUE' and 'IsBrowserAcceleratorKeyEnabled' is 'TRUE'.
 
-<p>When developers change `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, this will change default value for `IsBrowserAcceleratorKeyEnabled` to `FALSE`.
+<p>When developers change 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting to 'FALSE', this will change default value for 'IsBrowserAcceleratorKeyEnabled' to 'FALSE'.
 
-<p>If developers want specific keys to be handled by the browser after changing the `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting to `FALSE`, they need to enable these keys by setting `IsBrowserAcceleratorKeyEnabled` to `TRUE`.
+<p>If developers want specific keys to be handled by the browser after changing the 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting to 'FALSE', they need to enable these keys by setting 'IsBrowserAcceleratorKeyEnabled' to 'TRUE'.
 
-<p>This API will give the event arg higher priority over the `ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled` setting when we handle the keys.
+<p>This API will give the event arg higher priority over the 'ICoreWebView2Settings.AreBrowserAcceleratorKeysEnabled' setting when we handle the keys.
 
 <p>For browser accelerator keys, when an accelerator key is pressed, the propagation and processing order is:
 
@@ -556,7 +556,7 @@ capture and respond to it.</pre>
 
 <p>
 
-<p>`ICoreWebView2AcceleratorKeyPressedEventArgs` has a `Handled` property, that developers can use to mark a key as handled. When the key is marked as handled anywhere along the path, the event propagation stops, and web content will not receive the key. With `IsBrowserAcceleratorKeyEnabled` property, if developers mark `IsBrowserAcceleratorKeyEnabled` as `FALSE`, the browser will skip the WebView2 browser feature accelerator key handling process, but the event propagation continues, and web content will receive the key combination.
+<p>'ICoreWebView2AcceleratorKeyPressedEventArgs' has a 'Handled' property, that developers can use to mark a key as handled. When the key is marked as handled anywhere along the path, the event propagation stops, and web content will not receive the key. With 'IsBrowserAcceleratorKeyEnabled' property, if developers mark 'IsBrowserAcceleratorKeyEnabled' as 'FALSE', the browser will skip the WebView2 browser feature accelerator key handling process, but the event propagation continues, and web content will receive the key combination.
 
 <p></p>
 <p>

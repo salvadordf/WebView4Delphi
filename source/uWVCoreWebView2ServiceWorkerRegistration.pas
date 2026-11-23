@@ -70,7 +70,7 @@ type
       /// the scope of the registration. See the [Service Worker]
       /// (https://developer.mozilla.org/docs/Web/API/ServiceWorker) for more information.</para>
       ///
-      /// <para>This corresponds to the `active` property of the `ServiceWorkerRegistration` object in the DOM.
+      /// <para>This corresponds to the 'active' property of the 'ServiceWorkerRegistration' object in the DOM.
       /// For more information, see the [MDN documentation]
       /// (https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active).</para>
       /// </summary>
@@ -78,7 +78,7 @@ type
       /// <summary>
       /// <para>A string representing the URI of the origin where the worker is executing.</para>
       ///
-      /// <para>If a worker created with `ScriptUri` set to https://example.com/worker.js, the origin
+      /// <para>If a worker created with 'ScriptUri' set to https://example.com/worker.js, the origin
       /// will be https://example.com/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
@@ -86,25 +86,25 @@ type
       /// </summary>
       property Origin              : wvstring                                    read GetOrigin;
       /// <summary>
-      /// <para>The `scopeUri` is a fully qualified URI, including the scheme, host and path,
+      /// <para>The 'scopeUri' is a fully qualified URI, including the scheme, host and path,
       /// that specifies the range of URLs a service worker can control.</para>
       ///
       /// <para>When registering a service worker, if no scope is specified, it defaults to the
       /// directory where the service worker script resides. For example, if the script is
-      /// located at https://example.com/app/sw.js, the default `scopeUri` would be
+      /// located at https://example.com/app/sw.js, the default 'scopeUri' would be
       /// https://example.com/app/. However, if a scope is provided, it is defined relative
       /// to the application's base URI. For instance, if an application at
       /// https://example.com/ registers a service worker with a scope of /app/, the resulting
-      /// `scopeUri` is https://example.com/app/.</para>
+      /// 'scopeUri' is https://example.com/app/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
       /// details on how normalization is performed.</para>
-      /// <para>The same process applies to the `Scope` when a service worker is registered from DOM API.</para>
-      /// <para>The `scopeUri` property reflects this normalization, ensuring that the URI is standardized. For example,
-      /// `HTTPS://EXAMPLE.COM/app/` is canonicalized to `https://example.com/app/`;
-      /// `https://bücher.de/` is canonicalized to `https://xn--bcher-kva.de/`.</para>
+      /// <para>The same process applies to the 'Scope' when a service worker is registered from DOM API.</para>
+      /// <para>The 'scopeUri' property reflects this normalization, ensuring that the URI is standardized. For example,
+      /// 'HTTPS://EXAMPLE.COM/app/' is canonicalized to 'https://example.com/app/';
+      /// 'https://bücher.de/' is canonicalized to 'https://xn--bcher-kva.de/'.</para>
       ///
-      /// <para>The `scope` property of the `ServiceWorkerRegistration` object in the DOM returns
+      /// <para>The 'scope' property of the 'ServiceWorkerRegistration' object in the DOM returns
       /// the relative URL based on the application's base URI, while this property always
       /// returns a fully qualified URI.  For more information on DOM API, see the
       /// [MDN documentation](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope).</para>
@@ -113,18 +113,18 @@ type
       /// <summary>
       /// <para>A string representing the URI of the top-level document that the worker is associated with.</para>
       ///
-      /// <para>If a worker is created with `ScriptUri` set to https://example.com/worker.js, the top-level origin
+      /// <para>If a worker is created with 'ScriptUri' set to https://example.com/worker.js, the top-level origin
       /// is https://example.com/. If the same worker is created from a iframe at https://example.com/ which is hosted on
       /// https://example2.com/, the top-level origin is https://example2.com/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
       /// details on how normalization is performed.</para>
       ///
-      /// <para>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated
+      /// <para>When CustomDataPartitionId is set, the 'TopLevelOrigin' will be a generated
       /// site like guid.invalid. For example, if the top-level document is https://example.com/worker.js,
-      /// the top-level origin will be `https://guid.invalid/`.</para>
+      /// the top-level origin will be 'https://guid.invalid/'.</para>
       ///
-      /// <para>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.</para>
+      /// <para>For more details see 'ICoreWebView2Experimental20::CustomDataPartitionId'.</para>
       /// </summary>
       property TopLevelOrigin      : wvstring                                    read GetTopLevelOrigin;
   end;

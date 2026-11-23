@@ -70,11 +70,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Print the current web page asynchronously to the specified printer with the provided settings. See `ICoreWebView2PrintSettings` for description of settings. Passing nullptr for `printSettings` results in default print settings used.
+ Print the current web page asynchronously to the specified printer with the provided settings. See 'ICoreWebView2PrintSettings' for description of settings. Passing nullptr for 'printSettings' results in default print settings used.
 
-<p>The handler will return `errorCode` as `S_OK` and `printStatus` as COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE if `printerName` doesn't match with the name of any installed printers on the user OS. The handler will return `errorCode` as `E_INVALIDARG` and `printStatus` as COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR if the caller provides invalid settings for a given printer.
+<p>The handler will return 'errorCode' as 'S_OK' and 'printStatus' as COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE if 'printerName' doesn't match with the name of any installed printers on the user OS. The handler will return 'errorCode' as 'E_INVALIDARG' and 'printStatus' as COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR if the caller provides invalid settings for a given printer.
 
-<p>The async `Print` operation completes when it finishes printing to the printer. At this time the `ICoreWebView2PrintCompletedHandler` is invoked. Only one `Printing` operation can be in progress at a time. If `Print` is called while a `Print` or `PrintToPdf` or `PrintToPdfStream` or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `E_ABORT` and `printStatus` is COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR. This is only for printing operation on one webview.
+<p>The async 'Print' operation completes when it finishes printing to the printer. At this time the 'ICoreWebView2PrintCompletedHandler' is invoked. Only one 'Printing' operation can be in progress at a time. If 'Print' is called while a 'Print' or 'PrintToPdf' or 'PrintToPdfStream' or 'ShowPrintUI' job is in progress, the completed handler is immediately invoked with 'E_ABORT' and 'printStatus' is COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR. This is only for printing operation on one webview.
 
 <p>| errorCode | printStatus | Notes | | &mdash; | &mdash; | &mdash; | | S_OK | COREWEBVIEW2_PRINT_STATUS_SUCCEEDED | Print operation succeeded. | | S_OK | COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE | If specified printer is not found or printer status is not available, offline or error state. | | S_OK | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR | Print operation is failed. | | E_INVALIDARG | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR | If the caller provides invalid settings for the specified printer. | | E_ABORT | COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR | Print operation is failed as printing job already in progress. |
 
@@ -93,7 +93,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Opens the print dialog to print the current web page. See `COREWEBVIEW2_PRINT_DIALOG_KIND` for descriptions of print dialog kinds.
+ Opens the print dialog to print the current web page. See 'COREWEBVIEW2_PRINT_DIALOG_KIND' for descriptions of print dialog kinds.
 
 <p>Invoking browser or system print dialog doesn't open new print dialog if it is already open.
 
@@ -109,9 +109,9 @@ body { margin: 0.5em; }
 <p>
  Provides the Pdf data of current web page asynchronously for the provided settings. Stream will be rewound to the start of the pdf data.
 
-<p>See `ICoreWebView2PrintSettings` for description of settings. Passing nullptr for `printSettings` results in default print settings used.
+<p>See 'ICoreWebView2PrintSettings' for description of settings. Passing nullptr for 'printSettings' results in default print settings used.
 
-<p>The async `PrintToPdfStream` operation completes when it finishes writing to the stream. At this time the `ICoreWebView2PrintToPdfStreamCompletedHandler` is invoked. Only one `Printing` operation can be in progress at a time. If `PrintToPdfStream` is called while a `PrintToPdfStream` or `PrintToPdf` or `Print` or `ShowPrintUI` job is in progress, the completed handler is immediately invoked with `E_ABORT`. This is only for printing operation on one webview.
+<p>The async 'PrintToPdfStream' operation completes when it finishes writing to the stream. At this time the 'ICoreWebView2PrintToPdfStreamCompletedHandler' is invoked. Only one 'Printing' operation can be in progress at a time. If 'PrintToPdfStream' is called while a 'PrintToPdfStream' or 'PrintToPdf' or 'Print' or 'ShowPrintUI' job is in progress, the completed handler is immediately invoked with 'E_ABORT'. This is only for printing operation on one webview.
 
 <p>\snippet AppWindow.cpp PrintToPdfStream </p>
 </td></tr>

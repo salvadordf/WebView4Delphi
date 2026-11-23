@@ -407,7 +407,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The host may run this to report the notification has been displayed and it will cause the [show](<a href="https://developer.mozilla.org/docs/Web/API/Notification/show_event">https://developer.mozilla.org/docs/Web/API/Notification/show_event</a>) event to be raised for non-persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` when this is called. </p>
+ The host may run this to report the notification has been displayed and it will cause the [show](<a href="https://developer.mozilla.org/docs/Web/API/Notification/show_event">https://developer.mozilla.org/docs/Web/API/Notification/show_event</a>) event to be raised for non-persistent notifications. You must not run this unless you are handling the 'NotificationReceived' event. Returns 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' when this is called. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -417,7 +417,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The host may run this to report the notification has been clicked, and it will cause the [click](<a href="https://developer.mozilla.org/docs/Web/API/Notification/click_event">https://developer.mozilla.org/docs/Web/API/Notification/click_event</a>) event to be raised for non-persistent notifications and the [notificationclick](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event</a>) event for persistent notifications. Use `ReportClickedWithActionIndex` to specify an action to activate a persistent notification. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+ The host may run this to report the notification has been clicked, and it will cause the [click](<a href="https://developer.mozilla.org/docs/Web/API/Notification/click_event">https://developer.mozilla.org/docs/Web/API/Notification/click_event</a>) event to be raised for non-persistent notifications and the [notificationclick](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event</a>) event for persistent notifications. Use 'ReportClickedWithActionIndex' to specify an action to activate a persistent notification. You must not run this unless you are handling the 'NotificationReceived' event. Returns 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' or 'ReportShown' has not been run when this is called. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -427,7 +427,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The host may run this to report the notification was dismissed, and it will cause the [close](<a href="https://developer.mozilla.org/docs/Web/API/Notification/close_event">https://developer.mozilla.org/docs/Web/API/Notification/close_event</a>) event to be raised for non-persistent notifications and the [notificationclose](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event</a>) event for persistent notifications. You must not run this unless you are handling the `NotificationReceived` event. Returns `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)` if `Handled` is `FALSE` or `ReportShown` has not been run when this is called. </p>
+ The host may run this to report the notification was dismissed, and it will cause the [close](<a href="https://developer.mozilla.org/docs/Web/API/Notification/close_event">https://developer.mozilla.org/docs/Web/API/Notification/close_event</a>) event to be raised for non-persistent notifications and the [notificationclose](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event">https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event</a>) event for persistent notifications. You must not run this unless you are handling the 'NotificationReceived' event. Returns 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)' if 'Handled' is 'FALSE' or 'ReportShown' has not been run when this is called. </p>
 </td></tr>
 </table>
 <h3 class="detail">Properties</h3>
@@ -468,7 +468,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The text direction in which to display the notification. This corresponds to [Notification.dir](<a href="https://developer.mozilla.org/docs/Web/API/Notification/dir">https://developer.mozilla.org/docs/Web/API/Notification/dir</a>) DOM API. The default value is `COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT`. </p>
+ The text direction in which to display the notification. This corresponds to [Notification.dir](<a href="https://developer.mozilla.org/docs/Web/API/Notification/dir">https://developer.mozilla.org/docs/Web/API/Notification/dir</a>) DOM API. The default value is 'COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -478,7 +478,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The notification's language, as intended to be specified using a string representing a language tag (such as `en-US`) according to [BCP47](<a href="https://datatracker.ietf.org/doc/html/rfc5646">https://datatracker.ietf.org/doc/html/rfc5646</a>). Note that no validation is performed on this property and it can be any string the notification sender specifies. This corresponds to [Notification.lang](<a href="https://developer.mozilla.org/docs/Web/API/Notification/lang">https://developer.mozilla.org/docs/Web/API/Notification/lang</a>) DOM API. The default value is an empty string. </p>
+ The notification's language, as intended to be specified using a string representing a language tag (such as 'en-US') according to [BCP47](<a href="https://datatracker.ietf.org/doc/html/rfc5646">https://datatracker.ietf.org/doc/html/rfc5646</a>). Note that no validation is performed on this property and it can be any string the notification sender specifies. This corresponds to [Notification.lang](<a href="https://developer.mozilla.org/docs/Web/API/Notification/lang">https://developer.mozilla.org/docs/Web/API/Notification/lang</a>) DOM API. The default value is an empty string. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -538,7 +538,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Indicates whether the user should be notified after a new notification replaces an old one. This corresponds to [Notification.renotify](<a href="https://developer.mozilla.org/docs/Web/API/Notification/renotify">https://developer.mozilla.org/docs/Web/API/Notification/renotify</a>) DOM API. The default value is `FALSE`. </p>
+ Indicates whether the user should be notified after a new notification replaces an old one. This corresponds to [Notification.renotify](<a href="https://developer.mozilla.org/docs/Web/API/Notification/renotify">https://developer.mozilla.org/docs/Web/API/Notification/renotify</a>) DOM API. The default value is 'FALSE'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -548,7 +548,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- A boolean value indicating that a notification should remain active until the user clicks or dismisses it, rather than closing automatically. This corresponds to [Notification.requireInteraction](<a href="https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction">https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction</a>) DOM API. Note that you may not be able to necessarily implement this due to native API limitations. The default value is `FALSE`. </p>
+ A boolean value indicating that a notification should remain active until the user clicks or dismisses it, rather than closing automatically. This corresponds to [Notification.requireInteraction](<a href="https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction">https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction</a>) DOM API. Note that you may not be able to necessarily implement this due to native API limitations. The default value is 'FALSE'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -558,7 +558,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Indicates whether the notification should be silent &ndash; i.e., no sounds or vibrations should be issued, regardless of the device settings. This corresponds to [Notification.silent](<a href="https://developer.mozilla.org/docs/Web/API/Notification/silent">https://developer.mozilla.org/docs/Web/API/Notification/silent</a>) DOM API. The default value is `FALSE`. </p>
+ Indicates whether the notification should be silent &ndash; i.e., no sounds or vibrations should be issued, regardless of the device settings. This corresponds to [Notification.silent](<a href="https://developer.mozilla.org/docs/Web/API/Notification/silent">https://developer.mozilla.org/docs/Web/API/Notification/silent</a>) DOM API. The default value is 'FALSE'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">

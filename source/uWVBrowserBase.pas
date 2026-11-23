@@ -671,7 +671,7 @@ type
       function    Navigate(const aURI : wvstring) : boolean;
       /// <summary>
       /// Initiates a navigation to aHTMLContent as source HTML of a new document.
-      /// The origin of the new page is `about:blank`.
+      /// The origin of the new page is 'about:blank'.
       /// </summary>
       /// <param name="aHTMLContent">Source HTML. It may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size.</param>
       /// <remarks>
@@ -679,11 +679,24 @@ type
       /// </remarks>
       function    NavigateToString(const aHTMLContent: wvstring) : boolean;
       /// <summary>
-      /// Navigates using a constructed ICoreWebView2WebResourceRequest object. This lets you
+      /// <para>Navigates using a constructed WebResourceRequest object. This lets you
       /// provide post data or additional request headers during navigation.
-      /// The headers in aRequest override headers added by WebView2 runtime except for Cookie headers.
+      /// The headers in the WebResourceRequest override headers
+      /// added by WebView2 runtime except for Cookie headers.
       /// Method can only be either "GET" or "POST". Provided post data will only
-      /// be sent only if the method is "POST" and the uri scheme is HTTP(S).
+      /// be sent only if the method is "POST" and the uri scheme is HTTP(S).</para>
+      ///
+      /// <para>The headers are sent with the initial request and with every redirect,
+      /// including redirects to a different origin. They are also stored with the
+      /// navigation history entry, so reload and back or forward navigations send
+      /// them again.</para>
+      /// <para>Do not include credentials, such as an 'Authorization' header, unless you
+      /// trust every server to which the navigation might be redirected.
+      /// To control which origins receive a header, omit it from the
+      /// 'WebResourceRequest' and add it for trusted origins in a
+      /// 'WebResourceRequested' event handler. Alternatively, use
+      /// 'WebResourceRequested' to remove the header when a redirect targets an
+      /// untrusted origin.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_2#navigatewithwebresourcerequest">See the ICoreWebView2_2 article.</see></para>
@@ -700,11 +713,11 @@ type
       /// </remarks>
       function    SubscribeToDevToolsProtocolEvent(const aEventName : wvstring; aEventID : integer = 0) : boolean;
       /// <summary>
-      /// <para>Runs an asynchronous `DevToolsProtocol` method.</para>
+      /// <para>Runs an asynchronous 'DevToolsProtocol' method.</para>
       /// <para>The TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event is triggered
-      /// when it finishes executing. This function returns E_INVALIDARG if the `aMethodName` is
-      /// unknown or the `aParametersAsJson` has an error.  In the case of such an error, the
-      /// `aReturnObjectAsJson` parameter of the event will include information
+      /// when it finishes executing. This function returns E_INVALIDARG if the 'aMethodName' is
+      /// unknown or the 'aParametersAsJson' has an error.  In the case of such an error, the
+      /// 'aReturnObjectAsJson' parameter of the event will include information
       /// about the error.</para>
       /// <para>Note even though WebView2 dispatches the CDP messages in the order called,
       /// CDP method calls may be processed out of order.
@@ -714,7 +727,7 @@ type
       /// before the new window is set if the cdp message should affect the initial navigation. If
       /// called after setting the NewWindow property, the cdp messages
       /// may or may not apply to the initial navigation and may only apply to the subsequent navigation.
-      /// For more details see `ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow`.</para>
+      /// For more details see 'ICoreWebView2NewWindowRequestedEventArgs::put_NewWindow'.</para>
       /// </summary>
       /// <param name="aMethodName">The DevTools protocol full method name.</param>
       /// <param name="aParametersAsJson">JSON formatted string containing the parameters for the corresponding method.</param>
@@ -725,22 +738,22 @@ type
       /// </remarks>
       function    CallDevToolsProtocolMethod(const aMethodName, aParametersAsJson : wvstring; aExecutionID : integer = 0) : boolean;
       /// <summary>
-      /// <para>Runs an asynchronous `DevToolsProtocol` method for a specific session of
+      /// <para>Runs an asynchronous 'DevToolsProtocol' method for a specific session of
       /// an attached target.</para>
-      /// <para>There could be multiple `DevToolsProtocol` targets in a WebView.
+      /// <para>There could be multiple 'DevToolsProtocol' targets in a WebView.
       /// Besides the top level page, iframes from different origin and web workers
       /// are also separate targets. Attaching to these targets allows interaction with them.
       /// When the DevToolsProtocol is attached to a target, the connection is identified
       /// by a sessionId.</para>
-      /// <para>To use this API, you must set the `flatten` parameter to true when calling
-      /// `Target.attachToTarget` or `Target.setAutoAttach` `DevToolsProtocol` method.
-      /// Using `Target.setAutoAttach` is recommended as that would allow you to attach
+      /// <para>To use this API, you must set the 'flatten' parameter to true when calling
+      /// 'Target.attachToTarget' or 'Target.setAutoAttach' 'DevToolsProtocol' method.
+      /// Using 'Target.setAutoAttach' is recommended as that would allow you to attach
       /// to dedicated worker targets, which are not discoverable via other APIs like
-      /// `Target.getTargets`.</para>
+      /// 'Target.getTargets'.</para>
       /// <para>The TWVBrowserBase.OnCallDevToolsProtocolMethodCompleted event is triggered
-      /// when it finishes executing. This function returns E_INVALIDARG if the `aMethodName` is
-      /// unknown or the `aParametersAsJson` has an error.  In the case of such an error, the
-      /// `aReturnObjectAsJson` parameter of the event will include information
+      /// when it finishes executing. This function returns E_INVALIDARG if the 'aMethodName' is
+      /// unknown or the 'aParametersAsJson' has an error.  In the case of such an error, the
+      /// 'aReturnObjectAsJson' parameter of the event will include information
       /// about the error.</para>
       /// <para>Note even though WebView2 dispatches the CDP messages in the order called,
       /// CDP method calls may be processed out of order.
@@ -809,10 +822,10 @@ type
       /// is considered to be null, which is encoded in JSON as the string "null".
       /// If the script that was run throws an unhandled exception, then the result is
       /// also "null".</para>
-      /// <para>If the method is run after the `NavigationStarting` event during a navigation,
+      /// <para>If the method is run after the 'NavigationStarting' event during a navigation,
       /// the script runs in the new document when loading it, around the time
-      /// `ContentLoading` is run.  This operation executes the script even if
-      /// `ICoreWebView2Settings.IsScriptEnabled` is set to `FALSE`.</para>
+      /// 'ContentLoading' is run.  This operation executes the script even if
+      /// 'ICoreWebView2Settings.IsScriptEnabled' is set to 'FALSE'.</para>
       /// </summary>
       /// <param name="aJavaScript">The JavaScript code.</param>
       /// <param name="aExecutionID">A custom event ID that will be passed as a parameter in the TWVBrowserBase event.</param>
@@ -840,7 +853,7 @@ type
       function    CapturePreview(aImageFormat: TWVCapturePreviewImageFormat; const aImageStream: IStream) : boolean;
       /// <summary>
       /// This is a notification that tells WebView that the main WebView parent
-      /// (or any ancestor) `HWND` moved.  This is needed for accessibility and
+      /// (or any ancestor) 'HWND' moved.  This is needed for accessibility and
       /// certain dialogs in WebView to work correctly.
       /// </summary>
       /// <remarks>
@@ -850,12 +863,12 @@ type
       /// <summary>
       /// <para>Sets permission state for the given permission kind and origin
       /// asynchronously. The change persists across sessions until it is changed by
-      /// another call to `SetPermissionState`, or by setting the `State` property
-      /// in `PermissionRequestedEventArgs`.</para>
-      /// <para>Setting the state to `COREWEBVIEW2_PERMISSION_STATE_DEFAULT` will
+      /// another call to 'SetPermissionState', or by setting the 'State' property
+      /// in 'PermissionRequestedEventArgs'.</para>
+      /// <para>Setting the state to 'COREWEBVIEW2_PERMISSION_STATE_DEFAULT' will
       /// erase any state saved in the profile and restore the default behavior.</para>
       /// <para>The origin should have a valid scheme and host (e.g. "https://www.example.com"),
-      /// otherwise the method fails with `E_INVALIDARG`. Additional URI parts like
+      /// otherwise the method fails with 'E_INVALIDARG'. Additional URI parts like
       /// path and fragment are ignored. For example, "https://wwww.example.com/app1/index.html/"
       /// is treated the same as "https://wwww.example.com".</para>
       /// <para>This function triggers the TWVBrowserBase.OnSetPermissionStateCompleted event.</para>
@@ -881,11 +894,11 @@ type
       /// running right after installation.</para>
       /// <para>The extension folder path is the topmost folder of an unpacked browser extension and
       /// contains the browser extension manifest file.</para>
-      /// <para>If the `extensionFolderPath` is an invalid path or doesn't contain the extension manifest.json
-      /// file, this function will return `ERROR_FILE_NOT_FOUND` to callers.</para>
-      /// <para>Installed extension will default `IsEnabled` to true.</para>
-      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `AddBrowserExtension` will fail and return
-      /// HRESULT `ERROR_NOT_SUPPORTED`.</para>
+      /// <para>If the 'extensionFolderPath' is an invalid path or doesn't contain the extension manifest.json
+      /// file, this function will return 'ERROR_FILE_NOT_FOUND' to callers.</para>
+      /// <para>Installed extension will default 'IsEnabled' to true.</para>
+      /// <para>When 'AreBrowserExtensionsEnabled' is 'FALSE', 'AddBrowserExtension' will fail and return
+      /// HRESULT 'ERROR_NOT_SUPPORTED'.</para>
       /// <para>During installation, the content of the extension is not copied to the user data folder.
       /// Once the extension is installed, changing the content of the extension will cause the
       /// extension to be removed from the installed profile.</para>
@@ -898,14 +911,14 @@ type
       /// can be loaded and used but will have missing UI entry points due to the lack of browser
       /// UI elements to host these entry points in WebView2.</para>
       /// <para>The following summarizes the possible error values that can be returned from
-      /// `AddBrowserExtension` and a description of why these errors occur.</para>
+      /// 'AddBrowserExtension' and a description of why these errors occur.</para>
       /// <code>
       /// Error value                                     | Description
       /// ----------------------------------------------- | --------------------------
-      /// `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`       | Extensions are disabled.
-      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`      | Cannot find `manifest.json` file or it is not a valid extension manifest.
-      /// `E_ACCESSDENIED`                                | Cannot load extension with file or directory name starting with \"_\", reserved for use by the system.
-      /// `E_FAIL`                                        | Extension failed to install with other unknown reasons.
+      /// 'HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)'       | Extensions are disabled.
+      /// 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)'      | Cannot find 'manifest.json' file or it is not a valid extension manifest.
+      /// 'E_ACCESSDENIED'                                | Cannot load extension with file or directory name starting with \"_\", reserved for use by the system.
+      /// 'E_FAIL'                                        | Extension failed to install with other unknown reasons.
       /// </code>
       /// </summary>
       /// <remarks>
@@ -914,10 +927,10 @@ type
       /// </remarks>
       function    AddBrowserExtension(const extensionFolderPath: wvstring): boolean;
       /// <summary>
-      /// <para>Gets a snapshot of the set of extensions installed at the time `GetBrowserExtensions` is
-      /// called. If an extension is installed or uninstalled after `GetBrowserExtensions` completes,
-      /// the list returned by `GetBrowserExtensions` remains the same.</para>
-      /// <para>When `AreBrowserExtensionsEnabled` is `FALSE`, `GetBrowserExtensions` won't return any
+      /// <para>Gets a snapshot of the set of extensions installed at the time 'GetBrowserExtensions' is
+      /// called. If an extension is installed or uninstalled after 'GetBrowserExtensions' completes,
+      /// the list returned by 'GetBrowserExtensions' remains the same.</para>
+      /// <para>When 'AreBrowserExtensionsEnabled' is 'FALSE', 'GetBrowserExtensions' won't return any
       /// extensions on current user profile.</para>
       /// </summary>
       /// <remarks>
@@ -933,7 +946,7 @@ type
       /// starts until successful.</para>
       /// <para>The corresponding CoreWebView2s will be closed and the
       /// CoreWebView2Profile.Deleted event will be raised. See
-      /// `CoreWebView2Profile.Deleted` for more information.</para>
+      /// 'CoreWebView2Profile.Deleted' for more information.</para>
       /// <para>If you try to create a new profile with the same name as an existing
       /// profile that has been marked as deleted but hasn't yet been deleted,
       /// profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).</para>
@@ -943,12 +956,12 @@ type
       /// </remarks>
       function    DeleteProfile: boolean;
       /// <summary>
-      /// <para>An app may call the `TrySuspend` API to have the WebView2 consume less memory.
+      /// <para>An app may call the 'TrySuspend' API to have the WebView2 consume less memory.
       /// This is useful when a Win32 app becomes invisible, or when a Universal Windows
       /// Platform app is being suspended, during the suspended event handler before completing
       /// the suspended event.</para>
       /// <para>The IsVisible property must be false when the API is called.
-      /// Otherwise, the API fails with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.
+      /// Otherwise, the API fails with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'.
       /// Suspending is similar to putting a tab to sleep in the Edge browser. Suspending pauses
       /// WebView script timers and animations, minimizes CPU usage for the associated
       /// browser renderer process and allows the operating system to reuse the memory that was
@@ -959,12 +972,12 @@ type
       /// for conditions that might prevent WebView from being suspended. In those situations,
       /// the completed handler will be invoked with isSuccessful as false and errorCode as S_OK.
       /// The WebView will be automatically resumed when it becomes visible. Therefore, the
-      /// app normally does not have to call `Resume` explicitly.</para>
-      /// <para>The app can call `Resume` and then `TrySuspend` periodically for an invisible WebView so that
+      /// app normally does not have to call 'Resume' explicitly.</para>
+      /// <para>The app can call 'Resume' and then 'TrySuspend' periodically for an invisible WebView so that
       /// the invisible WebView can sync up with latest data and the page ready to show fresh content
       /// when it becomes visible.</para>
       /// <para>All WebView APIs can still be accessed when a WebView is suspended. Some APIs like Navigate
-      /// will auto resume the WebView. To avoid unexpected auto resume, check `IsSuspended` property
+      /// will auto resume the WebView. To avoid unexpected auto resume, check 'IsSuspended' property
       /// before calling APIs that might change WebView state.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnTrySuspendCompleted event when it finishes executing.</para>
       /// </summary>
@@ -976,7 +989,7 @@ type
       /// <summary>
       /// Resumes the WebView so that it resumes activities on the web page.
       /// This API can be called while the WebView2 controller is invisible.
-      /// The app can interact with the WebView immediately after `Resume`.
+      /// The app can interact with the WebView immediately after 'Resume'.
       /// WebView will be automatically resumed when it becomes visible.
       /// </summary>
       /// <remarks>
@@ -998,7 +1011,7 @@ type
       /// </remarks>
       function    SetVirtualHostNameToFolderMapping(const aHostName, aFolderPath : wvstring; aAccessKind : TWVHostResourceAcccessKind): boolean;
       /// <summary>
-      /// Clears a host name mapping for local folder that was added by `SetVirtualHostNameToFolderMapping`.
+      /// Clears a host name mapping for local folder that was added by 'SetVirtualHostNameToFolderMapping'.
       /// </summary>
       /// <param name="aHostName">Host name used previously with SetVirtualHostNameToFolderMapping to access files in the local folder.</param>
       /// <remarks>
@@ -1064,7 +1077,7 @@ type
       /// If the Browser Task Manager is already open, this will bring it into
       /// the foreground. WebView2 currently blocks the Shift+Esc shortcut for
       /// opening the task manager. An end user can open the browser task manager
-      /// manually via the `Browser task manager` entry of the DevTools window's
+      /// manually via the 'Browser task manager' entry of the DevTools window's
       /// title bar's context menu.
       /// </summary>
       /// <remarks>
@@ -1073,20 +1086,20 @@ type
       function    OpenTaskManagerWindow : boolean;
       /// <summary>
       /// <para>Post the specified webMessage to the top level document in this WebView.
-      /// The main page receives the message by subscribing to the `message` event of the
-      /// `window.chrome.webview` of the page document.</para>
+      /// The main page receives the message by subscribing to the 'message' event of the
+      /// 'window.chrome.webview' of the page document.</para>
       /// <code>
-      /// ```cpp
+      /// '''cpp
       /// window.chrome.webview.addEventListener('message', handler)
       /// window.chrome.webview.removeEventListener('message', handler)
-      /// ```
+      /// '''
       /// </code>
-      /// <para>The event args is an instance of `MessageEvent`.  The
-      /// `ICoreWebView2Settings.IsWebMessageEnabled` setting must be `TRUE` or
-      /// the web message will not be sent. The `data` property of the event
-      /// arg is the `webMessage` string parameter parsed as a JSON string into a
-      /// JavaScript object.  The `source` property of the event arg is a reference
-      ///  to the `window.chrome.webview` object.  For information about sending
+      /// <para>The event args is an instance of 'MessageEvent'.  The
+      /// 'ICoreWebView2Settings.IsWebMessageEnabled' setting must be 'TRUE' or
+      /// the web message will not be sent. The 'data' property of the event
+      /// arg is the 'webMessage' string parameter parsed as a JSON string into a
+      /// JavaScript object.  The 'source' property of the event arg is a reference
+      ///  to the 'window.chrome.webview' object.  For information about sending
       /// messages from the HTML document in the WebView to the host, navigate to
       /// [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived).
       /// The message is delivered asynchronously.  If a navigation occurs before
@@ -1099,10 +1112,10 @@ type
       /// <summary>
       /// Posts a message that is a simple string rather than a JSON string
       /// representation of a JavaScript object.  This behaves in exactly the same
-      /// manner as `PostWebMessageAsJson`, but the `data` property of the event
-      /// arg of the `window.chrome.webview` message is a string with the same
-      /// value as `aWebMessageAsString`.  Use this instead of
-      /// `PostWebMessageAsJson` if you want to communicate using simple strings
+      /// manner as 'PostWebMessageAsJson', but the 'data' property of the event
+      /// arg of the 'window.chrome.webview' message is a string with the same
+      /// value as 'aWebMessageAsString'.  Use this instead of
+      /// 'PostWebMessageAsJson' if you want to communicate using simple strings
       /// rather than JSON objects.
       /// </summary>
       /// <remarks>
@@ -1113,19 +1126,19 @@ type
       /// <para>Warning: This method is deprecated and does not behave as expected for
       /// iframes. It will cause the WebResourceRequested event to fire only for the
       /// main frame and its same-origin iframes. Please use
-      /// `AddWebResourceRequestedFilterWithRequestSourceKinds`
+      /// 'AddWebResourceRequestedFilterWithRequestSourceKinds'
       /// instead, which will let the event to fire for all iframes on the
       /// document.</para>
-      /// <para>Adds a URI and resource context filter for the `WebResourceRequested`
+      /// <para>Adds a URI and resource context filter for the 'WebResourceRequested'
       /// event.  A web resource request with a resource context that matches this
       /// filter's resource context and a URI that matches this filter's URI
-      /// wildcard string will be raised via the `WebResourceRequested` event.</para>
-      /// <para>The `aURI` parameter value is a wildcard string matched against the URI
+      /// wildcard string will be raised via the 'WebResourceRequested' event.</para>
+      /// <para>The 'aURI' parameter value is a wildcard string matched against the URI
       /// of the web resource request. This is a glob style
-      /// wildcard string in which a `*` matches zero or more characters and a `?`
+      /// wildcard string in which a '*' matches zero or more characters and a '?'
       /// matches exactly one character.</para>
       /// <para>These wildcard characters can be escaped using a backslash just before
-      /// the wildcard character in order to represent the literal `*` or `?`.</para>
+      /// the wildcard character in order to represent the literal '*' or '?'.</para>
       /// <para>The matching occurs over the URI as a whole string and not limiting
       /// wildcard matches to particular parts of the URI.</para>
       /// <para>The wildcard filter is compared to the URI after the URI has been
@@ -1137,30 +1150,30 @@ type
       /// <code>
       /// | URI Filter String | Request URI | Match | Notes |
       /// | ---- | ---- | ---- | ---- |
-      /// | `*` | `https://contoso.com/a/b/c` | Yes | A single * will match all URIs |
-      /// | `*://contoso.com/*` | `https://contoso.com/a/b/c` | Yes | Matches everything in contoso.com across all schemes |
-      /// | `*://contoso.com/*` | `https://example.com/?https://contoso.com/` | Yes | But also matches a URI with just the same text anywhere in the URI |
-      /// | `example` | `https://contoso.com/example` | No | The filter does not perform partial matches |
-      /// | `*example` | `https://contoso.com/example` | Yes | The filter matches across URI parts  |
-      /// | `*example` | `https://contoso.com/path/?example` | Yes | The filter matches across URI parts |
-      /// | `*example` | `https://contoso.com/path/?query#example` | No | The filter is matched against the URI with no fragment |
-      /// | `*example` | `https://example` | No | The URI is normalized before filter matching so the actual URI used for comparison is `https://example/` |
-      /// | `*example/` | `https://example` | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
-      /// | `https://xn--qei.example/` | `https://&#x2764;.example/` | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
-      /// | `https://&#x2764;.example/` | `https://xn--qei.example/` | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// | '*' | 'https://contoso.com/a/b/c' | Yes | A single * will match all URIs |
+      /// | '*://contoso.com/*' | 'https://contoso.com/a/b/c' | Yes | Matches everything in contoso.com across all schemes |
+      /// | '*://contoso.com/*' | 'https://example.com/?https://contoso.com/' | Yes | But also matches a URI with just the same text anywhere in the URI |
+      /// | 'example' | 'https://contoso.com/example' | No | The filter does not perform partial matches |
+      /// | '*example' | 'https://contoso.com/example' | Yes | The filter matches across URI parts  |
+      /// | '*example' | 'https://contoso.com/path/?example' | Yes | The filter matches across URI parts |
+      /// | '*example' | 'https://contoso.com/path/?query#example' | No | The filter is matched against the URI with no fragment |
+      /// | '*example' | 'https://example' | No | The URI is normalized before filter matching so the actual URI used for comparison is 'https://example/' |
+      /// | '*example/' | 'https://example' | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
+      /// | 'https://xn--qei.example/' | 'https://&#x2764;.example/' | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// | 'https://&#x2764;.example/' | 'https://xn--qei.example/' | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
       /// </code>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#addwebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       function    AddWebResourceRequestedFilter(const aURI: wvstring; aResourceContext: TWVWebResourceContext) : boolean;
-      /// <para>Warning: This method and `AddWebResourceRequestedFilter` are deprecated.
-      /// Please use `AddWebResourceRequestedFilterWithRequestSourceKinds` and
-      /// `RemoveWebResourceRequestedFilterWithRequestSourceKinds` instead.</para>
+      /// <para>Warning: This method and 'AddWebResourceRequestedFilter' are deprecated.
+      /// Please use 'AddWebResourceRequestedFilterWithRequestSourceKinds' and
+      /// 'RemoveWebResourceRequestedFilterWithRequestSourceKinds' instead.</para>
       /// <para>Removes a matching WebResource filter that was previously added for the
-      /// `WebResourceRequested` event.  If the same filter was added multiple
+      /// 'WebResourceRequested' event.  If the same filter was added multiple
       /// times, then it must be removed as many times as it was added for the
-      /// removal to be effective.  Returns `E_INVALIDARG` for a filter that was
+      /// removal to be effective.  Returns 'E_INVALIDARG' for a filter that was
       /// never added.</para>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#removewebresourcerequestedfilter">See the ICoreWebView2 article.</see></para>
@@ -1170,28 +1183,28 @@ type
       /// <para>A web resource request with a resource context that matches this
       /// filter's resource context and a URI that matches this filter's URI
       /// wildcard string for corresponding request sources will be raised via
-      /// the `WebResourceRequested` event. To receive all raised events filters
+      /// the 'WebResourceRequested' event. To receive all raised events filters
       /// have to be added before main page navigation.</para>
-      /// <para>The `uri` parameter value is a wildcard string matched against the URI
+      /// <para>The 'uri' parameter value is a wildcard string matched against the URI
       /// of the web resource request. This is a glob style
-      /// wildcard string in which a `*` matches zero or more characters and a `?`
+      /// wildcard string in which a '*' matches zero or more characters and a '?'
       /// matches exactly one character.</para>
       /// <para>These wildcard characters can be escaped using a backslash just before
-      /// the wildcard character in order to represent the literal `*` or `?`.</para>
+      /// the wildcard character in order to represent the literal '*' or '?'.</para>
       /// <para>The matching occurs over the URI as a whole string and not limiting
       /// wildcard matches to particular parts of the URI.</para>
       /// <para>The wildcard filter is compared to the URI after the URI has been
       /// normalized, any URI fragment has been removed, and non-ASCII hostnames
       /// have been converted to punycode.</para>
-      /// <para>Specifying a `nullptr` for the uri is equivalent to an empty string which
+      /// <para>Specifying a 'nullptr' for the uri is equivalent to an empty string which
       /// matches no URIs.</para>
       /// <para>For more information about resource context filters, navigate to
       /// [COREWEBVIEW2_WEB_RESOURCE_CONTEXT](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_context).</para>
-      /// <para>The `requestSourceKinds` is a mask of one or more
-      /// `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS`. OR operation(s) can be
-      /// applied to multiple `COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS` to
-      /// create a mask representing those data types. API returns `E_INVALIDARG` if
-      /// `requestSourceKinds` equals to zero. For more information about request
+      /// <para>The 'requestSourceKinds' is a mask of one or more
+      /// 'COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS'. OR operation(s) can be
+      /// applied to multiple 'COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS' to
+      /// create a mask representing those data types. API returns 'E_INVALIDARG' if
+      /// 'requestSourceKinds' equals to zero. For more information about request
       /// source kinds, navigate to
       /// [COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS](/microsoft-edge/webview2/reference/win32/icorewebview2#corewebview2_web_resource_request_source_kinds).</para>
       /// <para>Because service workers and shared workers run separately from
@@ -1209,17 +1222,17 @@ type
       /// <code>
       /// | URI Filter String | Request URI | Match | Notes |
       /// | ---- | ---- | ---- | ---- |
-      /// | `*` | `https://contoso.com/a/b/c` | Yes | A single * will match all URIs |
-      /// | `*://contoso.com/*` | `https://contoso.com/a/b/c` | Yes | Matches everything in contoso.com across all schemes |
-      /// | `*://contoso.com/*` | `https://example.com/?https://contoso.com/` | Yes | But also matches a URI with just the same text anywhere in the URI |
-      /// | `example` | `https://contoso.com/example` | No | The filter does not perform partial matches |
-      /// | `*example` | `https://contoso.com/example` | Yes | The filter matches across URI parts |
-      /// | `*example` | `https://contoso.com/path/?example` | Yes | The filter matches across URI parts |
-      /// | `*example` | `https://contoso.com/path/?query#example` | No | The filter is matched against the URI with no fragment |
-      /// | `*example` | `https://example` | No | The URI is normalized before filter matching so the actual URI used for comparison is `https://example/` |
-      /// | `*example/` | `https://example` | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
-      /// | `https://xn--qei.example/` | `https://&#x2764;.example/` | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
-      /// | `https://&#x2764;.example/` | `https://xn--qei.example/` | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// | '*' | 'https://contoso.com/a/b/c' | Yes | A single * will match all URIs |
+      /// | '*://contoso.com/*' | 'https://contoso.com/a/b/c' | Yes | Matches everything in contoso.com across all schemes |
+      /// | '*://contoso.com/*' | 'https://example.com/?https://contoso.com/' | Yes | But also matches a URI with just the same text anywhere in the URI |
+      /// | 'example' | 'https://contoso.com/example' | No | The filter does not perform partial matches |
+      /// | '*example' | 'https://contoso.com/example' | Yes | The filter matches across URI parts |
+      /// | '*example' | 'https://contoso.com/path/?example' | Yes | The filter matches across URI parts |
+      /// | '*example' | 'https://contoso.com/path/?query#example' | No | The filter is matched against the URI with no fragment |
+      /// | '*example' | 'https://example' | No | The URI is normalized before filter matching so the actual URI used for comparison is 'https://example/' |
+      /// | '*example/' | 'https://example' | Yes | Just like above, but this time the filter ends with a / just like the normalized URI |
+      /// | 'https://xn--qei.example/' | 'https://&#x2764;.example/' | Yes | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
+      /// | 'https://&#x2764;.example/' | 'https://xn--qei.example/' | No | Non-ASCII hostnames are normalized to punycode before wildcard comparison |
       /// </code>
       /// </summary>
       /// <remarks>
@@ -1230,9 +1243,9 @@ type
                                                                    requestSourceKinds: TWVWebResourceRequestSourceKind): boolean;
       /// <summary>
       /// <para>Removes a matching WebResource filter that was previously added for the
-      /// `WebResourceRequested` event.  If the same filter was added multiple
+      /// 'WebResourceRequested' event.  If the same filter was added multiple
       /// times, then it must be removed as many times as it was added for the
-      /// removal to be effective. Returns `E_INVALIDARG` for a filter that was
+      /// removal to be effective. Returns 'E_INVALIDARG' for a filter that was
       /// not added or is already removed.</para>
       /// <para>If the filter was added for multiple requestSourceKinds and removed just for one of them
       /// the filter remains for the non-removed requestSourceKinds.</para>
@@ -1244,8 +1257,8 @@ type
                                                                          ResourceContext: TWVWebResourceContext;
                                                                          requestSourceKinds: TWVWebResourceRequestSourceKind): boolean;
       /// <summary>
-      /// <para>Same as `PostWebMessageAsJson`, but also has support for posting DOM objects
-      /// to page content. The `additionalObjects` property in the DOM MessageEvent
+      /// <para>Same as 'PostWebMessageAsJson', but also has support for posting DOM objects
+      /// to page content. The 'additionalObjects' property in the DOM MessageEvent
       /// fired on the page content is an array-like list of DOM objects that can
       /// be posted to the web content. Currently these can be the following
       /// types of objects:</para>
@@ -1265,10 +1278,10 @@ type
       /// <para>Warning: An app needs to be mindful when using this API to post DOM objects
       /// as this API provides the web content with unusual access to sensitive Web
       /// Platform features such as filesystem access! Similar to PostWebMessageAsJson
-      /// the app should check the `Source` property of WebView2 right before posting the message
+      /// the app should check the 'Source' property of WebView2 right before posting the message
       /// to ensure the message and objects will only be sent to the target web content
       /// that it expects to receive the DOM objects. Additionally, the order
-      /// of messages that are posted between `PostWebMessageAsJson` and `PostWebMessageAsJsonWithAdditionalObjects`
+      /// of messages that are posted between 'PostWebMessageAsJson' and 'PostWebMessageAsJsonWithAdditionalObjects'
       /// may not be preserved.</para>
       /// </summary>
       /// <remarks>
@@ -1279,7 +1292,7 @@ type
       /// <summary>
       /// <para>Add the provided host object to script running in the WebView with the
       /// specified name.  Host objects are exposed as host object proxies using
-      /// `window.chrome.webview.hostObjects.{name}`.  Host object proxies are
+      /// 'window.chrome.webview.hostObjects.{name}'.  Host object proxies are
       /// promises and resolves to an object representing the host object.  The
       /// promise is rejected if the app has not added an object with the name.</para>
       /// <para>When JavaScript code access a property or method of the object, a promise
@@ -1287,28 +1300,28 @@ type
       /// property or method, or rejected in case of error, for example, no
       /// property or method on the object or parameters are not valid.</para>
       ///
-      /// <para>NOTE: While simple types, `IDispatch` and array are supported, and
-      /// `IUnknown` objects that also implement `IDispatch` are treated as `IDispatch`,
-      /// generic `IUnknown`, `VT_DECIMAL`, or `VT_RECORD` variant is not supported.
+      /// <para>NOTE: While simple types, 'IDispatch' and array are supported, and
+      /// 'IUnknown' objects that also implement 'IDispatch' are treated as 'IDispatch',
+      /// generic 'IUnknown', 'VT_DECIMAL', or 'VT_RECORD' variant is not supported.
       /// Remote JavaScript objects like callback functions are represented as an
-      /// `VT_DISPATCH` `VARIANT` with the object implementing `IDispatch`.  The
-      /// JavaScript callback method may be invoked using `DISPID_VALUE` for the
-      /// `DISPID`.  Such callback method invocations will return immediately and will
+      /// 'VT_DISPATCH' 'VARIANT' with the object implementing 'IDispatch'.  The
+      /// JavaScript callback method may be invoked using 'DISPID_VALUE' for the
+      /// 'DISPID'.  Such callback method invocations will return immediately and will
       /// not wait for the JavaScript function to run and so will not provide the return
       /// value of the JavaScript function.</para>
       /// <para>Nested arrays are supported up to a depth of 3.  Arrays of by
-      /// reference types are not supported. `VT_EMPTY` and `VT_NULL` are mapped
-      /// into JavaScript as `null`.  In JavaScript, `null` and undefined are
-      /// mapped to `VT_EMPTY`.</para>
+      /// reference types are not supported. 'VT_EMPTY' and 'VT_NULL' are mapped
+      /// into JavaScript as 'null'.  In JavaScript, 'null' and undefined are
+      /// mapped to 'VT_EMPTY'.</para>
       ///
       /// <para>Additionally, all host objects are exposed as
-      /// `window.chrome.webview.hostObjects.sync.{name}`.  Here the host objects
+      /// 'window.chrome.webview.hostObjects.sync.{name}'.  Here the host objects
       /// are exposed as synchronous host object proxies. These are not promises
       /// and function runtimes or property access synchronously block running
       /// script waiting to communicate cross process for the host code to run.
       /// Accordingly the result may have reliability issues and it is recommended
       /// that you use the promise-based asynchronous
-      /// `window.chrome.webview.hostObjects.{name}` API.</para>
+      /// 'window.chrome.webview.hostObjects.{name}' API.</para>
       ///
       /// <para>Synchronous host object proxies and asynchronous host object proxies may
       /// both use a proxy to the same host object.  Remote changes made by one
@@ -1317,46 +1330,46 @@ type
       ///
       /// <para>While JavaScript is blocked on a synchronous run to native code, that
       /// native code is unable to run back to JavaScript.  Attempts to do so fail
-      ///  with `HRESULT_FROM_WIN32(ERROR_POSSIBLE_DEADLOCK)`.</para>
+      ///  with 'HRESULT_FROM_WIN32(ERROR_POSSIBLE_DEADLOCK)'.</para>
       ///
       /// <para>Host object proxies are JavaScript Proxy objects that intercept all
       /// property get, property set, and method invocations. Properties or methods
       ///  that are a part of the Function or Object prototype are run locally.
       /// Additionally any property or method in the
-      /// `chrome.webview.hostObjects.options.forceLocalProperties`
+      /// 'chrome.webview.hostObjects.options.forceLocalProperties'
       /// array are also run locally.  This defaults to including optional methods
-      /// that have meaning in JavaScript like `toJSON` and `Symbol.toPrimitive`.
+      /// that have meaning in JavaScript like 'toJSON' and 'Symbol.toPrimitive'.
       /// Add more to the array as required.</para>
       ///
-      /// <para>The `chrome.webview.hostObjects.cleanupSome` method performs a best
+      /// <para>The 'chrome.webview.hostObjects.cleanupSome' method performs a best
       /// effort garbage collection on host object proxies.</para>
       ///
-      /// <para>The `chrome.webview.hostObjects.options` object provides the ability to
+      /// <para>The 'chrome.webview.hostObjects.options' object provides the ability to
       /// change some functionality of host objects.</para>
       /// <code>
       /// Options property | Details
       /// ---|---
-      /// `forceLocalProperties` | This is an array of host object property names that will be run locally, instead of being called on the native host object. This defaults to `then`, `toJSON`, `Symbol.toString`, and `Symbol.toPrimitive`. You can add other properties to specify that they should be run locally on the javascript host object proxy.
-      /// `log` | This is a callback that will be called with debug information. For example, you can set this to `console.log.bind(console)` to have it print debug information to the console to help when troubleshooting host object usage. By default this is null.
-      /// `shouldSerializeDates` | By default this is false, and javascript Date objects will be sent to host objects as a string using `JSON.stringify`. You can set this property to true to have Date objects properly serialize as a `VT_DATE` when sending to the native host object, and have `VT_DATE` properties and return values create a javascript Date object.
-      /// `defaultSyncProxy` | When calling a method on a synchronous proxy, the result should also be a synchronous proxy. But in some cases, the sync/async context is lost (for example, when providing to native code a reference to a function, and then calling that function in native code). In these cases, the proxy will be asynchronous, unless this property is set.
-      /// `forceAsyncMethodMatches ` | This is an array of regular expressions. When calling a method on a synchronous proxy, the method call will be performed asynchronously if the method name matches a string or regular expression in this array. Setting this value to `Async` will make any method that ends with Async be an asynchronous method call. If an async method doesn't match here and isn't forced to be asynchronous, the method will be invoked synchronously, blocking execution of the calling JavaScript and then returning the resolution of the promise, rather than returning a promise.
-      /// `ignoreMemberNotFoundError` | By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to `true` switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning `undefined` with no error.
-      /// `shouldPassTypedArraysAsArrays` | By default, typed arrays are passed to the host as `IDispatch`. To instead pass typed arrays to the host as `array`, set this to `true`.
+      /// 'forceLocalProperties' | This is an array of host object property names that will be run locally, instead of being called on the native host object. This defaults to 'then', 'toJSON', 'Symbol.toString', and 'Symbol.toPrimitive'. You can add other properties to specify that they should be run locally on the javascript host object proxy.
+      /// 'log' | This is a callback that will be called with debug information. For example, you can set this to 'console.log.bind(console)' to have it print debug information to the console to help when troubleshooting host object usage. By default this is null.
+      /// 'shouldSerializeDates' | By default this is false, and javascript Date objects will be sent to host objects as a string using 'JSON.stringify'. You can set this property to true to have Date objects properly serialize as a 'VT_DATE' when sending to the native host object, and have 'VT_DATE' properties and return values create a javascript Date object.
+      /// 'defaultSyncProxy' | When calling a method on a synchronous proxy, the result should also be a synchronous proxy. But in some cases, the sync/async context is lost (for example, when providing to native code a reference to a function, and then calling that function in native code). In these cases, the proxy will be asynchronous, unless this property is set.
+      /// 'forceAsyncMethodMatches ' | This is an array of regular expressions. When calling a method on a synchronous proxy, the method call will be performed asynchronously if the method name matches a string or regular expression in this array. Setting this value to 'Async' will make any method that ends with Async be an asynchronous method call. If an async method doesn't match here and isn't forced to be asynchronous, the method will be invoked synchronously, blocking execution of the calling JavaScript and then returning the resolution of the promise, rather than returning a promise.
+      /// 'ignoreMemberNotFoundError' | By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to 'true' switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning 'undefined' with no error.
+      /// 'shouldPassTypedArraysAsArrays' | By default, typed arrays are passed to the host as 'IDispatch'. To instead pass typed arrays to the host as 'array', set this to 'true'.
       /// </code>
       /// <para>Host object proxies additionally have the following methods which run
       /// locally.</para>
       /// <code>
       /// Method name | Details
       /// ---|---
-      ///`applyHostFunction`, `getHostProperty`, `setHostProperty` | Perform a method invocation, property get, or property set on the host object. Use the methods to explicitly force a method or property to run remotely if a conflicting local method or property exists.  For instance, `proxy.toString()` runs the local `toString` method on the proxy object. But proxy.applyHostFunction('toString') runs `toString` on the host proxied object instead.
-      ///`getLocalProperty`, `setLocalProperty` | Perform property get, or property set locally.  Use the methods to force getting or setting a property on the host object proxy rather than on the host object it represents. For instance, `proxy.unknownProperty` gets the property named `unknownProperty` from the host proxied object.  But proxy.getLocalProperty('unknownProperty') gets the value of the property `unknownProperty` on the proxy object.
-      ///`sync` | Asynchronous host object proxies expose a sync method which returns a promise for a synchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sample.methodCall()` returns an asynchronous host object proxy.  Use the `sync` method to obtain a synchronous host object proxy instead: `const syncProxy = await chrome.webview.hostObjects.sample.methodCall().sync()`.
-      ///`async` | Synchronous host object proxies expose an async method which blocks and returns an asynchronous host object proxy for the same host object.  For example, `chrome.webview.hostObjects.sync.sample.methodCall()` returns a synchronous host object proxy.  Running the `async` method on this blocks and then returns an asynchronous host object proxy for the same host object: `const asyncProxy = chrome.webview.hostObjects.sync.sample.methodCall().async()`.
-      ///`then` | Asynchronous host object proxies have a `then` method.  Allows proxies to be awaitable.  `then` returns a promise that resolves with a representation of the host object.  If the proxy represents a JavaScript literal, a copy of that is returned locally.  If the proxy represents a function, a non-awaitable proxy is returned.  If the proxy represents a JavaScript object with a mix of literal properties and function properties, the a copy of the object is returned with some properties as host object proxies.
+      ///'applyHostFunction', 'getHostProperty', 'setHostProperty' | Perform a method invocation, property get, or property set on the host object. Use the methods to explicitly force a method or property to run remotely if a conflicting local method or property exists.  For instance, 'proxy.toString()' runs the local 'toString' method on the proxy object. But proxy.applyHostFunction('toString') runs 'toString' on the host proxied object instead.
+      ///'getLocalProperty', 'setLocalProperty' | Perform property get, or property set locally.  Use the methods to force getting or setting a property on the host object proxy rather than on the host object it represents. For instance, 'proxy.unknownProperty' gets the property named 'unknownProperty' from the host proxied object.  But proxy.getLocalProperty('unknownProperty') gets the value of the property 'unknownProperty' on the proxy object.
+      ///'sync' | Asynchronous host object proxies expose a sync method which returns a promise for a synchronous host object proxy for the same host object.  For example, 'chrome.webview.hostObjects.sample.methodCall()' returns an asynchronous host object proxy.  Use the 'sync' method to obtain a synchronous host object proxy instead: 'const syncProxy = await chrome.webview.hostObjects.sample.methodCall().sync()'.
+      ///'async' | Synchronous host object proxies expose an async method which blocks and returns an asynchronous host object proxy for the same host object.  For example, 'chrome.webview.hostObjects.sync.sample.methodCall()' returns a synchronous host object proxy.  Running the 'async' method on this blocks and then returns an asynchronous host object proxy for the same host object: 'const asyncProxy = chrome.webview.hostObjects.sync.sample.methodCall().async()'.
+      ///'then' | Asynchronous host object proxies have a 'then' method.  Allows proxies to be awaitable.  'then' returns a promise that resolves with a representation of the host object.  If the proxy represents a JavaScript literal, a copy of that is returned locally.  If the proxy represents a function, a non-awaitable proxy is returned.  If the proxy represents a JavaScript object with a mix of literal properties and function properties, the a copy of the object is returned with some properties as host object proxies.
       /// </code>
       /// <para>All other property and method invocations (other than the above Remote
-      /// object proxy methods, `forceLocalProperties` list, and properties on
+      /// object proxy methods, 'forceLocalProperties' list, and properties on
       /// Function and Object prototypes) are run remotely.  Asynchronous host
       /// object proxies return a promise representing asynchronous completion of
       /// remotely invoking the method, or getting the property.  The promise
@@ -1369,7 +1382,7 @@ type
       /// differently.  The set returns immediately and the return value is the
       /// value that is set.  This is a requirement of the JavaScript Proxy object.
       /// If you need to asynchronously wait for the property set to complete, use
-      /// the `setHostProperty` method which returns a promise as described above.
+      /// the 'setHostProperty' method which returns a promise as described above.
       /// Synchronous object property set property synchronously blocks until the
       /// property is set.</para>
       /// </summary>
@@ -1396,10 +1409,10 @@ type
       /// run.  This method injects a script that runs on all top-level document
       /// and child frame page navigations.  This method runs asynchronously, and
       /// you must wait for the completion handler to finish before the injected
-      /// script is ready to run.  When this method completes, the `Invoke` method
-      /// of the handler is run with the `id` of the injected script.  `id` is a
+      /// script is ready to run.  When this method completes, the 'Invoke' method
+      /// of the handler is run with the 'id' of the injected script.  'id' is a
       /// string.  To remove the injected script, use
-      /// `RemoveScriptToExecuteOnDocumentCreated`.</para>
+      /// 'RemoveScriptToExecuteOnDocumentCreated'.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnAddScriptToExecuteOnDocumentCreatedCompleted event when it finishes executing.</para>
       /// </summary>
       /// <remarks>
@@ -1408,9 +1421,9 @@ type
       function    AddScriptToExecuteOnDocumentCreated(const JavaScript : wvstring) : boolean;
       /// <summary>
       /// Remove the corresponding JavaScript added using
-      /// `AddScriptToExecuteOnDocumentCreated` with the specified script ID. The
-      /// script ID should be the one returned by the `AddScriptToExecuteOnDocumentCreated`.
-      /// Both use `AddScriptToExecuteOnDocumentCreated` and this method in `NewWindowRequested`
+      /// 'AddScriptToExecuteOnDocumentCreated' with the specified script ID. The
+      /// script ID should be the one returned by the 'AddScriptToExecuteOnDocumentCreated'.
+      /// Both use 'AddScriptToExecuteOnDocumentCreated' and this method in 'NewWindowRequested'
       /// event handler at the same time sometimes causes trouble.  Since invalid scripts will
       /// be ignored, the script IDs you got may not be valid anymore.
       /// </summary>
@@ -1542,16 +1555,16 @@ type
       /// </remarks>
       procedure   ResetZoom;
       /// <summary>
-      /// Updates `Bounds` and `ZoomFactor` properties at the same time.  This
+      /// Updates 'Bounds' and 'ZoomFactor' properties at the same time.  This
       /// operation is atomic from the perspective of the host.  After returning
-      /// from this function, the `Bounds` and `ZoomFactor` properties are both
+      /// from this function, the 'Bounds' and 'ZoomFactor' properties are both
       /// updated if the function is successful, or neither is updated if the
-      /// function fails.  If `Bounds` and `ZoomFactor` are both updated by the
-      /// same scale (for example, `Bounds` and `ZoomFactor` are both doubled),
-      /// then the page does not display a change in `window.innerWidth` or
-      /// `window.innerHeight` and the WebView renders the content at the new size
+      /// function fails.  If 'Bounds' and 'ZoomFactor' are both updated by the
+      /// same scale (for example, 'Bounds' and 'ZoomFactor' are both doubled),
+      /// then the page does not display a change in 'window.innerWidth' or
+      /// 'window.innerHeight' and the WebView renders the content at the new size
       /// and zoom without intermediate renderings.  This function also updates
-      /// just one of `ZoomFactor` or `Bounds` by passing in the new value for one
+      /// just one of 'ZoomFactor' or 'Bounds' by passing in the new value for one
       /// and the current value for the other.
       /// </summary>
       /// <remarks>
@@ -1570,7 +1583,7 @@ type
       /// are recent downloads, the dialog shows all past downloads for the
       /// current profile. Otherwise, the dialog shows only the recent downloads
       /// with a "See more" button for past downloads. Calling this method raises
-      /// the `IsDefaultDownloadDialogOpenChanged` event if the dialog was closed.
+      /// the 'IsDefaultDownloadDialogOpenChanged' event if the dialog was closed.
       /// No effect if the dialog is already open.
       /// </summary>
       /// <remarks>
@@ -1743,10 +1756,10 @@ type
       /// <code>
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION when point corresponds to
       ///         a region (HTML element) within the WebView2 with
-      ///         `-webkit-app-region: drag` CSS style set.
+      ///         '-webkit-app-region: drag' CSS style set.
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT when point corresponds to
       ///         a region (HTML element) within the WebView2 without
-      ///         `-webkit-app-region: drag` CSS style set.
+      ///         '-webkit-app-region: drag' CSS style set.
       ///     - COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE when point is not within the WebView2.
       /// </code>
       /// <para>NOTE: in order for WebView2 to properly handle the title bar system menu,
@@ -1783,8 +1796,8 @@ type
       function    ClearDataForOrigin(const aOrigin : wvstring; aStorageTypes : TWVClearDataStorageTypes = cdstAll) : boolean;
       /// <summary>
       /// <para>Clear browsing data based on a data type. This method takes two parameters,
-      /// the first being a mask of one or more `COREWEBVIEW2_BROWSING_DATA_KINDS`. OR
-      /// operation(s) can be applied to multiple `COREWEBVIEW2_BROWSING_DATA_KINDS` to
+      /// the first being a mask of one or more 'COREWEBVIEW2_BROWSING_DATA_KINDS'. OR
+      /// operation(s) can be applied to multiple 'COREWEBVIEW2_BROWSING_DATA_KINDS' to
       /// create a mask representing those data types.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
@@ -1795,9 +1808,9 @@ type
       /// <summary>
       /// <para>ClearBrowsingDataInTimeRange behaves like ClearBrowsingData except that it
       /// takes in two additional parameters for the start and end time for which it
-      /// should clear the data between.  The `startTime` and `endTime`
+      /// should clear the data between.  The 'startTime' and 'endTime'
       /// parameters correspond to the number of seconds since the UNIX epoch.</para>
-      /// <para>`startTime` is inclusive while `endTime` is exclusive, therefore the data will
+      /// <para>'startTime' is inclusive while 'endTime' is exclusive, therefore the data will
       /// be cleared between startTime and endTime.</para>
       /// <para>This function is asynchronous and it triggers the TWVBrowserBase.OnClearBrowsingDataCompleted event when it finishes executing.</para>
       /// </summary>
@@ -1835,7 +1848,7 @@ type
       /// <summary>
       /// Create a shared memory based buffer with the specified size in bytes.
       /// The buffer can be shared with web contents in WebView by calling
-      /// `PostSharedBufferToScript` on `CoreWebView2` or `CoreWebView2Frame` object.
+      /// 'PostSharedBufferToScript' on 'CoreWebView2' or 'CoreWebView2Frame' object.
       /// Once shared, the same content of the buffer will be accessible from both
       /// the app process and script in WebView. Modification to the content will be visible
       /// to all parties that have access to the buffer.
@@ -1849,7 +1862,7 @@ type
       function    CreateSharedBuffer(aSize : Largeuint; var aSharedBuffer : ICoreWebView2SharedBuffer) : boolean;
       /// <summary>
       /// <para>Share a shared buffer object with script of the main frame in the WebView.</para>
-      /// <para>The script will receive a `sharedbufferreceived` event from chrome.webview.</para>
+      /// <para>The script will receive a 'sharedbufferreceived' event from chrome.webview.</para>
       /// <para>Read the linked article for all the details.</para>
       /// </summary>
       /// <remarks>
@@ -1857,13 +1870,13 @@ type
       /// </remarks>
       function    PostSharedBufferToScript(const aSharedBuffer: ICoreWebView2SharedBuffer; aAccess: TWVSharedBufferAccess; const aAdditionalDataAsJson: wvstring): boolean;
       /// <summary>
-      /// <para>Gets a snapshot collection of `ProcessExtendedInfo`s corresponding to all
-      /// currently running processes associated with this `ICoreWebView2Environment`
+      /// <para>Gets a snapshot collection of 'ProcessExtendedInfo's corresponding to all
+      /// currently running processes associated with this 'ICoreWebView2Environment'
       /// excludes crashpad process.</para>
-      /// <para>This provides the same list of `ProcessInfo`s as what's provided in
-      /// `GetProcessInfos`, but additionally provides a list of associated `FrameInfo`s
+      /// <para>This provides the same list of 'ProcessInfo's as what's provided in
+      /// 'GetProcessInfos', but additionally provides a list of associated 'FrameInfo's
       /// which are actively running (showing or hiding UI elements) in the renderer
-      /// process. See `AssociatedFrameInfos` for more information.</para>
+      /// process. See 'AssociatedFrameInfos' for more information.</para>
       /// </summary>
       /// <returns>True if successfull.</return>
       /// <remarks>
@@ -1873,10 +1886,10 @@ type
       function    GetProcessExtendedInfos : boolean;
       /// <summary>
       /// <para>Programmatically trigger a Save As action for the currently loaded document.</para>
-      /// <para>Opens a system modal dialog by default. If the `SuppressDefaultDialog` property
-      /// is `TRUE`, the system dialog is not opened.</para>
-      /// <para>This method returns `COREWEBVIEW2_SAVE_AS_UI_RESULT`. See
-      /// `COREWEBVIEW2_SAVE_AS_UI_RESULT` for details.</para>
+      /// <para>Opens a system modal dialog by default. If the 'SuppressDefaultDialog' property
+      /// is 'TRUE', the system dialog is not opened.</para>
+      /// <para>This method returns 'COREWEBVIEW2_SAVE_AS_UI_RESULT'. See
+      /// 'COREWEBVIEW2_SAVE_AS_UI_RESULT' for details.</para>
       /// </summary>
       /// <returns>True if successfull.</return>
       /// <remarks>
@@ -1894,10 +1907,10 @@ type
       /// Note: The asynchronous action completes when the UI has been displayed with the find term in the UI bar, and the matches have populated on the counter on the find bar.
       /// There may be a slight latency between the UI display and the matches populating in the counter.
       /// The MatchCountChanged and ActiveMatchIndexChanged events are only raised after Start has completed; otherwise, they will have their default values (-1 for active match index and 0 for match count).
-      /// To start a new find session (beginning the search from the first match), call `Stop` before invoking `Start`.
-      /// If `Start` is called consecutively with the same options and without calling `Stop`, the find session
+      /// To start a new find session (beginning the search from the first match), call 'Stop' before invoking 'Start'.
+      /// If 'Start' is called consecutively with the same options and without calling 'Stop', the find session
       /// will continue from the current position in the existing session.
-      /// Calling `Start` without altering its parameters will behave either as `FindNext` or `FindPrevious`, depending on the most recent search action performed.
+      /// Calling 'Start' without altering its parameters will behave either as 'FindNext' or 'FindPrevious', depending on the most recent search action performed.
       /// Start will default to forward if neither have been called.
       /// However, calling Start again during an ongoing find session does not resume from the point
       /// of the current active match. For example, given the text "1 1 A 1 1" and initiating a find session for "A",
@@ -1960,10 +1973,10 @@ type
       /// </remarks>
       property CoreWebView2Environment                         : TCoreWebView2Environment                              read FCoreWebView2Environment;
       /// <summary>
-      /// The owner of the `CoreWebView2` object that provides support for resizing,
+      /// The owner of the 'CoreWebView2' object that provides support for resizing,
       /// showing and hiding, focusing, and other functionality related to
-      /// windowing and composition.  The `CoreWebView2Controller` owns the
-      /// `CoreWebView2`, and if all references to the `CoreWebView2Controller` go
+      /// windowing and composition.  The 'CoreWebView2Controller' owns the
+      /// 'CoreWebView2', and if all references to the 'CoreWebView2Controller' go
       /// away, the WebView is closed.
       /// </summary>
       /// <remarks>
@@ -1992,7 +2005,7 @@ type
       /// </remarks>
       property CoreWebView2                                    : TCoreWebView2                                         read FCoreWebView2;
       /// <summary>
-      /// The associated `ICoreWebView2Profile` object. If this CoreWebView2 was created with a
+      /// The associated 'ICoreWebView2Profile' object. If this CoreWebView2 was created with a
       /// CoreWebView2ControllerOptions, the CoreWebView2Profile will match those specified options.
       /// Otherwise if this CoreWebView2 was created without a CoreWebView2ControllerOptions, then
       /// this will be the default CoreWebView2Profile for the corresponding CoreWebView2Environment.
@@ -2083,7 +2096,7 @@ type
       property AdditionalBrowserArguments                      : wvstring                                              read FAdditionalBrowserArguments                      write FAdditionalBrowserArguments;
       /// <summary>
       /// The default display language for WebView.  It applies to browser UI such as
-      /// context menu and dialogs.  It also applies to the `accept-languages` HTTP
+      /// context menu and dialogs.  It also applies to the 'accept-languages' HTTP
       /// header that WebView sends to websites.
       /// </summary>
       /// <remarks>
@@ -2120,8 +2133,8 @@ type
       /// </remarks>
       property ExclusiveUserDataFolderAccess                   : boolean                                               read FExclusiveUserDataFolderAccess                   write FExclusiveUserDataFolderAccess;
       /// <summary>
-      /// When `CustomCrashReportingEnabled` is set to `TRUE`, Windows won't send crash data to Microsoft endpoint.
-      /// `CustomCrashReportingEnabled` is default to be `FALSE`, in this case, WebView will respect OS consent.
+      /// When 'CustomCrashReportingEnabled' is set to 'TRUE', Windows won't send crash data to Microsoft endpoint.
+      /// 'CustomCrashReportingEnabled' is default to be 'FALSE', in this case, WebView will respect OS consent.
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions3.Get_IsCustomCrashReportingEnabled.</para>
@@ -2129,7 +2142,7 @@ type
       /// </remarks>
       property CustomCrashReportingEnabled                     : boolean                                               read FCustomCrashReportingEnabled                     write FCustomCrashReportingEnabled;
       /// <summary>
-      /// The `EnableTrackingPrevention` property is used to enable/disable tracking prevention
+      /// The 'EnableTrackingPrevention' property is used to enable/disable tracking prevention
       /// feature in WebView2. This property enable/disable tracking prevention for all the
       /// WebView2's created in the same environment.
       /// </summary>
@@ -2139,12 +2152,12 @@ type
       /// </remarks>
       property EnableTrackingPrevention                        : boolean                                               read FEnableTrackingPrevention                        write FEnableTrackingPrevention;
       /// <summary>
-      /// <para>When `AreBrowserExtensionsEnabled` is set to `TRUE`, new extensions can be added to user
-      /// profile and used. `AreBrowserExtensionsEnabled` is default to be `FALSE`, in this case,
+      /// <para>When 'AreBrowserExtensionsEnabled' is set to 'TRUE', new extensions can be added to user
+      /// profile and used. 'AreBrowserExtensionsEnabled' is default to be 'FALSE', in this case,
       /// new extensions can't be installed, and already installed extension won't be
       /// available to use in user profile.</para>
-      /// <para>If connecting to an already running environment with a different value for `AreBrowserExtensionsEnabled`
-      /// property, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`.</para>
+      /// <para>If connecting to an already running environment with a different value for 'AreBrowserExtensionsEnabled'
+      /// property, it will fail with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions6.Get_AreBrowserExtensionsEnabled.</para>
@@ -2153,20 +2166,20 @@ type
       /// </remarks>
       property AreBrowserExtensionsEnabled                     : boolean                                               read FAreBrowserExtensionsEnabled                     write FAreBrowserExtensionsEnabled;
       /// <summary>
-      /// <para>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE`
+      /// <para>The 'ChannelSearchKind' property is 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE'
       /// by default; environment creation searches for a release channel on the machine
       /// from most to least stable using the first channel found. The default search order is:
-      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set `ChannelSearchKind` to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Set 'ChannelSearchKind' to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order
       /// so that environment creation searches for a channel from least to most stable. If
-      /// `ReleaseChannels` has been provided, the loader will only search
-      /// for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details
+      /// 'ReleaseChannels' has been provided, the loader will only search
+      /// for channels in the set. See 'COREWEBVIEW2_RELEASE_CHANNELS' for more details
       /// on channels.</para>
       /// <para>This property can be overridden by the corresponding
-      /// registry key `ChannelSearchKind` or the environment variable
-      /// `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See
-      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// registry key 'ChannelSearchKind' or the environment variable
+      /// 'WEBVIEW2_CHANNEL_SEARCH_KIND'. Set the value to '1' to set the search kind to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE'. See
+      /// 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ChannelSearchKind.</para>
@@ -2174,22 +2187,22 @@ type
       /// </remarks>
       property ChannelSearchKind                               : TWVChannelSearchKind                                  read FChannelSearchKind                               write FChannelSearchKind;
       /// <summary>
-      /// <para>Sets the `ReleaseChannels`, which is a mask of one or more
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment
+      /// <para>Sets the 'ReleaseChannels', which is a mask of one or more
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' indicating which channels environment
       /// creation should search for. OR operation(s) can be applied to multiple
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' to create a mask. The default value is a
       /// a mask of all the channels. By default, environment creation searches for
       /// channels from most to least stable, using the first channel found on the
-      /// device. When `ReleaseChannels` is provided, environment creation will only
-      /// search for the channels specified in the set. Set `ChannelSearchKind` to
-      /// `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order
+      /// device. When 'ReleaseChannels' is provided, environment creation will only
+      /// search for the channels specified in the set. Set 'ChannelSearchKind' to
+      /// 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order
       /// so environment creation searches for least stable build first. See
-      /// `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.</para>
-      /// <para>`CreateCoreWebView2EnvironmentWithOptions` fails with
-      /// `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable
-      /// to find any channel from the `ReleaseChannels` installed on the device.
-      /// Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on
-      /// `ICoreWebView2Environment` to verify which channel is used when this option
+      /// 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of each channel.</para>
+      /// <para>'CreateCoreWebView2EnvironmentWithOptions' fails with
+      /// 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if environment creation is unable
+      /// to find any channel from the 'ReleaseChannels' installed on the device.
+      /// Use 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' on
+      /// 'ICoreWebView2Environment' to verify which channel is used when this option
       /// is set.</para>
       /// Examples:
       /// <code>
@@ -2200,18 +2213,18 @@ type
       /// |COREWEBVIEW2_RELEASE_CHANNELS_CANARY| Canary | Canary |
       /// |COREWEBVIEW2_RELEASE_CHANNELS_BETA \| COREWEBVIEW2_RELEASE_CHANNELS_CANARY \| COREWEBVIEW2_RELEASE_CHANNELS_STABLE | WebView2 Runtime -&gt; Beta -&gt; Canary | Canary -&gt; Beta -&gt; WebView2 Runtime |
       /// </code>
-      /// <para>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the
-      /// `BrowserExecutableFolder` takes precedence, regardless of whether or not the
-      /// channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.</para>
-      /// <para>`ReleaseChannels` can be overridden by the corresponding registry override
-      /// `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.</para>
+      /// <para>If both 'BrowserExecutableFolder' and 'ReleaseChannels' are provided, the
+      /// 'BrowserExecutableFolder' takes precedence, regardless of whether or not the
+      /// channel of 'BrowserExecutableFolder' is included in the 'ReleaseChannels'.</para>
+      /// <para>'ReleaseChannels' can be overridden by the corresponding registry override
+      /// 'ReleaseChannels' or the environment variable 'WEBVIEW2_RELEASE_CHANNELS'.</para>
       /// <para>Set the value to a comma-separated string of integers, which map to the
       /// following release channel values: Stable (0), Beta (1), Dev (2), and
       /// Canary (3). For example, the values "0,2" and "2,0" indicate that environment
       /// creation should only search for Dev channel and the WebView2 Runtime, using the
-      /// order indicated by `ChannelSearchKind`. Environment creation attempts to
+      /// order indicated by 'ChannelSearchKind'. Environment creation attempts to
       /// interpret each integer and treats any invalid entry as Stable channel. See
-      /// `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.</para>
+      /// 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels.</para>
@@ -2220,14 +2233,14 @@ type
       property ReleaseChannels                                 : TWVReleaseChannels                                    read FReleaseChannels                                 write FReleaseChannels;
       /// <summary>
       /// <para>The ScrollBar style being set on the WebView2 Environment.</para>
-      /// <para>The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT`
+      /// <para>The default value is 'COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT'
       /// which specifies the default browser ScrollBar style.</para>
-      /// <para>The `color-scheme` CSS property needs to be set on the corresponding page
+      /// <para>The 'color-scheme' CSS property needs to be set on the corresponding page
       /// to allow ScrollBar to follow light or dark theme. Please see
       /// [color-scheme](https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences)
-      /// for how `color-scheme` can be set.</para>
+      /// for how 'color-scheme' can be set.</para>
       /// <para>CSS styles that modify the ScrollBar applied on top of native ScrollBar styling
-      /// that is selected with `ScrollBarStyle`.</para>
+      /// that is selected with 'ScrollBarStyle'.</para>
       /// </summary>
       /// <remarks>
       /// <para>Property used to create the environment. Used as ICoreWebView2EnvironmentOptions8.Get_ScrollBarStyle.</para>
@@ -2235,10 +2248,10 @@ type
       /// </remarks>
       property ScrollBarStyle                                  : TWVScrollBarStyle                                     read FScrollBarStyle                                  write FScrollBarStyle;
       /// <summary>
-      /// The browser version info of the current `ICoreWebView2Environment`,
+      /// The browser version info of the current 'ICoreWebView2Environment',
       /// including channel name if it is not the WebView2 Runtime.  It matches the
-      /// format of the `GetAvailableCoreWebView2BrowserVersionString` API.
-      /// Channel names are `beta`, `dev`, and `canary`.
+      /// format of the 'GetAvailableCoreWebView2BrowserVersionString' API.
+      /// Channel names are 'beta', 'dev', and 'canary'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2environment#get_browserversionstring">See the ICoreWebView2Environment article.</see></para>
@@ -2252,8 +2265,8 @@ type
       /// </remarks>
       property BrowserProcessID                                : cardinal                                              read GetBrowserProcessID;
       /// <summary>
-      /// `TRUE` if the WebView is able to navigate to a previous page in the
-      /// navigation history.  If `CanGoBack` changes value, the `HistoryChanged`
+      /// 'TRUE' if the WebView is able to navigate to a previous page in the
+      /// navigation history.  If 'CanGoBack' changes value, the 'HistoryChanged'
       /// event runs.
       /// </summary>
       /// <remarks>
@@ -2261,9 +2274,9 @@ type
       /// </remarks>
       property CanGoBack                                       : boolean                                               read GetCanGoBack;
       /// <summary>
-      /// `TRUE` if the WebView is able to navigate to a next page in the
-      /// navigation history.  If `CanGoForward` changes value, the
-      /// `HistoryChanged` event runs.
+      /// 'TRUE' if the WebView is able to navigate to a next page in the
+      /// navigation history.  If 'CanGoForward' changes value, the
+      /// 'HistoryChanged' event runs.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_cangoforward">See the ICoreWebView2 article.</see></para>
@@ -2287,10 +2300,10 @@ type
       property DocumentTitle                                   : wvstring                                              read GetDocumentTitle;
       /// <summary>
       /// The URI of the current top level document.  This value potentially
-      /// changes as a part of the `SourceChanged` event that runs for some cases
+      /// changes as a part of the 'SourceChanged' event that runs for some cases
       /// such as navigating to a different site or fragment navigations.  It
       /// remains the same for other types of navigations such as page refreshes
-      /// or `history.pushState` with the same URL as the current page.
+      /// or 'history.pushState' with the same URL as the current page.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#get_source">See the ICoreWebView2 article.</see></para>
@@ -2306,7 +2319,7 @@ type
       property CookieManager                                   : ICoreWebView2CookieManager                            read GetCookieManager;
       /// <summary>
       /// Whether WebView is suspended.
-      /// `TRUE` when WebView is suspended, from the time when TrySuspend has completed
+      /// 'TRUE' when WebView is suspended, from the time when TrySuspend has completed
       ///  successfully until WebView is resumed.
       /// </summary>
       /// <remarks>
@@ -2343,7 +2356,7 @@ type
       /// </remarks>
       property DefaultDownloadDialogMargin                     : TPoint                                                read GetDefaultDownloadDialogMargin                   write SetDefaultDownloadDialogMargin;
       /// <summary>
-      /// `TRUE` if the default download dialog is currently open. The value of this
+      /// 'TRUE' if the default download dialog is currently open. The value of this
       /// property changes only when the default download dialog is explicitly
       /// opened or closed. Hiding the WebView implicitly hides the dialog, but does
       /// not change the value of this property.
@@ -2361,7 +2374,7 @@ type
       property StatusBarText                                   : wvstring                                              read GetStatusBarText;
       /// <summary>
       /// Get the current Uri of the favicon as a string.
-      /// If the value is null, then the return value is `E_POINTER`, otherwise it is `S_OK`.
+      /// If the value is null, then the return value is 'E_POINTER', otherwise it is 'S_OK'.
       /// If a page has no favicon then the value is an empty string.
       /// </summary>
       /// <remarks>
@@ -2369,7 +2382,7 @@ type
       /// </remarks>
       property FaviconURI                                      : wvstring                                              read GetFaviconURI;
       /// <summary>
-      /// `MemoryUsageTargetLevel` indicates desired memory consumption level of
+      /// 'MemoryUsageTargetLevel' indicates desired memory consumption level of
       /// WebView.
       /// </summary>
       /// <remarks>
@@ -2377,33 +2390,33 @@ type
       /// </remarks>
       property MemoryUsageTargetLevel                          : TWVMemoryUsageTargetLevel                             read GetMemoryUsageTargetLevel                        write SetMemoryUsageTargetLevel;
       /// <summary>
-      /// <para>The WebView bounds. Bounds are relative to the parent `HWND`.  The app
+      /// <para>The WebView bounds. Bounds are relative to the parent 'HWND'.  The app
       /// has two ways to position a WebView.</para>
-      /// <para>*   Create a child `HWND` that is the WebView parent `HWND`.  Position
-      ///     the window where the WebView should be.  Use `(0, 0)` for the
-      ///     top-left corner (the offset) of the `Bounds` of the WebView.</para>
+      /// <para>*   Create a child 'HWND' that is the WebView parent 'HWND'.  Position
+      ///     the window where the WebView should be.  Use '(0, 0)' for the
+      ///     top-left corner (the offset) of the 'Bounds' of the WebView.</para>
       /// <para>*   Use the top-most window of the app as the WebView parent HWND.  For
       ///     example, to position WebView correctly in the app, set the top-left
       ///     corner of the Bound of the WebView.</para>
-      /// <para>The values of `Bounds` are limited by the coordinate space of the host.</para>
+      /// <para>The values of 'Bounds' are limited by the coordinate space of the host.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_bounds">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property Bounds                                          : TRect                                                 read GetBounds                                        write SetBounds;
       /// <summary>
-      /// <para>The `IsVisible` property determines whether to show or hide the WebView2.</para>
-      /// <para>If `IsVisible` is set to `FALSE`, the WebView2 is transparent and is
+      /// <para>The 'IsVisible' property determines whether to show or hide the WebView2.</para>
+      /// <para>If 'IsVisible' is set to 'FALSE', the WebView2 is transparent and is
       /// not rendered.   However, this does not affect the window containing the
-      /// WebView2 (the `HWND` parameter that was passed to
-      /// `CreateCoreWebView2Controller`).  If you want that window to disappear
-      /// too, run `ShowWindow` on it directly in addition to modifying the
-      /// `IsVisible` property.  WebView2 as a child window does not get window
+      /// WebView2 (the 'HWND' parameter that was passed to
+      /// 'CreateCoreWebView2Controller').  If you want that window to disappear
+      /// too, run 'ShowWindow' on it directly in addition to modifying the
+      /// 'IsVisible' property.  WebView2 as a child window does not get window
       /// messages when the top window is minimized or restored.  For performance
-      /// reasons, developers should set the `IsVisible` property of the WebView to
-      /// `FALSE` when the app window is minimized and back to `TRUE` when the app
+      /// reasons, developers should set the 'IsVisible' property of the WebView to
+      /// 'FALSE' when the app window is minimized and back to 'TRUE' when the app
       /// window is restored. The app window does this by handling
-      /// `SIZE_MINIMIZED and SIZE_RESTORED` command upon receiving `WM_SIZE`
+      /// 'SIZE_MINIMIZED and SIZE_RESTORED' command upon receiving 'WM_SIZE'
       /// message.</para>
       /// <para>There are CPU and memory benefits when the page is hidden. For instance,
       /// Chromium has code that throttles activities on the page like animations
@@ -2417,7 +2430,7 @@ type
       /// <summary>
       /// The parent window provided by the app that this WebView is using to
       /// render content.  This API initially returns the window passed into
-      /// `CreateCoreWebView2Controller`.
+      /// 'CreateCoreWebView2Controller'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#get_parentwindow">See the ICoreWebView2Controller article.</see></para>
@@ -2432,40 +2445,40 @@ type
       /// </remarks>
       property ZoomFactor                                      : double                                                read GetZoomFactor                                    write SetZoomFactor;
       /// <summary>
-      /// <para>The `DefaultBackgroundColor` property is the color WebView renders
+      /// <para>The 'DefaultBackgroundColor' property is the color WebView renders
       /// underneath all web content. This means WebView renders this color when
       /// there is no web content loaded such as before the initial navigation or
       /// between navigations. This also means web pages with undefined css
       /// background properties or background properties containing transparent
       /// pixels will render their contents over this color. Web pages with defined
       /// and opaque background properties that span the page will obscure the
-      /// `DefaultBackgroundColor` and display normally. The default value for this
+      /// 'DefaultBackgroundColor' and display normally. The default value for this
       /// property is white to resemble the native browser experience.</para>
       /// <para>The Color is specified by the COREWEBVIEW2_COLOR that represents an RGBA
-      /// value. The `A` represents an Alpha value, meaning
-      /// `DefaultBackgroundColor` can be transparent. In the case of a transparent
-      /// `DefaultBackgroundColor` WebView will render hosting app content as the
-      /// background. This Alpha value is not supported on Windows 7. Any `A` value
+      /// value. The 'A' represents an Alpha value, meaning
+      /// 'DefaultBackgroundColor' can be transparent. In the case of a transparent
+      /// 'DefaultBackgroundColor' WebView will render hosting app content as the
+      /// background. This Alpha value is not supported on Windows 7. Any 'A' value
       /// other than 255 will result in E_INVALIDARG on Windows 7.
       /// It is supported on all other WebView compatible platforms.</para>
       /// <para>Semi-transparent colors are not currently supported by this API and
-      /// setting `DefaultBackgroundColor` to a semi-transparent color will fail
+      /// setting 'DefaultBackgroundColor' to a semi-transparent color will fail
       /// with E_INVALIDARG. The only supported alpha values are 0 and 255, all
       /// other values will result in E_INVALIDARG.
-      /// `DefaultBackgroundColor` can only be an opaque color or transparent.</para>
+      /// 'DefaultBackgroundColor' can only be an opaque color or transparent.</para>
       /// <para>This value may also be set by using the
-      /// `WEBVIEW2_DEFAULT_BACKGROUND_COLOR` environment variable. There is a
+      /// 'WEBVIEW2_DEFAULT_BACKGROUND_COLOR' environment variable. There is a
       /// known issue with background color where setting the color by API can
       /// still leave the app with a white flicker before the
-      /// `DefaultBackgroundColor` takes effect. Setting the color via environment
+      /// 'DefaultBackgroundColor' takes effect. Setting the color via environment
       /// variable solves this issue. The value must be a hex value that can
       /// optionally prepend a 0x. The value must account for the alpha value
       /// which is represented by the first 2 digits. So any hex value fewer than 8
       /// digits will assume a prepended 00 to the hex value and result in a
       /// transparent color.</para>
-      /// <para>`get_DefaultBackgroundColor` will return the result of this environment
+      /// <para>'get_DefaultBackgroundColor' will return the result of this environment
       /// variable if used. This environment variable can only set the
-      /// `DefaultBackgroundColor` once. Subsequent updates to background color
+      /// 'DefaultBackgroundColor' once. Subsequent updates to background color
       /// must be done through API call.</para>
       /// </summary>
       /// <remarks>
@@ -2524,7 +2537,7 @@ type
       /// </remarks>
       property ShouldDetectMonitorScaleChanges                 : boolean                                               read GetShouldDetectMonitorScaleChanges               write SetShouldDetectMonitorScaleChanges;
       /// <summary>
-      /// Gets the `AllowExternalDrop` property which is used to configure the
+      /// Gets the 'AllowExternalDrop' property which is used to configure the
       /// capability that dragging objects from outside the bounds of webview2 and
       /// dropping into webview2 is allowed or disallowed. The default value is
       /// TRUE.
@@ -2534,50 +2547,50 @@ type
       /// </remarks>
       property AllowExternalDrop                               : boolean                                               read GetAllowExternalDrop                             write SetAllowExternalDrop;
       /// <summary>
-      /// The `DefaultContextMenusEnabled` property is used to prevent default
+      /// The 'DefaultContextMenusEnabled' property is used to prevent default
       /// context menus from being shown to user in WebView.
-      /// The default value is `TRUE`.
+      /// The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredefaultcontextmenusenabled">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property DefaultContextMenusEnabled                      : boolean                                               read GetDefaultContextMenusEnabled                    write SetDefaultContextMenusEnabled;
       /// <summary>
-      /// `DefaultScriptDialogsEnabled` is used when loading a new HTML
-      /// document.  If set to `FALSE`, WebView2 does not render the default JavaScript
+      /// 'DefaultScriptDialogsEnabled' is used when loading a new HTML
+      /// document.  If set to 'FALSE', WebView2 does not render the default JavaScript
       /// dialog box (Specifically those displayed by the JavaScript alert,
-      /// confirm, prompt functions and `beforeunload` event).  Instead, if an
-      /// event handler is set using `add_ScriptDialogOpening`, WebView sends an
+      /// confirm, prompt functions and 'beforeunload' event).  Instead, if an
+      /// event handler is set using 'add_ScriptDialogOpening', WebView sends an
       /// event that contains all of the information for the dialog and allow the
-      /// host app to show a custom UI. The default value is `TRUE`.
+      /// host app to show a custom UI. The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredefaultscriptdialogsenabled">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property DefaultScriptDialogsEnabled                     : boolean                                               read GetDefaultScriptDialogsEnabled                   write SetDefaultScriptDialogsEnabled;
       /// <summary>
-      /// `DevToolsEnabled` controls whether the user is able to use the context
+      /// 'DevToolsEnabled' controls whether the user is able to use the context
       /// menu or keyboard shortcuts to open the DevTools window.
-      /// The default value is `TRUE`.
+      /// The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_aredevtoolsenabled">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property DevToolsEnabled                                 : boolean                                               read GetDevToolsEnabled                               write SetDevToolsEnabled;
       /// <summary>
-      /// The `AreHostObjectsAllowed` property is used to control whether host
+      /// The 'AreHostObjectsAllowed' property is used to control whether host
       /// objects are accessible from the page in WebView.
-      /// The default value is `TRUE`.
+      /// The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_arehostobjectsallowed">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property AreHostObjectsAllowed                           : boolean                                               read GetAreHostObjectsAllowed                         write SetAreHostObjectsAllowed;
       /// <summary>
-      /// The `BuiltInErrorPageEnabled` property is used to disable built in
+      /// The 'BuiltInErrorPageEnabled' property is used to disable built in
       /// error page for navigation failure and render process failure.  When
       /// disabled, a blank page is displayed when the related error happens.
-      /// The default value is `TRUE`.
+      /// The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_isbuiltinerrorpageenabled">See the ICoreWebView2Settings article.</see></para>
@@ -2586,18 +2599,18 @@ type
       /// <summary>
       /// Controls if running JavaScript is enabled in all future navigations in
       /// the WebView.  This only affects scripts in the document.  Scripts
-      /// injected with `ExecuteScript` runs even if script is disabled.
-      /// The default value is `TRUE`.
+      /// injected with 'ExecuteScript' runs even if script is disabled.
+      /// The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_isscriptenabled">See the ICoreWebView2Settings article.</see></para>
       /// </remarks>
       property ScriptEnabled                                   : boolean                                               read GetScriptEnabled                                 write SetScriptEnabled;
       /// <summary>
-      /// `StatusBarEnabled` controls whether the status bar is displayed.  The
+      /// 'StatusBarEnabled' controls whether the status bar is displayed.  The
       /// status bar is usually displayed in the lower left of the WebView and
       /// shows things such as the URI of a link when the user hovers over it and
-      /// other information. The default value is `TRUE`. The status bar UI can be
+      /// other information. The default value is 'TRUE'. The status bar UI can be
       /// altered by web content and should not be considered secure.
       /// </summary>
       /// <remarks>
@@ -2605,18 +2618,18 @@ type
       /// </remarks>
       property StatusBarEnabled                                : boolean                                               read GetStatusBarEnabled                              write SetStatusBarEnabled;
       /// <summary>
-      /// <para>The `WebMessageEnabled` property is used when loading a new HTML
-      /// document.  If set to `TRUE`, communication from the host to the top-level
-      ///  HTML document of the WebView is allowed using `PostWebMessageAsJson`,
-      /// `PostWebMessageAsString`, and message event of `window.chrome.webview`.
+      /// <para>The 'WebMessageEnabled' property is used when loading a new HTML
+      /// document.  If set to 'TRUE', communication from the host to the top-level
+      ///  HTML document of the WebView is allowed using 'PostWebMessageAsJson',
+      /// 'PostWebMessageAsString', and message event of 'window.chrome.webview'.
       /// For more information, navigate to PostWebMessageAsJson.  Communication
       /// from the top-level HTML document of the WebView to the host is allowed
-      /// using the postMessage function of `window.chrome.webview` and
-      /// `add_WebMessageReceived` method.</para>
-      /// <para>If set to false, then communication is disallowed.  `PostWebMessageAsJson`
-      /// and `PostWebMessageAsString` fails with `E_ACCESSDENIED` and
-      /// `window.chrome.webview.postMessage` fails by throwing an instance of an
-      /// `Error` object. The default value is `TRUE`.</para>
+      /// using the postMessage function of 'window.chrome.webview' and
+      /// 'add_WebMessageReceived' method.</para>
+      /// <para>If set to false, then communication is disallowed.  'PostWebMessageAsJson'
+      /// and 'PostWebMessageAsString' fails with 'E_ACCESSDENIED' and
+      /// 'window.chrome.webview.postMessage' fails by throwing an instance of an
+      /// 'Error' object. The default value is 'TRUE'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived">See the add_WebMessageReceived method article.</see></para>
@@ -2624,10 +2637,10 @@ type
       /// </remarks>
       property WebMessageEnabled                               : boolean                                               read GetWebMessageEnabled                             write SetWebMessageEnabled;
       /// <summary>
-      /// The `ZoomControlEnabled` property is used to prevent the user from
+      /// The 'ZoomControlEnabled' property is used to prevent the user from
       /// impacting the zoom of the WebView.  When disabled, the user is not able
       /// to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom
-      /// is set using `ZoomFactor` API.  The default value is `TRUE`.
+      /// is set using 'ZoomFactor' API.  The default value is 'TRUE'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings#get_iszoomcontrolenabled">See the ICoreWebView2Settings article.</see></para>
@@ -2654,7 +2667,7 @@ type
       /// <summary>
       /// When this setting is set to FALSE, it disables all accelerator keys that
       /// access features specific to a web browser.
-      /// The default value for `AreBrowserAcceleratorKeysEnabled` is TRUE.
+      /// The default value for 'AreBrowserAcceleratorKeysEnabled' is TRUE.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings3#get_arebrowseracceleratorkeysenabled">See the ICoreWebView2Settings3 article.</see></para>
@@ -2667,14 +2680,14 @@ type
       /// IsGeneralAutofillEnabled is false, no suggestions appear, and no new information
       /// is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions
       /// appear and clicking on one will populate the form fields. It will take effect
-      /// immediately after setting. The default value is `TRUE`.</para>
+      /// immediately after setting. The default value is 'TRUE'.</para>
       /// <para>This property has the same value as
-      /// `CoreWebView2Profile.IsGeneralAutofillEnabled`, and changing one will
-      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
-      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// 'CoreWebView2Profile.IsGeneralAutofillEnabled', and changing one will
+      /// change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile'
+      /// will share the same value for this property, so for the 'CoreWebView2's
       /// with the same profile, their
-      /// `CoreWebView2Settings.IsGeneralAutofillEnabled` and
-      /// `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same
+      /// 'CoreWebView2Settings.IsGeneralAutofillEnabled' and
+      /// 'CoreWebView2Profile.IsGeneralAutofillEnabled' will always have the same
       /// value.</para>
       /// </summary>
       /// <remarks>
@@ -2692,14 +2705,14 @@ type
       /// <para>When IsPasswordAutosaveEnabled is true, password information is auto-populated,
       /// suggestions are shown and clicking on one will populate the fields, new data
       /// is saved, and a Save/Update Password prompt is displayed.
-      /// It will take effect immediately after setting. The default value is `FALSE`.</para>
+      /// It will take effect immediately after setting. The default value is 'FALSE'.</para>
       /// <para>This property has the same value as
-      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled`, and changing one will
-      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
-      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// 'CoreWebView2Profile.IsPasswordAutosaveEnabled', and changing one will
+      /// change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile'
+      /// will share the same value for this property, so for the 'CoreWebView2's
       /// with the same profile, their
-      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled` and
-      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same
+      /// 'CoreWebView2Settings.IsPasswordAutosaveEnabled' and
+      /// 'CoreWebView2Profile.IsPasswordAutosaveEnabled' will always have the same
       /// value.</para>
       /// </summary>
       /// <remarks>
@@ -2712,14 +2725,14 @@ type
       /// rendered onto when user performs a pinch zooming action. It does not change the layout
       /// but rather changes the viewport and clips the web content, the content outside of the
       /// viewport isn't visible onscreen and users can't reach this content using mouse.</para>
-      /// <para>The `IsPinchZoomEnabled` property enables or disables the ability of
+      /// <para>The 'IsPinchZoomEnabled' property enables or disables the ability of
       /// the end user to use a pinching motion on touch input enabled devices
-      /// to scale the web content in the WebView2. It defaults to `TRUE`.
-      /// When set to `FALSE`, the end user cannot pinch zoom after the next navigation.
-      /// Disabling/Enabling `IsPinchZoomEnabled` only affects the end user's ability to use
+      /// to scale the web content in the WebView2. It defaults to 'TRUE'.
+      /// When set to 'FALSE', the end user cannot pinch zoom after the next navigation.
+      /// Disabling/Enabling 'IsPinchZoomEnabled' only affects the end user's ability to use
       /// pinch motions and does not change the page scale factor.
       /// This API only affects the Page Scale zoom and has no effect on the
-      /// existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`)
+      /// existing browser zoom properties ('IsZoomControlEnabled' and 'ZoomFactor')
       /// or other end user mechanisms for zooming.</para>
       /// </summary>
       /// <remarks>
@@ -2727,15 +2740,15 @@ type
       /// </remarks>
       property IsPinchZoomEnabled                              : boolean                                               read GetIsPinchZoomEnabled                            write SetIsPinchZoomEnabled;
       /// <summary>
-      /// <para>The `IsSwipeNavigationEnabled` property enables or disables the ability of the
+      /// <para>The 'IsSwipeNavigationEnabled' property enables or disables the ability of the
       /// end user to use swiping gesture on touch input enabled devices to
-      /// navigate in WebView2. It defaults to `TRUE`.</para>
-      /// <para>When this property is `TRUE`, then all configured navigation gestures are enabled:
+      /// navigate in WebView2. It defaults to 'TRUE'.</para>
+      /// <para>When this property is 'TRUE', then all configured navigation gestures are enabled:
       /// 1. Swiping left and right to navigate forward and backward is always configured.
       /// 2. Swiping down to refresh is off by default and not exposed via our API currently,
       /// it requires the "--pull-to-refresh" option to be included in the additional browser
       /// arguments to be configured. (See put_AdditionalBrowserArguments.)</para>
-      /// <para>When set to `FALSE`, the end user cannot swipe to navigate or pull to refresh.
+      /// <para>When set to 'FALSE', the end user cannot swipe to navigate or pull to refresh.
       /// This API only affects the overscrolling navigation functionality and has no
       /// effect on the scrolling interaction used to explore the web content shown
       /// in WebView2.</para>
@@ -2747,7 +2760,7 @@ type
       /// </remarks>
       property IsSwipeNavigationEnabled                        : boolean                                               read GetIsSwipeNavigationEnabled                      write SetIsSwipeNavigationEnabled;
       /// <summary>
-      /// `HiddenPdfToolbarItems` is used to customize the PDF toolbar items. By default, it is COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE and so it displays all of the items.
+      /// 'HiddenPdfToolbarItems' is used to customize the PDF toolbar items. By default, it is COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE and so it displays all of the items.
       /// Changes to this property apply to all CoreWebView2s in the same environment and using the same profile.
       /// Changes to this setting apply only after the next navigation.
       /// </summary>
@@ -2758,7 +2771,7 @@ type
       /// <summary>
       /// <para>SmartScreen helps webviews identify reported phishing and malware websites
       /// and also helps users make informed decisions about downloads.
-      /// `IsReputationCheckingRequired` is used to control whether SmartScreen
+      /// 'IsReputationCheckingRequired' is used to control whether SmartScreen
       /// enabled or not. SmartScreen is enabled or disabled for all CoreWebView2s
       /// using the same user data folder. If
       /// CoreWebView2Setting.IsReputationCheckingRequired is true for any
@@ -2767,7 +2780,7 @@ type
       /// CoreWebView2 using the same user data folder, then SmartScreen is
       /// disabled. When it is changed, the change will be applied to all WebViews
       /// using the same user data folder on the next navigation or download. The
-      /// default value for `IsReputationCheckingRequired` is true. If the newly
+      /// default value for 'IsReputationCheckingRequired' is true. If the newly
       /// created CoreWebview2 does not set SmartScreen to false, when
       /// navigating(Such as Navigate(), LoadDataUrl(), ExecuteScript(), etc.), the
       /// default value will be applied to all CoreWebview2 using the same user data
@@ -2776,32 +2789,32 @@ type
       /// "SmartScreen for Microsoft Edge", specially, for WebView2 in Windows
       /// Store apps, SmartScreen is controlled by another Windows system setting
       /// "SmartScreen for Microsoft Store apps". When the Windows setting is enabled, the
-      /// SmartScreen operates under the control of the `IsReputationCheckingRequired`.
+      /// SmartScreen operates under the control of the 'IsReputationCheckingRequired'.
       /// When the Windows setting is disabled, the SmartScreen will be disabled
-      /// regardless of the `IsReputationCheckingRequired` value set in WebView2 apps.
+      /// regardless of the 'IsReputationCheckingRequired' value set in WebView2 apps.
       /// In other words, under this circumstance the value of
-      /// `IsReputationCheckingRequired` will be saved but overridden by system setting.
+      /// 'IsReputationCheckingRequired' will be saved but overridden by system setting.
       /// Upon re-enabling the Windows setting, the CoreWebview2 will reference the
-      /// `IsReputationCheckingRequired` to determine the SmartScreen status.</para>
+      /// 'IsReputationCheckingRequired' to determine the SmartScreen status.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings8#get_isreputationcheckingrequired">See the ICoreWebView2Settings8 article.</see></para>
       /// </remarks>
       property IsReputationCheckingRequired                    : boolean                                               read GetIsReputationCheckingRequired                  write SetIsReputationCheckingRequired;
       /// <summary>
-      /// <para>The `IsNonClientRegionSupportEnabled` property enables web pages to use the
-      /// `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled`
-      /// takes effect after the next navigation. Defaults to `FALSE`.</para>
-      /// <para>When this property is `TRUE`, then all the non-client region features
+      /// <para>The 'IsNonClientRegionSupportEnabled' property enables web pages to use the
+      /// 'app-region' CSS style. Disabling/Enabling the 'IsNonClientRegionSupportEnabled'
+      /// takes effect after the next navigation. Defaults to 'FALSE'.</para>
+      /// <para>When this property is 'TRUE', then all the non-client region features
       /// will be enabled:</para>
       /// <para>Draggable Regions will be enabled, they are regions on a webpage that
-      /// are marked with the CSS attribute `app-region: drag/no-drag`. When set to
-      /// `drag`, these regions will be treated like the window's title bar, supporting
+      /// are marked with the CSS attribute 'app-region: drag/no-drag'. When set to
+      /// 'drag', these regions will be treated like the window's title bar, supporting
       /// dragging of the entire WebView and its host app window; the system menu shows
       /// upon right click, and a double click will trigger maximizing/restoration of the
       /// window size.</para>
-      /// <para>When set to `FALSE`, all non-client region support will be disabled.
-      /// The `app-region` CSS style will be ignored on web pages.</para>
+      /// <para>When set to 'FALSE', all non-client region support will be disabled.
+      /// The 'app-region' CSS style will be ignored on web pages.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2settings9#get_isnonclientregionsupportenabled">See the ICoreWebView2Settings9 article.</see></para>
@@ -2858,7 +2871,7 @@ type
       /// </remarks>
       property AutomationProvider                              : IUnknown                                              read GetAutomationProvider;
       /// <summary>
-      /// Returns the `ICoreWebView2ProcessInfoCollection`. Provide a list of all
+      /// Returns the 'ICoreWebView2ProcessInfoCollection'. Provide a list of all
       /// process using same user data folder except for crashpad process.
       /// </summary>
       /// <remarks>
@@ -2866,7 +2879,7 @@ type
       /// </remarks>
       property ProcessInfos                                    : ICoreWebView2ProcessInfoCollection                    read GetProcessInfos;
       /// <summary>
-      /// <para>`ProfileName` property is to specify a profile name, which is only allowed to contain
+      /// <para>'ProfileName' property is to specify a profile name, which is only allowed to contain
       /// the following ASCII characters. It has a maximum length of 64 characters excluding the null-terminator.
       /// It is ASCII case insensitive.</para>
       /// <para>* alphabet characters: a-z and A-Z</para>
@@ -2881,7 +2894,7 @@ type
       /// </remarks>
       property ProfileName                                     : wvstring                                              read GetProfileName                                   write SetProfileName;
       /// <summary>
-      /// `IsInPrivateModeEnabled` property is to enable/disable InPrivate mode.
+      /// 'IsInPrivateModeEnabled' property is to enable/disable InPrivate mode.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions#get_isinprivatemodeenabled">See the ICoreWebView2ControllerOptions article.</see></para>
@@ -2890,14 +2903,14 @@ type
       /// <summary>
       /// <para>The default locale for the WebView2.  It sets the default locale for all
       /// Intl JavaScript APIs and other JavaScript APIs that depend on it, namely
-      /// `Intl.DateTimeFormat()` which affects string formatting like
-      /// in the time/date formats. Example: `Intl.DateTimeFormat().format(new Date())`
+      /// 'Intl.DateTimeFormat()' which affects string formatting like
+      /// in the time/date formats. Example: 'Intl.DateTimeFormat().format(new Date())'
       /// The intended locale value is in the format of
       /// BCP 47 Language Tags. More information can be found from
       /// [IETF BCP47](https://www.ietf.org/rfc/bcp/bcp47.html).</para>
       /// <para>This property sets the locale for a CoreWebView2Environment used to create the
       /// WebView2ControllerOptions object, which is passed as a parameter in
-      /// `CreateCoreWebView2ControllerWithOptions`.</para>
+      /// 'CreateCoreWebView2ControllerWithOptions'.</para>
       /// <para>Changes to the ScriptLocale property apply to renderer processes created after
       /// the change. Any existing renderer processes will continue to use the previous
       /// ScriptLocale value. To ensure changes are applied to all renderer process,
@@ -2912,11 +2925,11 @@ type
       /// </remarks>
       property ScriptLocale                                    : wvstring                                              read FScriptLocale                                    write FScriptLocale;
       /// <summary>
-      /// <para>`AllowHostInputProcessing` property is to enable/disable input passing through
+      /// <para>'AllowHostInputProcessing' property is to enable/disable input passing through
       /// the app before being delivered to the WebView2. This property is only applicable
-      /// to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
-      /// composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
-      /// By default the value is `FALSE`.</para>
+      /// to controllers created with 'CoreWebView2Environment.CreateCoreWebView2ControllerAsync' and not
+      /// composition controllers created with 'CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync'.
+      /// By default the value is 'FALSE'.</para>
       /// <para>Setting this property has no effect when using visual hosting.</para>
       /// </summary>
       /// <remarks>
@@ -2931,7 +2944,7 @@ type
       /// </remarks>
       property ProfilePath                                     : wvstring                                              read GetProfilePath;
       /// <summary>
-      /// Gets the `DefaultDownloadFolderPath` property. The default value is the
+      /// Gets the 'DefaultDownloadFolderPath' property. The default value is the
       /// system default download folder path for the user.
       /// </summary>
       /// <remarks>
@@ -2942,30 +2955,30 @@ type
       /// <para>The PreferredColorScheme property sets the overall color scheme of the
       /// WebView2s associated with this profile. This sets the color scheme for
       /// WebView2 UI like dialogs, prompts, and context menus by setting the
-      /// media feature `prefers-color-scheme` for websites to respond to.</para>
+      /// media feature 'prefers-color-scheme' for websites to respond to.</para>
       /// <para>The default value for this is COREWEBVIEW2_PREFERRED_COLOR_AUTO,
       /// which will follow whatever theme the OS is currently set to.</para>
-      /// <para>Returns the value of the `PreferredColorScheme` property.</para>
+      /// <para>Returns the value of the 'PreferredColorScheme' property.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile#get_preferredcolorscheme">See the ICoreWebView2Profile article.</see></para>
       /// </remarks>
       property PreferredColorScheme                            : TWVPreferredColorScheme                               read GetPreferredColorScheme                          write SetPreferredColorScheme;
       /// <summary>
-      /// <para>The `PreferredTrackingPreventionLevel` property allows you to control levels of tracking prevention for WebView2
+      /// <para>The 'PreferredTrackingPreventionLevel' property allows you to control levels of tracking prevention for WebView2
       /// which are associated with a profile. This level would apply to the context of the profile. That is, all WebView2s
       /// sharing the same profile will be affected and also the value is persisted in the user data folder.</para>
-      /// <para>See `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL` for descriptions of levels.</para>
+      /// <para>See 'COREWEBVIEW2_TRACKING_PREVENTION_LEVEL' for descriptions of levels.</para>
       /// <para>If tracking prevention feature is enabled when creating the WebView2 environment, you can also disable tracking
-      /// prevention later using this property and `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE` value but that doesn't
+      /// prevention later using this property and 'COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE' value but that doesn't
       /// improves runtime performance.</para>
-      /// <para>There is `ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention` property to enable/disable tracking prevention feature
-      /// for all the WebView2's created in the same environment. If enabled, `PreferredTrackingPreventionLevel` is set to
-      /// `COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED` by default for all the WebView2's and profiles created in the same
+      /// <para>There is 'ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention' property to enable/disable tracking prevention feature
+      /// for all the WebView2's created in the same environment. If enabled, 'PreferredTrackingPreventionLevel' is set to
+      /// 'COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED' by default for all the WebView2's and profiles created in the same
       /// environment or is set to the level whatever value was last changed/persisted to the profile. If disabled
-      /// `PreferredTrackingPreventionLevel` is not respected by WebView2. If `PreferredTrackingPreventionLevel` is set when the
+      /// 'PreferredTrackingPreventionLevel' is not respected by WebView2. If 'PreferredTrackingPreventionLevel' is set when the
       /// feature is disabled, the property value get changed and persisted but it will takes effect only if
-      /// `ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention` is true.</para>
+      /// 'ICoreWebView2EnvironmentOptions5.EnableTrackingPrevention' is true.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2profile3#get_preferredtrackingpreventionlevel">See the ICoreWebView2Profile3 article.</see></para>
@@ -2991,14 +3004,14 @@ type
       /// <para>When IsPasswordAutosaveEnabled is true, password information is auto-populated,
       /// suggestions are shown and clicking on one will populate the fields, new data
       /// is saved, and a Save/Update Password prompt is displayed.</para>
-      /// <para>It will take effect immediately after setting. The default value is `FALSE`.</para>
+      /// <para>It will take effect immediately after setting. The default value is 'FALSE'.</para>
       /// <para>This property has the same value as
-      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled`, and changing one will
-      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
-      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// 'CoreWebView2Settings.IsPasswordAutosaveEnabled', and changing one will
+      /// change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile'
+      /// will share the same value for this property, so for the 'CoreWebView2's
       /// with the same profile, their
-      /// `CoreWebView2Settings.IsPasswordAutosaveEnabled` and
-      /// `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same
+      /// 'CoreWebView2Settings.IsPasswordAutosaveEnabled' and
+      /// 'CoreWebView2Profile.IsPasswordAutosaveEnabled' will always have the same
       /// value.</para>
       /// </summary>
       /// <remarks>
@@ -3012,14 +3025,14 @@ type
       /// IsGeneralAutofillEnabled is false, no suggestions appear, and no new information
       /// is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions
       /// appear and clicking on one will populate the form fields.</para>
-      /// <para>It will take effect immediately after setting. The default value is `TRUE`.</para>
+      /// <para>It will take effect immediately after setting. The default value is 'TRUE'.</para>
       /// <para>This property has the same value as
-      /// `CoreWebView2Settings.IsGeneralAutofillEnabled`, and changing one will
-      /// change the other. All `CoreWebView2`s with the same `CoreWebView2Profile`
-      /// will share the same value for this property, so for the `CoreWebView2`s
+      /// 'CoreWebView2Settings.IsGeneralAutofillEnabled', and changing one will
+      /// change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile'
+      /// will share the same value for this property, so for the 'CoreWebView2's
       /// with the same profile, their
-      /// `CoreWebView2Settings.IsGeneralAutofillEnabled` and
-      /// `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same
+      /// 'CoreWebView2Settings.IsGeneralAutofillEnabled' and
+      /// 'CoreWebView2Profile.IsGeneralAutofillEnabled' will always have the same
       /// value.</para>
       /// </summary>
       /// <remarks>
@@ -3028,10 +3041,10 @@ type
       property ProfileIsGeneralAutofillEnabled                 : boolean                                               read GetProfileIsGeneralAutofillEnabled               write SetProfileIsGeneralAutofillEnabled;
       /// <summary>
       /// The unique identifier of the main frame. It's the same kind of ID as
-      /// with the `FrameId` in `ICoreWebView2Frame` and via `ICoreWebView2FrameInfo`.
-      /// Note that `FrameId` may not be valid if `ICoreWebView2` has not done
+      /// with the 'FrameId' in 'ICoreWebView2Frame' and via 'ICoreWebView2FrameInfo'.
+      /// Note that 'FrameId' may not be valid if 'ICoreWebView2' has not done
       /// any navigation. It's safe to get this value during or after the first
-      /// `ContentLoading` event. Otherwise, it could return the invalid frame Id 0.
+      /// 'ContentLoading' event. Otherwise, it could return the invalid frame Id 0.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_20#get_frameid">See the ICoreWebView2_20 article.</see></para>
@@ -3053,10 +3066,10 @@ type
       property FindSession                                    : TCoreWebView2Find                                      read FCoreWebView2Find;
       /// <summary>
       /// Enables or disables webview2 specific Service Worker JS APIs in the
-      /// WebView2s associated with this Profile. When set to `TRUE`, chrome and
+      /// WebView2s associated with this Profile. When set to 'TRUE', chrome and
       /// webview objects are available in Service Workers. chrome.webview exposes
       /// APIs to interact with the WebView from Service Workers. The default value
-      /// is `FALSE`. This setting applies to all newly installed Service Workers
+      /// is 'FALSE'. This setting applies to all newly installed Service Workers
       /// within the profile and is not persisted across WebView2 sessions.
       /// </summary>
       /// <remarks>
@@ -3099,32 +3112,32 @@ type
       /// </remarks>
       property OnProcessInfosChanged                           : TOnProcessInfosChangedEvent                           read FOnProcessInfosChanged                           write FOnProcessInfosChanged;
       /// <summary>
-      /// `OnContainsFullScreenElementChanged` triggers when the
-      /// `ContainsFullScreenElement` property changes.  An HTML element inside the
+      /// 'OnContainsFullScreenElementChanged' triggers when the
+      /// 'ContainsFullScreenElement' property changes.  An HTML element inside the
       /// WebView may enter fullscreen to the size of the WebView or leave
       /// fullscreen.  This event is useful when, for example, a video element
       /// requests to go fullscreen.  The listener of
-      /// `ContainsFullScreenElementChanged` may resize the WebView in response.
+      /// 'ContainsFullScreenElementChanged' may resize the WebView in response.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_containsfullscreenelementchanged">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnContainsFullScreenElementChanged              : TNotifyEvent                                          read FOnContainsFullScreenElementChanged              write FOnContainsFullScreenElementChanged;
       /// <summary>
-      /// `OnContentLoading` triggers before any content is loaded, including scripts added with
-      /// `AddScriptToExecuteOnDocumentCreated`.  `ContentLoading` does not trigger
-      /// if a same page navigation occurs (such as through `fragment`
-      /// navigations or `history.pushState` navigations).  This operation
-      /// follows the `NavigationStarting` and `SourceChanged` events and precedes
-      /// the `HistoryChanged` and `NavigationCompleted` events.
+      /// 'OnContentLoading' triggers before any content is loaded, including scripts added with
+      /// 'AddScriptToExecuteOnDocumentCreated'.  'ContentLoading' does not trigger
+      /// if a same page navigation occurs (such as through 'fragment'
+      /// navigations or 'history.pushState' navigations).  This operation
+      /// follows the 'NavigationStarting' and 'SourceChanged' events and precedes
+      /// the 'HistoryChanged' and 'NavigationCompleted' events.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_contentloading">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnContentLoading                                : TOnContentLoadingEvent                                read FOnContentLoading                                write FOnContentLoading;
       /// <summary>
-      /// `OnDocumentTitleChanged` runs when the `DocumentTitle` property of the
-      /// WebView changes and may run before or after the `NavigationCompleted`
+      /// 'OnDocumentTitleChanged' runs when the 'DocumentTitle' property of the
+      /// WebView changes and may run before or after the 'NavigationCompleted'
       /// event.
       /// </summary>
       /// <remarks>
@@ -3132,18 +3145,18 @@ type
       /// </remarks>
       property OnDocumentTitleChanged                          : TNotifyEvent                                          read FOnDocumentTitleChanged                          write FOnDocumentTitleChanged;
       /// <summary>
-      /// `OnFrameNavigationCompleted` triggers when a child frame has completely
-      /// loaded (concurrently when `body.onload` has triggered) or loading stopped with error.
+      /// 'OnFrameNavigationCompleted' triggers when a child frame has completely
+      /// loaded (concurrently when 'body.onload' has triggered) or loading stopped with error.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_framenavigationcompleted">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnFrameNavigationCompleted                      : TOnNavigationCompletedEvent                           read FOnFrameNavigationCompleted                      write FOnFrameNavigationCompleted;
       /// <summary>
-      /// `OnFrameNavigationStarting` triggers when a child frame in the WebView
+      /// 'OnFrameNavigationStarting' triggers when a child frame in the WebView
       /// requests permission to navigate to a different URI.  Redirects trigger
       /// this operation as well, and the navigation id is the same as the original
-      /// one. Navigations will be blocked until all `FrameNavigationStarting` event
+      /// one. Navigations will be blocked until all 'FrameNavigationStarting' event
       /// handlers return.
       /// </summary>
       /// <remarks>
@@ -3151,11 +3164,11 @@ type
       /// </remarks>
       property OnFrameNavigationStarting                       : TOnNavigationStartingEvent                            read FOnFrameNavigationStarting                       write FOnFrameNavigationStarting;
       /// <summary>
-      /// `OnHistoryChanged` is raised for changes to joint session history, which consists of top-level
-      /// and manual frame navigations.  Use `HistoryChanged` to verify that the
-      /// `CanGoBack` or `CanGoForward` value has changed.  `HistoryChanged` also
-      /// runs for using `GoBack` or `GoForward`.  `HistoryChanged` runs after
-      /// `SourceChanged` and `ContentLoading`.  `CanGoBack` is false for
+      /// 'OnHistoryChanged' is raised for changes to joint session history, which consists of top-level
+      /// and manual frame navigations.  Use 'HistoryChanged' to verify that the
+      /// 'CanGoBack' or 'CanGoForward' value has changed.  'HistoryChanged' also
+      /// runs for using 'GoBack' or 'GoForward'.  'HistoryChanged' runs after
+      /// 'SourceChanged' and 'ContentLoading'.  'CanGoBack' is false for
       /// navigations initiated through ICoreWebView2Frame APIs if there has not yet
       /// been a user gesture.
       /// </summary>
@@ -3164,18 +3177,18 @@ type
       /// </remarks>
       property OnHistoryChanged                                : TNotifyEvent                                          read FOnHistoryChanged                                write FOnHistoryChanged;
       /// <summary>
-      /// `OnNavigationCompleted` runs when the WebView has completely loaded
-      /// (concurrently when `body.onload` runs) or loading stopped with error.
+      /// 'OnNavigationCompleted' runs when the WebView has completely loaded
+      /// (concurrently when 'body.onload' runs) or loading stopped with error.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_navigationcompleted">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnNavigationCompleted                           : TOnNavigationCompletedEvent                           read FOnNavigationCompleted                           write FOnNavigationCompleted;
       /// <summary>
-      /// `OnNavigationStarting` runs when the WebView main frame is requesting
+      /// 'OnNavigationStarting' runs when the WebView main frame is requesting
       /// permission to navigate to a different URI.  Redirects trigger this
       /// operation as well, and the navigation id is the same as the original
-      /// one. Navigations will be blocked until all `NavigationStarting` event handlers
+      /// one. Navigations will be blocked until all 'NavigationStarting' event handlers
       /// return.
       /// </summary>
       /// <remarks>
@@ -3183,11 +3196,11 @@ type
       /// </remarks>
       property OnNavigationStarting                            : TOnNavigationStartingEvent                            read FOnNavigationStarting                            write FOnNavigationStarting;
       /// <summary>
-      /// <para>`OnNewWindowRequested` runs when content inside the WebView requests to
-      /// open a new window, such as through `window.open`.  The app can pass a
+      /// <para>'OnNewWindowRequested' runs when content inside the WebView requests to
+      /// open a new window, such as through 'window.open'.  The app can pass a
       /// target WebView that is considered the opened window or mark the event as
-      /// `Handled`, in which case WebView2 does not open a window.
-      /// If either `Handled` or `NewWindow` properties are not set, the target
+      /// 'Handled', in which case WebView2 does not open a window.
+      /// If either 'Handled' or 'NewWindow' properties are not set, the target
       /// content will be opened on a popup window.</para>
       /// <para>If a deferral is not taken on the event args, scripts that resulted in the
       /// new window that are requested are blocked until the event handler returns.
@@ -3199,7 +3212,7 @@ type
       /// </remarks>
       property OnNewWindowRequested                            : TOnNewWindowRequestedEvent                            read FOnNewWindowRequested                            write FOnNewWindowRequested;
       /// <summary>
-      /// `OnPermissionRequested` runs when content in a WebView requests permission
+      /// 'OnPermissionRequested' runs when content in a WebView requests permission
       /// to access some privileged resources. If a deferral is not taken on the event
       /// args, the subsequent scripts are blocked until the event handler returns.
       /// If a deferral is taken, the scripts are blocked until the deferral is completed.
@@ -3209,7 +3222,7 @@ type
       /// </remarks>
       property OnPermissionRequested                           : TOnPermissionRequestedEvent                           read FOnPermissionRequested                           write FOnPermissionRequested;
       /// <summary>
-      /// <para>`OnProcessFailed` runs when any of the processes in the
+      /// <para>'OnProcessFailed' runs when any of the processes in the
       /// [WebView2 Process Group](https://learn.microsoft.com/microsoft-edge/webview2/concepts/process-model?tabs=csharp#processes-in-the-webview2-runtime)
       /// encounters one of the following conditions:</para>
       /// <code>
@@ -3219,22 +3232,22 @@ type
       /// Unresponsiveness | The process indicated by the event args has become unresponsive to user input. This is only reported for renderer processes, and will run every few seconds until the process becomes responsive again.
       /// </code>
       /// <para>NOTE: When the failing process is the browser process, a
-      /// `ICoreWebView2Environment5.BrowserProcessExited` event will run too.</para>
-      /// <para>Your application can use `ICoreWebView2ProcessFailedEventArgs` and
-      /// `ICoreWebView2ProcessFailedEventArgs2` to identify which condition and
+      /// 'ICoreWebView2Environment5.BrowserProcessExited' event will run too.</para>
+      /// <para>Your application can use 'ICoreWebView2ProcessFailedEventArgs' and
+      /// 'ICoreWebView2ProcessFailedEventArgs2' to identify which condition and
       /// process the event is for, and to collect diagnostics and handle recovery
       /// if necessary. For more details about which cases need to be handled by
-      /// your application, see `COREWEBVIEW2_PROCESS_FAILED_KIND`.</para>
+      /// your application, see 'COREWEBVIEW2_PROCESS_FAILED_KIND'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_processfailed">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnProcessFailed                                 : TOnProcessFailedEvent                                 read FOnProcessFailed                                 write FOnProcessFailed;
       /// <summary>
-      /// <para>`OnScriptDialogOpening` runs when a JavaScript dialog (`alert`, `confirm`,
-      /// `prompt`, or `beforeunload`) displays for the webview.  This event only
-      /// triggers if the `ICoreWebView2Settings.AreDefaultScriptDialogsEnabled`
-      /// property is set to `FALSE`.  The `ScriptDialogOpening` event suppresses
+      /// <para>'OnScriptDialogOpening' runs when a JavaScript dialog ('alert', 'confirm',
+      /// 'prompt', or 'beforeunload') displays for the webview.  This event only
+      /// triggers if the 'ICoreWebView2Settings.AreDefaultScriptDialogsEnabled'
+      /// property is set to 'FALSE'.  The 'ScriptDialogOpening' event suppresses
       /// dialogs or replaces default dialogs with custom dialogs.</para>
       /// <para>If a deferral is not taken on the event args, the subsequent scripts are
       /// blocked until the event handler returns.  If a deferral is taken, the
@@ -3245,11 +3258,11 @@ type
       /// </remarks>
       property OnScriptDialogOpening                           : TOnScriptDialogOpeningEvent                           read FOnScriptDialogOpening                           write FOnScriptDialogOpening;
       /// <summary>
-      /// `OnSourceChanged` triggers when the `Source` property changes.  `SourceChanged` runs when
+      /// 'OnSourceChanged' triggers when the 'Source' property changes.  'SourceChanged' runs when
       /// navigating to a different site or fragment navigations.  It does not
       /// trigger for other types of navigations such as page refreshes or
-      /// `history.pushState` with the same URL as the current page.
-      /// `SourceChanged` runs before `ContentLoading` for navigation to a new
+      /// 'history.pushState' with the same URL as the current page.
+      /// 'SourceChanged' runs before 'ContentLoading' for navigation to a new
       /// document.
       /// </summary>
       /// <remarks>
@@ -3257,36 +3270,36 @@ type
       /// </remarks>
       property OnSourceChanged                                 : TOnSourceChangedEvent                                 read FOnSourceChanged                                 write FOnSourceChanged;
       /// <summary>
-      /// `OnWebMessageReceived` runs when the `ICoreWebView2Settings.IsWebMessageEnabled`
+      /// 'OnWebMessageReceived' runs when the 'ICoreWebView2Settings.IsWebMessageEnabled'
       /// setting is set and the top-level document of the WebView runs
-      /// `window.chrome.webview.postMessage`.
+      /// 'window.chrome.webview.postMessage'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnWebMessageReceived                            : TOnWebMessageReceivedEvent                            read FOnWebMessageReceived                            write FOnWebMessageReceived;
       /// <summary>
-      /// <para>`OnWebResourceRequested` runs when the WebView is performing a URL request
+      /// <para>'OnWebResourceRequested' runs when the WebView is performing a URL request
       /// to a matching URL and resource context and source kind filter that was
-      /// added with `AddWebResourceRequestedFilterWithRequestSourceKinds`.
+      /// added with 'AddWebResourceRequestedFilterWithRequestSourceKinds'.
       /// At least one filter must be added for the event to run.</para>
       /// <para>The web resource requested may be blocked until the event handler returns
       /// if a deferral is not taken on the event args.  If a deferral is taken,
       /// then the web resource requested is blocked until the deferral is
       /// completed.</para>
       /// <para>If this event is subscribed in the add_NewWindowRequested handler it should be called
-      /// after the new window is set. For more details see `ICoreWebView2NewWindowRequestedEventArgs.put_NewWindow`.</para>
+      /// after the new window is set. For more details see 'ICoreWebView2NewWindowRequestedEventArgs.put_NewWindow'.</para>
       /// <para>This event is by default raised for file, http, and https URI schemes.
       /// This is also raised for registered custom URI schemes. For more details
-      /// see `ICoreWebView2CustomSchemeRegistration`.</para>
+      /// see 'ICoreWebView2CustomSchemeRegistration'.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#add_webresourcerequested">See the ICoreWebView2 article.</see></para>
       /// </remarks>
       property OnWebResourceRequested                          : TOnWebResourceRequestedEvent                          read FOnWebResourceRequested                          write FOnWebResourceRequested;
       /// <summary>
-      /// `OnWindowCloseRequested` triggers when content inside the WebView
-      /// requested to close the window, such as after `window.close` is run.  The
+      /// 'OnWindowCloseRequested' triggers when content inside the WebView
+      /// requested to close the window, such as after 'window.close' is run.  The
       /// app should close the WebView and related app window if that makes sense
       /// to the app. After the first window.close() call, this event may not fire
       /// for any immediate back to back window.close() calls.
@@ -3330,7 +3343,7 @@ type
       /// download is saved to the default path after the event completes,
       /// and default download dialog is shown if the host did not choose to hide it.
       /// The host can change the visibility of the download dialog using the
-      /// `Handled` property. If the event is not handled, downloads complete
+      /// 'Handled' property. If the event is not handled, downloads complete
       /// normally with the default dialog shown.</para>
       /// </summary>
       /// <remarks>
@@ -3354,23 +3367,23 @@ type
       /// </remarks>
       property OnClientCertificateRequested                    : TOnClientCertificateRequestedEvent                    read FOnClientCertificateRequested                    write FOnClientCertificateRequested;
       /// <summary>
-      /// `OnIsDocumentPlayingAudioChanged` is raised when the IsDocumentPlayingAudio property changes value.
+      /// 'OnIsDocumentPlayingAudioChanged' is raised when the IsDocumentPlayingAudio property changes value.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#add_isdocumentplayingaudiochanged">See the ICoreWebView2_8 article.</see></para>
       /// </remarks>
       property OnIsDocumentPlayingAudioChanged                 : TOnIsDocumentPlayingAudioChangedEvent                 read FOnIsDocumentPlayingAudioChanged                 write FOnIsDocumentPlayingAudioChanged;
       /// <summary>
-      /// `OnIsMutedChanged` is raised when the IsMuted property changes value.
+      /// 'OnIsMutedChanged' is raised when the IsMuted property changes value.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_8#add_ismutedchanged">See the ICoreWebView2_8 article.</see></para>
       /// </remarks>
       property OnIsMutedChanged                                : TOnIsMutedChangedEvent                                read FOnIsMutedChanged                                write FOnIsMutedChanged;
       /// <summary>
-      /// Raised when the `IsDefaultDownloadDialogOpen` property changes. This event
-      /// comes after the `DownloadStarting` event. Setting the `Handled` property
-      /// on the `DownloadStartingEventArgs` disables the default download dialog
+      /// Raised when the 'IsDefaultDownloadDialogOpen' property changes. This event
+      /// comes after the 'DownloadStarting' event. Setting the 'Handled' property
+      /// on the 'DownloadStartingEventArgs' disables the default download dialog
       /// and ensures that this event is never raised.
       /// </summary>
       /// <remarks>
@@ -3396,7 +3409,7 @@ type
       /// </remarks>
       property OnBasicAuthenticationRequested                  : TOnBasicAuthenticationRequestedEvent                  read FOnBasicAuthenticationRequested                  write FOnBasicAuthenticationRequested;
       /// <summary>
-      /// `OnContextMenuRequested` event is raised when a context menu is requested by the user
+      /// 'OnContextMenuRequested' event is raised when a context menu is requested by the user
       /// and the content inside WebView hasn't disabled context menus.
       /// The host has the option to create their own context menu with the information provided in
       /// the event or can add items to or remove items from WebView context menu.
@@ -3407,7 +3420,7 @@ type
       /// </remarks>
       property OnContextMenuRequested                          : TOnContextMenuRequestedEvent                          read FOnContextMenuRequested                          write FOnContextMenuRequested;
       /// <summary>
-      /// `OnStatusBarTextChanged` fires when the WebView is showing a status message,
+      /// 'OnStatusBarTextChanged' fires when the WebView is showing a status message,
       /// a URL, or an empty string (an indication to hide the status bar).
       /// </summary>
       /// <remarks>
@@ -3424,18 +3437,18 @@ type
       /// <summary>
       /// <para>The OnServerCertificateErrorDetected event is raised when the WebView2
       /// cannot verify server's digital certificate while loading a web page.</para>
-      /// <para>This event will raise for all web resources and follows the `WebResourceRequested` event.</para>
+      /// <para>This event will raise for all web resources and follows the 'WebResourceRequested' event.</para>
       /// <para>If you don't handle the event, WebView2 will show the default TLS interstitial error page to the user
       /// for navigations, and for non-navigations the web request is cancelled.</para>
-      /// <para>Note that WebView2 before raising `OnServerCertificateErrorDetected` raises a `OnNavigationCompleted` event
-      /// with `IsSuccess` as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.</para>
+      /// <para>Note that WebView2 before raising 'OnServerCertificateErrorDetected' raises a 'OnNavigationCompleted' event
+      /// with 'IsSuccess' as FALSE and any of the below WebErrorStatuses that indicate a certificate failure.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_14#add_servercertificateerrordetected">See the ICoreWebView2_14 article.</see></para>
       /// </remarks>
       property OnServerCertificateErrorDetected                : TOnServerCertificateErrorDetectedEvent                read FOnServerCertificateErrorDetected                write FOnServerCertificateErrorDetected;
       /// <summary>
-      /// The `OnFaviconChanged` event is raised when the
+      /// The 'OnFaviconChanged' event is raised when the
       /// [favicon](https://developer.mozilla.org/docs/Glossary/Favicon)
       /// had a different URL then the previous URL.
       /// The OnFaviconChanged event will be raised for first navigating to a new
@@ -3443,7 +3456,7 @@ type
       /// favicon is different from the previous fav icon. The event will
       /// be raised again if a favicon is declared in its HTML or has script
       /// to set its favicon. The favicon information can then be retrieved with
-      /// `GetFavicon` and `FaviconUri`.
+      /// 'GetFavicon' and 'FaviconUri'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_15#add_faviconchanged">See the ICoreWebView2_15 article.</see></para>
@@ -3471,40 +3484,40 @@ type
       /// </remarks>
       property OnPrintToPdfStreamCompleted                     : TOnPrintToPdfStreamCompletedEvent                     read FOnPrintToPdfStreamCompleted                     write FOnPrintToPdfStreamCompleted;
       /// <summary>
-      /// <para>`OnAcceleratorKeyPressed` runs when an accelerator key or key combo is
+      /// <para>'OnAcceleratorKeyPressed' runs when an accelerator key or key combo is
       /// pressed or released while the WebView is focused.  A key is considered an
       ///  accelerator if either of the following conditions are true.</para>
       /// <para>*   Ctrl or Alt is currently being held.</para>
       /// <para>*   The pressed key does not map to a character.</para>
       /// <para>A few specific keys are never considered accelerators, such as Shift.
-      /// The `Escape` key is always considered an accelerator.</para>
+      /// The 'Escape' key is always considered an accelerator.</para>
       /// <para>Auto-repeated key events caused by holding the key down also triggers
       /// this event.  Filter out the auto-repeated key events by verifying the
-      /// `KeyEventLParam` or `PhysicalKeyStatus` event args.</para>
+      /// 'KeyEventLParam' or 'PhysicalKeyStatus' event args.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_acceleratorkeypressed">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property OnAcceleratorKeyPressed                         : TOnAcceleratorKeyPressedEvent                         read FOnAcceleratorKeyPressed                         write FOnAcceleratorKeyPressed;
       /// <summary>
-      /// `OnGotFocus` runs when WebView has focus.
+      /// 'OnGotFocus' runs when WebView has focus.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_gotfocus">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property OnGotFocus                                      : TNotifyEvent                                          read FOnGotFocus                                      write FOnGotFocus;
       /// <summary>
-      /// `OnLostFocus` runs when WebView loses focus.  In the case where `OnMoveFocusRequested` event is
-      /// run, the focus is still on WebView when `OnMoveFocusRequested` event runs.
-      /// `LostFocus` only runs afterwards when code of the app or default action
-      /// of `OnMoveFocusRequested` event set focus away from WebView.
+      /// 'OnLostFocus' runs when WebView loses focus.  In the case where 'OnMoveFocusRequested' event is
+      /// run, the focus is still on WebView when 'OnMoveFocusRequested' event runs.
+      /// 'LostFocus' only runs afterwards when code of the app or default action
+      /// of 'OnMoveFocusRequested' event set focus away from WebView.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_lostfocus">See the ICoreWebView2Controller article.</see></para>
       /// </remarks>
       property OnLostFocus                                     : TNotifyEvent                                          read FOnLostFocus                                     write FOnLostFocus;
       /// <summary>
-      /// `OnMoveFocusRequested` runs when user tries to tab out of the WebView.  The
+      /// 'OnMoveFocusRequested' runs when user tries to tab out of the WebView.  The
       /// focus of the WebView has not changed when this event is run.
       /// </summary>
       /// <remarks>
@@ -3512,15 +3525,15 @@ type
       /// </remarks>
       property OnMoveFocusRequested                            : TOnMoveFocusRequestedEvent                            read FOnMoveFocusRequested                            write FOnMoveFocusRequested;
       /// <summary>
-      /// `OnZoomFactorChanged` runs when the `ZoomFactor` property of the WebView
-      /// changes.  The event may run because the `ZoomFactor` property was
+      /// 'OnZoomFactorChanged' runs when the 'ZoomFactor' property of the WebView
+      /// changes.  The event may run because the 'ZoomFactor' property was
       /// modified, or due to the user manually modifying the zoom.  When it is
-      /// modified using the `ZoomFactor` property, the internal zoom factor is
-      /// updated immediately and no `OnZoomFactorChanged` event is triggered.
+      /// modified using the 'ZoomFactor' property, the internal zoom factor is
+      /// updated immediately and no 'OnZoomFactorChanged' event is triggered.
       /// WebView associates the last used zoom factor for each site.  It is
       /// possible for the zoom factor to change when navigating to a different
       /// page.  When the zoom factor changes due to a navigation change, the
-      /// `OnZoomFactorChanged` event runs right after the `ContentLoading` event.
+      /// 'OnZoomFactorChanged' event runs right after the 'ContentLoading' event.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controller#add_zoomfactorchanged">See the ICoreWebView2Controller article.</see></para>
@@ -3587,35 +3600,35 @@ type
       /// </remarks>
       property OnFrameNameChanged                              : TOnFrameNameChangedEvent                              read FOnFrameNameChanged                              write FOnFrameNameChanged;
       /// <summary>
-      /// <para>A frame navigation will raise a `OnFrameNavigationStarting2` event and
-      /// a `OnFrameNavigationStarting` event. All of the
-      /// `FrameNavigationStarting` event handlers for the current frame will be
-      /// run before the `OnFrameNavigationStarting2` event handlers. All of the event handlers
-      /// share a common `NavigationStartingEventArgs` object. Whichever event handler is
-      /// last to change the `NavigationStartingEventArgs.Cancel` property will
+      /// <para>A frame navigation will raise a 'OnFrameNavigationStarting2' event and
+      /// a 'OnFrameNavigationStarting' event. All of the
+      /// 'FrameNavigationStarting' event handlers for the current frame will be
+      /// run before the 'OnFrameNavigationStarting2' event handlers. All of the event handlers
+      /// share a common 'NavigationStartingEventArgs' object. Whichever event handler is
+      /// last to change the 'NavigationStartingEventArgs.Cancel' property will
       /// decide if the frame navigation will be cancelled. Redirects raise this
       /// event as well, and the navigation id is the same as the original one.</para>
-      /// <para>Navigations will be blocked until all `OnFrameNavigationStarting2` and
-      /// `OnFrameNavigationStarting` event handlers return.</para>
+      /// <para>Navigations will be blocked until all 'OnFrameNavigationStarting2' and
+      /// 'OnFrameNavigationStarting' event handlers return.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_navigationstarting">See the ICoreWebView2Frame2 article.</see></para>
       /// </remarks>
       property OnFrameNavigationStarting2                      : TOnFrameNavigationStartingEvent                       read FOnFrameNavigationStarting2                      write FOnFrameNavigationStarting2;
       /// <summary>
-      /// `OnFrameNavigationCompleted2` runs when the CoreWebView2Frame has completely
-      /// loaded (concurrently when `body.onload` runs) or loading stopped with error.
+      /// 'OnFrameNavigationCompleted2' runs when the CoreWebView2Frame has completely
+      /// loaded (concurrently when 'body.onload' runs) or loading stopped with error.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_navigationcompleted">See the ICoreWebView2Frame2 article.</see></para>
       /// </remarks>
       property OnFrameNavigationCompleted2                     : TOnFrameNavigationCompletedEvent                      read FOnFrameNavigationCompleted2                     write FOnFrameNavigationCompleted2;
       /// <summary>
-      /// `OnFrameContentLoading` triggers before any content is loaded, including scripts added with
-      /// `AddScriptToExecuteOnDocumentCreated`.  `OnFrameContentLoading` does not trigger
-      /// if a same page navigation occurs (such as through `fragment`
-      /// navigations or `history.pushState` navigations).  This operation
-      /// follows the `OnFrameNavigationStarting2` and precedes `OnFrameNavigationCompleted2` events.
+      /// 'OnFrameContentLoading' triggers before any content is loaded, including scripts added with
+      /// 'AddScriptToExecuteOnDocumentCreated'.  'OnFrameContentLoading' does not trigger
+      /// if a same page navigation occurs (such as through 'fragment'
+      /// navigations or 'history.pushState' navigations).  This operation
+      /// follows the 'OnFrameNavigationStarting2' and precedes 'OnFrameNavigationCompleted2' events.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_contentloading">See the ICoreWebView2Frame2 article.</see></para>
@@ -3630,30 +3643,30 @@ type
       /// </remarks>
       property OnFrameDOMContentLoaded                         : TOnFrameDOMContentLoadedEvent                         read FOnFrameDOMContentLoaded                         write FOnFrameDOMContentLoaded;
       /// <summary>
-      /// `OnFrameWebMessageReceived` runs when the
-      /// `ICoreWebView2Settings.IsWebMessageEnabled` setting is set and the
-      /// frame document runs `window.chrome.webview.postMessage`.
+      /// 'OnFrameWebMessageReceived' runs when the
+      /// 'ICoreWebView2Settings.IsWebMessageEnabled' setting is set and the
+      /// frame document runs 'window.chrome.webview.postMessage'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame2#add_webmessagereceived">See the ICoreWebView2Frame2 article.</see></para>
       /// </remarks>
       property OnFrameWebMessageReceived                       : TOnFrameWebMessageReceivedEvent                       read FOnFrameWebMessageReceived                       write FOnFrameWebMessageReceived;
       /// <summary>
-      /// <para>`OnFramePermissionRequested` is raised when content in an iframe any of its
+      /// <para>'OnFramePermissionRequested' is raised when content in an iframe any of its
       /// descendant iframes requests permission to privileged resources.</para>
-      /// <para>This relates to the `OnPermissionRequested` event on the `CoreWebView2`.
+      /// <para>This relates to the 'OnPermissionRequested' event on the 'CoreWebView2'.
       /// Both these events will be raised in the case of an iframe requesting
-      /// permission. The `CoreWebView2Frame`'s event handlers will be invoked
-      /// before the event handlers on the `CoreWebView2`. If the `Handled` property
-      /// of the `PermissionRequestedEventArgs` is set to TRUE within the
-      /// `CoreWebView2Frame` event handler, then the event will not be
-      /// raised on the `CoreWebView2`, and it's event handlers will not be invoked.</para>
-      /// <para>In the case of nested iframes, if the `PermissionRequested` event is handled
+      /// permission. The 'CoreWebView2Frame''s event handlers will be invoked
+      /// before the event handlers on the 'CoreWebView2'. If the 'Handled' property
+      /// of the 'PermissionRequestedEventArgs' is set to TRUE within the
+      /// 'CoreWebView2Frame' event handler, then the event will not be
+      /// raised on the 'CoreWebView2', and it's event handlers will not be invoked.</para>
+      /// <para>In the case of nested iframes, if the 'PermissionRequested' event is handled
       /// in the current nested iframe (i.e., the Handled property of the
-      /// `PermissionRequestedEventArgs` is set to TRUE), the event will not be raised
-      /// on the parent `CoreWebView2Frame`. However, if the `PermissionRequested` event is
+      /// 'PermissionRequestedEventArgs' is set to TRUE), the event will not be raised
+      /// on the parent 'CoreWebView2Frame'. However, if the 'PermissionRequested' event is
       /// not handled in that nested iframe, the event will be raised from its nearest
-      /// tracked parent `CoreWebView2Frame`. It will iterate through the parent frame
+      /// tracked parent 'CoreWebView2Frame'. It will iterate through the parent frame
       /// chain up to the main frame until a parent frame handles the request.</para>
       /// <para>If a deferral is not taken on the event args, the subsequent scripts are
       /// blocked until the event handler returns.  If a deferral is taken, the
@@ -3673,7 +3686,7 @@ type
       /// </remarks>
       property OnDevToolsProtocolEventReceived                 : TOnDevToolsProtocolEventReceivedEvent                 read FOnDevToolsProtocolEventReceived                 write FOnDevToolsProtocolEventReceived;
       /// <summary>
-      /// `OnCustomItemSelected` event is raised when the user selects a custom `ContextMenuItem`.
+      /// 'OnCustomItemSelected' event is raised when the user selects a custom 'ContextMenuItem'.
       /// Will only be raised for end developer created context menu items.
       /// </summary>
       /// <remarks>
@@ -3864,10 +3877,10 @@ type
       /// </remarks>
       property OnSetPermissionStateCompleted                   : TOnSetPermissionStateCompletedEvent                   read FOnSetPermissionStateCompleted                   write FOnSetPermissionStateCompleted;
       /// <summary>
-      /// <para>The `OnLaunchingExternalUriScheme` event is raised when a navigation request is made to
+      /// <para>The 'OnLaunchingExternalUriScheme' event is raised when a navigation request is made to
       /// a URI scheme that is registered with the OS.</para>
       ///
-      /// <para>The `OnLaunchingExternalUriScheme` event handler may suppress the default dialog
+      /// <para>The 'OnLaunchingExternalUriScheme' event handler may suppress the default dialog
       /// or replace the default dialog with a custom dialog.</para>
       ///
       /// <para>If a deferral is not taken on the event args, the external URI scheme launch is
@@ -3875,21 +3888,21 @@ type
       /// external URI scheme launch is blocked until the deferral is completed.
       /// The host also has the option to cancel the URI scheme launch.</para>
       ///
-      /// <para>The `OnNavigationStarting` and `OnNavigationCompleted` events will be raised,
-      /// regardless of whether the `Cancel` property is set to `TRUE` or
-      /// `FALSE`. The `OnNavigationCompleted` event will be raised with the `IsSuccess` property
-      /// set to `FALSE` and the `WebErrorStatus` property set to `ConnectionAborted` regardless of
-      /// whether the host sets the `Cancel` property on the
-      /// `ICoreWebView2LaunchingExternalUriSchemeEventArgs`. The `OnSourceChanged`, `OnContentLoading`,
-      /// and `OnHistoryChanged` events will not be raised for this navigation to the external URI
-      /// scheme regardless of the `Cancel` property.</para>
+      /// <para>The 'OnNavigationStarting' and 'OnNavigationCompleted' events will be raised,
+      /// regardless of whether the 'Cancel' property is set to 'TRUE' or
+      /// 'FALSE'. The 'OnNavigationCompleted' event will be raised with the 'IsSuccess' property
+      /// set to 'FALSE' and the 'WebErrorStatus' property set to 'ConnectionAborted' regardless of
+      /// whether the host sets the 'Cancel' property on the
+      /// 'ICoreWebView2LaunchingExternalUriSchemeEventArgs'. The 'OnSourceChanged', 'OnContentLoading',
+      /// and 'OnHistoryChanged' events will not be raised for this navigation to the external URI
+      /// scheme regardless of the 'Cancel' property.</para>
       ///
-      /// <para>The `OnLaunchingExternalUriScheme` event will be raised after the
-      /// `OnNavigationStarting` event and before the `OnNavigationCompleted` event.</para>
+      /// <para>The 'OnLaunchingExternalUriScheme' event will be raised after the
+      /// 'OnNavigationStarting' event and before the 'OnNavigationCompleted' event.</para>
       ///
-      /// <para>The default `CoreWebView2Settings` will also be updated upon navigation to an external
-      /// URI scheme. If a setting on the `CoreWebView2Settings` interface has been changed,
-      /// navigating to an external URI scheme will trigger the `CoreWebView2Settings` to update.</para>
+      /// <para>The default 'CoreWebView2Settings' will also be updated upon navigation to an external
+      /// URI scheme. If a setting on the 'CoreWebView2Settings' interface has been changed,
+      /// navigating to an external URI scheme will trigger the 'CoreWebView2Settings' to update.</para>
       ///
       /// <para>The WebView2 may not display the default dialog based on user settings, browser settings,
       /// and whether the origin is determined as a
@@ -3897,7 +3910,7 @@ type
       /// potentially-trustworthy-origin); however, the event will still be raised.</para>
       ///
       /// <para>If the request is initiated by a cross-origin frame without a user gesture,
-      /// the request will be blocked and the `OnLaunchingExternalUriScheme` event will not
+      /// the request will be blocked and the 'OnLaunchingExternalUriScheme' event will not
       /// be raised.</para>
       /// </summary>
       /// <remarks>
@@ -3966,7 +3979,7 @@ type
       /// <para>Event for non-persistent notifications.</para>
       ///
       /// <para>If a deferral is not taken on the event args, the subsequent scripts after
-      /// the DOM notification creation call (i.e. `Notification()`) are blocked
+      /// the DOM notification creation call (i.e. 'Notification()') are blocked
       /// until the event handler returns. If a deferral is taken, the scripts are
       /// blocked until the deferral is completed.</para>
       /// </summary>
@@ -3976,7 +3989,7 @@ type
       property OnNotificationReceived                          : TOnNotificationReceivedEvent                          read FOnNotificationReceived                          write FOnNotificationReceived;
       /// <summary>
       /// This event is raised when the notification is closed by the web code, such as through
-      /// `notification.close()`. You don't need to call `ReportClosed` since this is
+      /// 'notification.close()'. You don't need to call 'ReportClosed' since this is
       /// coming from the web code.
       /// </summary>
       /// <remarks>
@@ -3991,7 +4004,7 @@ type
       /// </remarks>
       property OnSaveAsUIShowing                               : TOnSaveAsUIShowingEvent                               read FOnSaveAsUIShowing                               write FOnSaveAsUIShowing;
       /// <summary>
-      /// This event receives the result of the `ShowSaveAsUI` method.
+      /// This event receives the result of the 'ShowSaveAsUI' method.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2_25#showsaveasui">See the ICoreWebView2_25 article.</see></para>
@@ -4003,8 +4016,8 @@ type
       /// <para>Developers can specify their own logic for determining whether
       /// to allow a particular type of file to be saved from the document origin URI.
       /// Developers can also determine the save decision based on other criteria.</para>
-      /// <para>Here are two properties in `ICoreWebView2SaveFileSecurityCheckStartingEventArgs`
-      /// to manage the decision: `CancelSave` and `SuppressDefaultPolicy`.</para>
+      /// <para>Here are two properties in 'ICoreWebView2SaveFileSecurityCheckStartingEventArgs'
+      /// to manage the decision: 'CancelSave' and 'SuppressDefaultPolicy'.</para>
       /// <para>Table of Properties' value and result:</para>
       /// <code>
       /// | CancelSave | SuppressDefaultPolicy | Result
@@ -4026,7 +4039,7 @@ type
       /// </remarks>
       property OnSaveFileSecurityCheckStarting                : TOnSaveFileSecurityCheckStartingEvent                  read FOnSaveFileSecurityCheckStarting                 write FOnSaveFileSecurityCheckStarting;
       /// <summary>
-      /// `OnScreenCaptureStarting` event is raised when the [Screen Capture API](https://www.w3.org/TR/screen-capture/)
+      /// 'OnScreenCaptureStarting' event is raised when the [Screen Capture API](https://www.w3.org/TR/screen-capture/)
       /// is requested by the user using getDisplayMedia().
       /// </summary>
       /// <remarks>
@@ -4034,18 +4047,18 @@ type
       /// </remarks>
       property OnScreenCaptureStarting                        : TOnScreenCaptureStartingEvent                          read FOnScreenCaptureStarting                         write FOnScreenCaptureStarting;
       /// <summary>
-      /// <para>`OnFrameScreenCaptureStarting` is raised when content in an iframe or any of its
+      /// <para>'OnFrameScreenCaptureStarting' is raised when content in an iframe or any of its
       /// descendant iframes requests permission to use the Screen Capture
       /// API from getDisplayMedia().</para>
       ///
-      /// <para>This relates to the `ScreenCaptureStarting` event on the
-      /// `CoreWebView2`.</para>
+      /// <para>This relates to the 'ScreenCaptureStarting' event on the
+      /// 'CoreWebView2'.</para>
       /// <para>Both these events will be raised in the case of an iframe requesting
-      /// screen capture. The `CoreWebView2Frame`'s event handlers will be invoked
-      /// before the event handlers on the `CoreWebView2`. If the `Handled`
-      /// property of the `ScreenCaptureStartingEventArgs` is set to TRUE
-      /// within the`CoreWebView2Frame` event handler, then the event will not
-      /// be raised on the `CoreWebView2`, and its event handlers will not be
+      /// screen capture. The 'CoreWebView2Frame''s event handlers will be invoked
+      /// before the event handlers on the 'CoreWebView2'. If the 'Handled'
+      /// property of the 'ScreenCaptureStartingEventArgs' is set to TRUE
+      /// within the'CoreWebView2Frame' event handler, then the event will not
+      /// be raised on the 'CoreWebView2', and its event handlers will not be
       /// invoked.</para>
       /// </summary>
       /// <remarks>
@@ -4055,7 +4068,7 @@ type
       /// <summary>
       /// Raised when a new direct descendant iframe is created.
       /// Handle this event to get access to ICoreWebView2Frame objects.
-      /// Use `OnFrameDestroyed` to listen for when this iframe goes away.
+      /// Use 'OnFrameDestroyed' to listen for when this iframe goes away.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2frame7">See the ICoreWebView2Frame7 article.</see></para>
@@ -4085,23 +4098,23 @@ type
       /// </remarks>
       property OnFindStartCompleted                           : TOnFindStartCompletedEvent                             read FOnFindStartCompleted                            write FOnFindStartCompleted;
       /// <summary>
-      /// <para>`DragStarting` is a deferrable event that is raised when the WebView2
+      /// <para>'DragStarting' is a deferrable event that is raised when the WebView2
       /// detects a drag started within the WebView2.</para>
       /// <para>WebView2's default drag behavior is to synchronously call DoDragDrop when
       /// it detects drag. This event's args expose the data WebView2 uses to call
       /// DoDragDrop to allow users to implement their own drag logic and override
       /// WebView2's.</para>
-      /// <para>Handlers of this event must set the `Handled` event to true in order to
+      /// <para>Handlers of this event must set the 'Handled' event to true in order to
       /// override WebView2's default logic. When invoking drag logic asynchronously
       /// using a deferral, handlers must take care to follow these steps in order:</para>
       /// <code>
       ///   * Invoke asynchronous drag logic
-      ///   * Set the event args `Handled` property true
+      ///   * Set the event args 'Handled' property true
       ///   * Complete the deferral
       /// </code>
       /// <para>In the asynchronous case, WebView2 decides whether or not to invoke its
       /// default drag logic when the deferral completes. So the event args'
-      /// `Handled` property must be true when the deferral is completed.</para>
+      /// 'Handled' property must be true when the deferral is completed.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2compositioncontroller5#add_dragstarting">See the ICoreWebView2CompositionController5 article.</see></para>
@@ -4117,7 +4130,7 @@ type
       /// be shared with other scripts.</para>
       ///
       /// <para>This event is raised when a web application creates a dedicated worker using the
-      /// `new Worker("/worker.js")` method. See the
+      /// 'new Worker("/worker.js")' method. See the
       /// [Worker](https://developer.mozilla.org/docs/Web/API/Worker/Worker)
       /// for more information.</para>
       /// </summary>
@@ -4136,7 +4149,7 @@ type
       /// be shared with other scripts.</para>
       ///
       /// <para>This event is raised when a dedicated creates a dedicated worker using the
-      /// `new Worker("/worker.js")` method. See the
+      /// 'new Worker("/worker.js")' method. See the
       /// [Worker](https://developer.mozilla.org/docs/Web/API/Worker/Worker)
       /// for more information.</para>
       /// </summary>
@@ -4145,11 +4158,11 @@ type
       /// </remarks>
       property OnDedicatedWorkerCreated2                      : TOnDedicatedWorkerCreated2Event                        read FOnDedicatedWorkerCreated2                       write FOnDedicatedWorkerCreated2;
       /// <summary>
-      /// <para>Add an event handler for the `Destroying` event that is raised when the
+      /// <para>Add an event handler for the 'Destroying' event that is raised when the
       /// worker object is Destroying.</para>
       ///
       /// <para>A worker object is Destroying when the worker script is terminated or when
-      /// the `CoreWebView2DedicatedWorker` object is Destroying.</para>
+      /// the 'CoreWebView2DedicatedWorker' object is Destroying.</para>
       ///
       /// <para>If the worker has already been destroyed before the event handler is registered,
       /// the handler will never be called.</para>
@@ -4159,14 +4172,14 @@ type
       /// </remarks>
       property OnDedicatedWorkerDestroying                    : TOnDedicatedWorkerDestroyingEvent                      read FOnDedicatedWorkerDestroying                     write FOnDedicatedWorkerDestroying;
       /// <summary>
-      /// <para>`OnWebMessageReceived` is fired, when the
-      /// `ICoreWebView2Settings.IsWebMessageEnabled` setting is set TRUE and the
-      /// worker runs `self.chrome.webview.postMessage`. The `postMessage` function
-      /// is `void postMessage(object)` where object is any object supported by JSON
+      /// <para>'OnWebMessageReceived' is fired, when the
+      /// 'ICoreWebView2Settings.IsWebMessageEnabled' setting is set TRUE and the
+      /// worker runs 'self.chrome.webview.postMessage'. The 'postMessage' function
+      /// is 'void postMessage(object)' where object is any object supported by JSON
       /// conversion.</para>
       ///
-      /// <para>If the worker calls `postMessage` multiple times, the corresponding
-      /// `OnWebMessageReceived` events are guaranteed to be fired in the same order.</para>
+      /// <para>If the worker calls 'postMessage' multiple times, the corresponding
+      /// 'OnWebMessageReceived' events are guaranteed to be fired in the same order.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2dedicatedworker#add_webmessagereceived">See the ICoreWebView2DedicatedWorker article.</see></para>
@@ -4183,7 +4196,7 @@ type
       /// be shared with other scripts.</para>
       ///
       /// <para>This event is raised when a web application creates a dedicated worker using the
-      /// `new Worker("/worker.js")` method. See the
+      /// 'new Worker("/worker.js")' method. See the
       /// [Worker](https://developer.mozilla.org/docs/Web/API/Worker/Worker)
       /// for more information.</para>
       /// </summary>
@@ -4192,10 +4205,10 @@ type
       /// </remarks>
       property OnFrameDedicatedWorkerCreated                  : TOnFrameDedicatedWorkerCreatedEvent                    read FOnFrameDedicatedWorkerCreated                   write FOnFrameDedicatedWorkerCreated;
       /// <summary>
-      /// <para>Add an event handler for the `Destroying` event that is raised when the
+      /// <para>Add an event handler for the 'Destroying' event that is raised when the
       /// worker object is Destroying.</para>
       /// <para>A worker object is Destroying when the worker script is terminated or when
-      /// the `CoreWebView2ServiceWorker` object is Destroying.</para>
+      /// the 'CoreWebView2ServiceWorker' object is Destroying.</para>
       /// <para>If the worker has already been destroyed before the event handler is registered,
       /// the handler will never be called.</para>
       /// </summary>
@@ -4204,13 +4217,13 @@ type
       /// </remarks>
       property OnServiceWorkerDestroying                      : TOnServiceWorkerDestroyingEvent                        read FOnServiceWorkerDestroying                       write FOnServiceWorkerDestroying;
       /// <summary>
-      /// <para>`OnWebMessageReceived` is fired, when the
-      /// `ICoreWebView2Settings.IsWebMessageEnabled` setting is set TRUE and the
-      /// worker runs `self.chrome.webview.postMessage`. The `postMessage` function
-      /// is `void postMessage(object)` where object is any object supported by JSON
+      /// <para>'OnWebMessageReceived' is fired, when the
+      /// 'ICoreWebView2Settings.IsWebMessageEnabled' setting is set TRUE and the
+      /// worker runs 'self.chrome.webview.postMessage'. The 'postMessage' function
+      /// is 'void postMessage(object)' where object is any object supported by JSON
       /// conversion.</para>
-      /// <para>If the worker calls `postMessage` multiple times, the corresponding
-      /// `WebMessageReceived` events are guaranteed to be fired in the same order.</para>
+      /// <para>If the worker calls 'postMessage' multiple times, the corresponding
+      /// 'WebMessageReceived' events are guaranteed to be fired in the same order.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworker#add_webmessagereceived">See the ICoreWebView2ServiceWorker article.</see></para>
@@ -4231,7 +4244,7 @@ type
       /// from the DOM, ensuring a more secure and controlled environment.</para>
       ///
       /// <para>This event is raised when a web application registers a service worker using the
-      /// `navigator.serviceWorker.register("/sw.js")` method. See the
+      /// 'navigator.serviceWorker.register("/sw.js")' method. See the
       /// [Service Worker Registration](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration)
       /// for more information.</para>
       /// </summary>
@@ -4258,10 +4271,10 @@ type
       /// See the [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/active)
       /// documentation for more information.</para>
       ///
-      /// <para>If you register for the `OnServiceWorkerActivated` event and the registration already
+      /// <para>If you register for the 'OnServiceWorkerActivated' event and the registration already
       /// has an active worker, the event handler is not called immediately. Instead, it waits
       /// for the next activation event to occur. Therefore, you should first check if an active
-      /// service worker is running by using the `TCoreWebView2ServiceWorkerRegistration.ActiveServiceWorker` property.</para>
+      /// service worker is running by using the 'TCoreWebView2ServiceWorkerRegistration.ActiveServiceWorker' property.</para>
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2serviceworkerregistration#add_serviceworkeractivated">See the ICoreWebView2ServiceWorkerRegistration article.</see></para>
@@ -4269,7 +4282,7 @@ type
       property OnServiceWorkerActivated                       : TOnServiceWorkerActivatedEvent                         read FOnServiceWorkerActivated                        write FOnServiceWorkerActivated;
       /// <summary>
       /// <para>This event is raised when the worker registration is
-      /// unregistered using the JS api `registration.unregister()`. See the
+      /// unregistered using the JS api 'registration.unregister()'. See the
       /// [Unregister](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister)
       /// for more information.</para>
       /// </summary>
@@ -4284,7 +4297,7 @@ type
       /// share a common global scope called SharedWorkerGlobalScope.</para>
       ///
       /// <para>This event is raised when a web application creates a shared worker using the
-      /// `new SharedWorker("worker.js")` method. See the
+      /// 'new SharedWorker("worker.js")' method. See the
       /// [Shared Worker](https://developer.mozilla.org/docs/Web/API/SharedWorker)
       /// for more information.</para>
       /// </summary>
@@ -4303,7 +4316,7 @@ type
       /// <para>This event is raised when the worker object is Destroying.</para>
       ///
       /// <para>A worker object is Destroying when the worker script is terminated or when
-      /// the `CoreWebView2SharedWorker` object is Destroying.</para>
+      /// the 'CoreWebView2SharedWorker' object is Destroying.</para>
       ///
       /// <para>If the worker has already been destroyed before the event handler is registered,
       /// the handler will never be called.</para>

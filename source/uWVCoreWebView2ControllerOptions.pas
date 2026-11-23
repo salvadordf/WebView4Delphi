@@ -57,7 +57,7 @@ type
       /// </summary>
       property BaseIntf                : ICoreWebView2ControllerOptions read FBaseIntf                  write FBaseIntf;
       /// <summary>
-      /// <para>`ProfileName` property is to specify a profile name, which is only allowed to contain
+      /// <para>'ProfileName' property is to specify a profile name, which is only allowed to contain
       /// the following ASCII characters. It has a maximum length of 64 characters excluding the null-terminator.
       /// It is ASCII case insensitive.</para>
       /// <para>* alphabet characters: a-z and A-Z</para>
@@ -72,7 +72,7 @@ type
       /// </remarks>
       property ProfileName             : wvstring                       read GetProfileName             write SetProfileName;
       /// <summary>
-      /// `IsInPrivateModeEnabled` property is to enable/disable InPrivate mode.
+      /// 'IsInPrivateModeEnabled' property is to enable/disable InPrivate mode.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2controlleroptions#get_isinprivatemodeenabled">See the ICoreWebView2ControllerOptions article.</see></para>
@@ -81,14 +81,14 @@ type
       /// <summary>
       /// <para>The default locale for the WebView2.  It sets the default locale for all
       /// Intl JavaScript APIs and other JavaScript APIs that depend on it, namely
-      /// `Intl.DateTimeFormat()` which affects string formatting like
-      /// in the time/date formats. Example: `Intl.DateTimeFormat().format(new Date())`
+      /// 'Intl.DateTimeFormat()' which affects string formatting like
+      /// in the time/date formats. Example: 'Intl.DateTimeFormat().format(new Date())'
       /// The intended locale value is in the format of
       /// BCP 47 Language Tags. More information can be found from
       /// [IETF BCP47](https://www.ietf.org/rfc/bcp/bcp47.html).</para>
       /// <para>This property sets the locale for a CoreWebView2Environment used to create the
       /// WebView2ControllerOptions object, which is passed as a parameter in
-      /// `CreateCoreWebView2ControllerWithOptions`.</para>
+      /// 'CreateCoreWebView2ControllerWithOptions'.</para>
       /// <para>Changes to the ScriptLocale property apply to renderer processes created after
       /// the change. Any existing renderer processes will continue to use the previous
       /// ScriptLocale value. To ensure changes are applied to all renderer process,
@@ -103,22 +103,22 @@ type
       /// </remarks>
       property ScriptLocale            : wvstring                       read GetScriptLocale            write SetScriptLocale;
       /// <summary>
-      /// <para>This property allows users to initialize the `DefaultBackgroundColor` early,
+      /// <para>This property allows users to initialize the 'DefaultBackgroundColor' early,
       /// preventing a white flash that can occur while WebView2 is loading when
       /// the background color is set to something other than white. With early
       /// initialization, the color remains consistent from the start. After
-      /// initialization, `CoreWebView2Controller.DefaultBackgroundColor` will return the value set using this API.</para>
+      /// initialization, 'CoreWebView2Controller.DefaultBackgroundColor' will return the value set using this API.</para>
       ///
-      /// <para>The `CoreWebView2Controller.DefaultBackgroundColor` can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable,
+      /// <para>The 'CoreWebView2Controller.DefaultBackgroundColor' can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable,
       /// which will remain supported for cases where this solution is being used.
       /// It is encouraged to transition away from the environment variable and use this API solution to
       /// apply the property. It is important to highlight that when set, the enviroment variable overrides
       /// ControllerOptions::DefaultBackgroundColor and becomes the initial value of Controller::DefaultBackgroundColor.</para>
       ///
-      /// <para>The `DefaultBackgroundColor` is the color that renders underneath all web
+      /// <para>The 'DefaultBackgroundColor' is the color that renders underneath all web
       /// content. This means WebView2 renders this color when there is no web
       /// content loaded. When no background color is defined in WebView2, it uses
-      /// the `DefaultBackgroundColor` property to render the background.
+      /// the 'DefaultBackgroundColor' property to render the background.
       /// By default, this color is set to white.</para>
       ///
       /// <para>This API only supports opaque colors and full transparency. It will
@@ -131,11 +131,11 @@ type
       /// </remarks>
       property DefaultBackgroundColor  : TColor                         read GetDefaultBackgroundColor    write SetDefaultBackgroundColor;
       /// <summary>
-      /// <para>`AllowHostInputProcessing` property is to enable/disable input passing through
+      /// <para>'AllowHostInputProcessing' property is to enable/disable input passing through
       /// the app before being delivered to the WebView2. This property is only applicable
-      /// to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
-      /// composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
-      /// By default the value is `FALSE`.</para>
+      /// to controllers created with 'CoreWebView2Environment.CreateCoreWebView2ControllerAsync' and not
+      /// composition controllers created with 'CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync'.
+      /// By default the value is 'FALSE'.</para>
       /// <para>Setting this property has no effect when using visual hosting.</para>
       /// </summary>
       /// <remarks>

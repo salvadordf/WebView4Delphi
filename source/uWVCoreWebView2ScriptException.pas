@@ -33,7 +33,7 @@ type
       destructor  Destroy; override;
       /// <summary>
       /// This will return all details of the exception as a JSON string.
-      /// In the case that script has thrown a non-Error object such as `throw "abc";`
+      /// In the case that script has thrown a non-Error object such as 'throw "abc";'
       /// or any other non-Error object, you can get object specific properties.
       /// </summary>
       function ToJson                : wvstring;
@@ -47,21 +47,21 @@ type
       property BaseIntf              : ICoreWebView2ScriptException      read FBaseIntf;
       /// <summary>
       /// The line number of the source where the exception occurred.
-      /// In the JSON it is `exceptionDetail.lineNumber`.
+      /// In the JSON it is 'exceptionDetail.lineNumber'.
       /// Note that this position starts at 0.
       /// </summary>
       property LineNumber            : cardinal                          read GetLineNumber;
       /// <summary>
       /// The column number of the source where the exception occurred.
-      /// In the JSON it is `exceptionDetail.columnNumber`.
+      /// In the JSON it is 'exceptionDetail.columnNumber'.
       /// Note that this position starts at 0.
       /// </summary>
       property ColumnNumber          : cardinal                          read GetColumnNumber;
       /// <summary>
       /// The Name is the exception's class name.
-      /// In the JSON it is `exceptionDetail.exception.className`.
+      /// In the JSON it is 'exceptionDetail.exception.className'.
       /// This is the empty string if the exception doesn't have a class name.
-      /// This can happen if the script throws a non-Error object such as `throw "abc";`
+      /// This can happen if the script throws a non-Error object such as 'throw "abc";'
       /// </summary>
       property Name                  : wvstring                          read GetName;
       /// <summary>

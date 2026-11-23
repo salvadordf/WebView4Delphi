@@ -77,7 +77,7 @@ body { margin: 0.5em; }
 <p>
  The active service worker that was created. If there is no active service worker, it returns a null pointer. The active service worker is the service worker that controls the pages within the scope of the registration. See the [Service Worker] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorker">https://developer.mozilla.org/docs/Web/API/ServiceWorker</a>) for more information.
 
-<p>This corresponds to the `active` property of the `ServiceWorkerRegistration` object in the DOM. For more information, see the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active</a>). </p>
+<p>This corresponds to the 'active' property of the 'ServiceWorkerRegistration' object in the DOM. For more information, see the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/active</a>). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{06003F5E-AF92-5E7E-B497-3FA167DD37C2}']</dt>
@@ -94,11 +94,11 @@ body { margin: 0.5em; }
 <p>
  A string representing the URI of the origin where the worker is executing.
 
-<p>If a worker created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
+<p>If a worker created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the origin will be <a href="https://example.com/">https://example.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -108,15 +108,15 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `scopeUri` is a fully qualified URI, including the scheme, host and path, that specifies the range of URLs a service worker can control.
+ The 'scopeUri' is a fully qualified URI, including the scheme, host and path, that specifies the range of URLs a service worker can control.
 
-<p>When registering a service worker, if no scope is specified, it defaults to the directory where the service worker script resides. For example, if the script is located at <a href="https://example.com/app/sw.js">https://example.com/app/sw.js</a>, the default `scopeUri` would be <a href="https://example.com/app/">https://example.com/app/</a>. However, if a scope is provided, it is defined relative to the application's base URI. For instance, if an application at <a href="https://example.com/">https://example.com/</a> registers a service worker with a scope of /app/, the resulting `scopeUri` is <a href="https://example.com/app/">https://example.com/app/</a>.
+<p>When registering a service worker, if no scope is specified, it defaults to the directory where the service worker script resides. For example, if the script is located at <a href="https://example.com/app/sw.js">https://example.com/app/sw.js</a>, the default 'scopeUri' would be <a href="https://example.com/app/">https://example.com/app/</a>. However, if a scope is provided, it is defined relative to the application's base URI. For instance, if an application at <a href="https://example.com/">https://example.com/</a> registers a service worker with a scope of /app/, the resulting 'scopeUri' is <a href="https://example.com/app/">https://example.com/app/</a>.
 
-<p>Refer to the Host Name Canonicalization for details on how normalization is performed. The same process applies to the `Scope` when a service worker is registered from DOM API. The `scopeUri` property reflects this normalization, ensuring that the URI is standardized. For example, `<a href="HTTPS://EXAMPLE.COM/app/">HTTPS://EXAMPLE.COM/app/</a>` is canonicalized to `<a href="https://example.com/app/">https://example.com/app/</a>`; `<a href="https://b">https://b</a>ücher.de/` is canonicalized to `<a href="https://xn--bcher-kva.de/">https://xn--bcher-kva.de/</a>`.
+<p>Refer to the Host Name Canonicalization for details on how normalization is performed. The same process applies to the 'Scope' when a service worker is registered from DOM API. The 'scopeUri' property reflects this normalization, ensuring that the URI is standardized. For example, '<a href="HTTPS://EXAMPLE.COM/app/">HTTPS://EXAMPLE.COM/app/</a>' is canonicalized to '<a href="https://example.com/app/">https://example.com/app/</a>'; '<a href="https://b">https://b</a>ücher.de/' is canonicalized to '<a href="https://xn--bcher-kva.de/">https://xn--bcher-kva.de/</a>'.
 
-<p>The `scope` property of the `ServiceWorkerRegistration` object in the DOM returns the relative URL based on the application's base URI, while this property always returns a fully qualified URI. For more information on DOM API, see the [MDN documentation](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope</a>).
+<p>The 'scope' property of the 'ServiceWorkerRegistration' object in the DOM returns the relative URL based on the application's base URI, while this property always returns a fully qualified URI. For more information on DOM API, see the [MDN documentation](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/scope</a>).
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -128,15 +128,15 @@ body { margin: 0.5em; }
 <p>
  A string representing the URI of the top-level document that the worker is associated with.
 
-<p>If a worker is created with `ScriptUri` set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
+<p>If a worker is created with 'ScriptUri' set to <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin is <a href="https://example.com/">https://example.com/</a>. If the same worker is created from a iframe at <a href="https://example.com/">https://example.com/</a> which is hosted on <a href="https://example2.com/">https://example2.com/</a>, the top-level origin is <a href="https://example2.com/">https://example2.com/</a>.
 
 <p>Refer to the Host Name Canonicalization for details on how normalization is performed.
 
-<p>When CustomDataPartitionId is set, the `TopLevelOrigin` will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be `<a href="https://guid.invalid/">https://guid.invalid/</a>`.
+<p>When CustomDataPartitionId is set, the 'TopLevelOrigin' will be a generated site like guid.invalid. For example, if the top-level document is <a href="https://example.com/worker.js">https://example.com/worker.js</a>, the top-level origin will be '<a href="https://guid.invalid/">https://guid.invalid/</a>'.
 
-<p>For more details see `ICoreWebView2Experimental20::CustomDataPartitionId`.
+<p>For more details see 'ICoreWebView2Experimental20::CustomDataPartitionId'.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -146,13 +146,13 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `ServiceWorkerActivated` event. Adds an event handler for the `ServiceWorkerActivated` event.
+ Adds an event handler for the 'ServiceWorkerActivated' event. Adds an event handler for the 'ServiceWorkerActivated' event.
 
 <p>This event is raised when a service worker is activated. A service worker is activated when its script has been successfully registered and it is ready to control the pages within the scope of the registration.
 
 <p>This event is also raised when an updated version of a service worker reaches the active state. In such a case, the existing CoreWebView2ServiceWorker object is destroying, and this event is raised with a new CoreWebView2ServiceWorker object representing the updated service worker. The active service worker is the one that receives fetch and message events for the pages it controls. See the [Service Worker](<a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/active">https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/active</a>) documentation for more information.
 
-<p>If you register for the `ServiceWorkerActivated` event and the registration already has an active worker, the event handler is not called immediately. Instead, it waits for the next activation event to occur. Therefore, you should first check if an active service worker is running by using the `ActiveServiceWorker` property. </p>
+<p>If you register for the 'ServiceWorkerActivated' event and the registration already has an active worker, the event handler is not called immediately. Instead, it waits for the next activation event to occur. Therefore, you should first check if an active service worker is running by using the 'ActiveServiceWorker' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -162,7 +162,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_ServiceWorkerActivated`. </p>
+ Removes an event handler previously added with 'add_ServiceWorkerActivated'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -172,7 +172,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `Unregistering` event. Add an event handler for the `Unregistering` event that is raised when the worker registration is unregistered using the JS api `registration.unregister()`. See the [Unregister](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister</a>) for more information. </p>
+ Adds an event handler for the 'Unregistering' event. Add an event handler for the 'Unregistering' event that is raised when the worker registration is unregistered using the JS api 'registration.unregister()'. See the [Unregister](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister</a>) for more information. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -182,7 +182,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_Unregistering`. </p>
+ Removes an event handler previously added with 'add_Unregistering'. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

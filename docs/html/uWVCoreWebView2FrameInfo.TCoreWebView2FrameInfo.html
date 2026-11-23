@@ -251,7 +251,7 @@ ICoreWebView2FrameInfo2</p>
 </tr>
 <tr><td colspan="2">
 <p>
- The value of iframe's window.name property. The default value equals to iframe html tag declaring it, as in `&lt;iframe name=&quot;frame-name&quot;&gt;...&lt;/iframe&gt;`. The returned string is empty when the frame has no name attribute and no assigned value for window.name. </p>
+ The value of iframe's window.name property. The default value equals to iframe html tag declaring it, as in '&lt;iframe name=&quot;frame-name&quot;&gt;...&lt;/iframe&gt;'. The returned string is empty when the frame has no name attribute and no assigned value for window.name. </p>
 <p>
 
 
@@ -279,7 +279,7 @@ ICoreWebView2FrameInfo2</p>
 </tr>
 <tr><td colspan="2">
 <p>
- This parent frame's `FrameInfo`. `ParentFrameInfo` will only be populated when obtained via calling `ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`. `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed` will always have a `null` `ParentFrameInfo`. This property is also `null` for the main frame in the WebView2 which has no parent frame. Note that this `ParentFrameInfo` could be out of date as it's a snapshot. </p>
+ This parent frame's 'FrameInfo'. 'ParentFrameInfo' will only be populated when obtained via calling 'ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'. 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed' will always have a 'null' 'ParentFrameInfo'. This property is also 'null' for the main frame in the WebView2 which has no parent frame. Note that this 'ParentFrameInfo' could be out of date as it's a snapshot. </p>
 <p>
 
 
@@ -293,7 +293,7 @@ ICoreWebView2FrameInfo2</p>
 </tr>
 <tr><td colspan="2">
 <p>
- The unique identifier of the frame associated with the current `FrameInfo`. It's the same kind of ID as with the `FrameId` in `ICoreWebView2` and via `ICoreWebView2Frame`. `FrameId` will only be populated (non-zero) when obtained calling `CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`. `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed` will always have an invalid frame Id 0. Note that this `FrameId` could be out of date as it's a snapshot. If there's WebView2 created or destroyed or `FrameCreated/FrameDestroyed` events after the asynchronous call `CoreWebView2Environment.GetProcessExtendedInfos` starts, you may want to call asynchronous method again to get the updated `FrameInfo`s. </p>
+ The unique identifier of the frame associated with the current 'FrameInfo'. It's the same kind of ID as with the 'FrameId' in 'ICoreWebView2' and via 'ICoreWebView2Frame'. 'FrameId' will only be populated (non-zero) when obtained calling 'CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'. 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed' will always have an invalid frame Id 0. Note that this 'FrameId' could be out of date as it's a snapshot. If there's WebView2 created or destroyed or 'FrameCreated/FrameDestroyed' events after the asynchronous call 'CoreWebView2Environment.GetProcessExtendedInfos' starts, you may want to call asynchronous method again to get the updated 'FrameInfo's. </p>
 <p>
 
 
@@ -307,7 +307,7 @@ ICoreWebView2FrameInfo2</p>
 </tr>
 <tr><td colspan="2">
 <p>
- The frame kind of the frame. `FrameKind` will only be populated when obtained calling `ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos`. `ICoreWebView2FrameInfo` objects obtained via `ICoreWebView2.ProcessFailed` will always have the default value `COREWEBVIEW2_FRAME_KIND_UNKNOWN`. Note that this `FrameKind` could be out of date as it's a snapshot. </p>
+ The frame kind of the frame. 'FrameKind' will only be populated when obtained calling 'ICoreWebView2ProcessExtendedInfo.AssociatedFrameInfos'. 'ICoreWebView2FrameInfo' objects obtained via 'ICoreWebView2.ProcessFailed' will always have the default value 'COREWEBVIEW2_FRAME_KIND_UNKNOWN'. Note that this 'FrameKind' could be out of date as it's a snapshot. </p>
 <p>
 
 

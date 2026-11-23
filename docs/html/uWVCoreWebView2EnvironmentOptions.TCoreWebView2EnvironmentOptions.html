@@ -309,7 +309,7 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Set_AdditionalBrowserArguments-PWideChar-">ICoreWebView2EnvironmentOptions.Set_AdditionalBrowserArguments</a>.</p><p>
- Sets the `AdditionalBrowserArguments` property.
+ Sets the 'AdditionalBrowserArguments' property.
 
 <p>Please note that calling this API twice will replace the previous value rather than appending to it. If there are multiple switches, there should be a space in between them. The one exception is if multiple features are being enabled/disabled for a single switch, in which case the features should be comma-seperated. Ex. &quot;&ndash;disable-features=feature1,feature2 &ndash;some-other-switch &ndash;do-something&quot; </p>
 </td></tr>
@@ -321,9 +321,9 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Get_Language-PWideChar-">ICoreWebView2EnvironmentOptions.Get_Language</a>.</p><p>
- The default display language for WebView. It applies to browser UI such as context menu and dialogs. It also applies to the `accept-languages` HTTP header that WebView sends to websites. The intended locale value is in the format of BCP 47 Language Tags. More information can be found from [IETF BCP47](<a href="https://www.ietf.org/rfc/bcp/bcp47.html">https://www.ietf.org/rfc/bcp/bcp47.html</a>).
+ The default display language for WebView. It applies to browser UI such as context menu and dialogs. It also applies to the 'accept-languages' HTTP header that WebView sends to websites. The intended locale value is in the format of BCP 47 Language Tags. More information can be found from [IETF BCP47](<a href="https://www.ietf.org/rfc/bcp/bcp47.html">https://www.ietf.org/rfc/bcp/bcp47.html</a>).
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -333,7 +333,7 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Set_Language-PWideChar-">ICoreWebView2EnvironmentOptions.Set_Language</a>.</p><p>
- Sets the `Language` property. </p>
+ Sets the 'Language' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -343,9 +343,9 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Get_TargetCompatibleBrowserVersion-PWideChar-">ICoreWebView2EnvironmentOptions.Get_TargetCompatibleBrowserVersion</a>.</p><p>
- Specifies the version of the WebView2 Runtime binaries required to be compatible with your app. This defaults to the WebView2 Runtime version that corresponds with the version of the SDK the app is using. The format of this value is the same as the format of the `BrowserVersionString` property and other `BrowserVersion` values. Only the version part of the `BrowserVersion` value is respected. The channel suffix, if it exists, is ignored. The version of the WebView2 Runtime binaries actually used may be different from the specified `TargetCompatibleBrowserVersion`. The binaries are only guaranteed to be compatible. Verify the actual version on the `BrowserVersionString` property on the `ICoreWebView2Environment`.
+ Specifies the version of the WebView2 Runtime binaries required to be compatible with your app. This defaults to the WebView2 Runtime version that corresponds with the version of the SDK the app is using. The format of this value is the same as the format of the 'BrowserVersionString' property and other 'BrowserVersion' values. Only the version part of the 'BrowserVersion' value is respected. The channel suffix, if it exists, is ignored. The version of the WebView2 Runtime binaries actually used may be different from the specified 'TargetCompatibleBrowserVersion'. The binaries are only guaranteed to be compatible. Verify the actual version on the 'BrowserVersionString' property on the 'ICoreWebView2Environment'.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -355,7 +355,7 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Set_TargetCompatibleBrowserVersion-PWideChar-">ICoreWebView2EnvironmentOptions.Set_TargetCompatibleBrowserVersion</a>.</p><p>
- Sets the `TargetCompatibleBrowserVersion` property. </p>
+ Sets the 'TargetCompatibleBrowserVersion' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -365,7 +365,7 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Get_AllowSingleSignOnUsingOSPrimaryAccount-Integer-">ICoreWebView2EnvironmentOptions.Get_AllowSingleSignOnUsingOSPrimaryAccount</a>.</p><p>
- The `AllowSingleSignOnUsingOSPrimaryAccount` property is used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft Account (MSA) resources inside WebView. All AAD accounts, connected to Windows and shared for all apps, are supported. For MSA, SSO is only enabled for the account associated for Windows account login, if any. Default is disabled. Universal Windows Platform apps must also declare `enterpriseCloudSSO` [Restricted capabilities](/windows/uwp/packaging/app-capability-declarations\#restricted-capabilities) for the single sign on (SSO) to work. </p>
+ The 'AllowSingleSignOnUsingOSPrimaryAccount' property is used to enable single sign on with Azure Active Directory (AAD) and personal Microsoft Account (MSA) resources inside WebView. All AAD accounts, connected to Windows and shared for all apps, are supported. For MSA, SSO is only enabled for the account associated for Windows account login, if any. Default is disabled. Universal Windows Platform apps must also declare 'enterpriseCloudSSO' [Restricted capabilities](/windows/uwp/packaging/app-capability-declarations\#restricted-capabilities) for the single sign on (SSO) to work. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -375,7 +375,7 @@ ICoreWebView2EnvironmentOptions</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions.html#Set_AllowSingleSignOnUsingOSPrimaryAccount-Integer-">ICoreWebView2EnvironmentOptions.Set_AllowSingleSignOnUsingOSPrimaryAccount</a>.</p><p>
- Sets the `AllowSingleSignOnUsingOSPrimaryAccount` property. </p>
+ Sets the 'AllowSingleSignOnUsingOSPrimaryAccount' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -395,7 +395,7 @@ ICoreWebView2EnvironmentOptions2</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions2.html#Set_ExclusiveUserDataFolderAccess-Integer-">ICoreWebView2EnvironmentOptions2.Set_ExclusiveUserDataFolderAccess</a>.</p><p>
- Sets the `ExclusiveUserDataFolderAccess` property. The `ExclusiveUserDataFolderAccess` property specifies that the WebView environment obtains exclusive access to the user data folder. If the user data folder is already being used by another WebView environment with a different value for `ExclusiveUserDataFolderAccess` property, the creation of a WebView2Controller using the environment object will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. When set as TRUE, no other WebView can be created from other processes using WebView2Environment objects with the same UserDataFolder. This prevents other processes from creating WebViews which share the same browser process instance, since sharing is performed among WebViews that have the same UserDataFolder. When another process tries to create a WebView2Controller from an WebView2Environment object created with the same user data folder, it will fail with `HRESULT_FROM_WIN32(ERROR_INVALID_STATE)`. </p>
+ Sets the 'ExclusiveUserDataFolderAccess' property. The 'ExclusiveUserDataFolderAccess' property specifies that the WebView environment obtains exclusive access to the user data folder. If the user data folder is already being used by another WebView environment with a different value for 'ExclusiveUserDataFolderAccess' property, the creation of a WebView2Controller using the environment object will fail with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'. When set as TRUE, no other WebView can be created from other processes using WebView2Environment objects with the same UserDataFolder. This prevents other processes from creating WebViews which share the same browser process instance, since sharing is performed among WebViews that have the same UserDataFolder. When another process tries to create a WebView2Controller from an WebView2Environment object created with the same user data folder, it will fail with 'HRESULT_FROM_WIN32(ERROR_INVALID_STATE)'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -415,7 +415,7 @@ ICoreWebView2EnvironmentOptions3</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions3.html#Set_IsCustomCrashReportingEnabled-Integer-">ICoreWebView2EnvironmentOptions3.Set_IsCustomCrashReportingEnabled</a>.</p><p>
- Sets the `IsCustomCrashReportingEnabled` property. </p>
+ Sets the 'IsCustomCrashReportingEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -455,7 +455,7 @@ ICoreWebView2EnvironmentOptions5</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions5.html#Set_EnableTrackingPrevention-Integer-">ICoreWebView2EnvironmentOptions5.Set_EnableTrackingPrevention</a>.</p><p>
- Sets the `EnableTrackingPrevention` property. </p>
+ Sets the 'EnableTrackingPrevention' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -475,7 +475,7 @@ ICoreWebView2EnvironmentOptions6</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions6.html#Set_AreBrowserExtensionsEnabled-Integer-">ICoreWebView2EnvironmentOptions6.Set_AreBrowserExtensionsEnabled</a>.</p><p>
- Sets the `AreBrowserExtensionsEnabled` property. </p>
+ Sets the 'AreBrowserExtensionsEnabled' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -497,9 +497,9 @@ ICoreWebView2EnvironmentOptions7</p>
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ChannelSearchKind-COREWEBVIEW2_CHANNEL_SEARCH_KIND-">ICoreWebView2EnvironmentOptions7.Set_ChannelSearchKind</a>.</p><p>
 
 
-<p>The `ChannelSearchKind` property is `COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE` by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so that environment creation searches for a channel from least to most stable. If `ReleaseChannels` has been provided, the loader will only search for channels in the set. See `COREWEBVIEW2_RELEASE_CHANNELS` for more details on channels.
+<p>The 'ChannelSearchKind' property is 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE' by default; environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Runtime -&amp;gt; Beta -&amp;gt; Dev -&amp;gt; Canary. Set 'ChannelSearchKind' to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order so that environment creation searches for a channel from least to most stable. If 'ReleaseChannels' has been provided, the loader will only search for channels in the set. See 'COREWEBVIEW2_RELEASE_CHANNELS' for more details on channels.
 
-<p>This property can be overridden by the corresponding registry key `ChannelSearchKind` or the environment variable `WEBVIEW2_CHANNEL_SEARCH_KIND`. Set the value to `1` to set the search kind to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+<p>This property can be overridden by the corresponding registry key 'ChannelSearchKind' or the environment variable 'WEBVIEW2_CHANNEL_SEARCH_KIND'. Set the value to '1' to set the search kind to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE'. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.
 
 <p></p>
 </td></tr>
@@ -511,7 +511,7 @@ ICoreWebView2EnvironmentOptions7</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Get_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">ICoreWebView2EnvironmentOptions7.Get_ReleaseChannels</a>.</p><p>
- Gets the `ReleaseChannels` property. </p>
+ Gets the 'ReleaseChannels' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -523,9 +523,9 @@ ICoreWebView2EnvironmentOptions7</p>
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html#Set_ReleaseChannels-COREWEBVIEW2_RELEASE_CHANNELS-">ICoreWebView2EnvironmentOptions7.Set_ReleaseChannels</a>.</p><p>
 
 
-<p>Sets the `ReleaseChannels`, which is a mask of one or more `COREWEBVIEW2_RELEASE_CHANNELS` indicating which channels environment creation should search for. OR operation(s) can be applied to multiple `COREWEBVIEW2_RELEASE_CHANNELS` to create a mask. The default value is a a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When `ReleaseChannels` is provided, environment creation will only search for the channels specified in the set. Set `ChannelSearchKind` to `COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE` to reverse the search order so environment creation searches for least stable build first. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of each channel.
+<p>Sets the 'ReleaseChannels', which is a mask of one or more 'COREWEBVIEW2_RELEASE_CHANNELS' indicating which channels environment creation should search for. OR operation(s) can be applied to multiple 'COREWEBVIEW2_RELEASE_CHANNELS' to create a mask. The default value is a a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When 'ReleaseChannels' is provided, environment creation will only search for the channels specified in the set. Set 'ChannelSearchKind' to 'COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE' to reverse the search order so environment creation searches for least stable build first. See 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of each channel.
 
-<p>`CreateCoreWebView2EnvironmentWithOptions` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if environment creation is unable to find any channel from the `ReleaseChannels` installed on the device. Use `GetAvailableCoreWebView2BrowserVersionStringWithOptions` on `ICoreWebView2Environment` to verify which channel is used when this option is set.
+<p>'CreateCoreWebView2EnvironmentWithOptions' fails with 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if environment creation is unable to find any channel from the 'ReleaseChannels' installed on the device. Use 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' on 'ICoreWebView2Environment' to verify which channel is used when this option is set.
 
 <p>Examples: </p>
 
@@ -539,11 +539,11 @@ ICoreWebView2EnvironmentOptions7</p>
 
 <p>
 
-<p>If both `BrowserExecutableFolder` and `ReleaseChannels` are provided, the `BrowserExecutableFolder` takes precedence, regardless of whether or not the channel of `BrowserExecutableFolder` is included in the `ReleaseChannels`.
+<p>If both 'BrowserExecutableFolder' and 'ReleaseChannels' are provided, the 'BrowserExecutableFolder' takes precedence, regardless of whether or not the channel of 'BrowserExecutableFolder' is included in the 'ReleaseChannels'.
 
-<p>`ReleaseChannels` can be overridden by the corresponding registry override `ReleaseChannels` or the environment variable `WEBVIEW2_RELEASE_CHANNELS`.
+<p>'ReleaseChannels' can be overridden by the corresponding registry override 'ReleaseChannels' or the environment variable 'WEBVIEW2_RELEASE_CHANNELS'.
 
-<p>Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by `ChannelSearchKind`. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides.
+<p>Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values &quot;0,2&quot; and &quot;2,0&quot; indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by 'ChannelSearchKind'. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides.
 
 <p></p>
 </td></tr>
@@ -565,7 +565,7 @@ ICoreWebView2EnvironmentOptions8</p>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html#Set_ScrollBarStyle-COREWEBVIEW2_SCROLLBAR_STYLE-">ICoreWebView2EnvironmentOptions8.Set_ScrollBarStyle</a>.</p><p>
- The ScrollBar style being set on the WebView2 Environment. The default value is `COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT` which specifies the default browser ScrollBar style. The `color-scheme` CSS property needs to be set on the corresponding page to allow ScrollBar to follow light or dark theme. Please see [color-scheme](<a href="https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences">https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences</a>) for how `color-scheme` can be set. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with `ScrollBarStyle`. </p>
+ The ScrollBar style being set on the WebView2 Environment. The default value is 'COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT' which specifies the default browser ScrollBar style. The 'color-scheme' CSS property needs to be set on the corresponding page to allow ScrollBar to follow light or dark theme. Please see [color-scheme](<a href="https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences">https://developer.mozilla.org/docs/Web/CSS/color-scheme#declaring_color_scheme_preferences</a>) for how 'color-scheme' can be set. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with 'ScrollBarStyle'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
@@ -629,7 +629,7 @@ ICoreWebView2EnvironmentOptions8</p>
 <dt>aAdditionalBrowserArguments</dt>
 <dd>Additional command line switches.</dd>
 <dt>aLanguage</dt>
-<dd>The default display language for WebView. It applies to browser UI such as context menu and dialogs. It also applies to the `accept-languages` HTTP header that WebView sends to websites.</dd>
+<dd>The default display language for WebView. It applies to browser UI such as context menu and dialogs. It also applies to the 'accept-languages' HTTP header that WebView sends to websites.</dd>
 <dt>aTargetCompatibleBrowserVersion</dt>
 <dd>Specifies the version of the WebView2 Runtime binaries required to be compatible with your app.</dd>
 <dt>aAllowSingleSignOnUsingOSPrimaryAccount</dt>

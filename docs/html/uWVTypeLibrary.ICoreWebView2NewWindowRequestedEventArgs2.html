@@ -48,9 +48,9 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the name of the new window. This window can be created via `window.open(url, windowName)`, where the windowName parameter corresponds to `Name` property. If no windowName is passed to `window.open`, then the `Name` property will be set to an empty string. Additionally, if window is opened through other means, such as `&lt;a target=&quot;windowName&quot;&gt;...&lt;/a&gt;` or `&lt;iframe name=&quot;windowName&quot;&gt;...&lt;/iframe&gt;`, then the `Name` property will be set accordingly. In the case of target=_blank, the `Name` property will be an empty string. Opening a window via ctrl+clicking a link would result in the `Name` property being set to an empty string.
+ Gets the name of the new window. This window can be created via 'window.open(url, windowName)', where the windowName parameter corresponds to 'Name' property. If no windowName is passed to 'window.open', then the 'Name' property will be set to an empty string. Additionally, if window is opened through other means, such as '&lt;a target=&quot;windowName&quot;&gt;...&lt;/a&gt;' or '&lt;iframe name=&quot;windowName&quot;&gt;...&lt;/iframe&gt;', then the 'Name' property will be set accordingly. In the case of target=_blank, the 'Name' property will be an empty string. Opening a window via ctrl+clicking a link would result in the 'Name' property being set to an empty string.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings). </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{BBC7BAED-74C6-4C92-B63A-7F5AEAE03DE3}']</dt>

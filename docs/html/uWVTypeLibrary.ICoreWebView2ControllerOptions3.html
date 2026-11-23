@@ -53,7 +53,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the `DefaultBackgroundColor` property. </p>
+ Gets the 'DefaultBackgroundColor' property. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{B32B191A-8998-57CA-B7CB-E04617E4CE4A}']</dt>
@@ -70,11 +70,11 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>This property allows users to initialize the `DefaultBackgroundColor` early, preventing a white flash that can occur while WebView2 is loading when the background color is set to something other than white. With early initialization, the color remains consistent from the start. After initialization, `CoreWebView2Controller.DefaultBackgroundColor` will return the value set using this API.
+<p>This property allows users to initialize the 'DefaultBackgroundColor' early, preventing a white flash that can occur while WebView2 is loading when the background color is set to something other than white. With early initialization, the color remains consistent from the start. After initialization, 'CoreWebView2Controller.DefaultBackgroundColor' will return the value set using this API.
 
-<p>The `CoreWebView2Controller.DefaultBackgroundColor` can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable, which will remain supported for cases where this solution is being used. It is encouraged to transition away from the environment variable and use this API solution to apply the property. It is important to highlight that when set, the enviroment variable overrides ControllerOptions::DefaultBackgroundColor and becomes the initial value of Controller::DefaultBackgroundColor.
+<p>The 'CoreWebView2Controller.DefaultBackgroundColor' can be set via the WEBVIEW2_DEFAULT_BACKGROUND_COLOR environment variable, which will remain supported for cases where this solution is being used. It is encouraged to transition away from the environment variable and use this API solution to apply the property. It is important to highlight that when set, the enviroment variable overrides ControllerOptions::DefaultBackgroundColor and becomes the initial value of Controller::DefaultBackgroundColor.
 
-<p>The `DefaultBackgroundColor` is the color that renders underneath all web content. This means WebView2 renders this color when there is no web content loaded. When no background color is defined in WebView2, it uses the `DefaultBackgroundColor` property to render the background. By default, this color is set to white.
+<p>The 'DefaultBackgroundColor' is the color that renders underneath all web content. This means WebView2 renders this color when there is no web content loaded. When no background color is defined in WebView2, it uses the 'DefaultBackgroundColor' property to render the background. By default, this color is set to white.
 
 <p>This API only supports opaque colors and full transparency. It will fail for colors with alpha values that don't equal 0 or 255. When WebView2 is set to be fully transparent, it does not render a background, allowing the content from windows behind it to be visible.
 

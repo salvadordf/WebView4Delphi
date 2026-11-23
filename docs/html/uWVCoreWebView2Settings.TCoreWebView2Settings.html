@@ -739,7 +739,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsBuiltInErrorPageEnabled` property is used to disable built in error page for navigation failure and render process failure. When disabled, a blank page is displayed when the related error happens. The default value is `TRUE`. </p>
+ The 'IsBuiltInErrorPageEnabled' property is used to disable built in error page for navigation failure and render process failure. When disabled, a blank page is displayed when the related error happens. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -753,7 +753,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `AreDefaultContextMenusEnabled` property is used to prevent default context menus from being shown to user in WebView. The default value is `TRUE`. </p>
+ The 'AreDefaultContextMenusEnabled' property is used to prevent default context menus from being shown to user in WebView. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -767,7 +767,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `AreDefaultScriptDialogsEnabled` is used when loading a new HTML document. If set to `FALSE`, WebView2 does not render the default JavaScript dialog box (Specifically those displayed by the JavaScript alert, confirm, prompt functions and `beforeunload` event). Instead, if an event handler is set using `add_ScriptDialogOpening`, WebView sends an event that contains all of the information for the dialog and allow the host app to show a custom UI. The default value is `TRUE`. </p>
+ 'AreDefaultScriptDialogsEnabled' is used when loading a new HTML document. If set to 'FALSE', WebView2 does not render the default JavaScript dialog box (Specifically those displayed by the JavaScript alert, confirm, prompt functions and 'beforeunload' event). Instead, if an event handler is set using 'add_ScriptDialogOpening', WebView sends an event that contains all of the information for the dialog and allow the host app to show a custom UI. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -781,7 +781,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `AreDevToolsEnabled` controls whether the user is able to use the context menu or keyboard shortcuts to open the DevTools window. The default value is `TRUE`. </p>
+ 'AreDevToolsEnabled' controls whether the user is able to use the context menu or keyboard shortcuts to open the DevTools window. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -795,7 +795,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Controls if running JavaScript is enabled in all future navigations in the WebView. This only affects scripts in the document. Scripts injected with `ExecuteScript` runs even if script is disabled. The default value is `TRUE`. </p>
+ Controls if running JavaScript is enabled in all future navigations in the WebView. This only affects scripts in the document. Scripts injected with 'ExecuteScript' runs even if script is disabled. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -809,7 +809,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `IsStatusBarEnabled` controls whether the status bar is displayed. The status bar is usually displayed in the lower left of the WebView and shows things such as the URI of a link when the user hovers over it and other information. The default value is `TRUE`. The status bar UI can be altered by web content and should not be considered secure. </p>
+ 'IsStatusBarEnabled' controls whether the status bar is displayed. The status bar is usually displayed in the lower left of the WebView and shows things such as the URI of a link when the user hovers over it and other information. The default value is 'TRUE'. The status bar UI can be altered by web content and should not be considered secure. </p>
 <p>
 
 
@@ -823,7 +823,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsWebMessageEnabled` property is used when loading a new HTML document. If set to `TRUE`, communication from the host to the top-level HTML document of the WebView is allowed using `PostWebMessageAsJson`, `PostWebMessageAsString`, and message event of `window.chrome.webview`. For more information, navigate to PostWebMessageAsJson. Communication from the top-level HTML document of the WebView to the host is allowed using the postMessage function of `window.chrome.webview` and `add_WebMessageReceived` method. For more information, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). If set to false, then communication is disallowed. `PostWebMessageAsJson` and `PostWebMessageAsString` fails with `E_ACCESSDENIED` and `window.chrome.webview.postMessage` fails by throwing an instance of an `Error` object. The default value is `TRUE`. </p>
+ The 'IsWebMessageEnabled' property is used when loading a new HTML document. If set to 'TRUE', communication from the host to the top-level HTML document of the WebView is allowed using 'PostWebMessageAsJson', 'PostWebMessageAsString', and message event of 'window.chrome.webview'. For more information, navigate to PostWebMessageAsJson. Communication from the top-level HTML document of the WebView to the host is allowed using the postMessage function of 'window.chrome.webview' and 'add_WebMessageReceived' method. For more information, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). If set to false, then communication is disallowed. 'PostWebMessageAsJson' and 'PostWebMessageAsString' fails with 'E_ACCESSDENIED' and 'window.chrome.webview.postMessage' fails by throwing an instance of an 'Error' object. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -837,7 +837,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsZoomControlEnabled` property is used to prevent the user from impacting the zoom of the WebView. When disabled, the user is not able to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom is set using `ZoomFactor` API. The default value is `TRUE`. </p>
+ The 'IsZoomControlEnabled' property is used to prevent the user from impacting the zoom of the WebView. When disabled, the user is not able to zoom using Ctrl++, Ctrl+-, or Ctrl+mouse wheel, but the zoom is set using 'ZoomFactor' API. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -851,7 +851,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `AreHostObjectsAllowed` property is used to control whether host objects are accessible from the page in WebView. The default value is `TRUE`. </p>
+ The 'AreHostObjectsAllowed' property is used to control whether host objects are accessible from the page in WebView. The default value is 'TRUE'. </p>
 <p>
 
 
@@ -891,11 +891,11 @@ body { margin: 0.5em; }
 
 <p>It does not disable accelerator keys related to movement and text editing, such as: - Home, End, Page Up, and Page Down - Ctrl-X, Ctrl-C, Ctrl-V - Ctrl-A for Select All - Ctrl-Z for Undo
 
-<p>Those accelerator keys will always be enabled unless they are handled in the `AcceleratorKeyPressed` event.
+<p>Those accelerator keys will always be enabled unless they are handled in the 'AcceleratorKeyPressed' event.
 
-<p>This setting has no effect on the `AcceleratorKeyPressed` event. The event will be fired for all accelerator keys, whether they are enabled or not.
+<p>This setting has no effect on the 'AcceleratorKeyPressed' event. The event will be fired for all accelerator keys, whether they are enabled or not.
 
-<p>The default value for `AreBrowserAcceleratorKeysEnabled` is TRUE. </p>
+<p>The default value for 'AreBrowserAcceleratorKeysEnabled' is TRUE. </p>
 <p>
 
 
@@ -909,7 +909,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- IsPasswordAutosaveEnabled controls whether autosave for password information is enabled. The IsPasswordAutosaveEnabled property behaves independently of the IsGeneralAutofillEnabled property. When IsPasswordAutosaveEnabled is false, no new password data is saved and no Save/Update Password prompts are displayed. However, if there was password data already saved before disabling this setting, then that password information is auto-populated, suggestions are shown and clicking on one will populate the fields. When IsPasswordAutosaveEnabled is true, password information is auto-populated, suggestions are shown and clicking on one will populate the fields, new data is saved, and a Save/Update Password prompt is displayed. It will take effect immediately after setting. The default value is `FALSE`. This property has the same value as `CoreWebView2Profile.IsPasswordAutosaveEnabled`, and changing one will change the other. All `CoreWebView2`s with the same `CoreWebView2Profile` will share the same value for this property, so for the `CoreWebView2`s with the same profile, their `CoreWebView2Settings.IsPasswordAutosaveEnabled` and `CoreWebView2Profile.IsPasswordAutosaveEnabled` will always have the same value. </p>
+ IsPasswordAutosaveEnabled controls whether autosave for password information is enabled. The IsPasswordAutosaveEnabled property behaves independently of the IsGeneralAutofillEnabled property. When IsPasswordAutosaveEnabled is false, no new password data is saved and no Save/Update Password prompts are displayed. However, if there was password data already saved before disabling this setting, then that password information is auto-populated, suggestions are shown and clicking on one will populate the fields. When IsPasswordAutosaveEnabled is true, password information is auto-populated, suggestions are shown and clicking on one will populate the fields, new data is saved, and a Save/Update Password prompt is displayed. It will take effect immediately after setting. The default value is 'FALSE'. This property has the same value as 'CoreWebView2Profile.IsPasswordAutosaveEnabled', and changing one will change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile' will share the same value for this property, so for the 'CoreWebView2's with the same profile, their 'CoreWebView2Settings.IsPasswordAutosaveEnabled' and 'CoreWebView2Profile.IsPasswordAutosaveEnabled' will always have the same value. </p>
 <p>
 
 
@@ -923,7 +923,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- IsGeneralAutofillEnabled controls whether autofill for information like names, street and email addresses, phone numbers, and arbitrary input is enabled. This excludes password and credit card information. When IsGeneralAutofillEnabled is false, no suggestions appear, and no new information is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions appear and clicking on one will populate the form fields. It will take effect immediately after setting. The default value is `TRUE`. This property has the same value as `CoreWebView2Profile.IsGeneralAutofillEnabled`, and changing one will change the other. All `CoreWebView2`s with the same `CoreWebView2Profile` will share the same value for this property, so for the `CoreWebView2`s with the same profile, their `CoreWebView2Settings.IsGeneralAutofillEnabled` and `CoreWebView2Profile.IsGeneralAutofillEnabled` will always have the same value. </p>
+ IsGeneralAutofillEnabled controls whether autofill for information like names, street and email addresses, phone numbers, and arbitrary input is enabled. This excludes password and credit card information. When IsGeneralAutofillEnabled is false, no suggestions appear, and no new information is saved. When IsGeneralAutofillEnabled is true, information is saved, suggestions appear and clicking on one will populate the form fields. It will take effect immediately after setting. The default value is 'TRUE'. This property has the same value as 'CoreWebView2Profile.IsGeneralAutofillEnabled', and changing one will change the other. All 'CoreWebView2's with the same 'CoreWebView2Profile' will share the same value for this property, so for the 'CoreWebView2's with the same profile, their 'CoreWebView2Settings.IsGeneralAutofillEnabled' and 'CoreWebView2Profile.IsGeneralAutofillEnabled' will always have the same value. </p>
 <p>
 
 
@@ -939,7 +939,7 @@ body { margin: 0.5em; }
 <p>
  Pinch-zoom, referred to as &quot;Page Scale&quot; zoom, is performed as a post-rendering step, it changes the page scale factor property and scales the surface the web page is rendered onto when user performs a pinch zooming action. It does not change the layout but rather changes the viewport and clips the web content, the content outside of the viewport isn't visible onscreen and users can't reach this content using mouse.
 
-<p>The `IsPinchZoomEnabled` property enables or disables the ability of the end user to use a pinching motion on touch input enabled devices to scale the web content in the WebView2. It defaults to `TRUE`. When set to `FALSE`, the end user cannot pinch zoom after the next navigation. Disabling/Enabling `IsPinchZoomEnabled` only affects the end user's ability to use pinch motions and does not change the page scale factor. This API only affects the Page Scale zoom and has no effect on the existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`) or other end user mechanisms for zooming. </p>
+<p>The 'IsPinchZoomEnabled' property enables or disables the ability of the end user to use a pinching motion on touch input enabled devices to scale the web content in the WebView2. It defaults to 'TRUE'. When set to 'FALSE', the end user cannot pinch zoom after the next navigation. Disabling/Enabling 'IsPinchZoomEnabled' only affects the end user's ability to use pinch motions and does not change the page scale factor. This API only affects the Page Scale zoom and has no effect on the existing browser zoom properties ('IsZoomControlEnabled' and 'ZoomFactor') or other end user mechanisms for zooming. </p>
 <p>
 
 
@@ -953,11 +953,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsSwipeNavigationEnabled` property enables or disables the ability of the end user to use swiping gesture on touch input enabled devices to navigate in WebView2. It defaults to `TRUE`.
+ The 'IsSwipeNavigationEnabled' property enables or disables the ability of the end user to use swiping gesture on touch input enabled devices to navigate in WebView2. It defaults to 'TRUE'.
 
-<p>When this property is `TRUE`, then all configured navigation gestures are enabled: 1. Swiping left and right to navigate forward and backward is always configured. 2. Swiping down to refresh is off by default and not exposed via our API currently, it requires the &quot;&ndash;pull-to-refresh&quot; option to be included in the additional browser arguments to be configured. (See put_AdditionalBrowserArguments.)
+<p>When this property is 'TRUE', then all configured navigation gestures are enabled: 1. Swiping left and right to navigate forward and backward is always configured. 2. Swiping down to refresh is off by default and not exposed via our API currently, it requires the &quot;&ndash;pull-to-refresh&quot; option to be included in the additional browser arguments to be configured. (See put_AdditionalBrowserArguments.)
 
-<p>When set to `FALSE`, the end user cannot swipe to navigate or pull to refresh. This API only affects the overscrolling navigation functionality and has no effect on the scrolling interaction used to explore the web content shown in WebView2.
+<p>When set to 'FALSE', the end user cannot swipe to navigate or pull to refresh. This API only affects the overscrolling navigation functionality and has no effect on the scrolling interaction used to explore the web content shown in WebView2.
 
 <p>Disabling/Enabling IsSwipeNavigationEnabled takes effect after the next navigation. </p>
 <p>
@@ -973,7 +973,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- `HiddenPdfToolbarItems` is used to customize the PDF toolbar items. By default, it is COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE and so it displays all of the items. Changes to this property apply to all CoreWebView2s in the same environment and using the same profile. Changes to this setting apply only after the next navigation. </p>
+ 'HiddenPdfToolbarItems' is used to customize the PDF toolbar items. By default, it is COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE and so it displays all of the items. Changes to this property apply to all CoreWebView2s in the same environment and using the same profile. Changes to this setting apply only after the next navigation. </p>
 <p>
 
 
@@ -987,7 +987,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- SmartScreen helps webviews identify reported phishing and malware websites and also helps users make informed decisions about downloads. `IsReputationCheckingRequired` is used to control whether SmartScreen enabled or not. SmartScreen is enabled or disabled for all CoreWebView2s using the same user data folder. If CoreWebView2Setting.IsReputationCheckingRequired is true for any CoreWebView2 using the same user data folder, then SmartScreen is enabled. If CoreWebView2Setting.IsReputationCheckingRequired is false for all CoreWebView2 using the same user data folder, then SmartScreen is disabled. When it is changed, the change will be applied to all WebViews using the same user data folder on the next navigation or download. The default value for `IsReputationCheckingRequired` is true. If the newly created CoreWebview2 does not set SmartScreen to false, when navigating(Such as Navigate(), LoadDataUrl(), ExecuteScript(), etc.), the default value will be applied to all CoreWebview2 using the same user data folder. SmartScreen of WebView2 apps can be controlled by Windows system setting &quot;SmartScreen for Microsoft Edge&quot;, specially, for WebView2 in Windows Store apps, SmartScreen is controlled by another Windows system setting &quot;SmartScreen for Microsoft Store apps&quot;. When the Windows setting is enabled, the SmartScreen operates under the control of the `IsReputationCheckingRequired`. When the Windows setting is disabled, the SmartScreen will be disabled regardless of the `IsReputationCheckingRequired` value set in WebView2 apps. In other words, under this circumstance the value of `IsReputationCheckingRequired` will be saved but overridden by system setting. Upon re-enabling the Windows setting, the CoreWebview2 will reference the `IsReputationCheckingRequired` to determine the SmartScreen status. </p>
+ SmartScreen helps webviews identify reported phishing and malware websites and also helps users make informed decisions about downloads. 'IsReputationCheckingRequired' is used to control whether SmartScreen enabled or not. SmartScreen is enabled or disabled for all CoreWebView2s using the same user data folder. If CoreWebView2Setting.IsReputationCheckingRequired is true for any CoreWebView2 using the same user data folder, then SmartScreen is enabled. If CoreWebView2Setting.IsReputationCheckingRequired is false for all CoreWebView2 using the same user data folder, then SmartScreen is disabled. When it is changed, the change will be applied to all WebViews using the same user data folder on the next navigation or download. The default value for 'IsReputationCheckingRequired' is true. If the newly created CoreWebview2 does not set SmartScreen to false, when navigating(Such as Navigate(), LoadDataUrl(), ExecuteScript(), etc.), the default value will be applied to all CoreWebview2 using the same user data folder. SmartScreen of WebView2 apps can be controlled by Windows system setting &quot;SmartScreen for Microsoft Edge&quot;, specially, for WebView2 in Windows Store apps, SmartScreen is controlled by another Windows system setting &quot;SmartScreen for Microsoft Store apps&quot;. When the Windows setting is enabled, the SmartScreen operates under the control of the 'IsReputationCheckingRequired'. When the Windows setting is disabled, the SmartScreen will be disabled regardless of the 'IsReputationCheckingRequired' value set in WebView2 apps. In other words, under this circumstance the value of 'IsReputationCheckingRequired' will be saved but overridden by system setting. Upon re-enabling the Windows setting, the CoreWebview2 will reference the 'IsReputationCheckingRequired' to determine the SmartScreen status. </p>
 <p>
 
 
@@ -1001,11 +1001,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsNonClientRegionSupportEnabled` property enables web pages to use the `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled` takes effect after the next navigation. Defaults to `FALSE`.
+ The 'IsNonClientRegionSupportEnabled' property enables web pages to use the 'app-region' CSS style. Disabling/Enabling the 'IsNonClientRegionSupportEnabled' takes effect after the next navigation. Defaults to 'FALSE'.
 
-<p>When this property is `TRUE`, then all the non-client region features will be enabled: Draggable Regions will be enabled, they are regions on a webpage that are marked with the CSS attribute `app-region: drag/no-drag`. When set to `drag`, these regions will be treated like the window's title bar, supporting dragging of the entire WebView and its host app window; the system menu shows upon right click, and a double click will trigger maximizing/restoration of the window size.
+<p>When this property is 'TRUE', then all the non-client region features will be enabled: Draggable Regions will be enabled, they are regions on a webpage that are marked with the CSS attribute 'app-region: drag/no-drag'. When set to 'drag', these regions will be treated like the window's title bar, supporting dragging of the entire WebView and its host app window; the system menu shows upon right click, and a double click will trigger maximizing/restoration of the window size.
 
-<p>When set to `FALSE`, all non-client region support will be disabled. The `app-region` CSS style will be ignored on web pages. \snippet SettingsComponent.cpp ToggleNonClientRegionSupportEnabled </p>
+<p>When set to 'FALSE', all non-client region support will be disabled. The 'app-region' CSS style will be ignored on web pages. \snippet SettingsComponent.cpp ToggleNonClientRegionSupportEnabled </p>
 <p>
 
 

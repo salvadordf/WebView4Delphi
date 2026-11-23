@@ -208,9 +208,9 @@ body { margin: 0.5em; }
 
 <p>Gets a list of the service worker registrations under the same profile.
 
-<p>This method returns a list of `CoreWebView2ServiceWorkerRegistration` objects, each representing a service worker registration.
+<p>This method returns a list of 'CoreWebView2ServiceWorkerRegistration' objects, each representing a service worker registration.
 
-<p>This method corresponds to the `getRegistrations` method of the `ServiceWorkerContainer` object in the DOM which returns a Promise that resolves to an array of `ServiceWorkerRegistration` objects. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations</a>) for more information.
+<p>This method corresponds to the 'getRegistrations' method of the 'ServiceWorkerContainer' object in the DOM which returns a Promise that resolves to an array of 'ServiceWorkerRegistration' objects. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations</a>) for more information.
 
 <p></p>
 </td></tr>
@@ -224,15 +224,15 @@ body { margin: 0.5em; }
 <p>
 
 
-<p>Gets the service worker registrations associated with the specified scope. If a service worker has been registered for the given scope, it gets the list of `CoreWebView2ServiceWorkerRegistration` objects otherwise returns empty list.
+<p>Gets the service worker registrations associated with the specified scope. If a service worker has been registered for the given scope, it gets the list of 'CoreWebView2ServiceWorkerRegistration' objects otherwise returns empty list.
 
-<p>If the service worker is registered with a `scope` of '/app/' for an application at <a href="https://example.com/">https://example.com/</a>, you should specify the full qualified URI i.e., <a href="https://example.com/app/">https://example.com/app/</a> when calling this method. If the scope was not explicitly specified during registration, you should use the directory where the service worker script resides, for example, <a href="https://example.com/app/">https://example.com/app/</a>.
+<p>If the service worker is registered with a 'scope' of '/app/' for an application at <a href="https://example.com/">https://example.com/</a>, you should specify the full qualified URI i.e., <a href="https://example.com/app/">https://example.com/app/</a> when calling this method. If the scope was not explicitly specified during registration, you should use the directory where the service worker script resides, for example, <a href="https://example.com/app/">https://example.com/app/</a>.
 
-<p>Refer to the Host Name Canonicalization for details on how provided `scriptUri` normalization is performed. For example, `<a href="HTTPS://m">HTTPS://m</a>ünchen.de/` will be normalized to `<a href="https://www.xn--kfk.com">https://www.xn--kfk.com</a>` for comparison.
+<p>Refer to the Host Name Canonicalization for details on how provided 'scriptUri' normalization is performed. For example, '<a href="HTTPS://m">HTTPS://m</a>ünchen.de/' will be normalized to '<a href="https://www.xn--kfk.com">https://www.xn--kfk.com</a>' for comparison.
 
-<p>This corresponds to the `getRegistration` method of the `ServiceWorkerContainer` object in the DOM which returns a Promise that resolves to a `ServiceWorkerRegistration` object. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration</a>) for more information.
+<p>This corresponds to the 'getRegistration' method of the 'ServiceWorkerContainer' object in the DOM which returns a Promise that resolves to a 'ServiceWorkerRegistration' object. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration</a>) for more information.
 
-<p>If scopeUri is empty string or null or invalid, the completed handler immediately returns `E_INVALIDARG` and with a null pointer.
+<p>If scopeUri is empty string or null or invalid, the completed handler immediately returns 'E_INVALIDARG' and with a null pointer.
 
 <p></p>
 </td></tr>

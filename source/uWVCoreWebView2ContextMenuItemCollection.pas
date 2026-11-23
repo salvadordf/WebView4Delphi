@@ -29,14 +29,14 @@ type
       constructor Create(const aBaseIntf : ICoreWebView2ContextMenuItemCollection); reintroduce;
       destructor  Destroy; override;
       /// <summary>
-      /// Removes the `ContextMenuItem` at the specified index.
+      /// Removes the 'ContextMenuItem' at the specified index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#removevalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
       /// </remarks>
       function    RemoveValueAtIndex(index: cardinal): boolean;
       /// <summary>
-      /// Inserts the `ContextMenuItem` at the specified index.
+      /// Inserts the 'ContextMenuItem' at the specified index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#insertvalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
@@ -82,14 +82,14 @@ type
       /// </summary>
       property BaseIntf              : ICoreWebView2ContextMenuItemCollection       read FBaseIntf;
       /// <summary>
-      /// Gets the number of `ContextMenuItem` objects contained in the `ContextMenuItemCollection`.
+      /// Gets the number of 'ContextMenuItem' objects contained in the 'ContextMenuItemCollection'.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#get_count">See the ICoreWebView2ContextMenuItemCollection article.</see></para>
       /// </remarks>
       property Count                 : cardinal                                     read GetCount;
       /// <summary>
-      /// Gets the `ContextMenuItem` at the specified index.
+      /// Gets the 'ContextMenuItem' at the specified index.
       /// </summary>
       /// <remarks>
       /// <para><see href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2contextmenuitemcollection#getvalueatindex">See the ICoreWebView2ContextMenuItemCollection article.</see></para>

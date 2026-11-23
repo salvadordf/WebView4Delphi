@@ -57,10 +57,10 @@ type
       /// Note: The asynchronous action completes when the UI has been displayed with the find term in the UI bar, and the matches have populated on the counter on the find bar.
       /// There may be a slight latency between the UI display and the matches populating in the counter.
       /// The MatchCountChanged and ActiveMatchIndexChanged events are only raised after Start has completed; otherwise, they will have their default values (-1 for active match index and 0 for match count).
-      /// To start a new find session (beginning the search from the first match), call `Stop` before invoking `Start`.
-      /// If `Start` is called consecutively with the same options and without calling `Stop`, the find session
+      /// To start a new find session (beginning the search from the first match), call 'Stop' before invoking 'Start'.
+      /// If 'Start' is called consecutively with the same options and without calling 'Stop', the find session
       /// will continue from the current position in the existing session.
-      /// Calling `Start` without altering its parameters will behave either as `FindNext` or `FindPrevious`, depending on the most recent search action performed.
+      /// Calling 'Start' without altering its parameters will behave either as 'FindNext' or 'FindPrevious', depending on the most recent search action performed.
       /// Start will default to forward if neither have been called.
       /// However, calling Start again during an ongoing find session does not resume from the point
       /// of the current active match. For example, given the text "1 1 A 1 1" and initiating a find session for "A",

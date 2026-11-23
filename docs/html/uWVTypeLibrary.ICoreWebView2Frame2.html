@@ -96,9 +96,9 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `NavigationStarting` event. A frame navigation will raise a `NavigationStarting` event and a `CoreWebView2.FrameNavigationStarting` event. All of the `FrameNavigationStarting` event handlers for the current frame will be run before the `NavigationStarting` event handlers. All of the event handlers share a common `NavigationStartingEventArgs` object. Whichever event handler is last to change the `NavigationStartingEventArgs.Cancel` property will decide if the frame navigation will be cancelled. Redirects raise this event as well, and the navigation id is the same as the original one.
+ Add an event handler for the 'NavigationStarting' event. A frame navigation will raise a 'NavigationStarting' event and a 'CoreWebView2.FrameNavigationStarting' event. All of the 'FrameNavigationStarting' event handlers for the current frame will be run before the 'NavigationStarting' event handlers. All of the event handlers share a common 'NavigationStartingEventArgs' object. Whichever event handler is last to change the 'NavigationStartingEventArgs.Cancel' property will decide if the frame navigation will be cancelled. Redirects raise this event as well, and the navigation id is the same as the original one.
 
-<p>Navigations will be blocked until all `NavigationStarting` and `CoreWebView2.FrameNavigationStarting` event handlers return. </p>
+<p>Navigations will be blocked until all 'NavigationStarting' and 'CoreWebView2.FrameNavigationStarting' event handlers return. </p>
 <h6 class="description_section">Attributes</h6>
 <dl class="attributes">
   <dt>GUID['{7A6A5834-D185-4DBF-B63F-4A9BC43107D4}']</dt>
@@ -113,7 +113,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_NavigationStarting`. </p>
+ Remove an event handler previously added with 'add_NavigationStarting'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -123,7 +123,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `ContentLoading` event. `ContentLoading` triggers before any content is loaded, including scripts added with `AddScriptToExecuteOnDocumentCreated`. `ContentLoading` does not trigger if a same page navigation occurs (such as through `fragment` navigations or `history.pushState` navigations). This operation follows the `NavigationStarting` and precedes `NavigationCompleted` events. </p>
+ Add an event handler for the 'ContentLoading' event. 'ContentLoading' triggers before any content is loaded, including scripts added with 'AddScriptToExecuteOnDocumentCreated'. 'ContentLoading' does not trigger if a same page navigation occurs (such as through 'fragment' navigations or 'history.pushState' navigations). This operation follows the 'NavigationStarting' and precedes 'NavigationCompleted' events. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -133,7 +133,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_ContentLoading`. </p>
+ Remove an event handler previously added with 'add_ContentLoading'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -143,7 +143,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `NavigationCompleted` event. `NavigationCompleted` runs when the CoreWebView2Frame has completely loaded (concurrently when `body.onload` runs) or loading stopped with error. </p>
+ Add an event handler for the 'NavigationCompleted' event. 'NavigationCompleted' runs when the CoreWebView2Frame has completely loaded (concurrently when 'body.onload' runs) or loading stopped with error. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -153,7 +153,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_NavigationCompleted`. </p>
+ Remove an event handler previously added with 'add_NavigationCompleted'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -185,7 +185,7 @@ body { margin: 0.5em; }
 <p>
  Run JavaScript code from the javascript parameter in the current frame. The result of evaluating the provided JavaScript is passed to the completion handler. The result value is a JSON encoded string. If the result is undefined, contains a reference cycle, or otherwise is not able to be encoded into JSON, then the result is considered to be null, which is encoded in JSON as the string &quot;null&quot;.
 
-<p>\&gt; [!NOTE]\n\&gt; A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before `ContentLoading`, the script will not be executed and the string &quot;null&quot; will be returned. This operation executes the script even if `ICoreWebView2Settings::IsScriptEnabled` is set to `FALSE`.
+<p>\&gt; [!NOTE]\n\&gt; A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also &quot;null&quot;. This method is applied asynchronously. If the method is run before 'ContentLoading', the script will not be executed and the string &quot;null&quot; will be returned. This operation executes the script even if 'ICoreWebView2Settings::IsScriptEnabled' is set to 'FALSE'.
 
 <p>\snippet ScenarioDOMContentLoaded.cpp ExecuteScriptFrame </p>
 </td></tr>
@@ -197,11 +197,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Posts the specified webMessage to the frame. The frame receives the message by subscribing to the `message` event of the `window.chrome.webview` of the frame document.
+ Posts the specified webMessage to the frame. The frame receives the message by subscribing to the 'message' event of the 'window.chrome.webview' of the frame document.
 
-<p>```cpp window.chrome.webview.addEventListener('message', handler) window.chrome.webview.removeEventListener('message', handler) ```
+<p>'''cpp window.chrome.webview.addEventListener('message', handler) window.chrome.webview.removeEventListener('message', handler) '''
 
-<p>The event args is an instances of `MessageEvent`. The `ICoreWebView2Settings::IsWebMessageEnabled` setting must be `TRUE` or the message will not be sent. The `data` property of the event args is the `webMessage` string parameter parsed as a JSON string into a JavaScript object. The `source` property of the event args is a reference to the `window.chrome.webview` object. For information about sending messages from the HTML document in the WebView to the host, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). The message is delivered asynchronously. If a navigation occurs before the message is posted to the page, the message is discarded. </p>
+<p>The event args is an instances of 'MessageEvent'. The 'ICoreWebView2Settings::IsWebMessageEnabled' setting must be 'TRUE' or the message will not be sent. The 'data' property of the event args is the 'webMessage' string parameter parsed as a JSON string into a JavaScript object. The 'source' property of the event args is a reference to the 'window.chrome.webview' object. For information about sending messages from the HTML document in the WebView to the host, navigate to [add_WebMessageReceived](/microsoft-edge/webview2/reference/win32/icorewebview2#add_webmessagereceived). The message is delivered asynchronously. If a navigation occurs before the message is posted to the page, the message is discarded. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -211,7 +211,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves in exactly the same manner as `PostWebMessageAsJson`, but the `data` property of the event args of the `window.chrome.webview` message is a string with the same value as `webMessageAsString`. Use this instead of `PostWebMessageAsJson` if you want to communicate using simple strings rather than JSON objects. </p>
+ Posts a message that is a simple string rather than a JSON string representation of a JavaScript object. This behaves in exactly the same manner as 'PostWebMessageAsJson', but the 'data' property of the event args of the 'window.chrome.webview' message is a string with the same value as 'webMessageAsString'. Use this instead of 'PostWebMessageAsJson' if you want to communicate using simple strings rather than JSON objects. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -221,11 +221,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Add an event handler for the `WebMessageReceived` event. `WebMessageReceived` runs when the `ICoreWebView2Settings::IsWebMessageEnabled` setting is set and the frame document runs `window.chrome.webview.postMessage`. The `postMessage` function is `void postMessage(object)` where object is any object supported by JSON conversion.
+ Add an event handler for the 'WebMessageReceived' event. 'WebMessageReceived' runs when the 'ICoreWebView2Settings::IsWebMessageEnabled' setting is set and the frame document runs 'window.chrome.webview.postMessage'. The 'postMessage' function is 'void postMessage(object)' where object is any object supported by JSON conversion.
 
 <p>\snippet assets\ScenarioWebMessage.html chromeWebView
 
-<p>When the frame calls `postMessage`, the object parameter is converted to a JSON string and is posted asynchronously to the host process. This will result in the handlers `Invoke` method being called with the JSON string as its parameter.
+<p>When the frame calls 'postMessage', the object parameter is converted to a JSON string and is posted asynchronously to the host process. This will result in the handlers 'Invoke' method being called with the JSON string as its parameter.
 
 <p>\snippet ScenarioWebMessage.cpp WebMessageReceivedIFrame </p>
 </td></tr>
@@ -237,7 +237,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_WebMessageReceived`. </p>
+ Remove an event handler previously added with 'add_WebMessageReceived'. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

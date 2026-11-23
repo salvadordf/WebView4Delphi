@@ -48,38 +48,38 @@ type
       /// <summary>
       /// <para>Gets a list of the service worker registrations under the same profile.</para>
       ///
-      /// <para>This method returns a list of `CoreWebView2ServiceWorkerRegistration` objects,
+      /// <para>This method returns a list of 'CoreWebView2ServiceWorkerRegistration' objects,
       /// each representing a service worker registration.</para>
       ///
-      /// <para>This method corresponds to the `getRegistrations` method of the `ServiceWorkerContainer`
+      /// <para>This method corresponds to the 'getRegistrations' method of the 'ServiceWorkerContainer'
       /// object in the DOM which returns a Promise that resolves to an array of
-      /// `ServiceWorkerRegistration` objects. See the [MDN documentation]
+      /// 'ServiceWorkerRegistration' objects. See the [MDN documentation]
       /// (https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations) for more information.</para>
       /// </summary>
       function    GetServiceWorkerRegistrations(const aBrowserComponent : TComponent): boolean;
       /// <summary>
       /// <para>Gets the service worker registrations associated with the specified scope.
       /// If a service worker has been registered for the given scope, it gets the
-      /// list of `CoreWebView2ServiceWorkerRegistration` objects otherwise returns
+      /// list of 'CoreWebView2ServiceWorkerRegistration' objects otherwise returns
       /// empty list.</para>
       ///
-      /// <para>If the service worker is registered with a `scope` of '/app/' for an application
+      /// <para>If the service worker is registered with a 'scope' of '/app/' for an application
       /// at https://example.com/, you should specify the full qualified URI i.e.,
       /// https://example.com/app/ when calling this method. If the scope was not explicitly
       /// specified during registration, you should use the directory where the service worker
       /// script resides, for example, https://example.com/app/.</para>
       ///
       /// <para>Refer to the Host Name Canonicalization for
-      /// details on how provided `scriptUri` normalization is performed. For example, `HTTPS://münchen.de/`
-      /// will be normalized to `https://www.xn--kfk.com` for comparison.</para>
+      /// details on how provided 'scriptUri' normalization is performed. For example, 'HTTPS://münchen.de/'
+      /// will be normalized to 'https://www.xn--kfk.com' for comparison.</para>
       ///
-      /// <para>This corresponds to the `getRegistration` method of the `ServiceWorkerContainer`
-      /// object in the DOM which returns a Promise that resolves to a `ServiceWorkerRegistration`
+      /// <para>This corresponds to the 'getRegistration' method of the 'ServiceWorkerContainer'
+      /// object in the DOM which returns a Promise that resolves to a 'ServiceWorkerRegistration'
       /// object. See the [MDN documentation]
       /// (https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration) for more information.</para>
       ///
       /// <para>If scopeUri is empty string or null or invalid, the completed handler immediately returns
-      /// `E_INVALIDARG` and with a null pointer.</para>
+      /// 'E_INVALIDARG' and with a null pointer.</para>
       /// </summary>
       function    GetServiceWorkerRegistrationsForScope(const aBrowserComponent : TComponent; const ScopeUri : wvstring): boolean;
       /// <summary>

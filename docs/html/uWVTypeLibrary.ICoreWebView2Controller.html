@@ -23,7 +23,7 @@ body { margin: 0.5em; }
 <code>type ICoreWebView2Controller = interface(IUnknown)</code></p>
 <h2 class="description">Description</h2>
 <p>
- The owner of the `CoreWebView2` object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The `CoreWebView2Controller` owns the `CoreWebView2`, and if all references to the `CoreWebView2Controller` go away, the WebView is closed. </p>
+ The owner of the 'CoreWebView2' object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The 'CoreWebView2Controller' owns the 'CoreWebView2', and if all references to the 'CoreWebView2Controller' go away, the WebView is closed. </p>
 <p>
 
 
@@ -135,7 +135,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The `IsVisible` property determines whether to show or hide the WebView2. If `IsVisible` is set to `FALSE`, the WebView2 is transparent and is not rendered. However, this does not affect the window containing the WebView2 (the `HWND` parameter that was passed to `CreateCoreWebView2Controller`). If you want that window to disappear too, run `ShowWindow` on it directly in addition to modifying the `IsVisible` property. WebView2 as a child window does not get window messages when the top window is minimized or restored. For performance reasons, developers should set the `IsVisible` property of the WebView to `FALSE` when the app window is minimized and back to `TRUE` when the app window is restored. The app window does this by handling `SIZE_MINIMIZED and SIZE_RESTORED` command upon receiving `WM_SIZE` message.
+ The 'IsVisible' property determines whether to show or hide the WebView2. If 'IsVisible' is set to 'FALSE', the WebView2 is transparent and is not rendered. However, this does not affect the window containing the WebView2 (the 'HWND' parameter that was passed to 'CreateCoreWebView2Controller'). If you want that window to disappear too, run 'ShowWindow' on it directly in addition to modifying the 'IsVisible' property. WebView2 as a child window does not get window messages when the top window is minimized or restored. For performance reasons, developers should set the 'IsVisible' property of the WebView to 'FALSE' when the app window is minimized and back to 'TRUE' when the app window is restored. The app window does this by handling 'SIZE_MINIMIZED and SIZE_RESTORED' command upon receiving 'WM_SIZE' message.
 
 <p>There are CPU and memory benefits when the page is hidden. For instance, Chromium has code that throttles activities on the page like animations and some tasks are run less frequently. Similarly, WebView2 will purge some caches to reduce memory usage.
 
@@ -154,7 +154,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `IsVisible` property.
+ Sets the 'IsVisible' property.
 
 <p>\snippet ViewComponent.cpp ToggleIsVisibleOnMinimize </p>
 </td></tr>
@@ -166,11 +166,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- The WebView bounds. Bounds are relative to the parent `HWND`. The app has two ways to position a WebView.
+ The WebView bounds. Bounds are relative to the parent 'HWND'. The app has two ways to position a WebView.
 
-<p>* Create a child `HWND` that is the WebView parent `HWND`. Position the window where the WebView should be. Use `(0, 0)` for the top-left corner (the offset) of the `Bounds` of the WebView. * Use the top-most window of the app as the WebView parent HWND. For example, to position WebView correctly in the app, set the top-left corner of the Bound of the WebView.
+<p>* Create a child 'HWND' that is the WebView parent 'HWND'. Position the window where the WebView should be. Use '(0, 0)' for the top-left corner (the offset) of the 'Bounds' of the WebView. * Use the top-most window of the app as the WebView parent HWND. For example, to position WebView correctly in the app, set the top-left corner of the Bound of the WebView.
 
-<p>The values of `Bounds` are limited by the coordinate space of the host. </p>
+<p>The values of 'Bounds' are limited by the coordinate space of the host. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -180,7 +180,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `Bounds` property.
+ Sets the 'Bounds' property.
 
 <p>\snippet ViewComponent.cpp ResizeWebView </p>
 </td></tr>
@@ -194,7 +194,7 @@ body { margin: 0.5em; }
 <p>
  The zoom factor for the WebView.
 
-<p>\&gt; [!NOTE]\n\&gt; Changing zoom factor may cause `window.innerWidth`, `window.innerHeight`, both, and page layout to change. A zoom factor that is applied by the host by running `ZoomFactor` becomes the new default zoom for the WebView. The zoom factor applies across navigations and is the zoom factor WebView is returned to when the user chooses Ctrl+0. When the zoom factor is changed by the user (resulting in the app receiving `ZoomFactorChanged`), that zoom applies only for the current page. Any user applied zoom is only for the current page and is reset on a navigation. Specifying a `zoomFactor` less than or equal to `0` is not allowed. WebView also has an internal supported zoom factor range. When a specified zoom factor is out of that range, it is normalized to be within the range, and a `ZoomFactorChanged` event is triggered for the real applied zoom factor. When the range normalization happens, the `ZoomFactor` property reports the zoom factor specified during the previous modification of the `ZoomFactor` property until the `ZoomFactorChanged` event is received after WebView applies the normalized zoom factor. </p>
+<p>\&gt; [!NOTE]\n\&gt; Changing zoom factor may cause 'window.innerWidth', 'window.innerHeight', both, and page layout to change. A zoom factor that is applied by the host by running 'ZoomFactor' becomes the new default zoom for the WebView. The zoom factor applies across navigations and is the zoom factor WebView is returned to when the user chooses Ctrl+0. When the zoom factor is changed by the user (resulting in the app receiving 'ZoomFactorChanged'), that zoom applies only for the current page. Any user applied zoom is only for the current page and is reset on a navigation. Specifying a 'zoomFactor' less than or equal to '0' is not allowed. WebView also has an internal supported zoom factor range. When a specified zoom factor is out of that range, it is normalized to be within the range, and a 'ZoomFactorChanged' event is triggered for the real applied zoom factor. When the range normalization happens, the 'ZoomFactor' property reports the zoom factor specified during the previous modification of the 'ZoomFactor' property until the 'ZoomFactorChanged' event is received after WebView applies the normalized zoom factor. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -204,7 +204,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Sets the `ZoomFactor` property. </p>
+ Sets the 'ZoomFactor' property. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -214,7 +214,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `ZoomFactorChanged` event. `ZoomFactorChanged` runs when the `ZoomFactor` property of the WebView changes. The event may run because the `ZoomFactor` property was modified, or due to the user manually modifying the zoom. When it is modified using the `ZoomFactor` property, the internal zoom factor is updated immediately and no `ZoomFactorChanged` event is triggered. WebView associates the last used zoom factor for each site. It is possible for the zoom factor to change when navigating to a different page. When the zoom factor changes due to a navigation change, the `ZoomFactorChanged` event runs right after the `ContentLoading` event.
+ Adds an event handler for the 'ZoomFactorChanged' event. 'ZoomFactorChanged' runs when the 'ZoomFactor' property of the WebView changes. The event may run because the 'ZoomFactor' property was modified, or due to the user manually modifying the zoom. When it is modified using the 'ZoomFactor' property, the internal zoom factor is updated immediately and no 'ZoomFactorChanged' event is triggered. WebView associates the last used zoom factor for each site. It is possible for the zoom factor to change when navigating to a different page. When the zoom factor changes due to a navigation change, the 'ZoomFactorChanged' event runs right after the 'ContentLoading' event.
 
 <p>\snippet ViewComponent.cpp ZoomFactorChanged </p>
 </td></tr>
@@ -226,7 +226,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Remove an event handler previously added with `add_ZoomFactorChanged`. </p>
+ Remove an event handler previously added with 'add_ZoomFactorChanged'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -236,7 +236,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Updates `Bounds` and `ZoomFactor` properties at the same time. This operation is atomic from the perspective of the host. After returning from this function, the `Bounds` and `ZoomFactor` properties are both updated if the function is successful, or neither is updated if the function fails. If `Bounds` and `ZoomFactor` are both updated by the same scale (for example, `Bounds` and `ZoomFactor` are both doubled), then the page does not display a change in `window.innerWidth` or `window.innerHeight` and the WebView renders the content at the new size and zoom without intermediate renderings. This function also updates just one of `ZoomFactor` or `Bounds` by passing in the new value for one and the current value for the other.
+ Updates 'Bounds' and 'ZoomFactor' properties at the same time. This operation is atomic from the perspective of the host. After returning from this function, the 'Bounds' and 'ZoomFactor' properties are both updated if the function is successful, or neither is updated if the function fails. If 'Bounds' and 'ZoomFactor' are both updated by the same scale (for example, 'Bounds' and 'ZoomFactor' are both doubled), then the page does not display a change in 'window.innerWidth' or 'window.innerHeight' and the WebView renders the content at the new size and zoom without intermediate renderings. This function also updates just one of 'ZoomFactor' or 'Bounds' by passing in the new value for one and the current value for the other.
 
 <p>\snippet ViewComponent.cpp SetBoundsAndZoomFactor </p>
 </td></tr>
@@ -248,7 +248,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Moves focus into WebView. WebView gets focus and focus is set to correspondent element in the page hosted in the WebView. For Programmatic reason, focus is set to previously focused element or the default element if no previously focused element exists. For `Next` reason, focus is set to the first element. For `Previous` reason, focus is set to the last element. WebView changes focus through user interaction including selecting into a WebView or Tab into it. For tabbing, the app runs MoveFocus with Next or Previous to align with Tab and Shift+Tab respectively when it decides the WebView is the next element that may exist in a tab. Or, the app runs `IsDialogMessage` as part of the associated message loop to allow the platform to auto handle tabbing. The platform rotates through all windows with `WS_TABSTOP`. When the WebView gets focus from `IsDialogMessage`, it is internally put the focus on the first or last element for tab and Shift+Tab respectively.
+ Moves focus into WebView. WebView gets focus and focus is set to correspondent element in the page hosted in the WebView. For Programmatic reason, focus is set to previously focused element or the default element if no previously focused element exists. For 'Next' reason, focus is set to the first element. For 'Previous' reason, focus is set to the last element. WebView changes focus through user interaction including selecting into a WebView or Tab into it. For tabbing, the app runs MoveFocus with Next or Previous to align with Tab and Shift+Tab respectively when it decides the WebView is the next element that may exist in a tab. Or, the app runs 'IsDialogMessage' as part of the associated message loop to allow the platform to auto handle tabbing. The platform rotates through all windows with 'WS_TABSTOP'. When the WebView gets focus from 'IsDialogMessage', it is internally put the focus on the first or last element for tab and Shift+Tab respectively.
 
 <p>\snippet App.cpp MoveFocus0
 
@@ -264,7 +264,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `MoveFocusRequested` event. `MoveFocusRequested` runs when user tries to tab out of the WebView. The focus of the WebView has not changed when this event is run.
+ Adds an event handler for the 'MoveFocusRequested' event. 'MoveFocusRequested' runs when user tries to tab out of the WebView. The focus of the WebView has not changed when this event is run.
 
 <p>\snippet ControlComponent.cpp MoveFocusRequested </p>
 </td></tr>
@@ -276,7 +276,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_MoveFocusRequested`. </p>
+ Removes an event handler previously added with 'add_MoveFocusRequested'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -286,7 +286,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `GotFocus` event. `GotFocus` runs when WebView has focus. </p>
+ Adds an event handler for the 'GotFocus' event. 'GotFocus' runs when WebView has focus. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -296,7 +296,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_GotFocus`. </p>
+ Removes an event handler previously added with 'add_GotFocus'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -306,7 +306,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `LostFocus` event. `LostFocus` runs when WebView loses focus. In the case where `MoveFocusRequested` event is run, the focus is still on WebView when `MoveFocusRequested` event runs. `LostFocus` only runs afterwards when code of the app or default action of `MoveFocusRequested` event set focus away from WebView. </p>
+ Adds an event handler for the 'LostFocus' event. 'LostFocus' runs when WebView loses focus. In the case where 'MoveFocusRequested' event is run, the focus is still on WebView when 'MoveFocusRequested' event runs. 'LostFocus' only runs afterwards when code of the app or default action of 'MoveFocusRequested' event set focus away from WebView. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -316,7 +316,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_LostFocus`. </p>
+ Removes an event handler previously added with 'add_LostFocus'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -326,19 +326,19 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `AcceleratorKeyPressed` event. `AcceleratorKeyPressed` runs when an accelerator key or key combo is pressed or released while the WebView is focused. A key is considered an accelerator if either of the following conditions are true.
+ Adds an event handler for the 'AcceleratorKeyPressed' event. 'AcceleratorKeyPressed' runs when an accelerator key or key combo is pressed or released while the WebView is focused. A key is considered an accelerator if either of the following conditions are true.
 
 <p>* Ctrl or Alt is currently being held. * The pressed key does not map to a character.
 
-<p>A few specific keys are never considered accelerators, such as Shift. The `Escape` key is always considered an accelerator.
+<p>A few specific keys are never considered accelerators, such as Shift. The 'Escape' key is always considered an accelerator.
 
-<p>Auto-repeated key events caused by holding the key down also triggers this event. Filter out the auto-repeated key events by verifying the `KeyEventLParam` or `PhysicalKeyStatus` event args.
+<p>Auto-repeated key events caused by holding the key down also triggers this event. Filter out the auto-repeated key events by verifying the 'KeyEventLParam' or 'PhysicalKeyStatus' event args.
 
-<p>In windowed mode, the event handler is run synchronously. Until you run `Handled()` on the event args or the event handler returns, the browser process is blocked and outgoing cross-process COM requests fail with `RPC_E_CANTCALLOUT_ININPUTSYNCCALL`. All `CoreWebView2` API methods work, however.
+<p>In windowed mode, the event handler is run synchronously. Until you run 'Handled()' on the event args or the event handler returns, the browser process is blocked and outgoing cross-process COM requests fail with 'RPC_E_CANTCALLOUT_ININPUTSYNCCALL'. All 'CoreWebView2' API methods work, however.
 
-<p>In windowless mode, the event handler is run asynchronously. Further input do not reach the browser until the event handler returns or `Handled()` is run, but the browser process is not blocked, and outgoing COM requests work normally.
+<p>In windowless mode, the event handler is run asynchronously. Further input do not reach the browser until the event handler returns or 'Handled()' is run, but the browser process is not blocked, and outgoing COM requests work normally.
 
-<p>It is recommended to run `Handled(TRUE)` as early as are able to know that you want to handle the accelerator key.
+<p>It is recommended to run 'Handled(TRUE)' as early as are able to know that you want to handle the accelerator key.
 
 <p>\snippet ControlComponent.cpp AcceleratorKeyPressed </p>
 </td></tr>
@@ -350,7 +350,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_AcceleratorKeyPressed`. </p>
+ Removes an event handler previously added with 'add_AcceleratorKeyPressed'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -380,7 +380,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- This is a notification separate from `Bounds` that tells WebView that the main WebView parent (or any ancestor) `HWND` moved. This is needed for accessibility and certain dialogs in WebView to work correctly.
+ This is a notification separate from 'Bounds' that tells WebView that the main WebView parent (or any ancestor) 'HWND' moved. This is needed for accessibility and certain dialogs in WebView to work correctly.
 
 <p>\snippet ViewComponent.cpp NotifyParentWindowPositionChanged </p>
 </td></tr>
@@ -394,9 +394,9 @@ body { margin: 0.5em; }
 <p>
  Closes the WebView and cleans up the underlying browser instance. Cleaning up the browser instance releases the resources powering the WebView. The browser instance is shut down if no other WebViews are using it.
 
-<p>After running `Close`, most methods will fail and event handlers stop running. Specifically, the WebView releases the associated references to any associated event handlers when `Close` is run.
+<p>After running 'Close', most methods will fail and event handlers stop running. Specifically, the WebView releases the associated references to any associated event handlers when 'Close' is run.
 
-<p>`Close` is implicitly run when the `CoreWebView2Controller` loses the final reference and is destructed. But it is best practice to explicitly run `Close` to avoid any accidental cycle of references between the WebView and the app code. Specifically, if you capture a reference to the WebView in an event handler you create a reference cycle between the WebView and the event handler. Run `Close` to break the cycle by releasing all event handlers. But to avoid the situation, it is best to both explicitly run `Close` on the WebView and to not capture a reference to the WebView to ensure the WebView is cleaned up correctly. `Close` is synchronous and won't trigger the `beforeunload` event.
+<p>'Close' is implicitly run when the 'CoreWebView2Controller' loses the final reference and is destructed. But it is best practice to explicitly run 'Close' to avoid any accidental cycle of references between the WebView and the app code. Specifically, if you capture a reference to the WebView in an event handler you create a reference cycle between the WebView and the event handler. Run 'Close' to break the cycle by releasing all event handlers. But to avoid the situation, it is best to both explicitly run 'Close' on the WebView and to not capture a reference to the WebView to ensure the WebView is cleaned up correctly. 'Close' is synchronous and won't trigger the 'beforeunload' event.
 
 <p>\snippet AppWindow.cpp Close </p>
 </td></tr>
@@ -408,7 +408,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the `CoreWebView2` associated with this `CoreWebView2Controller`. </p>
+ Gets the 'CoreWebView2' associated with this 'CoreWebView2Controller'. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

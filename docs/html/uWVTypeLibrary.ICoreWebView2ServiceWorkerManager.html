@@ -59,11 +59,11 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Adds an event handler for the `ServiceWorkerRegistered` event. A ServiceWorker is a specific type of worker that takes a JavaScript file that can control the web-page/site that it is associated with, intercepting and modifying navigation and resource requests, and caching resources in a very granular fashion to give you complete control over how app behaves in certain situations.
+ Adds an event handler for the 'ServiceWorkerRegistered' event. A ServiceWorker is a specific type of worker that takes a JavaScript file that can control the web-page/site that it is associated with, intercepting and modifying navigation and resource requests, and caching resources in a very granular fashion to give you complete control over how app behaves in certain situations.
 
 <p>Service workers essentially act as proxy servers that sit between web applications, the browser, and the network (when available). They run in a different context from the web page, which means they have no direct access to the DOM. Unlike dedicated and shared workers, which may have direct access to a global scope shared with other scripts, service workers operate in isolation from the DOM, ensuring a more secure and controlled environment.
 
-<p>This event is raised when a web application registers a service worker using the `navigator.serviceWorker.register(&quot;/sw.js&quot;)` method. See the [Service Worker Registration](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration</a>) for more information.
+<p>This event is raised when a web application registers a service worker using the 'navigator.serviceWorker.register(&quot;/sw.js&quot;)' method. See the [Service Worker Registration](<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration</a>) for more information.
 
 <p>\snippet ScenarioServiceWorkerManager.cpp ServiceWorkerRegistered </p>
 <h6 class="description_section">Attributes</h6>
@@ -80,7 +80,7 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Removes an event handler previously added with `add_ServiceWorkerRegistered`. </p>
+ Removes an event handler previously added with 'add_ServiceWorkerRegistered'. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -92,9 +92,9 @@ body { margin: 0.5em; }
 <p>
  Gets a list of the service worker registrations under the same profile.
 
-<p>This method returns a list of `CoreWebView2ServiceWorkerRegistration` objects, each representing a service worker registration.
+<p>This method returns a list of 'CoreWebView2ServiceWorkerRegistration' objects, each representing a service worker registration.
 
-<p>This method corresponds to the `getRegistrations` method of the `ServiceWorkerContainer` object in the DOM which returns a Promise that resolves to an array of `ServiceWorkerRegistration` objects. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations</a>) for more information. </p>
+<p>This method corresponds to the 'getRegistrations' method of the 'ServiceWorkerContainer' object in the DOM which returns a Promise that resolves to an array of 'ServiceWorkerRegistration' objects. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations</a>) for more information. </p>
 </td></tr>
 </table>
 <table class="detail visibility-public wide_list">
@@ -104,15 +104,15 @@ body { margin: 0.5em; }
 </tr>
 <tr><td colspan="2">
 <p>
- Gets the service worker registrations associated with the specified scope. If a service worker has been registered for the given scope, it gets the list of `CoreWebView2ServiceWorkerRegistration` objects otherwise returns empty list.
+ Gets the service worker registrations associated with the specified scope. If a service worker has been registered for the given scope, it gets the list of 'CoreWebView2ServiceWorkerRegistration' objects otherwise returns empty list.
 
-<p>If the service worker is registered with a `scope` of '/app/' for an application at <a href="https://example.com/">https://example.com/</a>, you should specify the full qualified URI i.e., <a href="https://example.com/app/">https://example.com/app/</a> when calling this method. If the scope was not explicitly specified during registration, you should use the directory where the service worker script resides, for example, <a href="https://example.com/app/">https://example.com/app/</a>.
+<p>If the service worker is registered with a 'scope' of '/app/' for an application at <a href="https://example.com/">https://example.com/</a>, you should specify the full qualified URI i.e., <a href="https://example.com/app/">https://example.com/app/</a> when calling this method. If the scope was not explicitly specified during registration, you should use the directory where the service worker script resides, for example, <a href="https://example.com/app/">https://example.com/app/</a>.
 
-<p>Refer to the Host Name Canonicalization for details on how provided `scriptUri` normalization is performed. For example, `<a href="HTTPS://m">HTTPS://m</a>ünchen.de/` will be normalized to `<a href="https://www.xn--kfk.com">https://www.xn--kfk.com</a>` for comparison.
+<p>Refer to the Host Name Canonicalization for details on how provided 'scriptUri' normalization is performed. For example, '<a href="HTTPS://m">HTTPS://m</a>ünchen.de/' will be normalized to '<a href="https://www.xn--kfk.com">https://www.xn--kfk.com</a>' for comparison.
 
-<p>This corresponds to the `getRegistration` method of the `ServiceWorkerContainer` object in the DOM which returns a Promise that resolves to a `ServiceWorkerRegistration` object. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration</a>) for more information.
+<p>This corresponds to the 'getRegistration' method of the 'ServiceWorkerContainer' object in the DOM which returns a Promise that resolves to a 'ServiceWorkerRegistration' object. See the [MDN documentation] (<a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration">https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistration</a>) for more information.
 
-<p>If scopeUri is empty string or null or invalid, the completed handler immediately returns `E_INVALIDARG` and with a null pointer. </p>
+<p>If scopeUri is empty string or null or invalid, the completed handler immediately returns 'E_INVALIDARG' and with a null pointer. </p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.5.snapshot</a>. </em>

@@ -51,9 +51,9 @@ body { margin: 0.5em; }
 
 <p>This method is for anyone want to compare version correctly to determine which version is newer, older or same. Use it to determine whether to use webview2 or certain feature based upon version.
 
-<p>Sets the value of result to `-1`, `0` or `1` if `version1` is less than, equal or greater than `version2` respectively. Returns `E_INVALIDARG` if it fails to parse any of the version strings or any input parameter is `null`.
+<p>Sets the value of result to '-1', '0' or '1' if 'version1' is less than, equal or greater than 'version2' respectively. Returns 'E_INVALIDARG' if it fails to parse any of the version strings or any input parameter is 'null'.
 
-<p>Directly use the `versionInfo` obtained from `GetAvailableCoreWebView2BrowserVersionString` with input, channel information is ignored.
+<p>Directly use the 'versionInfo' obtained from 'GetAvailableCoreWebView2BrowserVersionString' with input, channel information is ignored.
 
 <p></p></td>
 </tr>
@@ -205,7 +205,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND">COREWEBVIEW2_CHANNEL_SEARCH_KIND</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The channel search kind determines the order that release channels are searched for during environment creation. The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of channels. </p></td>
+<td class="itemdesc"><p> The channel search kind determines the order that release channels are searched for during environment creation. The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of channels. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE">COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE</a></td>
@@ -570,7 +570,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_FRAME_KIND">COREWEBVIEW2_FRAME_KIND</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates the frame type used in the `ICoreWebView2FrameInfo` interface. </p></td>
+<td class="itemdesc"><p> Indicates the frame type used in the 'ICoreWebView2FrameInfo' interface. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_FRAME_KIND_EMBED">COREWEBVIEW2_FRAME_KIND_EMBED</a></td>
@@ -849,12 +849,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A hit test region in the WebView2 which has the CSS style `-webkit-app-region: drag` set. Web content should use this CSS style to identify regions that should be treated like the app window's title bar. This has the same value as the Win32 HTCAPTION constant. </p></td>
+<td class="itemdesc"><p> A hit test region in the WebView2 which has the CSS style '-webkit-app-region: drag' set. Web content should use this CSS style to identify regions that should be treated like the app window's title bar. This has the same value as the Win32 HTCAPTION constant. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A hit test region in the WebView2 which does not have the CSS style `-webkit-app-region: drag` set. This is normal web content that should not be considered part of the app window's title bar. This has the same value as the Win32 HTCLIENT constant. </p></td>
+<td class="itemdesc"><p> A hit test region in the WebView2 which does not have the CSS style '-webkit-app-region: drag' set. This is normal web content that should not be considered part of the app window's title bar. This has the same value as the Win32 HTCLIENT constant. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE">COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE</a></td>
@@ -1239,7 +1239,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND">COREWEBVIEW2_PROCESS_FAILED_KIND</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Specifies the process failure type used in the `ICoreWebView2ProcessFailedEventArgs` interface. The values in this enum make reference to the process kinds in the Chromium architecture. For more information about what these processes are and what they do, see [Browser Architecture - Inside look at modern web browser](<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>). </p></td>
+<td class="itemdesc"><p> Specifies the process failure type used in the 'ICoreWebView2ProcessFailedEventArgs' interface. The values in this enum make reference to the process kinds in the Chromium architecture. For more information about what these processes are and what they do, see [Browser Architecture - Inside look at modern web browser](<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>). </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED</a></td>
@@ -1249,12 +1249,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a frame-only render process ended unexpectedly. The process exit does not affect the top-level document, only a subset of the subframes within it. The content in these frames is replaced with an error page in the frame. Your application can communicate with the main frame to recover content in the impacted frames, using `ICoreWebView2ProcessFailedEventArgs2.FrameInfosForFailedProcess` to get information about the impacted frames. </p></td>
+<td class="itemdesc"><p> Indicates that a frame-only render process ended unexpectedly. The process exit does not affect the top-level document, only a subset of the subframes within it. The content in these frames is replaced with an error page in the frame. Your application can communicate with the main frame to recover content in the impacted frames, using 'ICoreWebView2ProcessFailedEventArgs2.FrameInfosForFailedProcess' to get information about the impacted frames. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that the GPU process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that the GPU process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED</a></td>
@@ -1269,7 +1269,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that the main frame's render process ended unexpectedly. Any subframes in the WebView will be gone too. A new render process is created automatically and navigated to an error page. You can use the `Reload` method to try to recover from this failure. Alternatively, you can `Close` and recreate the WebView. </p></td>
+<td class="itemdesc"><p> Indicates that the main frame's render process ended unexpectedly. Any subframes in the WebView will be gone too. A new render process is created automatically and navigated to an error page. You can use the 'Reload' method to try to recover from this failure. Alternatively, you can 'Close' and recreate the WebView. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE">COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE</a></td>
@@ -1280,24 +1280,24 @@ body { margin: 0.5em; }
 
 <p>There is a **long-running script** being executed. For example, the web content in your WebView might be performing a synchronous XHR, or have entered an infinite loop. Or, the **system is busy**.
 
-<p>The `ProcessFailed` event will continue to be raised every few seconds until the renderer process has become responsive again. The application can consider taking action if the event keeps being raised. For example, the application might show UI for the user to decide to keep waiting or reload the page, or navigate away.
+<p>The 'ProcessFailed' event will continue to be raised every few seconds until the renderer process has become responsive again. The application can consider taking action if the event keeps being raised. For example, the application might show UI for the user to decide to keep waiting or reload the page, or navigate away.
 
 <p></p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a sandbox helper process ended unexpectedly. This failure is not fatal. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that a sandbox helper process ended unexpectedly. This failure is not fatal. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a process of unspecified kind ended unexpectedly. Your application can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure. </p></td>
+<td class="itemdesc"><p> Indicates that a process of unspecified kind ended unexpectedly. Your application can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED">COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Indicates that a utility process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use `ICoreWebView2ProcessFailedEventArgs` and `ICoreWebView2ProcessFailedEventArgs2` to collect information about the failure, including `ProcessDescription`. </p></td>
+<td class="itemdesc"><p> Indicates that a utility process ended unexpectedly. The failed process is recreated automatically. Your application does **not** need to handle recovery for this event, but can use 'ICoreWebView2ProcessFailedEventArgs' and 'ICoreWebView2ProcessFailedEventArgs2' to collect information about the failure, including 'ProcessDescription'. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON">COREWEBVIEW2_PROCESS_FAILED_REASON</a></td>
@@ -1312,7 +1312,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED">COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The process crashed. Most crashes will generate dumps in the location indicated by `ICoreWebView2Environment11.get_FailureReportFolderPath`. </p></td>
+<td class="itemdesc"><p> The process crashed. Most crashes will generate dumps in the location indicated by 'ICoreWebView2Environment11.get_FailureReportFolderPath'. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_PROCESS_FAILED_REASON_INTEGRITY_FAILURE">COREWEBVIEW2_PROCESS_FAILED_REASON_INTEGRITY_FAILURE</a></td>
@@ -1399,7 +1399,7 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
 <td class="itemdesc"><p>
 
-<p>The WebView2 release channels. Use `ReleaseChannels` and `ChannelSearchKind` on `ICoreWebView2EnvironmentOptions` to control which channel is searched for during environment creation.
+<p>The WebView2 release channels. Use 'ReleaseChannels' and 'ChannelSearchKind' on 'ICoreWebView2EnvironmentOptions' to control which channel is searched for during environment creation.
 
 <p></p>
 
@@ -1431,7 +1431,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_NONE">COREWEBVIEW2_RELEASE_CHANNELS_NONE</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> No release channel. Passing only this value to `ReleaseChannels` results in HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND). </p></td>
+<td class="itemdesc"><p> No release channel. Passing only this value to 'ReleaseChannels' results in HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND). </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_RELEASE_CHANNELS_STABLE">COREWEBVIEW2_RELEASE_CHANNELS_STABLE</a></td>
@@ -1441,9 +1441,9 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND">COREWEBVIEW2_SAVE_AS_KIND</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Specifies Save As kind selection options for `ICoreWebView2SaveAsUIShowingEventArgs`.
+<td class="itemdesc"><p> Specifies Save As kind selection options for 'ICoreWebView2SaveAsUIShowingEventArgs'.
 
-<p>For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of `text/html` and `application/xhtml+xml` are considered HTML documents. </p></td>
+<p>For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of 'text/html' and 'application/xhtml+xml' are considered HTML documents. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND_COMPLETE">COREWEBVIEW2_SAVE_AS_KIND_COMPLETE</a></td>
@@ -1453,7 +1453,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND_DEFAULT">COREWEBVIEW2_SAVE_AS_KIND_DEFAULT</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Default kind to save non-HTML content. If this kind is selected for an HTML page, the behavior is the same as the `HTML_ONLY` kind. </p></td>
+<td class="itemdesc"><p> Default kind to save non-HTML content. If this kind is selected for an HTML page, the behavior is the same as the 'HTML_ONLY' kind. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY">COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY</a></td>
@@ -1468,17 +1468,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT">COREWEBVIEW2_SAVE_AS_UI_RESULT</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Status of a programmatic Save As call. Indicates the result of the `ShowSaveAsUI` method. </p></td>
+<td class="itemdesc"><p> Status of a programmatic Save As call. Indicates the result of the 'ShowSaveAsUI' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED">COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Did not perform Save As because the end user cancelled or the `Cancel` property on `ICoreWebView2SaveAsUIShowingEventArgs` was set to TRUE. </p></td>
+<td class="itemdesc"><p> Did not perform Save As because the end user cancelled or the 'Cancel' property on 'ICoreWebView2SaveAsUIShowingEventArgs' was set to TRUE. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS">COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Could not perform Save As because the destination file path already exists and replacing files was not allowed by the `AllowReplace` property. </p></td>
+<td class="itemdesc"><p> Could not perform Save As because the destination file path already exists and replacing files was not allowed by the 'AllowReplace' property. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH">COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH</a></td>
@@ -1490,16 +1490,16 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED">COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Could not perform Save As because the `Kind` property selection is not supported due to content MIME type or system limits.
+<td class="itemdesc"><p> Could not perform Save As because the 'Kind' property selection is not supported due to content MIME type or system limits.
 
-<p>See the `COREWEBVIEW2_SAVE_AS_KIND` enum for MIME type limits.
+<p>See the 'COREWEBVIEW2_SAVE_AS_KIND' enum for MIME type limits.
 
-<p>System limits include when the `HTML_ONLY` kind is selected for an error page at child mode, or when the `COMPLETE` kind is selected and the WebView is running in an App Container. </p></td>
+<p>System limits include when the 'HTML_ONLY' kind is selected for an error page at child mode, or when the 'COMPLETE' kind is selected and the WebView is running in an App Container. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS">COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The ShowSaveAsUI method call completed successfully. By default, the system Save As dialog opens. If `SuppressDefaultDialog` is set to TRUE, the system dialog is skipped. </p></td>
+<td class="itemdesc"><p> The ShowSaveAsUI method call completed successfully. By default, the system Save As dialog opens. If 'SuppressDefaultDialog' is set to TRUE, the system dialog is skipped. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SCRIPT_DIALOG_KIND">COREWEBVIEW2_SCRIPT_DIALOG_KIND</a></td>
@@ -1529,7 +1529,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE">COREWEBVIEW2_SCROLLBAR_STYLE</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Set ScrollBar style on `ICoreWebView2EnvironmentOptions` during environment creation. </p></td>
+<td class="itemdesc"><p> Set ScrollBar style on 'ICoreWebView2EnvironmentOptions' during environment creation. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT">COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT</a></td>
@@ -1828,7 +1828,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Specifies the source of `WebResourceRequested` event. </p></td>
+<td class="itemdesc"><p> Specifies the source of 'WebResourceRequested' event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.html#COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL">COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL</a></td>
@@ -1865,9 +1865,9 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVLibFunctions.html">uWVLibFunctions</a></td>
 <td class="itemdesc"><p>
 
-<p>Creates an evergreen WebView2 Environment using the installed WebView2 Runtime version. This is equivalent to running `CreateCoreWebView2EnvironmentWithOptions` with `nullptr` for `browserExecutableFolder`, `userDataFolder`, `additionalBrowserArguments`.
+<p>Creates an evergreen WebView2 Environment using the installed WebView2 Runtime version. This is equivalent to running 'CreateCoreWebView2EnvironmentWithOptions' with 'nullptr' for 'browserExecutableFolder', 'userDataFolder', 'additionalBrowserArguments'.
 
-<p>For more information, navigate to `CreateCoreWebView2EnvironmentWithOptions`.
+<p>For more information, navigate to 'CreateCoreWebView2EnvironmentWithOptions'.
 
 <p></p></td>
 </tr>
@@ -1958,11 +1958,11 @@ body { margin: 0.5em; }
 
 <p>Get the browser version info including channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary.
 
-<p>If an override exists for the `browserExecutableFolder` or the channel preference, the override is used. If an override is not specified, then the parameter value passed to `GetAvailableCoreWebView2BrowserVersionString` is used.
+<p>If an override exists for the 'browserExecutableFolder' or the channel preference, the override is used. If an override is not specified, then the parameter value passed to 'GetAvailableCoreWebView2BrowserVersionString' is used.
 
-<p>Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an installed WebView2 runtime or non-stable Microsoft Edge installation.
+<p>Returns 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if it fails to find an installed WebView2 runtime or non-stable Microsoft Edge installation.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
 
 <p></p></td>
 </tr>
@@ -1971,11 +1971,11 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVLibFunctions.html">uWVLibFunctions</a></td>
 <td class="itemdesc"><p>
 
-<p>This function will tell you the browser version info of the release channel used when creating an environment with the same options. Browser version info includes channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary. The format of the return string matches the format of `BrowserVersionString` on `ICoreWebView2Environment`.
+<p>This function will tell you the browser version info of the release channel used when creating an environment with the same options. Browser version info includes channel name if it is not the WebView2 Runtime. Channel names are Beta, Dev, and Canary. The format of the return string matches the format of 'BrowserVersionString' on 'ICoreWebView2Environment'.
 
-<p>If an override exists for `browserExecutableFolder`, `releaseChannels`, or `ChannelSearchKind`, the override is used. The presence of an override can result in a different channel used than the one expected based on the environment options object. `browserExecutableFolder` takes precedence over the other options, regardless of whether or not its channel is included in the `releaseChannels`. See `CreateCoreWebView2EnvironmentWithOptions` for more details on overrides. If an override is not specified, then the parameters passed to `GetAvailableCoreWebView2BrowserVersionStringWithOptions` are used. Returns `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)` if it fails to find an installed WebView2 Runtime or non-stable Microsoft Edge installation. Use `GetAvailableCoreWebView2BrowserVersionString` to get the version info without the environment options.
+<p>If an override exists for 'browserExecutableFolder', 'releaseChannels', or 'ChannelSearchKind', the override is used. The presence of an override can result in a different channel used than the one expected based on the environment options object. 'browserExecutableFolder' takes precedence over the other options, regardless of whether or not its channel is included in the 'releaseChannels'. See 'CreateCoreWebView2EnvironmentWithOptions' for more details on overrides. If an override is not specified, then the parameters passed to 'GetAvailableCoreWebView2BrowserVersionStringWithOptions' are used. Returns 'HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)' if it fails to find an installed WebView2 Runtime or non-stable Microsoft Edge installation. Use 'GetAvailableCoreWebView2BrowserVersionString' to get the version info without the environment options.
 
-<p>The caller must free the returned string with `CoTaskMemFree`. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
+<p>The caller must free the returned string with 'CoTaskMemFree'. See [API Conventions](/microsoft-edge/webview2/concepts/win32-api-conventions#strings).
 
 <p></p></td>
 </tr>
@@ -2047,7 +2047,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationRequestedEventHandler.html">ICoreWebView2BasicAuthenticationRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `BasicAuthenticationRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'BasicAuthenticationRequested' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BasicAuthenticationResponse.html">ICoreWebView2BasicAuthenticationResponse</a></td>
@@ -2062,7 +2062,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionEnableCompletedHandler.html">ICoreWebView2BrowserExtensionEnableCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `Enable` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'Enable' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionList.html">ICoreWebView2BrowserExtensionList</a></td>
@@ -2072,7 +2072,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserExtensionRemoveCompletedHandler.html">ICoreWebView2BrowserExtensionRemoveCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `Remove` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'Remove' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BrowserProcessExitedEventArgs.html">ICoreWebView2BrowserProcessExitedEventArgs</a></td>
@@ -2087,12 +2087,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2BytesReceivedChangedEventHandler.html">ICoreWebView2BytesReceivedChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `BytesReceivedChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'BytesReceivedChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CallDevToolsProtocolMethodCompletedHandler.html">ICoreWebView2CallDevToolsProtocolMethodCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `CallDevToolsProtocolMethod` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'CallDevToolsProtocolMethod' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CapturePreviewCompletedHandler.html">ICoreWebView2CapturePreviewCompletedHandler</a></td>
@@ -2107,7 +2107,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ClearBrowsingDataCompletedHandler.html">ICoreWebView2ClearBrowsingDataCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `ClearBrowsingData` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'ClearBrowsingData' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler.html">ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler</a></td>
@@ -2132,7 +2132,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ClientCertificateRequestedEventHandler.html">ICoreWebView2ClientCertificateRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ClientCertificateRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'ClientCertificateRequested' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CompositionController.html">ICoreWebView2CompositionController</a></td>
@@ -2172,7 +2172,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ContentLoadingEventHandler.html">ICoreWebView2ContentLoadingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ContentLoading` events. </p></td>
+<td class="itemdesc"><p> Receives 'ContentLoading' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ContextMenuItem.html">ICoreWebView2ContextMenuItem</a></td>
@@ -2202,7 +2202,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Controller.html">ICoreWebView2Controller</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The owner of the `CoreWebView2` object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The `CoreWebView2Controller` owns the `CoreWebView2`, and if all references to the `CoreWebView2Controller` go away, the WebView is closed. </p></td>
+<td class="itemdesc"><p> The owner of the 'CoreWebView2' object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The 'CoreWebView2Controller' owns the 'CoreWebView2', and if all references to the 'CoreWebView2Controller' go away, the WebView is closed. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Controller2.html">ICoreWebView2Controller2</a></td>
@@ -2266,27 +2266,27 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler.html">ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `CreateCoreWebView2CompositionController` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'CreateCoreWebView2CompositionController' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler.html">ICoreWebView2CreateCoreWebView2ControllerCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `CreateCoreWebView2Controller` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'CreateCoreWebView2Controller' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler.html">ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `CreateCoreWebView2Environment` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'CreateCoreWebView2Environment' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CursorChangedEventHandler.html">ICoreWebView2CursorChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `CursorChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'CursorChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CustomItemSelectedEventHandler.html">ICoreWebView2CustomItemSelectedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `CustomItemSelected` events. </p></td>
+<td class="itemdesc"><p> Receives 'CustomItemSelected' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2CustomSchemeRegistration.html">ICoreWebView2CustomSchemeRegistration</a></td>
@@ -2303,27 +2303,27 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DedicatedWorkerCreatedEventArgs.html">ICoreWebView2DedicatedWorkerCreatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `DedicatedWorkerCreated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'DedicatedWorkerCreated' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DedicatedWorkerCreatedEventHandler.html">ICoreWebView2DedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DedicatedWorkerDedicatedWorkerCreatedEventHandler.html">ICoreWebView2DedicatedWorkerDedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DedicatedWorkerDestroyingEventHandler.html">ICoreWebView2DedicatedWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DedicatedWorkerWebMessageReceivedEventHandler.html">ICoreWebView2DedicatedWorkerWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `WebMessageReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebMessageReceived' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Deferral.html">ICoreWebView2Deferral</a></td>
@@ -2343,7 +2343,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceivedEventHandler.html">ICoreWebView2DevToolsProtocolEventReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DevToolsProtocolEventReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'DevToolsProtocolEventReceived' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DevToolsProtocolEventReceiver.html">ICoreWebView2DevToolsProtocolEventReceiver</a></td>
@@ -2378,17 +2378,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DownloadStartingEventHandler.html">ICoreWebView2DownloadStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DownloadStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'DownloadStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DragStartingEventArgs.html">ICoreWebView2DragStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `DragStarting` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'DragStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2DragStartingEventHandler.html">ICoreWebView2DragStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DragStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'DragStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment.html">ICoreWebView2Environment</a></td>
@@ -2423,7 +2423,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment15.html">ICoreWebView2Environment15</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Interface that provides methods related to the environment settings of CoreWebView2. This interface allows for the creation of new `FindOptions` objects. </p></td>
+<td class="itemdesc"><p> Interface that provides methods related to the environment settings of CoreWebView2. This interface allows for the creation of new 'FindOptions' objects. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Environment2.html">ICoreWebView2Environment2</a></td>
@@ -2498,7 +2498,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions7.html">ICoreWebView2EnvironmentOptions7</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Additional options used to create the WebView2 Environment that support specifying the `ReleaseChannels` and `ChannelSearchKind`. </p></td>
+<td class="itemdesc"><p> Additional options used to create the WebView2 Environment that support specifying the 'ReleaseChannels' and 'ChannelSearchKind'. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2EnvironmentOptions8.html">ICoreWebView2EnvironmentOptions8</a></td>
@@ -2508,7 +2508,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2EstimatedEndTimeChangedEventHandler.html">ICoreWebView2EstimatedEndTimeChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `EstimatedEndTimeChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'EstimatedEndTimeChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ExecuteScriptCompletedHandler.html">ICoreWebView2ExecuteScriptCompletedHandler</a></td>
@@ -2523,12 +2523,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ExecuteScriptWithResultCompletedHandler.html">ICoreWebView2ExecuteScriptWithResultCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `ExecuteScriptWithResult` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'ExecuteScriptWithResult' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FaviconChangedEventHandler.html">ICoreWebView2FaviconChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `FaviconChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'FaviconChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2File.html">ICoreWebView2File</a></td>
@@ -2548,12 +2548,12 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FindActiveMatchIndexChangedEventHandler.html">ICoreWebView2FindActiveMatchIndexChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ActiveMatchIndexChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'ActiveMatchIndexChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FindMatchCountChangedEventHandler.html">ICoreWebView2FindMatchCountChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `MatchCountChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'MatchCountChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FindOptions.html">ICoreWebView2FindOptions</a></td>
@@ -2563,12 +2563,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FindStartCompletedHandler.html">ICoreWebView2FindStartCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `Start` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'Start' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FocusChangedEventHandler.html">ICoreWebView2FocusChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `GotFocus` events. </p></td>
+<td class="itemdesc"><p> Receives 'GotFocus' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame.html">ICoreWebView2Frame</a></td>
@@ -2593,7 +2593,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame5.html">ICoreWebView2Frame5</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This is an extension of the ICoreWebView2Frame interface that provides the `FrameId` property. </p></td>
+<td class="itemdesc"><p> This is an extension of the ICoreWebView2Frame interface that provides the 'FrameId' property. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame6.html">ICoreWebView2Frame6</a></td>
@@ -2603,22 +2603,22 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame7.html">ICoreWebView2Frame7</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This is the `ICoreWebView2Frame` interface to support tracking of nested iframes. </p></td>
+<td class="itemdesc"><p> This is the 'ICoreWebView2Frame' interface to support tracking of nested iframes. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Frame8.html">ICoreWebView2Frame8</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A continuation of the `ICoreWebView2Frame` interface to manage dedicated workers. </p></td>
+<td class="itemdesc"><p> A continuation of the 'ICoreWebView2Frame' interface to manage dedicated workers. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameChildFrameCreatedEventHandler.html">ICoreWebView2FrameChildFrameCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `FrameCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'FrameCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameContentLoadingEventHandler.html">ICoreWebView2FrameContentLoadingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ContentLoading` events. </p></td>
+<td class="itemdesc"><p> Receives 'ContentLoading' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventArgs.html">ICoreWebView2FrameCreatedEventArgs</a></td>
@@ -2628,22 +2628,22 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameCreatedEventHandler.html">ICoreWebView2FrameCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `FrameCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'FrameCreated' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDedicatedWorkerCreatedEventHandler.html">ICoreWebView2FrameDedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDestroyedEventHandler.html">ICoreWebView2FrameDestroyedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Destroyed` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroyed' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameDOMContentLoadedEventHandler.html">ICoreWebView2FrameDOMContentLoadedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `DOMContentLoaded` events. </p></td>
+<td class="itemdesc"><p> Receives 'DOMContentLoaded' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfo.html">ICoreWebView2FrameInfo</a></td>
@@ -2653,7 +2653,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfo2.html">ICoreWebView2FrameInfo2</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> A continuation of the ICoreWebView2FrameInfo interface that provides `ParentFrameInfo`, `FrameId` and `FrameKind` properties. </p></td>
+<td class="itemdesc"><p> A continuation of the ICoreWebView2FrameInfo interface that provides 'ParentFrameInfo', 'FrameId' and 'FrameKind' properties. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameInfoCollection.html">ICoreWebView2FrameInfoCollection</a></td>
@@ -2668,32 +2668,32 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNameChangedEventHandler.html">ICoreWebView2FrameNameChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `NameChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'NameChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNavigationCompletedEventHandler.html">ICoreWebView2FrameNavigationCompletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `NavigationCompleted` events. </p></td>
+<td class="itemdesc"><p> Receives 'NavigationCompleted' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameNavigationStartingEventHandler.html">ICoreWebView2FrameNavigationStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `NavigationStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'NavigationStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FramePermissionRequestedEventHandler.html">ICoreWebView2FramePermissionRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `PermissionRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'PermissionRequested' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameScreenCaptureStartingEventHandler.html">ICoreWebView2FrameScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'ScreenCaptureStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2FrameWebMessageReceivedEventHandler.html">ICoreWebView2FrameWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `WebMessageReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebMessageReceived' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetCookiesCompletedHandler.html">ICoreWebView2GetCookiesCompletedHandler</a></td>
@@ -2703,27 +2703,27 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetFaviconCompletedHandler.html">ICoreWebView2GetFaviconCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetFavicon` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetFavicon' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler.html">ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetNonDefaultPermissionSettings` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetNonDefaultPermissionSettings' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetProcessExtendedInfosCompletedHandler.html">ICoreWebView2GetProcessExtendedInfosCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetProcessExtendedInfos` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetProcessExtendedInfos' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetServiceWorkerRegistrationsCompletedHandler.html">ICoreWebView2GetServiceWorkerRegistrationsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetServiceWorkerRegistrations` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetServiceWorkerRegistrations' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2GetSharedWorkersCompletedHandler.html">ICoreWebView2GetSharedWorkersCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetSharedWorkers` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetSharedWorkers' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2HistoryChangedEventHandler.html">ICoreWebView2HistoryChangedEventHandler</a></td>
@@ -2748,17 +2748,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler.html">ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `IsDefaultDownloadDialogOpenChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'IsDefaultDownloadDialogOpenChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2IsDocumentPlayingAudioChangedEventHandler.html">ICoreWebView2IsDocumentPlayingAudioChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `IsDocumentPlayingAudioChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'IsDocumentPlayingAudioChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2IsMutedChangedEventHandler.html">ICoreWebView2IsMutedChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `IsMutedChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'IsMutedChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventArgs.html">ICoreWebView2LaunchingExternalUriSchemeEventArgs</a></td>
@@ -2768,7 +2768,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2LaunchingExternalUriSchemeEventHandler.html">ICoreWebView2LaunchingExternalUriSchemeEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `LaunchingExternalUriScheme` events. </p></td>
+<td class="itemdesc"><p> Receives 'LaunchingExternalUriScheme' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2MoveFocusRequestedEventArgs.html">ICoreWebView2MoveFocusRequestedEventArgs</a></td>
@@ -2848,7 +2848,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2NonClientRegionChangedEventHandler.html">ICoreWebView2NonClientRegionChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `NonClientRegionChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'NonClientRegionChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Notification.html">ICoreWebView2Notification</a></td>
@@ -2858,17 +2858,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2NotificationCloseRequestedEventHandler.html">ICoreWebView2NotificationCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `CloseRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'CloseRequested' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2NotificationReceivedEventArgs.html">ICoreWebView2NotificationReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `NotificationReceived` event. \snippet ScenarioNotificationReceived.cpp NotificationReceived </p></td>
+<td class="itemdesc"><p> Event args for the 'NotificationReceived' event. \snippet ScenarioNotificationReceived.cpp NotificationReceived </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2NotificationReceivedEventHandler.html">ICoreWebView2NotificationReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `NotificationReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'NotificationReceived' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ObjectCollection.html">ICoreWebView2ObjectCollection</a></td>
@@ -2939,7 +2939,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2PrintToPdfCompletedHandler.html">ICoreWebView2PrintToPdfCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `PrintToPdf` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'PrintToPdf' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2PrintToPdfStreamCompletedHandler.html">ICoreWebView2PrintToPdfStreamCompletedHandler</a></td>
@@ -2949,7 +2949,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfo.html">ICoreWebView2ProcessExtendedInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Provides process with associated extended information in the `ICoreWebView2Environment`. </p></td>
+<td class="itemdesc"><p> Provides process with associated extended information in the 'ICoreWebView2Environment'. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessExtendedInfoCollection.html">ICoreWebView2ProcessExtendedInfoCollection</a></td>
@@ -2994,7 +2994,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProcessInfosChangedEventHandler.html">ICoreWebView2ProcessInfosChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> eceives `ProcessInfosChanged` events. </p></td>
+<td class="itemdesc"><p> eceives 'ProcessInfosChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Profile.html">ICoreWebView2Profile</a></td>
@@ -3044,22 +3044,22 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileAddBrowserExtensionCompletedHandler.html">ICoreWebView2ProfileAddBrowserExtensionCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `AddBrowserExtension` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'AddBrowserExtension' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileDeletedEventHandler.html">ICoreWebView2ProfileDeletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Deleted` events. </p></td>
+<td class="itemdesc"><p> Receives 'Deleted' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html">ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetBrowserExtensions` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetBrowserExtensions' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2RasterizationScaleChangedEventHandler.html">ICoreWebView2RasterizationScaleChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `RasterizationScaleChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'RasterizationScaleChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2RegionRectCollectionView.html">ICoreWebView2RegionRectCollectionView</a></td>
@@ -3069,32 +3069,32 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SaveAsUIShowingEventArgs.html">ICoreWebView2SaveAsUIShowingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The event args for `SaveAsUIShowing` event. </p></td>
+<td class="itemdesc"><p> The event args for 'SaveAsUIShowing' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SaveAsUIShowingEventHandler.html">ICoreWebView2SaveAsUIShowingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `SaveAsUIShowing` events. </p></td>
+<td class="itemdesc"><p> Receives 'SaveAsUIShowing' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventArgs.html">ICoreWebView2SaveFileSecurityCheckStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> The event args for `SaveFileSecurityCheckStarting` event. </p></td>
+<td class="itemdesc"><p> The event args for 'SaveFileSecurityCheckStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SaveFileSecurityCheckStartingEventHandler.html">ICoreWebView2SaveFileSecurityCheckStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `SaveFileSecurityCheckStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'SaveFileSecurityCheckStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventArgs.html">ICoreWebView2ScreenCaptureStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `ScreenCaptureStarting` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ScreenCaptureStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ScreenCaptureStartingEventHandler.html">ICoreWebView2ScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'ScreenCaptureStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ScriptDialogOpeningEventArgs.html">ICoreWebView2ScriptDialogOpeningEventArgs</a></td>
@@ -3119,7 +3119,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServerCertificateErrorDetectedEventHandler.html">ICoreWebView2ServerCertificateErrorDetectedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ServerCertificateErrorDetected` events. </p></td>
+<td class="itemdesc"><p> Receives 'ServerCertificateErrorDetected' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorker.html">ICoreWebView2ServiceWorker</a></td>
@@ -3129,17 +3129,17 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerActivatedEventArgs.html">ICoreWebView2ServiceWorkerActivatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `ServiceWorkerActivated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ServiceWorkerActivated' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerActivatedEventHandler.html">ICoreWebView2ServiceWorkerActivatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ServiceWorkerActivated` events. </p></td>
+<td class="itemdesc"><p> Receives 'ServiceWorkerActivated' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerDestroyingEventHandler.html">ICoreWebView2ServiceWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerManager.html">ICoreWebView2ServiceWorkerManager</a></td>
@@ -3149,12 +3149,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegisteredEventArgs.html">ICoreWebView2ServiceWorkerRegisteredEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `ServiceWorkerRegistered` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ServiceWorkerRegistered' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegisteredEventHandler.html">ICoreWebView2ServiceWorkerRegisteredEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ServiceWorkerRegistered` events. </p></td>
+<td class="itemdesc"><p> Receives 'ServiceWorkerRegistered' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistration.html">ICoreWebView2ServiceWorkerRegistration</a></td>
@@ -3169,17 +3169,17 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerRegistrationUnregisteringEventHandler.html">ICoreWebView2ServiceWorkerRegistrationUnregisteringEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Unregistering` events. </p></td>
+<td class="itemdesc"><p> Receives 'Unregistering' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ServiceWorkerWebMessageReceivedEventHandler.html">ICoreWebView2ServiceWorkerWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `WebMessageReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebMessageReceived' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SetPermissionStateCompletedHandler.html">ICoreWebView2SetPermissionStateCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `SetPermissionState` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'SetPermissionState' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2Settings.html">ICoreWebView2Settings</a></td>
@@ -3244,17 +3244,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SharedWorkerCreatedEventArgs.html">ICoreWebView2SharedWorkerCreatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `SharedWorkerCreated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'SharedWorkerCreated' event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SharedWorkerCreatedEventHandler.html">ICoreWebView2SharedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `SharedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'SharedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SharedWorkerDestroyingEventHandler.html">ICoreWebView2SharedWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SharedWorkerManager.html">ICoreWebView2SharedWorkerManager</a></td>
@@ -3264,7 +3264,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ShowSaveAsUICompletedHandler.html">ICoreWebView2ShowSaveAsUICompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `ShowSaveAsUI` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'ShowSaveAsUI' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2SourceChangedEventArgs.html">ICoreWebView2SourceChangedEventArgs</a></td>
@@ -3279,7 +3279,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2StateChangedEventHandler.html">ICoreWebView2StateChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `StateChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'StateChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2StatusBarTextChangedEventHandler.html">ICoreWebView2StatusBarTextChangedEventHandler</a></td>
@@ -3294,7 +3294,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2TrySuspendCompletedHandler.html">ICoreWebView2TrySuspendCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `TrySuspend` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'TrySuspend' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebMessageReceivedEventArgs.html">ICoreWebView2WebMessageReceivedEventArgs</a></td>
@@ -3324,12 +3324,12 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventArgs2.html">ICoreWebView2WebResourceRequestedEventArgs2</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Event args for the `WebResourceRequested` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'WebResourceRequested' event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceRequestedEventHandler.html">ICoreWebView2WebResourceRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `WebResourceRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebResourceRequested' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponse.html">ICoreWebView2WebResourceResponse</a></td>
@@ -3354,7 +3354,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WebResourceResponseViewGetContentCompletedHandler.html">ICoreWebView2WebResourceResponseViewGetContentCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetContent` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetContent' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2WindowCloseRequestedEventHandler.html">ICoreWebView2WindowCloseRequestedEventHandler</a></td>
@@ -3377,7 +3377,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2ZoomFactorChangedEventHandler.html">ICoreWebView2ZoomFactorChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> Receives `ZoomFactorChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'ZoomFactorChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_10.html">ICoreWebView2_10</a></td>
@@ -3437,7 +3437,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_20.html">ICoreWebView2_20</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This interface is an extension of `ICoreWebView2_19` that provides the `FrameId` property. </p></td>
+<td class="itemdesc"><p> This interface is an extension of 'ICoreWebView2_19' that provides the 'FrameId' property. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_21.html">ICoreWebView2_21</a></td>
@@ -3447,7 +3447,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_22.html">ICoreWebView2_22</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This interface is an extension of `ICoreWebView2` that allows to set filters in order to receive WebResourceRequested events for service workers, shared workers and different origin iframes. </p></td>
+<td class="itemdesc"><p> This interface is an extension of 'ICoreWebView2' that allows to set filters in order to receive WebResourceRequested events for service workers, shared workers and different origin iframes. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_23.html">ICoreWebView2_23</a></td>
@@ -3472,7 +3472,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_27.html">ICoreWebView2_27</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This interface is an extension of `ICoreWebView2` that supports the ScreenCaptureStarting event. </p></td>
+<td class="itemdesc"><p> This interface is an extension of 'ICoreWebView2' that supports the ScreenCaptureStarting event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_28.html">ICoreWebView2_28</a></td>
@@ -3502,7 +3502,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_6.html">ICoreWebView2_6</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypeLibrary.html">uWVTypeLibrary</a></td>
-<td class="itemdesc"><p> This interface is an extension of `ICoreWebView2_5` that manages opening the browser task manager window. </p></td>
+<td class="itemdesc"><p> This interface is an extension of 'ICoreWebView2_5' that manages opening the browser task manager window. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypeLibrary.ICoreWebView2_7.html">ICoreWebView2_7</a></td>
@@ -5287,7 +5287,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ContentLoadingEventHandler.html">TCoreWebView2ContentLoadingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ContentLoading` events. </p></td>
+<td class="itemdesc"><p> Receives 'ContentLoading' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ContextMenuItem.TCoreWebView2ContextMenuItem.html">TCoreWebView2ContextMenuItem</a></td>
@@ -5317,7 +5317,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Controller.TCoreWebView2Controller.html">TCoreWebView2Controller</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Controller.html">uWVCoreWebView2Controller</a></td>
-<td class="itemdesc"><p> The owner of the `CoreWebView2` object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The `CoreWebView2Controller` owns the `CoreWebView2`, and if all references to the `CoreWebView2Controller` go away, the WebView is closed. </p></td>
+<td class="itemdesc"><p> The owner of the 'CoreWebView2' object that provides support for resizing, showing and hiding, focusing, and other functionality related to windowing and composition. The 'CoreWebView2Controller' owns the 'CoreWebView2', and if all references to the 'CoreWebView2Controller' go away, the WebView is closed. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ControllerOptions.TCoreWebView2ControllerOptions.html">TCoreWebView2ControllerOptions</a></td>
@@ -5395,27 +5395,27 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2DedicatedWorkerCreatedEventArgs.html">TCoreWebView2DedicatedWorkerCreatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `DedicatedWorkerCreated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'DedicatedWorkerCreated' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DedicatedWorkerCreatedEventHandler.html">TCoreWebView2DedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DedicatedWorkerDedicatedWorkerCreatedEventHandler.html">TCoreWebView2DedicatedWorkerDedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DedicatedWorkerDestroyingEventHandler.html">TCoreWebView2DedicatedWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DedicatedWorkerWebMessageReceivedEventHandler.html">TCoreWebView2DedicatedWorkerWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `WebMessageReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebMessageReceived' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Deferral.TCoreWebView2Deferral.html">TCoreWebView2Deferral</a></td>
@@ -5465,12 +5465,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2DragStartingEventArgs.html">TCoreWebView2DragStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `DragStarting` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'DragStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2DragStartingEventHandler.html">TCoreWebView2DragStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `DragStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'DragStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Environment.TCoreWebView2Environment.html">TCoreWebView2Environment</a></td>
@@ -5530,12 +5530,12 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FindActiveMatchIndexChangedEventHandler.html">TCoreWebView2FindActiveMatchIndexChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ActiveMatchIndexChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'ActiveMatchIndexChanged' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FindMatchCountChangedEventHandler.html">TCoreWebView2FindMatchCountChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `MatchCountChanged` events. </p></td>
+<td class="itemdesc"><p> Receives 'MatchCountChanged' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2FindOptions.TCoreWebView2FindOptions.html">TCoreWebView2FindOptions</a></td>
@@ -5545,7 +5545,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FindStartCompletedHandler.html">TCoreWebView2FindStartCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the result of the `Start` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'Start' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Frame.TCoreWebView2Frame.html">TCoreWebView2Frame</a></td>
@@ -5555,7 +5555,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameChildFrameCreatedEventHandler.html">TCoreWebView2FrameChildFrameCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `FrameCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'FrameCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameContentLoadingEventHandler.html">TCoreWebView2FrameContentLoadingEventHandler</a></td>
@@ -5575,7 +5575,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDedicatedWorkerCreatedEventHandler.html">TCoreWebView2FrameDedicatedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `DedicatedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'DedicatedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameDestroyedEventHandler.html">TCoreWebView2FrameDestroyedEventHandler</a></td>
@@ -5635,7 +5635,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameScreenCaptureStartingEventHandler.html">TCoreWebView2FrameScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'ScreenCaptureStarting' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2FrameWebMessageReceivedEventHandler.html">TCoreWebView2FrameWebMessageReceivedEventHandler</a></td>
@@ -5660,17 +5660,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetProcessExtendedInfosCompletedHandler.html">TCoreWebView2GetProcessExtendedInfosCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetProcessExtendedInfos` method. The result is written to the collection of `ProcessExtendedInfo`s provided in the `GetProcessExtendedInfos` method call. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetProcessExtendedInfos' method. The result is written to the collection of 'ProcessExtendedInfo's provided in the 'GetProcessExtendedInfos' method call. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetServiceWorkerRegistrationsCompletedHandler.html">TCoreWebView2GetServiceWorkerRegistrationsCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetServiceWorkerRegistrations` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetServiceWorkerRegistrations' method. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GetSharedWorkersCompletedHandler.html">TCoreWebView2GetSharedWorkersCompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the result of the `GetSharedWorkers` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'GetSharedWorkers' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2GotFocusEventHandler.html">TCoreWebView2GotFocusEventHandler</a></td>
@@ -5780,7 +5780,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NonClientRegionChangedEventHandler.html">TCoreWebView2NonClientRegionChangedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `NonClientRegionChanged` events. event. </p></td>
+<td class="itemdesc"><p> Receives 'NonClientRegionChanged' events. event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Notification.TCoreWebView2Notification.html">TCoreWebView2Notification</a></td>
@@ -5790,17 +5790,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NotificationCloseRequestedEventHandler.html">TCoreWebView2NotificationCloseRequestedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `CloseRequested` events. </p></td>
+<td class="itemdesc"><p> Receives 'CloseRequested' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2NotificationReceivedEventArgs.html">TCoreWebView2NotificationReceivedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `NotificationReceived` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'NotificationReceived' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2NotificationReceivedEventHandler.html">TCoreWebView2NotificationReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `NotificationReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'NotificationReceived' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ObjectCollection.TCoreWebView2ObjectCollection.html">TCoreWebView2ObjectCollection</a></td>
@@ -5866,7 +5866,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfo.TCoreWebView2ProcessExtendedInfo.html">TCoreWebView2ProcessExtendedInfo</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfo.html">uWVCoreWebView2ProcessExtendedInfo</a></td>
-<td class="itemdesc"><p> Provides process with associated extended information in the `ICoreWebView2Environment`. </p></td>
+<td class="itemdesc"><p> Provides process with associated extended information in the 'ICoreWebView2Environment'. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ProcessExtendedInfoCollection.TCoreWebView2ProcessExtendedInfoCollection.html">TCoreWebView2ProcessExtendedInfoCollection</a></td>
@@ -5911,7 +5911,7 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileDeletedEventHandler.html">TCoreWebView2ProfileDeletedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the `CoreWebView2Profile.Deleted` event. </p></td>
+<td class="itemdesc"><p> Receives the 'CoreWebView2Profile.Deleted' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler.html">TCoreWebView2ProfileGetBrowserExtensionsCompletedHandler</a></td>
@@ -5931,32 +5931,32 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SaveAsUIShowingEventArgs.html">TCoreWebView2SaveAsUIShowingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> The event args for `SaveAsUIShowing` event. </p></td>
+<td class="itemdesc"><p> The event args for 'SaveAsUIShowing' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SaveAsUIShowingEventHandler.html">TCoreWebView2SaveAsUIShowingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `SaveAsUIShowing` events. </p></td>
+<td class="itemdesc"><p> Receives 'SaveAsUIShowing' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SaveFileSecurityCheckStartingEventArgs.html">TCoreWebView2SaveFileSecurityCheckStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> The event args for `SaveFileSecurityCheckStarting` event. </p></td>
+<td class="itemdesc"><p> The event args for 'SaveFileSecurityCheckStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SaveFileSecurityCheckStartingEventHandler.html">TCoreWebView2SaveFileSecurityCheckStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `SaveFileSecurityCheckStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'SaveFileSecurityCheckStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ScreenCaptureStartingEventArgs.html">TCoreWebView2ScreenCaptureStartingEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `ScreenCaptureStarting` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ScreenCaptureStarting' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ScreenCaptureStartingEventHandler.html">TCoreWebView2ScreenCaptureStartingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ScreenCaptureStarting` events. </p></td>
+<td class="itemdesc"><p> Receives 'ScreenCaptureStarting' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ScriptDialogOpeningEventArgs.html">TCoreWebView2ScriptDialogOpeningEventArgs</a></td>
@@ -5991,17 +5991,17 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ServiceWorkerActivatedEventArgs.html">TCoreWebView2ServiceWorkerActivatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `ServiceWorkerActivated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ServiceWorkerActivated' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerActivatedEventHandler.html">TCoreWebView2ServiceWorkerActivatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ServiceWorkerActivated` events. </p></td>
+<td class="itemdesc"><p> Receives 'ServiceWorkerActivated' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerDestroyingEventHandler.html">TCoreWebView2ServiceWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ServiceWorkerManager.TCoreWebView2ServiceWorkerManager.html">TCoreWebView2ServiceWorkerManager</a></td>
@@ -6011,12 +6011,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2ServiceWorkerRegisteredEventArgs.html">TCoreWebView2ServiceWorkerRegisteredEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `ServiceWorkerRegistered` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'ServiceWorkerRegistered' event. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerRegisteredEventHandler.html">TCoreWebView2ServiceWorkerRegisteredEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `ServiceWorkerRegistered` events. </p></td>
+<td class="itemdesc"><p> Receives 'ServiceWorkerRegistered' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2ServiceWorkerRegistration.TCoreWebView2ServiceWorkerRegistration.html">TCoreWebView2ServiceWorkerRegistration</a></td>
@@ -6031,12 +6031,12 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerRegistrationUnregisteringEventHandler.html">TCoreWebView2ServiceWorkerRegistrationUnregisteringEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `Unregistering` events. </p></td>
+<td class="itemdesc"><p> Receives 'Unregistering' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ServiceWorkerWebMessageReceivedEventHandler.html">TCoreWebView2ServiceWorkerWebMessageReceivedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `WebMessageReceived` events. </p></td>
+<td class="itemdesc"><p> Receives 'WebMessageReceived' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SetPermissionStateCompletedHandler.html">TCoreWebView2SetPermissionStateCompletedHandler</a></td>
@@ -6066,17 +6066,17 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SharedWorkerCreatedEventArgs.html">TCoreWebView2SharedWorkerCreatedEventArgs</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Args.html">uWVCoreWebView2Args</a></td>
-<td class="itemdesc"><p> Event args for the `SharedWorkerCreated` event. </p></td>
+<td class="itemdesc"><p> Event args for the 'SharedWorkerCreated' event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SharedWorkerCreatedEventHandler.html">TCoreWebView2SharedWorkerCreatedEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `SharedWorkerCreated` events. </p></td>
+<td class="itemdesc"><p> Receives 'SharedWorkerCreated' events. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2SharedWorkerDestroyingEventHandler.html">TCoreWebView2SharedWorkerDestroyingEventHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives `Destroying` events. </p></td>
+<td class="itemdesc"><p> Receives 'Destroying' events. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2SharedWorkerManager.TCoreWebView2SharedWorkerManager.html">TCoreWebView2SharedWorkerManager</a></td>
@@ -6086,7 +6086,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Delegates.TCoreWebView2ShowSaveAsUICompletedHandler.html">TCoreWebView2ShowSaveAsUICompletedHandler</a></td>
 <td class="itemunit"><a class="bold" href="uWVCoreWebView2Delegates.html">uWVCoreWebView2Delegates</a></td>
-<td class="itemdesc"><p> Receives the result of the `ShowSaveAsUI` method. </p></td>
+<td class="itemdesc"><p> Receives the result of the 'ShowSaveAsUI' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVCoreWebView2Args.TCoreWebView2SourceChangedEventArgs.html">TCoreWebView2SourceChangedEventArgs</a></td>
@@ -6804,7 +6804,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVChannelSearchKind">TWVChannelSearchKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> The channel search kind determines the order that release channels are searched for during environment creation. The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See `COREWEBVIEW2_RELEASE_CHANNELS` for descriptions of channels. </p></td>
+<td class="itemdesc"><p> The channel search kind determines the order that release channels are searched for during environment creation. The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See 'COREWEBVIEW2_RELEASE_CHANNELS' for descriptions of channels. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVClearDataStorageTypes">TWVClearDataStorageTypes</a></td>
@@ -6884,7 +6884,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVFrameKind">TWVFrameKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Indicates the frame type used in the `ICoreWebView2FrameInfo` interface. </p></td>
+<td class="itemdesc"><p> Indicates the frame type used in the 'ICoreWebView2FrameInfo' interface. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVHostResourceAcccessKind">TWVHostResourceAcccessKind</a></td>
@@ -6916,7 +6916,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVMenuTargetKind">TWVMenuTargetKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Indicates the kind of context for which the context menu was created for the `ICoreWebView2ContextMenuTarget::get_Kind` method. This enum will always represent the active element that caused the context menu request. If there is a selection with multiple images, audio and text, for example, the element that the end user right clicks on within this selection will be the option represented by this enum. </p></td>
+<td class="itemdesc"><p> Indicates the kind of context for which the context menu was created for the 'ICoreWebView2ContextMenuTarget::get_Kind' method. This enum will always represent the active element that caused the context menu request. If there is a selection with multiple images, audio and text, for example, the element that the end user right clicks on within this selection will be the option represented by this enum. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVMouseEventKind">TWVMouseEventKind</a></td>
@@ -7006,7 +7006,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVProcessFailedKind">TWVProcessFailedKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Specifies the process failure type used in the `ICoreWebView2ProcessFailedEventArgs` interface. The values in this enum make reference to the process kinds in the Chromium architecture. For more information about what these processes are and what they do, see [Browser Architecture - Inside look at modern web browser](<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>). </p></td>
+<td class="itemdesc"><p> Specifies the process failure type used in the 'ICoreWebView2ProcessFailedEventArgs' interface. The values in this enum make reference to the process kinds in the Chromium architecture. For more information about what these processes are and what they do, see [Browser Architecture - Inside look at modern web browser](<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>). </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVProcessFailedReason">TWVProcessFailedReason</a></td>
@@ -7028,7 +7028,7 @@ body { margin: 0.5em; }
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
 <td class="itemdesc"><p>
 
-<p>The WebView2 release channels. Use `ReleaseChannels` and `ChannelSearchKind` on `ICoreWebView2EnvironmentOptions` to control which channel is searched for during environment creation.
+<p>The WebView2 release channels. Use 'ReleaseChannels' and 'ChannelSearchKind' on 'ICoreWebView2EnvironmentOptions' to control which channel is searched for during environment creation.
 
 <p></p>
 
@@ -7045,14 +7045,14 @@ body { margin: 0.5em; }
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVSaveAsKind">TWVSaveAsKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Specifies Save As kind selection options for `ICoreWebView2SaveAsUIShowingEventArgs`.
+<td class="itemdesc"><p> Specifies Save As kind selection options for 'ICoreWebView2SaveAsUIShowingEventArgs'.
 
-<p>For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of `text/html` and `application/xhtml+xml` are considered HTML documents. </p></td>
+<p>For HTML documents, we support 3 Save As kinds: HTML_ONLY, SINGLE_FILE and COMPLETE. For non-HTML documents, you must use DEFAULT. MIME types of 'text/html' and 'application/xhtml+xml' are considered HTML documents. </p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVSaveAsUIResult">TWVSaveAsUIResult</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Status of a programmatic Save As call. Indicates the result of the `ShowSaveAsUI` method. </p></td>
+<td class="itemdesc"><p> Status of a programmatic Save As call. Indicates the result of the 'ShowSaveAsUI' method. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVScriptDialogKind">TWVScriptDialogKind</a></td>
@@ -7062,7 +7062,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVScrollBarStyle">TWVScrollBarStyle</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Set ScrollBar style on `ICoreWebView2EnvironmentOptions` during environment creation. </p></td>
+<td class="itemdesc"><p> Set ScrollBar style on 'ICoreWebView2EnvironmentOptions' during environment creation. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVServerCertificateErrorAction">TWVServerCertificateErrorAction</a></td>
@@ -7102,7 +7102,7 @@ body { margin: 0.5em; }
 <tr class="list">
 <td class="itemname"><a class="bold" href="uWVTypes.html#TWVWebResourceRequestSourceKind">TWVWebResourceRequestSourceKind</a></td>
 <td class="itemunit"><a class="bold" href="uWVTypes.html">uWVTypes</a></td>
-<td class="itemdesc"><p> Specifies the source of `WebResourceRequested` event. </p></td>
+<td class="itemdesc"><p> Specifies the source of 'WebResourceRequested' event. </p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uWVWinControl.TWVWinControl.html">TWVWinControl</a></td>
